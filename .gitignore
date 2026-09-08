@@ -86,3 +86,6 @@ __pycache__/
 # README presentation art is intentionally allowed as repository-owned media.
 !/docs/readme/
 !/docs/readme/**
+
+# Hydrated external LPC Terrains V7 dependency; restored from pinned lock
+/content/assets/lpc/source/lpc-terrains-v7/

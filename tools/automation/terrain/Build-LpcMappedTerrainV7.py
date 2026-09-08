@@ -8,6 +8,8 @@ import math
 import xml.etree.ElementTree as ET
 from collections import OrderedDict
 from pathlib import Path
+import subprocess
+import sys
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -22,6 +24,20 @@ OUT_DIR = ROOT / "assets/generated/worldgen_v0_1/terrain"
 OUT_PNG = OUT_DIR / "lpc_mapped_terrain_v7_32.png"
 OUT_JSON = OUT_DIR / "lpc_mapped_terrain_v7_32.json"
 PREVIEW = ROOT / "docs/audits/generated/havenwild_terrain_standard_v1_runtime_atlas_preview.png"
+DEPENDENCY_RESTORER = ROOT / "tools/automation/dependencies/Ensure-LpcTerrainV7Dependency.py"
+
+
+def ensure_lpc_terrain_v7_source() -> None:
+    required = (TSX, PNG, VARIANT_TSX, VARIANT_PNG, CREDITS)
+    if all(path.is_file() for path in required):
+        return
+    if not DEPENDENCY_RESTORER.is_file():
+        raise FileNotFoundError(
+            f"LPC Terrains V7 dependency restorer is missing: {DEPENDENCY_RESTORER}"
+        )
+    print("LPC Terrains V7 source is missing; invoking portable dependency restore")
+    subprocess.run([sys.executable, str(DEPENDENCY_RESTORER)], cwd=ROOT, check=True)
+
 
 # Havenwild runtime terrain code -> Tiled terrain name in lpc-terrains v7.
 # Structural floors, walls, bridges, and authoring overlays stay on their
@@ -364,6 +380,7 @@ def write_preview(entries: list[dict]) -> None:
 
 
 def main() -> int:
+    ensure_lpc_terrain_v7_source()
     _, entries, _, tile_width, tile_height = read_tileset()
     if not CREDITS.is_file():
         raise FileNotFoundError(f"missing terrain credits: {CREDITS}")

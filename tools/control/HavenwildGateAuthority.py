@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SCHEMA = "havenwild.green_quality_gate.v4"
-DEFAULT_PASS = "CC8E10"
+DEFAULT_PASS = "CC8E11"
 DEFAULT_REMOTE = "https://github.com/shifty81/Havenwild.git"
 
 # Repository-owned source distribution policy.
@@ -34,6 +34,7 @@ IGNORED_ROOT_PREFIXES = (
     "assets/",
     "archive/",
     "workspace/",
+    "content/assets/lpc/source/lpc-terrains-v7/",
     "docs/archive/",
     "docs/handoffs/",
     "docs/legacy_project_docs/",

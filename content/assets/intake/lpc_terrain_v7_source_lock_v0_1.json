@@ -1,0 +1,65 @@
+{
+  "schema": "havenwild.external_dependency_lock.v1",
+  "id": "lpc_terrains_v7",
+  "displayName": "[LPC] Terrains by bluecarrot16 and contributors",
+  "sourcePage": "https://opengameart.org/content/lpc-terrains",
+  "archiveUrls": [
+    "https://opengameart.org/sites/default/files/lpc-terrains.zip"
+  ],
+  "archiveFileName": "lpc-terrains.zip",
+  "projectMount": "content/assets/lpc/source/lpc-terrains-v7",
+  "cacheRoot": ".local/dependencies/lpc_terrains_v7",
+  "licenseLabels": [
+    "CC-BY-SA 4.0",
+    "CC-BY-SA 3.0"
+  ],
+  "attributionFile": "CREDITS-terrain.txt",
+  "attributionPolicy": "Preserve CREDITS-terrain.txt and link back to the OpenGameArt source page. The asset page states that all listed authors must be credited.",
+  "verification": {
+    "mode": "required_file_sha256",
+    "requiredFiles": [
+      {
+        "path": "CREDITS-terrain.txt",
+        "bytes": 2093,
+        "sha256": "79c07c5b15b57a08bcf7c7fde6f56341c8055c587eb470468010ec04b2b38c7c"
+      },
+      {
+        "path": "terrain-map-v7.png",
+        "bytes": 8903785,
+        "sha256": "adc395adc3defb182389d4ca888afdd896bdd6b672ab92609b428a5bbd79cd25"
+      },
+      {
+        "path": "terrain-map-v7.tsx",
+        "bytes": 619449,
+        "sha256": "1dcf954dc933a78a8a125e5a4370f24beb9237d85a27312692688ec6bdc6220d"
+      },
+      {
+        "path": "terrain-preview.tmx",
+        "bytes": 44869,
+        "sha256": "463a2b2538a51c7f6ed1bf656fdd7782e29d50e316f49f60ff6b05dde4584406"
+      },
+      {
+        "path": "terrain-v7.png",
+        "bytes": 402876,
+        "sha256": "d098d23fbe6bb51b53f5d719d05a8e620d393f9d831bb14d2ed201b650163b7b"
+      },
+      {
+        "path": "terrain-v7.sh",
+        "bytes": 3609,
+        "sha256": "d33ea9d98eff57bfa929436dc75a72e855ecda436c812e4cb857167816d44e28"
+      },
+      {
+        "path": "terrain-v7.tsx",
+        "bytes": 36870,
+        "sha256": "c030845b8fb15fd4d03a3e2e5a74dad881e3478c8c192634fb061a5e051bab14"
+      }
+    ]
+  },
+  "notes": [
+    "This archive is an external authoring/runtime-generation dependency and is not Git source authority.",
+    "A clean GitHub checkout may hydrate it into the project mount during build.",
+    "HAVENWILD_LPC_TERRAIN_V7_ARCHIVE may point at a pre-downloaded archive.",
+    "HAVENWILD_LPC_TERRAIN_V7_SOURCE may point at an already-extracted matching source directory.",
+    "HAVENWILD_OFFLINE=1 disables network acquisition and requires a valid local cache/override."
+  ]
+}
