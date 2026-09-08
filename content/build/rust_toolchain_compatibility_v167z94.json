@@ -1,0 +1,29 @@
+{
+  "schema": "havenwild.build.rust_toolchain_compatibility.v0_1",
+  "pass": "167Z94",
+  "previousPass": "167Z93",
+  "scope": "signed_integer_multiple_check_compatibility",
+  "reportedFailure": {
+    "file": "crates/haven_game/src/runtime_structural_cliff_draw.rs",
+    "lineContext": "south_face_module_anchors",
+    "compilerError": "E0599",
+    "missingMethod": "i32::is_multiple_of"
+  },
+  "repair": {
+    "oldExpression": "!length.is_multiple_of(2)",
+    "newExpression": "length % 2 != 0",
+    "behaviorEquivalentForDomain": true,
+    "domainGuarantee": "length is positive after the length < 2 early return",
+    "lintSuppressionAdded": false,
+    "runtimeBehaviorChanged": false,
+    "worldOrSaveDataChanged": false,
+    "assetOrRendererGeometryChanged": false
+  },
+  "windowsRerunRequired": [
+    "cargo fmt --all -- --check",
+    "cargo check --workspace --all-targets",
+    "cargo clippy --workspace --all-targets -- -D warnings",
+    "cargo test --workspace"
+  ],
+  "nextEditorLane": "continuous_alderreach_world_editor"
+}

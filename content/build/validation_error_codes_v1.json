@@ -1,0 +1,55 @@
+{
+  "schema": "havenwild.validation.error_codes.v1",
+  "version": 1,
+  "codes": [
+    {
+      "code": "HWV-MANIFEST-001",
+      "meaning": "Invalid validator registry or manifest"
+    },
+    {
+      "code": "HWV-PREREQ-001",
+      "meaning": "Required source prerequisite is missing"
+    },
+    {
+      "code": "HWV-DEPENDENCY-001",
+      "meaning": "Validator skipped because a dependency failed"
+    },
+    {
+      "code": "HWV-PROCESS-001",
+      "meaning": "Validator process returned a non-zero exit code"
+    },
+    {
+      "code": "HWV-ASSET-001",
+      "meaning": "Generated output input is missing"
+    },
+    {
+      "code": "HWV-ASSET-002",
+      "meaning": "Generated output is stale"
+    },
+    {
+      "code": "HWV-ROLLUP-001",
+      "meaning": "Required rollup source is missing"
+    },
+    {
+      "code": "HWV-ASSET-003",
+      "meaning": "Generated output provenance is missing or invalid"
+    },
+    {
+      "code": "HWV-ASSET-004",
+      "meaning": "Generated output was not written atomically"
+    },
+    {
+      "code": "HWV-BUILD-001",
+      "message": "Unified build report missing or invalid"
+    },
+    {
+      "code": "HWV-ATTEST-001",
+      "message": "Verified build attestation requirements not satisfied"
+    },
+    {
+      "code": "HWV-PROCESS-002",
+      "title": "Validator subcheck timeout",
+      "description": "A validator subcheck exceeded its configured execution timeout."
+    }
+  ]
+}

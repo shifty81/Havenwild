@@ -1,0 +1,144 @@
+{
+  "schema": "havenwild.scene_population_acceptance.v1",
+  "pass": "167Z109W56E",
+  "status": "PASS",
+  "scenes": [
+    {
+      "sceneId": "north_road",
+      "naturalObjectCount": 31,
+      "semanticAssetCount": 22,
+      "semanticAssets": {
+        "flora_wildflower_01": 1,
+        "flora_wildflower_02": 1,
+        "flora_wildflower_03": 1,
+        "forage_wild_herb_01": 1,
+        "forage_wild_herb_02": 1,
+        "forage_wild_herb_03": 1,
+        "resource_boulder_01": 1,
+        "resource_boulder_02": 1,
+        "resource_boulder_03": 1,
+        "shrub_berry_01": 2,
+        "shrub_berry_02": 2,
+        "shrub_berry_03": 2,
+        "shrub_berry_04": 2,
+        "tree_fallen_log_01": 2,
+        "tree_oak_mature_01": 2,
+        "tree_oak_mature_02": 2,
+        "tree_oak_mature_03": 2,
+        "tree_oak_mature_04": 2,
+        "tree_oak_mature_05": 1,
+        "tree_oak_mature_06": 1,
+        "tree_oak_mature_07": 1,
+        "tree_oak_mature_08": 1
+      }
+    },
+    {
+      "sceneId": "south_field",
+      "naturalObjectCount": 28,
+      "semanticAssetCount": 20,
+      "semanticAssets": {
+        "flora_wildflower_01": 2,
+        "flora_wildflower_02": 2,
+        "flora_wildflower_03": 2,
+        "forage_wild_herb_01": 2,
+        "forage_wild_herb_02": 1,
+        "forage_wild_herb_03": 1,
+        "resource_boulder_01": 1,
+        "resource_boulder_02": 1,
+        "shrub_berry_01": 2,
+        "shrub_berry_02": 2,
+        "shrub_berry_03": 2,
+        "shrub_berry_04": 2,
+        "tree_oak_mature_01": 1,
+        "tree_oak_mature_02": 1,
+        "tree_oak_mature_03": 1,
+        "tree_oak_mature_04": 1,
+        "tree_oak_mature_05": 1,
+        "tree_oak_mature_06": 1,
+        "tree_oak_mature_07": 1,
+        "tree_oak_mature_08": 1
+      }
+    },
+    {
+      "sceneId": "east_woods",
+      "naturalObjectCount": 59,
+      "semanticAssetCount": 27,
+      "semanticAssets": {
+        "flora_wildflower_01": 2,
+        "flora_wildflower_02": 2,
+        "flora_wildflower_03": 1,
+        "forage_mushroom_01": 2,
+        "forage_mushroom_02": 2,
+        "forage_mushroom_03": 2,
+        "forage_mushroom_04": 2,
+        "forage_wild_herb_01": 1,
+        "forage_wild_herb_02": 1,
+        "forage_wild_herb_03": 1,
+        "resource_boulder_01": 1,
+        "resource_boulder_02": 1,
+        "resource_boulder_03": 1,
+        "resource_boulder_04": 1,
+        "shrub_berry_01": 3,
+        "shrub_berry_02": 3,
+        "shrub_berry_03": 3,
+        "shrub_berry_04": 3,
+        "tree_fallen_log_01": 3,
+        "tree_oak_mature_01": 3,
+        "tree_oak_mature_02": 3,
+        "tree_oak_mature_03": 3,
+        "tree_oak_mature_04": 3,
+        "tree_oak_mature_05": 3,
+        "tree_oak_mature_06": 3,
+        "tree_oak_mature_07": 3,
+        "tree_oak_mature_08": 3
+      }
+    },
+    {
+      "sceneId": "cave_mouth",
+      "naturalObjectCount": 25,
+      "semanticAssetCount": 22,
+      "semanticAssets": {
+        "flora_wildflower_01": 1,
+        "flora_wildflower_02": 1,
+        "flora_wildflower_03": 1,
+        "forage_wild_herb_01": 1,
+        "forage_wild_herb_02": 1,
+        "forage_wild_herb_03": 1,
+        "resource_boulder_01": 2,
+        "resource_boulder_02": 1,
+        "resource_boulder_03": 1,
+        "resource_boulder_04": 1,
+        "shrub_berry_01": 2,
+        "shrub_berry_02": 2,
+        "shrub_berry_03": 1,
+        "shrub_berry_04": 1,
+        "tree_oak_mature_01": 1,
+        "tree_oak_mature_02": 1,
+        "tree_oak_mature_03": 1,
+        "tree_oak_mature_04": 1,
+        "tree_oak_mature_05": 1,
+        "tree_oak_mature_06": 1,
+        "tree_oak_mature_07": 1,
+        "tree_oak_mature_08": 1
+      }
+    }
+  ],
+  "deferredPlaceholderAssets": {
+    "greenhouse_stub": 1,
+    "home_birch_tree_mature": 1,
+    "old_growth_landmark_tree": 1,
+    "stone_signpost": 1
+  },
+  "caveMouth": {
+    "assetId": "cave_entrance_default",
+    "hostVisualTiles": [
+      1,
+      3
+    ],
+    "transitionApertureTiles": [
+      1,
+      2
+    ]
+  },
+  "failures": []
+}

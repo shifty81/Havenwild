@@ -1,0 +1,33 @@
+{
+  "schema": "havenwild.editor_runtime_object_parity.v1",
+  "pass": "167Z109W56G",
+  "status": "PASS",
+  "assetIdentityAuthority": "StablePlaceableAssetRef -> PublishedWorldAssetRegistry",
+  "anchorAuthority": "haven_render::object_foot_world/object_foot_tiles",
+  "treeAcceptanceContract": {
+    "assetId": "tree_oak_mature_01",
+    "visualTiles": [
+      3,
+      4
+    ],
+    "collisionTiles": [
+      1,
+      1
+    ],
+    "visualOffsetTiles": [
+      -1,
+      -3
+    ],
+    "framePixels": [
+      160,
+      192
+    ],
+    "footAnchorPixels": [
+      80,
+      192
+    ]
+  },
+  "runtimeConsumer": "crates/haven_game/src/runtime_object_draw.rs",
+  "editorConsumer": "apps/haven_editor_native/src/app/atlas_render.rs",
+  "failures": []
+}

@@ -1,0 +1,131 @@
+{
+  "schema": "havenwild.generated_output_registry.v1",
+  "version": 1,
+  "policy": {
+    "generated_outputs_are_reproducible": true,
+    "source_rollups_may_omit_regenerated_outputs": true,
+    "missing_required_inputs_are_build_errors": true
+  },
+  "outputs": [
+    {
+      "output": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "generator": "tools/automation/terrain/Ensure-BaseTerrainBootstrapV145D.py",
+      "inputs": [
+        "content/worldgen/terrain_world_semantic_registry_v1.json"
+      ],
+      "stage": "asset_generation",
+      "packaging": "regenerate",
+      "consumers": [
+        "tools/automation/terrain/Promote-LpcTerrainFamiliesV90.py",
+        "haven_assets::asset_registry"
+      ]
+    },
+    {
+      "output": "assets/generated/worldgen_v0_1/terrain/lpc_terrain_summer_complete_map_32.json",
+      "generator": "tools/automation/terrain/Build-LpcTerrainSummerCompleteMapV103.py",
+      "inputs": [
+        "content/assets/intake/lpc_source_lock_v0_1.json",
+        "content/assets/intake/lpc_terrain_summer_complete_map_v0_1.json"
+      ],
+      "stage": "asset_generation",
+      "packaging": "regenerate",
+      "consumers": [
+        "tools/automation/terrain/Promote-LpcTerrainFamiliesV90.py",
+        "tools/automation/terrain/Promote-LpcExpandablePondsV87.py"
+      ]
+    },
+    {
+      "output": "content/assets/lpc/lpc_seasonal_terrain_topology_v0_1.json",
+      "generator": "tools/automation/terrain/Build-LpcSeasonalTerrainTopologyV106.py",
+      "inputs": [
+        "content/assets/intake/lpc_source_lock_v0_1.json"
+      ],
+      "stage": "asset_generation",
+      "packaging": "regenerate",
+      "consumers": [
+        "tools/automation/validation/checks/terrain/Validate-LpcSeasonalTerrainTopologyV106.py"
+      ]
+    },
+    {
+      "output": "assets/generated/worldgen_v0_1/terrain/live_autotile_16_32.json",
+      "generator": "tools/automation/terrain/Generate-LiveAutotileAtlas.py",
+      "inputs": [
+        "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json"
+      ],
+      "stage": "asset_generation",
+      "packaging": "regenerate",
+      "consumers": [
+        "haven_assets::live_autotile_atlas",
+        "haven_game"
+      ]
+    },
+    {
+      "output": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+      "generator": "tools/automation/terrain/Build-LpcMappedTerrainV7.py",
+      "inputs": [
+        "content/assets/intake/lpc_terrain_family_mapping_v0_3.json",
+        "content/assets/intake/lpc_terrain_promotion_v0_2.json"
+      ],
+      "stage": "asset_generation",
+      "packaging": "regenerate",
+      "consumers": [
+        "haven_assets::lpc_mapped_terrain",
+        "haven_game"
+      ]
+    },
+    {
+      "output": "assets/generated/worldgen_v0_1/terrain/lpc_expandable_ponds_32.json",
+      "generator": "tools/automation/terrain/Promote-LpcExpandablePondsV87.py",
+      "inputs": [
+        "content/assets/intake/lpc_expandable_terrain_families_v0_1.json",
+        "content/assets/intake/lpc_source_lock_v0_1.json",
+        "assets/generated/worldgen_v0_1/terrain/lpc_terrain_summer_complete_map_32.json"
+      ],
+      "stage": "asset_generation",
+      "packaging": "regenerate",
+      "consumers": [
+        "haven_assets::stamp_registry"
+      ]
+    },
+    {
+      "output": "assets/generated/lpc/characters/havenwild_player_walk_64.png",
+      "generator": "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py",
+      "inputs": [
+        "content/assets/intake/universal_lpc_generator_source_lock_v0_1.json",
+        "content/assets/lpc/universal_lpc_complete_repository_index_v0_1.json.gz"
+      ],
+      "stage": "asset_generation",
+      "packaging": "regenerate",
+      "consumers": [
+        "haven_game"
+      ],
+      "source_lock": "0f898bb675a1abe16ce430e82e3bf9daed278690"
+    },
+    {
+      "output": "assets/generated/havenwild_2p5d_objects_32x64_v1.json",
+      "generator": "tools/automation/assets/Promote-LpcRuntimeAssets.py",
+      "inputs": [
+        "content/assets/intake/lpc_source_lock_v0_1.json"
+      ],
+      "stage": "optional_full_catalog",
+      "packaging": "cache-or-regenerate",
+      "consumers": [
+        "haven_assets::asset_registry"
+      ]
+    },
+    {
+      "output": "assets/generated/intake/asset_intake_atlas_v0_1.json",
+      "generator": "tools/automation/assets/Bake-AssetIntakeAtlasV66.py",
+      "inputs": [
+        "content/assets/intake/asset_intake_catalog_v0_1.json",
+        "content/editor/assets/asset_intake_atlas_authoring_contract_v0_1.json",
+        "assets/source/original/cave_entrance_96.png"
+      ],
+      "stage": "asset_generation",
+      "packaging": "regenerate",
+      "consumers": [
+        "haven_assets::asset_intake"
+      ]
+    }
+  ]
+}

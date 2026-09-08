@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.build_checkpoint.v1",
+  "pass": "Pass167Z109W54E",
+  "title": "Starter Cottage Production Layout",
+  "runtimeChanged": true,
+  "triggerEvidence": "W54D2 Estate screenshots showed a tiny one-room cottage, bare floor when inside, incomplete wall presentation, and a flat-panel roof that did not read as a starter house.",
+  "fixes": [
+    "expand starter cottage from 5x6 to 8x6",
+    "two-room program: Bedroom plus Living / Crafting / Cooking",
+    "internal doorway and visible rear/interior divider wall authority",
+    "front-wall-only camera cutaway instead of hiding the complete wall shell",
+    "exact cream Siding, Plain south frontage publication",
+    "two exact authored brown hipped-roof modules with one-tile overhang",
+    "bedroom bed/storage plus main-room crafting, seating, cooking and storage interactions",
+    "preserve Estate front-door world tile [59,34]",
+    "split roof materialization/validation into a focused submodule to retain the 750-line source ceiling"
+  ],
+  "nextGate": [
+    "2. Build all",
+    "61. Validate starter cottage production layout",
+    "58. Validate integrated visual checkpoint",
+    "54. Run integrated Estate visual test"
+  ]
+}

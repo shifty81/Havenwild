@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.w56_integrated_visual_acceptance.v1",
+  "pass": "167Z109W56IJ3",
+  "status": "PASS",
+  "scene": "content/worldgen/scenes/world_asset_acceptance/w56_integrated_visual_acceptance_scene_v1.json",
+  "runtimePack": "content/worldgen/packs/worldgen_w56_integrated_visual_acceptance_v0_1.json",
+  "buildingInstanceId": "havenwild.acceptance.w56_integrated_cottage",
+  "structuralLevels": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "objectCount": 20,
+  "naturalObjectCount": 18,
+  "uniqueNaturalAssetCount": 18,
+  "caveHostTiles": [
+    1,
+    3
+  ],
+  "caveApertureTiles": [
+    1,
+    2
+  ],
+  "editorRuntimeParity": "same isolated scene pack + direct client/editor launch + shared structural resolver + stable asset refs",
+  "worldgenStructuralRoundTrip": "loader parses structuralLevels + exporter preserves structuralLevels"
+}

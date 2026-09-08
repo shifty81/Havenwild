@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.testable_foundation_gate.v1",
+  "milestone": "Havenwild Testable Foundation v1",
+  "required_build_command": "./tools/build/Build.sh all",
+  "required_smoke_command": "./tools/build/Build.sh smoke-runtime",
+  "required_checks": [
+    "production asset packs mount",
+    "stable asset sources are cached",
+    "terrain, player, and object semantic providers resolve",
+    "persistent character profile round-trips",
+    "dynamic world metadata and world file round-trip",
+    "character-world scene, position, reputation, relationship, and quest state round-trip"
+  ],
+  "runtime_manual_checks": [
+    "main menu opens",
+    "New Game and Load both choose a character first",
+    "five-character profile UI works",
+    "dynamic world creation and launch work",
+    "player movement and camera work",
+    "terrain, water, roads, objects, and character render",
+    "F3 World Builder opens",
+    "terrain and object edits persist after save and reload"
+  ],
+  "rules": {
+    "feature_expansion_is_deferred_until_build_green": true,
+    "smoke_uses_deterministic_world_identity_and_seed": true,
+    "smoke_must_not_modify_user_saves": true,
+    "manual_visual_verification_is_required_after_automated_gate": true,
+    "successful_compile_alone_is_not_testable": true
+  }
+}

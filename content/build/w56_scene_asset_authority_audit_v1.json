@@ -1,0 +1,500 @@
+{
+  "schema": "havenwild.w56_scene_asset_authority_audit.v1",
+  "sourcePack": "content/worldgen/packs/worldgen_home_island_test_v0_11.json",
+  "loaderFix": "authored scene assetId is now preserved as StablePlaceableAssetRef scene alias before published-registry canonicalization",
+  "sceneCount": 6,
+  "unresolvedCount": 6,
+  "scenes": [
+    {
+      "sceneId": "farmstead",
+      "sceneKind": "exterior",
+      "objectCount": 57,
+      "publishedCount": 57,
+      "objects": [
+        {
+          "objectId": "estate_cave_mouth",
+          "assetId": "cave_entrance_default",
+          "status": "published",
+          "publishedAssetId": "cave_entrance_default"
+        },
+        {
+          "objectId": "estate_tree_01",
+          "assetId": "tree_oak_mature_01",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_01"
+        },
+        {
+          "objectId": "estate_tree_02",
+          "assetId": "tree_oak_mature_02",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_02"
+        },
+        {
+          "objectId": "estate_tree_03",
+          "assetId": "tree_oak_mature_03",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_03"
+        },
+        {
+          "objectId": "estate_tree_04",
+          "assetId": "tree_oak_mature_04",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_04"
+        },
+        {
+          "objectId": "estate_tree_05",
+          "assetId": "tree_oak_mature_05",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_05"
+        },
+        {
+          "objectId": "estate_tree_06",
+          "assetId": "tree_oak_mature_06",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_06"
+        },
+        {
+          "objectId": "estate_tree_07",
+          "assetId": "tree_oak_mature_07",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_07"
+        },
+        {
+          "objectId": "estate_tree_08",
+          "assetId": "tree_oak_mature_08",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_08"
+        },
+        {
+          "objectId": "estate_tree_09",
+          "assetId": "tree_oak_mature_01",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_01"
+        },
+        {
+          "objectId": "estate_tree_10",
+          "assetId": "tree_oak_mature_02",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_02"
+        },
+        {
+          "objectId": "estate_tree_11",
+          "assetId": "tree_oak_mature_03",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_03"
+        },
+        {
+          "objectId": "estate_tree_12",
+          "assetId": "tree_oak_mature_04",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_04"
+        },
+        {
+          "objectId": "estate_tree_13",
+          "assetId": "tree_oak_mature_05",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_05"
+        },
+        {
+          "objectId": "estate_tree_14",
+          "assetId": "tree_oak_mature_06",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_06"
+        },
+        {
+          "objectId": "estate_tree_15",
+          "assetId": "tree_oak_mature_07",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_07"
+        },
+        {
+          "objectId": "estate_tree_16",
+          "assetId": "tree_oak_mature_08",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_08"
+        },
+        {
+          "objectId": "estate_tree_17",
+          "assetId": "tree_oak_mature_01",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_01"
+        },
+        {
+          "objectId": "estate_tree_18",
+          "assetId": "tree_oak_mature_02",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_02"
+        },
+        {
+          "objectId": "estate_tree_19",
+          "assetId": "tree_oak_mature_03",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_03"
+        },
+        {
+          "objectId": "estate_tree_20",
+          "assetId": "tree_oak_mature_04",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_04"
+        },
+        {
+          "objectId": "estate_tree_21",
+          "assetId": "tree_oak_mature_05",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_05"
+        },
+        {
+          "objectId": "estate_tree_22",
+          "assetId": "tree_oak_mature_06",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_06"
+        },
+        {
+          "objectId": "estate_tree_23",
+          "assetId": "tree_oak_mature_07",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_07"
+        },
+        {
+          "objectId": "estate_tree_24",
+          "assetId": "tree_oak_mature_08",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_08"
+        },
+        {
+          "objectId": "estate_tree_25",
+          "assetId": "tree_oak_mature_01",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_01"
+        },
+        {
+          "objectId": "estate_tree_26",
+          "assetId": "tree_oak_mature_02",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_02"
+        },
+        {
+          "objectId": "estate_tree_27",
+          "assetId": "tree_oak_mature_03",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_03"
+        },
+        {
+          "objectId": "estate_tree_28",
+          "assetId": "tree_oak_mature_04",
+          "status": "published",
+          "publishedAssetId": "tree_oak_mature_04"
+        },
+        {
+          "objectId": "estate_shrub_01",
+          "assetId": "shrub_berry_01",
+          "status": "published",
+          "publishedAssetId": "shrub_berry_01"
+        },
+        {
+          "objectId": "estate_shrub_02",
+          "assetId": "shrub_berry_02",
+          "status": "published",
+          "publishedAssetId": "shrub_berry_02"
+        },
+        {
+          "objectId": "estate_shrub_03",
+          "assetId": "shrub_berry_03",
+          "status": "published",
+          "publishedAssetId": "shrub_berry_03"
+        },
+        {
+          "objectId": "estate_shrub_04",
+          "assetId": "shrub_berry_04",
+          "status": "published",
+          "publishedAssetId": "shrub_berry_04"
+        },
+        {
+          "objectId": "estate_shrub_05",
+          "assetId": "shrub_berry_01",
+          "status": "published",
+          "publishedAssetId": "shrub_berry_01"
+        },
+        {
+          "objectId": "estate_shrub_06",
+          "assetId": "shrub_berry_02",
+          "status": "published",
+          "publishedAssetId": "shrub_berry_02"
+        },
+        {
+          "objectId": "estate_shrub_07",
+          "assetId": "shrub_berry_03",
+          "status": "published",
+          "publishedAssetId": "shrub_berry_03"
+        },
+        {
+          "objectId": "estate_shrub_08",
+          "assetId": "shrub_berry_04",
+          "status": "published",
+          "publishedAssetId": "shrub_berry_04"
+        },
+        {
+          "objectId": "estate_boulder_01",
+          "assetId": "resource_boulder_01",
+          "status": "published",
+          "publishedAssetId": "resource_boulder_01"
+        },
+        {
+          "objectId": "estate_boulder_02",
+          "assetId": "resource_boulder_02",
+          "status": "published",
+          "publishedAssetId": "resource_boulder_02"
+        },
+        {
+          "objectId": "estate_boulder_03",
+          "assetId": "resource_boulder_03",
+          "status": "published",
+          "publishedAssetId": "resource_boulder_03"
+        },
+        {
+          "objectId": "estate_boulder_04",
+          "assetId": "resource_boulder_04",
+          "status": "published",
+          "publishedAssetId": "resource_boulder_04"
+        },
+        {
+          "objectId": "estate_boulder_05",
+          "assetId": "resource_boulder_01",
+          "status": "published",
+          "publishedAssetId": "resource_boulder_01"
+        },
+        {
+          "objectId": "estate_boulder_06",
+          "assetId": "resource_boulder_02",
+          "status": "published",
+          "publishedAssetId": "resource_boulder_02"
+        },
+        {
+          "objectId": "estate_boulder_07",
+          "assetId": "resource_boulder_03",
+          "status": "published",
+          "publishedAssetId": "resource_boulder_03"
+        },
+        {
+          "objectId": "estate_boulder_08",
+          "assetId": "resource_boulder_04",
+          "status": "published",
+          "publishedAssetId": "resource_boulder_04"
+        },
+        {
+          "objectId": "estate_forage_01",
+          "assetId": "forage_mushroom_01",
+          "status": "published",
+          "publishedAssetId": "forage_mushroom_01"
+        },
+        {
+          "objectId": "estate_forage_02",
+          "assetId": "forage_mushroom_02",
+          "status": "published",
+          "publishedAssetId": "forage_mushroom_02"
+        },
+        {
+          "objectId": "estate_forage_03",
+          "assetId": "forage_mushroom_03",
+          "status": "published",
+          "publishedAssetId": "forage_mushroom_03"
+        },
+        {
+          "objectId": "estate_forage_04",
+          "assetId": "forage_mushroom_04",
+          "status": "published",
+          "publishedAssetId": "forage_mushroom_04"
+        },
+        {
+          "objectId": "estate_forage_05",
+          "assetId": "forage_wild_herb_01",
+          "status": "published",
+          "publishedAssetId": "forage_wild_herb_01"
+        },
+        {
+          "objectId": "estate_forage_06",
+          "assetId": "forage_wild_herb_02",
+          "status": "published",
+          "publishedAssetId": "forage_wild_herb_02"
+        },
+        {
+          "objectId": "estate_forage_07",
+          "assetId": "forage_wild_herb_03",
+          "status": "published",
+          "publishedAssetId": "forage_wild_herb_03"
+        },
+        {
+          "objectId": "estate_forage_08",
+          "assetId": "flora_wildflower_01",
+          "status": "published",
+          "publishedAssetId": "flora_wildflower_01"
+        },
+        {
+          "objectId": "estate_forage_09",
+          "assetId": "flora_wildflower_02",
+          "status": "published",
+          "publishedAssetId": "flora_wildflower_02"
+        },
+        {
+          "objectId": "estate_forage_10",
+          "assetId": "flora_wildflower_03",
+          "status": "published",
+          "publishedAssetId": "flora_wildflower_03"
+        },
+        {
+          "objectId": "estate_forage_11",
+          "assetId": "flora_wildflower_01",
+          "status": "published",
+          "publishedAssetId": "flora_wildflower_01"
+        },
+        {
+          "objectId": "estate_forage_12",
+          "assetId": "flora_wildflower_02",
+          "status": "published",
+          "publishedAssetId": "flora_wildflower_02"
+        }
+      ]
+    },
+    {
+      "sceneId": "north_road",
+      "sceneKind": "exterior",
+      "objectCount": 1,
+      "publishedCount": 0,
+      "objects": [
+        {
+          "objectId": "city_waystone",
+          "assetId": "stone_signpost",
+          "status": "scene_placeholder",
+          "legacyLookupSource": "scene_placeholder",
+          "needsAtlasArt": true
+        }
+      ]
+    },
+    {
+      "sceneId": "south_field",
+      "sceneKind": "exterior",
+      "objectCount": 1,
+      "publishedCount": 0,
+      "objects": [
+        {
+          "objectId": "small_greenhouse_marker",
+          "assetId": "greenhouse_stub",
+          "status": "scene_placeholder",
+          "legacyLookupSource": "scene_placeholder",
+          "needsAtlasArt": true
+        }
+      ]
+    },
+    {
+      "sceneId": "east_woods",
+      "sceneKind": "exterior",
+      "objectCount": 3,
+      "publishedCount": 1,
+      "objects": [
+        {
+          "objectId": "forage_log_01",
+          "assetId": "fallen_log",
+          "status": "published",
+          "publishedAssetId": "tree_fallen_log_01",
+          "legacyLookupSource": "scene_placeholder",
+          "needsAtlasArt": true
+        },
+        {
+          "objectId": "birch_tree_cluster_a",
+          "assetId": "home_birch_tree_mature",
+          "status": "scene_placeholder",
+          "legacyLookupSource": "scene_placeholder",
+          "needsAtlasArt": true
+        },
+        {
+          "objectId": "special_old_growth_preview",
+          "assetId": "old_growth_landmark_tree",
+          "status": "scene_placeholder",
+          "legacyLookupSource": "scene_placeholder",
+          "needsAtlasArt": true
+        }
+      ]
+    },
+    {
+      "sceneId": "cave_mouth",
+      "sceneKind": "exterior",
+      "objectCount": 1,
+      "publishedCount": 0,
+      "objects": [
+        {
+          "objectId": "cave_entrance",
+          "assetId": "cave_mouth_entrance",
+          "status": "scene_placeholder",
+          "legacyLookupSource": "scene_placeholder",
+          "needsAtlasArt": true
+        }
+      ]
+    },
+    {
+      "sceneId": "cave_depths",
+      "sceneKind": "cave",
+      "objectCount": 1,
+      "publishedCount": 0,
+      "objects": [
+        {
+          "objectId": "ore_node_copper_preview",
+          "assetId": "ore_node_copper",
+          "status": "scene_placeholder",
+          "legacyLookupSource": "scene_placeholder",
+          "needsAtlasArt": true
+        }
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "sceneId": "north_road",
+      "objectId": "city_waystone",
+      "assetId": "stone_signpost",
+      "status": "scene_placeholder",
+      "legacyLookupSource": "scene_placeholder",
+      "needsAtlasArt": true
+    },
+    {
+      "sceneId": "south_field",
+      "objectId": "small_greenhouse_marker",
+      "assetId": "greenhouse_stub",
+      "status": "scene_placeholder",
+      "legacyLookupSource": "scene_placeholder",
+      "needsAtlasArt": true
+    },
+    {
+      "sceneId": "east_woods",
+      "objectId": "birch_tree_cluster_a",
+      "assetId": "home_birch_tree_mature",
+      "status": "scene_placeholder",
+      "legacyLookupSource": "scene_placeholder",
+      "needsAtlasArt": true
+    },
+    {
+      "sceneId": "east_woods",
+      "objectId": "special_old_growth_preview",
+      "assetId": "old_growth_landmark_tree",
+      "status": "scene_placeholder",
+      "legacyLookupSource": "scene_placeholder",
+      "needsAtlasArt": true
+    },
+    {
+      "sceneId": "cave_mouth",
+      "objectId": "cave_entrance",
+      "assetId": "cave_mouth_entrance",
+      "status": "scene_placeholder",
+      "legacyLookupSource": "scene_placeholder",
+      "needsAtlasArt": true
+    },
+    {
+      "sceneId": "cave_depths",
+      "objectId": "ore_node_copper_preview",
+      "assetId": "ore_node_copper",
+      "status": "scene_placeholder",
+      "legacyLookupSource": "scene_placeholder",
+      "needsAtlasArt": true
+    }
+  ],
+  "rule": "Do not invent visual substitutes. Publish/certify the requested asset or intentionally migrate the authored scene to an existing published semantic asset."
+}

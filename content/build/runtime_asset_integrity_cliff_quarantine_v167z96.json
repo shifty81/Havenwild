@@ -1,0 +1,53 @@
+{
+  "schema": "havenwild.runtime.asset_integrity_cliff_quarantine.v0_1",
+  "pass": "167Z96",
+  "previousPass": "167Z95",
+  "reportedSymptoms": [
+    "trunk-like cliff columns rendered along ordinary grass/sand coastline",
+    "runtime attempted to load obsolete generated terrain, object, tree, world-paint, and HUD paths",
+    "asset-pack discovery reported one opaque failure without naming the manifest"
+  ],
+  "rootCause": {
+    "cliffs": "The packaged OGA source is a valid 384x288 connected-art sheet, but the temporary renderer misclassified the isolated grass-top pillar rows as a repeatable terrain cliff-face module.",
+    "assets": "Several production pack manifests still referenced deleted pre-normalization generated outputs and legacy HUD filenames.",
+    "collision": "Smooth geology was still eligible to create structure beneath general land materials; only explicit highland materials should participate before native-editor elevation authoring is complete."
+  },
+  "runtimePolicy": {
+    "ogaSourceState": "read_only_authoring_reference",
+    "proceduralCliffDrawing": false,
+    "proceduralCliffCollision": "fail_open",
+    "structuralElevationMaterials": [
+      "mountain_rock",
+      "mountain_path"
+    ],
+    "generalGrassStructuralElevation": false,
+    "explicitTraversalAttachmentsRemainSupported": false,
+    "explicitTraversalAttachmentsState": "quarantined_with_source_provider"
+  },
+  "stableAssetRepairs": {
+    "terrainTransition": "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.png",
+    "runtimeObjects": "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+    "treeCatalog": "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+    "hudVitals": "content/ui/hud/vitals_frame.png",
+    "hudHotbar": "content/ui/hud/hotbar_frame.png",
+    "hudMinimap": "content/ui/hud/minimap_frame.png",
+    "worldPaintCompatibility": "optional_editor_only",
+    "waterSemantics": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+    "worldgenCatalog": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+    "audioCatalog": "content/audio",
+    "musicCatalog": "content/audio/music",
+    "editorUiCatalog": "content/ui"
+  },
+  "editorNext": {
+    "workspace": "continuous Alderreach World Editor",
+    "cliffWorkflow": [
+      "open third-party source read-only",
+      "select connected components rather than assumed cells",
+      "create Havenwild-owned normalized atlas",
+      "tag top caps, faces, corners, ends, ramps, ladders, bridges, cave mouths, and water-facing variants",
+      "publish only after source bounds, collision, and traversal previews pass"
+    ]
+  },
+  "supersededBy": "content/worldgen/structural_cliff_autotile_authority_v0_1.json",
+  "supersededByPass": "167Z107"
+}

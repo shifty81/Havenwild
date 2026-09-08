@@ -1,0 +1,17 @@
+{
+  "schema": "havenwild.world_visual_truth_preflight.v1",
+  "pass": "167Z109W56A",
+  "status": "diagnostic_source_ready_local_build_pending",
+  "behaviorChanges": false,
+  "diagnostics": [
+    "exact spatial terrain signature per scene",
+    "semantic object counts",
+    "natural population gap detection",
+    "duplicate terrain composition grouping"
+  ],
+  "blockedUntilLocalGate": [
+    "terrain/worldgen behavior rewrite",
+    "cliff/cave visual rewrite",
+    "runtime/editor rendering changes"
+  ]
+}

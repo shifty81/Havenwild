@@ -1,0 +1,4 @@
+$ErrorActionPreference = "Stop"
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$Root = Split-Path -Parent $ScriptDir
+python (Join-Path $Root "tools/automation/validation/checks/build/Validate-AntiMonolithGuardrailsV37.py")

@@ -1,0 +1,33 @@
+{
+  "schema": "havenwild.w56ij2_shrub_loader_acceptance.v1",
+  "pass": "167Z109W56IJ2",
+  "date": "2026-08-19",
+  "status": "SOURCE_READY_LOCAL_GATE_PENDING",
+  "problem": "Published shrub_berry_01..04 scene assets were authored correctly but object_kind_from_ids did not recognize the published shrub naming family, so runtime loading skipped them.",
+  "repair": {
+    "runtimeKind": "Bush",
+    "recognizedFamilies": [
+      "shrub_berry",
+      "berry_bush",
+      "bush",
+      "shrub"
+    ],
+    "acceptanceBoardExpectedNaturalObjects": 18,
+    "productionShrubsRestored": {
+      "estate": 8,
+      "northRoad": 8,
+      "southField": 8,
+      "eastWoods": 12,
+      "total": 36
+    }
+  },
+  "sourceSideValidation": [
+    "W56I/J integrated visual acceptance PASS",
+    "W56 scene population authority PASS",
+    "W56 editor/runtime object parity PASS",
+    "Integrated Visual Checkpoint PASS",
+    "World Visual Certification PASS",
+    "Published Home Island + W56 acceptance asset mapping sweep: 0 published-unmapped assets"
+  ],
+  "nextGate": "Full quality gate; expect haven_tools integrated_visual_acceptance to report 18 natural objects."
+}

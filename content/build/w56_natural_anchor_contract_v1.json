@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.natural_anchor_contract.v1",
+  "pass": "167Z109W56B",
+  "status": "diagnostic_source_ready_local_build_pending",
+  "runtimeCache": "assets/generated/havenwild_lpc_objects_160x192_v2.json",
+  "cellSize": [160, 192],
+  "anchorRule": "bottom_center_of_generated_cell",
+  "assets": {
+    "oak_tree": {
+      "footAnchor": [80, 192],
+      "visualFootprintTiles": [3, 4],
+      "collisionFootprintTiles": [1, 1],
+      "rule": "canopy visual bounds do not become collision; trunk remains the blocking tile"
+    },
+    "berry_bush": {
+      "footAnchor": [80, 192],
+      "visualFootprintTiles": [1, 1],
+      "collisionFootprintTiles": [1, 1]
+    },
+    "boulder": {
+      "footAnchor": [80, 192],
+      "visualFootprintTiles": [1, 1],
+      "collisionFootprintTiles": [1, 1]
+    },
+    "forage_mushroom": {
+      "footAnchor": [80, 192],
+      "visualFootprintTiles": [1, 1],
+      "collisionFootprintTiles": [0, 0]
+    },
+    "wild_herb": {
+      "footAnchor": [80, 192],
+      "visualFootprintTiles": [1, 1],
+      "collisionFootprintTiles": [0, 0]
+    }
+  }
+}

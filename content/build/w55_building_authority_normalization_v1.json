@@ -1,0 +1,41 @@
+{
+  "schema": "havenwild.building_authority_normalization.v1",
+  "pass": "167Z109W55R10C",
+  "status": "build_test_certified",
+  "logicalAuthority": "BuildingLayout",
+  "visualRecipeAuthority": "BuildingRecipeRegistry",
+  "worldPlacementAuthority": "BuildingInstanceRegistry",
+  "crossAuthorityBinding": "BuildingAuthorityBinding",
+  "runtimeSceneAuthority": "BuildingRuntimeSceneRegistry",
+  "travelAuthority": "BuildingTravelSession",
+  "saveAuthority": "BuildingWorldStateFile",
+  "editorReadModel": "BuildingLayoutInspectorReport",
+  "certificationAuthority": "haven_tools::certify_w55_building_acceptance",
+  "rules": {
+    "interiorExteriorDimensionsIndependent": true,
+    "newArchetypeSceneEnumsAllowed": false,
+    "mapDimensionsAreInteriorDimensions": false,
+    "parallelGeneratedBuildingAuthorityAllowed": false,
+    "rootCleanlinessRequired": true
+  },
+  "localGate": [
+    "Root cleanliness audit",
+    "Build all",
+    "Run tests",
+    "W55 building authority certification"
+  ],
+  "certificationEvidence": {
+    "qualityGate": "Full quality gate PASS",
+    "debugBundle": "Havenwild_DebugBundle_20260818-165455_PASS.zip",
+    "rootCleanliness": "PASS",
+    "workspaceBuild": "PASS",
+    "workspaceTests": "PASS",
+    "buildingCoverage": [
+      "haven_core building layout/runtime/navigation tests",
+      "haven_authoring consolidated building validation tests",
+      "haven_editor canonical BuildingLayout inspector test",
+      "haven_save generated building persistence tests",
+      "haven_tools consolidated W55 building certification test"
+    ]
+  }
+}

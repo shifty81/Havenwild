@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.w56_cave_round_trip_repair.v1",
+  "status": "source_staged_local_build_pending",
+  "authority": "canonical authored home-island scene transitions",
+  "geometryContract": {
+    "ordinaryCaveHostEnvelopeTiles": [1, 3],
+    "visibleApertureTiles": [1, 2],
+    "interactionApproachTiles": [1, 1]
+  },
+  "repairs": [
+    "Estate to Cave Mouth now lands at cave_mouth from_farmstead clear spawn [48,44]",
+    "Cave Mouth to Estate now lands one clear cell south of the Estate trigger at [78,11] to prevent immediate transition bounce",
+    "Cave Depths return transition moved from solid CaveWall row y=45 to walkable CaveFloor row y=44",
+    "Cave Depths to Cave Mouth now lands on clear MountainPath [48,31], below the cave-mouth collision row"
+  ],
+  "validators": [
+    "tools/validation/Validate-W56-CaveMouthContract.py",
+    "tools/validation/Validate-W56-CaveRoundTrip.py"
+  ],
+  "sourceValidation": "pass",
+  "localRustBuildRequired": true
+}

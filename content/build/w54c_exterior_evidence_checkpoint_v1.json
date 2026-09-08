@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.build.exterior_evidence_checkpoint.v1",
+  "pass": "167Z109W54C",
+  "date": "2026-08-16",
+  "mode": "evidence_only",
+  "runtimeChanges": false,
+  "rustChanges": false,
+  "estateGenerationChanges": false,
+  "purpose": "Prepare exact-source exterior wall/window/door/roof evidence while preserving W54B as the mandatory Windows runtime build boundary.",
+  "inputs": [
+    "content/buildings/exterior_grammar_contract_v1.json",
+    "content/buildings/exterior_exact_region_review_contract_v1.json",
+    "content/assets/lpc/structure_source_inventory_v1.json"
+  ],
+  "machineLocalEvidence": {
+    "directory": "WORKSPACE/generated/structure_review/w54c_exterior_exact",
+    "bundle": "WORKSPACE/generated/structure_review/Havenwild_W54C_ExteriorExactEvidence.zip",
+    "sourceControlled": false,
+    "publicationAuthority": false
+  },
+  "nextGate": "WINDOWS_BUILD_W54B_RUNTIME_THEN_HUMAN_EXTERIOR_REVIEW"
+}

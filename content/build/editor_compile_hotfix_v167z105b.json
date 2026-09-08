@@ -1,0 +1,17 @@
+{
+  "schema": "havenwild.build.editor_compile_hotfix.v167z105b",
+  "pass": "167Z105B",
+  "cause": "The Windows Z105A Build All run passed dependency setup, project validation and the strict rustfmt gate, then cargo check exposed haven_editor refactor fallout in scene-transition tests, world-surface test imports and the set_scene_height command asset-id argument.",
+  "repairs": {
+    "sceneTransitionTests": "Import create_scene_transition, erase_scene_transition and resize_scene_transition from scene_structure_edit after those commands were split from scene_edit.",
+    "worldSurfaceTests": "Import shared EditorCommandBus and EditorCommandSource explicitly from haven_authoring.",
+    "sceneHeightCommand": "Materialize the formatted height asset id locally and borrow it as &str for scene_command instead of passing String to Option<&str>.",
+    "unusedImport": "Remove the now-unused GridRect import from world_surface_edit/mod.rs."
+  },
+  "typeContractsPreserved": true,
+  "lintSuppressionsAdded": false,
+  "cliffRuntimeBehaviorChanged": false,
+  "terrainOrWorldgenBehaviorChanged": false,
+  "nextFeaturePass": "167Z106",
+  "windowsBuildRequired": true
+}

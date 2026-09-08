@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.build_checkpoint.v1",
+  "pass": "167Z109W55R9C",
+  "title": "Modular Building + PCG Acceptance Build Point",
+  "status": "build_point",
+  "authority": "BuildingLayout",
+  "requirements": {
+    "pcgOutput": "BuildingDefinition/BuildingLayout",
+    "parallelGeneratedBuildingAuthorityAllowed": false,
+    "interiorExteriorDimensionsIndependent": true,
+    "multiFloorTransitions": true,
+    "consolidatedValidation": true,
+    "rootCleanlinessRequiredBeforePackaging": true
+  },
+  "acceptanceArchetypes": [
+    "residence_cottage",
+    "residence_large",
+    "shop",
+    "workshop",
+    "tavern",
+    "inn",
+    "mixed_use"
+  ],
+  "nextGate": ["Build all", "Run tests", "Root cleanliness audit"]
+}

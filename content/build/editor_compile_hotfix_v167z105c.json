@@ -1,0 +1,18 @@
+{
+  "schema": "havenwild.build.editor_compile_hotfix.v167z105c",
+  "pass": "167Z105C",
+  "cause": "The Windows Z105B Build All run passed dependency setup, build-profile validation and strict rustfmt, then cargo check --workspace --all-targets exposed remaining editor integration fallout: GridRect was absent from the world-surface test scope, a sibling structural-authoring module could not call a private result helper, the native world-surface view referenced haven_authoring without declaring it as a direct dependency, and canvas_view retained one unused camera import.",
+  "repairs": {
+    "worldSurfaceTestGridRect": "Import GridRect explicitly from haven_authoring in world_surface_edit/tests.rs while preserving the Z105B shared command imports.",
+    "worldResultVisibility": "Widen EditorApp::finish_world_result from private to pub(crate), allowing only modules inside the native-editor crate to reuse the shared result handling path.",
+    "nativeGridRectAuthority": "Use haven_editor::GridRect, the existing public re-export, in world_surface_editor.rs rather than adding a redundant direct haven_authoring dependency to haven_editor_native.",
+    "unusedCameraImport": "Remove the unused CanvasCameraState import from canvas_view.rs."
+  },
+  "newDirectDependenciesAdded": false,
+  "visibilityWidenedBeyondCrate": false,
+  "lintSuppressionsAdded": false,
+  "cliffRuntimeBehaviorChanged": false,
+  "terrainOrWorldgenBehaviorChanged": false,
+  "nextFeaturePass": "167Z106",
+  "windowsBuildRequired": true
+}

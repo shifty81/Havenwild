@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.build.editor_compile_hotfix.v167z105d",
+  "pass": "167Z105D",
+  "cause": "The Windows Z105C Build All run passed dependency setup, build-profile validation, strict rustfmt and cargo check --workspace --all-targets. Strict Clippy then exposed five native-editor lint failures: two obsolete dead methods, two manually implemented enum defaults that are derivable, and one nested SceneRectangles inspector condition that is collapsible.",
+  "repairs": {
+    "obsoleteWorldCanvasClick": "Remove handle_world_canvas_click; continuous world canvas press/drag authoring is routed through the newer gesture path and the old single-click helper has no callers.",
+    "obsoleteIslandChunkCycle": "Remove cycle_selected_island_scene_cell; storage-partition cycling is obsolete in the continuous Alderreach authoring model and the helper has no callers.",
+    "worldEditToolDefault": "Derive Default on WorldEditTool and mark Select with #[default].",
+    "worldLayerModeDefault": "Derive Default on WorldLayerMode and mark Terrain with #[default].",
+    "sceneRectangleInspectorInput": "Collapse the nested SceneRectangles/right-panel inspector condition without changing input routing order."
+  },
+  "deadCodeSuppressionsAdded": false,
+  "clippySuppressionsAdded": false,
+  "inputRoutingBehaviorChanged": false,
+  "cliffRuntimeBehaviorChanged": false,
+  "terrainOrWorldgenBehaviorChanged": false,
+  "continuousWorldAuthorityPreserved": true,
+  "nextFeaturePass": "167Z106",
+  "windowsBuildRequired": true
+}

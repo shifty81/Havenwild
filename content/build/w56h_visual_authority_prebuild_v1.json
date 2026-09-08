@@ -1,0 +1,35 @@
+{
+  "schema": "havenwild.w56h_visual_authority_prebuild.v1",
+  "pass": "167Z109W56H",
+  "baseline": "W56C4_FULL_QUALITY_GATE_PASS",
+  "status": "source_side_certified_local_rust_gate_pending",
+  "authorities": {
+    "cliffVisual": "haven_render::structural_cliff_visual",
+    "editorCliffPreview": "haven_editor_native::structural_cliff_preview -> haven_render shared resolver",
+    "worldObjectIdentity": "StablePlaceableAssetRef",
+    "objectFootAnchor": "haven_render shared collision-rooted physical foot",
+    "caveHostEnvelopeTiles": [1, 3],
+    "caveVisibleApertureTiles": [1, 2],
+    "caveInteractionTiles": [1, 1],
+    "estateGenerator": "tools/automation/worldgen/Build-HomeEstateSceneW53.py"
+  },
+  "caveRoundTrip": [
+    {"from": "farmstead", "transition": "to_cave_mouth", "to": "cave_mouth", "spawn": [48, 44]},
+    {"from": "cave_mouth", "transition": "to_farmstead", "to": "farmstead", "spawn": [78, 11]},
+    {"from": "cave_mouth", "transition": "to_cave_depths", "to": "cave_depths", "spawn": [48, 43]},
+    {"from": "cave_depths", "transition": "to_cave_mouth", "to": "cave_mouth", "spawn": [48, 31]}
+  ],
+  "sourceSideValidation": {
+    "integratedVisualCheckpoint": "PASS",
+    "worldVisualCertification": "PASS",
+    "scenePopulationAuthority": "PASS",
+    "cliffEditorRuntimeParity": "PASS",
+    "objectEditorRuntimeParity": "PASS",
+    "caveMouthContract": "PASS",
+    "caveRoundTrip": "PASS"
+  },
+  "localGateRequired": [
+    "Full quality gate",
+    "World visual certification"
+  ]
+}

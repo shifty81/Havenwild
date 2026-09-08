@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.build_checkpoint.v1",
+  "pass": "167Z109W56IJ3R1",
+  "baseline": "167Z109W56IJ3",
+  "status": "root_cleanup_only",
+  "reason": "Full quality gate on 2026-08-20 stopped before build because foreign Open2DTools.cmd was present at Havenwild repository root.",
+  "action": {
+    "remove": ["Open2DTools.cmd"],
+    "rootPolicy": "Only .gitignore, Cargo.lock, Cargo.toml, README.md, and HavenwildTools.cmd may be root files."
+  },
+  "nextGate": "Full quality gate"
+}

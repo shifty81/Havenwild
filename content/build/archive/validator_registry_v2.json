@@ -1,0 +1,822 @@
+{
+  "schema": "havenwild.validator.registry.v2",
+  "version": 2,
+  "policy": {
+    "validators_are_read_only": true,
+    "dependency_failures_skip_dependents": true,
+    "stable_ids_are_pass_independent": true,
+    "legacy_process_adapter_enabled": true
+  },
+  "validators": [
+    {
+      "id": "architecture.foundation.validate_architecture",
+      "legacy_task_id": "validate-architecture",
+      "name": "validate_architecture",
+      "domain": "architecture",
+      "phase": "foundation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_architecture.py"
+      ],
+      "order": 1,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "content.foundation.validate_content",
+      "legacy_task_id": "validate-content",
+      "name": "validate_content",
+      "domain": "content",
+      "phase": "foundation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_content.py"
+      ],
+      "order": 2,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "world.world.validate_havenwildopenworldpreset",
+      "legacy_task_id": "validate-havenwildopenworldpreset",
+      "name": "Validate-HavenwildOpenWorldPreset",
+      "domain": "world",
+      "phase": "world",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-HavenwildOpenWorldPreset.py"
+      ],
+      "order": 3,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_transitionatlasgrouprustsyntaxv109",
+      "legacy_task_id": "validate-transitionatlasgrouprustsyntaxv109",
+      "name": "Validate-TransitionAtlasGroupRustSyntaxV109",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-TransitionAtlasGroupRustSyntaxV109.py"
+      ],
+      "order": 59,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_editorregistryderivedtestsv110",
+      "legacy_task_id": "validate-editorregistryderivedtestsv110",
+      "name": "Validate-EditorRegistryDerivedTestsV110",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-EditorRegistryDerivedTestsV110.py"
+      ],
+      "order": 60,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcauthoredreplacementrolesv111",
+      "legacy_task_id": "validate-lpcauthoredreplacementrolesv111",
+      "name": "Validate-LpcAuthoredReplacementRolesV111",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcAuthoredReplacementRolesV111.py"
+      ],
+      "order": 61,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcenvironmenttilemigrationv112",
+      "legacy_task_id": "validate-lpcenvironmenttilemigrationv112",
+      "name": "Validate-LpcEnvironmentTileMigrationV112",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/persistence/Validate-LpcEnvironmentTileMigrationV112.py"
+      ],
+      "order": 62,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcuniversalautotilepolicyv113",
+      "legacy_task_id": "validate-lpcuniversalautotilepolicyv113",
+      "name": "Validate-LpcUniversalAutotilePolicyV113",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcUniversalAutotilePolicyV113.py"
+      ],
+      "order": 63,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcpainttopologystabilityv114",
+      "legacy_task_id": "validate-lpcpainttopologystabilityv114",
+      "name": "Validate-LpcPaintTopologyStabilityV114",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcPaintTopologyStabilityV114.py"
+      ],
+      "order": 64,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcterraindetaileditorwindowv123",
+      "legacy_task_id": "validate-lpcterraindetaileditorwindowv123",
+      "name": "Validate-LpcTerrainDetailEditorWindowV123",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTerrainDetailEditorWindowV123.py"
+      ],
+      "order": 69,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcmappedterrainruntimeperformancev124",
+      "legacy_task_id": "validate-lpcmappedterrainruntimeperformancev124",
+      "name": "Validate-LpcMappedTerrainRuntimePerformanceV124",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainRuntimePerformanceV124.py"
+      ],
+      "order": 70,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcstructuralrockterraindeferralv125",
+      "legacy_task_id": "validate-lpcstructuralrockterraindeferralv125",
+      "name": "Validate-LpcStructuralRockTerrainDeferralV125",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcStructuralRockTerrainDeferralV125.py"
+      ],
+      "order": 71,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcwateranimationandshoredepthv128",
+      "legacy_task_id": "validate-lpcwateranimationandshoredepthv128",
+      "name": "Validate-LpcWaterAnimationAndShoreDepthV128",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationAndShoreDepthV128.py"
+      ],
+      "order": 74,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcwateranimationownershipv129",
+      "legacy_task_id": "validate-lpcwateranimationownershipv129",
+      "name": "Validate-LpcWaterAnimationOwnershipV129",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationOwnershipV129.py"
+      ],
+      "order": 75,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcsparsewateranimationv130",
+      "legacy_task_id": "validate-lpcsparsewateranimationv130",
+      "name": "Validate-LpcSparseWaterAnimationV130",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-LpcSparseWaterAnimationV130.py"
+      ],
+      "order": 76,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcmappedtuplefallbackv131",
+      "legacy_task_id": "validate-lpcmappedtuplefallbackv131",
+      "name": "Validate-LpcMappedTupleFallbackV131",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcMappedTupleFallbackV131.py"
+      ],
+      "order": 77,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpctuplecoverageauditv133",
+      "legacy_task_id": "validate-lpctuplecoverageauditv133",
+      "name": "Validate-LpcTupleCoverageAuditV133",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTupleCoverageAuditV133.py"
+      ],
+      "order": 79,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpctuplepromotionplanv134",
+      "legacy_task_id": "validate-lpctuplepromotionplanv134",
+      "name": "Validate-LpcTuplePromotionPlanV134",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTuplePromotionPlanV134.py"
+      ],
+      "order": 81,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcproductiontuplepromotionv136",
+      "legacy_task_id": "validate-lpcproductiontuplepromotionv136",
+      "name": "Validate-LpcProductionTuplePromotionV136",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcProductionTuplePromotionV136.py"
+      ],
+      "order": 84,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_lpcpathgroundpromotionv137",
+      "legacy_task_id": "validate-lpcpathgroundpromotionv137",
+      "name": "Validate-LpcPathGroundPromotionV137",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcPathGroundPromotionV137.py"
+      ],
+      "order": 86,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_shorewaterlifecyclev138",
+      "legacy_task_id": "validate-shorewaterlifecyclev138",
+      "name": "Validate-ShoreWaterLifecycleV138",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleV138.py"
+      ],
+      "order": 87,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_wrappedworldcoordinatefoundationv139",
+      "legacy_task_id": "validate-wrappedworldcoordinatefoundationv139",
+      "name": "Validate-WrappedWorldCoordinateFoundationV139",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-WrappedWorldCoordinateFoundationV139.py"
+      ],
+      "order": 88,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "editor.editor-runtime.validate_archipelagoworldskeletonv140",
+      "legacy_task_id": "validate-archipelagoworldskeletonv140",
+      "name": "Validate-ArchipelagoWorldSkeletonV140",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldSkeletonV140.py"
+      ],
+      "order": 89,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "architecture.foundation.validate_validationnormalizationv141",
+      "legacy_task_id": "validate-validationnormalizationv141",
+      "name": "Validate-ValidationNormalizationV141",
+      "domain": "architecture",
+      "phase": "foundation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidationNormalizationV141.py"
+      ],
+      "order": 90,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "world.terrain-semantics.validate_terrainworldsemanticregistryv142",
+      "legacy_task_id": "validate-terrainworldsemanticregistryv142",
+      "name": "Validate-TerrainWorldSemanticRegistryV142",
+      "domain": "world",
+      "phase": "terrain-semantics",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-TerrainWorldSemanticRegistryV142.py"
+      ],
+      "order": 91,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "content/worldgen/terrain_world_semantic_registry_v1.json",
+        "content/assets/terrain_material_registry_v0_1.json",
+        "crates/haven_core/src/foundation/tile_object_catalog.rs"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "world.world-pipeline.validate_worldgenerationpipelineownershipv143",
+      "legacy_task_id": "validate-worldgenerationpipelineownershipv143",
+      "name": "Validate-WorldGenerationPipelineOwnershipV143",
+      "domain": "world",
+      "phase": "world-pipeline",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-WorldGenerationPipelineOwnershipV143.py"
+      ],
+      "order": 92,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "content/worldgen/world_generation_pipeline_v1.json",
+        "crates/haven_world/src/world_generation_pipeline.rs",
+        "content/validation/validation_manifest_v1.json"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "world.persistence.validate_chunkpersistencenormalizationv144",
+      "legacy_task_id": "validate-chunkpersistencenormalizationv144",
+      "name": "Validate-ChunkPersistenceNormalizationV144",
+      "domain": "world",
+      "phase": "persistence",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ChunkPersistenceNormalizationV144.py"
+      ],
+      "order": 93,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "content/worldgen/chunk_persistence_contract_v1.json",
+        "crates/haven_save/src/chunk_persistence.rs",
+        "crates/haven_save/src/lib.rs"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "editor.command-history.validate_editorcommandundonormalizationv145",
+      "legacy_task_id": "validate-editorcommandundonormalizationv145",
+      "name": "Validate-EditorCommandUndoNormalizationV145",
+      "domain": "editor",
+      "phase": "command-history",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-EditorCommandUndoNormalizationV145.py"
+      ],
+      "order": 94,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [
+        "content/editor/commands/editor_command_contract_v1.json",
+        "crates/haven_authoring/src/command_bus.rs",
+        "content/validation/validation_manifest_v1.json"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "architecture.packaging.validate_sourcerollupcompletenessv146",
+      "legacy_task_id": "validate-sourcerollupcompletenessv146",
+      "name": "Validate-SourceRollupCompletenessV146",
+      "domain": "architecture",
+      "phase": "packaging",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-SourceRollupCompletenessV146.py"
+      ],
+      "order": 95,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "architecture.asset-generation.validate_generatedassetbuildgraphv146",
+      "legacy_task_id": "validate-generatedassetbuildgraphv146",
+      "name": "Validate-GeneratedAssetBuildGraphV146",
+      "domain": "architecture",
+      "phase": "asset-generation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-GeneratedAssetBuildGraphV146.py"
+      ],
+      "order": 96,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "architecture.packaging.validate_sourcerollupcompletenessv146"
+      ]
+    },
+    {
+      "id": "architecture.build-portability.validate_windowsbuildportabilityv146",
+      "legacy_task_id": "validate-windowsbuildportabilityv146",
+      "name": "Validate-WindowsBuildPortabilityV146",
+      "domain": "architecture",
+      "phase": "build-portability",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-WindowsBuildPortabilityV146.py"
+      ],
+      "order": 97,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "architecture.persistence.validate_savemigrationcompatibilityv146",
+      "legacy_task_id": "validate-savemigrationcompatibilityv146",
+      "name": "Validate-SaveMigrationCompatibilityV146",
+      "domain": "architecture",
+      "phase": "persistence",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/persistence/Validate-SaveMigrationCompatibilityV146.py"
+      ],
+      "order": 98,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "world.terrain-lifecycle.validate_shorewaterlifecyclecontractv146",
+      "legacy_task_id": "validate-shorewaterlifecyclecontractv146",
+      "name": "Validate-ShoreWaterLifecycleContractV146",
+      "domain": "world",
+      "phase": "terrain-lifecycle",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleContractV146.py"
+      ],
+      "order": 99,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "architecture.compile-contract.validate_rustworkspacecontractv146",
+      "legacy_task_id": "validate-rustworkspacecontractv146",
+      "name": "Validate-RustWorkspaceContractV146",
+      "domain": "architecture",
+      "phase": "compile-contract",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-RustWorkspaceContractV146.py"
+      ],
+      "order": 100,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": []
+    },
+    {
+      "id": "architecture.validation-quality.validate_validatorqualityv146",
+      "legacy_task_id": "validate-validatorqualityv146",
+      "name": "Validate-ValidatorQualityV146",
+      "domain": "architecture",
+      "phase": "validation-quality",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidatorQualityV146.py"
+      ],
+      "order": 101,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "architecture.packaging.validate_sourcerollupcompletenessv146",
+        "architecture.asset-generation.validate_generatedassetbuildgraphv146",
+        "architecture.build-portability.validate_windowsbuildportabilityv146",
+        "architecture.persistence.validate_savemigrationcompatibilityv146",
+        "world.terrain-lifecycle.validate_shorewaterlifecyclecontractv146",
+        "architecture.compile-contract.validate_rustworkspacecontractv146"
+      ]
+    },
+    {
+      "id": "architecture.validation-framework.validate_validatorframeworkv146b",
+      "legacy_task_id": "validate-validatorframeworkv146b",
+      "name": "Validate-ValidatorFrameworkV146B",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidatorFrameworkV146B.py"
+      ],
+      "order": 102,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "content/build/validator_registry_v2.json",
+        "content/build/validation_error_codes_v1.json"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "architecture.generated-freshness.validate_generatedoutputfreshnessv146b",
+      "legacy_task_id": "validate-generatedoutputfreshnessv146b",
+      "name": "Validate-GeneratedOutputFreshnessV146B",
+      "domain": "architecture",
+      "phase": "generated-freshness",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-GeneratedOutputFreshnessV146B.py"
+      ],
+      "order": 103,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "content/build/generated_output_registry_v1.json"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "architecture.validation-framework.validate_validationframeworkselftestsv146b",
+      "legacy_task_id": "validate-validationframeworkselftestsv146b",
+      "name": "Validate-ValidationFrameworkSelfTestsV146B",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidationFrameworkSelfTestsV146B.py"
+      ],
+      "order": 104,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "tools/automation/validation/registry.py",
+        "tools/automation/validation/result.py"
+      ],
+      "depends_on": []
+    }
+  ]
+}

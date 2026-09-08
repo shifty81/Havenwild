@@ -1,0 +1,449 @@
+{
+  "schema": "havenwild.w56_scene_population_truth.v1",
+  "sourcePack": "content/worldgen/packs/worldgen_home_island_test_v0_11.json",
+  "sceneCount": 6,
+  "exactTerrainDuplicateGroups": [],
+  "naturalPopulationGaps": [],
+  "scenes": [
+    {
+      "sceneId": "farmstead",
+      "sceneKind": "exterior",
+      "dimensions": [
+        96,
+        64
+      ],
+      "terrainSignature": "66300d1995325b8d60ac038a2efb3ecfbeac3726de134755812c4876c94b00a2",
+      "objectCount": 57,
+      "naturalObjectCount": 56,
+      "grassFamilyTiles": 5753,
+      "diagnosticMinimumNaturalObjects": 11,
+      "sparseNaturalPopulation": false,
+      "topTerrain": [
+        [
+          "Grass",
+          5651
+        ],
+        [
+          "Dirt",
+          198
+        ],
+        [
+          "StonePath",
+          193
+        ],
+        [
+          "TallGrass",
+          102
+        ]
+      ],
+      "assetIds": [
+        "cave_entrance_default",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "resource_boulder_01",
+        "resource_boulder_02",
+        "resource_boulder_03",
+        "resource_boulder_04",
+        "resource_boulder_01",
+        "resource_boulder_02",
+        "resource_boulder_03",
+        "resource_boulder_04",
+        "forage_mushroom_01",
+        "forage_mushroom_02",
+        "forage_mushroom_03",
+        "forage_mushroom_04",
+        "forage_wild_herb_01",
+        "forage_wild_herb_02",
+        "forage_wild_herb_03",
+        "flora_wildflower_01",
+        "flora_wildflower_02",
+        "flora_wildflower_03",
+        "flora_wildflower_01",
+        "flora_wildflower_02"
+      ]
+    },
+    {
+      "sceneId": "north_road",
+      "sceneKind": "exterior",
+      "dimensions": [
+        96,
+        64
+      ],
+      "terrainSignature": "268b403ff03ad6934ceda49082ccaa671d2c0d473c195c1942a913adc5e1d373",
+      "objectCount": 32,
+      "naturalObjectCount": 31,
+      "grassFamilyTiles": 5882,
+      "diagnosticMinimumNaturalObjects": 11,
+      "sparseNaturalPopulation": false,
+      "topTerrain": [
+        [
+          "Grass",
+          5794
+        ],
+        [
+          "StonePath",
+          187
+        ],
+        [
+          "TallGrass",
+          88
+        ],
+        [
+          "Road",
+          75
+        ]
+      ],
+      "assetIds": [
+        "stone_signpost",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "flora_wildflower_01",
+        "flora_wildflower_02",
+        "flora_wildflower_03",
+        "forage_wild_herb_01",
+        "forage_wild_herb_02",
+        "forage_wild_herb_03",
+        "resource_boulder_01",
+        "resource_boulder_02",
+        "resource_boulder_03",
+        "tree_fallen_log_01",
+        "tree_fallen_log_01"
+      ]
+    },
+    {
+      "sceneId": "south_field",
+      "sceneKind": "exterior",
+      "dimensions": [
+        96,
+        64
+      ],
+      "terrainSignature": "4d26d032151e11c443ede2aa76fad9a175f578c64c9dbfb7914762549a84453d",
+      "objectCount": 29,
+      "naturalObjectCount": 28,
+      "grassFamilyTiles": 5662,
+      "diagnosticMinimumNaturalObjects": 11,
+      "sparseNaturalPopulation": false,
+      "topTerrain": [
+        [
+          "Grass",
+          5662
+        ],
+        [
+          "TilledSoil",
+          127
+        ],
+        [
+          "PebbleShore",
+          64
+        ],
+        [
+          "ShallowWater",
+          64
+        ],
+        [
+          "Water",
+          64
+        ],
+        [
+          "Crop",
+          54
+        ],
+        [
+          "Dirt",
+          45
+        ],
+        [
+          "Road",
+          32
+        ]
+      ],
+      "assetIds": [
+        "greenhouse_stub",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "flora_wildflower_01",
+        "flora_wildflower_02",
+        "flora_wildflower_03",
+        "forage_wild_herb_01",
+        "forage_wild_herb_02",
+        "forage_wild_herb_03",
+        "flora_wildflower_01",
+        "flora_wildflower_02",
+        "flora_wildflower_03",
+        "forage_wild_herb_01",
+        "resource_boulder_01",
+        "resource_boulder_02"
+      ]
+    },
+    {
+      "sceneId": "east_woods",
+      "sceneKind": "exterior",
+      "dimensions": [
+        96,
+        64
+      ],
+      "terrainSignature": "3bb71185e9ea7404a8a90b35fd56ea9e8f987b0434d8b91a15bd2e9038eec637",
+      "objectCount": 62,
+      "naturalObjectCount": 62,
+      "grassFamilyTiles": 6015,
+      "diagnosticMinimumNaturalObjects": 11,
+      "sparseNaturalPopulation": false,
+      "topTerrain": [
+        [
+          "Grass",
+          4608
+        ],
+        [
+          "TallGrass",
+          1407
+        ],
+        [
+          "Dirt",
+          77
+        ],
+        [
+          "ShallowWater",
+          26
+        ],
+        [
+          "Water",
+          26
+        ]
+      ],
+      "assetIds": [
+        "tree_fallen_log_01",
+        "home_birch_tree_mature",
+        "old_growth_landmark_tree",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "forage_mushroom_01",
+        "forage_mushroom_02",
+        "forage_mushroom_03",
+        "forage_mushroom_04",
+        "forage_mushroom_01",
+        "forage_mushroom_02",
+        "forage_mushroom_03",
+        "forage_mushroom_04",
+        "flora_wildflower_01",
+        "flora_wildflower_02",
+        "flora_wildflower_03",
+        "forage_wild_herb_01",
+        "forage_wild_herb_02",
+        "forage_wild_herb_03",
+        "flora_wildflower_01",
+        "flora_wildflower_02",
+        "resource_boulder_01",
+        "resource_boulder_02",
+        "resource_boulder_03",
+        "resource_boulder_04",
+        "tree_fallen_log_01",
+        "tree_fallen_log_01",
+        "tree_fallen_log_01"
+      ]
+    },
+    {
+      "sceneId": "cave_mouth",
+      "sceneKind": "exterior",
+      "dimensions": [
+        96,
+        64
+      ],
+      "terrainSignature": "bddc7f7e89346c490cbdf85d2f753578b4229927572a0a3801ba7684457fa9a3",
+      "objectCount": 26,
+      "naturalObjectCount": 25,
+      "grassFamilyTiles": 5504,
+      "diagnosticMinimumNaturalObjects": 10,
+      "sparseNaturalPopulation": false,
+      "topTerrain": [
+        [
+          "Grass",
+          5444
+        ],
+        [
+          "MountainRock",
+          563
+        ],
+        [
+          "TallGrass",
+          60
+        ],
+        [
+          "Cliff",
+          48
+        ],
+        [
+          "MountainPath",
+          17
+        ],
+        [
+          "CaveFloor",
+          12
+        ]
+      ],
+      "assetIds": [
+        "cave_entrance_default",
+        "tree_oak_mature_01",
+        "tree_oak_mature_02",
+        "tree_oak_mature_03",
+        "tree_oak_mature_04",
+        "tree_oak_mature_05",
+        "tree_oak_mature_06",
+        "tree_oak_mature_07",
+        "tree_oak_mature_08",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "shrub_berry_03",
+        "shrub_berry_04",
+        "shrub_berry_01",
+        "shrub_berry_02",
+        "flora_wildflower_01",
+        "flora_wildflower_02",
+        "flora_wildflower_03",
+        "forage_wild_herb_01",
+        "forage_wild_herb_02",
+        "forage_wild_herb_03",
+        "resource_boulder_01",
+        "resource_boulder_02",
+        "resource_boulder_03",
+        "resource_boulder_04",
+        "resource_boulder_01"
+      ]
+    },
+    {
+      "sceneId": "cave_depths",
+      "sceneKind": "cave",
+      "dimensions": [
+        96,
+        64
+      ],
+      "terrainSignature": "524839b19541751e238c497fdfe174851d3a63aa33b13114d953e128013ea653",
+      "objectCount": 1,
+      "naturalObjectCount": 0,
+      "grassFamilyTiles": 0,
+      "diagnosticMinimumNaturalObjects": 0,
+      "sparseNaturalPopulation": false,
+      "topTerrain": [
+        [
+          "CaveWall",
+          5128
+        ],
+        [
+          "CaveFloor",
+          996
+        ],
+        [
+          "ShallowWater",
+          14
+        ],
+        [
+          "Water",
+          6
+        ]
+      ],
+      "assetIds": [
+        "ore_node_copper"
+      ]
+    }
+  ],
+  "interpretation": "Exact terrain duplication is a hard warning. Natural density is a diagnostic floor, not a production PCG rule; sparse scenes require visual review before population changes."
+}

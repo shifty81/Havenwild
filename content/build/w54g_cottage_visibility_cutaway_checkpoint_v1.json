@@ -1,0 +1,18 @@
+{
+  "schema": "havenwild.build_checkpoint.v1",
+  "pass": "167Z109W54G",
+  "date": "2026-08-17",
+  "title": "Starter Cottage Visibility + Cutaway Shell Repair",
+  "authority": "BuildingInstance visibility + BuildingRecipe interior presentation",
+  "changes": [
+    "Interior wall/opening pieces no longer render while the player is outside the BuildingInstance.",
+    "Starter cottage rear/divider visuals use exact 1-tile cutaway-cap components instead of 3-tile drywall strips.",
+    "Front and bedroom doors default closed so exterior/interior door art reads as a full door before interaction.",
+    "W54F twin-gable roof geometry is retained for one controlled visual retest after removing leaked interior wall art."
+  ],
+  "runtimeGate": [
+    "Build all",
+    "62. Validate cottage + Estate visual repair",
+    "54. Run integrated Estate visual test"
+  ]
+}

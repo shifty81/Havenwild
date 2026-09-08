@@ -72,3 +72,17 @@ __pycache__/
 
 # Patch/source-rollup transport containers are never Git source
 *.zip
+
+# ---------------------------------------------------------------------------
+# Canonical clean-checkout exceptions
+# ---------------------------------------------------------------------------
+# These are source authorities even when a developer's global Git ignore file
+# contains a generic "build/" rule.
+!/tools/build/
+!/tools/build/**
+!/content/build/
+!/content/build/**
+
+# README presentation art is intentionally allowed as repository-owned media.
+!/docs/readme/
+!/docs/readme/**

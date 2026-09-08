@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.build.rust_format_stability.v167z105a",
+  "pass": "167Z105A",
+  "cause": "The Windows Build All run reached the Rust formatting gate after build-profile validation and reported a rustfmt-only diff in world_surface_edit/address.rs even though the cumulative Z105 payload already contained the rustfmt-normalized form.",
+  "policy": {
+    "normalizeBeforeReadOnlyValidation": true,
+    "normalizeAfterReadOnlyValidation": true,
+    "strictFormatCheckAfterSecondNormalization": true,
+    "sourceRewritersRemainDisabled": true
+  },
+  "buildCommandsCovered": [
+    "dev",
+    "all",
+    "rust",
+    "check"
+  ],
+  "authoritativeBuildEntry": "tools/build/Build.sh",
+  "windowsLauncher": "tools/build/Build.cmd",
+  "runtimeOrGameplayBehaviorChanged": false,
+  "nextFeaturePass": "167Z106"
+}

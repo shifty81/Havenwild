@@ -1,0 +1,34 @@
+{
+  "schema": "havenwild.integrated_visual_checkpoint.v1",
+  "pass": "167Z109W54B",
+  "purpose": "One pre-build visual/runtime checkpoint after W53D cliff grammar, W53E Estate composition and W54A building exterior authority.",
+  "requiredAuthorities": [
+    "content/terrain/cliff_height_runtime_contract_v1.json",
+    "content/estates/home_estate_contract_v1.json",
+    "content/estates/estate_generation_profile_v1.json",
+    "content/buildings/exterior_grammar_contract_v1.json",
+    "content/caves/cave_asset_authority_v1.json",
+    "content/connectors/structural_connector_catalog_v1.json"
+  ],
+  "visualTargets": {
+    "estate": {
+      "sceneId": "farmstead",
+      "displayName": "Estate",
+      "level2Perimeter": true,
+      "caveApertureTiles": [1, 2],
+      "edgeWoodland": true,
+      "centralBuildPadReserved": true,
+      "starterCottageCandidate": true
+    },
+    "starterCottage": {
+      "sameWorld": true,
+      "roofFamily": "roof.flat_shingle_a.brown",
+      "wrongFacingWallFallbackForbidden": true,
+      "doorThresholdMustPermitExit": true
+    }
+  },
+  "buildBoundary": {
+    "nextRequiredGate": "Windows: HavenwildTools.cmd -> 2. Build all",
+    "noAdditionalUncompiledRustPassesBeforeBuild": true
+  }
+}

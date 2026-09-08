@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.build.cliff_renderer_strict_clippy_compatibility.v0_1",
+  "pass": "167Z95",
+  "previousPass": "167Z94",
+  "scope": "south_face_module_anchor_loop_int_plus_one_cleanup",
+  "reportedFailure": {
+    "file": "crates/haven_game/src/runtime_structural_cliff_draw.rs",
+    "lineContext": "south_face_module_anchors",
+    "lint": "clippy::int-plus-one",
+    "oldCondition": "anchor + 1 <= end_x"
+  },
+  "repair": {
+    "newCondition": "anchor < end_x",
+    "behaviorEquivalentForIntegerDomain": true,
+    "moduleWidthCells": 2,
+    "anchorStepCells": 2,
+    "oddLengthFallbackRetained": true,
+    "lintSuppressionAdded": false,
+    "runtimeBehaviorChanged": false,
+    "worldOrSaveDataChanged": false,
+    "assetOrRendererGeometryChanged": false
+  },
+  "lastWindowsGate": {
+    "projectValidation": "passed",
+    "cargoFmt": "passed",
+    "cargoCheck": "passed",
+    "strictClippy": "failed_only_on_clippy_int_plus_one_before_repair",
+    "workspaceTests": "not_reached"
+  },
+  "windowsRerunRequired": [
+    "cargo fmt --all -- --check",
+    "cargo check --workspace --all-targets",
+    "cargo clippy --workspace --all-targets -- -D warnings",
+    "cargo test --workspace"
+  ],
+  "nextEditorLane": "continuous_alderreach_world_editor"
+}

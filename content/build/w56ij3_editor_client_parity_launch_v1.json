@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.w56_integrated_visual_acceptance_editor_client_parity.v1",
+  "pass": "167Z109W56IJ3",
+  "status": "SOURCE_READY_LOCAL_BUILD_PENDING",
+  "baseline": "167Z109W56IJ2R1",
+  "scope": [
+    "Direct client launch of isolated W56 integrated visual acceptance remains command 63.",
+    "Direct native-editor launch of the exact same isolated W56 pack is command 64.",
+    "Native editor bypasses the saved development world in acceptance mode and fails closed if the pack/scene is missing.",
+    "Main Control Center remains six top-level choices; parity launch stays under Run."
+  ],
+  "runtimePack": "content/worldgen/packs/worldgen_w56_integrated_visual_acceptance_v0_1.json",
+  "sceneId": "w56_integrated_visual_acceptance",
+  "nextGate": "Full quality gate, then compare Run > W56 visual acceptance client and native editor."
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.build_checkpoint.v1",
+  "pass": "Pass167Z109W54D2",
+  "title": "Isolated Estate Visual Launch Repair",
+  "runtimeChanged": true,
+  "triggerEvidence": "Option 54 displayed DEV Estate badge while active runtime scene was Willowmere Outskirts and no starter cottage was visible.",
+  "fixes": [
+    "dedicated six-scene Estate visual-test pack",
+    "mandatory farmstead/Estate active-scene verification",
+    "Willowmere/open-world fallback rejection",
+    "starter-cottage BuildingInstance presence verification",
+    "fail-closed visual-test startup",
+    "W54D2 visual identity badge",
+    "non-blocking helper-name drift in W53D static cliff validator"
+  ],
+  "nextGate": [
+    "2. Build all",
+    "58. Validate integrated visual checkpoint",
+    "54. Run integrated Estate visual test"
+  ]
+}

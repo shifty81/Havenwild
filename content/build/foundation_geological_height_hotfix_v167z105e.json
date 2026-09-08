@@ -1,0 +1,16 @@
+{
+  "schema": "havenwild.build.foundation_geological_height_hotfix.v167z105e",
+  "pass": "167Z105E",
+  "cause": "The Windows Z105D Build All run passed rustfmt, cargo check and strict Clippy, then haven_core::foundation::foundation_tests::structural_levels_round_trip_without_rewriting_geological_height failed because TavernMap deserialization still clamped serialized raw geological byte height with min(100).",
+  "repair": "Deserialize the persisted u8 geological/hydrology height byte exactly as serialized instead of applying the obsolete prototype 0..100 load-time clamp.",
+  "rawGeologicalStorageDomain": "u8 / 0..255",
+  "structuralLevelsRemainIndependent": true,
+  "saveFormatSectionChanged": false,
+  "legacySaveCompatibilityChanged": false,
+  "worldgenGenerationBehaviorChanged": false,
+  "nativeStructuralAuthoringBehaviorChanged": false,
+  "cliffRuntimeBehaviorChanged": false,
+  "testWeakened": false,
+  "nextFeaturePass": "167Z106",
+  "windowsBuildRequired": true
+}

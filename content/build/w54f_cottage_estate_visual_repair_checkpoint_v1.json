@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.build_checkpoint.v1",
+  "pass": "Pass167Z109W54F",
+  "title": "Cottage Shell + Estate Crest + Cave Approach Repair",
+  "runtimeChanged": true,
+  "triggerEvidence": "W54E runtime screenshots showed overlapped hipped roof modules, facade strips projecting above the roof, an unreadable two-room interior, a duplicated-looking cliff-top fence/border, and a good 1x2 cave mouth whose threshold could not be entered.",
+  "fixes": [
+    "reconstruct starter cottage as 10x8 with non-overlapping rear Bedroom and front Living / Crafting / Cooking room",
+    "move cottage anchor to [54,29] while preserving front-door world route tile [59,36]",
+    "replace overlapping hipped modules with two exact brown gable modules placed edge-adjacent at [2,4] and [7,4]",
+    "place roof visual envelope y0..4 and south facade visual envelope y5..7 so roof and facade no longer interpenetrate",
+    "retain fail-closed north/east/west wall visuals while keeping authoritative collision",
+    "use Grass as the Level-2 Estate highland top surface so cliff faces are elevation-derived rather than a MountainRock top plate",
+    "remove fence/post band from the Level-2 south crest; future gate must be a Level-0 assembly",
+    "preserve exact 1-wide x 2-tall cave aperture and 1x3 source evidence envelope",
+    "separate cave threshold [78,9] from actual interaction/transition approach tile [78,10]",
+    "use a short Dirt cave apron at x78 y9..11 to blend the threshold receiver into the approach"
+  ],
+  "nextGate": [
+    "2. Build all",
+    "62. Validate W54F cottage/Estate visual repair",
+    "58. Validate integrated visual checkpoint",
+    "54. Run integrated Estate visual test"
+  ]
+}

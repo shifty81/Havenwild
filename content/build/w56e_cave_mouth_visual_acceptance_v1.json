@@ -1,0 +1,39 @@
+{
+  "schema": "havenwild.cave_mouth_visual_acceptance.v1",
+  "pass": "167Z109W56E",
+  "scene": "content/worldgen/scenes/home_island/cave_mouth_scene_v0_3.json",
+  "assetId": "cave_entrance_default",
+  "contracts": {
+    "sourceHostTiles": [
+      1,
+      3
+    ],
+    "visibleApertureTiles": [
+      1,
+      2
+    ],
+    "approachCollisionTiles": [
+      0,
+      0
+    ],
+    "transitionRect": [
+      48,
+      29,
+      1,
+      2
+    ],
+    "approachTile": [
+      48,
+      30
+    ],
+    "depthSpawn": [
+      48,
+      43
+    ]
+  },
+  "notes": [
+    "The certified ElizaWy/LPC cave source is a 1x3 host/window asset; it is not a 3x3 or 6x5 cave mouth.",
+    "The player-facing opening/transition aperture is exactly one tile wide by two tiles tall.",
+    "The open entrance does not place blocking collision across the approach tile."
+  ]
+}

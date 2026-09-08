@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.runtime-quarantine-dead-reference-cleanup.v1",
+  "pass": "167Z97",
+  "purpose": "Remove the two dead Game-level references exposed by strict Clippy after the Z96 runtime cliff-source quarantine while preserving optional editor-only world-paint and cliff-source inspection paths in their owning asset loader.",
+  "removedGameReferences": [
+    "runtime_config::WORLD_PAINT_TEST_ATLAS_PATH import in crates/haven_game/src/main.rs",
+    "Game::oga_cliff_source field and constructor assignment"
+  ],
+  "retainedOwnerReferences": [
+    "runtime_assets.rs may continue using WORLD_PAINT_TEST_ATLAS_PATH to conditionally load an optional editor-only atlas when the file exists",
+    "RuntimeAssets may retain a local oga_cliff_source value for startup quarantine diagnostics without storing it on Game"
+  ],
+  "lintPolicy": {
+    "unusedImportSuppression": false,
+    "deadCodeSuppression": false,
+    "strictClippyExpected": true
+  },
+  "behaviorChange": "none",
+  "windowsBuildAllRequired": true
+}

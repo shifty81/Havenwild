@@ -1,0 +1,13 @@
+{
+  "schema": "havenwild.w56_worldgen_asset_identity_repair.v1",
+  "status": "source_staged_local_build_pending",
+  "problem": "worldgen_loader converted authored assetId to ObjectKind and discarded the exact scene asset identity before runtime published-asset canonicalization",
+  "repair": "authored scene objects are placed with StablePlaceableAssetRef::from_scene_asset_alias(assetId), preserving exact semantic/variant identity and initial state while retaining ObjectKind compatibility",
+  "expectedEffect": [
+    "published oak variants can resolve as their requested variants instead of collapsing immediately to the legacy Tree visual",
+    "published aliases such as fallen_log can canonicalize to their certified published asset",
+    "unpublished scene placeholders remain visible authority debt and continue to fall back rather than being silently substituted"
+  ],
+  "test": "worldgen_loader::tests::authored_scene_loader_preserves_exact_asset_alias_for_runtime_canonicalization",
+  "localRustBuildRequired": true
+}
