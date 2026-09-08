@@ -81,17 +81,37 @@ impl EditorApp {
         pointer_consumed: bool,
         canvas_pointer_consumed: bool,
     ) {
+        self.poll_background_world_generation();
         let left_pressed = is_mouse_button_pressed(MouseButton::Left);
         let left_down = is_mouse_button_down(MouseButton::Left);
         let left_released = is_mouse_button_released(MouseButton::Left);
         let control_down = is_key_down(KeyCode::LeftControl) || is_key_down(KeyCode::RightControl);
         let shift_down = is_key_down(KeyCode::LeftShift) || is_key_down(KeyCode::RightShift);
 
+        if is_key_pressed(KeyCode::Escape) && self.cancel_background_world_generation() {
+            return;
+        }
+
         // Complete-world LOD is the real generated archipelago, but destructive
         // editing remains tile-accurate: select a landmass from the overview to
         // enter its native surface coordinate space, then use the same semantic
         // and Pixel workflows as before.
         if self.world_show_entire_world {
+            if is_key_pressed(KeyCode::Enter)
+                && super::island_authoring::overview_landmass_selection()
+                    == Some(self.selected_landmass_id)
+            {
+                let landmass_name = self
+                    .selected_rectangle_spec()
+                    .map(|entry| entry.landmass_name.clone())
+                    .unwrap_or_else(|| format!("Landmass {}", self.selected_landmass_id));
+                self.frame_selected_landmass();
+                self.status_message = format!(
+                    "Editing {landmass_name} | Open Complete World returns to the archipelago overview"
+                );
+                return;
+            }
+
             if !pointer_consumed
                 && !canvas_pointer_consumed
                 && left_pressed
@@ -110,21 +130,60 @@ impl EditorApp {
                             bake,
                             point,
                         )
+                        .map(|(rectangle_index, landmass_id)| {
+                            (point, rectangle_index, landmass_id)
+                        })
                     });
-                    if let Some((rectangle_index, landmass_id)) = hit {
+                    if let Some((point, rectangle_index, landmass_id)) = hit {
+                        let materialized_hit =
+                            super::world_surface_editor::world_overview_landmass_rect(
+                                &self.development_world_settings,
+                                landmass_id,
+                            )
+                            .is_some_and(|rect| {
+                                let radius_x = (rect.w * 0.5).max(1.0);
+                                let radius_y = (rect.h * 0.5).max(1.0);
+                                let center_x = rect.x + radius_x;
+                                let center_y = rect.y + radius_y;
+                                let dx = (point.x - center_x) / radius_x;
+                                let dy = (point.y - center_y) / radius_y;
+                                dx * dx + dy * dy <= 1.18
+                            });
+                        if !materialized_hit {
+                            super::island_authoring::clear_overview_landmass_selection();
+                            self.world_selection = None;
+                            self.status_message =
+                                "This generated islet is visible in the world overview but is not a materialized editable landmass yet"
+                                    .to_string();
+                            return;
+                        }
+
                         self.selected_rectangle = rectangle_index;
                         self.selected_landmass_id = landmass_id;
+                        self.world_selection = None;
                         self.sync_assignment_cycles_to_selected_rectangle();
                         let landmass_name = self
                             .selected_rectangle_spec()
                             .map(|entry| entry.landmass_name.clone())
                             .unwrap_or_else(|| format!("Landmass {landmass_id}"));
-                        self.frame_selected_landmass();
-                        self.status_message = format!(
-                            "Editing {landmass_name} | Open Complete World returns to the archipelago overview"
-                        );
+                        if super::island_authoring::register_overview_landmass_click(landmass_id) {
+                            self.frame_selected_landmass();
+                            self.status_message = format!(
+                                "Editing {landmass_name} | Open Complete World returns to the archipelago overview"
+                            );
+                        } else {
+                            self.status_message = format!(
+                                "Selected {landmass_name} · click it again or press Enter to open · tile-region selection cleared"
+                            );
+                        }
                         return;
                     }
+                    super::island_authoring::clear_overview_landmass_selection();
+                    self.world_selection = None;
+                    self.status_message =
+                        "No editable landmass selected · click a materialized major island in the Complete World overview"
+                            .to_string();
+                    return;
                 }
             }
             self.handle_world_keyboard_shortcuts(control_down, shift_down);

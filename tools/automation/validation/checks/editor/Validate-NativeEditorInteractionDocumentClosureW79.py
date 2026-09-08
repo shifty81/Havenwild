@@ -36,7 +36,10 @@ def main():
     draw=read('apps/haven_editor_native/src/app/draw.rs')
     editor_text=read('apps/haven_editor_native/src/app/editor_text.rs')
     contract=read('content/editor/native_editor_interaction_document_closure_w79_v1.json')
-    settings_data=read('WORKSPACE/editor/native_editor_settings_v0_1.json')
+    # WORKSPACE is machine-local and intentionally absent from a clean GitHub
+    # checkout. The editor's Rust Default implementation is the canonical
+    # bootstrap authority; the WORKSPACE settings JSON is created/persisted only
+    # after the user changes settings.
 
     require(lifecycle,[
         'DocumentCloseTarget','request_close_active_document','request_close_scene_document',
@@ -81,7 +84,20 @@ def main():
     require(editor_text,['DEFAULT_EDITOR_TEXT_SCALE: f32 = 1.10','ui_text_scale'], 'compact typography authority')
     require(draw,['draw_editor_settings','draw_document_close_dialog','canvas_document_open'], 'overlay/empty-state draw order')
     require(contract,['havenwild.editor.native_interaction_document_closure.w79.v1','resourceDeletionSeparateFromViewClose','windowsCargoGateAuthoritative'], 'W79 authority contract')
-    require(settings_data,['havenwild.native_editor.settings.v0_1','\"ui_text_scale\": 1.1','\"tooltips_enabled\": true'], 'W79 default settings data')
+    require(settings,[
+        'schema: "havenwild.native_editor.settings.v0_1".to_string()',
+        'ui_text_scale: 1.10',
+        'tooltips_enabled: true',
+        'compact_button_labels: true',
+        'autosave_recovery_enabled: true',
+        'show_validation_details: true',
+        'return Self::default()'
+    ], 'W79 clean-checkout editor settings defaults')
+
+    if 'WORKSPACE/editor/native_editor_settings_v0_1.json' not in settings:
+        ERRORS.append('W79 machine-local settings persistence path is missing from editor settings authority')
+    if "read_to_string(path)" not in settings or "return Self::default()" not in settings:
+        ERRORS.append('W79 clean-checkout settings fallback must default when machine-local preferences are absent')
 
     if 'canvas.x + 8.0, button.y + 4.0' in toolrail:
         ERRORS.append('Tool Rail tooltip still uses legacy canvas/Layer-side placement proxy')

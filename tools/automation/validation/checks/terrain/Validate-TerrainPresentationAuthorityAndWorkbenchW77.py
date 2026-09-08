@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import json,re,sys
+import json,re,sys,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[5]
 ERR=[]
@@ -15,6 +15,12 @@ def req(text,need,ctx):
  for n in need:
   if n not in text:ERR.append(f'{ctx}: missing {n}')
 def main():
+ hydrate=ROOT/'tools/automation/terrain/Ensure-TerrainTransitionWorkbenchW77.py'
+ if not hydrate.is_file():
+  ERR.append('missing W77 workbench hydration preflight')
+ else:
+  try: subprocess.run([sys.executable,str(hydrate)],cwd=ROOT,check=True)
+  except subprocess.CalledProcessError as e: ERR.append(f'W77 workbench hydration failed with exit code {e.returncode}')
  auth=j('content/terrain/terrain_authority_boundary_w77_v1.json'); bindings=j('content/assets/terrain_material_bindings_v0_2.json'); atlas=j('assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json'); wb=j('content/editor/terrain_transition_workbench/terrain_transition_workbench_v1.json'); lab=j('content/worldgen/scenes/terrain_acceptance/terrain_transition_authoring_lab_w77.json')
  if auth.get('schema')!='havenwild.terrain_presentation_authority.w77.v1':ERR.append('authority schema')
  bm={b.get('tileKind'):b.get('material') or b.get('tupleFallbackMaterial') for b in bindings.get('bindings',[])}

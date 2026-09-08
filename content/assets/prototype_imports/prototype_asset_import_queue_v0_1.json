@@ -1,198 +1,28 @@
 {
   "schema": "havenwild.prototype_asset_import_queue.v0_1",
-  "updated": "2026-07-09",
-  "purpose": "Curated candidate list for optional prototype imports. This queue does not copy raw third-party files and does not grant runtime shipping permission by itself.",
-  "defaultImportMode": "user_supplied_or_quarantine_source_only",
-  "promotionRequires": [
-    "external source entry exists",
-    "license policy allows requested use",
-    "source path remains quarantine/user-supplied",
-    "processed output is metadata-backed",
-    "release export restrictions are recorded"
-  ],
+  "updated": "2026-09-08T01:45:51+00:00",
+  "purpose": "LPC source is already vendored; queue records runtime promotion targets.",
+  "defaultImportMode": "promote_from_pinned_lpc_source",
   "entries": [
     {
-      "id": "prototype.pipoya.terrain_water_autotile_v0_1",
-      "externalSourceId": "third_party.pipoya.free_rpg_tileset_32x32_bundle",
-      "status": "candidate_allowed_for_prototype",
+      "id": "lpc_runtime_promotions",
+      "externalSourceId": "elizawy_lpc",
+      "status": "ready",
       "sourceArchiveNames": [
-        "Pipoya RPG Tileset 32x32.zip",
-        "Door_Animation.zip",
-        "Unorganized Parts.zip"
+        "assets/source/licensed/lpc_revised"
       ],
       "candidateFamilies": [
-        "terrain.grass",
-        "terrain.dirt",
-        "terrain.water",
-        "terrain.waterfall",
-        "object.doors"
+        "terrain.tileable",
+        "object",
+        "structure",
+        "character"
       ],
       "targetOutputs": [
-        "assets/processed/prototype_tiles/pipoya/terrain_water_32.png",
-        "assets/processed/prototype_tiles/pipoya/terrain_water_32.hhasset.json",
-        "assets/processed/prototype_tiles/pipoya/door_animation_32.png",
-        "assets/processed/prototype_tiles/pipoya/door_animation_32.hhasset.json"
+        "assets/generated/lpc",
+        "assets/generated/worldgen_v0_1"
       ],
-      "runtimeUse": "prototype_only_until_final_art_replacement_or_release_policy_decision",
-      "notes": "Strongest immediate 32x32 terrain/water/door fixture. Do not expose raw sheets as exportable assets."
-    },
-    {
-      "id": "prototype.seliel.gentle_forest_32_adapter_v0_1",
-      "externalSourceId": "third_party.seliel.gentle_forest_3_0a_free_palettes",
-      "status": "candidate_allowed_for_prototype_with_2x_adapter",
-      "sourceArchiveNames": [
-        "19.07a - Gentle Forest 3.0a ($0 palettes).zip",
-        "sample map and Tiled files.zip"
-      ],
-      "candidateFamilies": [
-        "terrain.autotile",
-        "terrain.water",
-        "terrain.waterfall",
-        "terrain.cliff",
-        "tiled.import_fixtures"
-      ],
-      "targetOutputs": [
-        "assets/processed/prototype_tiles/seliel_gentle_forest_32_adapter/terrain_autotile_32.png",
-        "assets/processed/prototype_tiles/seliel_gentle_forest_32_adapter/terrain_autotile_32.hhasset.json"
-      ],
-      "runtimeUse": "prototype_only; scale_adapter_required",
-      "notes": "Main source grid is 16x16. Adapter must record nearest-neighbor 2x scaling and preserve attribution metadata."
-    },
-    {
-      "id": "prototype.rowdy41.garden_props_v0_1",
-      "externalSourceId": "third_party.rowdy41.wood_garden",
-      "status": "candidate_allowed_for_prototype",
-      "sourceArchiveNames": [
-        "Asset Pack.zip"
-      ],
-      "candidateFamilies": [
-        "object.fences",
-        "object.garden_boxes",
-        "object.chairs",
-        "object.chests",
-        "terrain.wooden_path"
-      ],
-      "targetOutputs": [
-        "assets/processed/prototype_props/rowdy41/garden_props_32.png",
-        "assets/processed/prototype_props/rowdy41/garden_props_32.hhasset.json"
-      ],
-      "runtimeUse": "prototype_props_only_until_final_art_replacement_or_release_policy_decision",
-      "notes": "Good for testing furniture/object metadata, footprints, and placement validators."
-    },
-    {
-      "id": "prototype.seliel.mana_seed_compositor_fixture_v0_1",
-      "externalSourceId": "third_party.seliel.mana_seed_character_base_demo_2_0",
-      "status": "reference_fixture_candidate_not_direct_havenwild_player_contract",
-      "sourceArchiveNames": [
-        "FREE Mana Seed Character Base Demo 2.0.zip"
-      ],
-      "candidateFamilies": [
-        "character.paper_doll_layers",
-        "character.animation_fixture"
-      ],
-      "targetOutputs": [
-        "assets/processed/prototype_characters/mana_seed_reference/compositor_fixture.hhasset.json"
-      ],
-      "runtimeUse": "editor_fixture_or_placeholder_only",
-      "notes": "Use to design layer metadata and compositor tooling; locked Havenwild runtime player sheet remains 64x96 / 8 direction."
-    },
-    {
-      "id": "blocked.shubibubi.free_packs_reference_only_v0_1",
-      "externalSourceId": "third_party.shubibubi.cozy_farm_free_version",
-      "status": "blocked_reference_only_non_commercial_free_version",
-      "sourceArchiveNames": [
-        "free version.zip",
-        "Interior free.zip",
-        "town free.zip"
-      ],
-      "candidateFamilies": [
-        "reference.coverage_only"
-      ],
-      "targetOutputs": [],
-      "runtimeUse": "blocked",
-      "notes": "The free shubibubi packs are not eligible for commercial runtime use. Separate paid complete-license records are required before promotion."
-    },
-    {
-      "id": "prototype.pipoya.world_tileset_32_adapter_v0_1",
-      "externalSourceId": "third_party.pipoya.free_rpg_world_tileset_32_40_48",
-      "status": "candidate_allowed_for_prototype_no_raw_copy",
-      "sourceArchiveNames": [
-        "Pipoya RPG World Tileset 48x48 40x40 32x32.zip",
-        "Pipoya RPG World Tileset 48x48 40x40 32x32 for Tiled1.5.zip"
-      ],
-      "candidateFamilies": [
-        "terrain.overworld",
-        "terrain.water",
-        "terrain.cliff",
-        "terrain.road",
-        "tiled.import_fixtures"
-      ],
-      "targetOutputs": [
-        "assets/processed/prototype_tiles/pipoya_world/pipoya_world_terrain_32.png",
-        "content/assets/prototype_imports/adapters/pipoya_world_tileset_adapter_v0_1.json",
-        "content/assets/prototype_tiles/pipoya_world/pipoya_world_terrain_32.hhasset.json"
-      ],
-      "runtimeUse": "prototype_only; 32x32 variant preferred; no raw full-pack copy into public runtime by default",
-      "notes": "World terrain import adapter for Pipoya 32/40/48 pack. Uses metadata stubs and user-supplied/quarantine source path until explicit bake."
-    },
-    {
-      "id": "prototype.henrysoftware.free_pixel_food_32_icon_adapter_v0_1",
-      "externalSourceId": "third_party.henrysoftware.free_pixel_food_cc0",
-      "status": "candidate_allowed_for_prototype_no_raw_copy_cc0",
-      "sourceArchiveNames": [
-        "FreePixelFood.zip",
-        "Food.png"
-      ],
-      "candidateFamilies": [
-        "icon.food",
-        "icon.recipe",
-        "icon.inventory",
-        "ui.tavern_menu"
-      ],
-      "targetOutputs": [
-        "assets/processed/prototype_icons/free_pixel_food/food_icons_32.png",
-        "content/assets/prototype_imports/adapters/free_pixel_food_icon_adapter_v0_1.json",
-        "content/assets/prototype_icons/free_pixel_food/food_icons_32.hhasset.json"
-      ],
-      "runtimeUse": "prototype recipe/menu/inventory icons; 16x16 source scales to 32x32 through explicit nearest-neighbor adapter",
-      "notes": "CC0 source but still metadata-gated so icon provenance remains visible."
-    },
-    {
-      "id": "prototype.ghostpixxells.pixel_mart_32_icon_adapter_v0_1",
-      "externalSourceId": "third_party.ghostpixxells.pixel_mart_cc0",
-      "status": "candidate_allowed_for_prototype_no_raw_copy_cc0",
-      "sourceArchiveNames": [
-        "Pixel_Mart.zip"
-      ],
-      "candidateFamilies": [
-        "icon.item",
-        "icon.shop",
-        "icon.inventory",
-        "icon.food"
-      ],
-      "targetOutputs": [
-        "assets/processed/prototype_icons/pixel_mart/pixel_mart_icons_32.png",
-        "content/assets/prototype_imports/adapters/pixel_mart_icon_adapter_v0_1.json",
-        "content/assets/prototype_icons/pixel_mart/pixel_mart_icons_32.hhasset.json"
-      ],
-      "runtimeUse": "prototype shop/inventory icons with curation filter before final fantasy/cozy runtime use",
-      "notes": "CC0 source but modern mart items must be curated for Havenwild setting fit."
-    },
-    {
-      "id": "blocked.batch2.reference_only_assets_v0_1",
-      "externalSourceId": "third_party.fishing_free_noncommercial",
-      "status": "blocked_reference_only_non_commercial_or_unverified_batch2",
-      "sourceArchiveNames": [
-        "fishing_free.zip",
-        "char free.zip",
-        "mystic_woods_free_2.2.zip"
-      ],
-      "candidateFamilies": [
-        "reference.coverage_only"
-      ],
-      "targetOutputs": [],
-      "runtimeUse": "blocked",
-      "notes": "Fishing free and Mystic Woods free are non-commercial-only; char free is unverified. Separate commercial/verified records are required before promotion."
+      "runtimeUse": "allowed_with_attribution",
+      "notes": "Generated by Promote-LpcRuntimeAssets.py"
     }
   ]
 }

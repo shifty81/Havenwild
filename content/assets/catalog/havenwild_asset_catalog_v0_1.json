@@ -1,8 +1,7 @@
 {
   "schema": "havenwild.asset_catalog.v0_1",
-  "version": "0.1.0",
-  "pass": "167Z106N5",
-  "purpose": "Bootstrap project-wide asset index. Full domain records are generated from the pinned ElizaWy/LPC repository during Build all.",
+  "updatedAtUnixSeconds": 1788832241,
+  "purpose": "Project-wide asset index with ElizaWy/LPC as the primary visual foundation.",
   "primaryAuthority": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
   "primarySource": "elizawy_lpc",
   "indexes": [
@@ -11,18 +10,6 @@
       "kind": "project_asset_authority",
       "path": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
       "editorUse": "project_asset_root"
-    },
-    {
-      "id": "elizawy_project_routes",
-      "kind": "project_asset_routes",
-      "path": "content/assets/lpc/lpc_project_asset_routes_v0_1.json",
-      "editorUse": "domain_routing"
-    },
-    {
-      "id": "elizawy_editor_library",
-      "kind": "editor_asset_library",
-      "path": "content/editor/elizawy_project_asset_library_v0_1.json",
-      "editorUse": "asset_library_root"
     },
     {
       "id": "elizawy_repository_audit",
@@ -91,20 +78,44 @@
       "editorUse": "domain_asset_browser"
     },
     {
-      "id": "victorian_building_source_family",
-      "kind": "licensed_multi_cell_building_source",
-      "path": "content/assets/lpc/victorian_building_source_family_v0_1.json",
-      "editorUse": "building_source_browser"
+      "id": "external_sources",
+      "kind": "source_registry",
+      "path": "content/assets/external_sources/external_asset_sources_v0_1.json",
+      "editorUse": "asset_source_status"
     },
     {
-      "id": "victorian_building_asset_pack",
-      "kind": "asset_pack_manifest",
-      "path": "content/asset_packs/lpc_victorian_buildings/pack.json",
-      "editorUse": "source_only_provider"
+      "id": "donor_reference",
+      "kind": "donor_catalog",
+      "path": "content/assets/donor_reference/donor_reference_asset_catalog_v0_1.json",
+      "editorUse": "art_tab_rows"
+    },
+    {
+      "id": "lpc_slice_catalog",
+      "kind": "slice_catalog",
+      "path": "content/assets/lpc/lpc_slice_catalog_v0_1.json",
+      "editorUse": "slice_browser_source"
+    },
+    {
+      "id": "lpc_slice_catalog_compressed",
+      "kind": "compressed_slice_catalog",
+      "path": "content/assets/lpc/lpc_slice_catalog_v0_1.json.gz",
+      "editorUse": "portable_asset_library"
+    },
+    {
+      "id": "lpc_asset_library_bundle",
+      "kind": "compressed_asset_library",
+      "path": "content/assets/lpc/lpc_asset_library_bundle_v0_1.json.gz",
+      "editorUse": "reuse_in_other_projects"
+    },
+    {
+      "id": "prototype_queue",
+      "kind": "prototype_queue",
+      "path": "content/assets/prototype_imports/prototype_asset_import_queue_v0_1.json",
+      "editorUse": "compatibility_stub"
     }
   ],
   "editorContracts": {
-    "rootCollection": "ElizaWy / LPC Revised",
+    "rootCollection": "ElizaWy/LPC",
     "runtimeAndEditorShareCatalogs": true,
     "rawSourceTreeRemainsImmutable": true,
     "promotionRequiresSemanticRoleFootprintCollisionAndCreditContext": true

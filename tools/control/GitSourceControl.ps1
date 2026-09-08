@@ -1,4 +1,4 @@
-# Canonical Havenwild Git bridge (CC8E9).
+# Canonical Havenwild Git bridge (CC8E16).
 # Intentionally no param(...) block: accepts current and legacy Control Center
 # argument shapes without parameter-binding drift.
 $ErrorActionPreference = 'Stop'
@@ -19,12 +19,27 @@ for($i=0; $i -lt $args.Count; $i++) {
 }
 
 if($positionals.Count -gt 0 -and (Test-Path -LiteralPath $positionals[0])) { $root = $positionals[0] }
-$known = @('Status','Setup','Init','Initialize','Connect','Review','ReviewCore','ReviewGitHubCore','CommitGreen','CommitPushGreen','Push','PushMain','Pull','Open','OpenRepo','CommitManual','ManualCommit','AdvancedCommit')
+$known = @('Status','Setup','Init','Initialize','Connect','Repair','Adopt','Review','ReviewCore','ReviewGitHubCore','CommitGreen','CommitPushGreen','Push','PushMain','Pull','Open','OpenRepo','CommitManual','ManualCommit','AdvancedCommit')
 foreach($p in $positionals) { if($known -contains $p) { $action = $p; break } }
 
 $python = Get-Command python -ErrorAction SilentlyContinue
 if($null -eq $python){ $python = Get-Command py -ErrorAction SilentlyContinue }
 if($null -eq $python){ throw 'Canonical Havenwild source-control authority requires Python, but Python was not found.' }
+
+# CC8E16: Setup is no longer a blind git-init/fetch operation. A GitHub Download ZIP
+# can already contain a valuable hydrated/validated working tree, so connect/repair
+# adopts origin/main history with git reset --mixed while proving governed file bytes
+# did not change. Divergent local history is backed up before adoption.
+$normalizedAction = $action.Trim().ToLowerInvariant().Replace('-','').Replace('_','')
+if($normalizedAction -in @('setup','init','initialize','connect','repair','adopt')) {
+  $repair = Join-Path $PSScriptRoot 'RepairGitWorkingCopy.py'
+  if(-not (Test-Path -LiteralPath $repair -PathType Leaf)) { throw "Git working-folder repair authority is missing: $repair" }
+  $repairArgs = @($repair,'--root',$root)
+  if(-not [string]::IsNullOrWhiteSpace($remote)) { $repairArgs += @('--remote',$remote) }
+  & $python.Source @repairArgs
+  exit $LASTEXITCODE
+}
+
 $authority = Join-Path $PSScriptRoot 'HavenwildGateAuthority.py'
 if(-not (Test-Path -LiteralPath $authority)){ throw "Canonical Havenwild source-control authority is missing: $authority" }
 

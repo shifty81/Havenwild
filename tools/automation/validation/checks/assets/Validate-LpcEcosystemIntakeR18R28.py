@@ -8,6 +8,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[5]
 
+# Only current repository authorities belong in the clean-checkout validator.
+# Historical handoff markdown is intentionally excluded from Git and must never
+# be required to reproduce or certify the project.
 REQUIRED = [
     "content/assets/lpc/lpc_ecosystem_discovery_seed_r18_v1.json",
     "content/assets/lpc/lpc_ecosystem_intake_authority_r18_r28_v1.json",
@@ -23,7 +26,6 @@ REQUIRED = [
     "content/gameplay/lpc_intake/ships_fishing_water_r26_v1.json",
     "content/legal/open_assets/lpc_release_license_policy_r27_v1.json",
     "content/editor/acceptance/lpc_visual_gameplay_acceptance_world_r28_v1.json",
-    "docs/handoffs/HAVENWILD_W81R18_R28_LPC_ECOSYSTEM_INTAKE_HANDOFF.md",
 ]
 
 
@@ -49,6 +51,7 @@ def main() -> int:
     acceptance = loaded["content/editor/acceptance/lpc_visual_gameplay_acceptance_world_r28_v1.json"]
 
     expected_passes = [f"W81R{i}" for i in range(18, 29)]
+    assert authority.get("schema"), "R18-R28 current authority must declare a schema"
     assert authority.get("passes") == expected_passes, authority.get("passes")
     assert authority.get("baseline") == "W81R17"
     assert set(authority.get("licenseTiers", {}).keys()) >= {"green", "green_conditional", "yellow", "red"}

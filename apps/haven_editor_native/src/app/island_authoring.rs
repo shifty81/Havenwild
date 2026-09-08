@@ -1,4 +1,13 @@
-use std::collections::BTreeSet;
+use std::{
+    cell::RefCell,
+    collections::BTreeSet,
+    sync::{
+        atomic::{AtomicBool, Ordering},
+        mpsc::{self, Receiver, TryRecvError},
+        Arc,
+    },
+    thread,
+};
 
 use haven_assets::asset_registry::audited_object_footprint_for_cell;
 use haven_core::ProjectSceneId;
@@ -16,6 +25,51 @@ use super::world_canvas_context::{
     context_menu_action_at, WorldCanvasContextAction, WorldCanvasContextMenu,
 };
 use super::*;
+
+enum BackgroundWorldgenMessage {
+    Generated {
+        landmass_id: i32,
+        result: Result<GeneratedIsland, String>,
+    },
+    Finished,
+    Cancelled,
+}
+
+struct BackgroundWorldgenJob {
+    receiver: Receiver<BackgroundWorldgenMessage>,
+    cancel: Arc<AtomicBool>,
+    label: String,
+    total: usize,
+    completed: usize,
+    failed: usize,
+}
+
+thread_local! {
+    static BACKGROUND_WORLDGEN_JOB: RefCell<Option<BackgroundWorldgenJob>> = const { RefCell::new(None) };
+    static OVERVIEW_LANDMASS_SELECTION: RefCell<Option<i32>> = const { RefCell::new(None) };
+}
+
+/// Complete-world clicks are selection-first. A second click on the same
+/// materialized landmass is treated as the explicit open action.
+pub(crate) fn register_overview_landmass_click(landmass_id: i32) -> bool {
+    OVERVIEW_LANDMASS_SELECTION.with(|slot| {
+        let mut selected = slot.borrow_mut();
+        if *selected == Some(landmass_id) {
+            true
+        } else {
+            *selected = Some(landmass_id);
+            false
+        }
+    })
+}
+
+pub(crate) fn overview_landmass_selection() -> Option<i32> {
+    OVERVIEW_LANDMASS_SELECTION.with(|slot| *slot.borrow())
+}
+
+pub(crate) fn clear_overview_landmass_selection() {
+    OVERVIEW_LANDMASS_SELECTION.with(|slot| *slot.borrow_mut() = None);
+}
 
 impl EditorApp {
     pub(crate) fn restore_generated_harbor_routes(&mut self) {
@@ -200,6 +254,24 @@ impl EditorApp {
     }
 
     pub(crate) fn open_assigned_rectangle_scene(&mut self) {
+        if self.world_show_entire_world {
+            if overview_landmass_selection() == Some(self.selected_landmass_id) {
+                let landmass_name = self
+                    .selected_rectangle_spec()
+                    .map(|entry| entry.landmass_name.clone())
+                    .unwrap_or_else(|| format!("Landmass {}", self.selected_landmass_id));
+                self.frame_selected_landmass();
+                self.status_message = format!(
+                    "Editing {landmass_name} | Open Complete World returns to the archipelago overview"
+                );
+            } else {
+                self.status_message =
+                    "Select a materialized landmass in Complete World before opening it"
+                        .to_string();
+            }
+            return;
+        }
+
         let Some(rectangle_id) = self
             .selected_rectangle_spec()
             .map(|rectangle| rectangle.scene_id.clone())
@@ -332,13 +404,20 @@ impl EditorApp {
                 return;
             }
         };
+        if self.background_world_generation_active() {
+            self.status_message =
+                "Development World generation is already running; press Esc to cancel it"
+                    .to_string();
+            return;
+        }
         match self.apply_archipelago_layout(seed) {
             Ok(report) => {
-                self.generate_all_landmasses();
-                self.status_message = format!(
-                    "Regenerated Development World · {} major landmasses · seed {} · {} production stages validated · {}px compatibility-layout gap · authored overrides remain a separate authority",
-                    report.island_count, report.seed, plan.stages.len(), report.minimum_gap_px
-                );
+                self.queue_all_landmasses_with_label(format!(
+                    "Regenerating Development World · seed {} · {} production stages · {}px layout gap",
+                    report.seed,
+                    plan.stages.len(),
+                    report.minimum_gap_px
+                ));
             }
             Err(error) => {
                 self.status_message = format!("Archipelago layout failed: {error}");
@@ -361,6 +440,12 @@ impl EditorApp {
             })
             .unwrap_or((self.development_world_settings.seed, 1));
         let next_seed = rerolled_archipelago_seed(current_seed, next_reroll_index);
+        if self.background_world_generation_active() {
+            self.status_message =
+                "Development World generation is already running; press Esc to cancel it"
+                    .to_string();
+            return;
+        }
         if let Err(error) = self.production_world_plan_for_current_manifest(next_seed) {
             self.status_message = format!("Production World reroll blocked: {error}");
             return;
@@ -370,11 +455,12 @@ impl EditorApp {
                 if let Some(manifest) = self.scene_rectangles.as_mut() {
                     manifest.archipelago_generation.reroll_index = next_reroll_index;
                 }
-                self.generate_all_landmasses();
-                self.status_message = format!(
-                    "Rerolled archipelago seed {}: {} islands placed with a {}px minimum gap. New saves can reuse or replace this shareable seed.",
-                    report.seed, report.island_count, report.minimum_gap_px
-                );
+                self.queue_all_landmasses_with_label(format!(
+                    "Rerolled Development World · seed {} · {} islands · {}px minimum gap",
+                    report.seed,
+                    report.island_count,
+                    report.minimum_gap_px
+                ));
             }
             Err(error) => {
                 self.status_message = format!("Archipelago reroll failed: {error}");
@@ -409,32 +495,195 @@ impl EditorApp {
         Ok(report)
     }
 
-    pub(crate) fn generate_all_landmasses(&mut self) {
-        let Some(manifest) = &self.scene_rectangles else {
+    pub(crate) fn background_world_generation_active(&self) -> bool {
+        BACKGROUND_WORLDGEN_JOB.with(|slot| slot.borrow().is_some())
+    }
+
+    pub(crate) fn cancel_background_world_generation(&mut self) -> bool {
+        let cancel = BACKGROUND_WORLDGEN_JOB.with(|slot| {
+            slot.borrow()
+                .as_ref()
+                .map(|job| Arc::clone(&job.cancel))
+        });
+        let Some(cancel) = cancel else {
+            return false;
+        };
+        cancel.store(true, Ordering::Relaxed);
+        self.status_message =
+            "Cancelling background Development World generation after the current island..."
+                .to_string();
+        true
+    }
+
+    fn queue_background_world_generation(&mut self, landmasses: Vec<i32>, label: String) {
+        if landmasses.is_empty() {
+            self.status_message = "No materialized landmasses are available to generate".to_string();
+            return;
+        }
+        if self.background_world_generation_active() {
+            self.status_message =
+                "Development World generation is already running; press Esc to cancel it"
+                    .to_string();
+            return;
+        }
+        let Some(manifest) = self.scene_rectangles.clone() else {
+            self.status_message = "Scene rectangle manifest is unavailable".to_string();
             return;
         };
-        let landmasses: BTreeSet<i32> = manifest
+        let jobs = landmasses
+            .into_iter()
+            .map(|landmass_id| (landmass_id, self.island_generation_settings(landmass_id)))
+            .collect::<Vec<_>>();
+        let total = jobs.len();
+        let (sender, receiver) = mpsc::channel::<BackgroundWorldgenMessage>();
+        let cancel = Arc::new(AtomicBool::new(false));
+        let worker_cancel = Arc::clone(&cancel);
+        let worker = thread::Builder::new()
+            .name("havenwild-worldgen".to_string())
+            .spawn(move || {
+                for (landmass_id, settings) in jobs {
+                    if worker_cancel.load(Ordering::Relaxed) {
+                        let _ = sender.send(BackgroundWorldgenMessage::Cancelled);
+                        return;
+                    }
+                    let result = generate_landmass(&manifest, landmass_id, settings);
+                    if sender
+                        .send(BackgroundWorldgenMessage::Generated {
+                            landmass_id,
+                            result,
+                        })
+                        .is_err()
+                    {
+                        return;
+                    }
+                }
+                if worker_cancel.load(Ordering::Relaxed) {
+                    let _ = sender.send(BackgroundWorldgenMessage::Cancelled);
+                } else {
+                    let _ = sender.send(BackgroundWorldgenMessage::Finished);
+                }
+            });
+        if let Err(error) = worker {
+            self.status_message = format!("Could not start background world generation: {error}");
+            return;
+        }
+
+        BACKGROUND_WORLDGEN_JOB.with(|slot| {
+            *slot.borrow_mut() = Some(BackgroundWorldgenJob {
+                receiver,
+                cancel,
+                label: label.clone(),
+                total,
+                completed: 0,
+                failed: 0,
+            });
+        });
+        self.status_message = format!(
+            "{label} · 0/{total} landmasses complete · editor remains interactive · Esc cancels"
+        );
+    }
+
+    fn queue_all_landmasses_with_label(&mut self, label: String) {
+        let Some(manifest) = &self.scene_rectangles else {
+            self.status_message = "Scene rectangle manifest is unavailable".to_string();
+            return;
+        };
+        let landmasses = manifest
             .scene_rectangles
             .iter()
             .filter(|entry| rectangle_is_overworld_surface(entry))
             .map(|entry| entry.landmass_id)
-            .collect();
-        let total = landmasses.len();
-        let exterior_cells = manifest
-            .scene_rectangles
-            .iter()
-            .filter(|entry| rectangle_is_overworld_surface(entry))
-            .count();
-        let mut generated = 0usize;
-        for landmass_id in landmasses {
-            if self.generate_landmass_by_id_internal(landmass_id).is_ok() {
-                generated += 1;
+            .collect::<BTreeSet<_>>()
+            .into_iter()
+            .collect::<Vec<_>>();
+        self.queue_background_world_generation(landmasses, label);
+    }
+
+    /// Poll at most one worker message per editor frame. Heavy PCG stays on the
+    /// worker thread; installing one completed island at a time bounds main-thread
+    /// work and keeps navigation, drawing, and cancellation responsive.
+    pub(crate) fn poll_background_world_generation(&mut self) {
+        let message = BACKGROUND_WORLDGEN_JOB.with(|slot| {
+            let mut slot = slot.borrow_mut();
+            let Some(job) = slot.as_mut() else {
+                return None;
+            };
+            match job.receiver.try_recv() {
+                Ok(message) => Some(message),
+                Err(TryRecvError::Empty) => None,
+                Err(TryRecvError::Disconnected) => Some(BackgroundWorldgenMessage::Finished),
+            }
+        });
+        let Some(message) = message else {
+            return;
+        };
+
+        match message {
+            BackgroundWorldgenMessage::Generated {
+                landmass_id,
+                result,
+            } => {
+                let install_result = result.and_then(|generated| self.install_generated_island(generated));
+                let (label, completed, total, failed) = BACKGROUND_WORLDGEN_JOB.with(|slot| {
+                    let mut slot = slot.borrow_mut();
+                    let job = slot
+                        .as_mut()
+                        .expect("background worldgen job disappeared while installing a result");
+                    job.completed += 1;
+                    if install_result.is_err() {
+                        job.failed += 1;
+                    }
+                    (
+                        job.label.clone(),
+                        job.completed,
+                        job.total,
+                        job.failed,
+                    )
+                });
+                self.status_message = match install_result {
+                    Ok(_) => format!(
+                        "{label} · {completed}/{total} landmasses complete · {} failed · editor remains interactive",
+                        failed
+                    ),
+                    Err(error) => format!(
+                        "{label} · landmass {landmass_id} failed: {error} · {completed}/{total} processed"
+                    ),
+                };
+            }
+            BackgroundWorldgenMessage::Cancelled => {
+                let summary = BACKGROUND_WORLDGEN_JOB.with(|slot| slot.borrow_mut().take());
+                if let Some(job) = summary {
+                    self.status_message = format!(
+                        "{} cancelled · {}/{} processed · {} failed",
+                        job.label, job.completed, job.total, job.failed
+                    );
+                }
+            }
+            BackgroundWorldgenMessage::Finished => {
+                let summary = BACKGROUND_WORLDGEN_JOB.with(|slot| slot.borrow_mut().take());
+                if let Some(job) = summary {
+                    let world_scene_total = self.model.world.scenes.len();
+                    self.status_message = format!(
+                        "{} complete · {}/{} landmasses · {} failed · world contains {} scenes · Save All persists",
+                        job.label,
+                        job.completed,
+                        job.total,
+                        job.failed,
+                        world_scene_total
+                    );
+                }
             }
         }
-        let world_scene_total = self.model.world.scenes.len();
-        self.status_message = format!(
-            "Generated {generated}/{total} structural islands across {exterior_cells} exterior cells; world now contains {world_scene_total} scenes. Use Save All to persist."
-        );
+    }
+
+    pub(crate) fn generate_all_landmasses(&mut self) {
+        if self.background_world_generation_active() {
+            self.status_message =
+                "Development World generation is already running; press Esc to cancel it"
+                    .to_string();
+            return;
+        }
+        self.queue_all_landmasses_with_label("Generating all Development World landmasses".to_string());
     }
 
     fn generate_landmass_by_id(&mut self, landmass_id: i32) {
@@ -544,6 +793,7 @@ impl EditorApp {
             self.status_message = "Development World semantic bake has invalid bounds".to_string();
             return;
         };
+        clear_overview_landmass_selection();
         self.world_show_entire_world = true;
         self.viewport_mode = EditorViewportMode::SceneRectangles;
         let viewport = self.world_canvas_viewport_rect();
@@ -565,6 +815,7 @@ impl EditorApp {
         let Some(bounds) = world_scene_grid_bounds_for_landmass(manifest, landmass_id) else {
             return;
         };
+        clear_overview_landmass_selection();
         self.world_show_entire_world = false;
         let mut target: Option<Rect> = None;
         for entry in manifest.scene_rectangles.iter().filter(|entry| {

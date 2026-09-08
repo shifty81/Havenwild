@@ -84,4 +84,5 @@
     @{ Id='83'; Key='validation.compare-quality-gates'; Label='Compare latest Full Quality Gates'; Kind='QualityGateCompare'; Category='diagnostics'; Menu=@('logs'); MenuOrder=26; Args=@() }
     @{ Id='84'; Key='diagnostics.compiler-warnings'; Label='Compiler warning summary'; Kind='CompilerWarningSummary'; Category='diagnostics'; Menu=@('logs'); MenuOrder=28; Args=@() }
     @{ Id='85'; Key='validation.open-latest-fast-gate'; Label='Open latest Fast Development Gate record'; Kind='OpenArtifact'; Artifact='fast-gate'; Category='sessions'; Menu=@('logs'); MenuOrder=29; Args=@() }
+    @{ Id='86'; Key='project.shell'; Label='Project shell / command runner'; Kind='Script'; Script='ProjectShell.ps1'; Category='diagnostics'; Menu=@('project'); MenuOrder=35; Args=@() }
 )

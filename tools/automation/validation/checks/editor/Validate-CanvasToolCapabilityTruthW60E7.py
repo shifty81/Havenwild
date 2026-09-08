@@ -72,13 +72,39 @@ for group in ["visual", "gameplay", "animation", "guides"]:
     if group not in matrix.get("canonicalLayerGroups", {}):
         errors.append(f"capability matrix missing canonical layer group: {group}")
 
-handoff = read("manifests/handoffs/HAVENWILD_W60E7_PROJECT_WIDE_CANVAS_TOOL_AUDIT.md")
+# Clean-checkout rule:
+# historical handoff documents are intentionally excluded from Git source
+# authority. Validate the durable W60E7 decisions directly from the canonical
+# capability matrix instead of requiring an archived human-audit markdown file.
+rules = matrix.get("rules", {})
+if rules.get("enabledMeansExactAdapterExists") is not True:
+    errors.append("W60E7 durable rule missing: enabled tools require exact workspace/layer adapters")
+if rules.get("plainFIsFill") is not True:
+    errors.append("W60E7 durable rule missing: plain F belongs to contextual Fill")
+if matrix.get("authority") != "ToolRegistry + CanvasLayerStack + workspace adapter":
+    errors.append("W60E7 capability authority drifted from ToolRegistry + CanvasLayerStack + workspace adapter")
+
+workspaces = matrix.get("workspaces", {})
+character = workspaces.get("character_studio", {})
+logic = workspaces.get("logic_node_editor", {})
+scene = workspaces.get("scene_editor", {})
+
+if "shared_canvas_adapter" not in character.get("planned", []):
+    errors.append("W60E7 Character Studio migration contract missing shared_canvas_adapter")
+if "select" not in logic.get("planned", []) or "link_pins" not in logic.get("planned", []):
+    errors.append("W60E7 Logic Node Editor migration contract missing shared Select/Link vocabulary")
+if "legacy_right_tools_tab" not in scene.get("legacy", []):
+    errors.append("W60E7 Scene legacy Tools authority classification is missing")
+
+priority_gaps = " | ".join(matrix.get("priorityGaps", []))
 for marker in [
-    "A tool may be enabled", "Structural terrain round-trip defect",
-    "Character Studio", "Logic Node Editor", "E8 Tool Adapter Completion"
+    "remove legacy Scene right-side Tools authority",
+    "wire shared Move adapters",
+    "build real Character Studio compositing/publishing canvas",
+    "build Logic Node Editor",
 ]:
-    if marker not in handoff:
-        errors.append(f"W60E7 human audit missing: {marker}")
+    if marker not in priority_gaps:
+        errors.append(f"W60E7 durable priority gap missing from capability matrix: {marker}")
 
 if errors:
     print("FAIL: W60E7 Canvas tool capability truth")

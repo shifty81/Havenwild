@@ -1,65 +1,39 @@
 {
   "schema": "havenwild.pixel_editor_reference_workbench.v0_1",
-  "updated": "2026-07-09",
-  "purpose": "Defines how the future lightweight pixel editor panel can browse donor/reference assets while creating original Havenwild tilesets and metadata-backed prototype outputs.",
-  "defaultMode": "reference_side_by_side_no_raw_export",
+  "updated": "2026-09-08T01:45:51+00:00",
+  "purpose": "LPC slice/promotion workbench contract for the Art tab and future world editor mode.",
+  "defaultMode": "slice_promote",
   "allowedReferenceActions": [
-    "view_contact_sheet",
-    "view_grid_overlay",
-    "inspect_tile_size",
-    "pin_palette_for_manual_comparison",
-    "create_blank_havenwild_sheet_from_template",
-    "author_original_tile_metadata",
-    "link_result_to_transition_rule_or_asset_manifest"
+    "inspect_32x32_cell",
+    "copy_source_rect_metadata",
+    "promote_exact_cell_to_runtime_manifest"
   ],
   "blockedActions": [
-    "trace_restricted_asset_pixels",
-    "export_raw_donor_sheet",
-    "promote_noncommercial_free_pack_to_runtime",
-    "strip_source_attribution",
-    "bundle_quarantine_raw_assets_in_public_repo"
+    "trace_restricted_asset_pixels"
   ],
   "tileSetTemplates": [
     {
-      "id": "havenwild.terrain_32_blob47",
+      "id": "worldgen_terrain_32",
       "tileSize": [
         32,
         32
       ],
-      "target": "terrain/autotile/shoreline transition atlas",
+      "target": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
       "sourceReferenceFamilies": [
-        "terrain.water",
-        "terrain.grass",
-        "terrain.dirt",
-        "terrain.cliff",
-        "terrain.autotile"
+        "terrain.tileable"
       ]
     },
     {
-      "id": "havenwild.icons_32_recipe_inventory",
+      "id": "object_sprite_natural_scale",
       "tileSize": [
-        32,
-        32
+        160,
+        192
       ],
-      "target": "food/item/recipe icon atlas",
+      "target": "assets/generated/havenwild_lpc_objects_160x192_v2.json",
       "sourceReferenceFamilies": [
-        "icon.food",
-        "icon.item",
-        "icon.inventory"
-      ]
-    },
-    {
-      "id": "havenwild.objects_32x64_2p5d",
-      "tileSize": [
-        32,
-        64
-      ],
-      "target": "2.5D prop/furniture/object atlas",
-      "sourceReferenceFamilies": [
-        "object.fences",
-        "object.chairs",
-        "object.chests",
-        "reference.furniture_style"
+        "object",
+        "structure",
+        "terrain.tree"
       ]
     }
   ],

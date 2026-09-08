@@ -57,6 +57,31 @@ def cargo_entries(names: list[str]) -> list[dict[str, Any]]:
 def profile_entries(profile_name: str, domain_filter: set[str] | None) -> list[dict[str, Any]]:
     registry = load_registry(REGISTRY)
     entries = [entry for entry in registry["validators"] if profile_name in entry.get("profiles", [])]
+    if profile_name == "source":
+        # Source validation must be reproducible from a clean GitHub checkout.
+        # Validators whose declared prerequisites live only in machine-local or
+        # intentionally excluded historical roots belong to full/framework
+        # certification, never the current-source profile.
+        excluded_source_roots = (
+            "workspace/",
+            ".local/",
+            ".havenwild/",
+            "logs/",
+            "target/",
+            "build/",
+            "docs/archive/",
+            "docs/handoffs/",
+            "manifests/handoffs/",
+            "manifests/recovery/",
+            "archive/",
+        )
+        def current_source_entry(entry: dict[str, Any]) -> bool:
+            for item in entry.get("requires", []):
+                normalized = str(item).replace("\\", "/").lstrip("./").lower()
+                if normalized.startswith(excluded_source_roots):
+                    return False
+            return True
+        entries = [entry for entry in entries if current_source_entry(entry)]
     if domain_filter:
         entries = [entry for entry in entries if entry["domain"] in domain_filter]
     legacy = load_json(LEGACY_MANIFEST)
