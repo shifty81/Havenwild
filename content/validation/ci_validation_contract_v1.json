@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.ci_validation_contract.v1",
+  "version": 1,
+  "entrypoint": "tools/automation/validation/check_current.py",
+  "commands": {
+    "build": [
+      "python",
+      "tools/automation/validation/check_current.py",
+      "build"
+    ],
+    "source": [
+      "python",
+      "tools/automation/validation/check_current.py",
+      "source"
+    ],
+    "framework": [
+      "python",
+      "tools/automation/validation/check_current.py",
+      "framework"
+    ],
+    "full": [
+      "python",
+      "tools/automation/validation/check_current.py",
+      "full"
+    ]
+  },
+  "policy": {
+    "ciUsesSameRunnerAsLocal": true,
+    "normalBuildDoesNotImplyFullCertification": true,
+    "historicalChecksRequireExplicitFull": true
+  }
+}

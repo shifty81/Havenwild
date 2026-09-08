@@ -1,0 +1,41 @@
+{
+  "schema": "havenwild.validation.profiles.v4",
+  "version": "4.0",
+  "authority": "content/build/validator_registry_v4.json",
+  "policy": {
+    "normalBuildValidatorCount": 2,
+    "sourceValidationValidatorCount": 10,
+    "frameworkAuditValidatorCount": 4,
+    "historicalValidatorsImplicit": false,
+    "fullCertificationOwnsHistoricalValidators": true,
+    "sourceMustWorkFromCleanCheckout": true
+  },
+  "profiles": {
+    "quick": {
+      "count": 2,
+      "description": "Alias-equivalent lightweight pre-Cargo validation."
+    },
+    "build": {
+      "count": 2,
+      "description": "Repository layout plus Havenwild-owned content parsing only."
+    },
+    "source": {
+      "count": 10,
+      "description": "Bounded current-authority validation; never accumulates pass-specific validators."
+    },
+    "framework": {
+      "count": 4,
+      "description": "Current validation framework integrity only."
+    },
+    "full": {
+      "count": null,
+      "description": "Explicit historical/subsystem certification plus Rust toolchain gates.",
+      "cargo": [
+        "fmt-check",
+        "check",
+        "clippy",
+        "test"
+      ]
+    }
+  }
+}

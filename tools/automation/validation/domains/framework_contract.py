@@ -1,27 +1,97 @@
 from __future__ import annotations
-import json,time
+import json
+import time
 from pathlib import Path
+from validation.registry import load_registry
 from validation.result import ValidationIssue, ValidationResult
 
-def validate(entry,root:Path):
+REGISTRY = Path("content/build/validator_registry_v4.json")
+PROFILES = Path("content/build/validation_profiles_v4.json")
+EXPECTED_SOURCE = {
+    "architecture.foundation.validate_development_layout",
+    "architecture.foundation.validate_architecture",
+    "content.foundation.validate_content",
+    "content.integrity.current-contract",
+    "architecture.validation.framework-contract",
+    "runtime.publication.contract",
+    "architecture.validation.evidence-contract",
+    "architecture.validation.root-intake-contract",
+    "architecture.validation.ci-contract",
+    "architecture.validation.docs-contract",
+}
+EXPECTED_FRAMEWORK = {
+    "architecture.foundation.validate_development_layout",
+    "architecture.validation.framework-contract",
+    "architecture.validation.registry-contract",
+    "architecture.validation.runner-contract",
+}
+EXPECTED_BUILD = {
+    "architecture.foundation.validate_development_layout",
+    "content.foundation.validate_content",
+}
+
+
+def _result(entry, started, issues, evidence):
+    return ValidationResult(entry["id"], entry["name"], "failed" if issues else "passed", entry["domain"], entry["phase"], time.time()-started, 1 if issues else 0, issues, evidence)
+
+
+def _load(root: Path):
+    return load_registry(root / REGISTRY), json.loads((root / PROFILES).read_text(encoding="utf-8"))
+
+
+def validate(entry, root: Path):
     started=time.time(); issues=[]; evidence=[]
-    reg_path=root/'content/build/validator_registry_v3.json'
-    try: reg=json.loads(reg_path.read_text(encoding='utf-8'))
+    try:
+        reg, profiles = _load(root)
     except Exception as exc:
-        return ValidationResult(entry['id'],entry['name'],'failed',entry['domain'],entry['phase'],time.time()-started,1,[ValidationIssue('HWV-MANIFEST-001',str(exc),path=str(reg_path))],[])
-    vals=reg.get('validators',[]); ids=[v.get('id') for v in vals]
-    if reg.get('schema')!='havenwild.validator.registry.v4': issues.append(ValidationIssue('HWV-MANIFEST-001','registry v4 schema required'))
-    if len(ids)!=len(set(ids)): issues.append(ValidationIssue('HWV-MANIFEST-001','duplicate validator IDs'))
-    profile_counts={name:sum(name in v.get('profiles',[]) for v in vals) for name in ('build','source','framework','full')}
-    if profile_counts['build']!=2: issues.append(ValidationIssue('HWV-QUALITY-001','normal build must use exactly two validators',details=profile_counts))
-    if profile_counts['source']!=4: issues.append(ValidationIssue('HWV-QUALITY-001','source validation must use exactly four validators',details=profile_counts))
-    if profile_counts['framework']!=4: issues.append(ValidationIssue('HWV-QUALITY-001','framework audit must use exactly four validators',details=profile_counts))
-    native=[v for v in vals if v.get('runner')=='native']
-    domain_native=[v for v in native if v.get('id') in {'terrain.runtime.contract','terrain.water.lifecycle','terrain.promotion.contract','editor.authoring.contract','world.foundation.contract'}]
-    if len(domain_native)!=5: issues.append(ValidationIssue('HWV-QUALITY-001','five native consolidated domain validators required'))
-    if any(v.get('read_only',True) is not True for v in vals): issues.append(ValidationIssue('HWV-QUALITY-001','active validators must be read-only'))
-    runner=(root/'tools/automation/validation/validation_runner.py').read_text(encoding='utf-8')
-    for token in ('invoke_native','readonly_snapshot','HWV-QUALITY-001','validator_registry_v3.json'):
-        if token not in runner: issues.append(ValidationIssue('HWV-QUALITY-001',f'runner missing {token}'))
-    evidence=[f"build={profile_counts['build']}",f"source={profile_counts['source']}",f"framework={profile_counts['framework']}",f"full={profile_counts['full']}",f'native={len(native)}']
-    return ValidationResult(entry['id'],entry['name'],'failed' if issues else 'passed',entry['domain'],entry['phase'],time.time()-started,1 if issues else 0,issues,evidence)
+        return _result(entry, started, [ValidationIssue("HWV-MANIFEST-001", str(exc), path=str(REGISTRY))], [])
+    vals=reg.get("validators", [])
+    if reg.get("schema") != "havenwild.validator.registry.v4":
+        issues.append(ValidationIssue("HWV-MANIFEST-001", "resolved registry v4 schema required"))
+    counts={name:sum(name in v.get("profiles",[]) for v in vals) for name in ("build","quick","source","framework","full")}
+    expected={"build":2,"quick":2,"source":10,"framework":4}
+    for name,count in expected.items():
+        if counts[name] != count:
+            issues.append(ValidationIssue("HWV-QUALITY-001", f"{name} profile must contain exactly {count} validators", details=counts))
+    assignments={name:{v["id"] for v in vals if name in v.get("profiles",[])} for name in ("build","source","framework")}
+    if assignments["build"] != EXPECTED_BUILD: issues.append(ValidationIssue("HWV-QUALITY-001", "build profile authority drift", details={"actual":sorted(assignments["build"])}))
+    if assignments["source"] != EXPECTED_SOURCE: issues.append(ValidationIssue("HWV-QUALITY-001", "source profile authority drift", details={"actual":sorted(assignments["source"])}))
+    if assignments["framework"] != EXPECTED_FRAMEWORK: issues.append(ValidationIssue("HWV-QUALITY-001", "framework profile authority drift", details={"actual":sorted(assignments["framework"])}))
+    if any(v.get("read_only", True) is not True for v in vals if set(v.get("profiles",[])) & {"build","quick","source","framework"}):
+        issues.append(ValidationIssue("HWV-QUALITY-001", "live validators must be read-only"))
+    overlay=json.loads((root/REGISTRY).read_text(encoding="utf-8"))
+    if overlay.get("baseRegistry") != "content/build/validator_registry_v3.json": issues.append(ValidationIssue("HWV-MANIFEST-001", "v4 must preserve v3 as historical/full compatibility base"))
+    if set(overlay.get("stripProfilesFromBase",[])) != {"build","quick","source","framework"}: issues.append(ValidationIssue("HWV-QUALITY-001", "v4 must quarantine base validators from live profiles"))
+    policy=profiles.get("policy",{})
+    if policy.get("sourceValidationValidatorCount") != 10 or policy.get("normalBuildValidatorCount") != 2 or policy.get("frameworkAuditValidatorCount") != 4:
+        issues.append(ValidationIssue("HWV-MANIFEST-001", "profile policy counts disagree with v4 authority"))
+    evidence=[f"build={counts['build']}",f"source={counts['source']}",f"framework={counts['framework']}",f"full={counts['full']}",f"total={len(vals)}"]
+    return _result(entry, started, issues, evidence)
+
+
+def validate_registry_quality(entry, root: Path):
+    started=time.time(); issues=[]; evidence=[]
+    try: reg,_=_load(root)
+    except Exception as exc: return _result(entry, started, [ValidationIssue("HWV-MANIFEST-001",str(exc),path=str(REGISTRY))], [])
+    vals=reg.get("validators",[]); ids=[v.get("id") for v in vals]
+    if len(ids)!=len(set(ids)): issues.append(ValidationIssue("HWV-MANIFEST-001","duplicate validator IDs"))
+    valid_runners={"native","process"}
+    for v in vals:
+        if v.get("runner") not in valid_runners: issues.append(ValidationIssue("HWV-MANIFEST-001",f"unsupported runner for {v.get('id')}"))
+        if v.get("runner")=="native" and not v.get("module"): issues.append(ValidationIssue("HWV-MANIFEST-001",f"native validator missing module: {v.get('id')}"))
+        if v.get("runner")=="process" and not v.get("command"): issues.append(ValidationIssue("HWV-MANIFEST-001",f"process validator missing command: {v.get('id')}"))
+    evidence=[f"validatedIds={len(ids)}",f"native={sum(v.get('runner')=='native' for v in vals)}",f"process={sum(v.get('runner')=='process' for v in vals)}"]
+    return _result(entry, started, issues, evidence)
+
+
+def validate_runner_contract(entry, root: Path):
+    started=time.time(); issues=[]; evidence=[]
+    runner_path=root/"tools/automation/validation/validation_runner.py"
+    text=runner_path.read_text(encoding="utf-8")
+    required=("validator_registry_v4.json","validation_profiles_v4.json","resolve_profile","invoke_native","readonly_snapshot","havenwild.validation.report.v3")
+    for token in required:
+        if token not in text: issues.append(ValidationIssue("HWV-QUALITY-001",f"runner missing {token}",path=str(runner_path.relative_to(root))))
+    old_authority='REGISTRY = ROOT / "content/build/validator_registry_v3.json"'
+    if old_authority in text: issues.append(ValidationIssue("HWV-QUALITY-001","runner still declares v3 as current registry"))
+    evidence=[f"runner={runner_path.relative_to(root)}",f"tokens={len(required)}"]
+    return _result(entry, started, issues, evidence)

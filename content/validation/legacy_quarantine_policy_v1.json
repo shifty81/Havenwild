@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.validation.legacy_quarantine_policy.v1",
+  "version": 1,
+  "historicalValidatorRoot": "tools/automation/validation/checks",
+  "legacyManifestRoots": [
+    "manifests/validation/legacy",
+    "docs/archive/pass_history"
+  ],
+  "allowedImplicitProfiles": [
+    "full"
+  ],
+  "forbiddenLiveProfiles": [
+    "build",
+    "quick",
+    "source",
+    "framework"
+  ],
+  "policy": {
+    "deleteHistoricalValidators": false,
+    "deleteHistoricalEvidence": false,
+    "historicalChecksAreSourceAuthority": false,
+    "fullCertificationMayInvokeHistoricalChecks": true
+  }
+}

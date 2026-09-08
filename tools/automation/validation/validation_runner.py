@@ -12,10 +12,9 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[3]
-# The shared validator framework is canonical under tools/automation/validation.
-# Pass 167Z43 migrates any retired root SCRIPTS package before validation starts.
 sys.path.insert(0, str(ROOT / "tools/automation"))
 
+from validation.aliases import resolve_profile
 from validation.context import ValidationContext
 from validation.registry import load_registry, topological_order
 from validation.reporting import write_combined_report
@@ -23,8 +22,8 @@ from validation.result import ValidationIssue, ValidationResult
 from validation.native import invoke as invoke_native
 from validation.readonly import snapshot as readonly_snapshot, changed as readonly_changed
 
-LEGACY_MANIFEST = ROOT / "content/validation/validation_manifest_v1.json"
-REGISTRY = ROOT / "content/build/validator_registry_v3.json"
+REGISTRY = ROOT / "content/build/validator_registry_v4.json"
+PROFILES = ROOT / "content/build/validation_profiles_v4.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -49,6 +48,7 @@ def cargo_entries(names: list[str]) -> list[dict[str, Any]]:
             "severity": "error", "runner": "process", "command": commands[name],
             "order": 10000 + offset, "profiles": ["full"], "requires": [],
             "depends_on": [] if offset == 0 else [f"rust.compile.{names[offset-1]}"],
+            "read_only": True,
         }
         for offset, name in enumerate(names)
     ]
@@ -57,36 +57,11 @@ def cargo_entries(names: list[str]) -> list[dict[str, Any]]:
 def profile_entries(profile_name: str, domain_filter: set[str] | None) -> list[dict[str, Any]]:
     registry = load_registry(REGISTRY)
     entries = [entry for entry in registry["validators"] if profile_name in entry.get("profiles", [])]
-    if profile_name == "source":
-        # Source validation must be reproducible from a clean GitHub checkout.
-        # Validators whose declared prerequisites live only in machine-local or
-        # intentionally excluded historical roots belong to full/framework
-        # certification, never the current-source profile.
-        excluded_source_roots = (
-            "workspace/",
-            ".local/",
-            ".havenwild/",
-            "logs/",
-            "target/",
-            "build/",
-            "docs/archive/",
-            "docs/handoffs/",
-            "manifests/handoffs/",
-            "manifests/recovery/",
-            "archive/",
-        )
-        def current_source_entry(entry: dict[str, Any]) -> bool:
-            for item in entry.get("requires", []):
-                normalized = str(item).replace("\\", "/").lstrip("./").lower()
-                if normalized.startswith(excluded_source_roots):
-                    return False
-            return True
-        entries = [entry for entry in entries if current_source_entry(entry)]
     if domain_filter:
         entries = [entry for entry in entries if entry["domain"] in domain_filter]
-    legacy = load_json(LEGACY_MANIFEST)
+    profiles = load_json(PROFILES)["profiles"]
     if profile_name == "full":
-        entries.extend(cargo_entries(legacy["profiles"]["full"].get("cargo", [])))
+        entries.extend(cargo_entries(profiles["full"].get("cargo", [])))
     return topological_order(entries)
 
 
@@ -96,8 +71,7 @@ def run_entry(entry: dict[str, Any], context: ValidationContext, prior: dict[str
     if failed_dependencies:
         return ValidationResult(
             validator_id=entry["id"], name=entry["name"], status="skipped",
-            domain=entry["domain"], phase=entry["phase"],
-            duration_seconds=time.time() - started,
+            domain=entry["domain"], phase=entry["phase"], duration_seconds=time.time() - started,
             issues=[ValidationIssue("HWV-DEPENDENCY-001", "validator dependency did not pass")],
             skipped_because=failed_dependencies,
         )
@@ -106,8 +80,7 @@ def run_entry(entry: dict[str, Any], context: ValidationContext, prior: dict[str
     if missing:
         return ValidationResult(
             validator_id=entry["id"], name=entry["name"], status="failed",
-            domain=entry["domain"], phase=entry["phase"],
-            duration_seconds=time.time() - started,
+            domain=entry["domain"], phase=entry["phase"], duration_seconds=time.time() - started,
             issues=[ValidationIssue("HWV-PREREQ-001", "required source prerequisite is missing", details={"missing": missing})],
         )
 
@@ -122,9 +95,8 @@ def run_entry(entry: dict[str, Any], context: ValidationContext, prior: dict[str
         issues = [] if status == "passed" else [ValidationIssue("HWV-PROCESS-001", "validator process returned a non-zero exit code", details={"exitCode": completed.returncode})]
         result = ValidationResult(
             validator_id=entry["id"], name=entry["name"], status=status,
-            domain=entry["domain"], phase=entry["phase"],
-            duration_seconds=time.time() - started, exit_code=completed.returncode,
-            issues=issues, evidence=[" ".join(command)],
+            domain=entry["domain"], phase=entry["phase"], duration_seconds=time.time() - started,
+            exit_code=completed.returncode, issues=issues, evidence=[" ".join(command)],
         )
     if before is not None:
         modified = readonly_changed(before, readonly_snapshot(context.root))
@@ -137,24 +109,27 @@ def run_entry(entry: dict[str, Any], context: ValidationContext, prior: dict[str
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Unified Havenwild validation runner")
+    parser = argparse.ArgumentParser(description="Unified Havenwild validation runner v4")
     parser.add_argument("profile", nargs="?", default="source")
     parser.add_argument("--domain", action="append", choices=["architecture", "content", "world", "editor"])
     parser.add_argument("--continue-on-error", action="store_true")
     parser.add_argument("--list", action="store_true")
     args = parser.parse_args()
 
-    legacy = load_json(LEGACY_MANIFEST)
-    if args.profile not in legacy["profiles"]:
-        parser.error(f"unknown profile {args.profile!r}; choose from {sorted(legacy['profiles'])}")
-
     try:
-        entries = profile_entries(args.profile, set(args.domain or []))
+        requested_profile = args.profile
+        profile_name = resolve_profile(ROOT, requested_profile)
+        profiles = load_json(PROFILES)["profiles"]
+        if profile_name not in profiles:
+            parser.error(f"unknown profile {requested_profile!r}; choose from {sorted(profiles)}")
+        entries = profile_entries(profile_name, set(args.domain or []))
     except Exception as exc:
         print(f"HWV-MANIFEST-001 {exc}")
         return 2
 
     if args.list:
+        if requested_profile != profile_name:
+            print(f"alias {requested_profile} -> {profile_name}")
         for entry in entries:
             deps = ",".join(entry.get("depends_on", [])) or "-"
             print(f"{entry['order']:05d} {entry['domain']:12} {entry['id']} deps={deps}")
@@ -174,10 +149,9 @@ def main() -> int:
 
     summary = {status: sum(1 for item in results if item["status"] == status) for status in ("passed", "failed", "skipped")}
     report = {
-        "schema": "havenwild.validation.report.v2", "profile": args.profile,
-        "registry": str(REGISTRY.relative_to(ROOT)),
-        "status": "failed" if summary["failed"] else "passed",
-        "startedAt": started.isoformat(),
+        "schema": "havenwild.validation.report.v3", "profile": profile_name,
+        "requestedProfile": requested_profile, "registry": str(REGISTRY.relative_to(ROOT)),
+        "status": "failed" if summary["failed"] else "passed", "startedAt": started.isoformat(),
         "durationSeconds": round((dt.datetime.now(dt.timezone.utc) - started).total_seconds(), 3),
         "summary": summary, "tasks": results,
     }

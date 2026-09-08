@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.validation.authority.v4",
+  "version": "4.0",
+  "updated": "2026-09-08",
+  "registry": "content/build/validator_registry_v4.json",
+  "profiles": "content/build/validation_profiles_v4.json",
+  "aliases": "content/validation/validator_aliases_v1.json",
+  "runner": "tools/automation/validation/validation_runner.py",
+  "contracts": {
+    "runtimePublication": "content/runtime_media_manifest_v1.json",
+    "evidenceReceipts": "content/validation/evidence_receipt_contract_v1.json",
+    "rootPatchIntake": "content/architecture/root_patch_intake_contract_v1.json",
+    "ci": "content/validation/ci_validation_contract_v1.json",
+    "legacyQuarantine": "content/validation/legacy_quarantine_policy_v1.json"
+  },
+  "historicalBaseRegistry": "content/build/validator_registry_v3.json",
+  "rules": [
+    "Build and quick stay at exactly two validators.",
+    "Source stays at exactly ten current-authority validators.",
+    "Framework stays at exactly four current framework validators.",
+    "Historical/pass validators are explicit full certification only.",
+    "Historical evidence remains preserved and non-authoritative."
+  ]
+}

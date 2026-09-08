@@ -1,0 +1,212 @@
+{
+  "schema": "havenwild.validator.registry.v4",
+  "version": "4.0",
+  "baseRegistry": "content/build/validator_registry_v3.json",
+  "policy": {
+    "currentAuthority": "content/build/validator_registry_v4.json",
+    "baseRegistryRole": "historical/full-certification compatibility source",
+    "validatorsReadOnlyByDefault": true,
+    "normalBuildValidatorCount": 2,
+    "sourceValidationValidatorCount": 10,
+    "frameworkAuditValidatorCount": 4,
+    "historicalChecksLiveOnlyInFull": true,
+    "doNotDeleteHistoricalEvidence": true,
+    "cleanCheckoutSourceValidation": true,
+    "quarantinedHistoricalDependencyDriftIsNonBlocking": true
+  },
+  "stripProfilesFromBase": [
+    "build",
+    "quick",
+    "source",
+    "framework"
+  ],
+  "profileAssignments": {
+    "build": [
+      "architecture.foundation.validate_development_layout",
+      "content.foundation.validate_content"
+    ],
+    "quick": [
+      "architecture.foundation.validate_development_layout",
+      "content.foundation.validate_content"
+    ],
+    "source": [
+      "architecture.foundation.validate_development_layout",
+      "architecture.foundation.validate_architecture",
+      "content.foundation.validate_content",
+      "content.integrity.current-contract",
+      "architecture.validation.framework-contract",
+      "runtime.publication.contract",
+      "architecture.validation.evidence-contract",
+      "architecture.validation.root-intake-contract",
+      "architecture.validation.ci-contract",
+      "architecture.validation.docs-contract"
+    ],
+    "framework": [
+      "architecture.foundation.validate_development_layout",
+      "architecture.validation.framework-contract",
+      "architecture.validation.registry-contract",
+      "architecture.validation.runner-contract"
+    ]
+  },
+  "addValidators": [
+    {
+      "id": "architecture.validation.framework-contract",
+      "name": "Current Validation Framework Contract",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.framework_contract",
+      "function": "validate",
+      "order": 40,
+      "profiles": [],
+      "requires": [
+        "content/build/validator_registry_v4.json",
+        "content/build/validation_profiles_v4.json"
+      ],
+      "depends_on": [
+        "architecture.foundation.validate_development_layout"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation.registry-contract",
+      "name": "Validator Registry V4 Quality Contract",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.framework_contract",
+      "function": "validate_registry_quality",
+      "order": 50,
+      "profiles": [],
+      "requires": [
+        "content/build/validator_registry_v4.json"
+      ],
+      "depends_on": [
+        "architecture.validation.framework-contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation.runner-contract",
+      "name": "Validation Runner V4 Contract",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.framework_contract",
+      "function": "validate_runner_contract",
+      "order": 60,
+      "profiles": [],
+      "requires": [
+        "tools/automation/validation/validation_runner.py"
+      ],
+      "depends_on": [
+        "architecture.validation.registry-contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "runtime.publication.contract",
+      "name": "Required Runtime Media Publication Contract",
+      "domain": "content",
+      "phase": "publication",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.normalization_contracts",
+      "function": "validate_runtime_publication",
+      "order": 50,
+      "profiles": [],
+      "requires": [
+        "content/runtime_media_manifest_v1.json",
+        "tools/control/HavenwildGateAuthority.py"
+      ],
+      "depends_on": [
+        "content.integrity.current-contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation.evidence-contract",
+      "name": "Validation Evidence and Receipt Contract",
+      "domain": "architecture",
+      "phase": "evidence",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.normalization_contracts",
+      "function": "validate_evidence_contract",
+      "order": 60,
+      "profiles": [],
+      "requires": [
+        "content/validation/evidence_receipt_contract_v1.json"
+      ],
+      "depends_on": [
+        "runtime.publication.contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation.root-intake-contract",
+      "name": "Root Patch Intake Validation Contract",
+      "domain": "architecture",
+      "phase": "patch-intake",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.normalization_contracts",
+      "function": "validate_root_intake_contract",
+      "order": 70,
+      "profiles": [],
+      "requires": [
+        "content/architecture/root_patch_intake_contract_v1.json",
+        "tools/control/InvokeRootPatchIntake.ps1"
+      ],
+      "depends_on": [
+        "architecture.validation.evidence-contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation.ci-contract",
+      "name": "CI and Check Wrapper Contract",
+      "domain": "architecture",
+      "phase": "ci",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.normalization_contracts",
+      "function": "validate_ci_contract",
+      "order": 80,
+      "profiles": [],
+      "requires": [
+        "content/validation/ci_validation_contract_v1.json",
+        "tools/automation/validation/check_current.py"
+      ],
+      "depends_on": [
+        "architecture.validation.root-intake-contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation.docs-contract",
+      "name": "Validation Authority and Documentation Contract",
+      "domain": "architecture",
+      "phase": "documentation",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.normalization_contracts",
+      "function": "validate_docs_contract",
+      "order": 90,
+      "profiles": [],
+      "requires": [
+        "content/validation/validation_authority_v4.json",
+        "content/validation/legacy_quarantine_policy_v1.json",
+        "content/validation/validator_aliases_v1.json",
+        "docs/current/VALIDATION.md"
+      ],
+      "depends_on": [
+        "architecture.validation.ci-contract"
+      ],
+      "read_only": true
+    }
+  ]
+}

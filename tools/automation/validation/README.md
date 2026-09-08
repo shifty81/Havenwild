@@ -1,27 +1,28 @@
 # Havenwild validation
 
-The validation system is deliberately split by purpose so normal development is not blocked by historical certification machinery.
+Havenwild validation v4 separates current development gates from historical certification so old pass machinery cannot silently become a normal build dependency.
+
+## Current authority
+
+- Registry: `content/build/validator_registry_v4.json`
+- Profile policy: `content/build/validation_profiles_v4.json`
+- Aliases/deprecations: `content/validation/validator_aliases_v1.json`
+- Runner: `tools/automation/validation/validation_runner.py`
+- Stable local/CI wrapper: `tools/automation/validation/check_current.py`
+
+The v4 registry is a thin overlay over `validator_registry_v3.json`. The v3 registry remains preserved as historical/full-certification evidence; v4 strips its `build`, `quick`, `source`, and `framework` memberships and explicitly assigns current authorities. New validators therefore do not require rewriting or deleting the historical registry.
 
 ## Profiles
 
-- `build` / `quick` — **2 lightweight gates** used by normal builds:
-  1. repository/development layout;
-  2. Havenwild-owned JSON parsing and ownership scope.
-- `source` — **10 current-authority gates** used by the **Validate current source** menu command. The set is intentionally bounded: newer normalization authority replaces the previous pass-specific source gate rather than accumulating historical gates.
-- `framework` — **4 framework-only gates** for validator self-tests and quality checks.
-- `full` — explicit certification profile containing the registered historical/subsystem checks plus Cargo format/check/Clippy/tests. It is never run implicitly by `Build all`.
+- `build` / `quick` — **2 lightweight gates**: repository/development layout and Havenwild-owned content parsing.
+- `source` — **10 current-authority gates**. This is intentionally bounded and clean-checkout reproducible.
+- `framework` — **4 current framework gates**.
+- `full` — explicit historical/subsystem certification plus Cargo fmt/check/Clippy/tests. It is never an implicit normal build gate.
 
-## Entry points
+## Source authority checks
 
-- `validation_runner.py` — authoritative profile runner.
-- `validate_development_layout.py` — repository and tooling layout.
-- `validate_architecture.py` — Rust module size and architecture policy.
-- `validate_project_content.py` — Havenwild-owned JSON scope and parsing.
-- `validate_content_integrity.py` — current gameplay/asset contracts.
-- `validate_terrain_topology_v167z5.py` — explicit terrain evidence certification.
-
-Compatibility wrappers remain for older commands, but they do not add gates to normal builds.
+The ten source checks cover repository layout, architecture, owned content parsing, content integrity, the validation framework contract, required runtime-media publication, evidence/receipt policy, transactional root patch intake, CI/check entrypoints, and validation documentation/legacy quarantine.
 
 ## Historical checks
 
-Pass-specific validators remain under `checks/<domain>/` for diagnosis, source archaeology, and explicit certification. Their presence does not activate them during normal builds.
+Pass-specific validators remain under `tools/automation/validation/checks/` and historical manifests/evidence remain in their existing archive/manifests locations. They are preserved for diagnosis and explicit `full` certification but are not live build/source/framework authorities.

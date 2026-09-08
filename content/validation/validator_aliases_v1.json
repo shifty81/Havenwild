@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.validator.aliases.v1",
+  "version": 1,
+  "profiles": {
+    "all": "source",
+    "assets": "source",
+    "terrain-v7": "source",
+    "water": "source",
+    "character": "source",
+    "worldgen": "source",
+    "saves": "source",
+    "editor-runtime": "source",
+    "architecture": "source",
+    "licenses": "source",
+    "validation": "source",
+    "current": "source",
+    "certify": "full"
+  },
+  "deprecatedAuthorities": {
+    "content/build/validator_registry_v3.json": "content/build/validator_registry_v4.json",
+    "architecture.validation-framework.validate_validationframeworkselftestsv146b": "architecture.validation.registry-contract",
+    "architecture.validation-framework.native-contract-v146c": "architecture.validation.framework-contract",
+    "architecture.validation-quality.validate_validatorqualityv146": "architecture.validation.runner-contract"
+  },
+  "policy": "Aliases preserve command compatibility only; deprecated validator IDs remain available exclusively through full historical certification."
+}
