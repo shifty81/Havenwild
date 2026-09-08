@@ -1,0 +1,21 @@
+[package]
+name = "haven_game"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+haven_ecs = { path = "../haven_ecs" }
+haven_authoring = { path = "../haven_authoring" }
+macroquad.workspace = true
+haven_assets = { path = "../haven_assets" }
+haven_core = { path = "../haven_core" }
+haven_net = { path = "../haven_net" }
+haven_render = { path = "../haven_render" }
+haven_save = { path = "../haven_save" }
+haven_sim = { path = "../haven_sim" }
+haven_world = { path = "../haven_world" }
+
+serde.workspace = true
+serde_json.workspace = true
+image.workspace = true

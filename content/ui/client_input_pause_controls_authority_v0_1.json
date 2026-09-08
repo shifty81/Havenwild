@@ -1,0 +1,126 @@
+{
+  "schema": "havenwild.client_input_pause_controls_authority.v0_1",
+  "revision": "167Z109W15A-input-pause-controller-foundation-v1",
+  "pass": "Pass167Z109W15A",
+  "status": "milestone_subpass_pending_windows_build",
+  "goals": [
+    "replace direct gameplay keyboard/mouse checks with semantic control actions for primary player movement and interaction paths",
+    "keep keyboard, mouse, and controller active simultaneously",
+    "provide a true single-player simulation pause behind the ESC menu",
+    "provide in-game Controls and Controller settings with persistent local rebinding",
+    "show live controller button-to-action mappings in the controller settings page",
+    "ensure Punch and Watering use explicit semantic animation caches rather than compositor-time Thrust fallback"
+  ],
+  "input": {
+    "semanticActions": [
+      "move_up",
+      "move_down",
+      "move_left",
+      "move_right",
+      "sprint",
+      "interact",
+      "primary_action",
+      "secondary_action",
+      "previous_tool",
+      "next_tool",
+      "inventory",
+      "map",
+      "rest",
+      "emote",
+      "pause",
+      "confirm",
+      "cancel"
+    ],
+    "simultaneousDevices": true,
+    "promptStyle": [
+      "auto",
+      "keyboard_mouse",
+      "controller"
+    ],
+    "promptStyleAffectsAcceptance": false,
+    "promptStylePolicy": "prompt presentation only; it never disables another input device",
+    "analogMovement": "left stick magnitude is preserved after configurable radial deadzone",
+    "menuNavigation": "keyboard, D-pad, left-stick threshold, and mouse are accepted",
+    "windowsControllerBackend": "XInputGetState via xinput9_1_0 for v1; semantic action layer remains backend-neutral for later controller backends",
+    "nonWindowsControllerBackend": "stub/no controller input in this subpass",
+    "settingsPath": "WORKSPACE/client/control_settings.json",
+    "settingsPersistence": "local project/runtime workspace only"
+  },
+  "pauseMenu": {
+    "singlePlayerSimulationPause": true,
+    "pausedSystems": [
+      "day_clock",
+      "player_update",
+      "npc_customer_update",
+      "station_processing",
+      "character_autosave_tick",
+      "surface_chunk_jobs"
+    ],
+    "pages": [
+      "main",
+      "settings",
+      "controls",
+      "controller"
+    ],
+    "settingsShellStagedPages": [
+      "gameplay",
+      "audio",
+      "video_display",
+      "interface",
+      "accessibility"
+    ],
+    "mainActions": [
+      "resume",
+      "save_game",
+      "settings",
+      "save_and_main_menu",
+      "save_and_quit_desktop"
+    ]
+  },
+  "controllerSettings": {
+    "diagram": "schematic live mapping; labels are derived from current bindings, and the left stick explicitly shows analog Move alongside its separately rebindable stick-click action",
+    "deadzoneAdjustable": true,
+    "resetAll": true,
+    "keyboardMouseRemainActive": true,
+    "deviceSpecificGlyphArt": "deferred until a broader controller backend/device identification pass"
+  },
+  "gameplayCoverage": {
+    "movement": true,
+    "sprint": true,
+    "interact": true,
+    "primaryToolAction": true,
+    "hotbarCycle": true,
+    "inventoryOpenCloseAndBasicNavigation": true,
+    "worldMapOpenCloseAndPan": true,
+    "stationInteraction": true,
+    "stationPlacementConfirmCancel": true,
+    "pauseAndSettings": true,
+    "titleFrontendControllerNavigation": "deferred",
+    "advancedInventoryStationQueueControllerShortcuts": "deferred"
+  },
+  "animation": {
+    "punch": {
+      "intent": "Punch",
+      "semanticCache": "*_punch_64.png",
+      "approvedSourceMotion": "thrust",
+      "compositorFallbackToThrust": false
+    },
+    "watering": {
+      "intent": "Watering",
+      "semanticCache": "*_watering_64.png",
+      "approvedSourceMotion": "thrust",
+      "compositorFallbackToThrust": false
+    },
+    "cacheMaterialization": "semantic cache PNGs are byte-identical copies of the already-generated approved Thrust source-motion cache; no new pixels are authored",
+    "climb": "recognized by runtime/generator but ladder traversal activation remains W15 cliff-closeout work"
+  },
+  "explicitlyOutOfScope": [
+    "cliff geometry or source-role changes",
+    "cave work",
+    "ladder traversal implementation",
+    "new complete-source baseline promotion",
+    "Steam Input",
+    "PlayStation/Nintendo/native generic HID identification"
+  ],
+  "baselinePolicy": "W15A remains cumulative from Pass167Z59; promote a new baseline only after the complete W15 cliff milestone passes Windows build and visual acceptance"
+}

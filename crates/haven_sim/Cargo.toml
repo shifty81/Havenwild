@@ -1,0 +1,11 @@
+[package]
+name = "haven_sim"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+haven_ecs = { path = "../haven_ecs" }
+haven_core = { path = "../haven_core" }
+haven_world = { path = "../haven_world" }
+macroquad.workspace = true

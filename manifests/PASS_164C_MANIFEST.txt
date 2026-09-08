@@ -1,0 +1,14 @@
+Havenwild Pass 164C — cumulative overwrite patch
+Base lineage: Havenwild Complete Source Rollup Pass 164A
+Carries forward: 164B1, 164B2, 164B3
+
+Primary 164C files:
+OVERWRITE apps/haven_editor_native/src/app/sprite_workspace.rs
+OVERWRITE apps/haven_editor_native/src/app/pixel_studio.rs
+OVERWRITE apps/haven_editor_native/src/app/pixel_studio_input.rs
+OVERWRITE apps/haven_editor_native/src/app/pixel_studio_render.rs
+OVERWRITE apps/haven_editor_native/src/app/pixel_layer_panel.rs
+ADD docs/patch/PASS_164C_PALETTE_LAYERS_TOOL_OPTIONS_CONVERGENCE.md
+ADD manifests/PASS_164C_MANIFEST.txt
+
+No files are deleted.

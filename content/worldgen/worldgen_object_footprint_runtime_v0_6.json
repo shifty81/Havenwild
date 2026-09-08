@@ -1,0 +1,261 @@
+{
+  "id": "worldgen_object_footprint_runtime_v0_6",
+  "version": "0.6.0",
+  "purpose": "Runtime object footprint defaults and loader expectations for multi-tile worldgen objects.",
+  "coordinateModel": {
+    "anchor": "PlacedObject.x/y are the collision anchor when collisionRect exists; otherwise visualRect or first interaction rect.",
+    "visualRect": "Object art rectangle in tile coordinates. Can extend above/left of anchor with negative offsets.",
+    "collisionRect": "Movement-blocking footprint in tile coordinates when blocksMovement is true.",
+    "interactionRect": "Tiles that can select/use the object. Defaults to the first interaction rect from scene JSON."
+  },
+  "runtimeKinds": {
+    "table": {
+      "defaultVisual": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "defaultCollision": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "defaultInteraction": [
+        0,
+        0,
+        2,
+        2
+      ]
+    },
+    "chair": {
+      "defaultVisual": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultCollision": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "bar": {
+      "defaultVisual": [
+        0,
+        0,
+        4,
+        2
+      ],
+      "defaultCollision": [
+        0,
+        1,
+        4,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        2,
+        4,
+        1
+      ]
+    },
+    "keg": {
+      "defaultVisual": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "defaultCollision": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "bed": {
+      "defaultVisual": [
+        0,
+        0,
+        3,
+        2
+      ],
+      "defaultCollision": [
+        0,
+        1,
+        3,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        1,
+        3,
+        1
+      ]
+    },
+    "fireplace": {
+      "defaultVisual": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "defaultCollision": [
+        0,
+        1,
+        2,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        1,
+        2,
+        1
+      ]
+    },
+    "greenhouse_marker": {
+      "defaultVisual": [
+        0,
+        0,
+        5,
+        5
+      ],
+      "defaultCollision": [
+        0,
+        4,
+        5,
+        1
+      ],
+      "defaultInteraction": [
+        1,
+        4,
+        3,
+        1
+      ]
+    },
+    "tree": {
+      "defaultVisual": [
+        -1,
+        -3,
+        3,
+        4
+      ],
+      "defaultCollision": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "ore_node": {
+      "defaultVisual": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultCollision": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "door": {
+      "defaultVisual": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultCollision": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "blocksMovement": false
+    },
+    "stairs": {
+      "defaultVisual": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultCollision": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "defaultInteraction": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "blocksMovement": false
+    },
+    "cave_entrance": {
+      "defaultVisual": [
+        0,
+        0,
+        4,
+        4
+      ],
+      "defaultCollision": [
+        0,
+        3,
+        4,
+        1
+      ],
+      "defaultInteraction": [
+        1,
+        2,
+        2,
+        1
+      ]
+    }
+  },
+  "sourceFiles": [
+    "crates/haven_core/src/lib.rs",
+    "crates/haven_core/src/worldgen_loader.rs",
+    "crates/haven_editor/src/lib.rs",
+    "crates/haven_game/src/main.rs"
+  ]
+}

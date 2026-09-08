@@ -1,0 +1,41 @@
+{
+  "schema": "havenwild.character_profile_world_policy.v1",
+  "max_persistent_characters": 5,
+  "world_save_limit": "unlimited",
+  "menu_flow": {
+    "new_game": [
+      "choose_character",
+      "choose_or_create_world"
+    ],
+    "load_game": [
+      "choose_character",
+      "choose_world"
+    ]
+  },
+  "ownership": {
+    "profile": [
+      "identity",
+      "appearance",
+      "progression",
+      "equipment",
+      "portable_inventory"
+    ],
+    "world": [
+      "world_state",
+      "world_position",
+      "world_relationships",
+      "world_reputation",
+      "world_quests",
+      "server_permissions"
+    ]
+  },
+  "multiplayer": {
+    "character_identity_persists": true,
+    "server_import_policy_required": true,
+    "server_local_character_link": true
+  },
+  "legacy": {
+    "three_slot_saves_readable": true,
+    "three_slot_limit_not_authoritative": true
+  }
+}

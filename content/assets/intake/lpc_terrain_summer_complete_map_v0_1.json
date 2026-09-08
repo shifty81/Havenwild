@@ -1,0 +1,1126 @@
+{
+  "schema": "havenwild.lpc_terrain_summer_complete_map.v0_1",
+  "sourceLock": "content/assets/intake/lpc_source_lock_v0_1.json",
+  "source": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+  "season": "summer",
+  "cellSize": 32,
+  "grid": [
+    16,
+    26
+  ],
+  "coordinateConvention": "zero-based [column,row] cells and [column,row,width,height] blocks",
+  "license": "OGA-BY 3.0",
+  "attribution": [
+    "Lanea Zimmerman (Sharm)",
+    "Eliza Wyatt (DeathsDarling)"
+  ],
+  "mappingPolicy": [
+    "Every one of the 416 source cells is accounted for by the generated ledger.",
+    "Every non-transparent cell must belong to exactly one primary source group.",
+    "Transparent cells inside authored blocks are structural cells and remain part of their composition.",
+    "No authored 2x2 or 3x3 composition may be flattened into unrelated single-tile roles.",
+    "Runtime-active roles remain pinned; mapped_next roles are cataloged without changing current client rendering.",
+    "Seasonal sheets reuse this coordinate vocabulary; only visual bindings change."
+  ],
+  "seasonalLayoutParity": [
+    {
+      "season": "spring",
+      "source": "assets/source/licensed/lpc_revised/Terrain/terrain_spring.png",
+      "expectedNonTransparentCells": 305
+    },
+    {
+      "season": "autumn",
+      "source": "assets/source/licensed/lpc_revised/Terrain/terrain_autumn.png",
+      "expectedNonTransparentCells": 305
+    },
+    {
+      "season": "winter",
+      "source": "assets/source/licensed/lpc_revised/Terrain/terrain_winter.png",
+      "expectedNonTransparentCells": 305
+    },
+    {
+      "season": "winter_ice",
+      "source": "assets/source/licensed/lpc_revised/Terrain/terrain_winter_ice.png",
+      "expectedNonTransparentCells": 307,
+      "additionalCells": [
+        [
+          6,
+          21
+        ],
+        [
+          11,
+          21
+        ]
+      ]
+    }
+  ],
+  "fillFamilies": [
+    {
+      "id": "summer_grass_north_fringe",
+      "label": "Summer Grass North-Fringe Modular Strip",
+      "classification": "HorizontalStrip",
+      "cells": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "runtimeStatus": "cataloged_next",
+      "runtimeIds": [],
+      "pcgUse": [
+        "grass edge decoration",
+        "manual stamp assembly"
+      ],
+      "notes": [
+        "Directional authored strip; do not repeat as a generic fill."
+      ]
+    },
+    {
+      "id": "summer_grass_fill",
+      "label": "Summer Grass Fill Variants",
+      "classification": "RepeatableFill",
+      "cells": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "grass",
+        "tall_grass"
+      ],
+      "pcgUse": [
+        "temperate grass",
+        "meadow fill"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_dirt_fill",
+      "label": "Summer Dirt Fill Variants",
+      "classification": "RepeatableFill",
+      "cells": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "dirt",
+        "mud_bank"
+      ],
+      "pcgUse": [
+        "soil",
+        "path shoulder",
+        "farm substrate"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_pebble_path_fill",
+      "label": "Summer Pebble/Stone Path Fill Variants",
+      "classification": "RepeatableFill",
+      "cells": [
+        [
+          9,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          10,
+          4
+        ]
+      ],
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "pebble_shore",
+        "stone_path"
+      ],
+      "pcgUse": [
+        "stone paths",
+        "rocky clearings"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_sand_fill",
+      "label": "Summer Dry Sand Fill Variants",
+      "classification": "RepeatableFill",
+      "cells": [
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "sand"
+      ],
+      "pcgUse": [
+        "beach",
+        "dry sand"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_wet_sand_fill",
+      "label": "Summer Wet Sand Fill Variants",
+      "classification": "RepeatableFill",
+      "cells": [
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "wet_sand"
+      ],
+      "pcgUse": [
+        "tidal band",
+        "damp shoreline"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_water_fill",
+      "label": "Summer Shallow/Fresh Water Fill Variants",
+      "classification": "RepeatableFill",
+      "cells": [
+        [
+          12,
+          16
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          14,
+          17
+        ],
+        [
+          15,
+          17
+        ]
+      ],
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "water",
+        "river_water",
+        "shallow_water",
+        "ocean_shallow",
+        "river_mouth_blend",
+        "shore_foam"
+      ],
+      "pcgUse": [
+        "rivers",
+        "ponds",
+        "shallow ocean"
+      ],
+      "notes": []
+    }
+  ],
+  "transitionFamilies": [
+    {
+      "id": "summer_grass_patch_composited",
+      "label": "Summer Grass Patch, Composited",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "owner": "grass",
+      "neighbor": "transparent_or_other_base",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_grass_patch_composited"
+      ],
+      "pcgUse": [
+        "meadow islands",
+        "grass overlays"
+      ],
+      "notes": [
+        "Full center variant; preserves authored 3x3 outer ring and 2x2 concave roles."
+      ],
+      "innerCornerBlock": [
+        0,
+        8,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_grass_over_dirt",
+      "label": "Summer Grass over Dirt",
+      "classification": "TerrainTransitionFamily",
+      "outerBlock": [
+        6,
+        0,
+        3,
+        3
+      ],
+      "owner": "grass",
+      "neighbor": "dirt",
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "grass_over_dirt"
+      ],
+      "stampIds": [],
+      "pcgUse": [
+        "grass/dirt boundaries"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        6,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_pebble_path_over_dirt",
+      "label": "Summer Pebble Path over Dirt",
+      "classification": "TerrainTransitionFamily",
+      "outerBlock": [
+        9,
+        0,
+        3,
+        3
+      ],
+      "owner": "pebble_path",
+      "neighbor": "dirt",
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "pebble_path_over_dirt"
+      ],
+      "stampIds": [],
+      "pcgUse": [
+        "stone paths",
+        "ruin floors"
+      ],
+      "notes": [
+        "No dedicated authored 2x2 concave block is present; use only outer roles until a verified fallback is approved."
+      ]
+    },
+    {
+      "id": "summer_grass_patch_overlay",
+      "label": "Summer Grass Patch Overlay",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        0,
+        3,
+        3,
+        3
+      ],
+      "owner": "grass_overlay",
+      "neighbor": "base_required",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_grass_patch_overlay"
+      ],
+      "pcgUse": [
+        "grass edging over dirt/sand"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        0,
+        6,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_grass_over_sand",
+      "label": "Summer Grass over Dry Sand",
+      "classification": "TerrainTransitionFamily",
+      "outerBlock": [
+        6,
+        5,
+        3,
+        3
+      ],
+      "owner": "grass",
+      "neighbor": "sand",
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "grass_over_sand"
+      ],
+      "stampIds": [],
+      "pcgUse": [
+        "grass/beach boundaries"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        6,
+        8,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_sand_over_wet_sand",
+      "label": "Summer Dry Sand over Wet Sand",
+      "classification": "TerrainTransitionFamily",
+      "outerBlock": [
+        9,
+        5,
+        3,
+        3
+      ],
+      "owner": "wet_sand",
+      "neighbor": "sand",
+      "runtimeStatus": "active",
+      "runtimeIds": [
+        "sand_over_wet_sand"
+      ],
+      "stampIds": [],
+      "pcgUse": [
+        "tidal dry/wet sand band"
+      ],
+      "notes": [
+        "This is the missing authored family needed to replace squared wet/dry sand boundaries."
+      ],
+      "innerCornerBlock": [
+        9,
+        8,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_grass_bank_pond_a",
+      "label": "Summer Grass-Bank Pond A",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        0,
+        10,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "grass",
+      "runtimeStatus": "active_and_stamp_ready",
+      "runtimeIds": [
+        "grass_bank_over_shallow"
+      ],
+      "stampIds": [
+        "lpc_pond_grass_bank_a"
+      ],
+      "pcgUse": [
+        "ponds",
+        "streams"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        0,
+        13,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_grass_bank_pond_a_overlay",
+      "label": "Summer Grass-Bank Pond A Overlay",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        3,
+        10,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "grass",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_grass_bank_a_overlay"
+      ],
+      "pcgUse": [
+        "overlay banks"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        3,
+        13,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_dirt_bank_pond_a",
+      "label": "Summer Dirt-Bank Pond A",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        6,
+        10,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "dirt",
+      "runtimeStatus": "active_and_stamp_ready",
+      "runtimeIds": [
+        "dirt_bank_over_shallow",
+        "riverbank_mud"
+      ],
+      "stampIds": [
+        "lpc_pond_dirt_bank_a"
+      ],
+      "pcgUse": [
+        "mud ponds",
+        "river banks"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        6,
+        13,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_dirt_bank_pond_a_overlay",
+      "label": "Summer Dirt-Bank Pond A Overlay",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        9,
+        10,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "dirt",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_dirt_bank_a_overlay"
+      ],
+      "pcgUse": [
+        "overlay banks"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        9,
+        13,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_grass_bank_pond_b",
+      "label": "Summer Grass-Bank Pond B",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        0,
+        15,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "grass",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_grass_bank_b"
+      ],
+      "pcgUse": [
+        "alternate ponds",
+        "river bends"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        0,
+        18,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_grass_bank_pond_b_overlay",
+      "label": "Summer Grass-Bank Pond B Overlay",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        3,
+        15,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "grass",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_grass_bank_b_overlay"
+      ],
+      "pcgUse": [
+        "alternate overlay banks"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        3,
+        18,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_dirt_bank_pond_b",
+      "label": "Summer Dirt-Bank Pond B",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        6,
+        15,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "dirt",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_dirt_bank_b"
+      ],
+      "pcgUse": [
+        "alternate dirt ponds"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        6,
+        18,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_dirt_bank_pond_b_overlay",
+      "label": "Summer Dirt-Bank Pond B Overlay",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        9,
+        15,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "dirt",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_dirt_bank_b_overlay"
+      ],
+      "pcgUse": [
+        "alternate dirt overlay banks"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        9,
+        18,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_sand_bank_pond",
+      "label": "Summer Sand-Bank Pond",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        0,
+        20,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "sand",
+      "runtimeStatus": "active_and_stamp_ready",
+      "runtimeIds": [
+        "sand_bank_over_shallow"
+      ],
+      "stampIds": [
+        "lpc_pond_sand_bank"
+      ],
+      "pcgUse": [
+        "beach ponds",
+        "shoreline coves"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        3,
+        20,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_foam_ring_overlay",
+      "label": "Summer Foam Ring Overlay",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        5,
+        20,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "foam_or_pale_shore",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_foam_overlay"
+      ],
+      "pcgUse": [
+        "wave foam",
+        "special shoreline overlays"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        8,
+        20,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_pale_shore_ring_overlay",
+      "label": "Summer Pale Shore Ring Overlay",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        10,
+        20,
+        3,
+        3
+      ],
+      "owner": "shallow_water",
+      "neighbor": "pale_shore",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_pale_shore_overlay"
+      ],
+      "pcgUse": [
+        "pale shoreline accents"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        13,
+        20,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_deep_water_basin",
+      "label": "Summer Deep-Water Basin",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        0,
+        23,
+        3,
+        3
+      ],
+      "owner": "deep_water",
+      "neighbor": "shallow_water",
+      "runtimeStatus": "active_and_stamp_ready",
+      "runtimeIds": [
+        "shallow_rim_over_deep"
+      ],
+      "stampIds": [
+        "lpc_pond_deep_basin"
+      ],
+      "pcgUse": [
+        "deep pond centers",
+        "ocean depth"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        3,
+        23,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_depth_ring_overlay_a",
+      "label": "Summer Depth Ring Overlay A",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        5,
+        23,
+        3,
+        3
+      ],
+      "owner": "deep_water",
+      "neighbor": "shallow_water",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_depth_ring_overlay_a"
+      ],
+      "pcgUse": [
+        "depth accents"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        8,
+        23,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "summer_depth_ring_overlay_b",
+      "label": "Summer Depth Ring Overlay B",
+      "classification": "ExpandableStampFamily",
+      "outerBlock": [
+        10,
+        23,
+        3,
+        3
+      ],
+      "owner": "deep_water",
+      "neighbor": "shallow_water",
+      "runtimeStatus": "stamp_ready",
+      "runtimeIds": [],
+      "stampIds": [
+        "lpc_pond_depth_ring_overlay_b"
+      ],
+      "pcgUse": [
+        "alternate depth accents"
+      ],
+      "notes": [],
+      "innerCornerBlock": [
+        13,
+        23,
+        2,
+        2
+      ]
+    }
+  ],
+  "modularStrips": [
+    {
+      "id": "summer_grass_water_horizontal_strip",
+      "label": "Summer Grass/Water Horizontal Bank Variants",
+      "classification": "HorizontalStrip",
+      "sourceRect": [
+        12,
+        11,
+        4,
+        1
+      ],
+      "orientation": "horizontal",
+      "runtimeStatus": "stamp_ready",
+      "pcgUse": [
+        "river edges",
+        "shoreline assemblies"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_dirt_water_horizontal_strip_a",
+      "label": "Summer Dirt/Water Horizontal Bank Variants A",
+      "classification": "HorizontalStrip",
+      "sourceRect": [
+        12,
+        12,
+        4,
+        1
+      ],
+      "orientation": "horizontal",
+      "runtimeStatus": "stamp_ready",
+      "pcgUse": [
+        "river edges",
+        "dirt shorelines"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_dirt_water_horizontal_strip_b",
+      "label": "Summer Dirt/Water Horizontal Bank Variants B",
+      "classification": "HorizontalStrip",
+      "sourceRect": [
+        12,
+        13,
+        4,
+        1
+      ],
+      "orientation": "horizontal",
+      "runtimeStatus": "stamp_ready",
+      "pcgUse": [
+        "alternate bank edges"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_dirt_water_vertical_channels",
+      "label": "Summer Dirt/Water Vertical Channel Variants",
+      "classification": "VerticalStrip",
+      "sourceRect": [
+        12,
+        14,
+        4,
+        2
+      ],
+      "orientation": "vertical",
+      "runtimeStatus": "stamp_ready",
+      "pcgUse": [
+        "rivers",
+        "ditches",
+        "canals"
+      ],
+      "notes": [
+        "Treat as authored modular strip cells; do not reinterpret as generic fills."
+      ]
+    }
+  ],
+  "decorations": [
+    {
+      "id": "summer_tree_large_a",
+      "label": "Summer Tree Large A",
+      "classification": "ObjectSprite",
+      "cell": [
+        8,
+        3
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_tree_large_a",
+      "pcgUse": [
+        "forest scatter"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_tree_small_a",
+      "label": "Summer Tree Small A",
+      "classification": "ObjectSprite",
+      "cell": [
+        8,
+        4
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_tree_small_a",
+      "pcgUse": [
+        "forest scatter"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_tree_large_b",
+      "label": "Summer Tree Large B",
+      "classification": "ObjectSprite",
+      "cell": [
+        2,
+        6
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_tree_large_b",
+      "pcgUse": [
+        "forest scatter"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_tree_small_b",
+      "label": "Summer Tree Small B",
+      "classification": "ObjectSprite",
+      "cell": [
+        2,
+        7
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_tree_small_b",
+      "pcgUse": [
+        "forest scatter"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_grass_tuft_a",
+      "label": "Summer Grass Tuft A",
+      "classification": "Decoration",
+      "cell": [
+        12,
+        10
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_grass_tuft_a",
+      "pcgUse": [
+        "wetland detail",
+        "meadow detail"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_grass_tuft_b",
+      "label": "Summer Grass Tuft B",
+      "classification": "Decoration",
+      "cell": [
+        14,
+        10
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_grass_tuft_b",
+      "pcgUse": [
+        "wetland detail",
+        "meadow detail"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_tree_large_c",
+      "label": "Summer Tree Large C",
+      "classification": "ObjectSprite",
+      "cell": [
+        2,
+        18
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_tree_large_c",
+      "pcgUse": [
+        "island/shore vegetation"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_tree_small_c",
+      "label": "Summer Tree Small C",
+      "classification": "ObjectSprite",
+      "cell": [
+        2,
+        19
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_tree_small_c",
+      "pcgUse": [
+        "island/shore vegetation"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_tree_large_d",
+      "label": "Summer Tree Large D",
+      "classification": "ObjectSprite",
+      "cell": [
+        5,
+        18
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_tree_large_d",
+      "pcgUse": [
+        "island/shore vegetation"
+      ],
+      "notes": []
+    },
+    {
+      "id": "summer_tree_small_d",
+      "label": "Summer Tree Small D",
+      "classification": "ObjectSprite",
+      "cell": [
+        5,
+        19
+      ],
+      "runtimeStatus": "stamp_ready",
+      "stampId": "lpc_summer_tree_small_d",
+      "pcgUse": [
+        "island/shore vegetation"
+      ],
+      "notes": []
+    }
+  ],
+  "generatedOutputs": {
+    "cellLedger": "assets/generated/worldgen_v0_1/terrain/lpc_terrain_summer_complete_map_32.json",
+    "preview": "docs/assets/previews/havenwild_lpc_terrain_summer_complete_map_v103.png"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.validator.archive-map.v1",
+  "pass": "146C",
+  "replacements": {
+    "terrain.runtime.contract": ["V109", "V111", "V112", "V113", "V124", "V125", "V131"],
+    "terrain.water.lifecycle": ["V114", "V128", "V129", "V130", "V138", "V146 shore/water"],
+    "terrain.promotion.contract": ["V133", "V134", "V136", "V137"],
+    "editor.authoring.contract": ["V110", "V123", "V145"],
+    "world.foundation.contract": ["open-world preset", "V139", "V140", "V142", "V143", "V144"]
+  },
+  "policy": "Legacy scripts remain callable subchecks during migration but are no longer active registry tasks."
+}

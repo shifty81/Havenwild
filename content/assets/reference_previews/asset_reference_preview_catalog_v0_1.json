@@ -1,0 +1,253 @@
+{
+  "schema": "havenwild.asset_reference_preview_catalog.v0_1",
+  "updated": "2026-07-09",
+  "purpose": "Declares safe local preview/contact-sheet paths for donor/reference asset sources. The manifest stores metadata only and does not include raw third-party art.",
+  "rules": {
+    "rawAssets": "never copied into this catalog",
+    "previewFiles": "optional local/generated artifacts under WORKSPACE/generated/asset_reference_previews",
+    "restrictedSources": "may display local reference previews in dev/editor tools only; must not become runtime assets by previewing them",
+    "releaseBuild": "must not include restricted/local preview contact sheets unless licensing and redistribution policy explicitly allow it"
+  },
+  "records": [
+    {
+      "externalSourceId": "third_party.rowdy41.wood_garden",
+      "displayName": "rowdy41 Wood Garden donor set",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/rowdy41_wood_garden_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/rowdy41_wood_garden_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/rowdy41_wood_garden_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "prototype_candidate_local_preview",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.rowdy41.small_forest",
+      "displayName": "rowdy41 Small Forest donor set",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/rowdy41_small_forest_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/rowdy41_small_forest_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/rowdy41_small_forest_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "prototype_candidate_local_preview",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.pipoya.free_rpg_tileset_32x32_bundle",
+      "displayName": "Pipoya RPG Tileset 32x32 donor set",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/pipoya_free_rpg_tileset_32x32_bundle_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/pipoya_free_rpg_tileset_32x32_bundle_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/pipoya_free_rpg_tileset_32x32_bundle_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "prototype_candidate_local_preview",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.pipoya.free_rpg_world_tileset_32_40_48",
+      "displayName": "Pipoya World Tileset 32/40/48 donor set",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet_and_grid_overlay",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/pipoya_free_rpg_world_tileset_32_40_48_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/pipoya_free_rpg_world_tileset_32_40_48_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/pipoya_free_rpg_world_tileset_32_40_48_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "prototype_candidate_local_preview",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.seliel.gentle_forest_3_0a_free_palettes",
+      "displayName": "Seliel Gentle Forest donor set",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/seliel_gentle_forest_3_0a_free_palettes_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/seliel_gentle_forest_3_0a_free_palettes_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/seliel_gentle_forest_3_0a_free_palettes_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "prototype_candidate_local_preview",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.seliel.mana_seed_character_base_demo_2_0",
+      "displayName": "Mana Seed Character Base donor set",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/seliel_mana_seed_character_base_demo_2_0_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/seliel_mana_seed_character_base_demo_2_0_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/seliel_mana_seed_character_base_demo_2_0_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "prototype_candidate_local_preview",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.henrysoftware.free_pixel_food_cc0",
+      "displayName": "Free Pixel Food donor icon set",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/henrysoftware_free_pixel_food_cc0_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/henrysoftware_free_pixel_food_cc0_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/henrysoftware_free_pixel_food_cc0_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "prototype_candidate_local_preview",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.ghostpixxells.pixel_mart_cc0",
+      "displayName": "Pixel Mart donor icon set",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/ghostpixxells_pixel_mart_cc0_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/ghostpixxells_pixel_mart_cc0_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/ghostpixxells_pixel_mart_cc0_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "prototype_candidate_local_preview",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.shubibubi.cozy_farm_free_version",
+      "displayName": "shubibubi Cozy Farm free donor reference",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_farm_free_version_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_farm_free_version_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_farm_free_version_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "reference_only_local_preview_noncommercial",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.shubibubi.cozy_interior_free_version",
+      "displayName": "shubibubi Cozy Interior free donor reference",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_interior_free_version_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_interior_free_version_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_interior_free_version_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "reference_only_local_preview_noncommercial",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.shubibubi.cozy_town_free_version",
+      "displayName": "shubibubi Cozy Town free donor reference",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_town_free_version_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_town_free_version_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/shubibubi_cozy_town_free_version_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "reference_only_local_preview_noncommercial",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.fishing_free_noncommercial",
+      "displayName": "Fishing free donor reference",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/fishing_free_noncommercial_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/fishing_free_noncommercial_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/fishing_free_noncommercial_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "reference_only_local_preview_noncommercial",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.game_endeavor.mystic_woods_free",
+      "displayName": "Mystic Woods free donor reference",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/game_endeavor_mystic_woods_free_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/game_endeavor_mystic_woods_free_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/game_endeavor_mystic_woods_free_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "reference_only_local_preview_noncommercial",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.char_free_unverified",
+      "displayName": "char free donor reference",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/char_free_unverified_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/char_free_unverified_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/char_free_unverified_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "reference_only_local_preview_unverified",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    },
+    {
+      "externalSourceId": "third_party.lpc.opengameart_mixed_loose_assets",
+      "displayName": "Mixed LPC/OpenGameArt donor reference",
+      "previewStatus": "local_preview_optional",
+      "previewKind": "contact_sheet",
+      "safePreviewPath": "WORKSPACE/generated/asset_reference_previews/lpc_opengameart_mixed_loose_assets_contact_sheet.jpg",
+      "thumbnailPath": "WORKSPACE/generated/asset_reference_previews/lpc_opengameart_mixed_loose_assets_thumb.png",
+      "contactSheetPath": "WORKSPACE/generated/asset_reference_previews/lpc_opengameart_mixed_loose_assets_contact_sheet.jpg",
+      "generatedBy": "audit tooling or future local preview generator; no raw third-party asset is stored in source by this manifest",
+      "sourcePolicy": "reference_only_local_preview_attribution_required",
+      "editorDisplay": "show_path_and_status_only_until_local_preview_exists",
+      "notes": [
+        "Preview files are optional local/generated artifacts and should not be committed if they expose restricted raw source art.",
+        "Runtime use remains blocked unless a metadata-backed prototype bake and license gate explicitly allow promotion."
+      ]
+    }
+  ]
+}

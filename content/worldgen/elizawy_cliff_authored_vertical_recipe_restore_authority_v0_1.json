@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "pass": "167Z109W11.2",
+  "title": "ElizaWy authored cliff vertical recipe restore",
+  "status": "active",
+  "supersedes": "167Z109W11 exact visual-height compression",
+  "behavior": {
+    "structuralTierDelta": "selects repeatable authored middle-module count per exposed edge",
+    "baseRecipe": "fixed authored top/shoulder + at least one authored body module + fixed authored foot",
+    "level2To0": "top/shoulder + two body modules + foot",
+    "level2To1": "top/shoulder + one body module + foot",
+    "level1To0": "top/shoulder + one body module + foot",
+    "rule": "do not equate structural tier count with total source-cell row count"
+  },
+  "preserved": [
+    "W10 exact per-edge elevation delta",
+    "W10 full diagonal shoulder/body/foot alignment",
+    "W11.1 compile cleanup",
+    "one-tile ordinary cave mouths",
+    "authored directional ramps"
+  ],
+  "deferred": "remaining plateau/top-edge anchor mismatch and vertical-side family mapping"
+}

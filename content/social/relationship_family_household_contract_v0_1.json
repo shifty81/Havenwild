@@ -1,0 +1,65 @@
+{
+  "schema": "havenwild.relationship_family_household.v0_1",
+  "id": "havenwild.social_life_simulation.v0_1",
+  "relationshipTargets": ["npc", "player"],
+  "relationshipAxes": ["friendship", "trust", "romance"],
+  "stages": [
+    "stranger",
+    "acquaintance",
+    "friend",
+    "close_friend",
+    "dating",
+    "partner",
+    "engaged",
+    "married",
+    "family",
+    "estranged"
+  ],
+  "reputationScopes": [
+    "individual_npc",
+    "household",
+    "village",
+    "city",
+    "profession_guild",
+    "regional_faction"
+  ],
+  "supportedRelationships": {
+    "playerWithNpcFriendship": true,
+    "playerWithNpcRomanceAndMarriage": true,
+    "playerWithPlayerPartnershipAndMarriage": true,
+    "sharedHousehold": true,
+    "sharedOrSeparateFinances": true,
+    "coOwnedHousing": true,
+    "familyFormation": true
+  },
+  "familyFormationRoutes": [
+    "pregnancy",
+    "adoption",
+    "existing_child_joins_household"
+  ],
+  "multiplayerRules": {
+    "relationshipActionsRequireBothPlayersToConfirm": true,
+    "marriageRequiresBothPlayersToConfirm": true,
+    "householdPermissionChangesRequireOwnerOrCoOwner": true,
+    "playerMayMarryNpcWhenWorldRulesAllow": true,
+    "significantOthersCanShareAHomeAndRaiseAFamily": true
+  },
+  "safetyAndEligibility": {
+    "romanceAndMarriageAreAdultOnly": true,
+    "consentRequiredForDatingPartnershipEngagementAndMarriage": true,
+    "familySystemCanBeDisabledPerWorld": true,
+    "pregnancyCanBeDisabledWhileAdoptionRemainsAvailable": true,
+    "childrenNeverParticipateInRomanceSystems": true
+  },
+  "simulationHooks": [
+    "dialogue_and_portraits",
+    "npc_schedules",
+    "gifts_and_shared_activities",
+    "quests_and_reputation",
+    "housing_and_property_permissions",
+    "household_finances",
+    "family_events",
+    "seasonal_and_life_milestones"
+  ],
+  "saveAuthority": "crates/haven_save/src/social_world.rs"
+}

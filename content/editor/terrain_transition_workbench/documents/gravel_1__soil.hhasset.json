@@ -1,0 +1,138 @@
+{
+  "schema": "havenwild.pixel_document.v0_3",
+  "assetId": "terrain_transition/gravel_1__soil",
+  "displayName": "Gravel_1 \u2194 Soil Transition",
+  "sourcePath": "content/editor/terrain_transition_workbench/documents/gravel_1__soil.png",
+  "outputPath": "content/editor/terrain_transition_workbench/documents/gravel_1__soil.png",
+  "width": 128,
+  "height": 128,
+  "grid": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "offsetX": 0,
+    "offsetY": 0,
+    "spacingX": 0,
+    "spacingY": 0
+  },
+  "assetKind": "tilesheet",
+  "previewMode": "none",
+  "palette": [],
+  "selection": {
+    "x": 0,
+    "y": 0,
+    "width": 32,
+    "height": 32
+  },
+  "sourceRegion": null,
+  "pivot": [
+    16,
+    16
+  ],
+  "visualFootprint": [
+    0,
+    0,
+    1,
+    1
+  ],
+  "collisionFootprint": [
+    0,
+    0,
+    1,
+    1
+  ],
+  "interactionFootprint": [
+    0,
+    0,
+    1,
+    1
+  ],
+  "tags": [
+    "terrain_transition_repair",
+    "w77",
+    "material_a:Gravel_1",
+    "material_b:Soil",
+    "reference_layers_locked",
+    "candidate_only"
+  ],
+  "license": {
+    "status": "project_owned_derivative",
+    "sourceName": "Havenwild + LPC Terrains v7 references",
+    "sourceUrl": "",
+    "notes": "Reference layers retain source provenance; author layers are project-owned transition work."
+  },
+  "activeLayerId": "20_boundary_shape",
+  "layers": [
+    {
+      "id": "00_semantic_shape_template",
+      "name": "Semantic Shape Template",
+      "visible": true,
+      "locked": true,
+      "opacity": 255,
+      "blendMode": "normal",
+      "imagePath": "gravel_1__soil.hhpixel/layers/00_semantic_shape_template.png"
+    },
+    {
+      "id": "01_reference_a_style",
+      "name": "Authored Style Example \u2014 Gravel_1",
+      "visible": true,
+      "locked": true,
+      "opacity": 255,
+      "blendMode": "normal",
+      "imagePath": "gravel_1__soil.hhpixel/layers/01_reference_a_style.png"
+    },
+    {
+      "id": "02_reference_b_style",
+      "name": "Authored Style Example \u2014 Soil",
+      "visible": true,
+      "locked": true,
+      "opacity": 255,
+      "blendMode": "normal",
+      "imagePath": "gravel_1__soil.hhpixel/layers/02_reference_b_style.png"
+    },
+    {
+      "id": "10_owner_fill",
+      "name": "Owner Fill",
+      "visible": true,
+      "locked": false,
+      "opacity": 255,
+      "blendMode": "normal",
+      "imagePath": "gravel_1__soil.hhpixel/layers/10_owner_fill.png"
+    },
+    {
+      "id": "20_boundary_shape",
+      "name": "Boundary Shape",
+      "visible": true,
+      "locked": false,
+      "opacity": 255,
+      "blendMode": "normal",
+      "imagePath": "gravel_1__soil.hhpixel/layers/20_boundary_shape.png"
+    },
+    {
+      "id": "30_shading_cleanup",
+      "name": "Shading Cleanup",
+      "visible": true,
+      "locked": false,
+      "opacity": 255,
+      "blendMode": "normal",
+      "imagePath": "gravel_1__soil.hhpixel/layers/30_shading_cleanup.png"
+    },
+    {
+      "id": "40_alpha_cleanup",
+      "name": "Alpha Cleanup",
+      "visible": true,
+      "locked": false,
+      "opacity": 255,
+      "blendMode": "normal",
+      "imagePath": "gravel_1__soil.hhpixel/layers/40_alpha_cleanup.png"
+    },
+    {
+      "id": "90_preview_only",
+      "name": "Preview Only",
+      "visible": true,
+      "locked": true,
+      "opacity": 255,
+      "blendMode": "normal",
+      "imagePath": "gravel_1__soil.hhpixel/layers/90_preview_only.png"
+    }
+  ]
+}

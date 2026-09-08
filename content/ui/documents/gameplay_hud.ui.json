@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.ui_document.v1",
+  "id": "gameplay_hud",
+  "display_name": "Gameplay HUD",
+  "kind": "hud",
+  "reference_size": [1920, 1080],
+  "snap_px": 8,
+  "safe_area": [48, 48, 48, 48],
+  "widgets": [
+    {"id":"vitals","kind":"bar_frame","rect":{"x":72.0,"y":64.0,"width":312.0,"height":112.0},"label":"Vitals","data_bindings":[{"property":"health","source":"player.health"},{"property":"stamina","source":"player.stamina"},{"property":"energy","source":"player.energy"}],"behavior_bindings":[],"presentation_resource":"content/ui/hud/vitals_frame.png","locked":false,"visible":true},
+    {"id":"minimap","kind":"minimap_frame","rect":{"x":1592.0,"y":64.0,"width":256.0,"height":216.0},"label":"Map / Clock","data_bindings":[{"property":"map","source":"world.map_view"},{"property":"time","source":"world.clock"}],"behavior_bindings":[],"presentation_resource":"content/ui/hud/minimap_frame.png","locked":false,"visible":true},
+    {"id":"hotbar","kind":"slot","rect":{"x":594.0,"y":952.0,"width":732.0,"height":72.0},"label":"Hotbar","data_bindings":[{"property":"items","source":"player.hotbar"}],"behavior_bindings":[],"presentation_resource":"content/ui/hud/hotbar_frame.png","locked":false,"visible":true}
+  ],
+  "metadata":{"authority":"Game Canvas UI document"}
+}

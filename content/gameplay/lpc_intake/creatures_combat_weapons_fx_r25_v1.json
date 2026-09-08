@@ -1,0 +1,9 @@
+{
+  "schema":"havenwild.gameplay.lpc_intake.creatures_combat_weapons_fx.r25.v1",
+  "pass":"W81R25",
+  "assetFamilies":["weapons","shields","helmets","armor","monsters","fantasy_species","wildlife","combat_fx","magic_fx","impact_fx","weather_fx","death_animations"],
+  "actionFamilies":["slash","backslash","halfslash","thrust","shoot","smash","spellcast","tool_thrust","fishing"],
+  "populationRule":"Species, culture, faction, profession, and disposition are independent axes; species does not imply hostility.",
+  "gameplayLoops":["melee","ranged","magic","bandit_camps","guards","dungeons","ruins","hunting","loot","equipment_upgrades"],
+  "productionRule":"Held/equipped art, icon, world-drop representation, action family, contact/socket metadata, audio, and upgrade presentation are required for production-ready equipment."
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.universal_lpc.normalized_character_catalog_summary.v1",
+  "sourceCommit": "0f898bb675a1abe16ce430e82e3bf9daed278690",
+  "catalog": "content/assets/lpc/universal_lpc_normalized_character_catalog_v1.json.gz",
+  "uncompressedSha256": "cade8d7aa98f659aaddbbcdfd66dc2fc9224c9f55a5e1461d81a9d8e1cbc94eb",
+  "sheetDefinitionCount": 768,
+  "paletteDefinitionCount": 22,
+  "creditRecordCount": 13818,
+  "itemDefinitionCount": 656,
+  "multiLayerItemCount": 168,
+  "customAnimationItemCount": 32
+}

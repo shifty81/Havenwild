@@ -1,0 +1,46 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z109W41A",
+  "baseline": "167Z109W40",
+  "date": "2026-08-13",
+  "title": "Asset Truth Normalization Foundation",
+  "overwriteCapable": true,
+  "behaviorTarget": "Close remaining current-source normalization drift, inventory every world-visible asset authority, make quarantines/placeholders explicit, and produce the finite PublishedWorldAsset migration queue without changing runtime world/terrain behavior.",
+  "changedFiles": [
+    "README.md",
+    "apps/haven_editor_native/src/app/object_inspector.rs",
+    "apps/haven_editor_native/src/app/object_inspector_geometry.rs",
+    "content/assets/intake/published_world_asset_truth_contract_v1.json",
+    "content/build/validator_registry_v3.json",
+    "crates/haven_world/src/continuous_surface.rs",
+    "crates/haven_world/src/continuous_surface_tests.rs",
+    "docs/audits/HAVENWILD_W41A_ASSET_TRUTH_NORMALIZATION_20260813.md",
+    "docs/current/CURRENT_SOURCE_HANDOFF.md",
+    "docs/current/ROADMAP.md",
+    "manifests/handoff/PASS167Z109W41A_ASSET_TRUTH_NORMALIZATION_CHECKPOINT.json",
+    "manifests/patches/Pass167Z109W41A-asset-truth-normalization.json",
+    "manifests/removals/PASS167Z109W41A_ASSET_TRUTH_REMOVALS.txt",
+    "tools/automation/assets/Build-PublishedWorldAssetInventoryV1.cmd",
+    "tools/automation/assets/Build-PublishedWorldAssetInventoryV1.py",
+    "tools/automation/validation/checks/assets/Validate-PublishedWorldAssetInventoryV1.py",
+    "tools/automation/validation/checks/editor/Validate-W40SharedVisualAuthorityPass167Z109W40.py",
+    "tools/automation/validation/checks/worldgen/Validate-ElizaWyCliffSourceGrammarPass167Z109W14.py",
+    "tools/build/Build.ps1",
+    "tools/build/Build.sh",
+    "tools/control/ProjectCommandRegistry.ps1"
+  ],
+  "removedFiles": [
+    "PATCH_MANIFEST.txt",
+    "SHA256SUMS.txt",
+    "crates/haven_core/src/foundation/placeable_object_catalog.rs"
+  ],
+  "validation": {
+    "sourceProfile": "PASS",
+    "w40": "PASS",
+    "w40h1": "PASS",
+    "w40h2": "PASS",
+    "w40h3": "PASS",
+    "w41a": "PASS",
+    "windowsRustBuild": "PENDING_LOCAL_TOOLCHAIN"
+  }
+}

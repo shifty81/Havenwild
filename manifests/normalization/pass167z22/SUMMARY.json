@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z22",
+  "title": "Validation Profile Consolidation",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Reduced normal Build all/dev/rust/check pre-Cargo validation from 19 gates to 2.",
+    "Reduced current-source validation to 4 gates.",
+    "Moved framework self-tests and subsystem certification to explicit framework/full profiles.",
+    "Removed fragile exact skipped-fixture counts from the cross-platform content-validator self-test.",
+    "Kept historical and subsystem validators available for targeted audits without running them implicitly."
+  ],
+  "profileCounts": {
+    "build": 2,
+    "quick": 2,
+    "source": 4,
+    "framework": 4,
+    "full": 19
+  },
+  "completeSourceCreated": false
+}

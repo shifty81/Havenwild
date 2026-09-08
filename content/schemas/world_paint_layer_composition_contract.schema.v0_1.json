@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Havenwild World Paint Layer Composition Contract v0.1",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "canonicalTileSize",
+    "layerRenderOrder",
+    "compositionPolicy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.world_paint_layer_composition_contract.v0.1"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "canonicalTileSize": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "const": 32
+        },
+        {
+          "const": 32
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "layerRenderOrder": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "layer",
+          "order"
+        ],
+        "properties": {
+          "layer": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "compositionPolicy": {
+      "type": "object"
+    }
+  }
+}

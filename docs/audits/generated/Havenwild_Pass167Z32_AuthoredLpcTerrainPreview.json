@@ -1,0 +1,11 @@
+{
+  "schema": "havenwild.authored_lpc_terrain_preview.v167z32",
+  "scene": "willowmere_outskirts_open_world",
+  "output": "docs/audits/generated/Havenwild_Pass167Z32_AuthoredLpcTerrainPreview.png",
+  "exactTupleCells": 6144,
+  "unsupportedTupleCells": 0,
+  "sourceAtlas": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+  "supplementalAuthoredGroups": [
+    "sand_over_wet_sand"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "havenwild.editor.native_interaction_document_closure.w79.v1",
+  "pass": "167Z109W79",
+  "baseline": "167Z109W78",
+  "purpose": "Close the native-editor interaction/geometry/document-lifecycle gap before expanding Pixel and Animation production workflows.",
+  "authority": {
+    "documentLifecycle": "apps/haven_editor_native/src/app/document_lifecycle.rs",
+    "settings": "apps/haven_editor_native/src/app/editor_settings.rs",
+    "settingsData": "WORKSPACE/editor/native_editor_settings_v0_1.json",
+    "tooltipOverlay": "apps/haven_editor_native/src/app/render_helpers.rs",
+    "validationPresentation": "apps/haven_editor_native/src/app/render_helpers.rs",
+    "typography": "apps/haven_editor_native/src/app/editor_text.rs"
+  },
+  "documentLifecycle": {
+    "appliesTo": [
+      "world",
+      "scene",
+      "pixel",
+      "animation",
+      "character",
+      "logic",
+      "sound",
+      "scene_bank",
+      "routes"
+    ],
+    "closeEntrypoints": [
+      "tab_x",
+      "ctrl_w",
+      "file_menu",
+      "close_all_pixel"
+    ],
+    "dirtyCloseChoices": [
+      "save_and_close",
+      "close_without_saving",
+      "cancel"
+    ],
+    "reopenShortcut": "Ctrl+Shift+T",
+    "saveShortcut": "Ctrl+S",
+    "resourceDeletionSeparateFromViewClose": true,
+    "pixelClosedSessionRetention": true,
+    "lossAvoidancePolicy": "Closing a view never deletes its project resource. Dirty Pixel sessions are retained in recently-closed history; other shared workspaces retain their in-memory authority until explicitly saved/reloaded."
+  },
+  "interaction": {
+    "tooltips": "anchored_to_hovered_control_and_window_clamped",
+    "legacyLayerSideTooltipForbidden": true,
+    "validationRows": "bounded_and_scissored",
+    "defaultUiTextScale": 1.1,
+    "buttonTextSize": 12.0
+  },
+  "settings": {
+    "globalTopRailButton": true,
+    "sections": [
+      "general",
+      "appearance",
+      "interface",
+      "input",
+      "canvas",
+      "pixel_animation",
+      "world_scene",
+      "character",
+      "play",
+      "validation",
+      "advanced"
+    ],
+    "scopeDirection": [
+      "user",
+      "project",
+      "workspace"
+    ],
+    "futureCategoriesReservedWithoutDuplicateStudioSettings": true
+  },
+  "knownBoundary": {
+    "windowsCargoGateAuthoritative": true,
+    "saveAndCloseCurrentlyUsesSaveAllAuthority": true,
+    "editorProcessWindowCloseInterceptionDeferred": true,
+    "globalTooltipHelperEstablishedButNotEveryLegacyTooltipCallsiteMigrated": true,
+    "explicitSaveAsForUntitledAdaptersDeferred": true
+  }
+}

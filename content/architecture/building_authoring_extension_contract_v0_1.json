@@ -1,0 +1,39 @@
+{
+  "schema": "havenwild.building_authoring.extension_contract.v0_1",
+  "revision": "167Z106N5-building-authoring-extension-v1",
+  "canonicalAuthoringKernel": "haven_authoring",
+  "componentMetadata": [
+    "stable_id",
+    "style_family",
+    "source_asset_ref",
+    "visual_footprint",
+    "structural_host_footprint",
+    "anchor",
+    "wall_edges",
+    "attachment_sockets",
+    "collision_mask",
+    "occlusion_mask",
+    "interior_transition_sockets",
+    "rotation_mirror_policy",
+    "license_provenance",
+    "world_builder_capability"
+  ],
+  "recipeLayers": [
+    "footprint",
+    "foundation",
+    "wall_perimeter",
+    "corners",
+    "doors_windows",
+    "roof",
+    "porch_balcony_tower",
+    "decor_trim",
+    "collision_navigation",
+    "interior_transition"
+  ],
+  "frontends": {
+    "native_developer_editor": "full component + recipe authoring",
+    "player_world_builder": "certified components and safe construction recipes only",
+    "pcg_automation": "same published recipes with deterministic placement constraints"
+  },
+  "futureProofRule": "new architectural styles register components and recipes; they do not add style-specific world-building code to each frontend."
+}

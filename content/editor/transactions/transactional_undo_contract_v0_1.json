@@ -1,0 +1,47 @@
+{
+  "schema": "havenwild.transactional_undo_contract.v0_1",
+  "pass": "48D",
+  "owner": "haven_authoring",
+  "history": {
+    "primaryMode": "typed_transactions",
+    "snapshotFallback": true,
+    "snapshotFallbackPurpose": "unmigrated runtime developer-overlay commands only",
+    "mixedHistorySupported": true
+  },
+  "gestureLifecycle": {
+    "states": ["begin", "update", "commit", "cancel"],
+    "paintDragOneUndoEntry": true,
+    "eraseDragOneUndoEntry": true,
+    "cancelRevertsUncommittedOperations": true,
+    "duplicateCellEditsCoalesce": true
+  },
+  "operations": [
+    "SetTile",
+    "SetZone",
+    "InsertObject",
+    "RemoveObject",
+    "MoveObject",
+    "InsertTransition",
+    "RemoveTransition",
+    "ResizeTransition"
+  ],
+  "identity": {
+    "objects": "ObjectId",
+    "transitions": "TransitionId",
+    "scenes": "ProjectSceneId"
+  },
+  "safety": {
+    "undoReverseOrder": true,
+    "redoForwardOrder": true,
+    "atomicWorldRestoreOnReplayFailure": true,
+    "strictExpectedStateChecks": true,
+    "fullWorldSerializationPerEditorCellForbidden": true
+  },
+  "nativeEditor": {
+    "undoShortcut": "Ctrl+Z",
+    "redoShortcuts": ["Ctrl+Y", "Ctrl+Shift+Z"],
+    "cancelShortcut": "Escape",
+    "historyDisplaysTypedCount": true
+  },
+  "nextPass": "Pass 49 infinite-canvas authoring tools and layer stack"
+}

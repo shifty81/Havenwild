@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.open_world_surface_runtime_authority.v0_2",
+  "version": "0.3.0",
+  "surfaceIdentity": "havenwild_continuous_surface",
+  "playerFacingModel": "one_open_world_surface",
+  "storageModel": "streamed_rectangular_partitions",
+  "partitionDimensionsTiles": [
+    96,
+    64
+  ],
+  "exteriorPartitionsArePlayerFacingScenes": false,
+  "explicitTransitionDestinations": [
+    "interior",
+    "cave",
+    "ruin",
+    "dungeon",
+    "special_instance"
+  ],
+  "runtimeRules": {
+    "pcgRectangleIdsMapToGlobalChunkCoordinates": true,
+    "activePcgLandmassOwnsItsCoordinateNamespace": true,
+    "generatedSurfaceChunksExtendBeyondAuthoredPartitions": true,
+    "surfaceCrossingsUseCoordinateStreaming": true,
+    "legacyExteriorTransitionTriggersAreCompatibilityOnly": true,
+    "globalTileCoordinatesAreAuthoritativeForExteriorCharacters": true,
+    "pcgSignedCoordinateEncoding": "negative_n_prefix_nonnegative_decimal",
+    "projectSceneIdNormalizationMustNotEraseCoordinateSign": true,
+    "normalClientBootsSelectedPersistentPcgWorld": true,
+    "certificationWorldRequiresExplicitOptIn": true,
+    "loadedNeighborTerrainRendersInOneViewport": true,
+    "exteriorCameraUsesGlobalSurfaceCoordinates": true,
+    "pcgExteriorPartitionsContainNoEdgeTransitions": true,
+    "missingPcgPartitionsAreSameRegionOpenOcean": false,
+    "genericGeneratedLandCannotEnterPcgRegionNamespace": true,
+    "legacyPcgOceanMigrationPreservesEnclosedFreshwater": true,
+    "missingPcgPartitionsSampleSameGeographicField": true
+  },
+  "terrainPresentationRules": {
+    "exactGrassInDeepWaterPreservesGrassSemantics": true,
+    "deepWaterMayDeriveOneCellMediumPresentationRim": true,
+    "semanticShallowWaterExpansionForbiddenInExactMode": true,
+    "transitionAdjacentWaterUsesQuietOwnerFill": true,
+    "interiorWaterMayUseAuthoredAnimationVariants": true,
+    "terrainPixelsMayNotBeGeneratedOrRecolored": true,
+    "marineAndFreshwaterUseSameV7DepthTopology": true,
+    "marineWaterRetainsSaltwaterGameplayIdentity": true,
+    "freshwaterOnlyFillsWateringContainers": true
+  },
+  "remainingSeamlessRuntimeWork": [
+    "render objects, actors, collisions, and editor overlays from neighboring partitions before they become active",
+    "replace remaining active-scene exterior terminology in UI and persistence adapters",
+    "add asynchronous partition IO so very large worlds never retain every visited synthesized ocean partition"
+  ]
+}

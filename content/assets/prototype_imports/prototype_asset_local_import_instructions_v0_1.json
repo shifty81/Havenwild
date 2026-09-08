@@ -1,0 +1,287 @@
+{
+  "schema": "havenwild.asset_local_import_instructions.v0_1",
+  "updated": "2026-07-09",
+  "purpose": "Per-source local placement instructions for donor/reference packs. These instructions tell the editor where users should place original zips/sheets before running safe dry-run bake checks. They do not authorize runtime use by themselves.",
+  "rules": {
+    "rawAssets": "remain user-supplied or quarantined unless a project decision explicitly allows otherwise",
+    "blockedSources": "may be visible for learning/reference but must not be baked into runtime",
+    "dryRunOnly": "placement instructions feed the dry-run availability report; actual bake/promote remains a later explicit step"
+  },
+  "records": [
+    {
+      "externalSourceId": "third_party.rowdy41.wood_garden",
+      "displayName": "Wood Garden asset pack",
+      "localImportStatus": "candidate_user_supplied_or_quarantine",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/rowdy41_wood_garden/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/rowdy41_wood_garden/",
+      "acceptedInputFiles": [
+        "Asset Pack.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "allowed_with_attribution_and_metadata",
+      "instruction": "Place the original zip/sheet locally, then run the prototype bake dry-run. Runtime promotion still requires metadata, attribution/restriction review, and explicit approval."
+    },
+    {
+      "externalSourceId": "third_party.rowdy41.small_forest",
+      "displayName": "Small Forest asset pack subset",
+      "localImportStatus": "candidate_user_supplied_or_quarantine",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/rowdy41_small_forest/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/rowdy41_small_forest/",
+      "acceptedInputFiles": [
+        "Asset Pack.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "allowed_with_attribution_and_metadata",
+      "instruction": "Place the original zip/sheet locally, then run the prototype bake dry-run. Runtime promotion still requires metadata, attribution/restriction review, and explicit approval."
+    },
+    {
+      "externalSourceId": "third_party.pipoya.free_rpg_tileset_32x32_bundle",
+      "displayName": "PIPOYA FREE RPG Tileset 32x32 bundle",
+      "localImportStatus": "candidate_user_supplied_or_quarantine",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/pipoya_free_rpg_tileset_32x32_bundle/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/pipoya_free_rpg_tileset_32x32/",
+      "acceptedInputFiles": [
+        "Pipoya RPG Tileset 32x32.zip",
+        "Door_Animation.zip",
+        "Unorganized Parts.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "allowed_with_attribution_and_metadata",
+      "instruction": "Place the original zip/sheet locally, then run the prototype bake dry-run. Runtime promotion still requires metadata, attribution/restriction review, and explicit approval."
+    },
+    {
+      "externalSourceId": "third_party.seliel.gentle_forest_3_0a_free_palettes",
+      "displayName": "Gentle Forest 3.0a ($0 palettes)",
+      "localImportStatus": "candidate_user_supplied_or_quarantine",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/seliel_gentle_forest_3_0a_free_palettes/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/seliel_gentle_forest_3_0a/",
+      "acceptedInputFiles": [
+        "19.07a - Gentle Forest 3.0a ($0 palettes).zip",
+        "sample map and Tiled files.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "allowed_with_attribution_and_metadata",
+      "instruction": "Place the original zip/sheet locally, then run the prototype bake dry-run. Runtime promotion still requires metadata, attribution/restriction review, and explicit approval."
+    },
+    {
+      "externalSourceId": "third_party.seliel.mana_seed_character_base_demo_2_0",
+      "displayName": "FREE Mana Seed Character Base Demo 2.0",
+      "localImportStatus": "candidate_user_supplied_or_quarantine",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/seliel_mana_seed_character_base_demo_2_0/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/seliel_mana_seed_character_base_demo_2_0/",
+      "acceptedInputFiles": [
+        "FREE Mana Seed Character Base Demo 2.0.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "allowed_with_attribution_and_metadata_for_prototype; final_player_base_requires_project_decision",
+      "instruction": "Place the original zip/sheet locally, then run the prototype bake dry-run. Runtime promotion still requires metadata, attribution/restriction review, and explicit approval."
+    },
+    {
+      "externalSourceId": "third_party.shubibubi.cozy_farm_free_version",
+      "displayName": "Cozy Farm free version",
+      "localImportStatus": "blocked_reference_only",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/shubibubi_cozy_farm_free_version/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/shubibubi_cozy_farm_free_version/",
+      "acceptedInputFiles": [
+        "free version.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "blocked_free_version_non_commercial_only",
+      "instruction": "Reference-only. Keep local files quarantined; do not bake into runtime unless license source is upgraded and a new source record is added."
+    },
+    {
+      "externalSourceId": "third_party.shubibubi.cozy_interior_free_version",
+      "displayName": "Cozy Interior free version",
+      "localImportStatus": "blocked_reference_only",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/shubibubi_cozy_interior_free_version/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/shubibubi_cozy_interior_free_version/",
+      "acceptedInputFiles": [
+        "Interior free.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "blocked_free_version_non_commercial_only",
+      "instruction": "Reference-only. Keep local files quarantined; do not bake into runtime unless license source is upgraded and a new source record is added."
+    },
+    {
+      "externalSourceId": "third_party.shubibubi.cozy_town_free_version",
+      "displayName": "Cozy Town free version",
+      "localImportStatus": "blocked_reference_only",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/shubibubi_cozy_town_free_version/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/shubibubi_cozy_town_free_version/",
+      "acceptedInputFiles": [
+        "town free.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "blocked_free_version_non_commercial_only",
+      "instruction": "Reference-only. Keep local files quarantined; do not bake into runtime unless license source is upgraded and a new source record is added."
+    },
+    {
+      "externalSourceId": "third_party.lpc.opengameart_mixed_loose_assets",
+      "displayName": "Mixed LPC/OpenGameArt-looking loose assets from uploaded bundle",
+      "localImportStatus": "blocked_until_attribution_chain_restored",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/lpc_opengameart_mixed_loose_assets/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/lpc_opengameart_mixed_loose_assets/",
+      "acceptedInputFiles": [
+        "Asset Pack.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "blocked_until_license_chain_restored",
+      "instruction": "Reference-only until the exact OpenGameArt/LPC author/license chain is restored. Do not bake or ship from this source record."
+    },
+    {
+      "externalSourceId": "third_party.pipoya.free_rpg_world_tileset_32_40_48",
+      "displayName": "PIPOYA FREE RPG World Tileset 32x32 40x40 48x48",
+      "localImportStatus": "candidate_user_supplied_or_quarantine",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/pipoya_free_rpg_world_tileset_32_40_48/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/pipoya_free_rpg_world_tileset_32_40_48/",
+      "acceptedInputFiles": [
+        "Pipoya RPG World Tileset 48x48 40x40 32x32.zip",
+        "Pipoya RPG World Tileset 48x48 40x40 32x32 for Tiled1.5.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "allowed_with_attribution_and_metadata",
+      "instruction": "Place the original zip/sheet locally, then run the prototype bake dry-run. Runtime promotion still requires metadata, attribution/restriction review, and explicit approval."
+    },
+    {
+      "externalSourceId": "third_party.henrysoftware.free_pixel_food_cc0",
+      "displayName": "Free Pixel Food!",
+      "localImportStatus": "candidate_user_supplied_or_quarantine",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/henrysoftware_free_pixel_food_cc0/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/henrysoftware_free_pixel_food/",
+      "acceptedInputFiles": [
+        "FreePixelFood.zip",
+        "Food.png"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "allowed_with_metadata_cc0",
+      "instruction": "Place the original zip/sheet locally, then run the prototype bake dry-run. Runtime promotion still requires metadata, attribution/restriction review, and explicit approval."
+    },
+    {
+      "externalSourceId": "third_party.ghostpixxells.pixel_mart_cc0",
+      "displayName": "Pixel Mart",
+      "localImportStatus": "candidate_user_supplied_or_quarantine",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/ghostpixxells_pixel_mart_cc0/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/ghostpixxells_pixel_mart/",
+      "acceptedInputFiles": [
+        "Pixel_Mart.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "allowed_with_metadata_cc0",
+      "instruction": "Place the original zip/sheet locally, then run the prototype bake dry-run. Runtime promotion still requires metadata, attribution/restriction review, and explicit approval."
+    },
+    {
+      "externalSourceId": "third_party.fishing_free_noncommercial",
+      "displayName": "Fishing free asset pack",
+      "localImportStatus": "blocked_reference_only",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/fishing_free_noncommercial/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/fishing_free_noncommercial/",
+      "acceptedInputFiles": [
+        "fishing_free.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "blocked_free_version_non_commercial_only",
+      "instruction": "Reference-only. Keep local files quarantined; do not bake into runtime unless license source is upgraded and a new source record is added."
+    },
+    {
+      "externalSourceId": "third_party.char_free_unverified",
+      "displayName": "char free uploaded character pack",
+      "localImportStatus": "blocked_unverified_source",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/char_free_unverified/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/char_free_unverified/",
+      "acceptedInputFiles": [
+        "char free.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "blocked_until_license_chain_restored",
+      "instruction": "Reference-only until the exact source/license is identified. Do not bake or ship."
+    },
+    {
+      "externalSourceId": "third_party.game_endeavor.mystic_woods_free",
+      "displayName": "Mystic Woods Free Version",
+      "localImportStatus": "blocked_reference_only",
+      "preferredWorkspaceImportPath": "WORKSPACE/imports/third_party/game_endeavor_mystic_woods_free/",
+      "preferredQuarantinePath": "assets/reference_quarantine/third_party/game_endeavor_mystic_woods_free/",
+      "acceptedInputFiles": [
+        "mystic_woods_free_2.2.zip"
+      ],
+      "acceptedInputNotes": [
+        "Keep original archive/file names when possible so dry-run matching can find them.",
+        "Do not copy raw third-party assets into assets/processed or runtime bundles by hand."
+      ],
+      "dryRunCommand": "python tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "editorDisplay": "show_in_assets_tab",
+      "runtimeUseRule": "blocked_free_version_non_commercial_only",
+      "instruction": "Reference-only. Keep local files quarantined; do not bake into runtime unless license source is upgraded and a new source record is added."
+    }
+  ]
+}

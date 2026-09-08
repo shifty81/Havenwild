@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.placeable_state_transition_policy.v1",
+  "requirements": {
+    "stable_asset_ref_is_state_authority": true,
+    "state_changes_are_persisted": true,
+    "host_authority_required_for_runtime_mutation": true,
+    "editor_preview_state_is_non_authoritative": true,
+    "behavior_nodes_are_pack_defined": true,
+    "legacy_object_kind_is_fallback_only": true,
+    "runtime_and_editor_share_state_contract": true
+  },
+  "supported_transition_fields": [
+    "from",
+    "trigger",
+    "to",
+    "authority",
+    "message"
+  ],
+  "supported_authorities": [
+    "host",
+    "editor_preview"
+  ],
+  "editor_controls": [
+    "previous_state",
+    "next_state",
+    "place_with_preview_state"
+  ]
+}

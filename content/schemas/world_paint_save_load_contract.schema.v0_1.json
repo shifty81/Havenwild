@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Havenwild World Paint Save Load Contract v0.1",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "canonicalTileSize",
+    "deltaPath",
+    "integrationPoints",
+    "hotkeyRoutingGuards",
+    "multiplayerPolicy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.world_paint_save_load_contract.v0.1"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string"
+    },
+    "canonicalTileSize": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "const": 32
+        },
+        {
+          "const": 32
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "deltaPath": {
+      "type": "string"
+    },
+    "integrationPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "behavior"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "behavior": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "hotkeyRoutingGuards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "paintTabBehavior",
+          "globalBehaviorWhenNotPaint"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "paintTabBehavior": {
+            "type": "string"
+          },
+          "globalBehaviorWhenNotPaint": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "multiplayerPolicy": {
+      "type": "object",
+      "required": [
+        "authoritativeState",
+        "clientVisualState",
+        "replaySafety"
+      ],
+      "properties": {
+        "authoritativeState": {
+          "type": "string"
+        },
+        "clientVisualState": {
+          "type": "string"
+        },
+        "replaySafety": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

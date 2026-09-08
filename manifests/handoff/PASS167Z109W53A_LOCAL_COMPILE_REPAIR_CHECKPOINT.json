@@ -1,0 +1,52 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W53A",
+  "date": "2026-08-15",
+  "title": "Local Compile Repair",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B",
+    "167Z109W45C1",
+    "167Z109W45C2",
+    "167Z109W45C3A",
+    "167Z109W45D1",
+    "167Z109W45D1A",
+    "167Z109W45C3B",
+    "167Z109W45D2",
+    "167Z109W46A",
+    "167Z109W46B",
+    "167Z109W46C",
+    "167Z109W47",
+    "167Z109W48",
+    "167Z109W49",
+    "167Z109W50",
+    "167Z109W51",
+    "167Z109W52",
+    "167Z109W53",
+    "167Z109W53A"
+  ],
+  "repair": {
+    "haven_game": "Import existing BuildingInstanceViewState used by replicated state apply path",
+    "haven_editor_native": "Import existing shared repo_root_dir helper used by BuildingInstance source persistence"
+  },
+  "behaviorChange": "none",
+  "validation": {
+    "w46aThroughW53AuthorityChain": "PASS",
+    "jsonParse": "PASS",
+    "pythonCompile": "PASS",
+    "bashSyntax": "PASS",
+    "cargoWindowsBuild": "PENDING_USER_LOCAL_RETRY",
+    "touchedRustModules": "PASS_212_AND_327_LINES",
+    "projectWideRustModuleCeiling": "NOT_REASSESSED_W53A_UNRELATED_TO_COMPILE_HOTFIX"
+  },
+  "next": "Apply W53A and rerun 2. Build all; continue compile repairs only if Cargo exposes additional errors, then perform visual acceptance."
+}

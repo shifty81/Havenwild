@@ -1,0 +1,452 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W52 closes Tavern-facing visual gaps using exact pinned ElizaWy/LPC furniture regions through the existing PublishedWorldAssetRegistry."
+  ],
+  "entries": [
+    {
+      "id": "furniture_bar_counter_wood_4",
+      "semantic_id": "furniture.bar.countertop_wood.authored_run_4",
+      "label": "Wood Counter \u2014 Authored Four-Tile Run",
+      "category": "furniture",
+      "source_semantic_id": "furniture.countertop.wood.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          4,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          4,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          -1
+        ],
+        "interaction_size": [
+          4,
+          2
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "wall"
+      ],
+      "placement_tags": [
+        "indoor",
+        "tavern",
+        "counter",
+        "service"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          64.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              64,
+              128,
+              128,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Bar counter selected: service interaction sockets are BuildingRecipe-owned."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.furniture.bar_counter_wood_4"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "bar_counter_wood_run"
+      ],
+      "provenance": {
+        "authority": "elizawy_lpc_exact_authored_furniture",
+        "source_path": "assets/source/licensed/lpc_revised/Objects/Furniture/Countertop.png",
+        "source_rect": [
+          64,
+          128,
+          128,
+          32
+        ],
+        "source_mode": "exact_authored_four_cell_run",
+        "license_authority": "assets/source/licensed/lpc_revised/Objects/Furniture/Credits.txt",
+        "note": "W52 exact contiguous wood countertop run; used intentionally as a tavern service counter assembly rather than pretending an unrelated object is a bar."
+      },
+      "legacy_object_kind": "bar",
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "container_barrel_wood_01",
+      "semantic_id": "container.barrel.wood.01",
+      "label": "Wood Barrel",
+      "category": "furniture",
+      "source_semantic_id": "furniture.barrel.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          1,
+          2
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "ground",
+        "cave_floor"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "wall"
+      ],
+      "placement_tags": [
+        "indoor",
+        "outdoor",
+        "storage"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          48.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              32,
+              48
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wood barrel selected."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.container.barrel_wood_01"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "barrel_singular_wood"
+      ],
+      "provenance": {
+        "authority": "elizawy_lpc_exact_authored_furniture",
+        "source_path": "assets/source/licensed/lpc_revised/Objects/Furniture/Barrel.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          48
+        ],
+        "source_mode": "exact_singular_tight_crop",
+        "license_authority": "assets/source/licensed/lpc_revised/Objects/Furniture/Credits.txt",
+        "note": "W52 first standalone barrel from the five-column LPC barrel sheet; replaces the old grouped connected-component cache."
+      },
+      "legacy_object_kind": "barrel",
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "container_keg_wood_01",
+      "semantic_id": "container.keg.wood.01",
+      "label": "Wood Keg / Cask",
+      "category": "furniture",
+      "source_semantic_id": "furniture.barrel.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          1,
+          2
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "ground",
+        "cave_floor"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "wall"
+      ],
+      "placement_tags": [
+        "indoor",
+        "tavern",
+        "cellar",
+        "drink_storage"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          48.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              32,
+              0,
+              32,
+              48
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wood keg selected: drink-storage interaction is recipe/gameplay-owned."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.container.keg_wood_01"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "keg_singular_wood"
+      ],
+      "provenance": {
+        "authority": "elizawy_lpc_exact_authored_furniture",
+        "source_path": "assets/source/licensed/lpc_revised/Objects/Furniture/Barrel.png",
+        "source_rect": [
+          32,
+          0,
+          32,
+          48
+        ],
+        "source_mode": "exact_singular_tight_crop",
+        "license_authority": "assets/source/licensed/lpc_revised/Objects/Furniture/Credits.txt",
+        "note": "W52 second standalone barrel/cask variant is explicitly classified as the Tavern keg identity; no grouped-barrel sprite remains."
+      },
+      "legacy_object_kind": "keg",
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "fixture_fireplace_cast_iron_01",
+      "semantic_id": "fixture.fireplace.cast_iron.01",
+      "label": "Cast-Iron Hearth Stove",
+      "category": "furniture",
+      "source_semantic_id": "furniture.fireplace.cast_iron.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "wall"
+      ],
+      "placement_tags": [
+        "indoor",
+        "kitchen",
+        "hearth",
+        "cooking"
+      ],
+      "states": [
+        "unlit",
+        "lit"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "unlit",
+            "source_rect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "state": "lit",
+            "source_rect": [
+              0,
+              64,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cast-iron hearth selected: cooking socket is BuildingRecipe-owned."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.fixture.fireplace_cast_iron_01"
+      },
+      "transitions": [
+        {
+          "from": "unlit",
+          "trigger": "interact",
+          "to": "lit",
+          "authority": "host",
+          "message": "The hearth is lit."
+        },
+        {
+          "from": "lit",
+          "trigger": "interact",
+          "to": "unlit",
+          "authority": "host",
+          "message": "The hearth is extinguished."
+        }
+      ],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "kitchen_hearth_cast_iron"
+      ],
+      "provenance": {
+        "authority": "elizawy_lpc_exact_authored_furniture",
+        "source_path": "assets/source/licensed/lpc_revised/Objects/Furniture/Fireplace, Cast Iron.png",
+        "source_rect": [
+          0,
+          32,
+          32,
+          64
+        ],
+        "source_mode": "exact_state_cells",
+        "license_authority": "assets/source/licensed/lpc_revised/Objects/Furniture/Credits.txt",
+        "note": "W52 uses the exact off/on stove-front cells as Tavern hearth states."
+      },
+      "legacy_object_kind": "fireplace",
+      "legacy_object_kind_primary": true
+    }
+  ]
+}

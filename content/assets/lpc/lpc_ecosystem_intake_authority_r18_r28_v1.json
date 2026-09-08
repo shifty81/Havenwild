@@ -1,0 +1,40 @@
+{
+  "schema": "havenwild.lpc_ecosystem.intake_authority.r18_r28.v1",
+  "baseline": "W81R17",
+  "passes": ["W81R18","W81R19","W81R20","W81R21","W81R22","W81R23","W81R24","W81R25","W81R26","W81R27","W81R28"],
+  "goal": "Expose and govern the full useful LPC ecosystem for Havenwild without coupling third-party art licenses to Havenwild code or hiding unbound source content from authoring workflows.",
+  "sourceAuthorities": [
+    "ElizaWy/LPC Revised pinned repository",
+    "Universal LPC Spritesheet Character Generator pinned repository",
+    "OpenGameArt exact source pages discovered through LPC collections"
+  ],
+  "states": ["discovered","catalogued","license_cleared","compatibility_verified","havenwild_approved","runtime_bound","production_ready","reference_only","blocked"],
+  "licenseTiers": {
+    "green": ["CC0-1.0","OGA-BY-3.0","OGA-BY-4.0"],
+    "green_conditional": ["CC-BY-3.0","CC-BY-4.0"],
+    "yellow": ["CC-BY-SA-3.0","CC-BY-SA-4.0"],
+    "red": ["GPL-only","NC","ND","unknown_or_unverified"]
+  },
+  "rules": [
+    "Code/editor/runtime remain separately licensed from third-party artwork.",
+    "Editing a third-party image inside Havenwild does not erase that image's source license.",
+    "Original Havenwild-authored art created without derivative copying remains project-authored.",
+    "Raw third-party source repositories remain immutable authoring dependencies.",
+    "Editor may browse catalogued content before runtime binding; missing gameplay metadata is shown as a readiness warning rather than hiding the source.",
+    "Release fails closed for blocked or unverified asset provenance.",
+    "Runtime packages contain only used/promoted/generated assets plus required attribution, not complete source repositories."
+  ],
+  "domainPasses": {
+    "W81R18":"complete discovery/audit and license/readiness census",
+    "W81R19":"universal asset browser v2 authority and browser projection",
+    "W81R20":"character/create/wardrobe/equipment catalog exposure",
+    "W81R21":"terrain/nature/world visual catalog exposure",
+    "W81R22":"farming/food/animal visual intake",
+    "W81R23":"mining/forge/blacksmith/woodshop/sawmill visual intake",
+    "W81R24":"tavern/interior/storage/business visual intake",
+    "W81R25":"creatures/combat/weapons/effects visual intake",
+    "W81R26":"ships/fishing/water-world visual intake",
+    "W81R27":"release licensing/credits certification",
+    "W81R28":"cross-domain LPC visual/gameplay acceptance world"
+  }
+}

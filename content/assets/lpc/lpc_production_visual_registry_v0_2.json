@@ -1,0 +1,800 @@
+{
+  "schema": "havenwild.lpc_production_visual_registry.v0_2",
+  "rules": {
+    "semantic_world_state_is_authoritative": true,
+    "visual_tiles_are_derived": true,
+    "generated_atlases_are_read_only": true,
+    "third_party_edits_use_havenwild_overrides": true,
+    "pixel_filter": "nearest"
+  },
+  "terrain_v7": {
+    "source_tsx": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.tsx",
+    "source_image": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+    "sha256": "d098d23fbe6bb51b53f5d719d05a8e620d393f9d831bb14d2ed201b650163b7b",
+    "tile_size": [
+      32,
+      32
+    ],
+    "columns": 32,
+    "tile_count": 2048,
+    "terrain_types": [
+      {
+        "terrain_index": 0,
+        "tiled_name": "Dirt_Tan",
+        "stable_id": "terrain.lpc_v7.dirt.tan",
+        "category": "ground",
+        "pure_fill_tile_id": 97,
+        "source_rect": [
+          32,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 1,
+        "tiled_name": "Dirt_Brown",
+        "stable_id": "terrain.lpc_v7.dirt.brown",
+        "category": "ground",
+        "pure_fill_tile_id": 100,
+        "source_rect": [
+          128,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 2,
+        "tiled_name": "Dirt_Dark",
+        "stable_id": "terrain.lpc_v7.dirt.dark",
+        "category": "ground",
+        "pure_fill_tile_id": 103,
+        "source_rect": [
+          224,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 3,
+        "tiled_name": "Rock_White",
+        "stable_id": "terrain.lpc_v7.rock.white",
+        "category": "rock",
+        "pure_fill_tile_id": 106,
+        "source_rect": [
+          320,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 4,
+        "tiled_name": "Rock_Gray",
+        "stable_id": "terrain.lpc_v7.rock.gray",
+        "category": "rock",
+        "pure_fill_tile_id": 109,
+        "source_rect": [
+          416,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 5,
+        "tiled_name": "Rock_Dark",
+        "stable_id": "terrain.lpc_v7.rock.dark",
+        "category": "rock",
+        "pure_fill_tile_id": 112,
+        "source_rect": [
+          512,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 6,
+        "tiled_name": "Rock_Black",
+        "stable_id": "terrain.lpc_v7.rock.black",
+        "category": "rock",
+        "pure_fill_tile_id": 115,
+        "source_rect": [
+          608,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 7,
+        "tiled_name": "Hole_Brown",
+        "stable_id": "terrain.lpc_v7.hole.brown",
+        "category": "ground",
+        "pure_fill_tile_id": 118,
+        "source_rect": [
+          704,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 8,
+        "tiled_name": "Hole_Black",
+        "stable_id": "terrain.lpc_v7.hole.black",
+        "category": "ground",
+        "pure_fill_tile_id": 121,
+        "source_rect": [
+          800,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 9,
+        "tiled_name": "Mud_Brown",
+        "stable_id": "terrain.lpc_v7.mud.brown",
+        "category": "ground",
+        "pure_fill_tile_id": 124,
+        "source_rect": [
+          896,
+          96,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 10,
+        "tiled_name": "Grass",
+        "stable_id": "terrain.lpc_v7.grass",
+        "category": "grass",
+        "pure_fill_tile_id": 321,
+        "source_rect": [
+          32,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 11,
+        "tiled_name": "Grass_Light",
+        "stable_id": "terrain.lpc_v7.grass.light",
+        "category": "grass",
+        "pure_fill_tile_id": 324,
+        "source_rect": [
+          128,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 12,
+        "tiled_name": "Grass_Dark",
+        "stable_id": "terrain.lpc_v7.grass.dark",
+        "category": "grass",
+        "pure_fill_tile_id": 327,
+        "source_rect": [
+          224,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 13,
+        "tiled_name": "Grass_Dead",
+        "stable_id": "terrain.lpc_v7.grass.dead",
+        "category": "grass",
+        "pure_fill_tile_id": 330,
+        "source_rect": [
+          320,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 14,
+        "tiled_name": "Soil",
+        "stable_id": "terrain.lpc_v7.soil",
+        "category": "ground",
+        "pure_fill_tile_id": 333,
+        "source_rect": [
+          416,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 15,
+        "tiled_name": "Sand",
+        "stable_id": "terrain.lpc_v7.sand",
+        "category": "ground",
+        "pure_fill_tile_id": 336,
+        "source_rect": [
+          512,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 16,
+        "tiled_name": "Snow_1",
+        "stable_id": "terrain.lpc_v7.snow.1",
+        "category": "snow_ice",
+        "pure_fill_tile_id": 339,
+        "source_rect": [
+          608,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 17,
+        "tiled_name": "Snow_2",
+        "stable_id": "terrain.lpc_v7.snow.2",
+        "category": "snow_ice",
+        "pure_fill_tile_id": 342,
+        "source_rect": [
+          704,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 18,
+        "tiled_name": "Gravel_1",
+        "stable_id": "terrain.lpc_v7.gravel.1",
+        "category": "ground",
+        "pure_fill_tile_id": 345,
+        "source_rect": [
+          800,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 19,
+        "tiled_name": "Dirt_Roots",
+        "stable_id": "terrain.lpc_v7.dirt.roots",
+        "category": "ground",
+        "pure_fill_tile_id": 348,
+        "source_rect": [
+          896,
+          320,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 20,
+        "tiled_name": "Water_Shallows_Dirt",
+        "stable_id": "terrain.lpc_v7.water.shallows.dirt",
+        "category": "water",
+        "pure_fill_tile_id": 545,
+        "source_rect": [
+          32,
+          544,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 21,
+        "tiled_name": "Water",
+        "stable_id": "terrain.lpc_v7.water",
+        "category": "water",
+        "pure_fill_tile_id": 548,
+        "source_rect": [
+          128,
+          544,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 22,
+        "tiled_name": "Water_Deep",
+        "stable_id": "terrain.lpc_v7.water.deep",
+        "category": "water",
+        "pure_fill_tile_id": 551,
+        "source_rect": [
+          224,
+          544,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 23,
+        "tiled_name": "Water_Purple",
+        "stable_id": "terrain.lpc_v7.water.purple",
+        "category": "water",
+        "pure_fill_tile_id": 554,
+        "source_rect": [
+          320,
+          544,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 24,
+        "tiled_name": "Water_Green",
+        "stable_id": "terrain.lpc_v7.water.green",
+        "category": "water",
+        "pure_fill_tile_id": 557,
+        "source_rect": [
+          416,
+          544,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 25,
+        "tiled_name": "Lava",
+        "stable_id": "terrain.lpc_v7.lava",
+        "category": "ground",
+        "pure_fill_tile_id": 560,
+        "source_rect": [
+          512,
+          544,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 26,
+        "tiled_name": "Water_Shallows_Sand",
+        "stable_id": "terrain.lpc_v7.water.shallows.sand",
+        "category": "water",
+        "pure_fill_tile_id": 837,
+        "source_rect": [
+          160,
+          832,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 27,
+        "tiled_name": "Ice",
+        "stable_id": "terrain.lpc_v7.ice",
+        "category": "snow_ice",
+        "pure_fill_tile_id": 838,
+        "source_rect": [
+          192,
+          832,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 28,
+        "tiled_name": "Ice_Melting",
+        "stable_id": "terrain.lpc_v7.ice.melting",
+        "category": "snow_ice",
+        "pure_fill_tile_id": 841,
+        "source_rect": [
+          288,
+          832,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 29,
+        "tiled_name": "Earth_Cracked",
+        "stable_id": "terrain.lpc_v7.earth.cracked",
+        "category": "ground",
+        "pure_fill_tile_id": 784,
+        "source_rect": [
+          512,
+          768,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 30,
+        "tiled_name": "Stone_White",
+        "stable_id": "terrain.lpc_v7.stone.white",
+        "category": "rock",
+        "pure_fill_tile_id": 787,
+        "source_rect": [
+          608,
+          768,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 31,
+        "tiled_name": "Stone_Tan",
+        "stable_id": "terrain.lpc_v7.stone.tan",
+        "category": "rock",
+        "pure_fill_tile_id": 790,
+        "source_rect": [
+          704,
+          768,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 32,
+        "tiled_name": "Mudstone_Gray",
+        "stable_id": "terrain.lpc_v7.mudstone.gray",
+        "category": "ground",
+        "pure_fill_tile_id": 793,
+        "source_rect": [
+          800,
+          768,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      },
+      {
+        "terrain_index": 33,
+        "tiled_name": "Mudstone_Brown",
+        "stable_id": "terrain.lpc_v7.mudstone.brown",
+        "category": "ground",
+        "pure_fill_tile_id": 796,
+        "source_rect": [
+          896,
+          768,
+          32,
+          32
+        ],
+        "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "authoring_policy": "source_or_havenwild_override",
+        "runtime_policy": "semantic_terrain_resolver_selects_visual"
+      }
+    ]
+  },
+  "structural_cliffs": [
+    {
+      "stable_id": "terrain.cliff.lpc.grass",
+      "surface_material": "grass",
+      "source": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "sha256": "1a0c25904aaacf373c54311eecca9933a9b122e4c3cb2e4cfe8e19ab06feb82a",
+      "sheet_size": [
+        384,
+        288
+      ],
+      "cell_size": [
+        32,
+        32
+      ],
+      "columns": 12,
+      "rows": 9,
+      "selection_authority": "elevation_cliff_v2",
+      "review_catalog": "content/assets/oga_lpc/manifests/oga_lpc_cliff_cell_catalog_v0_1.json"
+    },
+    {
+      "stable_id": "terrain.cliff.lpc.dark_dirt",
+      "surface_material": "dark_dirt",
+      "source": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_ddirt.png",
+      "sha256": "bfdd15edb92782a6b136bbe8bb6cc51dcd4ec785adc1c5b1823b65f34a715b1f",
+      "sheet_size": [
+        384,
+        288
+      ],
+      "cell_size": [
+        32,
+        32
+      ],
+      "columns": 12,
+      "rows": 9,
+      "selection_authority": "elevation_cliff_v2",
+      "review_catalog": "content/assets/oga_lpc/manifests/oga_lpc_cliff_cell_catalog_v0_1.json"
+    },
+    {
+      "stable_id": "terrain.cliff.lpc.sand",
+      "surface_material": "sand",
+      "source": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_sand.png",
+      "sha256": "c966a3bc552f503dbb009858a02f1f70787a900c416068bc90f4ba9920cc1124",
+      "sheet_size": [
+        384,
+        288
+      ],
+      "cell_size": [
+        32,
+        32
+      ],
+      "columns": 12,
+      "rows": 9,
+      "selection_authority": "elevation_cliff_v2",
+      "review_catalog": "content/assets/oga_lpc/manifests/oga_lpc_cliff_cell_catalog_v0_1.json"
+    },
+    {
+      "stable_id": "terrain.cliff.lpc.snow",
+      "surface_material": "snow",
+      "source": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_snow.png",
+      "sha256": "4843d2c99a53b9f1e6039ef02b1f23eabc7f1d1bf68123e4b732dfd63c05e73f",
+      "sheet_size": [
+        384,
+        288
+      ],
+      "cell_size": [
+        32,
+        32
+      ],
+      "columns": 12,
+      "rows": 9,
+      "selection_authority": "elevation_cliff_v2",
+      "review_catalog": "content/assets/oga_lpc/manifests/oga_lpc_cliff_cell_catalog_v0_1.json"
+    }
+  ],
+  "animated_water": {
+    "stable_id": "terrain.water.animated_waterfalls",
+    "source": "content/assets/oga_lpc/source/terrain/animated_water/wateranimate2.png",
+    "sha256": "63a5b1c21cb43a598985379ad9298e76f2883b2c2d84a3e1fdfd92e8b7248ac3",
+    "sheet_size": [
+      576,
+      386
+    ],
+    "waterfall_frames": [
+      {
+        "variant": 0,
+        "frame": 0,
+        "rect": [
+          0,
+          0,
+          96,
+          192
+        ],
+        "source_anchor": [
+          48,
+          31
+        ],
+        "destination_anchor": [
+          48,
+          191
+        ]
+      },
+      {
+        "variant": 0,
+        "frame": 1,
+        "rect": [
+          96,
+          0,
+          96,
+          192
+        ],
+        "source_anchor": [
+          48,
+          31
+        ],
+        "destination_anchor": [
+          48,
+          191
+        ]
+      },
+      {
+        "variant": 0,
+        "frame": 2,
+        "rect": [
+          192,
+          0,
+          96,
+          192
+        ],
+        "source_anchor": [
+          48,
+          31
+        ],
+        "destination_anchor": [
+          48,
+          191
+        ]
+      },
+      {
+        "variant": 0,
+        "frame": 3,
+        "rect": [
+          288,
+          0,
+          96,
+          192
+        ],
+        "source_anchor": [
+          48,
+          31
+        ],
+        "destination_anchor": [
+          48,
+          191
+        ]
+      },
+      {
+        "variant": 1,
+        "frame": 0,
+        "rect": [
+          0,
+          192,
+          96,
+          192
+        ],
+        "source_anchor": [
+          48,
+          31
+        ],
+        "destination_anchor": [
+          48,
+          191
+        ]
+      },
+      {
+        "variant": 1,
+        "frame": 1,
+        "rect": [
+          96,
+          192,
+          96,
+          192
+        ],
+        "source_anchor": [
+          48,
+          31
+        ],
+        "destination_anchor": [
+          48,
+          191
+        ]
+      },
+      {
+        "variant": 1,
+        "frame": 2,
+        "rect": [
+          192,
+          192,
+          96,
+          192
+        ],
+        "source_anchor": [
+          48,
+          31
+        ],
+        "destination_anchor": [
+          48,
+          191
+        ]
+      },
+      {
+        "variant": 1,
+        "frame": 3,
+        "rect": [
+          288,
+          192,
+          96,
+          192
+        ],
+        "source_anchor": [
+          48,
+          31
+        ],
+        "destination_anchor": [
+          48,
+          191
+        ]
+      }
+    ],
+    "render_authority": "hydrology_v2_plus_structural_waterfall_query",
+    "semantic_mutation": false,
+    "production_state": "source_geometry_cataloged_visual_mapping_review_required"
+  },
+  "livestock_catalog": "content/assets/oga_lpc/manifests/oga_lpc_farm_animals_runtime_catalog_v0_1.json"
+}

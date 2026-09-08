@@ -1,0 +1,40 @@
+{
+  "schema": "havenwild.client_save_slot_contract.v0_1",
+  "owner": "HavenwildClient",
+  "slot_count": 3,
+  "editor_ownership": "The native editor does not own gameplay save slots. It edits project-level world generation and approved source content.",
+  "save_root": "WORKSPACE/saves",
+  "slot_directories": [
+    "slot_1",
+    "slot_2",
+    "slot_3"
+  ],
+  "slot_files": {
+    "metadata": "slot.json",
+    "world": "world.tworld",
+    "scene_manifest": "worldgen/scene_rectangle_manifest.json",
+    "island_previews": "worldgen/previews",
+    "paint_deltas": "world_paint/world_paint_deltas.json",
+    "paint_material_state": "world_paint/world_paint_material_state.json",
+    "paint_render_cache": "world_paint/world_paint_render_cache.json"
+  },
+  "new_game_flow": [
+    "Select one of three empty client slots",
+    "Enter or randomize a non-zero world seed",
+    "Generate collision-safe archipelago placement",
+    "Generate Alderreach as an 8x5 continuous mainland across 40 storage partitions",
+    "Generate the nine surrounding landmasses across 23 additional exterior storage partitions",
+    "Retain the nine authored interior and starter scenes for 72 total scenes",
+    "Persist the generated world and per-slot manifest",
+    "Launch into the generated Alderreach harbor approach"
+  ],
+  "occupied_slot_actions": [
+    "Play",
+    "Update World or Regenerate from the existing seed with destructive confirmation",
+    "Open Folder",
+    "Delete with confirmation"
+  ],
+  "release_packaging": "Packaged applications create an empty save root and never include development gameplay saves.",
+  "current_generation_version": 14,
+  "generation_update_policy": "Occupied worlds remain authoritative. Generation-version-14 migration removes Z83 debug lot pads and the misclassified water-cooler well, repairs harbor road intrusions, and adds invisible district reservations without resizing legacy worlds. Explicit regeneration from the existing seed is required to receive the new 8x5 Alderreach landmass."
+}

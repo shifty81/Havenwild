@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.worldgen_source_pipeline.v1",
+  "updated": "2026-05-25",
+  "packs": [
+    {
+      "id": "worldgen.compositor.v005",
+      "name": "Havenwild Worldgen Compositor",
+      "version": "v005",
+      "sourceArchive": "assets/raw/worldgen-pipeline/compositor-v005/source.zip",
+      "extractedPath": "assets/raw/worldgen-pipeline/compositor-v005/extracted",
+      "projectUse": "source_authoring_reference",
+      "status": "staged_not_runtime_bound",
+      "notes": "Semantic terrain compositor source pack covering base materials, corner/cardinal masks, shore-band masks, detail overlays, profile previews, schemas, and compositor pseudocode. Best used as the design/source baseline for any future runtime terrain compositor rather than direct drop-in runtime content."
+    },
+    {
+      "id": "worldgen.macro_world.v007",
+      "name": "Havenwild Macro Worldgen",
+      "version": "v007",
+      "sourceArchive": "assets/raw/worldgen-pipeline/macro-world-v007/source.zip",
+      "extractedPath": "assets/raw/worldgen-pipeline/macro-world-v007/extracted",
+      "projectUse": "source_authoring_reference",
+      "status": "staged_not_runtime_bound",
+      "notes": "Large-scale world-layout source pack that defines landmass, climate, hydrology, biome, and shore-profile semantic maps for a mainland-plus-islands world. It is a planning/input layer for future worldgen work, not a runtime scene pack."
+    }
+  ]
+}

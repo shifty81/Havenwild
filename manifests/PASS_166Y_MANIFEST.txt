@@ -1,0 +1,23 @@
+Havenwild Pass 166Y - Terrain/Worldgen Foundation and Deep-Water Authority
+Date: 2026-08-01
+Apply over: Pass 166X lineage
+
+Changed files:
+- crates/haven_world/src/world_foundation_v2.rs (new)
+- crates/haven_world/src/lib.rs
+- crates/haven_world/src/autotile/shoreline_resolver.rs
+
+Implemented:
+- WorldManifestV2 with stable stage-domain seeds and east/west wrapping contract.
+- Willowmere as an always-protected capital reservation requiring hand authoring.
+- Canonical ordered WorldGenerationExecutor stage graph.
+- SurfaceCellV1 semantic terrain foundation.
+- Water kind/depth/body/flow/freeze fields needed by hydrology, seasons, swimming,
+  fishing, boats, wakes, navigation, and persistence.
+- Cliff topology and authored-protection fields.
+- Production coastline profile no longer forces all generated water to remain
+  shallow. Existing lifecycle resolution can now derive deep interiors.
+
+Certification:
+- Cargo/rustfmt unavailable in packaging environment.
+- Run tools/build/Build.cmd all locally.

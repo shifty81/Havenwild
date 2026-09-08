@@ -1,0 +1,205 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_source_grammar_authority.v0_1",
+  "pass": "167Z109W14",
+  "revision": "167Z109W14-demo-grounded-source-grammar-literal-height-v1",
+  "status": "active",
+  "purpose": "Finish ordinary south-facing cliff source-role and height ownership from the actual ElizaWy source sheet and official demo while preserving the already-certified authored LPC directional ramps.",
+  "supersedes": {
+    "heightAuthority": "content/worldgen/elizawy_cliff_uniform_contour_height_authority_v0_1.json",
+    "ordinarySouthSourceRole": "the historical c10r9-r11 generic straight-wall interpretation",
+    "note": "Earlier authorities remain historical evidence for topology, low-side diagonal ownership, and pass evolution; W14 is current for ordinary south crest/body/foot source roles and receiver-facing visual height."
+  },
+  "source": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "sheet": "Terrain/cliff_summer.png",
+    "cellPx": 32,
+    "officialDemo": "_ Test Scenes/DemoGame - 2 - Summer.png",
+    "projectMount": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png"
+  },
+  "ordinarySouthRoles": {
+    "leftAngle": {
+      "crest": [
+        1,
+        7
+      ],
+      "body": [
+        1,
+        3
+      ],
+      "foot": [
+        1,
+        8
+      ],
+      "runtimeFamily": "SOUTH_WEST_DIAGONAL_FACE"
+    },
+    "straight": {
+      "crest": [
+        2,
+        7
+      ],
+      "body": [
+        2,
+        3
+      ],
+      "foot": [
+        2,
+        8
+      ],
+      "runtimeFamily": "SOUTH_STRAIGHT_FACE"
+    },
+    "rightAngle": {
+      "crest": [
+        3,
+        7
+      ],
+      "body": [
+        3,
+        3
+      ],
+      "foot": [
+        3,
+        8
+      ],
+      "runtimeFamily": "SOUTH_EAST_DIAGONAL_FACE"
+    }
+  },
+  "heightContract": {
+    "crestPlacement": "structural host row / upper-level boundary presentation",
+    "crestCountsAsReceiverFacingHeight": false,
+    "bodyRows": "max(edge_tier_delta - 1, 0)",
+    "footRows": 1,
+    "receiverRowsBelowHost": "edge_tier_delta",
+    "footRowOffsetFromHost": "edge_tier_delta",
+    "examples": {
+      "1": "crest(host) + foot(host+1)",
+      "2": "crest(host) + body(host+1) + foot(host+2)",
+      "3": "crest(host) + body(host+1) + body(host+2) + foot(host+3)",
+      "4": "crest(host) + body(host+1) + body(host+2) + body(host+3) + foot(host+4)"
+    },
+    "parityRule": "At the same edge tier delta, straight, left-angle, right-angle, and south terminal faces share identical receiver-facing top/bottom guides."
+  },
+  "diagonalOwnershipPreservedFromW13": {
+    "southWestLowSideReceiverDx": -1,
+    "southEastLowSideReceiverDx": 1,
+    "rule": "Visibility/collision projection is tested against the actual low-side receiver while source pixels remain host-aligned."
+  },
+  "terminalGrammar": {
+    "crestRow": [
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "bodyRow": [
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "footRow": [
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    "heightRule": "same N-1 body + one foot receiver-depth contract as straight/diagonal"
+  },
+  "retiredOrdinarySouthInterpretation": {
+    "cells": [
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        10,
+        11
+      ]
+    ],
+    "status": "not_generic_ordinary_south_wall_authority",
+    "rule": "Do not use this c10 feature column as the default ordinary south-facing cliff."
+  },
+  "directionalRamp": {
+    "authority": "content/worldgen/lpc_directional_cliff_ramp_authority_v0_1.json",
+    "sourceSheet": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+    "riseRightGridSpan": [
+      3,
+      5,
+      3,
+      4
+    ],
+    "riseLeftGridSpan": [
+      6,
+      5,
+      3,
+      4
+    ],
+    "combinedReviewedRegion": [
+      3,
+      5,
+      6,
+      4
+    ],
+    "status": "preserved_unchanged_from_W7",
+    "rule": "Use complete authored 3x4 left/right stamps at natural scale; no mirror, rotation, stretching, crop-to-column, redraw, or synthesis."
+  },
+  "sourceSafety": {
+    "userQuickPasteupIsSource": false,
+    "userQuickPasteupRole": "composition guidance only",
+    "halfTileSynthesisAllowed": false,
+    "textureStretchingAllowed": false,
+    "arbitraryMirrorOrRotationAllowed": false,
+    "generatedReplacementCliffPixelsAllowed": false
+  },
+  "outOfScope": [
+    "cave interior wall tiling",
+    "cave floor variation",
+    "cave provider redesign",
+    "ramp redesign",
+    "shore/water completion"
+  ],
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_source_grammar_pass167z109w14.png",
+  "runtimeAcceptance": [
+    "1-high straight/left/right share the same receiver-face bottom",
+    "2-high straight/left/right share the same receiver-face bottom",
+    "3-high straight/left/right share the same receiver-face bottom",
+    "4-high straight/left/right share the same receiver-face bottom",
+    "south terminal uses the same height grammar",
+    "W7 authored ramps remain visually/collision/traversal unchanged",
+    "no ordinary south face falls back to c10r9-r11"
+  ],
+  "next": "Build on Windows, inspect the cliff-heavy acceptance world, and if the W14 runtime screenshot passes, freeze ordinary cliffs before resuming caves/shore/water.",
+  "preservedFeatureColumns": {
+    "ladder": "keeps pre-W14 receiver-row feature envelope via draw_cliff_feature_vertical_face",
+    "caveMouth": "unchanged W8 narrow cave policy; interior cave work deferred",
+    "rule": "W14 host-row crest semantics apply to ordinary cliff grammar, not independent fixed connector/feature columns."
+  }
+}

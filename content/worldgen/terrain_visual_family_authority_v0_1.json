@@ -1,0 +1,219 @@
+{
+  "schema": "havenwild.terrain.visual_family_authority.v0_1",
+  "version": 7,
+  "activeOpenWorldFamily": "lpc_terrain_v7_island_v1",
+  "rules": [
+    "Terrain topology is shared policy; source pixels remain owned by one explicit style-pack lane.",
+    "A pure V7 lane may use only content/assets/lpc/source/lpc-terrains-v7 and V7-derived generated outputs.",
+    "A pure ElizaWy lane may use only the pinned ElizaWy source mount and ElizaWy-derived generated outputs.",
+    "The current mainland runtime is classified as legacy mixed until the ElizaWy mainland style pack receives its own complete transition mapping.",
+    "No family whose id or stylePackLane identifies V7 may reference ElizaWy, lpc_revised, terrain_summer, cliff_summer, or common_base_terrain_32.",
+    "Unsupported contacts are normalized by world generation; renderers do not borrow pixels from another style pack.",
+    "V7 Rock, Stone, Mudstone, Earth, Hole, Snow, Ice, Lava, and Water families are surface materials, not structural vertical cliff faces.",
+    "TileKind::Cliff is derived from elevation and exposed-neighbor topology and is never a normal ground brush.",
+    "Every style pack declares separate ground-material and structural-cliff providers.",
+    "A normalized runtime atlas may repack exact source cells, but it does not create cross-style transition artwork.",
+    "Decorative fill variants are suppressed beside material boundaries; multi-cell details place atomically or not at all.",
+    "V7 water depth uses the authored three-tier sequence Shallows -> Water -> Water_Deep; a one-cell medium-water presentation rim is derived on the deep side without changing freshwater or ocean gameplay identity.",
+    "Pass167Z81 closes Gravel, Rock Ground and Mud as normal V7 ground materials using exact tuples first and reviewed V7-only connector tuples only when the direct two-material pair is absent.",
+    "WateredSoil is a farming moisture state created by watering TilledSoil and is not a direct ground brush."
+  ],
+  "families": [
+    {
+      "id": "legacy_mixed_mainland_v1",
+      "stylePackLane": "legacy_mixed",
+      "status": "quarantined_inactive_reference_only",
+      "sources": [
+        "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png",
+        "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.tsx",
+        "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png"
+      ],
+      "semantics": [
+        "Grass",
+        "TallGrass",
+        "Dirt",
+        "Road",
+        "MudBank",
+        "Sand",
+        "WetSand",
+        "ShallowWater",
+        "Water",
+        "DeepWater",
+        "OceanShallow",
+        "OceanDeep"
+      ],
+      "allowedContexts": [
+        "legacy scene inspection only"
+      ],
+      "shapeAuthority": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+      "supplementalAuthoredGroups": [
+        "sand_over_wet_sand",
+        "shallow_rim_over_deep"
+      ],
+      "migrationTarget": "elizawy_mainland_v1",
+      "notAStylePackLane": true
+    },
+    {
+      "id": "lpc_terrain_v7_island_v1",
+      "stylePackLane": "lpc_terrain_v7",
+      "status": "active_source_pure_certification_lane",
+      "sources": [
+        "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png",
+        "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.tsx",
+        "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.tsx"
+      ],
+      "semantics": [
+        "Grass",
+        "TallGrass",
+        "Dirt",
+        "Road",
+        "MudBank",
+        "Sand",
+        "PebbleShore",
+        "StonePath",
+        "MountainPath",
+        "TilledSoil",
+        "WateredSoil",
+        "ShallowWater",
+        "Water",
+        "DeepWater",
+        "OceanShallow",
+        "OceanDeep",
+        "MountainRock",
+        "CaveFloor"
+      ],
+      "allowedContexts": [
+        "V7-authored islands",
+        "V7 terrain certification scenes"
+      ],
+      "shapeAuthority": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+      "wetSandPolicy": "retired; V7 Sand transitions directly into Water_Shallows_Sand",
+      "supplementalAuthoredGroups": [
+        "gravel_connector_edges",
+        "rock_ground_connector_edges",
+        "mud_connector_edges"
+      ],
+      "crossFamilyFallbackAllowed": false,
+      "sourceMaterialCatalog": "content/worldgen/v7_terrain_role_catalog_v0_1.json",
+      "surfaceRoles": [
+        "temperate",
+        "dark_forest",
+        "drylands",
+        "rocky_highlands",
+        "winter",
+        "volcanic_or_hazard",
+        "cave_and_subterranean"
+      ],
+      "structuralCliffProvider": "not included in V7 terrain sheets; requires a separately audited style-coherent provider",
+      "directCliffPaintAllowed": false,
+      "cliffAuditConclusion": "V7 contains broad rock/stone/mudstone/pit surfaces but no complete vertical structural cliff-face provider.",
+      "waterTierPresentation": {
+        "sequence": [
+          "Water_Shallows_Dirt_or_Sand",
+          "Water",
+          "Water_Deep"
+        ],
+        "directShallowDeepTupleAvailable": false,
+        "mediumRimPolicy": "derive one presentation cell on the deep side of same-domain shallow/deep contacts",
+        "semanticMutation": false,
+        "sourcePolicy": "exact V7 cells only; no ElizaWy overlay, generated band, recolor, or quadrant synthesis"
+      },
+      "groundMaterialCloseout": "content/terrain/v7_ground_material_closeout_v0_1.json"
+    },
+    {
+      "id": "terrain_v7_farm_v1",
+      "stylePackLane": "lpc_terrain_v7",
+      "status": "active_player_authored",
+      "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "semantics": [
+        "TilledSoil",
+        "WateredSoil",
+        "Crop"
+      ],
+      "allowedContexts": [
+        "V7 player-authored farm plots"
+      ],
+      "crossFamilyFallbackAllowed": false,
+      "directPaintSemantics": [
+        "TilledSoil"
+      ],
+      "derivedStateSemantics": [
+        "WateredSoil",
+        "Crop"
+      ]
+    },
+    {
+      "id": "elizawy_highland_v1",
+      "stylePackLane": "elizawy_mainland",
+      "status": "superseded_by_elizawy_mainland_style_pack_audit",
+      "source": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "semantics": [
+        "MountainRock",
+        "Cliff",
+        "CaveFloor",
+        "CaveWall"
+      ],
+      "allowedContexts": [
+        "ElizaWy mainland highlands",
+        "mountains",
+        "caves",
+        "elevation ramps"
+      ]
+    },
+    {
+      "id": "elizawy_mainland_v1",
+      "stylePackLane": "elizawy_mainland",
+      "status": "source_isolated_terrain_and_cliff_geometry_audited_runtime_mapping_pending",
+      "sources": [
+        "assets/source/licensed/lpc_revised/Terrain/terrain_spring.png",
+        "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+        "assets/source/licensed/lpc_revised/Terrain/terrain_autumn.png",
+        "assets/source/licensed/lpc_revised/Terrain/terrain_winter.png",
+        "assets/source/licensed/lpc_revised/Terrain/terrain_winter_ice.png",
+        "assets/source/licensed/lpc_revised/Terrain/cliff_spring.png",
+        "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+        "assets/source/licensed/lpc_revised/Terrain/cliff_autumn.png",
+        "assets/source/licensed/lpc_revised/Terrain/cliff_winter.png",
+        "assets/source/licensed/lpc_revised/Terrain/cliff_winter_ice.png",
+        "assets/source/licensed/lpc_revised/Terrain/Rocks, Cliffs.png",
+        "assets/source/licensed/lpc_revised/Terrain/tilled_soil.png",
+        "assets/source/licensed/lpc_revised/Terrain/Waterfall.png"
+      ],
+      "semantics": [
+        "Grass",
+        "Dirt",
+        "Sand",
+        "WetSand",
+        "MudBank",
+        "ShallowWater",
+        "Water",
+        "DeepWater",
+        "TilledSoil",
+        "WateredSoil",
+        "MountainRock",
+        "Cliff",
+        "MountainPath",
+        "CaveFloor",
+        "CaveWall",
+        "Waterfall"
+      ],
+      "allowedContexts": [
+        "primary mainland",
+        "mainland seasonal variants",
+        "mainland mountains and caves"
+      ],
+      "isolationContract": "content/worldgen/elizawy_tile_lane_isolation_contract_v0_1.json",
+      "cliffAuthority": "content/worldgen/cliff_authoring_contract_v0_1.json",
+      "crossFamilyFallbackAllowed": false,
+      "directCliffPaintAllowed": false,
+      "terrainRoleCatalog": "content/worldgen/elizawy_terrain_role_catalog_v0_1.json",
+      "cliffRoleCatalog": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+      "f3Workspace": "content/editor/f3_terrain_style_workspace_v0_1.json",
+      "structuralCliffProvider": "elizawy_seasonal_cliffs",
+      "runtimePromotionGate": "exact connected-region recipes and structural renderer certification"
+    }
+  ],
+  "mainlandTargetFamily": "elizawy_mainland_v1",
+  "runtimeMode": "v7_source_pure_certification"
+}

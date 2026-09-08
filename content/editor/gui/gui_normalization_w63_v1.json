@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.editor.gui_normalization.w63.v1",
+  "pass": "167Z109W63",
+  "priority": "P0",
+  "authority": "Havenwild Native Editor",
+  "rules": [
+    "No permanent legacy left project/library panel",
+    "One canonical right dock: Properties, Assets, Outliner, Validation",
+    "Tool and Layer rails remain integrated into CanvasWorkspace",
+    "Asset Shelf overlay is retired and compatibility calls focus right Assets",
+    "Center canvas is dominant and reclaimed when rails/docks close"
+  ],
+  "workspaces": [
+    "World",
+    "Scene",
+    "Pixel",
+    "Animation",
+    "Character",
+    "Logic",
+    "Sound"
+  ]
+}

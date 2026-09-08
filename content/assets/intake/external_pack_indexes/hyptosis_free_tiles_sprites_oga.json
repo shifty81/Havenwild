@@ -1,0 +1,200 @@
+{
+  "schema": "havenwild.external_asset_pack_index.v0_1",
+  "generatedUtc": "2026-07-12T03:06:41.310229+00:00",
+  "pack": {
+    "id": "hyptosis_free_tiles_sprites_oga",
+    "displayName": "Hyptosis Free Tiles and Sprites",
+    "archiveName": "hyptosis-batches.zip",
+    "archiveSha256": "a17af81cdb7c50e8f9208239505b2e197ecadd6c98308e842e937a6ff506f588",
+    "externalRawRoot": "external://hyptosis_free_tiles_sprites_oga",
+    "licenseStatus": "allowed_with_attribution",
+    "attribution": "CC-BY 3.0. Credit Hyptosis and Zabin; Zabin drew six frames of the bomb wick.",
+    "sourceUrl": "https://opengameart.org/content/lots-of-free-2d-tiles-and-sprites-by-hyptosis",
+    "rawFilesCommitted": false,
+    "rawFilesPackaged": false
+  },
+  "summary": {
+    "files": 7,
+    "images": 7,
+    "unreadableImages": 0,
+    "categoryCounts": {
+      "tile": 5,
+      "unclassified": 2
+    }
+  },
+  "records": [
+    {
+      "relativePath": "BombExploding.png",
+      "extension": ".png",
+      "sizeBytes": 7576,
+      "sha256": "67c7117553b3a92bc7dfc7b22ee7e722ef26a7f6a010c290075fd7548a549d73",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "unclassified"
+      ],
+      "width": 416,
+      "height": 64,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "hyptosis_sprites-and-tiles-for-you.png",
+      "extension": ".png",
+      "sizeBytes": 166345,
+      "sha256": "b0b05e0bf7c901e98c9b333f6fe22dbe849b245d1b0f29ad7d816e8fe221bb88",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "tile"
+      ],
+      "width": 960,
+      "height": 960,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96,
+        192
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "hyptosis_til-art-batch-2.png",
+      "extension": ".png",
+      "sizeBytes": 352811,
+      "sha256": "26c099f39fdc35fece9fcc338c29cc4b721f0b7ebf4f6ed586e6769de466e08a",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "unclassified"
+      ],
+      "width": 960,
+      "height": 960,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96,
+        192
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "hyptosis_tile-art-batch-1.png",
+      "extension": ".png",
+      "sizeBytes": 525029,
+      "sha256": "fc49032576ff7ac60b38e52a9d23683d8fed6104ee3ccee0ba1cb0b3ab33a62f",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "tile"
+      ],
+      "width": 960,
+      "height": 960,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96,
+        192
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "hyptosis_tile-art-batch-3.png",
+      "extension": ".png",
+      "sizeBytes": 338059,
+      "sha256": "328c0f6c2c2b546be517a12bbf2728dab8ea7de348889e1e700f6399b7d08c90",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "tile"
+      ],
+      "width": 960,
+      "height": 960,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96,
+        192
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "hyptosis_tile-art-batch-4.png",
+      "extension": ".png",
+      "sizeBytes": 139142,
+      "sha256": "9b75426c7db7e39223848a56d6415af477bec7af5f90b1d7f26fb0ea324e8d9b",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "tile"
+      ],
+      "width": 960,
+      "height": 960,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96,
+        192
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "hyptosis_tile-art-batch-5.png",
+      "extension": ".png",
+      "sizeBytes": 194479,
+      "sha256": "799e72327b57a9365d71036fc8029fed4503723b6f5ae1c681b05d06242e5f5d",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "tile"
+      ],
+      "width": 636,
+      "height": 1219,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    }
+  ]
+}

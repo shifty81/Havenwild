@@ -1,0 +1,221 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_authored_vocabulary.v0_1",
+  "pass": "167Z109W4",
+  "revision": "167Z109W4-literal-cliff-vocabulary-v1",
+  "status": "superseded",
+  "source": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "path": "Terrain/cliff_summer.png",
+    "dimensionsPx": [
+      512,
+      448
+    ],
+    "cellPx": 32,
+    "columns": 16,
+    "rows": 14
+  },
+  "rules": [
+    "Semantic topology selects authored source roles; source art never creates topology.",
+    "Every runtime source address is a complete 32x32 cell or a catalogued natural-scale multi-cell window.",
+    "No half-cell crops, stretching, directional mirroring, rotation, or generated replacement cliff pixels.",
+    "If an exact authored role is not certified, leave that visual role unresolved rather than inventing one.",
+    "Collision follows the resolved authored visual footprint while structural levels and connectors remain gameplay authority."
+  ],
+  "runtimeCells": {
+    "squareNorthLip": [
+      6,
+      5
+    ],
+    "squareWestSide": [
+      5,
+      6
+    ],
+    "squareEastSide": [
+      7,
+      6
+    ],
+    "squareSouthLip": [
+      6,
+      7
+    ],
+    "roundedSouthWest": {
+      "lip": [
+        1,
+        6
+      ],
+      "shoulder": [
+        1,
+        7
+      ],
+      "body": [
+        1,
+        3
+      ],
+      "foot": [
+        1,
+        8
+      ]
+    },
+    "roundedSouthEast": {
+      "lip": [
+        3,
+        6
+      ],
+      "shoulder": [
+        3,
+        7
+      ],
+      "body": [
+        3,
+        3
+      ],
+      "foot": [
+        3,
+        8
+      ]
+    },
+    "straightSouthFace": {
+      "top": [
+        10,
+        9
+      ],
+      "body": [
+        10,
+        10
+      ],
+      "foot": [
+        10,
+        11
+      ],
+      "note": "Dedicated authored south-wall column; supersedes borrowing rounded plateau body/foot cells."
+    },
+    "narrowCave": {
+      "top": [
+        6,
+        9
+      ],
+      "body": [
+        6,
+        10
+      ],
+      "foot": [
+        6,
+        11
+      ]
+    },
+    "ladderA": {
+      "top": [
+        11,
+        9
+      ],
+      "body": [
+        11,
+        10
+      ],
+      "foot": [
+        11,
+        11
+      ]
+    },
+    "ladderB": {
+      "top": [
+        13,
+        9
+      ],
+      "body": [
+        13,
+        10
+      ],
+      "foot": [
+        13,
+        11
+      ]
+    }
+  },
+  "authoredWindows": {
+    "bareRoundedPlateauReference": [
+      0,
+      0,
+      5,
+      5
+    ],
+    "bareSquarePlateauReference": [
+      5,
+      0,
+      3,
+      5
+    ],
+    "grassRoundedPlateauReference": [
+      0,
+      5,
+      5,
+      4
+    ],
+    "grassSquarePlateauReference": [
+      5,
+      5,
+      3,
+      4
+    ],
+    "waterValleyA": [
+      9,
+      0,
+      3,
+      3
+    ],
+    "waterValleyB": [
+      12,
+      0,
+      3,
+      3
+    ],
+    "waterBridgeBayA": [
+      9,
+      3,
+      2,
+      4
+    ],
+    "waterBridgeBayB": [
+      12,
+      3,
+      2,
+      4
+    ],
+    "wideCave": [
+      7,
+      9,
+      3,
+      3
+    ],
+    "vineWindowLeft": [
+      0,
+      9,
+      3,
+      5
+    ],
+    "vineWindowCenter": [
+      3,
+      9,
+      3,
+      4
+    ],
+    "rightSideTerminalReference": [
+      15,
+      0,
+      1,
+      5
+    ]
+  },
+  "runtimeCorrections": {
+    "straightSouthFaceOld": "rounded plateau c2r3 body + c2r8 foot",
+    "straightSouthFaceNew": "dedicated c10r9-r11 authored face column",
+    "southLipOld": "rounded plateau center c2r7",
+    "southLipNew": "square plateau south edge c6r7"
+  },
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_vocabulary_pass167z109w4.png",
+  "next": "W5 certifies vertical modular stacking; remaining cliff work is exact concave/terminal/ramp placement before shoreline/water.",
+  "verticalModularityAuthority": "content/worldgen/elizawy_cliff_vertical_modularity_v0_1.json",
+  "supersededBy": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json",
+  "supersessionNote": "W14 corrects ordinary south straight/angle source roles from the actual ElizaWy demo while preserving the W4 no-synthesis/provider vocabulary principle."
+}

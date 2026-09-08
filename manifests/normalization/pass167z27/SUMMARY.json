@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z27",
+  "title": "Retained Terrain Surface, Pixel-Seam, Pond Contour, and Frame-Plan Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Added a native-resolution GPU terrain scene surface rebuilt only on scene or semantic terrain revision changes.",
+    "Reduced normal gameplay terrain submission from thousands of per-cell quads to one retained terrain texture.",
+    "Kept developer overlays and world-paint authoring on the editable per-cell renderer.",
+    "Quantized camera zoom to integer output tile widths and snapped the projected terrain origin after scaling.",
+    "Stopped idle autotile polling from invalidating terrain caches.",
+    "Rebuilt the freshwater lake from a smoothed deep core with constant-width Euclidean shallow-water and mud-bank rings.",
+    "Normalized dirt, sand, and wet-sand interior source cells to prevent random variant seams against authored transitions.",
+    "Regenerated direct-LPC terrain evidence for the revised open-world contour."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "directLpcEvidence": "16224 cells, 1982 transition cells, 0 unresolved transitions",
+    "cargo": "pending Windows workstation rerun",
+    "liveFps": "pending Windows workstation measurement"
+  },
+  "completeSourceCreated": false
+}

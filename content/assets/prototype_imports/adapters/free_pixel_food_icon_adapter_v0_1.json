@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.prototype_asset_import_adapter.v0_1",
+  "id": "adapter.free_pixel_food_icons_32.v0_1",
+  "displayName": "Free Pixel Food 16px to 32px prototype icon adapter",
+  "externalSourceId": "third_party.henrysoftware.free_pixel_food_cc0",
+  "sourceMode": "user_supplied_or_quarantine",
+  "copyMode": "no_raw_copy",
+  "licenseGate": {
+    "commercialPolicyRequired": "allowed_with_metadata_cc0",
+    "rawRedistributionAllowed": true,
+    "attributionRequiredInMetadata": false,
+    "releaseBuildRequiresExplicitApproval": false
+  },
+  "sourceInputs": [
+    {
+      "archiveName": "FreePixelFood.zip",
+      "preferredSheetHints": ["Food.png"],
+      "gridSize": [16, 16],
+      "role": "food_recipe_inventory_icon_source"
+    },
+    {
+      "archiveName": "Food.png",
+      "preferredSheetHints": ["Food.png"],
+      "gridSize": [16, 16],
+      "role": "duplicate_all_in_one_sheet"
+    }
+  ],
+  "processing": {
+    "adapterKind": "nearest_neighbor_scale_curated_cells",
+    "scalePolicy": "scale_16_to_32_nearest_neighbor",
+    "atlasCellSize": [32, 32],
+    "sourceCellSize": [16, 16],
+    "families": ["icon.food", "icon.recipe", "icon.inventory", "ui.tavern_menu"]
+  },
+  "outputPlan": {
+    "processedAtlas": "assets/processed/prototype_icons/free_pixel_food/food_icons_32.png",
+    "metadata": "content/assets/prototype_icons/free_pixel_food/food_icons_32.hhasset.json",
+    "generatedManifest": "WORKSPACE/generated/prototype_imports/free_pixel_food_import_report_v0_1.json"
+  },
+  "releaseGate": {
+    "runtimeDefault": false,
+    "publicRepoRawAssetCopy": false,
+    "requiresAttribution": false,
+    "requiresNoStandaloneAssetExport": true,
+    "allowedBuildProfiles": ["local_dev", "prototype_internal", "commercial_runtime_candidate"]
+  },
+  "notes": [
+    "CC0 source still receives metadata so provenance remains traceable.",
+    "Use beside 32x32 UI/icon sets only through explicit 2x adapter metadata."
+  ]
+}

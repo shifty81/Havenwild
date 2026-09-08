@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.cliff_compile_hotfix.v0_1",
+  "pass": "167Z109W8.1",
+  "behaviorPreserving": true,
+  "sourcePass": "167Z109W8",
+  "fixes": [
+    {
+      "rustError": "E0624",
+      "file": "crates/haven_game/src/runtime_structural_cliff_draw.rs",
+      "contract": "draw_cliff_source_cell is pub(super) because runtime_structural_cliff_caps is a sibling child module that must reuse the canonical source-cell draw path"
+    },
+    {
+      "rustError": "E0658",
+      "file": "crates/haven_game/src/runtime_structural_cliff_shapes.rs",
+      "contract": "const modular-height helpers use only const-safe primitive branches, casts and arithmetic; no conditionally-const Ord/From trait calls"
+    }
+  ],
+  "terrainBehaviorChanges": false,
+  "cliffSourceCoordinatesChanged": false,
+  "cliffTopologyChanged": false,
+  "collisionChanged": false,
+  "rampPolicyChanged": false,
+  "cavePolicyChanged": false
+}

@@ -1,0 +1,54 @@
+{
+  "id": "worldgen_editor_import_queue_v0_4",
+  "version": "0.4.0",
+  "kind": "editor_import_queue",
+  "defaultPack": "content/worldgen/packs/worldgen_home_island_v0_4.json",
+  "tasks": [
+    {
+      "order": 10,
+      "task": "Register content pack",
+      "input": "content/worldgen/packs/worldgen_home_island_v0_4.json",
+      "editorPanel": "Content Packs",
+      "expectedResult": "Pack appears as Worldgen Home Island v0.4"
+    },
+    {
+      "order": 20,
+      "task": "Register tile palette",
+      "input": "content/worldgen/worldgen_asset_lookup_v0_4.json",
+      "editorPanel": "Tile/Autotile Palette",
+      "expectedResult": "25 TileKind entries resolve to atlas rects"
+    },
+    {
+      "order": 30,
+      "task": "Register object footprints",
+      "input": "content/worldgen/worldgen_object_footprint_registry_v0_4.json",
+      "editorPanel": "Object Footprint Inspector",
+      "expectedResult": "Objects display visual/collision footprint overlays"
+    },
+    {
+      "order": 40,
+      "task": "Register scene graph",
+      "input": "content/worldgen/home_island_navigation_graph_v0_4.json",
+      "editorPanel": "World Graph",
+      "expectedResult": "9 scenes and transition arrows visible"
+    },
+    {
+      "order": 50,
+      "task": "Register collision/interaction overlay",
+      "input": "content/worldgen/worldgen_collision_interaction_overlay_v0_4.json",
+      "editorPanel": "Collision/Interaction Overlay",
+      "expectedResult": "Blocking cells, interaction rects, transitions, and fade masks can be toggled"
+    },
+    {
+      "order": 60,
+      "task": "Run validation",
+      "input": "tools/automation/validation/checks/worldgen/Validate-WorldgenRuntimeIndex.ps1",
+      "editorPanel": "Validation Console",
+      "expectedResult": "0 errors before gameplay wiring"
+    }
+  ],
+  "notes": [
+    "This queue is data-only; no Rust code is modified by v0.4.",
+    "Scene-only placeholder assets are intentionally indexed so the editor can display missing-art warnings without breaking scene load."
+  ]
+}

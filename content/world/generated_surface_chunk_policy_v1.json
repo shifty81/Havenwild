@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.generated_surface_chunk.v1",
+  "pass": "149E",
+  "generation": {
+    "mode": "deterministic_on_demand",
+    "coordinate_authority": "global_world_tile",
+    "authored_overrides_win": true,
+    "legacy_exterior_transitions": false,
+    "generated_scene_id_pattern": "surface_x_{signed_x}_y_{signed_y}",
+    "cross_chunk_evaluation": true
+  },
+  "residency": {
+    "active_radius_chunks": 1,
+    "active_window": "3x3",
+    "preload_radius_chunks": 2,
+    "metadata_window": "5x5",
+    "generated_chunks_inserted_into_runtime_registry": true
+  },
+  "persistence": {
+    "generated_baseline": "seed_plus_chunk_coordinate",
+    "player_edits": "per_chunk_delta_contract",
+    "authored_regions": "stable_chunk_overrides",
+    "regeneration_must_not_replace_player_deltas": true
+  },
+  "deferred": [
+    "background_worker_generation",
+    "disk-backed generated baseline cache",
+    "distance-based runtime scene eviction",
+    "full geological island generator"
+  ]
+}

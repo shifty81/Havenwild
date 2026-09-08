@@ -1,0 +1,82 @@
+{
+  "schema": "havenwild.terrain_acceptance.v1",
+  "version": 1,
+  "authority": "Havenwild Terrain Standard v1 exact mapped LPC tuple atlas",
+  "editorAtlas": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+  "editorManifest": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+  "renderRules": [
+    "semantic TileKind data remains save and gameplay authority",
+    "four-corner tuple selects exact authored atlas rectangle",
+    "exact mapped tuple suppresses legacy transition overlay",
+    "legacy live-autotile and base atlas remain fallback-only",
+    "collision remains independent from rendered atlas pixels"
+  ],
+  "scenarios": [
+    {
+      "id": "coastline",
+      "families": [
+        "Water",
+        "Water_Shallows_Sand",
+        "Sand",
+        "Grass"
+      ],
+      "required": "continuous authored shoreline curves"
+    },
+    {
+      "id": "river",
+      "families": [
+        "Water",
+        "Water_Shallows_Dirt",
+        "Dirt_Tan",
+        "Grass"
+      ],
+      "required": "connected narrow and wide channel turns"
+    },
+    {
+      "id": "farm_soil",
+      "families": [
+        "Grass",
+        "Dirt_Tan",
+        "Soil"
+      ],
+      "required": "clean cultivated-ground boundary"
+    },
+    {
+      "id": "mountain",
+      "families": [
+        "Grass",
+        "Dirt_Tan",
+        "Rock_Gray",
+        "Rock_Dark"
+      ],
+      "required": "connected mountain/path boundary"
+    },
+    {
+      "id": "snow_ice",
+      "families": [
+        "Dirt_Brown",
+        "Snow_1",
+        "Snow_2",
+        "Water",
+        "Ice"
+      ],
+      "required": "continuous frozen-biome boundary"
+    },
+    {
+      "id": "wrapped_world_seam",
+      "families": [
+        "Grass",
+        "Sand",
+        "Water"
+      ],
+      "required": "left/right tuple parity across world wrap"
+    }
+  ],
+  "fixtureManifest": "content/worldgen/scenes/terrain_acceptance/terrain_acceptance_scene_manifest_v1.json",
+  "fixturePolicy": {
+    "diagnosticOnly": true,
+    "productionRegistered": false,
+    "sharedEditorRuntimeInput": true,
+    "regenerateCommand": "HavenwildTools.cmd \u2192 Generate terrain acceptance scenes"
+  }
+}

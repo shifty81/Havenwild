@@ -1,0 +1,176 @@
+{
+  "schema": "havenwild.lpc.elizawy_rocks_cliffs_object_catalog.v0_1",
+  "pass": "167Z104",
+  "sourceRepository": "https://github.com/ElizaWy/LPC",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourcePath": "Terrain/Rocks, Cliffs.png",
+  "sourceDimensionsPx": [
+    192,
+    128
+  ],
+  "sourceGrid": [
+    6,
+    4
+  ],
+  "sourceGridCellPx": [
+    32,
+    32
+  ],
+  "sha256": "aa7b4cb7e20ca8f95071eaa41373ecdacf8995a440595d58b10ec7d1ad243256",
+  "classification": "loose rock/boulder and cliff-debris object sheet; never structural platform-boundary authority",
+  "structuralCliffProvider": false,
+  "independentCellPlacementAllowed": false,
+  "components": [
+    {
+      "id": "rock_component_01",
+      "tightVisualRectPx": [
+        0,
+        0,
+        64,
+        91
+      ],
+      "sourceGridSpan": [
+        0,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "rock_component_02",
+      "tightVisualRectPx": [
+        68,
+        0,
+        50,
+        63
+      ],
+      "sourceGridSpan": [
+        2,
+        0,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "rock_component_03",
+      "tightVisualRectPx": [
+        130,
+        3,
+        59,
+        54
+      ],
+      "sourceGridSpan": [
+        4,
+        0,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "rock_component_04",
+      "tightVisualRectPx": [
+        0,
+        97,
+        61,
+        30
+      ],
+      "sourceGridSpan": [
+        0,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "rock_component_05",
+      "tightVisualRectPx": [
+        64,
+        65,
+        58,
+        30
+      ],
+      "sourceGridSpan": [
+        2,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "rock_component_06",
+      "tightVisualRectPx": [
+        64,
+        96,
+        55,
+        32
+      ],
+      "sourceGridSpan": [
+        2,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "rock_component_07",
+      "tightVisualRectPx": [
+        129,
+        71,
+        29,
+        24
+      ],
+      "sourceGridSpan": [
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "rock_component_08",
+      "tightVisualRectPx": [
+        128,
+        96,
+        32,
+        30
+      ],
+      "sourceGridSpan": [
+        4,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "rock_component_09",
+      "tightVisualRectPx": [
+        163,
+        77,
+        27,
+        14
+      ],
+      "sourceGridSpan": [
+        5,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "rock_component_10",
+      "tightVisualRectPx": [
+        170,
+        108,
+        15,
+        8
+      ],
+      "sourceGridSpan": [
+        5,
+        3,
+        1,
+        1
+      ]
+    }
+  ],
+  "placementRule": "promote connected rock/boulder components with explicit object visual and collision footprints; never resolve structural Level boundaries"
+}

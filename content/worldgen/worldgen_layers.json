@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "tile_size": 32,
+  "layers": [
+    {
+      "id": "base",
+      "saved": true,
+      "description": "Gameplay tile identity such as grass, water, floor, wall."
+    },
+    {
+      "id": "height",
+      "saved": true,
+      "description": "0-100 terrain height used for shore, cliff, cave, and waterline rules."
+    },
+    {
+      "id": "moisture",
+      "saved": false,
+      "description": "Generated moisture used by grass, wetlands, crops, rivers, and decor."
+    },
+    {
+      "id": "fertility",
+      "saved": true,
+      "description": "Soil/crop quality, saved once the player modifies farmland."
+    },
+    {
+      "id": "water_flow",
+      "saved": false,
+      "description": "Direction for river animation, fishing, and water sound."
+    },
+    {
+      "id": "decor",
+      "saved": false,
+      "description": "Non-blocking flowers, reeds, shells, pebbles, mushrooms, foam, etc."
+    },
+    {
+      "id": "objects",
+      "saved": true,
+      "description": "Interactable or blocking objects such as trees, ore nodes, furniture."
+    },
+    {
+      "id": "zones",
+      "saved": true,
+      "description": "Gameplay zones for tavern, kitchen, field, cave, guest rooms, etc."
+    },
+    {
+      "id": "season_overlay",
+      "saved": false,
+      "description": "Snow, leaves, spring flowers, dry summer dust, wet rain overlay."
+    }
+  ],
+  "render_order": [
+    "base",
+    "edge_autotile",
+    "state_overlay",
+    "decor",
+    "objects",
+    "lighting",
+    "debug_overlay"
+  ],
+  "cell_flags": [
+    "generated",
+    "player_modified",
+    "protected",
+    "fishable",
+    "fertile",
+    "reserved_for_transition",
+    "construction_blocked"
+  ]
+}

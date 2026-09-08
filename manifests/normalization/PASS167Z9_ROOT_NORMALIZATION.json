@@ -1,0 +1,2613 @@
+{
+  "schema": "havenwild.normalization.pass167z9.v1",
+  "baseline": "Pass167Z8 cumulative recovery",
+  "moved": [
+    {
+      "from": "PASS156A7_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS156A7_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS155B_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS155B_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH452_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH452_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153Q.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153Q.txt"
+    },
+    {
+      "from": "PASS161B_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161B_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS_167Y_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167Y_MANIFEST.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153S.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153S.txt"
+    },
+    {
+      "from": "PATCH448_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH448_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH439_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH439_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "FILE_SHA256SUMS.txt",
+      "to": "manifests/rollups/pass167z8_recovery/FILE_SHA256SUMS.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS157A.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS157A.txt"
+    },
+    {
+      "from": "PATCH458_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH458_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS156A.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS156A.txt"
+    },
+    {
+      "from": "PASS136_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS136_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS156A4_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS156A4_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS155A_WATER_INTEGRATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS155A_WATER_INTEGRATION_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS160A.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS160A.txt"
+    },
+    {
+      "from": "LPC_MAPPED_TERRAIN_RUNTIME_PERFORMANCE_PASS116_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_MAPPED_TERRAIN_RUNTIME_PERFORMANCE_PASS116_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PATCH457_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH457_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS154B_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS154B_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS_167T_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167T_MANIFEST.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B.txt"
+    },
+    {
+      "from": "PASS161D3_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D3_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS160A_TERRAIN_AUTHORITY_AND_COLLISION_RESET_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS160A_TERRAIN_AUTHORITY_AND_COLLISION_RESET_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS152D.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS152D.txt"
+    },
+    {
+      "from": "PASS161F2_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161F2_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS155A_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS155A_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS160B_SHALLOW_WATER_MAINLAND_COASTLINE_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS160B_SHALLOW_WATER_MAINLAND_COASTLINE_HANDOFF.md"
+    },
+    {
+      "from": "PASS_167R_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167R_MANIFEST.txt"
+    },
+    {
+      "from": "PASS161D1_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D1_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS150_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS150_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS156A1_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS156A1_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS159B_UNIVERSAL_TUPLE_SHADER_MASK_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS159B_UNIVERSAL_TUPLE_SHADER_MASK_HANDOFF.md"
+    },
+    {
+      "from": "PATCH441_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH441_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS161D.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS161D.txt"
+    },
+    {
+      "from": "DELETE_THESE_FILES_PASS92A.txt",
+      "to": "docs/handoffs/legacy_root/DELETE_THESE_FILES_PASS92A.txt"
+    },
+    {
+      "from": "SOURCE_ROLLUP_PROVENANCE_PASS150F.json",
+      "to": "manifests/provenance/legacy_root/SOURCE_ROLLUP_PROVENANCE_PASS150F.json"
+    },
+    {
+      "from": "PASS160A_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS160A_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "EXCLUDED_LARGE_LPC_DEPENDENCY_MANIFEST.md",
+      "to": "manifests/provenance/legacy_root/EXCLUDED_LARGE_LPC_DEPENDENCY_MANIFEST.md"
+    },
+    {
+      "from": "CLIENT_CAMERA_ZOOM_ATLAS_TEST_HOTFIX_PASS91B_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/CLIENT_CAMERA_ZOOM_ATLAS_TEST_HOTFIX_PASS91B_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PATCH458_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH458_SHA256SUMS.txt"
+    },
+    {
+      "from": "PATCH_CHANGED_FILES.txt",
+      "to": "manifests/patches/legacy_root/PATCH_CHANGED_FILES.txt"
+    },
+    {
+      "from": "PASS161D_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS_164E_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_164E_MANIFEST.txt"
+    },
+    {
+      "from": "PATCH445_SHA256.txt",
+      "to": "manifests/patches/legacy_root/PATCH445_SHA256.txt"
+    },
+    {
+      "from": "PASS154B_CHUNK_SURFACE_DESCRIPTOR_CACHE_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS154B_CHUNK_SURFACE_DESCRIPTOR_CACHE_HANDOFF.md"
+    },
+    {
+      "from": "PASS157C_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS157C_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "GENERATED_ASSET_PROVENANCE_PASS146D.md",
+      "to": "manifests/provenance/legacy_root/GENERATED_ASSET_PROVENANCE_PASS146D.md"
+    },
+    {
+      "from": "PASS160C_MAINLAND_SHALLOW_WATER_PROFILE_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS160C_MAINLAND_SHALLOW_WATER_PROFILE_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_ROLLUP_README_167N.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_ROLLUP_README_167N.txt"
+    },
+    {
+      "from": "PASS96A_SUMMER_RUNTIME_METADATA_RESTORE_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS96A_SUMMER_RUNTIME_METADATA_RESTORE_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS156A2_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS156A2_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH442_SHA256.txt",
+      "to": "manifests/patches/legacy_root/PATCH442_SHA256.txt"
+    },
+    {
+      "from": "PASS154E_RETAINED_COMMAND_PARITY_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS154E_RETAINED_COMMAND_PARITY_HANDOFF.md"
+    },
+    {
+      "from": "PATCH447_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH447_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS157B_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS157B_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH442_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH442_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153O.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153O.txt"
+    },
+    {
+      "from": "PASS161D6R1_TEST_IMPORT_SCOPE_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D6R1_TEST_IMPORT_SCOPE_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "PASS156A2_SAVE_CAPABILITY_NORMALIZATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS156A2_SAVE_CAPABILITY_NORMALIZATION_HANDOFF.md"
+    },
+    {
+      "from": "PATCH454_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH454_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS139_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS139_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PATCH438_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH438_SHA256SUMS.txt"
+    },
+    {
+      "from": "VALIDATION.md",
+      "to": "docs/current/VALIDATION_PASS167Z8.md"
+    },
+    {
+      "from": "LPC_SHARED_SEASONAL_TERRAIN_TOPOLOGY_PASS94_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_SHARED_SEASONAL_TERRAIN_TOPOLOGY_PASS94_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS161D5_SHALLOW_ONLY_TEST_ALIGNMENT_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D5_SHALLOW_ONLY_TEST_ALIGNMENT_HANDOFF.md"
+    },
+    {
+      "from": "APPLY_THIS_ROLLUP.md",
+      "to": "docs/handoffs/legacy_root/APPLY_THIS_ROLLUP.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153T.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153T.txt"
+    },
+    {
+      "from": "PASS155B3_VALIDATOR_IDENTITY_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS155B3_VALIDATOR_IDENTITY_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "README_CUMULATIVE_167I6.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167I6.md"
+    },
+    {
+      "from": "PASS161A_TERRAIN_NORMALIZATION_FOUNDATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161A_TERRAIN_NORMALIZATION_FOUNDATION_HANDOFF.md"
+    },
+    {
+      "from": "PASS161E_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161E_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161D_PCG_TOPOLOGY_AND_CHUNK_INVALIDATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D_PCG_TOPOLOGY_AND_CHUNK_INVALIDATION_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153R.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153R.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B4.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B4.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153U.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153U.txt"
+    },
+    {
+      "from": "PASS161F2_REACHABLE_MOUNTAIN_THRESHOLD_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161F2_REACHABLE_MOUNTAIN_THRESHOLD_HANDOFF.md"
+    },
+    {
+      "from": "PASS161E_PIXEL_GRID_STRIDE_AND_DRAW_COST_RESET_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161E_PIXEL_GRID_STRIDE_AND_DRAW_COST_RESET_HANDOFF.md"
+    },
+    {
+      "from": "VERIFY_PASS161D6R2.cmd",
+      "to": "tools/archive/root_legacy/VERIFY_PASS161D6R2.cmd"
+    },
+    {
+      "from": "ROADMAP.md",
+      "to": "docs/current/ROADMAP.md"
+    },
+    {
+      "from": "PASS149J23_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS149J23_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "CLEANUP_OBSOLETE_PASS_FILES.cmd",
+      "to": "tools/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.cmd"
+    },
+    {
+      "from": "PASS161D4_WATER_HELPER_COMPILE_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D4_WATER_HELPER_COMPILE_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "LPC_COMPLETE_ROLE_TERRAIN_RUNTIME_STABILITY_PASS91_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_COMPLETE_ROLE_TERRAIN_RUNTIME_STABILITY_PASS91_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "README_CUMULATIVE_167I2.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167I2.md"
+    },
+    {
+      "from": "PASS_167Q_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167Q_MANIFEST.txt"
+    },
+    {
+      "from": "PASS158A_VALIDATOR_CONSOLIDATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS158A_VALIDATOR_CONSOLIDATION_HANDOFF.md"
+    },
+    {
+      "from": "NATIVE_EDITOR_STARTUP_RENDER_STABILITY_PASS93B_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/NATIVE_EDITOR_STARTUP_RENDER_STABILITY_PASS93B_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS161D6R_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D6R_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS157C1_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS157C1_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS156A3_RUST_COMPILE_FIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS156A3_RUST_COMPILE_FIX_HANDOFF.md"
+    },
+    {
+      "from": "SOURCE_ROLLUP_PROVENANCE_PASS150G.json",
+      "to": "manifests/provenance/legacy_root/SOURCE_ROLLUP_PROVENANCE_PASS150G.json"
+    },
+    {
+      "from": "PASS161D1_RUST_PARSE_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D1_RUST_PARSE_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "LPC_TERRAIN_DETAIL_EDITOR_WINDOW_PASS114_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_TERRAIN_DETAIL_EDITOR_WINDOW_PASS114_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "LPC_DEPENDENCY_MOUNT_HOTFIX_PASS93A_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_DEPENDENCY_MOUNT_HOTFIX_PASS93A_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS159A_UNIVERSAL_TUPLE_TERRAIN_FOUNDATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS159A_UNIVERSAL_TUPLE_TERRAIN_FOUNDATION_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS160C.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS160C.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153C.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153C.txt"
+    },
+    {
+      "from": "PATCH451_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH451_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS154D_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS154D_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS160B_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS160B_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS155B1_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS155B1_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS154A.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS154A.txt"
+    },
+    {
+      "from": "CURRENT_SOURCE_HANDOFF.md",
+      "to": "docs/current/CURRENT_SOURCE_HANDOFF_PASS167Z8.md"
+    },
+    {
+      "from": "PASS154F_RETAINED_COMMAND_COORDINATE_PARITY_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS154F_RETAINED_COMMAND_COORDINATE_PARITY_HANDOFF.md"
+    },
+    {
+      "from": "PATCH444_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH444_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161C_STRICT_TUPLE_SIGNATURE_NORMALIZATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161C_STRICT_TUPLE_SIGNATURE_NORMALIZATION_HANDOFF.md"
+    },
+    {
+      "from": "VALIDATOR_NATIVE_MIGRATION_PASS146C.md",
+      "to": "docs/archive/root_pass_history/VALIDATOR_NATIVE_MIGRATION_PASS146C.md"
+    },
+    {
+      "from": "README_CUMULATIVE_167I7.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167I7.md"
+    },
+    {
+      "from": "VERIFY_PASS161D6R1.cmd",
+      "to": "tools/archive/root_legacy/VERIFY_PASS161D6R1.cmd"
+    },
+    {
+      "from": "PASS154E_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS154E_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS_167Y1_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167Y1_MANIFEST.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS154F.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS154F.txt"
+    },
+    {
+      "from": "PATCH453_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH453_SHA256SUMS.txt"
+    },
+    {
+      "from": "PASS158A1_CLIPPY_BOOLEAN_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS158A1_CLIPPY_BOOLEAN_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "PASS161D4_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D4_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161D2_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D2_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS154D.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS154D.txt"
+    },
+    {
+      "from": "PASS158A1_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS158A1_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH453_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH453_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161D3_FINAL_WATER_CLIPPY_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D3_FINAL_WATER_CLIPPY_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "PATCH456_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH456_SHA256SUMS.txt"
+    },
+    {
+      "from": "PASS157A1_WATER_LOD_VALIDATOR_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS157A1_WATER_LOD_VALIDATOR_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "PATCH449_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH449_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS156A1.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS156A1.txt"
+    },
+    {
+      "from": "PASS156A5_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS156A5_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS154E.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS154E.txt"
+    },
+    {
+      "from": "PASS_167X_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167X_MANIFEST.txt"
+    },
+    {
+      "from": "SHA256SUMS.txt",
+      "to": "manifests/rollups/pass167z8_recovery/SHA256SUMS.txt"
+    },
+    {
+      "from": "PASS_167Y2_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167Y2_MANIFEST.txt"
+    },
+    {
+      "from": "PASS160E_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS160E_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_ROLLUP_README_165T.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_ROLLUP_README_165T.txt"
+    },
+    {
+      "from": "README_CUMULATIVE_167L.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167L.md"
+    },
+    {
+      "from": "README_CUMULATIVE_167I1.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167I1.md"
+    },
+    {
+      "from": "PATCH445_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH445_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH451_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH451_SHA256SUMS.txt"
+    },
+    {
+      "from": "PASS_165A9_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_165A9_MANIFEST.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS155A.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS155A.txt"
+    },
+    {
+      "from": "SOURCE_ONLY_BOOTSTRAP.md",
+      "to": "docs/handoffs/legacy_root/SOURCE_ONLY_BOOTSTRAP.md"
+    },
+    {
+      "from": "PASS161D6_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D6_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "VALIDATOR_CONSOLIDATION_PASS158A.md",
+      "to": "docs/archive/root_pass_history/VALIDATOR_CONSOLIDATION_PASS158A.md"
+    },
+    {
+      "from": "PASS161F1_COASTAL_CLIFF_GUARD_NARROWING_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161F1_COASTAL_CLIFF_GUARD_NARROWING_HANDOFF.md"
+    },
+    {
+      "from": "LPC_EDGE_SIGNATURE_SEAM_CONFORMANCE_PASS96_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_EDGE_SIGNATURE_SEAM_CONFORMANCE_PASS96_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PATCH455_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH455_SHA256SUMS.txt"
+    },
+    {
+      "from": "VALIDATOR_AUDIT_MATRIX_PASS146.md",
+      "to": "docs/archive/root_pass_history/VALIDATOR_AUDIT_MATRIX_PASS146.md"
+    },
+    {
+      "from": "PASS_167S_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167S_MANIFEST.txt"
+    },
+    {
+      "from": "PASS141_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS141_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS156A7_TEST_EXPECTATION_FIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS156A7_TEST_EXPECTATION_FIX_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS154C.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS154C.txt"
+    },
+    {
+      "from": "PASS157C1_WATER_PASS_VALIDATOR_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS157C1_WATER_PASS_VALIDATOR_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "LPC_TERRAIN_SUMMER_COMPLETE_MAPPING_PASS93_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_TERRAIN_SUMMER_COMPLETE_MAPPING_PASS93_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS158A_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS158A_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH442_CHANGED_FILES.txt",
+      "to": "manifests/patches/legacy_root/PATCH442_CHANGED_FILES.txt"
+    },
+    {
+      "from": "PASS_167U_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167U_MANIFEST.txt"
+    },
+    {
+      "from": "PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS150A_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS150A_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS157B_RETAINED_PARITY_AND_WATER_SPAN_BATCHING_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS157B_RETAINED_PARITY_AND_WATER_SPAN_BATCHING_HANDOFF.md"
+    },
+    {
+      "from": "LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS137_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS137_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS154D_RETAINED_CHUNK_EXECUTION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS154D_RETAINED_CHUNK_EXECUTION_HANDOFF.md"
+    },
+    {
+      "from": "PASS_167V_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167V_MANIFEST.txt"
+    },
+    {
+      "from": "LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_HANDOFF_20260712.md",
+      "to": "docs/handoffs/legacy_root/LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_HANDOFF_20260712.md"
+    },
+    {
+      "from": "PASS155B_SHAPE_MATERIAL_TERRAIN_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS155B_SHAPE_MATERIAL_TERRAIN_HANDOFF.md"
+    },
+    {
+      "from": "PASS157A2_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS157A2_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "LPC_CURRENT_SPEC_AUDIT_PASS115_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_CURRENT_SPEC_AUDIT_PASS115_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS161D2_CLIPPY_NORMALIZATION_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D2_CLIPPY_NORMALIZATION_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "PASS155B4_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS155B4_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "APPLY_OVERWRITE.txt",
+      "to": "docs/handoffs/legacy_root/APPLY_OVERWRITE.txt"
+    },
+    {
+      "from": "README_CUMULATIVE_167H1.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167H1.md"
+    },
+    {
+      "from": "PASS161C_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161C_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH454_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH454_SHA256SUMS.txt"
+    },
+    {
+      "from": "PASS159B_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS159B_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS160B.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS160B.txt"
+    },
+    {
+      "from": "PASS154A_PRODUCTION_RENDER_CHECKPOINT_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS154A_PRODUCTION_RENDER_CHECKPOINT_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B1.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B1.txt"
+    },
+    {
+      "from": "PATCH443_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH443_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS156A_BUILD_PIPELINE_NORMALIZATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS156A_BUILD_PIPELINE_NORMALIZATION_HANDOFF.md"
+    },
+    {
+      "from": "PASS156A4_RUST_BORROW_FIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS156A4_RUST_BORROW_FIX_HANDOFF.md"
+    },
+    {
+      "from": "PATCH456_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH456_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161D6R2_STRICT_OVERWRITE_VERIFICATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D6R2_STRICT_OVERWRITE_VERIFICATION_HANDOFF.md"
+    },
+    {
+      "from": "CHECKSUMS.sha256",
+      "to": "manifests/rollups/pass167z8_recovery/CHECKSUMS.sha256"
+    },
+    {
+      "from": "PASS_165A_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_165A_MANIFEST.txt"
+    },
+    {
+      "from": "README_CUMULATIVE_167I4.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167I4.md"
+    },
+    {
+      "from": "PASS157A_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS157A_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH449_FILE_LIST.txt",
+      "to": "manifests/patches/legacy_root/PATCH449_FILE_LIST.txt"
+    },
+    {
+      "from": "PASS161D5_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D5_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS157A1_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS157A1_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS154A_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS154A_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "README_CUMULATIVE_167I3.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167I3.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153V.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153V.txt"
+    },
+    {
+      "from": "PASS155B2_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS155B2_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "INCORRECT_GAMEPLAY_TOOL_ATLAS_REMOVAL_PASS92A_HANDOFF_20260712.md",
+      "to": "docs/handoffs/legacy_root/INCORRECT_GAMEPLAY_TOOL_ATLAS_REMOVAL_PASS92A_HANDOFF_20260712.md"
+    },
+    {
+      "from": "PASS161D6R2_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D6R2_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS156A3_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS156A3_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153N.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153N.txt"
+    },
+    {
+      "from": "README_CUMULATIVE_167I5.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167I5.md"
+    },
+    {
+      "from": "PASS160C_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS160C_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS157A2_WATER_LOD_CLIPPY_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS157A2_WATER_LOD_CLIPPY_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "PASS156A6_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS156A6_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161F_COAST_TRANSITION_AND_ZOOM_RENDER_RESET_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161F_COAST_TRANSITION_AND_ZOOM_RENDER_RESET_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS159B.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS159B.txt"
+    },
+    {
+      "from": "PASS157C_FLAT_WATER_AND_WIDE_SURFACE_LOD_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS157C_FLAT_WATER_AND_WIDE_SURFACE_LOD_HANDOFF.md"
+    },
+    {
+      "from": "PASS156A6_CLIPPY_GATE_FIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS156A6_CLIPPY_GATE_FIX_HANDOFF.md"
+    },
+    {
+      "from": "PASS156A1_CAPABILITY_VALIDATOR_SELF_REGISTRATION_HOTFIX.md",
+      "to": "docs/archive/root_pass_history/PASS156A1_CAPABILITY_VALIDATOR_SELF_REGISTRATION_HOTFIX.md"
+    },
+    {
+      "from": "PATCH_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH_SHA256SUMS.txt"
+    },
+    {
+      "from": "BUILD_PROVENANCE.json",
+      "to": "manifests/provenance/BUILD_PROVENANCE_ROOT_ARCHIVE_1.json"
+    },
+    {
+      "from": "PATCH450_FILE_LIST.txt",
+      "to": "manifests/patches/legacy_root/PATCH450_FILE_LIST.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS151B.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS151B.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153A.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153A.txt"
+    },
+    {
+      "from": "LPC_MAPPED_TERRAIN_RUNTIME_PERFORMANCE_PASS116A_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_MAPPED_TERRAIN_RUNTIME_PERFORMANCE_PASS116A_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "TERRAIN_HOTBAR_EDITOR_STABILITY_PASS92_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/TERRAIN_HOTBAR_EDITOR_STABILITY_PASS92_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS154C_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS154C_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161D6R_OVERWRITE_VERIFICATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D6R_OVERWRITE_VERIFICATION_HANDOFF.md"
+    },
+    {
+      "from": "APPLY_THIS_SOURCE_ROLLUP.md",
+      "to": "docs/handoffs/legacy_root/APPLY_THIS_SOURCE_ROLLUP.md"
+    },
+    {
+      "from": "CLEANUP_OBSOLETE_PASS_FILES.sh",
+      "to": "tools/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.sh"
+    },
+    {
+      "from": "PASS160D_SHALLOW_WATER_INTERIOR_RESET_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS160D_SHALLOW_WATER_INTERIOR_RESET_HANDOFF.md"
+    },
+    {
+      "from": "PASS155B3_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS155B3_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH450_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH450_SHA256SUMS.txt"
+    },
+    {
+      "from": "PATCH_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS154B.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS154B.txt"
+    },
+    {
+      "from": "VALIDATOR_FRAMEWORK_PASS146B.md",
+      "to": "docs/archive/root_pass_history/VALIDATOR_FRAMEWORK_PASS146B.md"
+    },
+    {
+      "from": "PASS159A_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS159A_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161F1_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161F1_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS154C_RENDER_COMMAND_BUFFER_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS154C_RENDER_COMMAND_BUFFER_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153K.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153K.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153P.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153P.txt"
+    },
+    {
+      "from": "PASS156A_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS156A_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153B.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153B.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS159A.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS159A.txt"
+    },
+    {
+      "from": "VERIFY_PASS161D6R.cmd",
+      "to": "tools/archive/root_legacy/VERIFY_PASS161D6R.cmd"
+    },
+    {
+      "from": "PASS154F_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS154F_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PATCH450_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH450_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161D6R1_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161D6R1_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "PASS155B1_V122_VALIDATOR_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS155B1_V122_VALIDATOR_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B3.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B3.txt"
+    },
+    {
+      "from": "PASS156A5_RUST_OPTION_BORROW_FIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS156A5_RUST_OPTION_BORROW_FIX_HANDOFF.md"
+    },
+    {
+      "from": "APPLY_PASS122_CANONICAL_TERRAIN_V7.md",
+      "to": "docs/handoffs/legacy_root/APPLY_PASS122_CANONICAL_TERRAIN_V7.md"
+    },
+    {
+      "from": "PASS140_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS140_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS155B4_VALIDATOR_HOTFIX_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS155B4_VALIDATOR_HOTFIX_HANDOFF.md"
+    },
+    {
+      "from": "PASS160D_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS160D_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "README_CUMULATIVE_167N.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167N.md"
+    },
+    {
+      "from": "README_CUMULATIVE_167J.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167J.md"
+    },
+    {
+      "from": "PASS_167W_MANIFEST.txt",
+      "to": "manifests/patches/legacy_root/PASS_167W_MANIFEST.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153L.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153L.txt"
+    },
+    {
+      "from": "PATCH446_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH446_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "PASS161D6_WORLD_TEST_CONTRACT_ALIGNMENT_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161D6_WORLD_TEST_CONTRACT_ALIGNMENT_HANDOFF.md"
+    },
+    {
+      "from": "README_CUMULATIVE_167I.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167I.md"
+    },
+    {
+      "from": "README_CUMULATIVE_167K.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167K.md"
+    },
+    {
+      "from": "LPC_NATURAL_TERRAIN_TOPOLOGY_COMPLETION_PASS113_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/LPC_NATURAL_TERRAIN_TOPOLOGY_COMPLETION_PASS113_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "PASS160E_MAINLAND_TUPLE_DIAGNOSTICS_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS160E_MAINLAND_TUPLE_DIAGNOSTICS_HANDOFF.md"
+    },
+    {
+      "from": "PASS138_PATCH_MANIFEST.json",
+      "to": "manifests/patches/legacy_root/PASS138_PATCH_MANIFEST.json"
+    },
+    {
+      "from": "APPLY_INSTRUCTIONS.txt",
+      "to": "docs/handoffs/legacy_root/APPLY_INSTRUCTIONS.txt"
+    },
+    {
+      "from": "PATCH455_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH455_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "VALIDATOR_CONSOLIDATION_PLAN_PASS146.md",
+      "to": "docs/archive/root_pass_history/VALIDATOR_CONSOLIDATION_PLAN_PASS146.md"
+    },
+    {
+      "from": "PATCH457_SHA256SUMS.txt",
+      "to": "manifests/patches/legacy_root/PATCH457_SHA256SUMS.txt"
+    },
+    {
+      "from": "PASS161A_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161A_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "UNIFIED_BUILD_REPORTING_AND_ATTESTATION_PASS146E.md",
+      "to": "docs/archive/root_pass_history/UNIFIED_BUILD_REPORTING_AND_ATTESTATION_PASS146E.md"
+    },
+    {
+      "from": "PATCH440_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH440_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "CMakeLists.txt",
+      "to": "docs/archive/root_legacy/CMakeLists.txt"
+    },
+    {
+      "from": "terrain_contract.rs",
+      "to": "docs/archive/root_legacy/terrain_contract.rs"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B2.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B2.txt"
+    },
+    {
+      "from": "PASS157A_RETAINED_TERRAIN_AND_CALM_WATER_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS157A_RETAINED_TERRAIN_AND_CALM_WATER_HANDOFF.md"
+    },
+    {
+      "from": "Apply-Pass92A.cmd",
+      "to": "tools/archive/legacy_pass_tools/Apply-Pass92A.cmd"
+    },
+    {
+      "from": "DELETE_OBSOLETE_FILES.txt",
+      "to": "docs/handoffs/legacy_root/DELETE_OBSOLETE_FILES.txt"
+    },
+    {
+      "from": "COMPLETE_SOURCE_FILE_INVENTORY_PASS153M.txt",
+      "to": "manifests/rollups/legacy_root/COMPLETE_SOURCE_FILE_INVENTORY_PASS153M.txt"
+    },
+    {
+      "from": "APPLY.md",
+      "to": "docs/handoffs/legacy_root/APPLY.md"
+    },
+    {
+      "from": "FILE_MANIFEST.txt",
+      "to": "manifests/rollups/pass167z8_recovery/FILE_MANIFEST.txt"
+    },
+    {
+      "from": "README_CUMULATIVE_167M.md",
+      "to": "docs/handoffs/legacy_root/README_CUMULATIVE_167M.md"
+    },
+    {
+      "from": "PASS161F_COMPLETE_SOURCE_MANIFEST.md",
+      "to": "manifests/rollups/legacy_root/PASS161F_COMPLETE_SOURCE_MANIFEST.md"
+    },
+    {
+      "from": "APPLY_HAVENWILD_PATCH.md",
+      "to": "docs/handoffs/legacy_root/APPLY_HAVENWILD_PATCH.md"
+    },
+    {
+      "from": "PASS161B_PCG_COASTLINE_AND_BEACH_BAND_NORMALIZATION_HANDOFF.md",
+      "to": "docs/archive/root_pass_history/PASS161B_PCG_COASTLINE_AND_BEACH_BAND_NORMALIZATION_HANDOFF.md"
+    },
+    {
+      "from": "PATCH438_CUMULATIVE_MANIFEST.md",
+      "to": "manifests/patches/legacy_root/PATCH438_CUMULATIVE_MANIFEST.md"
+    },
+    {
+      "from": "APPLY_AFTER.txt",
+      "to": "docs/handoffs/legacy_root/APPLY_AFTER.txt"
+    }
+  ],
+  "docsMerged": [
+    "APPLY_THIS_SOURCE_ROLLUP.md",
+    "BASH_BUILD_ENTRYPOINT_PASS54C_HANDOFF.md",
+    "CAMERA_ZOOM_ORIENTATION_HOTFIX_HANDOFF.md",
+    "CLIENT_CAMERA_ZOOM_ATLAS_TEST_HOTFIX_PASS91B_HANDOFF_20260712.md",
+    "CLIENT_CAMERA_ZOOM_CLIPPY_HOTFIX_PASS91C_HANDOFF_20260712.md",
+    "CLIENT_GAMEPLAY_SAVE_SLOTS_PASS57_HANDOFF_20260711.md",
+    "CLIENT_SAVE_PREVIEW_PAUSE_MENU_PASS58_HANDOFF_20260711.md",
+    "CLIPPY_GATE_HOTFIX_PASS54D_HANDOFF.md",
+    "CODEX_ASSET_PACK_INTAKE_HANDOFF.md",
+    "EDITOR_ORIENTATION_BUILD_LOGGING_HOTFIX.md",
+    "EXCLUDED_LARGE_LPC_DEPENDENCY_MANIFEST.md",
+    "EXPANDED_SCENE_SCALE_LEGACY_MIGRATION_PASS88_HANDOFF_20260712.md",
+    "EXPANDED_SCENE_STARTER_GENERATION_TEST_HOTFIX_PASS90C_HANDOFF_20260712.md",
+    "EXTERNAL_ASSET_PACK_INTAKE_PASS66_HANDOFF_20260711.md",
+    "GENERIC_MULTITILE_STAMP_SYSTEM_PASS61_HANDOFF_20260711.md",
+    "HAVENWILD_PASS114B_ARCHITECTURE_SPLIT.md",
+    "INCORRECT_GAMEPLAY_TOOL_ATLAS_REMOVAL_PASS92A_HANDOFF_20260712.md",
+    "ISLAND_PCG_TEST_PATH_HOTFIX_PASS54E_HANDOFF.md",
+    "LPC_ASSET_UTILIZATION_AUDIT_AND_NATURAL_FILL_PASS100_HANDOFF_20260713.md",
+    "LPC_AUTHORED_REPLACEMENT_ROLES_PASS97_HANDOFF_20260712.md",
+    "LPC_COASTLINE_SAVE_REGENERATION_PASS86_HANDOFF_20260712.md",
+    "LPC_COMPLETE_ROLE_TERRAIN_RUNTIME_STABILITY_PASS91_HANDOFF_20260712.md",
+    "LPC_DEPENDENCY_MOUNT_HOTFIX_PASS93A_HANDOFF_20260712.md",
+    "LPC_EDGE_SIGNATURE_SEAM_CONFORMANCE_PASS96_HANDOFF_20260712.md",
+    "LPC_EDITOR_PAINT_TOPOLOGY_PASS99_HANDOFF_20260712.md",
+    "LPC_EXPANDABLE_POND_FAMILIES_PASS87_HANDOFF_20260712.md",
+    "LPC_NATIVE_AUTOTILE_BOUNDARY_FALLBACK_PASS117_HANDOFF_20260713.md",
+    "LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_HANDOFF_20260712.md",
+    "LPC_SHARED_SEASONAL_TERRAIN_TOPOLOGY_PASS94_HANDOFF_20260712.md",
+    "LPC_SUMMER_RUNTIME_SEMANTIC_PROMOTION_PASS95_HANDOFF_20260712.md",
+    "LPC_TERRAIN_FAMILY_COMPILE_HOTFIX_PASS90A_HANDOFF_20260712.md",
+    "LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_HANDOFF_20260712.md",
+    "LPC_TERRAIN_FAMILY_TEST_HOTFIX_PASS90B_HANDOFF_20260712.md",
+    "LPC_TERRAIN_OWNER_SIDE_WORLD_TEST_HOTFIX_PASS90E_HANDOFF_20260712.md",
+    "LPC_WORLD_EDITOR_FOUNDATION_PASS98_HANDOFF_20260712.md",
+    "NATIVE_ANIMATION_STUDIO_PASS63_HANDOFF_20260711.md",
+    "NATIVE_EDITOR_STARTUP_RENDER_STABILITY_PASS93B_HANDOFF_20260712.md",
+    "NATIVE_PIXEL_STUDIO_WORKFLOW_PASS62_HANDOFF_20260711.md",
+    "PASS101_TRANSITION_MANIFEST_VERSION_HOTFIX_20260713.md",
+    "PASS102_ASSET_AUDIT_BUILD_ORDER_HOTFIX_20260713.md",
+    "PASS103_LPC_MIXED_CORNER_TOPOLOGY_HOTFIX_20260713.md",
+    "PASS104_LPC_SINGLE_REPLACEMENT_ROLE_HOTFIX_20260713.md",
+    "PASS105_LPC_ENVIRONMENT_TOPOLOGY_POLICY_20260713.md",
+    "PASS106_LPC_SAME_FAMILY_PROMOTION_PLAN_20260713.md",
+    "PASS107_LPC_PLACEABLE_OBJECT_PROMOTION_20260713.md",
+    "PASS109_LPC_CLOSED_SAND_GRASS_CORNER_HOTFIX_20260713.md",
+    "PASS110_LPC_TRANSITION_ROOT_CAUSE_AUDIT_20260713.md",
+    "PASS111_LPC_MIXED_CORNER_OVERDRAW_ROLLBACK_20260713.md",
+    "PASS111_LPC_TERRAIN_MAP_V7_REPLACEMENT_PILOT_20260713.md",
+    "PASS112_LPC_TILED_CORNER_MODEL_FIX_20260713.md",
+    "PASS113_LPC_CELL_ANCHORED_TERRAIN_FIX_20260713.md",
+    "PASS113_LPC_NATURAL_TERRAIN_TOPOLOGY_COMPLETION_20260714.md",
+    "PASS114_LPC_TERRAIN_DETAIL_EDITOR_WINDOW_20260714.md",
+    "PASS114_LPC_TILED_TERRAIN_EXCLUSIVE_CATALOG_20260713.md",
+    "PASS115_CURRENT_SPEC_AUDIT_20260714.md",
+    "PASS115_MAPPED_TERRAIN_OWNERSHIP_20260713.md",
+    "PASS116_MAPPED_TERRAIN_RUNTIME_PERFORMANCE_20260714.md",
+    "PASS116_TILED_TERRAIN_RUNTIME_DEFERRED_20260713.md",
+    "PASS117_STRUCTURAL_ROCK_TERRAIN_DEFERRAL_20260715.md",
+    "PASS118_ASSET_INTAKE_BUILD_ORDER_20260715.md",
+    "PASS118_WORLD_PAINT_SINGLE_CELL_OVERLAY_FIX_20260714.md",
+    "PASS119_EMPTY_ASSET_INTAKE_ATLAS_20260715.md",
+    "PASS119_LPC_TERRAIN_SPARSE_TILE_OWNERSHIP_FIX_20260714.md",
+    "PASS120_LPC_GRASS_SAND_BOUNDARY_FIX_20260714.md",
+    "PASS120_TERRAIN_BIOME_REGISTRY_FOUNDATION_20260715.md",
+    "PASS121_LPC_SAND_OVER_GRASS_BLOB_TERRAIN_20260714.md",
+    "PASS121_SHORE_WATER_NORMALIZATION_20260715.md",
+    "PASS122_LPC_RUNTIME_TERRAIN_PROMOTION_20260714.md",
+    "PASS123_CANONICAL_WATER_DEPTH_SOURCE_20260715.md",
+    "PASS124A_WATER_ANIMATION_CLIPPY_HOTFIX_20260715.md",
+    "PASS124B_RUNTIME_EDITOR_SHELL_TEST_SPLIT_20260715.md",
+    "PASS124_WATER_ANIMATION_AND_SHORE_DEPTH_20260715.md",
+    "PASS125_WATER_ANIMATION_OWNERSHIP_20260715.md",
+    "PASS126A_RUNTIME_EDITOR_SHELL_ARCHITECTURE_HOTFIX_20260715.md",
+    "PASS126B_V114_SPLIT_TEST_VALIDATOR_HOTFIX_20260715.md",
+    "PASS126C_SPLIT_TEST_VALIDATOR_CONSOLIDATION_20260715.md",
+    "PASS126D_V128_WATER_MATERIAL_VALIDATOR_HOTFIX_20260715.md",
+    "PASS126_SPARSE_WATER_ANIMATION_20260715.md",
+    "PASS131_MAPPED_TUPLE_FALLBACK_OWNERSHIP_20260715.md",
+    "PASS132_WATER_LAND_FALLBACK_NO_SQUARES_20260715.md",
+    "PASS133_LPC_TUPLE_COVERAGE_AUDIT_20260715.md",
+    "PASS134_LPC_TUPLE_PROMOTION_PLAN_20260715.md",
+    "PASS135A_TERRAIN_VALIDATOR_AND_CLIPPY_HOTFIX_20260715.md",
+    "PASS135B_V122_SPLIT_TEST_VALIDATOR_HOTFIX_20260715.md",
+    "PASS135C_V124_V125_V129_SPLIT_TEST_VALIDATOR_HOTFIX_20260715.md",
+    "PASS135_TERRAIN_V7_EDITOR_EXPOSURE_AND_WATER_PAINT.md",
+    "PASS136_CHARACTER_CREATION_FOUNDATION_20260723.md",
+    "PASS136_LPC_PRODUCTION_TUPLE_PROMOTION_20260720.md",
+    "PASS137_CHARACTER_PROFILE_WARDROBE_AND_PROGRESSION_20260723.md",
+    "PASS137_LPC_PATH_GROUND_PROMOTION_20260720.md",
+    "PASS138_CHARACTER_CLIENT_PROFILE_PERSISTENCE_20260723.md",
+    "PASS138_SHORE_WATER_LIFECYCLE_20260720.md",
+    "PASS139_CHARACTER_CREATOR_GUI_20260723.md",
+    "PASS139_WRAPPED_WORLD_COORDINATE_FOUNDATION_20260720.md",
+    "PASS140_ARCHIPELAGO_WORLD_SKELETON_20260720.md",
+    "PASS140_CHARACTER_SPRITE_RUNTIME_20260723.md",
+    "PASS141_VALIDATION_AND_CONTRACT_NORMALIZATION_20260720.md",
+    "PASS142_TERRAIN_WORLD_SEMANTIC_REGISTRY_20260720.md",
+    "PASS143_WORLD_GENERATION_PIPELINE_OWNERSHIP_20260721.md",
+    "PASS144_CHUNK_PERSISTENCE_NORMALIZATION_20260721.md",
+    "PASS145_EDITOR_COMMAND_UNDO_NORMALIZATION_HANDOFF_20260721.md",
+    "PASS150J_V114_SHARED_SHORE_LIFECYCLE_VALIDATOR.md",
+    "PASS91A_COMPILE_AND_LPC_DEPENDENCY_BOOTSTRAP_HANDOFF_20260712.md",
+    "PASS96A_SUMMER_RUNTIME_METADATA_RESTORE_HANDOFF_20260712.md",
+    "PASS96B_PRE_CARGO_RUNTIME_STATUS_ORDERING_HOTFIX_20260712.md",
+    "PASS96C_TRANSITION_ATLAS_RUST_PARSE_HOTFIX_20260712.md",
+    "PASS96D_STRICT_CLIPPY_OPTION_EXTRACTION_HOTFIX_20260712.md",
+    "PASS96E_GENERATED_ATLAS_TEST_STABILITY_HOTFIX_20260712.md",
+    "PASS96F_EDITOR_REGISTRY_DERIVED_TESTS_HOTFIX_20260712.md",
+    "PIXEL_ANIMATION_ROUNDTRIP_BRIDGE_PASS65_HANDOFF_20260711.md",
+    "PIXEL_DOCUMENT_LAYER_SYSTEM_PASS64_HANDOFF_20260711.md",
+    "PRODUCTION_ENVIRONMENT_LIBRARY_PASS60_HANDOFF_20260711.md",
+    "PRODUCTION_TERRAIN_TILE_UPGRADE_PASS59_HANDOFF_20260711.md",
+    "RUNTIME_PATH_PAINT_BINDING_INPUT_STABILIZATION_PASS89_HANDOFF_20260712.md",
+    "RUNTIME_VIEW_CULLING_UNIT_ISOLATION_PASS90D_HANDOFF_20260712.md",
+    "SCENE_BANK_RUNTIME_FRAMING_PASS54B_HANDOFF.md",
+    "SEEDED_ARCHIPELAGO_SPACING_PASS56_HANDOFF_20260711.md",
+    "SOURCE_ONLY_BOOTSTRAP.md",
+    "STAMP_INSPECTOR_CLIPPY_HOTFIX_PASS88C_20260712.md",
+    "STRUCTURAL_ARCHIPELAGO_WORKSPACE_PASS55_HANDOFF_20260711.md",
+    "TERRAIN_COMPLETION_MATRIX.md",
+    "TRANSITION_RULE_OWNER_SIDE_TEST_HOTFIX_PASS91D_HANDOFF_20260712.md",
+    "VALIDATOR_NORMALIZATION_MATRIX_PASS141.md",
+    "WORLD_CANVAS_ISLAND_PCG_HARBOR_PASS54A_HANDOFF.md",
+    "archive/pass_history/APPLY_PASS138.md",
+    "archive/pass_history/APPLY_PASS139.md",
+    "archive/pass_history/APPLY_PASS140.md",
+    "archive/pass_history/APPLY_PASS150B.md",
+    "archive/pass_history/APPLY_PASS150C.md",
+    "archive/pass_history/APPLY_PASS150E.md",
+    "archive/pass_history/PASS142_HANDOFF.md",
+    "archive/pass_history/PASS144_HANDOFF.md",
+    "archive/pass_history/PASS145A_HANDOFF.md",
+    "archive/pass_history/PASS145B_HANDOFF.md",
+    "archive/pass_history/PASS145C_HANDOFF.md",
+    "archive/pass_history/PASS145D_HANDOFF.md",
+    "archive/pass_history/PASS145E_HANDOFF.md",
+    "archive/pass_history/PASS145F_HANDOFF.md",
+    "archive/pass_history/PASS145G_HANDOFF.md",
+    "archive/pass_history/PASS145H_HANDOFF.md",
+    "archive/pass_history/PASS145I_HANDOFF.md",
+    "archive/pass_history/PASS145J_HANDOFF.md",
+    "archive/pass_history/PASS145K_HANDOFF.md",
+    "archive/pass_history/PASS145L_HANDOFF.md",
+    "archive/pass_history/PASS145M_HANDOFF.md",
+    "archive/pass_history/PASS145N_HANDOFF.md",
+    "archive/pass_history/PASS145O_HANDOFF.md",
+    "archive/pass_history/PASS145_HANDOFF.md",
+    "archive/pass_history/PASS146B_HANDOFF.md",
+    "archive/pass_history/PASS146C_HANDOFF.md",
+    "archive/pass_history/PASS146D_HANDOFF.md",
+    "archive/pass_history/PASS146E_HANDOFF.md",
+    "archive/pass_history/PASS146F_HANDOFF.md",
+    "archive/pass_history/PASS146G_HANDOFF.md",
+    "archive/pass_history/PASS146H_HANDOFF.md",
+    "archive/pass_history/PASS146_HANDOFF.md",
+    "archive/pass_history/PASS147R_HANDOFF.md",
+    "archive/pass_history/PASS148A_HANDOFF.md",
+    "archive/pass_history/PASS148B_HANDOFF.md",
+    "archive/pass_history/PASS148C_HANDOFF.md",
+    "archive/pass_history/PASS148D_HANDOFF.md",
+    "archive/pass_history/PASS148E_HANDOFF.md",
+    "archive/pass_history/PASS148F_HANDOFF.md",
+    "archive/pass_history/PASS148G_HANDOFF.md",
+    "archive/pass_history/PASS148H_HANDOFF.md",
+    "archive/pass_history/PASS148I_HANDOFF.md",
+    "archive/pass_history/PASS148J_HANDOFF.md",
+    "archive/pass_history/PASS148K_HANDOFF.md",
+    "archive/pass_history/PASS148L_HANDOFF.md",
+    "archive/pass_history/PASS148M_HANDOFF.md",
+    "archive/pass_history/PASS148N_HANDOFF.md",
+    "archive/pass_history/PASS148O_HANDOFF.md",
+    "archive/pass_history/PASS148P_HANDOFF.md",
+    "archive/pass_history/PASS148Q_HANDOFF.md",
+    "archive/pass_history/PASS148R_HANDOFF.md",
+    "archive/pass_history/PASS148S_HANDOFF.md",
+    "archive/pass_history/PASS148T_HANDOFF.md",
+    "archive/pass_history/PASS148U_HANDOFF.md",
+    "archive/pass_history/PASS148V_HANDOFF.md",
+    "archive/pass_history/PASS148W_HANDOFF.md",
+    "archive/pass_history/PASS148X_HANDOFF.md",
+    "archive/pass_history/PASS148Y1_HANDOFF.md",
+    "archive/pass_history/PASS148Y2_HANDOFF.md",
+    "archive/pass_history/PASS148Y_HANDOFF.md",
+    "archive/pass_history/PASS148Z_HANDOFF.md",
+    "archive/pass_history/PASS149A1_HANDOFF.md",
+    "archive/pass_history/PASS149A2_HANDOFF.md",
+    "archive/pass_history/PASS149A3_HANDOFF.md",
+    "archive/pass_history/PASS149A4_HANDOFF.md",
+    "archive/pass_history/PASS149A5_HANDOFF.md",
+    "archive/pass_history/PASS149A6_HANDOFF.md",
+    "archive/pass_history/PASS149A_HANDOFF.md",
+    "archive/pass_history/PASS149C_HANDOFF.md",
+    "archive/pass_history/PASS149D_HANDOFF.md",
+    "archive/pass_history/PASS149E_HANDOFF.md",
+    "archive/pass_history/PASS149F_HANDOFF.md",
+    "archive/pass_history/PASS149G_HANDOFF.md",
+    "archive/pass_history/PASS149H_HANDOFF.md",
+    "archive/pass_history/PASS149I_HANDOFF.md",
+    "archive/pass_history/PASS149J10_HANDOFF.md",
+    "archive/pass_history/PASS149J11_HANDOFF.md",
+    "archive/pass_history/PASS149J12_HANDOFF.md",
+    "archive/pass_history/PASS149J13_HANDOFF.md",
+    "archive/pass_history/PASS149J14_HANDOFF.md",
+    "archive/pass_history/PASS149J15_HANDOFF.md",
+    "archive/pass_history/PASS149J16_HANDOFF.md",
+    "archive/pass_history/PASS149J17_HANDOFF.md",
+    "archive/pass_history/PASS149J18_HANDOFF.md",
+    "archive/pass_history/PASS149J19_HANDOFF.md",
+    "archive/pass_history/PASS149J1_HANDOFF.md",
+    "archive/pass_history/PASS149J20_HANDOFF.md",
+    "archive/pass_history/PASS149J21_HANDOFF.md",
+    "archive/pass_history/PASS149J22_HANDOFF.md",
+    "archive/pass_history/PASS149J23_HANDOFF.md",
+    "archive/pass_history/PASS149J24_HANDOFF.md",
+    "archive/pass_history/PASS149J25_HANDOFF.md",
+    "archive/pass_history/PASS149J26_HANDOFF.md",
+    "archive/pass_history/PASS149J27_HANDOFF.md",
+    "archive/pass_history/PASS149J28_HANDOFF.md",
+    "archive/pass_history/PASS149J29_HANDOFF.md",
+    "archive/pass_history/PASS149J2_HANDOFF.md",
+    "archive/pass_history/PASS149J30_HANDOFF.md",
+    "archive/pass_history/PASS149J4_HANDOFF.md",
+    "archive/pass_history/PASS149J5_HANDOFF.md",
+    "archive/pass_history/PASS149J6_HANDOFF.md",
+    "archive/pass_history/PASS149J7_HANDOFF.md",
+    "archive/pass_history/PASS149J8_HANDOFF.md",
+    "archive/pass_history/PASS149J9_HANDOFF.md",
+    "archive/pass_history/PASS149J_HANDOFF.md",
+    "archive/pass_history/PASS150F_COMPLETE_ROLLUP_HANDOFF.md",
+    "archive/pass_history/PASS150G_HANDOFF.md",
+    "archive/pass_history/PASS150H_HANDOFF.md",
+    "archive/pass_history/PASS150I_HANDOFF.md",
+    "archive/pass_history/PASS150K_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150L_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150M_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150N_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150O_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150P_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150Q_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150R_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150S_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS150V_OVERWRITE_MANIFEST.md",
+    "archive/pass_history/PASS151B_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS151_TERRAIN_PROMOTION_HANDOFF.md",
+    "archive/pass_history/PASS152A_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS152A_V7_TERRAIN_AUTHORITY_HANDOFF.md",
+    "archive/pass_history/PASS152B_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS152C_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS152D_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153A_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153B_ANIMATED_WATER_HANDOFF.md",
+    "archive/pass_history/PASS153B_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153C_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153C_WATER_OPTICS_HANDOFF.md",
+    "archive/pass_history/PASS153D_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153E_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153F_COHERENT_WATER_PASSES_HANDOFF.md",
+    "archive/pass_history/PASS153F_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153G_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153G_TRANSITION_WORKLIST_HANDOFF.md",
+    "archive/pass_history/PASS153H_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153H_VISIBLE_TERRAIN_WORKLIST_HANDOFF.md",
+    "archive/pass_history/PASS153I_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153I_ULTRA_WIDE_WATER_LOD_HANDOFF.md",
+    "archive/pass_history/PASS153J_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153J_RENDER_BUDGET_TELEMETRY_HANDOFF.md",
+    "archive/pass_history/PASS153K_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153K_FRAME_PROFILING_HANDOFF.md",
+    "archive/pass_history/PASS153L_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153L_PRESENTATION_GAP_PROFILING_HANDOFF.md",
+    "archive/pass_history/PASS153M_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153M_PERFORMANCE_SNAPSHOT_HANDOFF.md",
+    "archive/pass_history/PASS153N_ADAPTIVE_RENDER_BUDGET_HANDOFF.md",
+    "archive/pass_history/PASS153N_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153O_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153O_WATER_RENDER_BUDGET_EXTRACTION_HANDOFF.md",
+    "archive/pass_history/PASS153P_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153P_VISIBLE_TERRAIN_SNAPSHOT_HANDOFF.md",
+    "archive/pass_history/PASS153Q_BASE_TERRAIN_CHUNK_CACHE_HANDOFF.md",
+    "archive/pass_history/PASS153Q_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153R_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153R_VISIBLE_CHUNK_TRAVERSAL_HANDOFF.md",
+    "archive/pass_history/PASS153S_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153S_RETAINED_CHUNK_TELEMETRY_HANDOFF.md",
+    "archive/pass_history/PASS153T_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153T_RUNTIME_DIAGNOSTICS_EXTRACTION_HANDOFF.md",
+    "archive/pass_history/PASS153U_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153U_VISIBLE_TRAVERSAL_CACHE_HANDOFF.md",
+    "archive/pass_history/PASS153V_COMPLETE_SOURCE_MANIFEST.md",
+    "archive/pass_history/PASS153V_VISIBLE_TRAVERSAL_TELEMETRY_HANDOFF.md",
+    "assets/ASSET_REFERENCE_PREVIEW_STUB.md",
+    "assets/ASSET_SOURCE_AVAILABILITY_UI.md",
+    "assets/ASSET_SOURCE_LOCAL_IMPORT_INSTRUCTIONS.md",
+    "assets/DONOR_REFERENCE_ASSET_CATALOG.md",
+    "assets/EDITOR_ASSET_REFERENCE_BROWSER.md",
+    "assets/EXTERNAL_ASSET_PACK_WORKFLOW_PASS66.md",
+    "assets/GAME_COMPILE_HOTFIX_PASS40B.md",
+    "assets/GENERIC_MULTITILE_STAMP_SYSTEM_PASS61.md",
+    "assets/HAVENWILD_ASSET_UTILIZATION_AUDIT_PASS100.md",
+    "assets/HAVENWILD_LPC_STAMP_CANDIDATE_INTAKE_PASS108.md",
+    "assets/HAVENWILD_LPC_TERRAIN_MAP_V7_FULL_CATALOG_PASS114.md",
+    "assets/LPC_PATH_AUTOTILE_PROMOTION_PASS85.md",
+    "assets/LPC_PATH_GROUND_PROMOTION_PASS137.md",
+    "assets/LPC_PRODUCTION_TUPLE_PROMOTION_PASS136.md",
+    "assets/LPC_TILE_AWARE_TERRAIN_TRANSITIONS_PASS84.md",
+    "assets/LPC_TUPLE_COVERAGE_AUDIT_PASS133.md",
+    "assets/LPC_TUPLE_PROMOTION_PLAN_PASS134.md",
+    "assets/NATIVE_ANIMATION_STUDIO_WORKFLOW_PASS63.md",
+    "assets/NATIVE_PIXEL_STUDIO_WORKFLOW_PASS62.md",
+    "assets/OPEN_GAME_ART_ASSET_DUMP_PASS85.md",
+    "assets/OPEN_GAME_ART_TERRAIN_PACK_CATALOG_PASS114.md",
+    "assets/PIXEL_ANIMATION_ROUNDTRIP_BRIDGE_PASS65.md",
+    "assets/PIXEL_DOCUMENT_LAYER_SYSTEM_PASS64.md",
+    "assets/PRODUCTION_ENVIRONMENT_LIBRARY_PASS60.md",
+    "assets/PRODUCTION_TERRAIN_TILE_UPGRADE_PASS59.md",
+    "assets/PROTOTYPE_ASSET_IMPORT_ADAPTERS.md",
+    "assets/PROTOTYPE_ASSET_LOCAL_BAKE_DRY_RUN.md",
+    "assets/THIRD_PARTY_ASSET_INTAKE_POLICY.md",
+    "assets/TILE_EXTRACTION_WORKBENCH_PASS45.md",
+    "assets/WORLD_PAINT_BRUSH_BACKEND_PASS28.md",
+    "assets/WORLD_PAINT_COMPILE_WARNING_CLEANUP_PASS39.md",
+    "assets/WORLD_PAINT_DELTA_PERSISTENCE_PASS29.md",
+    "assets/WORLD_PAINT_DELTA_REPLAY_PASS31.md",
+    "assets/WORLD_PAINT_LAYER_COMPOSITION_PASS40.md",
+    "assets/WORLD_PAINT_MATERIAL_ADJACENCY_PASS35.md",
+    "assets/WORLD_PAINT_MATERIAL_INSPECTOR_PASS34.md",
+    "assets/WORLD_PAINT_MATERIAL_STATE_LAYER_PASS33.md",
+    "assets/WORLD_PAINT_MIRROR_AND_PIXEL_EDITOR_PASS30.md",
+    "assets/WORLD_PAINT_RENDER_BINDING_PASS37.md",
+    "assets/WORLD_PAINT_RENDER_CACHE_PASS38.md",
+    "assets/WORLD_PAINT_SAVE_LOAD_INTEGRATION_PASS32.md",
+    "assets/WORLD_PAINT_TRANSITION_TILE_RESOLVER_PASS36.md",
+    "assets/WORLD_TILE_CONTRACT_PASS27.md",
+    "assets/previews/havenwild_cc0_pixel_studio_library_pass62.png",
+    "assets/previews/havenwild_generic_multitile_stamp_library_pass61.png",
+    "assets/previews/havenwild_lpc_coastline_tile_preview_pass86.png",
+    "assets/previews/havenwild_lpc_complete_role_runtime_pass91.png",
+    "assets/previews/havenwild_lpc_edge_signature_seams_v108.png",
+    "assets/previews/havenwild_lpc_expandable_ponds_pass87.png",
+    "assets/previews/havenwild_lpc_mapped_terrain_v7_pass111.png",
+    "assets/previews/havenwild_lpc_mapped_terrain_v7_pass112.png",
+    "assets/previews/havenwild_lpc_mapped_terrain_v7_pass113.png",
+    "assets/previews/havenwild_lpc_mapped_terrain_v7_pass114.png",
+    "assets/previews/havenwild_lpc_path_ground_promotion_pass137.png",
+    "assets/previews/havenwild_lpc_production_tuple_promotion_pass136.png",
+    "assets/previews/havenwild_lpc_stamp_candidate_sources_numbered_pass108.csv",
+    "assets/previews/havenwild_lpc_stamp_candidate_sources_numbered_pass108.png",
+    "assets/previews/havenwild_lpc_summer_runtime_conformance_v107.png",
+    "assets/previews/havenwild_lpc_terrain_family_foundation_pass90.png",
+    "assets/previews/havenwild_lpc_terrain_map_v7_pair_preview_pass111.png",
+    "assets/previews/havenwild_lpc_terrain_summer_complete_map_v103.png",
+    "assets/previews/havenwild_lpc_tuple_coverage_pass133.png",
+    "assets/previews/havenwild_lpc_tuple_promotion_plan_pass134.png",
+    "assets/previews/havenwild_lpc_water_variants_pass86.png",
+    "assets/previews/havenwild_native_animation_studio_pass63.png",
+    "assets/previews/havenwild_open_game_art_terrain_pack_materials_pass114.png",
+    "assets/previews/havenwild_organic_coastline_pass85.png",
+    "assets/previews/havenwild_pixel_document_layers_pass64.png",
+    "assets/previews/havenwild_production_environment_library_pass60.png",
+    "assets/previews/havenwild_production_terrain_repeat_preview_pass59.png",
+    "assets/previews/havenwild_scene_scale_pass88.png",
+    "assets/previews/havenwild_transition_contours_pass86.png",
+    "assets/previews/lpc_production_assets_v167u.png",
+    "assets/previews/oga_lpc_cliff_cell_catalog_v167q.png",
+    "audits/HAVENWILD_BROAD_OPEN_ASSET_CREDITS_PASS167Y.md",
+    "audits/HAVENWILD_CLIENT_WORLDGEN_TEST_WORLD_PASS167T.md",
+    "audits/HAVENWILD_CUMULATIVE_BUILD_INTEGRATION_REPAIR_PASS167Y1.md",
+    "audits/HAVENWILD_LIVE_CHARACTER_STUDIO_USAGE_TRACKING_PASS167X.md",
+    "audits/HAVENWILD_LPC_PRODUCTION_TILESET_LIVESTOCK_PASS167U.md",
+    "audits/HAVENWILD_OGA_LPC_CLIFF_NORMALIZATION_PASS167Q.md",
+    "audits/HAVENWILD_OGA_LPC_COMMERCIAL_INTAKE_PHASE1_20260801.md",
+    "audits/HAVENWILD_OGA_LPC_GAMEPLAY_DEEP_DIVE_PASS167S.md",
+    "audits/HAVENWILD_PASS167Z_CHARACTER_WORLDGEN_PERFORMANCE_AUDIT.md",
+    "audits/HAVENWILD_UNIVERSAL_LPC_CHARACTER_AUTHORITY_PASS167V.md",
+    "audits/HAVENWILD_UNIVERSAL_LPC_SHAREALIKE_INTAKE_PASS167W.md",
+    "audits/HAVENWILD_VS_GODOT_TERRAIN_MATRIX.md",
+    "audits/HAVENWILD_WORLD_PIXEL_ROUND_TRIP_PASS167R.md",
+    "audits/LPC_CURRENT_SPEC_AUDIT_PASS115_PATCH_MANIFEST.json",
+    "audits/LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_HANDOFF_20260712.md",
+    "audits/LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_PATCH_MANIFEST.json",
+    "audits/PASS155B1_V122_VALIDATOR_HOTFIX_HANDOFF.md",
+    "audits/PASS155B3_VALIDATOR_IDENTITY_HOTFIX_HANDOFF.md",
+    "audits/PASS155B4_VALIDATOR_HOTFIX_HANDOFF.md",
+    "audits/PASS156A1_CAPABILITY_VALIDATOR_SELF_REGISTRATION_HOTFIX.md",
+    "audits/PASS157A1_WATER_LOD_VALIDATOR_HOTFIX_HANDOFF.md",
+    "audits/PASS157C1_WATER_PASS_VALIDATOR_HOTFIX_HANDOFF.md",
+    "audits/PASS158A_VALIDATOR_CONSOLIDATION_HANDOFF.md",
+    "audits/PASS162G_NATIVE_UI_CONSOLIDATION_AUDIT.md",
+    "audits/PASS162H_PROJECT_WIDE_NORMALIZATION_AUDIT.md",
+    "audits/PASS162J_PROJECT_NORMALIZATION_AUDIT.md",
+    "audits/PASS163A_TERRAIN_STANDARD_PROMOTION_AUDIT.md",
+    "audits/PASS163B_TUPLE_RESOLVER_PARITY_AUDIT.md",
+    "audits/PASS163C_TERRAIN_EDITOR_PARITY_AUDIT.md",
+    "audits/PASS163D_TERRAIN_AUTHORING_AUDIT.md",
+    "audits/PASS163E_TERRAIN_SOURCE_DUPLICATION_AND_GENERATOR_AUDIT.md",
+    "audits/PASS163F_EXACT_TERRAIN_RENDERING_AUDIT.md",
+    "audits/PASS163G_TERRAIN_GAMEPLAY_NORMALIZATION_AUDIT.md",
+    "audits/PASS163H_GAMEPLAY_CONSUMER_INTEGRATION_AUDIT.md",
+    "audits/PASS163I_TERRAIN_CONSUMER_INTEGRATION_AUDIT.md",
+    "audits/PASS163J_TERRAIN_CERTIFICATION_AUDIT.md",
+    "audits/PASS163K_BUILD_CERTIFICATION_PREP_AUDIT.md",
+    "audits/PASS163L_TERRAIN_ACCEPTANCE_FIXTURES_AUDIT.md",
+    "audits/PASS163M_ACCEPTANCE_GENERATOR_REPAIR_AUDIT.md",
+    "audits/PASS163N_BUILD_AND_AUDIT_REPAIR_AUDIT.md",
+    "audits/PASS163O_EDITOR_IMPORT_AND_TOOL_ROOT_REPAIR_AUDIT.md",
+    "audits/PASS164A_PIXEL_STUDIO_GRID_SELECTION_AUDIT.md",
+    "audits/PASS_167Z6A_DIRECT_TERRAIN_CLIPPY_REPAIR.md",
+    "audits/PASS_167Z6_DIRECT_LPC_TERRAIN_AUTHORITY.md",
+    "audits/VALIDATOR_AUDIT_MATRIX_PASS146.md",
+    "audits/VALIDATOR_CONSOLIDATION_PASS158A.md",
+    "audits/VALIDATOR_CONSOLIDATION_PLAN_PASS146.md",
+    "audits/VALIDATOR_FRAMEWORK_PASS146B.md",
+    "audits/VALIDATOR_NATIVE_MIGRATION_PASS146C.md",
+    "audits/generated/terrain-acceptance-20260730-195043.md",
+    "audits/reference/lpc_terrain/Havenwild_LPC_Terrain_Official_Preview.png",
+    "audits/reference/lpc_terrain/Havenwild_LPC_Terrain_Reference_Board.png",
+    "current/APPLY_THIS_ROLLUP.md",
+    "current/APPLY_THIS_SOURCE_ROLLUP.md",
+    "current/EXCLUDED_LARGE_LPC_DEPENDENCY_MANIFEST.md",
+    "current/PASS162H_ROOT_CONTROL_CENTER_HANDOFF.md",
+    "current/PASS162I_COMMAND_REGISTRY_AND_BASELINE_PACKAGING_HANDOFF.md",
+    "current/SOURCE_ONLY_BOOTSTRAP.md",
+    "design/ANIMATED_CHARACTER_RUNTIME_PASS149I.md",
+    "design/AUTOMATIC_ASSET_PACK_DISCOVERY_AND_MIGRATION_PASS148D.md",
+    "design/CATEGORY_METADATA_AND_TILED_NORMALIZATION_PASS148C.md",
+    "design/CHARACTER_SELECTION_AND_CREATOR_UI_PASS148S.md",
+    "design/CHARACTER_VISUAL_FRONTEND_PASS148T.md",
+    "design/CHARACTER_WORLD_RUNTIME_STATE_PASS148V.md",
+    "design/CHARACTER_WORLD_SYNC_PASS148W.md",
+    "design/CONTINUOUS_OVERWORLD_AND_SHARED_CANVAS_PASS149C.md",
+    "design/CONTINUOUS_OVERWORLD_STREAMING_PASS149D.md",
+    "design/DYNAMIC_WORLD_RUNTIME_PASS148U.md",
+    "design/GENERIC_PLACEABLE_STATE_TRANSITIONS_PASS148P.md",
+    "design/HAVENWILD_TERRAIN_PATTERN_RESOLVER_V2.md",
+    "design/HAVENWILD_TERRAIN_SET_SCHEMA_V2.md",
+    "design/INTERACTIVE_CHARACTER_CREATOR_PASS149H.md",
+    "design/LPC_REVISED_FULL_REPOSITORY_INVENTORY_PASS148X.md",
+    "design/LPC_REVISED_MAPPING_QUEUES_PASS148Y.md",
+    "design/OPERATIONAL_PIXEL_STUDIO_PASS149G.md",
+    "design/PACK_DEFINED_PLACEABLE_ASSETS_PASS148M.md",
+    "design/PROCEDURAL_CHUNK_RESIDENCY_PASS149E.md",
+    "design/PRODUCTION_LPC_RUNTIME_BINDING_PASS149J.md",
+    "design/RUNTIME_ASSET_ADAPTER_MIGRATION_PASS148G.md",
+    "design/RUNTIME_STARTUP_DISCOVERY_AND_STABLE_ASSET_CACHE_PASS148H.md",
+    "design/SEMANTIC_RESOURCE_PROVIDERS_PASS148K.md",
+    "design/SEMANTIC_STAMP_DISCOVERY_PASS148L.md",
+    "design/SHARED_SEMANTIC_ASSET_RESOLUTION_PASS148F.md",
+    "design/STABLE_PLACEABLE_RUNTIME_DISPATCH_PASS148O.md",
+    "design/STABLE_RENDER_BINDINGS_PASS148J.md",
+    "design/STABLE_TEXTURE_CACHE_AND_RENDERER_BINDING_PASS148I.md",
+    "design/STATE_GEOMETRY_AND_BEHAVIOR_EXECUTION_PASS148Q.md",
+    "design/SURFACE_CHUNK_JOBS_CACHE_AND_DELTAS_PASS149F.md",
+    "design/TESTABLE_FOUNDATION_GATE_PASS149A.md",
+    "design/UNIVERSAL_ASSET_PACK_FOUNDATION_PASS148A.md",
+    "design/UNIVERSAL_CONTENT_BROWSER_PASS148E.md",
+    "design/UNIVERSAL_IMPORT_PROVIDER_FRAMEWORK_PASS148B.md",
+    "design/UNIVERSAL_LPC_CHARACTER_PIPELINE_PASS148R.md",
+    "design/asset-requirements-spec.md",
+    "design/cave-dungeon-generator-spec.md",
+    "design/cozy-aesthetic-roadmap.md",
+    "design/editor-workflows-spec.md",
+    "design/gui-layout-grid-spec.md",
+    "design/havenwild-2p5d-grid-spec.md",
+    "design/havenwild-generated-asset-pack-notes.md",
+    "design/havenwild-project-source-of-truth-2026-05-25.md",
+    "design/havenwild-world-tile-audit.md",
+    "design/havenwild-world-tile-spec.md",
+    "design/havenwild-worldgen-code-implementation-plan.md",
+    "design/havenwild-worldgen-expansion-recommendations.md",
+    "design/in-game-editor-spec.md",
+    "design/lpc-style-adoption.md",
+    "design/master-world-editor-spec.md",
+    "design/non-isometric-2d5-spec.md",
+    "design/pixel-art-production-standard.md",
+    "design/reference-game-benchmark.md",
+    "design/reference-top-down-basic-pack-notes.md",
+    "design/reference-universal-animation-library-notes.md",
+    "design/repository-architecture-spec.md",
+    "design/standalone-rust-editor-spec.md",
+    "design/world-scene-map.md",
+    "design/worldgen-asset-contract-v0-1.md",
+    "docs/design/product-direction.md",
+    "docs/engineering/workspace-architecture.md",
+    "docs/research/travellers-rest-research.md",
+    "editor/ASSET_INTAKE_ATLAS_AUTHORING_PASS53.md",
+    "editor/ASSET_PALETTE_ATLAS_BINDING_PASS52.md",
+    "editor/EDITOR_ARCHITECTURE_NORMALIZATION_PASS48A.md",
+    "editor/EGUI_PIXEL_EDITOR_HOST_PANEL_SPEC.md",
+    "editor/LIVE_AUTOTILE_TERRAIN_TRANSITIONS_PASS51.md",
+    "editor/PASS48D_HANDOFF.md",
+    "editor/PASS49_HANDOFF.md",
+    "editor/PERMANENT_CANVAS_TOOLING_PASS47.md",
+    "editor/PRODUCTION_INFINITE_CANVAS_TOOLS_PASS49.md",
+    "editor/PRODUCTION_OBJECT_OUTLINER_INSPECTOR_PASS50.md",
+    "editor/SCENE_BANK_RUNTIME_FRAMING_PASS54B.md",
+    "editor/SCENE_IDENTITY_MIGRATION_PASS45.md",
+    "editor/SCENE_REFERENCE_RUNTIME_BRIDGE_PASS46.md",
+    "editor/SCENE_REGISTRY_FOUNDATION_NORMALIZATION_PASS48B.md",
+    "editor/STABLE_SELECTION_HIT_TESTING_PASS48C.md",
+    "editor/TRANSACTIONAL_UNDO_PASS48D.md",
+    "editor/WORLD_CANVAS_SCENE_BANK_PASS44.md",
+    "editor/YARN_BOARD_LOGIC_CANVAS_IMPLEMENTATION_CONTRACT.md",
+    "engineering/EXPANDED_SCENE_SCALE_CLIPPY_HOTFIX_PASS88B_20260712.md",
+    "engineering/EXPANDED_SCENE_SCALE_COMPILE_HOTFIX_PASS88A_20260712.md",
+    "engineering/character-reference-images-audit-2026-05-25.md",
+    "engineering/coastline_cleanup_pass_6_2026-07-09.md",
+    "engineering/current-state-audit-2026-05-25.md",
+    "engineering/editor-asset-pipeline.md",
+    "engineering/editor-research-comparison-2026-05-26.md",
+    "engineering/haven_game_refactor_pass_1_2026-07-09.md",
+    "engineering/haven_game_refactor_pass_2_2026-07-09.md",
+    "engineering/havenwild-worldgen-v0-3-summary.json",
+    "engineering/havenwild-worldgen-v0-4-summary.json",
+    "engineering/havenwild-worldgen-v0-5-summary.json",
+    "engineering/havenwild-worldgen-v0-6-summary.json",
+    "engineering/havenwild-worldgen-v0-7-summary.json",
+    "engineering/havenwild-worldgen-v0-8-summary.json",
+    "engineering/havenwild-worldgen-v0-9-summary.json",
+    "engineering/imported/character-animation-v010/rust_pseudocode/character_modular_animation_v010.rs",
+    "engineering/imported/character-animation-v010/specs/ANIMATION_VALIDATION_RULES_V010.md",
+    "engineering/imported/character-animation-v010/specs/CHARACTER_ANIMATION_RUNTIME_REQUIREMENTS_V010.md",
+    "engineering/imported/character-animation-v010/specs/CHARACTER_LAYER_COMPOSITOR_SPEC_V010.md",
+    "engineering/imported/character-animation-v010/specs/CHARACTER_MODULAR_ANIMATION_CONTRACT_V010.md",
+    "engineering/imported/character-animation-v010/specs/FRAME_RIG_SOCKET_METADATA_SPEC.md",
+    "engineering/imported/character-animation-v010/specs/PIXEL_EDITOR_ANIMATION_WORKFLOW_V010.md",
+    "engineering/imported/editor-systems-v009/rust_pseudocode/editor_command_bus_v009.rs",
+    "engineering/imported/editor-systems-v009/rust_pseudocode/pixel_editor_core_v009.rs",
+    "engineering/imported/editor-systems-v009/rust_pseudocode/runtime_editor_bridge_v009.rs",
+    "engineering/imported/editor-systems-v009/specs/ASSET_METADATA_AND_IMPORT_PIPELINE_SPEC.md",
+    "engineering/imported/editor-systems-v009/specs/EDITOR_BOOTSTRAP_ROADMAP.md",
+    "engineering/imported/editor-systems-v009/specs/IN_GAME_OVERLAY_EDITOR_SPEC.md",
+    "engineering/imported/editor-systems-v009/specs/MAIN_RUST_EDITOR_ARCHITECTURE_SPEC.md",
+    "engineering/imported/editor-systems-v009/specs/PIXEL_ART_EDITOR_FULL_SPEC.md",
+    "engineering/imported/editor-systems-v009/specs/RUNTIME_IMPLEMENTATION_REQUIREMENTS.md",
+    "engineering/imported/editor-systems-v009/specs/SHARED_COMMAND_UNDO_REDO_SPEC.md",
+    "engineering/imported/editor-systems-v009/specs/V009_EDITOR_SYSTEMS_MASTER_SPEC.md",
+    "engineering/imported/editor-systems-v009/specs/WEB_EDITOR_SPLIT_SPEC.md",
+    "engineering/imported/scene-rectangles-v008/rust_pseudocode/scene_rectangle_streaming_pseudocode_v008.rs",
+    "engineering/imported/scene-rectangles-v008/specs/SCENE_BORDER_NO_VOID_CONTRACT_V008.md",
+    "engineering/imported/scene-rectangles-v008/specs/SCENE_EDGE_ADJACENCY_CONTRACT_V008.md",
+    "engineering/imported/scene-rectangles-v008/specs/SCENE_EDITOR_WORKFLOW_V008.md",
+    "engineering/imported/scene-rectangles-v008/specs/SCENE_ROLE_CATALOG_V008.md",
+    "engineering/imported/scene-rectangles-v008/specs/SCENE_STREAMING_LOADING_CONTRACT_V008.md",
+    "engineering/imported/scene-rectangles-v008/specs/V008_TO_V005_V006_V007_INTEGRATION.md",
+    "engineering/imported/scene-rectangles-v008/specs/V008_WORLD_MAP_SCENE_RECTANGLE_SPEC.md",
+    "engineering/imported-asset-zips-audit-2026-05-25.md",
+    "engineering/project-rollups-audit-2026-05-25-night.md",
+    "engineering/reference-25d-assets-examples-audit-2026-05-25.md",
+    "engineering/repository-cleanup-notes.md",
+    "engineering/root-project-zips-audit-2026-05-25.md",
+    "engineering/root-zip-audit-2026-05-24.md",
+    "engineering/workspace-architecture.md",
+    "engineering/worldgen-pipeline-zips-audit-2026-05-25.md",
+    "engineering/worldgen-tileset-zips-audit-2026-05-25.md",
+    "engineering/worldgen-v0-1-apply-notes.md",
+    "engineering/worldgen_editor_footprint_editor_v0_9.md",
+    "engineering/worldgen_editor_object_outliner_v0_8.md",
+    "engineering/worldgen_editor_overlay_v0_7.md",
+    "engineering/worldgen_editor_validation_v0_3.md",
+    "engineering/worldgen_multitile_footprints_v0_6.md",
+    "engineering/worldgen_runtime_integration_v0_2.md",
+    "engineering/worldgen_runtime_loader_contract_v0_4.md",
+    "engineering/worldgen_runtime_loader_patch_v0_5.md",
+    "engineering/worldgen_scene_json_export_v0_10.md",
+    "handoffs/INCORRECT_GAMEPLAY_TOOL_ATLAS_REMOVAL_PASS92A_HANDOFF_20260712.md",
+    "handoffs/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_HANDOFF_20260712.md",
+    "handoffs/LPC_TERRAIN_HOTBAR_EDITOR_STABILITY_PASS92_HANDOFF_20260712.md",
+    "handoffs/archive/GENERATED_ASSET_PROVENANCE_PASS146D.md",
+    "handoffs/archive/INCORRECT_GAMEPLAY_TOOL_ATLAS_REMOVAL_PASS92A_HANDOFF_20260712.md",
+    "handoffs/archive/PASS154A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS154A_PRODUCTION_RENDER_CHECKPOINT_HANDOFF.md",
+    "handoffs/archive/PASS154B_CHUNK_SURFACE_DESCRIPTOR_CACHE_HANDOFF.md",
+    "handoffs/archive/PASS154B_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS154C_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS154C_RENDER_COMMAND_BUFFER_HANDOFF.md",
+    "handoffs/archive/PASS154D_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS154D_RETAINED_CHUNK_EXECUTION_HANDOFF.md",
+    "handoffs/archive/PASS154E_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS154E_RETAINED_COMMAND_PARITY_HANDOFF.md",
+    "handoffs/archive/PASS154F_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS154F_RETAINED_COMMAND_COORDINATE_PARITY_HANDOFF.md",
+    "handoffs/archive/PASS155A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS155A_WATER_INTEGRATION_HANDOFF.md",
+    "handoffs/archive/PASS155B1_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS155B2_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS155B3_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS155B4_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS155B_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS155B_SHAPE_MATERIAL_TERRAIN_HANDOFF.md",
+    "handoffs/archive/PASS156A1_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS156A2_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS156A2_SAVE_CAPABILITY_NORMALIZATION_HANDOFF.md",
+    "handoffs/archive/PASS156A3_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS156A3_RUST_COMPILE_FIX_HANDOFF.md",
+    "handoffs/archive/PASS156A4_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS156A4_RUST_BORROW_FIX_HANDOFF.md",
+    "handoffs/archive/PASS156A5_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS156A5_RUST_OPTION_BORROW_FIX_HANDOFF.md",
+    "handoffs/archive/PASS156A6_CLIPPY_GATE_FIX_HANDOFF.md",
+    "handoffs/archive/PASS156A6_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS156A7_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS156A7_TEST_EXPECTATION_FIX_HANDOFF.md",
+    "handoffs/archive/PASS156A_BUILD_PIPELINE_NORMALIZATION_HANDOFF.md",
+    "handoffs/archive/PASS156A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS157A1_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS157A2_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS157A2_WATER_LOD_CLIPPY_HOTFIX_HANDOFF.md",
+    "handoffs/archive/PASS157A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS157A_RETAINED_TERRAIN_AND_CALM_WATER_HANDOFF.md",
+    "handoffs/archive/PASS157B_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS157B_RETAINED_PARITY_AND_WATER_SPAN_BATCHING_HANDOFF.md",
+    "handoffs/archive/PASS157C1_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS157C_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS157C_FLAT_WATER_AND_WIDE_SURFACE_LOD_HANDOFF.md",
+    "handoffs/archive/PASS158A1_CLIPPY_BOOLEAN_HOTFIX_HANDOFF.md",
+    "handoffs/archive/PASS158A1_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS158A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS159A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS159A_UNIVERSAL_TUPLE_TERRAIN_FOUNDATION_HANDOFF.md",
+    "handoffs/archive/PASS159B_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS159B_UNIVERSAL_TUPLE_SHADER_MASK_HANDOFF.md",
+    "handoffs/archive/PASS160A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS160A_TERRAIN_AUTHORITY_AND_COLLISION_RESET_HANDOFF.md",
+    "handoffs/archive/PASS160B_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS160B_SHALLOW_WATER_MAINLAND_COASTLINE_HANDOFF.md",
+    "handoffs/archive/PASS160C_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS160C_MAINLAND_SHALLOW_WATER_PROFILE_HANDOFF.md",
+    "handoffs/archive/PASS160D_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS160D_SHALLOW_WATER_INTERIOR_RESET_HANDOFF.md",
+    "handoffs/archive/PASS160E_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS160E_MAINLAND_TUPLE_DIAGNOSTICS_HANDOFF.md",
+    "handoffs/archive/PASS161A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161A_TERRAIN_NORMALIZATION_FOUNDATION_HANDOFF.md",
+    "handoffs/archive/PASS161B_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161B_PCG_COASTLINE_AND_BEACH_BAND_NORMALIZATION_HANDOFF.md",
+    "handoffs/archive/PASS161C_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161C_STRICT_TUPLE_SIGNATURE_NORMALIZATION_HANDOFF.md",
+    "handoffs/archive/PASS161D1_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D1_RUST_PARSE_HOTFIX_HANDOFF.md",
+    "handoffs/archive/PASS161D2_CLIPPY_NORMALIZATION_HOTFIX_HANDOFF.md",
+    "handoffs/archive/PASS161D2_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D3_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D3_FINAL_WATER_CLIPPY_HOTFIX_HANDOFF.md",
+    "handoffs/archive/PASS161D4_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D4_WATER_HELPER_COMPILE_HOTFIX_HANDOFF.md",
+    "handoffs/archive/PASS161D5_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D5_SHALLOW_ONLY_TEST_ALIGNMENT_HANDOFF.md",
+    "handoffs/archive/PASS161D6R1_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D6R2_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D6R_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D6_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D6_WORLD_TEST_CONTRACT_ALIGNMENT_HANDOFF.md",
+    "handoffs/archive/PASS161D_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161D_PCG_TOPOLOGY_AND_CHUNK_INVALIDATION_HANDOFF.md",
+    "handoffs/archive/PASS161E_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161E_PIXEL_GRID_STRIDE_AND_DRAW_COST_RESET_HANDOFF.md",
+    "handoffs/archive/PASS161F1_COASTAL_CLIFF_GUARD_NARROWING_HANDOFF.md",
+    "handoffs/archive/PASS161F1_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161F2_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS161F2_REACHABLE_MOUNTAIN_THRESHOLD_HANDOFF.md",
+    "handoffs/archive/PASS161F_COAST_TRANSITION_AND_ZOOM_RENDER_RESET_HANDOFF.md",
+    "handoffs/archive/PASS161F_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS162A_COHERENT_TERRAIN_AND_EXACT_RENDER_AUTHORITY_HANDOFF.md",
+    "handoffs/archive/PASS162A_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS162B_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS162B_PIXEL_INPUT_AND_FRAME_SIZING_HANDOFF.md",
+    "handoffs/archive/PASS162C_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS162C_NATIVE_EDITOR_PROFESSIONAL_SHELL_HANDOFF.md",
+    "handoffs/archive/PASS162D_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS162D_WORLD_AND_SCENE_GUI_NORMALIZATION_HANDOFF.md",
+    "handoffs/archive/PASS162E_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS162E_PIXEL_AND_ANIMATION_GUI_NORMALIZATION_HANDOFF.md",
+    "handoffs/archive/PASS162F_ASSET_LIBRARY_AND_INTAKE_GUI_NORMALIZATION_HANDOFF.md",
+    "handoffs/archive/PASS162F_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS162G_COMPLETE_SOURCE_MANIFEST.md",
+    "handoffs/archive/PASS162G_SHARED_CONTROL_CONSOLIDATION_HANDOFF.md",
+    "handoffs/archive/UNIFIED_BUILD_REPORTING_AND_ATTESTATION_PASS146E.md",
+    "handoffs/current/PASS162J_DOCS_AND_INSPECTOR_NORMALIZATION_HANDOFF.md",
+    "handoffs/current/PASS163A_HAVENWILD_TERRAIN_STANDARD_V1_PROMOTION_HANDOFF.md",
+    "handoffs/current/PASS163B_TUPLE_RESOLVER_PARITY_AND_SEAM_PROOF_HANDOFF.md",
+    "handoffs/current/PASS163C_WORLD_BUILDER_TERRAIN_INSPECTOR_HANDOFF.md",
+    "handoffs/current/PASS163D_TERRAIN_AUTHORING_AND_DIAGNOSTIC_OVERLAY_HANDOFF.md",
+    "handoffs/current/PASS163E_TERRAIN_SOURCE_AND_RUNTIME_ATLAS_HANDOFF.md",
+    "handoffs/current/PASS163F_EXACT_TERRAIN_RENDERING_HANDOFF.md",
+    "handoffs/current/PASS163G_TERRAIN_GAMEPLAY_NORMALIZATION_HANDOFF.md",
+    "handoffs/current/PASS163H_GAMEPLAY_CONSUMER_INTEGRATION_HANDOFF.md",
+    "handoffs/current/PASS163I_TERRAIN_CONSUMER_CERTIFICATION_PREP_HANDOFF.md",
+    "handoffs/current/PASS163J_TERRAIN_CERTIFICATION_HANDOFF.md",
+    "handoffs/current/PASS163K_BUILD_CERTIFICATION_PREP_HANDOFF.md",
+    "handoffs/current/PASS163L_TERRAIN_ACCEPTANCE_FIXTURES_HANDOFF.md",
+    "handoffs/current/PASS163M_ACCEPTANCE_GENERATOR_REPAIR_HANDOFF.md",
+    "handoffs/current/PASS163N_BUILD_AND_AUDIT_REPAIR_HANDOFF.md",
+    "handoffs/current/PASS163O_EDITOR_IMPORT_AND_TOOL_ROOT_REPAIR_HANDOFF.md",
+    "handoffs/current/PASS164A_PIXEL_STUDIO_GRID_SELECTION_HANDOFF.md",
+    "handoffs/pass167z8_cumulative_recovery/VALIDATION.md",
+    "legacy_project_docs/APPLY_THIS_SOURCE_ROLLUP.md",
+    "legacy_project_docs/BASH_BUILD_ENTRYPOINT_PASS54C_HANDOFF.md",
+    "legacy_project_docs/CAMERA_ZOOM_ORIENTATION_HOTFIX_HANDOFF.md",
+    "legacy_project_docs/CLIENT_CAMERA_ZOOM_ATLAS_TEST_HOTFIX_PASS91B_HANDOFF_20260712.md",
+    "legacy_project_docs/CLIENT_CAMERA_ZOOM_CLIPPY_HOTFIX_PASS91C_HANDOFF_20260712.md",
+    "legacy_project_docs/CLIENT_GAMEPLAY_SAVE_SLOTS_PASS57_HANDOFF_20260711.md",
+    "legacy_project_docs/CLIENT_SAVE_PREVIEW_PAUSE_MENU_PASS58_HANDOFF_20260711.md",
+    "legacy_project_docs/CLIPPY_GATE_HOTFIX_PASS54D_HANDOFF.md",
+    "legacy_project_docs/CODEX_ASSET_PACK_INTAKE_HANDOFF.md",
+    "legacy_project_docs/EDITOR_ORIENTATION_BUILD_LOGGING_HOTFIX.md",
+    "legacy_project_docs/EXPANDED_SCENE_SCALE_LEGACY_MIGRATION_PASS88_HANDOFF_20260712.md",
+    "legacy_project_docs/EXPANDED_SCENE_STARTER_GENERATION_TEST_HOTFIX_PASS90C_HANDOFF_20260712.md",
+    "legacy_project_docs/EXTERNAL_ASSET_PACK_INTAKE_PASS66_HANDOFF_20260711.md",
+    "legacy_project_docs/GENERIC_MULTITILE_STAMP_SYSTEM_PASS61_HANDOFF_20260711.md",
+    "legacy_project_docs/HAVENWILD_PASS114B_ARCHITECTURE_SPLIT.md",
+    "legacy_project_docs/ISLAND_PCG_TEST_PATH_HOTFIX_PASS54E_HANDOFF.md",
+    "legacy_project_docs/LPC_ASSET_UTILIZATION_AUDIT_AND_NATURAL_FILL_PASS100_HANDOFF_20260713.md",
+    "legacy_project_docs/LPC_AUTHORED_REPLACEMENT_ROLES_PASS97_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_COASTLINE_SAVE_REGENERATION_PASS86_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_COMPLETE_ROLE_TERRAIN_RUNTIME_STABILITY_PASS91_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_DEPENDENCY_MOUNT_HOTFIX_PASS93A_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_EDGE_SIGNATURE_SEAM_CONFORMANCE_PASS96_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_EDITOR_PAINT_TOPOLOGY_PASS99_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_EXPANDABLE_POND_FAMILIES_PASS87_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_NATIVE_AUTOTILE_BOUNDARY_FALLBACK_PASS117_HANDOFF_20260713.md",
+    "legacy_project_docs/LPC_SHARED_SEASONAL_TERRAIN_TOPOLOGY_PASS94_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_SUMMER_RUNTIME_SEMANTIC_PROMOTION_PASS95_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_TERRAIN_FAMILY_COMPILE_HOTFIX_PASS90A_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_TERRAIN_FAMILY_TEST_HOTFIX_PASS90B_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_TERRAIN_OWNER_SIDE_WORLD_TEST_HOTFIX_PASS90E_HANDOFF_20260712.md",
+    "legacy_project_docs/LPC_WORLD_EDITOR_FOUNDATION_PASS98_HANDOFF_20260712.md",
+    "legacy_project_docs/NATIVE_ANIMATION_STUDIO_PASS63_HANDOFF_20260711.md",
+    "legacy_project_docs/NATIVE_EDITOR_STARTUP_RENDER_STABILITY_PASS93B_HANDOFF_20260712.md",
+    "legacy_project_docs/NATIVE_PIXEL_STUDIO_WORKFLOW_PASS62_HANDOFF_20260711.md",
+    "legacy_project_docs/PASS101_TRANSITION_MANIFEST_VERSION_HOTFIX_20260713.md",
+    "legacy_project_docs/PASS102_ASSET_AUDIT_BUILD_ORDER_HOTFIX_20260713.md",
+    "legacy_project_docs/PASS103_LPC_MIXED_CORNER_TOPOLOGY_HOTFIX_20260713.md",
+    "legacy_project_docs/PASS104_LPC_SINGLE_REPLACEMENT_ROLE_HOTFIX_20260713.md",
+    "legacy_project_docs/PASS105_LPC_ENVIRONMENT_TOPOLOGY_POLICY_20260713.md",
+    "legacy_project_docs/PASS106_LPC_SAME_FAMILY_PROMOTION_PLAN_20260713.md",
+    "legacy_project_docs/PASS107_LPC_PLACEABLE_OBJECT_PROMOTION_20260713.md",
+    "legacy_project_docs/PASS109_LPC_CLOSED_SAND_GRASS_CORNER_HOTFIX_20260713.md",
+    "legacy_project_docs/PASS110_LPC_TRANSITION_ROOT_CAUSE_AUDIT_20260713.md",
+    "legacy_project_docs/PASS111_LPC_MIXED_CORNER_OVERDRAW_ROLLBACK_20260713.md",
+    "legacy_project_docs/PASS111_LPC_TERRAIN_MAP_V7_REPLACEMENT_PILOT_20260713.md",
+    "legacy_project_docs/PASS112_LPC_TILED_CORNER_MODEL_FIX_20260713.md",
+    "legacy_project_docs/PASS113_LPC_CELL_ANCHORED_TERRAIN_FIX_20260713.md",
+    "legacy_project_docs/PASS113_LPC_NATURAL_TERRAIN_TOPOLOGY_COMPLETION_20260714.md",
+    "legacy_project_docs/PASS114_LPC_TERRAIN_DETAIL_EDITOR_WINDOW_20260714.md",
+    "legacy_project_docs/PASS114_LPC_TILED_TERRAIN_EXCLUSIVE_CATALOG_20260713.md",
+    "legacy_project_docs/PASS115_CURRENT_SPEC_AUDIT_20260714.md",
+    "legacy_project_docs/PASS115_MAPPED_TERRAIN_OWNERSHIP_20260713.md",
+    "legacy_project_docs/PASS116_MAPPED_TERRAIN_RUNTIME_PERFORMANCE_20260714.md",
+    "legacy_project_docs/PASS116_TILED_TERRAIN_RUNTIME_DEFERRED_20260713.md",
+    "legacy_project_docs/PASS117_STRUCTURAL_ROCK_TERRAIN_DEFERRAL_20260715.md",
+    "legacy_project_docs/PASS118_ASSET_INTAKE_BUILD_ORDER_20260715.md",
+    "legacy_project_docs/PASS118_WORLD_PAINT_SINGLE_CELL_OVERLAY_FIX_20260714.md",
+    "legacy_project_docs/PASS119_EMPTY_ASSET_INTAKE_ATLAS_20260715.md",
+    "legacy_project_docs/PASS119_LPC_TERRAIN_SPARSE_TILE_OWNERSHIP_FIX_20260714.md",
+    "legacy_project_docs/PASS120_LPC_GRASS_SAND_BOUNDARY_FIX_20260714.md",
+    "legacy_project_docs/PASS120_TERRAIN_BIOME_REGISTRY_FOUNDATION_20260715.md",
+    "legacy_project_docs/PASS121_LPC_SAND_OVER_GRASS_BLOB_TERRAIN_20260714.md",
+    "legacy_project_docs/PASS121_SHORE_WATER_NORMALIZATION_20260715.md",
+    "legacy_project_docs/PASS122_LPC_RUNTIME_TERRAIN_PROMOTION_20260714.md",
+    "legacy_project_docs/PASS123_CANONICAL_WATER_DEPTH_SOURCE_20260715.md",
+    "legacy_project_docs/PASS124A_WATER_ANIMATION_CLIPPY_HOTFIX_20260715.md",
+    "legacy_project_docs/PASS124B_RUNTIME_EDITOR_SHELL_TEST_SPLIT_20260715.md",
+    "legacy_project_docs/PASS124_WATER_ANIMATION_AND_SHORE_DEPTH_20260715.md",
+    "legacy_project_docs/PASS125_WATER_ANIMATION_OWNERSHIP_20260715.md",
+    "legacy_project_docs/PASS126A_RUNTIME_EDITOR_SHELL_ARCHITECTURE_HOTFIX_20260715.md",
+    "legacy_project_docs/PASS126B_V114_SPLIT_TEST_VALIDATOR_HOTFIX_20260715.md",
+    "legacy_project_docs/PASS126C_SPLIT_TEST_VALIDATOR_CONSOLIDATION_20260715.md",
+    "legacy_project_docs/PASS126D_V128_WATER_MATERIAL_VALIDATOR_HOTFIX_20260715.md",
+    "legacy_project_docs/PASS126_SPARSE_WATER_ANIMATION_20260715.md",
+    "legacy_project_docs/PASS131_MAPPED_TUPLE_FALLBACK_OWNERSHIP_20260715.md",
+    "legacy_project_docs/PASS132_WATER_LAND_FALLBACK_NO_SQUARES_20260715.md",
+    "legacy_project_docs/PASS133_LPC_TUPLE_COVERAGE_AUDIT_20260715.md",
+    "legacy_project_docs/PASS134_LPC_TUPLE_PROMOTION_PLAN_20260715.md",
+    "legacy_project_docs/PASS135A_TERRAIN_VALIDATOR_AND_CLIPPY_HOTFIX_20260715.md",
+    "legacy_project_docs/PASS135B_V122_SPLIT_TEST_VALIDATOR_HOTFIX_20260715.md",
+    "legacy_project_docs/PASS135C_V124_V125_V129_SPLIT_TEST_VALIDATOR_HOTFIX_20260715.md",
+    "legacy_project_docs/PASS135_TERRAIN_V7_EDITOR_EXPOSURE_AND_WATER_PAINT.md",
+    "legacy_project_docs/PASS136_CHARACTER_CREATION_FOUNDATION_20260723.md",
+    "legacy_project_docs/PASS136_LPC_PRODUCTION_TUPLE_PROMOTION_20260720.md",
+    "legacy_project_docs/PASS137_CHARACTER_PROFILE_WARDROBE_AND_PROGRESSION_20260723.md",
+    "legacy_project_docs/PASS137_LPC_PATH_GROUND_PROMOTION_20260720.md",
+    "legacy_project_docs/PASS138_CHARACTER_CLIENT_PROFILE_PERSISTENCE_20260723.md",
+    "legacy_project_docs/PASS138_SHORE_WATER_LIFECYCLE_20260720.md",
+    "legacy_project_docs/PASS139_CHARACTER_CREATOR_GUI_20260723.md",
+    "legacy_project_docs/PASS139_WRAPPED_WORLD_COORDINATE_FOUNDATION_20260720.md",
+    "legacy_project_docs/PASS140_ARCHIPELAGO_WORLD_SKELETON_20260720.md",
+    "legacy_project_docs/PASS140_CHARACTER_SPRITE_RUNTIME_20260723.md",
+    "legacy_project_docs/PASS141_VALIDATION_AND_CONTRACT_NORMALIZATION_20260720.md",
+    "legacy_project_docs/PASS142_TERRAIN_WORLD_SEMANTIC_REGISTRY_20260720.md",
+    "legacy_project_docs/PASS143_WORLD_GENERATION_PIPELINE_OWNERSHIP_20260721.md",
+    "legacy_project_docs/PASS144_CHUNK_PERSISTENCE_NORMALIZATION_20260721.md",
+    "legacy_project_docs/PASS145_EDITOR_COMMAND_UNDO_NORMALIZATION_HANDOFF_20260721.md",
+    "legacy_project_docs/PASS150J_V114_SHARED_SHORE_LIFECYCLE_VALIDATOR.md",
+    "legacy_project_docs/PASS91A_COMPILE_AND_LPC_DEPENDENCY_BOOTSTRAP_HANDOFF_20260712.md",
+    "legacy_project_docs/PASS96A_SUMMER_RUNTIME_METADATA_RESTORE_HANDOFF_20260712.md",
+    "legacy_project_docs/PASS96B_PRE_CARGO_RUNTIME_STATUS_ORDERING_HOTFIX_20260712.md",
+    "legacy_project_docs/PASS96C_TRANSITION_ATLAS_RUST_PARSE_HOTFIX_20260712.md",
+    "legacy_project_docs/PASS96D_STRICT_CLIPPY_OPTION_EXTRACTION_HOTFIX_20260712.md",
+    "legacy_project_docs/PASS96E_GENERATED_ATLAS_TEST_STABILITY_HOTFIX_20260712.md",
+    "legacy_project_docs/PASS96F_EDITOR_REGISTRY_DERIVED_TESTS_HOTFIX_20260712.md",
+    "legacy_project_docs/PIXEL_ANIMATION_ROUNDTRIP_BRIDGE_PASS65_HANDOFF_20260711.md",
+    "legacy_project_docs/PIXEL_DOCUMENT_LAYER_SYSTEM_PASS64_HANDOFF_20260711.md",
+    "legacy_project_docs/PRODUCTION_ENVIRONMENT_LIBRARY_PASS60_HANDOFF_20260711.md",
+    "legacy_project_docs/PRODUCTION_TERRAIN_TILE_UPGRADE_PASS59_HANDOFF_20260711.md",
+    "legacy_project_docs/README.md",
+    "legacy_project_docs/RUNTIME_PATH_PAINT_BINDING_INPUT_STABILIZATION_PASS89_HANDOFF_20260712.md",
+    "legacy_project_docs/RUNTIME_VIEW_CULLING_UNIT_ISOLATION_PASS90D_HANDOFF_20260712.md",
+    "legacy_project_docs/SCENE_BANK_RUNTIME_FRAMING_PASS54B_HANDOFF.md",
+    "legacy_project_docs/SEEDED_ARCHIPELAGO_SPACING_PASS56_HANDOFF_20260711.md",
+    "legacy_project_docs/STAMP_INSPECTOR_CLIPPY_HOTFIX_PASS88C_20260712.md",
+    "legacy_project_docs/STRUCTURAL_ARCHIPELAGO_WORKSPACE_PASS55_HANDOFF_20260711.md",
+    "legacy_project_docs/TERRAIN_COMPLETION_MATRIX.md",
+    "legacy_project_docs/TRANSITION_RULE_OWNER_SIDE_TEST_HOTFIX_PASS91D_HANDOFF_20260712.md",
+    "legacy_project_docs/VALIDATOR_NORMALIZATION_MATRIX_PASS141.md",
+    "legacy_project_docs/WORLD_CANVAS_ISLAND_PCG_HARBOR_PASS54A_HANDOFF.md",
+    "legacy_project_docs/assets/ASSET_REFERENCE_PREVIEW_STUB.md",
+    "legacy_project_docs/assets/ASSET_SOURCE_AVAILABILITY_UI.md",
+    "legacy_project_docs/assets/ASSET_SOURCE_LOCAL_IMPORT_INSTRUCTIONS.md",
+    "legacy_project_docs/assets/DONOR_REFERENCE_ASSET_CATALOG.md",
+    "legacy_project_docs/assets/EDITOR_ASSET_REFERENCE_BROWSER.md",
+    "legacy_project_docs/assets/EXTERNAL_ASSET_PACK_WORKFLOW_PASS66.md",
+    "legacy_project_docs/assets/GAME_COMPILE_HOTFIX_PASS40B.md",
+    "legacy_project_docs/assets/GENERIC_MULTITILE_STAMP_SYSTEM_PASS61.md",
+    "legacy_project_docs/assets/HAVENWILD_ASSET_UTILIZATION_AUDIT_PASS100.md",
+    "legacy_project_docs/assets/HAVENWILD_LPC_STAMP_CANDIDATE_INTAKE_PASS108.md",
+    "legacy_project_docs/assets/HAVENWILD_LPC_TERRAIN_MAP_V7_FULL_CATALOG_PASS114.md",
+    "legacy_project_docs/assets/LPC_PATH_AUTOTILE_PROMOTION_PASS85.md",
+    "legacy_project_docs/assets/LPC_PATH_GROUND_PROMOTION_PASS137.md",
+    "legacy_project_docs/assets/LPC_PRODUCTION_TUPLE_PROMOTION_PASS136.md",
+    "legacy_project_docs/assets/LPC_TILE_AWARE_TERRAIN_TRANSITIONS_PASS84.md",
+    "legacy_project_docs/assets/LPC_TUPLE_COVERAGE_AUDIT_PASS133.md",
+    "legacy_project_docs/assets/LPC_TUPLE_PROMOTION_PLAN_PASS134.md",
+    "legacy_project_docs/assets/NATIVE_ANIMATION_STUDIO_WORKFLOW_PASS63.md",
+    "legacy_project_docs/assets/NATIVE_PIXEL_STUDIO_WORKFLOW_PASS62.md",
+    "legacy_project_docs/assets/OPEN_GAME_ART_ASSET_DUMP_PASS85.md",
+    "legacy_project_docs/assets/OPEN_GAME_ART_TERRAIN_PACK_CATALOG_PASS114.md",
+    "legacy_project_docs/assets/PIXEL_ANIMATION_ROUNDTRIP_BRIDGE_PASS65.md",
+    "legacy_project_docs/assets/PIXEL_DOCUMENT_LAYER_SYSTEM_PASS64.md",
+    "legacy_project_docs/assets/PRODUCTION_ENVIRONMENT_LIBRARY_PASS60.md",
+    "legacy_project_docs/assets/PRODUCTION_TERRAIN_TILE_UPGRADE_PASS59.md",
+    "legacy_project_docs/assets/PROTOTYPE_ASSET_IMPORT_ADAPTERS.md",
+    "legacy_project_docs/assets/PROTOTYPE_ASSET_LOCAL_BAKE_DRY_RUN.md",
+    "legacy_project_docs/assets/THIRD_PARTY_ASSET_INTAKE_POLICY.md",
+    "legacy_project_docs/assets/TILE_EXTRACTION_WORKBENCH_PASS45.md",
+    "legacy_project_docs/assets/WORLD_PAINT_BRUSH_BACKEND_PASS28.md",
+    "legacy_project_docs/assets/WORLD_PAINT_COMPILE_WARNING_CLEANUP_PASS39.md",
+    "legacy_project_docs/assets/WORLD_PAINT_DELTA_PERSISTENCE_PASS29.md",
+    "legacy_project_docs/assets/WORLD_PAINT_DELTA_REPLAY_PASS31.md",
+    "legacy_project_docs/assets/WORLD_PAINT_LAYER_COMPOSITION_PASS40.md",
+    "legacy_project_docs/assets/WORLD_PAINT_MATERIAL_ADJACENCY_PASS35.md",
+    "legacy_project_docs/assets/WORLD_PAINT_MATERIAL_INSPECTOR_PASS34.md",
+    "legacy_project_docs/assets/WORLD_PAINT_MATERIAL_STATE_LAYER_PASS33.md",
+    "legacy_project_docs/assets/WORLD_PAINT_MIRROR_AND_PIXEL_EDITOR_PASS30.md",
+    "legacy_project_docs/assets/WORLD_PAINT_RENDER_BINDING_PASS37.md",
+    "legacy_project_docs/assets/WORLD_PAINT_RENDER_CACHE_PASS38.md",
+    "legacy_project_docs/assets/WORLD_PAINT_SAVE_LOAD_INTEGRATION_PASS32.md",
+    "legacy_project_docs/assets/WORLD_PAINT_TRANSITION_TILE_RESOLVER_PASS36.md",
+    "legacy_project_docs/assets/WORLD_TILE_CONTRACT_PASS27.md",
+    "legacy_project_docs/assets/previews/havenwild_cc0_pixel_studio_library_pass62.png",
+    "legacy_project_docs/assets/previews/havenwild_generic_multitile_stamp_library_pass61.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_coastline_tile_preview_pass86.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_complete_role_runtime_pass91.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_edge_signature_seams_v108.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_expandable_ponds_pass87.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_mapped_terrain_v7_pass111.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_mapped_terrain_v7_pass112.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_mapped_terrain_v7_pass113.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_mapped_terrain_v7_pass114.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_path_ground_promotion_pass137.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_production_tuple_promotion_pass136.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_stamp_candidate_sources_numbered_pass108.csv",
+    "legacy_project_docs/assets/previews/havenwild_lpc_stamp_candidate_sources_numbered_pass108.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_summer_runtime_conformance_v107.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_terrain_family_foundation_pass90.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_terrain_map_v7_pair_preview_pass111.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_terrain_summer_complete_map_v103.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_tuple_coverage_pass133.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_tuple_promotion_plan_pass134.png",
+    "legacy_project_docs/assets/previews/havenwild_lpc_water_variants_pass86.png",
+    "legacy_project_docs/assets/previews/havenwild_native_animation_studio_pass63.png",
+    "legacy_project_docs/assets/previews/havenwild_open_game_art_terrain_pack_materials_pass114.png",
+    "legacy_project_docs/assets/previews/havenwild_organic_coastline_pass85.png",
+    "legacy_project_docs/assets/previews/havenwild_pixel_document_layers_pass64.png",
+    "legacy_project_docs/assets/previews/havenwild_production_environment_library_pass60.png",
+    "legacy_project_docs/assets/previews/havenwild_production_terrain_repeat_preview_pass59.png",
+    "legacy_project_docs/assets/previews/havenwild_scene_scale_pass88.png",
+    "legacy_project_docs/assets/previews/havenwild_transition_contours_pass86.png",
+    "legacy_project_docs/audits/HAVENWILD_VS_GODOT_TERRAIN_MATRIX.md",
+    "legacy_project_docs/design/ANIMATED_CHARACTER_RUNTIME_PASS149I.md",
+    "legacy_project_docs/design/AUTOMATIC_ASSET_PACK_DISCOVERY_AND_MIGRATION_PASS148D.md",
+    "legacy_project_docs/design/CATEGORY_METADATA_AND_TILED_NORMALIZATION_PASS148C.md",
+    "legacy_project_docs/design/CHARACTER_SELECTION_AND_CREATOR_UI_PASS148S.md",
+    "legacy_project_docs/design/CHARACTER_VISUAL_FRONTEND_PASS148T.md",
+    "legacy_project_docs/design/CHARACTER_WORLD_RUNTIME_STATE_PASS148V.md",
+    "legacy_project_docs/design/CHARACTER_WORLD_SYNC_PASS148W.md",
+    "legacy_project_docs/design/CONTINUOUS_OVERWORLD_AND_SHARED_CANVAS_PASS149C.md",
+    "legacy_project_docs/design/CONTINUOUS_OVERWORLD_STREAMING_PASS149D.md",
+    "legacy_project_docs/design/DYNAMIC_WORLD_RUNTIME_PASS148U.md",
+    "legacy_project_docs/design/GENERIC_PLACEABLE_STATE_TRANSITIONS_PASS148P.md",
+    "legacy_project_docs/design/HAVENWILD_TERRAIN_PATTERN_RESOLVER_V2.md",
+    "legacy_project_docs/design/HAVENWILD_TERRAIN_SET_SCHEMA_V2.md",
+    "legacy_project_docs/design/INTERACTIVE_CHARACTER_CREATOR_PASS149H.md",
+    "legacy_project_docs/design/LPC_REVISED_FULL_REPOSITORY_INVENTORY_PASS148X.md",
+    "legacy_project_docs/design/LPC_REVISED_MAPPING_QUEUES_PASS148Y.md",
+    "legacy_project_docs/design/OPERATIONAL_PIXEL_STUDIO_PASS149G.md",
+    "legacy_project_docs/design/PACK_DEFINED_PLACEABLE_ASSETS_PASS148M.md",
+    "legacy_project_docs/design/PROCEDURAL_CHUNK_RESIDENCY_PASS149E.md",
+    "legacy_project_docs/design/PRODUCTION_LPC_RUNTIME_BINDING_PASS149J.md",
+    "legacy_project_docs/design/RUNTIME_ASSET_ADAPTER_MIGRATION_PASS148G.md",
+    "legacy_project_docs/design/RUNTIME_STARTUP_DISCOVERY_AND_STABLE_ASSET_CACHE_PASS148H.md",
+    "legacy_project_docs/design/SEMANTIC_RESOURCE_PROVIDERS_PASS148K.md",
+    "legacy_project_docs/design/SEMANTIC_STAMP_DISCOVERY_PASS148L.md",
+    "legacy_project_docs/design/SHARED_SEMANTIC_ASSET_RESOLUTION_PASS148F.md",
+    "legacy_project_docs/design/STABLE_PLACEABLE_RUNTIME_DISPATCH_PASS148O.md",
+    "legacy_project_docs/design/STABLE_RENDER_BINDINGS_PASS148J.md",
+    "legacy_project_docs/design/STABLE_TEXTURE_CACHE_AND_RENDERER_BINDING_PASS148I.md",
+    "legacy_project_docs/design/STATE_GEOMETRY_AND_BEHAVIOR_EXECUTION_PASS148Q.md",
+    "legacy_project_docs/design/SURFACE_CHUNK_JOBS_CACHE_AND_DELTAS_PASS149F.md",
+    "legacy_project_docs/design/TESTABLE_FOUNDATION_GATE_PASS149A.md",
+    "legacy_project_docs/design/UNIVERSAL_ASSET_PACK_FOUNDATION_PASS148A.md",
+    "legacy_project_docs/design/UNIVERSAL_CONTENT_BROWSER_PASS148E.md",
+    "legacy_project_docs/design/UNIVERSAL_IMPORT_PROVIDER_FRAMEWORK_PASS148B.md",
+    "legacy_project_docs/design/UNIVERSAL_LPC_CHARACTER_PIPELINE_PASS148R.md",
+    "legacy_project_docs/design/asset-requirements-spec.md",
+    "legacy_project_docs/design/cave-dungeon-generator-spec.md",
+    "legacy_project_docs/design/cozy-aesthetic-roadmap.md",
+    "legacy_project_docs/design/editor-workflows-spec.md",
+    "legacy_project_docs/design/gui-layout-grid-spec.md",
+    "legacy_project_docs/design/havenwild-2p5d-grid-spec.md",
+    "legacy_project_docs/design/havenwild-generated-asset-pack-notes.md",
+    "legacy_project_docs/design/havenwild-project-source-of-truth-2026-05-25.md",
+    "legacy_project_docs/design/havenwild-world-tile-audit.md",
+    "legacy_project_docs/design/havenwild-world-tile-spec.md",
+    "legacy_project_docs/design/havenwild-worldgen-code-implementation-plan.md",
+    "legacy_project_docs/design/havenwild-worldgen-expansion-recommendations.md",
+    "legacy_project_docs/design/in-game-editor-spec.md",
+    "legacy_project_docs/design/lpc-style-adoption.md",
+    "legacy_project_docs/design/master-world-editor-spec.md",
+    "legacy_project_docs/design/non-isometric-2d5-spec.md",
+    "legacy_project_docs/design/pixel-art-production-standard.md",
+    "legacy_project_docs/design/reference-game-benchmark.md",
+    "legacy_project_docs/design/reference-top-down-basic-pack-notes.md",
+    "legacy_project_docs/design/reference-universal-animation-library-notes.md",
+    "legacy_project_docs/design/repository-architecture-spec.md",
+    "legacy_project_docs/design/standalone-rust-editor-spec.md",
+    "legacy_project_docs/design/world-scene-map.md",
+    "legacy_project_docs/design/worldgen-asset-contract-v0-1.md",
+    "legacy_project_docs/docs/design/product-direction.md",
+    "legacy_project_docs/docs/engineering/workspace-architecture.md",
+    "legacy_project_docs/docs/research/travellers-rest-research.md",
+    "legacy_project_docs/editor/ASSET_INTAKE_ATLAS_AUTHORING_PASS53.md",
+    "legacy_project_docs/editor/ASSET_PALETTE_ATLAS_BINDING_PASS52.md",
+    "legacy_project_docs/editor/EDITOR_ARCHITECTURE_NORMALIZATION_PASS48A.md",
+    "legacy_project_docs/editor/EGUI_PIXEL_EDITOR_HOST_PANEL_SPEC.md",
+    "legacy_project_docs/editor/LIVE_AUTOTILE_TERRAIN_TRANSITIONS_PASS51.md",
+    "legacy_project_docs/editor/PASS48D_HANDOFF.md",
+    "legacy_project_docs/editor/PASS49_HANDOFF.md",
+    "legacy_project_docs/editor/PERMANENT_CANVAS_TOOLING_PASS47.md",
+    "legacy_project_docs/editor/PRODUCTION_INFINITE_CANVAS_TOOLS_PASS49.md",
+    "legacy_project_docs/editor/PRODUCTION_OBJECT_OUTLINER_INSPECTOR_PASS50.md",
+    "legacy_project_docs/editor/SCENE_BANK_RUNTIME_FRAMING_PASS54B.md",
+    "legacy_project_docs/editor/SCENE_IDENTITY_MIGRATION_PASS45.md",
+    "legacy_project_docs/editor/SCENE_REFERENCE_RUNTIME_BRIDGE_PASS46.md",
+    "legacy_project_docs/editor/SCENE_REGISTRY_FOUNDATION_NORMALIZATION_PASS48B.md",
+    "legacy_project_docs/editor/STABLE_SELECTION_HIT_TESTING_PASS48C.md",
+    "legacy_project_docs/editor/TRANSACTIONAL_UNDO_PASS48D.md",
+    "legacy_project_docs/editor/WORLD_CANVAS_SCENE_BANK_PASS44.md",
+    "legacy_project_docs/editor/YARN_BOARD_LOGIC_CANVAS_IMPLEMENTATION_CONTRACT.md",
+    "legacy_project_docs/engineering/EXPANDED_SCENE_SCALE_CLIPPY_HOTFIX_PASS88B_20260712.md",
+    "legacy_project_docs/engineering/EXPANDED_SCENE_SCALE_COMPILE_HOTFIX_PASS88A_20260712.md",
+    "legacy_project_docs/engineering/character-reference-images-audit-2026-05-25.md",
+    "legacy_project_docs/engineering/coastline_cleanup_pass_6_2026-07-09.md",
+    "legacy_project_docs/engineering/current-state-audit-2026-05-25.md",
+    "legacy_project_docs/engineering/editor-asset-pipeline.md",
+    "legacy_project_docs/engineering/editor-research-comparison-2026-05-26.md",
+    "legacy_project_docs/engineering/haven_game_refactor_pass_1_2026-07-09.md",
+    "legacy_project_docs/engineering/haven_game_refactor_pass_2_2026-07-09.md",
+    "legacy_project_docs/engineering/havenwild-worldgen-v0-3-summary.json",
+    "legacy_project_docs/engineering/havenwild-worldgen-v0-4-summary.json",
+    "legacy_project_docs/engineering/havenwild-worldgen-v0-5-summary.json",
+    "legacy_project_docs/engineering/havenwild-worldgen-v0-6-summary.json",
+    "legacy_project_docs/engineering/havenwild-worldgen-v0-7-summary.json",
+    "legacy_project_docs/engineering/havenwild-worldgen-v0-8-summary.json",
+    "legacy_project_docs/engineering/havenwild-worldgen-v0-9-summary.json",
+    "legacy_project_docs/engineering/imported/character-animation-v010/rust_pseudocode/character_modular_animation_v010.rs",
+    "legacy_project_docs/engineering/imported/character-animation-v010/specs/ANIMATION_VALIDATION_RULES_V010.md",
+    "legacy_project_docs/engineering/imported/character-animation-v010/specs/CHARACTER_ANIMATION_RUNTIME_REQUIREMENTS_V010.md",
+    "legacy_project_docs/engineering/imported/character-animation-v010/specs/CHARACTER_LAYER_COMPOSITOR_SPEC_V010.md",
+    "legacy_project_docs/engineering/imported/character-animation-v010/specs/CHARACTER_MODULAR_ANIMATION_CONTRACT_V010.md",
+    "legacy_project_docs/engineering/imported/character-animation-v010/specs/FRAME_RIG_SOCKET_METADATA_SPEC.md",
+    "legacy_project_docs/engineering/imported/character-animation-v010/specs/PIXEL_EDITOR_ANIMATION_WORKFLOW_V010.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/rust_pseudocode/editor_command_bus_v009.rs",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/rust_pseudocode/pixel_editor_core_v009.rs",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/rust_pseudocode/runtime_editor_bridge_v009.rs",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/ASSET_METADATA_AND_IMPORT_PIPELINE_SPEC.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/EDITOR_BOOTSTRAP_ROADMAP.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/IN_GAME_OVERLAY_EDITOR_SPEC.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/MAIN_RUST_EDITOR_ARCHITECTURE_SPEC.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/PIXEL_ART_EDITOR_FULL_SPEC.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/RUNTIME_IMPLEMENTATION_REQUIREMENTS.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/SHARED_COMMAND_UNDO_REDO_SPEC.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/V009_EDITOR_SYSTEMS_MASTER_SPEC.md",
+    "legacy_project_docs/engineering/imported/editor-systems-v009/specs/WEB_EDITOR_SPLIT_SPEC.md",
+    "legacy_project_docs/engineering/imported/scene-rectangles-v008/rust_pseudocode/scene_rectangle_streaming_pseudocode_v008.rs",
+    "legacy_project_docs/engineering/imported/scene-rectangles-v008/specs/SCENE_BORDER_NO_VOID_CONTRACT_V008.md",
+    "legacy_project_docs/engineering/imported/scene-rectangles-v008/specs/SCENE_EDGE_ADJACENCY_CONTRACT_V008.md",
+    "legacy_project_docs/engineering/imported/scene-rectangles-v008/specs/SCENE_EDITOR_WORKFLOW_V008.md",
+    "legacy_project_docs/engineering/imported/scene-rectangles-v008/specs/SCENE_ROLE_CATALOG_V008.md",
+    "legacy_project_docs/engineering/imported/scene-rectangles-v008/specs/SCENE_STREAMING_LOADING_CONTRACT_V008.md",
+    "legacy_project_docs/engineering/imported/scene-rectangles-v008/specs/V008_TO_V005_V006_V007_INTEGRATION.md",
+    "legacy_project_docs/engineering/imported/scene-rectangles-v008/specs/V008_WORLD_MAP_SCENE_RECTANGLE_SPEC.md",
+    "legacy_project_docs/engineering/imported-asset-zips-audit-2026-05-25.md",
+    "legacy_project_docs/engineering/project-rollups-audit-2026-05-25-night.md",
+    "legacy_project_docs/engineering/reference-25d-assets-examples-audit-2026-05-25.md",
+    "legacy_project_docs/engineering/repository-cleanup-notes.md",
+    "legacy_project_docs/engineering/root-project-zips-audit-2026-05-25.md",
+    "legacy_project_docs/engineering/root-zip-audit-2026-05-24.md",
+    "legacy_project_docs/engineering/workspace-architecture.md",
+    "legacy_project_docs/engineering/worldgen-pipeline-zips-audit-2026-05-25.md",
+    "legacy_project_docs/engineering/worldgen-tileset-zips-audit-2026-05-25.md",
+    "legacy_project_docs/engineering/worldgen-v0-1-apply-notes.md",
+    "legacy_project_docs/engineering/worldgen_editor_footprint_editor_v0_9.md",
+    "legacy_project_docs/engineering/worldgen_editor_object_outliner_v0_8.md",
+    "legacy_project_docs/engineering/worldgen_editor_overlay_v0_7.md",
+    "legacy_project_docs/engineering/worldgen_editor_validation_v0_3.md",
+    "legacy_project_docs/engineering/worldgen_multitile_footprints_v0_6.md",
+    "legacy_project_docs/engineering/worldgen_runtime_integration_v0_2.md",
+    "legacy_project_docs/engineering/worldgen_runtime_loader_contract_v0_4.md",
+    "legacy_project_docs/engineering/worldgen_runtime_loader_patch_v0_5.md",
+    "legacy_project_docs/engineering/worldgen_scene_json_export_v0_10.md",
+    "legacy_project_docs/handoffs/INCORRECT_GAMEPLAY_TOOL_ATLAS_REMOVAL_PASS92A_HANDOFF_20260712.md",
+    "legacy_project_docs/handoffs/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_HANDOFF_20260712.md",
+    "legacy_project_docs/handoffs/LPC_TERRAIN_HOTBAR_EDITOR_STABILITY_PASS92_HANDOFF_20260712.md",
+    "legacy_project_docs/patch/Havenwild_ExpandedSceneScaleClippyHotfixPass88B_20260712.diff",
+    "legacy_project_docs/patch/Havenwild_StampUpdateRequestImportHotfixPass88D_20260712.diff",
+    "legacy_project_docs/patch/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_PATCH_README.md",
+    "legacy_project_docs/patch/LPC_TERRAIN_SUMMER_COMPLETE_MAPPING_PASS93_HANDOFF_20260712.md",
+    "legacy_project_docs/patch/STAMP_UPDATE_REQUEST_IMPORT_HOTFIX_PASS88D_20260712.md",
+    "legacy_project_docs/research/GODOT_TERRAIN_SYSTEM_REFERENCE.md",
+    "legacy_project_docs/source_of_truth/HAVENWILD_GENERATIVE_WORLD_LOCK.md",
+    "legacy_project_docs/source_of_truth/HAVENWILD_OPEN_WORLD_WORLDGEN_V1_IMPLEMENTATION_NOTES.md",
+    "legacy_project_docs/source_of_truth/HAVENWILD_PROJECT_SOURCE_OF_TRUTH_REGENERATED.md",
+    "legacy_project_docs/source_of_truth/HAVENWILD_RENAME_NOTES.md",
+    "legacy_project_docs/ui/HAVENWILD_GUI_GENERATION_PASS45.md",
+    "legacy_project_docs/worldgen/FIRST_ISLAND_GENERATION_AND_LARGE_SCENE_PASS45.md",
+    "legacy_project_docs/worldgen/ORGANIC_COASTLINE_LPC_ATLAS_PASS85.md",
+    "patch/APPLY_PASS150D.md",
+    "patch/HAVENWILD_CANONICAL_TERRAIN_BINDINGS_PASS150.md",
+    "patch/HAVENWILD_PASS150A_V122_CANONICAL_BINDINGS_HOTFIX.md",
+    "patch/Havenwild_ExpandedSceneScaleClippyHotfixPass88B_20260712.diff",
+    "patch/Havenwild_StampUpdateRequestImportHotfixPass88D_20260712.diff",
+    "patch/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_PATCH_README.md",
+    "patch/LPC_TERRAIN_SUMMER_COMPLETE_MAPPING_PASS93_HANDOFF_20260712.md",
+    "patch/PASS167Y3_ROCK_TERRAIN_COLLISION_CONTRACT_REPAIR.md",
+    "patch/PASS167Y8_CHARACTER_ELIGIBILITY_AUTHORITY_HARDENING.md",
+    "patch/PASS167Z1_CREATOR_WARDROBE_POLICY_ALIGNMENT.md",
+    "patch/PASS167Z2_CLOTHING_CATALOG_PORTABLE_ASSET_REF_REPAIR.md",
+    "patch/PASS167Z5A1_CHARACTER_REVISION_BUILD_GATE_REPAIR.md",
+    "patch/PASS167Z5A2_RUNTIME_COMPOSITOR_CONTRACT_REPAIR.md",
+    "patch/PASS167Z5A3_LEGACY_RETAINED_COMMAND_OVERRIDE_REPAIR.md",
+    "patch/PASS167Z5A4_TITLE_CREDITS_CONTROL_INTEGRATION_REPAIR.md",
+    "patch/PASS167Z_CHARACTER_GROUNDING_WORLDGEN_PERFORMANCE.md",
+    "patch/PASS_164B1_SHARED_NATIVE_THEME_FOUNDATION.md",
+    "patch/PASS_164B2_SHARED_COLOR_DOCK.md",
+    "patch/PASS_164B3_PIXEL_ANIMATION_WORKSPACE_CONVERGENCE.md",
+    "patch/PASS_164C_PALETTE_LAYERS_TOOL_OPTIONS_CONVERGENCE.md",
+    "patch/PASS_164E_SHARED_CANVAS_COORDINATE_SELECTION_OVERLAY_AUTHORITY.md",
+    "patch/PASS_164F_OBJECT_GEOMETRY_FOUNDATION.md",
+    "patch/PASS_164G_ALPHA_TRIM_VARIABLE_ATLAS_DRAFT.md",
+    "patch/PASS_164H1_BUILD_IMPORT_HOTFIX.md",
+    "patch/PASS_164H2_CLIPPY_DEAD_CODE_BUILD_FIX.md",
+    "patch/PASS_164H_OBJECT_GEOMETRY_INSPECTOR_BATCH_REVIEW.md",
+    "patch/PASS_165A1_CLIPPY_UNUSED_PARENS_FIX.md",
+    "patch/PASS_165A2_FRONTEND_INPUT_AND_EDITOR_TEXT_REPAIR.md",
+    "patch/PASS_165A3_FRONTEND_MUSIC_LOOP.md",
+    "patch/PASS_165A4_BUILD_API_COMPATIBILITY_REPAIR.md",
+    "patch/PASS_165A5_DYNAMIC_MENU_AUDIO_SETTINGS_REPAIR.md",
+    "patch/PASS_165A6_1_SETTINGS_CLIPPY_REPAIR.md",
+    "patch/PASS_165A6_SCENE_TOOLRAIL_RESPONSIVE_LAYOUT.md",
+    "patch/PASS_165A7_FRONTEND_AUDIO_STARTUP_REPAIR.md",
+    "patch/PASS_165A8_FRONTEND_AUDIO_WAV_FALLBACK.md",
+    "patch/PASS_165A9_WORLD_EDITOR_OVERLAY_CONTROLS.md",
+    "patch/PASS_165A_LIVE_FRONTEND_SHELL.md",
+    "patch/PASS_165B_MODULAR_RUNTIME_TITLE_MENU.md",
+    "patch/PASS_165C_FRONTEND_NAVIGATION_SAVE_SAFETY.md",
+    "patch/PASS_165D_MODULAR_TITLE_ASSET_INTEGRATION.md",
+    "patch/PASS_165E_TITLE_BUTTON_INTERACTION_STATES.md",
+    "patch/PASS_165F_MULTIPLAYER_FRONTEND_FOUNDATION.md",
+    "patch/PASS_165G_MULTIPLAYER_SESSION_BROWSER_FOUNDATION.md",
+    "patch/PASS_165H_PLAYER_INVENTORY_HAND_CRAFTING_FOUNDATION.md",
+    "patch/PASS_165I_INVENTORY_PERSISTENCE_DRAG_DROP_STATION_DEFINITIONS.md",
+    "patch/PASS_165J_STATION_DEPLOYMENT_AND_RECIPES.md",
+    "patch/PASS_165K_PHYSICAL_STATION_PLACEMENT_CONTRACT.md",
+    "patch/PASS_165L_CRAFTING_STATION_WORLD_PLACEMENT.md",
+    "patch/PASS_165M_STATION_PROXIMITY_INTERACTION.md",
+    "patch/PASS_165N_STATION_FUEL_PROCESSING_QUEUES.md",
+    "patch/PASS_165O_STATION_STORAGE_TRANSFER_QUEUE_INSPECTOR.md",
+    "patch/PASS_165P_STATION_OUTPUT_CAPACITY_QUEUE_CANCELLATION_NOTIFICATIONS.md",
+    "patch/PASS_165Q_STATION_QUEUE_PRIORITY_BATCH_ENQUEUE.md",
+    "patch/PASS_165R_STATION_QUEUE_PAUSE_AND_CLEAR.md",
+    "patch/PASS_165S_OFFLINE_STATION_PROCESSING.md",
+    "patch/PASS_165T_DATA_DRIVEN_CRAFTING_CATALOG.md",
+    "patch/PASS_165U_BUILD_IMPORT_SAVE_PATH_AND_CHARACTER_REGEN_GUARD.md",
+    "patch/PASS_165V_NATIVE_EDITOR_MODULE_REGISTRATION.md",
+    "patch/PASS_165W_CLIPPY_DEAD_CODE_AND_QUESTION_MARK_REPAIR.md",
+    "patch/PASS_165X_MACROQUAD_AUDIO_FEATURE_ENABLEMENT.md",
+    "patch/PASS_165Y_FRONTEND_MUSIC_VOLUME_BALANCE.md",
+    "patch/PASS_165ZA_FRONTEND_CLIPPY_REGRESSION_REPAIR.md",
+    "patch/PASS_165ZB_COMPLETE_SOURCE_ROLLUP.md",
+    "patch/PASS_165Z_TITLE_MENU_HOVER_BORDER_REMOVAL.md",
+    "patch/PASS_166B_NORMALIZED_PROGRESSION_AUTHORITY.md",
+    "patch/PASS_166C_CLASSES_VITALS_HOTBAR_AUTHORITY.md",
+    "patch/PASS_166D1_CUMULATIVE_PROGRESSION_VITALS_HUD_REPAIR.md",
+    "patch/PASS_166D2_CHARACTER_PROFILE_FLOAT_EQUALITY_REPAIR.md",
+    "patch/PASS_166D3_FRONTEND_AUTHORITY_IMPORT_REPAIR.md",
+    "patch/PASS_166D4_HOTBAR_DEAD_CODE_REPAIR.md",
+    "patch/PASS_166D_PRODUCTION_HUD_ASSET_INTEGRATION.md",
+    "patch/PASS_166E_RUNTIME_UI_NORMALIZATION.md",
+    "patch/PASS_166F1_RUNTIME_HUD_UNUSED_IMPORT_REPAIR.md",
+    "patch/PASS_166F_TERRAIN_AUTHORING_STABILIZATION.md",
+    "patch/PASS_167E_ATOMIC_WORLD_BAKE_PERSISTENCE.md",
+    "patch/PASS_167F_CANONICAL_ELEVATION_CLIFF_RESOLVER.md",
+    "patch/PASS_167G_PRODUCTION_CLIFF_ROUTING.md",
+    "patch/PASS_167H_ATOMIC_STRUCTURAL_BAKE_AND_QUERIES.md",
+    "patch/PASS_167I_RUNTIME_STRUCTURAL_RESIDENCY.md",
+    "patch/PASS_167J_HUD_GEOMETRY_AND_PORTRAIT_CONTRACT.md",
+    "patch/PASS_167K_TERRAIN_IDENTITY_NORMALIZATION.md",
+    "patch/PASS_167L_TERRAIN_JUNCTION_AND_COASTLINE_RESOLUTION.md",
+    "patch/PASS_167M_UNIVERSAL_LPC_RUNTIME_AUTHORITY_REPAIR.md",
+    "patch/PASS_167N_CHARACTER_REPOSITORY_CREATOR_AUTHORITY.md",
+    "patch/PASS_167O1_PROGRESSION_CORE_AUTHORITY_REPAIR.md",
+    "patch/PASS_167O_GUI_STUDIO_AND_RUSTIC_COMPONENTS.md",
+    "patch/PASS_167Y2_CLIPPY_GATE_REPAIR.md",
+    "patch/PASS_167Y5_CHARACTER_CREATOR_WARDROBE.md",
+    "patch/PASS_167Y6_GAMEPLAY_WARDROBE.md",
+    "patch/README_Pass167Y7.md",
+    "patch/STAMP_UPDATE_REQUEST_IMPORT_HOTFIX_PASS88D_20260712.md",
+    "research/GODOT_TERRAIN_SYSTEM_REFERENCE.md",
+    "source_of_truth/HAVENWILD_GENERATIVE_WORLD_LOCK.md",
+    "source_of_truth/HAVENWILD_OPEN_WORLD_WORLDGEN_V1_IMPLEMENTATION_NOTES.md",
+    "source_of_truth/HAVENWILD_PROJECT_SOURCE_OF_TRUTH_REGENERATED.md",
+    "source_of_truth/HAVENWILD_RENAME_NOTES.md",
+    "testing/TERRAIN_LIVE_CERTIFICATION_CHECKLIST.md",
+    "ui/HAVENWILD_GUI_GENERATION_PASS45.md",
+    "ui/HAVENWILD_GUI_STUDIO_V1.md",
+    "worldgen/FIRST_ISLAND_GENERATION_AND_LARGE_SCENE_PASS45.md",
+    "worldgen/ORGANIC_COASTLINE_LPC_ATLAS_PASS85.md"
+  ],
+  "docsConflictsArchived": [],
+  "docsDuplicatesDropped": [
+    "audits/HAVENWILD_PASS167Z5A_LPC_TERRAIN_CERTIFICATION.md",
+    "audits/HAVENWILD_PASS167Z5_TERRAIN_COMPLETION_DEEP_DIVE.md",
+    "audits/PASS_167Z7B_TERRAIN_AUTHORITY_REGRESSION_TEST_REPAIR.md",
+    "audits/PASS_167Z8_LPC_HEAD_TERRAIN_SEAM_REPAIR.md",
+    "audits/generated/havenwild_client_test_world_lpc_mapped_v167z5a.png [obsolete uppercase generated evidence]",
+    "audits/generated/havenwild_client_test_world_semantic_map_v167z5a.png [obsolete uppercase generated evidence]",
+    "audits/generated/havenwild_client_test_world_semantic_vs_lpc_v167z5a.png [obsolete uppercase generated evidence]",
+    "audits/generated/havenwild_client_test_world_v167z5_metrics.json [obsolete uppercase generated evidence]",
+    "audits/generated/havenwild_terrain_lpc_certification_report_v167z5a.json [obsolete uppercase generated evidence]",
+    "audits/generated/havenwild_terrain_lpc_mapped_contact_sheet_v167z5a.png [obsolete uppercase generated evidence]",
+    "audits/generated/havenwild_terrain_semantic_vs_lpc_contact_sheet_v167z5a.png [obsolete uppercase generated evidence]",
+    "audits/generated/havenwild_terrain_standard_v1_runtime_atlas_preview.png [obsolete uppercase generated evidence]",
+    "audits/generated/havenwild_terrain_topology_contact_sheet_v167z5a.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/client_test_world_lpc_mapped.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/client_test_world_semantic_topology.png [obsolete uppercase generated evidence]",
+    "audits/generated/terrain_lpc_certification_v167z5a/client_test_world_semantic_vs_lpc.png [obsolete uppercase generated evidence]",
+    "handoffs/pass167z7/APPLY_INSTRUCTIONS.txt",
+    "handoffs/pass167z7/CHECKSUMS.sha256",
+    "handoffs/pass167z7/FILE_MANIFEST.json",
+    "handoffs/pass167z7/PATCH_MANIFEST.md",
+    "handoffs/pass167z7/VALIDATION.md",
+    "handoffs/pass167z7a/APPLY_INSTRUCTIONS.txt",
+    "handoffs/pass167z7a/CHECKSUMS.sha256",
+    "handoffs/pass167z7a/FILE_MANIFEST.json",
+    "handoffs/pass167z7a/PATCH_MANIFEST.md",
+    "handoffs/pass167z7a/VALIDATION.md",
+    "patch/PASS167Z5A_LPC_TERRAIN_CERTIFICATION_CORRECTION.md",
+    "patch/PASS167Z5_TERRAIN_COMPLETION.md"
+  ],
+  "rewrittenDocsReferences": [
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153Q.txt",
+    "PASS161B_COMPLETE_SOURCE_MANIFEST.md",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153S.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS157A.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS156A.txt",
+    "PASS136_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS160A.txt",
+    "LPC_MAPPED_TERRAIN_RUNTIME_PERFORMANCE_PASS116_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS152D.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS161D.txt",
+    "CLIENT_CAMERA_ZOOM_ATLAS_TEST_HOTFIX_PASS91B_PATCH_MANIFEST.json",
+    "PASS96A_SUMMER_RUNTIME_METADATA_RESTORE_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153O.txt",
+    "PASS139_PATCH_MANIFEST.json",
+    "LPC_SHARED_SEASONAL_TERRAIN_TOPOLOGY_PASS94_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153T.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153R.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B4.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153U.txt",
+    "LPC_COMPLETE_ROLE_TERRAIN_RUNTIME_STABILITY_PASS91_PATCH_MANIFEST.json",
+    "LPC_DEPENDENCY_MOUNT_HOTFIX_PASS93A_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS160C.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153C.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS154A.txt",
+    "CURRENT_SOURCE_HANDOFF.md",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS154F.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS154D.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS156A1.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS154E.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS155A.txt",
+    "LPC_EDGE_SIGNATURE_SEAM_CONFORMANCE_PASS96_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS154C.txt",
+    "LPC_TERRAIN_SUMMER_COMPLETE_MAPPING_PASS93_PATCH_MANIFEST.json",
+    "LPC_CURRENT_SPEC_AUDIT_PASS115_PATCH_MANIFEST.json",
+    "PASS161C_COMPLETE_SOURCE_MANIFEST.md",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS160B.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B1.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153V.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153N.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS159B.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS151B.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153A.txt",
+    "TERRAIN_HOTBAR_EDITOR_STABILITY_PASS92_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS154B.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153K.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153P.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153B.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS159A.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B3.txt",
+    "PASS140_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153L.txt",
+    "LPC_NATURAL_TERRAIN_TOPOLOGY_COMPLETION_PASS113_PATCH_MANIFEST.json",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS155B2.txt",
+    "COMPLETE_SOURCE_FILE_INVENTORY_PASS153M.txt",
+    "tools/automation/validation/checks/assets/Validate-AssetPaletteAtlasBindingV65.py",
+    "tools/automation/validation/checks/terrain/Validate-LiveAutotileTerrainTransitionsV64.py",
+    "tools/automation/terrain/Generate-HavenwildProductionTerrainPass59.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcExpandablePondFamiliesV86.py",
+    "tools/automation/worldgen/Generate-WorldgenAssets.py",
+    "tools/automation/terrain/Build-LpcProductionTuplePromotionV136.py",
+    "tools/automation/assets/Generate-AssetCatalog.py",
+    "tools/automation/validation/checks/worldgen/Validate-SceneReferenceBridgeV56.py",
+    "tools/automation/validation/checks/misc/Validate-TransactionalUndoV61.py",
+    "tools/automation/validation/checks/terrain/Validate-GodotTerrainReferenceAuditV147R.py",
+    "tools/automation/validation/checks/terrain/Validate-TerrainMaterialRegistryV126.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcPathAutotilePromotionV85.py",
+    "tools/automation/validation/checks/terrain/Validate-OrganicCoastlineLpcAtlasV84.py",
+    "tools/automation/assets/Promote-LpcRuntimeAssets.py",
+    "tools/automation/assets/Generate-Havenwild2p5DGridAssets.py",
+    "tools/automation/worldgen/Generate-HavenwildProductionEnvironmentPass60.py",
+    "tools/automation/validation/checks/misc/Validate-ProductionEnvironmentLibraryV77.py",
+    "tools/automation/terrain/Promote-LpcTerrainFamiliesV90.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainReplacementV122.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcCompleteRoleTerrainRuntimeStabilityV98.py",
+    "tools/automation/validation/checks/terrain/Validate-ShoreWaterNormalizationV127.py",
+    "tools/automation/validation/checks/worldgen/Validate-SceneRegistryFoundationNormalizationV59.py",
+    "tools/automation/terrain/Build-LpcTupleCoverageAuditV133.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcPathGroundPromotionV137.py",
+    "tools/automation/validation/checks/editor/Validate-AssetIntakeAtlasAuthoringV66.py",
+    "tools/automation/terrain/Build-OpenGameArtTerrainCatalogV123.py",
+    "tools/automation/validation/checks/worldgen/Validate-SurfaceChunkJobsCacheAndDeltasV149F.py",
+    "tools/automation/validation/checks/worldgen/Validate-SceneBankRuntimeFramingV68.py",
+    "tools/automation/validation/checks/misc/Validate-StableSelectionHitTestingV60.py",
+    "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleV138.py",
+    "tools/automation/validation/checks/build/Validate-TestableFoundationGateV149A.py",
+    "tools/automation/worldgen/Generate-HavenwildStampLibraryPreviewPass61.py",
+    "tools/automation/validation/checks/misc/Validate-GenericMultitileStampSystemV78.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcProductionTuplePromotionV136.py",
+    "tools/automation/validation/checks/misc/Validate-UniversalContentBrowserV148E.py",
+    "tools/automation/validation/checks/assets/Validate-SharedSemanticAssetResolutionV148F.py",
+    "tools/automation/validation/checks/assets/Validate-UniversalAssetPackFoundationV148A.py",
+    "tools/automation/validation/checks/misc/Validate-LpcStampCandidateIntakeV120.py",
+    "tools/automation/validation/checks/worldgen/Validate-WorldCanvasSceneBankV51.py",
+    "tools/automation/validation/checks/misc/Validate-LpcSummerRuntimePromotionV107.py",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintEditorV09.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcTuplePromotionPlanV134.py",
+    "tools/automation/validation/checks/assets/Validate-LpcPlaceableObjectPromotionV119.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcTupleCoverageAuditV133.py",
+    "tools/automation/terrain/Generate-GodotStyleTerrainCoverageBoardV147R.py",
+    "tools/automation/assets/Build-HavenwildAssetUtilizationAuditV115.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcCoastlineSaveRegenerationV85.py",
+    "tools/automation/validation/checks/assets/Validate-HavenwildAssetUtilizationAuditV115.py",
+    "tools/automation/validation/checks/misc/Validate-LpcSameFamilyPromotionPlanV118.py",
+    "tools/automation/validation/checks/editor/Validate-PermanentCanvasToolingV57.py",
+    "tools/automation/terrain/Build-LpcSummerRuntimeConformanceV107.py",
+    "tools/automation/validation/checks/editor/Validate-ProductionInfiniteCanvasToolsV62.py",
+    "tools/automation/validation/checks/terrain/Validate-LpcTerrainFamilyFoundationV93.py",
+    "tools/automation/validation/checks/editor/Validate-ProductionObjectOutlinerInspectorV63.py",
+    "tools/automation/terrain/Build-LpcTuplePromotionPlanV134.py",
+    "tools/automation/terrain/Build-LpcPathGroundPromotionV137.py",
+    "tools/automation/validation/checks/terrain/Validate-ProductionTerrainTilesV76.py",
+    "tools/automation/validation/checks/terrain/Validate-GenericTiledTerrainCatalogV123.py",
+    "tools/automation/terrain/Promote-LpcExpandablePondsV87.py",
+    "tools/automation/validation/checks/assets/Validate-AssetPackDiscoveryAndMigrationV148D.py",
+    "tools/automation/validation/checks/misc/Validate-LpcEdgeSignatureSeamsV108.py",
+    "tools/automation/validation/checks/worldgen/Validate-FirstIslandAssetGuiContractsV55.py",
+    "docs/PASS134_LPC_TUPLE_PROMOTION_PLAN_20260715.md",
+    "docs/PRODUCTION_TERRAIN_TILE_UPGRADE_PASS59_HANDOFF_20260711.md",
+    "docs/LPC_EXPANDABLE_POND_FAMILIES_PASS87_HANDOFF_20260712.md",
+    "docs/PASS111_LPC_TERRAIN_MAP_V7_REPLACEMENT_PILOT_20260713.md",
+    "docs/PASS102_ASSET_AUDIT_BUILD_ORDER_HOTFIX_20260713.md",
+    "docs/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_HANDOFF_20260712.md",
+    "docs/PASS114_LPC_TILED_TERRAIN_EXCLUSIVE_CATALOG_20260713.md",
+    "docs/PASS133_LPC_TUPLE_COVERAGE_AUDIT_20260715.md",
+    "docs/LPC_COMPLETE_ROLE_TERRAIN_RUNTIME_STABILITY_PASS91_HANDOFF_20260712.md",
+    "docs/LPC_ASSET_UTILIZATION_AUDIT_AND_NATURAL_FILL_PASS100_HANDOFF_20260713.md",
+    "docs/EXPANDED_SCENE_SCALE_LEGACY_MIGRATION_PASS88_HANDOFF_20260712.md",
+    "docs/NATIVE_PIXEL_STUDIO_WORKFLOW_PASS62_HANDOFF_20260711.md",
+    "docs/PIXEL_ANIMATION_ROUNDTRIP_BRIDGE_PASS65_HANDOFF_20260711.md",
+    "docs/LPC_COASTLINE_SAVE_REGENERATION_PASS86_HANDOFF_20260712.md",
+    "docs/PASS120_TERRAIN_BIOME_REGISTRY_FOUNDATION_20260715.md",
+    "docs/LPC_SUMMER_RUNTIME_SEMANTIC_PROMOTION_PASS95_HANDOFF_20260712.md",
+    "docs/source_of_truth/HAVENWILD_PROJECT_SOURCE_OF_TRUTH_REGENERATED.md",
+    "docs/handoffs/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_HANDOFF_20260712.md",
+    "docs/handoffs/LPC_TERRAIN_HOTBAR_EDITOR_STABILITY_PASS92_HANDOFF_20260712.md",
+    "docs/worldgen/ORGANIC_COASTLINE_LPC_ATLAS_PASS85.md",
+    "docs/patch/LPC_TERRAIN_SUMMER_COMPLETE_MAPPING_PASS93_HANDOFF_20260712.md",
+    "docs/editor/PASS48D_HANDOFF.md",
+    "docs/assets/HAVENWILD_LPC_STAMP_CANDIDATE_INTAKE_PASS108.md",
+    "docs/assets/NATIVE_PIXEL_STUDIO_WORKFLOW_PASS62.md",
+    "docs/assets/LPC_TUPLE_COVERAGE_AUDIT_PASS133.md",
+    "docs/assets/LPC_TUPLE_PROMOTION_PLAN_PASS134.md",
+    "docs/assets/LPC_PRODUCTION_TUPLE_PROMOTION_PASS136.md",
+    "docs/assets/HAVENWILD_ASSET_UTILIZATION_AUDIT_PASS100.md",
+    "docs/assets/LPC_PATH_GROUND_PROMOTION_PASS137.md",
+    "docs/assets/PRODUCTION_TERRAIN_TILE_UPGRADE_PASS59.md",
+    "docs/legacy_project_docs/PASS134_LPC_TUPLE_PROMOTION_PLAN_20260715.md",
+    "docs/legacy_project_docs/PRODUCTION_TERRAIN_TILE_UPGRADE_PASS59_HANDOFF_20260711.md",
+    "docs/legacy_project_docs/LPC_EXPANDABLE_POND_FAMILIES_PASS87_HANDOFF_20260712.md",
+    "docs/legacy_project_docs/PASS111_LPC_TERRAIN_MAP_V7_REPLACEMENT_PILOT_20260713.md",
+    "docs/legacy_project_docs/PASS102_ASSET_AUDIT_BUILD_ORDER_HOTFIX_20260713.md",
+    "docs/legacy_project_docs/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_HANDOFF_20260712.md",
+    "docs/legacy_project_docs/PASS114_LPC_TILED_TERRAIN_EXCLUSIVE_CATALOG_20260713.md",
+    "docs/legacy_project_docs/PASS133_LPC_TUPLE_COVERAGE_AUDIT_20260715.md",
+    "docs/legacy_project_docs/README.md",
+    "docs/legacy_project_docs/LPC_COMPLETE_ROLE_TERRAIN_RUNTIME_STABILITY_PASS91_HANDOFF_20260712.md",
+    "docs/legacy_project_docs/LPC_ASSET_UTILIZATION_AUDIT_AND_NATURAL_FILL_PASS100_HANDOFF_20260713.md",
+    "docs/legacy_project_docs/EXPANDED_SCENE_SCALE_LEGACY_MIGRATION_PASS88_HANDOFF_20260712.md",
+    "docs/legacy_project_docs/NATIVE_PIXEL_STUDIO_WORKFLOW_PASS62_HANDOFF_20260711.md",
+    "docs/legacy_project_docs/PIXEL_ANIMATION_ROUNDTRIP_BRIDGE_PASS65_HANDOFF_20260711.md",
+    "docs/legacy_project_docs/LPC_COASTLINE_SAVE_REGENERATION_PASS86_HANDOFF_20260712.md",
+    "docs/legacy_project_docs/PASS120_TERRAIN_BIOME_REGISTRY_FOUNDATION_20260715.md",
+    "docs/legacy_project_docs/LPC_SUMMER_RUNTIME_SEMANTIC_PROMOTION_PASS95_HANDOFF_20260712.md",
+    "docs/design/havenwild-world-tile-audit.md",
+    "docs/design/lpc-style-adoption.md",
+    "docs/design/master-world-editor-spec.md",
+    "docs/design/havenwild-project-source-of-truth-2026-05-25.md",
+    "docs/design/repository-architecture-spec.md",
+    "docs/audits/PASS162J_PROJECT_NORMALIZATION_AUDIT.md",
+    "docs/audits/LPC_CURRENT_SPEC_AUDIT_PASS115_PATCH_MANIFEST.json",
+    "docs/current/PASS162I_COMMAND_REGISTRY_AND_BASELINE_PACKAGING_HANDOFF.md",
+    "docs/engineering/havenwild-worldgen-v0-7-summary.json",
+    "docs/engineering/havenwild-worldgen-v0-8-summary.json",
+    "docs/engineering/repository-cleanup-notes.md",
+    "docs/engineering/havenwild-worldgen-v0-9-summary.json",
+    "docs/engineering/root-zip-audit-2026-05-24.md",
+    "docs/engineering/root-project-zips-audit-2026-05-25.md",
+    "docs/engineering/havenwild-worldgen-v0-6-summary.json",
+    "docs/engineering/havenwild-worldgen-v0-4-summary.json",
+    "docs/engineering/project-rollups-audit-2026-05-25-night.md",
+    "docs/legacy_project_docs/source_of_truth/HAVENWILD_PROJECT_SOURCE_OF_TRUTH_REGENERATED.md",
+    "docs/legacy_project_docs/handoffs/LPC_TERRAIN_FAMILY_FOUNDATION_PASS90_HANDOFF_20260712.md",
+    "docs/legacy_project_docs/handoffs/LPC_TERRAIN_HOTBAR_EDITOR_STABILITY_PASS92_HANDOFF_20260712.md",
+    "docs/legacy_project_docs/worldgen/ORGANIC_COASTLINE_LPC_ATLAS_PASS85.md",
+    "docs/legacy_project_docs/patch/LPC_TERRAIN_SUMMER_COMPLETE_MAPPING_PASS93_HANDOFF_20260712.md",
+    "docs/legacy_project_docs/editor/PASS48D_HANDOFF.md",
+    "docs/legacy_project_docs/assets/HAVENWILD_LPC_STAMP_CANDIDATE_INTAKE_PASS108.md",
+    "docs/legacy_project_docs/assets/NATIVE_PIXEL_STUDIO_WORKFLOW_PASS62.md",
+    "docs/legacy_project_docs/assets/LPC_TUPLE_COVERAGE_AUDIT_PASS133.md",
+    "docs/legacy_project_docs/assets/LPC_TUPLE_PROMOTION_PLAN_PASS134.md",
+    "docs/legacy_project_docs/assets/LPC_PRODUCTION_TUPLE_PROMOTION_PASS136.md",
+    "docs/legacy_project_docs/assets/HAVENWILD_ASSET_UTILIZATION_AUDIT_PASS100.md",
+    "docs/legacy_project_docs/assets/LPC_PATH_GROUND_PROMOTION_PASS137.md",
+    "docs/legacy_project_docs/assets/PRODUCTION_TERRAIN_TILE_UPGRADE_PASS59.md",
+    "docs/legacy_project_docs/design/havenwild-world-tile-audit.md",
+    "docs/legacy_project_docs/design/lpc-style-adoption.md",
+    "docs/legacy_project_docs/design/master-world-editor-spec.md",
+    "docs/legacy_project_docs/design/havenwild-project-source-of-truth-2026-05-25.md",
+    "docs/legacy_project_docs/design/repository-architecture-spec.md",
+    "docs/legacy_project_docs/engineering/havenwild-worldgen-v0-7-summary.json",
+    "docs/legacy_project_docs/engineering/havenwild-worldgen-v0-8-summary.json",
+    "docs/legacy_project_docs/engineering/repository-cleanup-notes.md",
+    "docs/legacy_project_docs/engineering/havenwild-worldgen-v0-9-summary.json",
+    "docs/legacy_project_docs/engineering/root-zip-audit-2026-05-24.md",
+    "docs/legacy_project_docs/engineering/root-project-zips-audit-2026-05-25.md",
+    "docs/legacy_project_docs/engineering/havenwild-worldgen-v0-6-summary.json",
+    "docs/legacy_project_docs/engineering/havenwild-worldgen-v0-4-summary.json",
+    "docs/legacy_project_docs/engineering/project-rollups-audit-2026-05-25-night.md",
+    "docs/archive/pass_history/PASS148Y_HANDOFF.md",
+    "docs/archive/pass_history/PASS149A_HANDOFF.md",
+    "docs/archive/pass_history/PASS148A_HANDOFF.md",
+    "docs/archive/pass_history/PASS149F_HANDOFF.md",
+    "docs/archive/pass_history/PASS152A_COMPLETE_SOURCE_MANIFEST.md",
+    "docs/archive/pass_history/PASS149J_HANDOFF.md",
+    "docs/archive/pass_history/PASS149E_HANDOFF.md",
+    "docs/handoffs/archive/PASS161B_COMPLETE_SOURCE_MANIFEST.md",
+    "docs/handoffs/archive/PASS161C_COMPLETE_SOURCE_MANIFEST.md",
+    "docs/handoffs/current/PASS162J_DOCS_AND_INSPECTOR_NORMALIZATION_HANDOFF.md",
+    "tools/automation/validation/readonly.py",
+    "WORKSPACE/generated/asset-catalog.json",
+    "content/assets/intake/lpc_terrain_summer_complete_map_v0_1.json",
+    "content/assets/intake/havenwild_lpc_stamp_candidate_intake_pass108.json",
+    "web/editor/app.js",
+    "web/editor/README.md",
+    "manifests/handoffs/HAVENWILD_CUMULATIVE_SOURCE_PASS167Z8_FILE_MANIFEST.json",
+    "manifests/rollups/PASS162J_COMPLETE_SOURCE_MANIFEST.md",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153Q.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153S.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS157A.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS156A.txt",
+    "manifests/patches/archive/PASS136_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS160A.txt",
+    "manifests/patches/archive/LPC_MAPPED_TERRAIN_RUNTIME_PERFORMANCE_PASS116_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS152D.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS161D.txt",
+    "manifests/patches/archive/CLIENT_CAMERA_ZOOM_ATLAS_TEST_HOTFIX_PASS91B_PATCH_MANIFEST.json",
+    "manifests/patches/archive/PASS96A_SUMMER_RUNTIME_METADATA_RESTORE_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153O.txt",
+    "manifests/patches/archive/PASS139_PATCH_MANIFEST.json",
+    "manifests/patches/archive/LPC_SHARED_SEASONAL_TERRAIN_TOPOLOGY_PASS94_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153T.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153R.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B4.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153U.txt",
+    "manifests/patches/archive/LPC_COMPLETE_ROLE_TERRAIN_RUNTIME_STABILITY_PASS91_PATCH_MANIFEST.json",
+    "manifests/patches/archive/LPC_DEPENDENCY_MOUNT_HOTFIX_PASS93A_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS160C.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153C.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS154A.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS154F.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS154D.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS156A1.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS154E.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS155A.txt",
+    "manifests/patches/archive/LPC_EDGE_SIGNATURE_SEAM_CONFORMANCE_PASS96_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS154C.txt",
+    "manifests/patches/archive/LPC_TERRAIN_SUMMER_COMPLETE_MAPPING_PASS93_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS160B.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B1.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153V.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153N.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS159B.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS151B.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153A.txt",
+    "manifests/patches/archive/TERRAIN_HOTBAR_EDITOR_STABILITY_PASS92_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS154B.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153K.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153P.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153B.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS159A.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B3.txt",
+    "manifests/patches/archive/PASS140_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153L.txt",
+    "manifests/patches/archive/LPC_NATURAL_TERRAIN_TOPOLOGY_COMPLETION_PASS113_PATCH_MANIFEST.json",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS155B2.txt",
+    "manifests/patches/archive/COMPLETE_SOURCE_FILE_INVENTORY_PASS153M.txt",
+    "tools/control/NormalizationAudit.ps1"
+  ],
+  "deleted": [],
+  "rootFilesAfter": [
+    ".gitignore",
+    "tools/build/Build.cmd",
+    "tools/build/Build.ps1",
+    "tools/build/Build.sh",
+    "Cargo.lock",
+    "Cargo.toml",
+    "HavenwildTools.cmd",
+    "README.md",
+    "tools/build/dev.sh"
+  ],
+  "rootDirectoriesAfter": [
+    "SCRIPTS",
+    "TOOLS",
+    "WORKSPACE",
+    "apps",
+    "assets",
+    "content",
+    "crates",
+    "docs",
+    "manifests",
+    "src",
+    "web"
+  ]
+}

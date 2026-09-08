@@ -1,0 +1,18 @@
+{
+  "schema": "havenwild.editor.layer_context_sync.r35.v1",
+  "pass": "167Z109W81R35",
+  "syncTargets": [
+    "tool_rail",
+    "asset_browser",
+    "inspector",
+    "canvas_selection",
+    "help_context"
+  ],
+  "rules": [
+    "Layer selection never silently arms a mutating tool.",
+    "Unsupported tools are disabled rather than falling back to another mutation.",
+    "Asset Browser filters toward the selected semantic layer but All Project remains available.",
+    "Clicking content owned by another layer may offer a quick switch but must not mutate it through the wrong layer."
+  ],
+  "undo": "Cross-layer derived updates are committed as one authoring transaction."
+}

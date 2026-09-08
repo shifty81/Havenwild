@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W46B",
+  "date": "2026-08-14",
+  "title": "Native BuildingInstance Runtime + Editor Authority",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B",
+    "167Z109W45C1",
+    "167Z109W45C2",
+    "167Z109W45C3A",
+    "167Z109W45D1",
+    "167Z109W45D1A",
+    "167Z109W45C3B",
+    "167Z109W45D2",
+    "167Z109W46A",
+    "167Z109W46B"
+  ],
+  "authority": "BuildingInstanceRegistry placement/view state + BuildingRecipeRegistry structural assembly + PublishedWorldAssetRegistry exact visual identity",
+  "buildingInstanceCatalog": "content/buildings/building_instance_catalog_v1.json",
+  "diagnosticInstance": "havenwild.acceptance.three_level_house",
+  "diagnosticScene": "building_instance_acceptance",
+  "structuralLevels": [
+    -1,
+    0,
+    1
+  ],
+  "ordinaryInteriorPolicy": "same_world_building_instance",
+  "cutawayPolicy": "camera_local_presentation_only",
+  "collisionPolicy": "logical_building_geometry_remains_authoritative_when_visual_is_deferred",
+  "connectorPolicy": "same_scene_reversible_structural_level_traversal",
+  "validation": {
+    "userWindowsW46A": "ALL_GREEN",
+    "w46aBuildingRecipeAuthority": "PASS",
+    "w46bBuildingInstanceAuthority": "PASS",
+    "architecture": "PASS_418_RUST_FILES_STATIC",
+    "projectContent": "PASS_965_REPOSITORY_JSON_FILES",
+    "contentIntegrity": "18/18 PASS",
+    "windowsW46B": "PENDING_USER_LOCAL_TEST"
+  },
+  "next": "W46C stable authored BuildingInstance placement/save/PCG/open-world convergence after local Build all, Validate current source, command 45, and building_instance_acceptance inspection"
+}

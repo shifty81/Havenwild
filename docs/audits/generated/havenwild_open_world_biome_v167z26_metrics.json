@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.open_world_biome_metrics.v167z26",
+  "scene": "content/worldgen/scenes/open_world/willowmere_outskirts_region_v0_1.json",
+  "generation_seed": 167260826,
+  "visual_family": "lpc_summer_surface_v1",
+  "terrain_counts": {
+    "DeepWater": 100,
+    "Grass": 3770,
+    "MudBank": 82,
+    "OceanDeep": 964,
+    "OceanShallow": 320,
+    "Road": 381,
+    "Sand": 320,
+    "ShallowWater": 98,
+    "TallGrass": 45,
+    "WetSand": 64
+  },
+  "forbidden_static_terrain_count": 0,
+  "static_object_count": 0,
+  "outdoor_transition_portal_count": 0,
+  "transition_band_violations": 0,
+  "reachable_walkable_cells": 4662
+}

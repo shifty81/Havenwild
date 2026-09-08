@@ -1,0 +1,113 @@
+{
+  "schema": "havenwild.exterior_exact_region_selections.v1",
+  "pass": "167Z109W54D1",
+  "date": "2026-08-16",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "purpose": "Human-reviewed exact source selections that narrow the W54C exterior queue without changing runtime bindings.",
+  "publicationMode": "evidence_selection_only",
+  "runtimeBindingAllowed": false,
+  "estateRecipeChangesAllowed": false,
+  "rules": {
+    "wrongFacingRotationForbidden": true,
+    "wrongFacingMirroringForbidden": true,
+    "wholeBuildingSheetsReferenceOnly": true,
+    "sideOrBackFacingInferenceForbidden": true,
+    "complexRoofAssemblyCellGuessingForbidden": true
+  },
+  "comparativeBaseline": {
+    "assetId": "wall_drywall_simple",
+    "family": "wall.drywall",
+    "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Drywall.png",
+    "sourceRect": [192, 0, 32, 96],
+    "semanticRole": "south_wall_face_repeat",
+    "status": "already_published_candidate"
+  },
+  "selections": [
+    {
+      "selectionId": "wall_siding_plain_cream_front_left",
+      "family": "wall.siding_plain",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "sourceRect": [0, 0, 32, 96],
+      "cellIds": ["c0r0", "c0r1", "c0r2"],
+      "semanticRole": "south_frontage_left_vertical_strip",
+      "palette": "cream_light",
+      "status": "selected_exact_region_unpublished",
+      "reviewNote": "Three stacked 32x32 cells form the authored left-bordered 1x3 frontage strip. This does not prove north/east/west facing semantics."
+    },
+    {
+      "selectionId": "wall_siding_plain_cream_front_repeat",
+      "family": "wall.siding_plain",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "sourceRect": [64, 0, 32, 96],
+      "cellIds": ["c2r0", "c2r1", "c2r2"],
+      "semanticRole": "south_frontage_repeat_vertical_strip",
+      "palette": "cream_light",
+      "status": "selected_exact_region_unpublished",
+      "reviewNote": "Three stacked center cells form a border-free repeating 1x3 frontage strip."
+    },
+    {
+      "selectionId": "wall_siding_plain_cream_front_right",
+      "family": "wall.siding_plain",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "sourceRect": [128, 0, 32, 96],
+      "cellIds": ["c4r0", "c4r1", "c4r2"],
+      "semanticRole": "south_frontage_right_vertical_strip",
+      "palette": "cream_light",
+      "status": "selected_exact_region_unpublished",
+      "reviewNote": "Three stacked 32x32 cells form the authored right-bordered 1x3 frontage strip."
+    },
+    {
+      "selectionId": "wall_siding_plain_blue_front_left",
+      "family": "wall.siding_plain",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "sourceRect": [160, 0, 32, 96],
+      "cellIds": ["c5r0", "c5r1", "c5r2"],
+      "semanticRole": "south_frontage_left_vertical_strip",
+      "palette": "blue_light",
+      "status": "selected_exact_region_unpublished",
+      "reviewNote": "Blue-palette counterpart to the authored left-bordered frontage strip."
+    },
+    {
+      "selectionId": "wall_siding_plain_blue_front_repeat",
+      "family": "wall.siding_plain",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "sourceRect": [224, 0, 32, 96],
+      "cellIds": ["c7r0", "c7r1", "c7r2"],
+      "semanticRole": "south_frontage_repeat_vertical_strip",
+      "palette": "blue_light",
+      "status": "selected_exact_region_unpublished",
+      "reviewNote": "Blue-palette center repeat strip."
+    },
+    {
+      "selectionId": "wall_siding_plain_blue_front_right",
+      "family": "wall.siding_plain",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "sourceRect": [288, 0, 32, 96],
+      "cellIds": ["c9r0", "c9r1", "c9r2"],
+      "semanticRole": "south_frontage_right_vertical_strip",
+      "palette": "blue_light",
+      "status": "selected_exact_region_unpublished",
+      "reviewNote": "Blue-palette counterpart to the authored right-bordered frontage strip."
+    }
+  ],
+  "explicitlyUnresolved": [
+    {
+      "roles": ["wall_back_repeat", "wall_side_west_repeat", "wall_side_east_repeat"],
+      "reason": "The reviewed Siding, Plain frontage evidence does not prove side/back facings; no rotation or mirroring is allowed."
+    },
+    {
+      "roles": ["wall_outer_corner_nw", "wall_outer_corner_ne", "wall_outer_corner_sw", "wall_outer_corner_se", "wall_inner_corner_nw", "wall_inner_corner_ne", "wall_inner_corner_sw", "wall_inner_corner_se"],
+      "reason": "No exact 2D top-down corner semantic has been proven from the current wall evidence."
+    },
+    {
+      "roles": ["roof_hip", "roof_valley"],
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Hipped Shingle Roof A.png",
+      "reason": "The pinned source is a composed authored roof-assembly sheet; W54D1 refuses to infer individual 32x32 hip/valley roles without a labelled local evidence board and human selection."
+    },
+    {
+      "roles": ["roof_trim", "roof_chimney_attachment"],
+      "reason": "Remain in the W54C exact-evidence queue; no runtime publication in W54D1."
+    }
+  ],
+  "nextGate": "W54D2_AFTER_WINDOWS_BUILD_AND_W54C_LOCAL_EVIDENCE_BUNDLE"
+}

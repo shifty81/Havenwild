@@ -1,0 +1,92 @@
+{
+  "schema": "havenwild.terrain_compatibility_registry.v1",
+  "version": 1,
+  "policy": "explicit_generator_groups_plus_priority_resolution",
+  "groups": [
+    {
+      "id": "basic_surface",
+      "members": [
+        "Water",
+        "Grass",
+        "Grass_Dark",
+        "Dirt_Tan",
+        "Dirt_Brown",
+        "Sand"
+      ]
+    },
+    {
+      "id": "dead_surface",
+      "members": [
+        "Water",
+        "Grass_Dead",
+        "Dirt_Tan",
+        "Dirt_Brown",
+        "Sand"
+      ]
+    },
+    {
+      "id": "soil",
+      "members": [
+        "Grass",
+        "Dirt_Tan",
+        "Soil"
+      ]
+    },
+    {
+      "id": "earth_and_stone",
+      "members": [
+        "Grass",
+        "Grass_Dark",
+        "Dirt_Tan",
+        "Stone_Tan",
+        "Stone_White",
+        "Dirt_Roots",
+        "Mud_Brown",
+        "Mudstone_Brown",
+        "Mudstone_Gray"
+      ]
+    },
+    {
+      "id": "rock",
+      "members": [
+        "Rock_White",
+        "Rock_Gray",
+        "Rock_Dark",
+        "Dirt_Roots",
+        "Mud_Brown",
+        "Mudstone_Brown",
+        "Mudstone_Gray"
+      ]
+    },
+    {
+      "id": "water_sand",
+      "members": [
+        "Water",
+        "Water_Shallows_Sand",
+        "Sand"
+      ]
+    },
+    {
+      "id": "water_dirt",
+      "members": [
+        "Water",
+        "Water_Shallows_Dirt",
+        "Dirt_Tan",
+        "Dirt_Brown",
+        "Grass",
+        "Grass_Dark"
+      ]
+    },
+    {
+      "id": "snow_ice",
+      "members": [
+        "Dirt_Brown",
+        "Snow_2",
+        "Snow_1",
+        "Water",
+        "Ice"
+      ]
+    }
+  ],
+  "unlistedCombinationPolicy": "editor_warning_and_deterministic_priority_fallback"
+}

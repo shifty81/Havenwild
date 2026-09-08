@@ -1,0 +1,88 @@
+{
+  "schema": "havenwild.geographic_world_authority.v0_1",
+  "revision": "167Z109K-multilobe-continent-coast-authority-v3",
+  "purpose": "Make meaningful geographic features the source of world shape so terrain, cliffs, materials, streaming chunks, Home Estate instances, and future endless worlds share one deterministic world authority without raw-noise contour topology.",
+  "worldModel": {
+    "oneRuntime": true,
+    "descriptorAuthority": "havenwild.world_descriptor.v0_1",
+    "supportedScopes": [
+      "shared_surface",
+      "home_estate",
+      "adventure",
+      "authored_instance",
+      "interior",
+      "cave"
+    ],
+    "extentPolicies": [
+      "finite",
+      "endless"
+    ],
+    "storageChunksAreGeographyBoundaries": false,
+    "presentationOwnsSimulation": false
+  },
+  "geography": {
+    "structuralTopologySource": "bounded_macro_geographic_features",
+    "currentFeatureGrammar": "deterministic overlapping rotated plateau ellipses on a global macro lattice",
+    "macroCellTiles": 192,
+    "neighborSamplingRadiusMacroCells": 1,
+    "rawNoiseThresholdMayCreateCliffLevel": false,
+    "rawNoiseThresholdMayCreateHighlandDirtBand": false,
+    "rawNoiseThresholdMayCreateMountainPathBand": false,
+    "rawGeologyRole": [
+      "hydrology_input",
+      "fine_material_context",
+      "world_preview_context"
+    ],
+    "structuralLevels": [
+      0,
+      1,
+      2
+    ],
+    "levelOneMeaning": "broad walkable upland/plateau",
+    "levelTwoMeaning": "nested highland core",
+    "cliffMeaning": "derived boundary where neighboring structural levels differ",
+    "ecologyTopologySource": "bounded_macro_habitat_features",
+    "forestFeatureGrammar": "deterministic rotated forest-grove ellipses with feathered edges and optional coherent meadow clearings",
+    "forestMacroCellTiles": 224,
+    "rawNoiseThresholdMayOwnForestRegion": false,
+    "continentalTopologySource": "deterministic overlapping multi-lobe continental features plus continuous multi-scale coastline displacement",
+    "starterMainlandGrammar": "six overlapping broad continental lobes anchored to the Willowmere southern coast; no single giant ellipse owns the silhouette",
+    "macroContinentGrammar": "one primary rotated ellipse plus three overlapping directional lobes per enabled 3072-tile macro cell",
+    "coastlineDisplacement": "three continuous global-coordinate bands at broad, medium, and detail scales; no per-chunk coastline noise",
+    "rawNoiseThresholdMayOwnCoastline": false
+  },
+  "terrainMaterialRules": {
+    "levelTwoCoreMayPromoteToMountainRock": true,
+    "levelOneAutomaticallyPaintsDirt": false,
+    "mountainRockAutomaticallyReceivesMountainPathRing": false,
+    "mountainPathOwner": "explicit traversal connector or authored road/path only",
+    "dirtOwner": "meaningful authored/geographic contexts such as roads, clearings, disturbed ground, banks, farming, and future feature recipes",
+    "forestPopulationOwner": "bounded geographic forest habitat; density feathers from grove core to woodland edge and leaves open meadows/clearings"
+  },
+  "streaming": {
+    "globalCoordinateSampling": true,
+    "sameFeatureCrossesChunkBoundary": true,
+    "onDemandChunksPersistStructuralLevels": true,
+    "futureEndlessWorldRule": "generate deterministic geographic regions from world seed plus region coordinate; chunks remain storage/residency units cut from that geography"
+  },
+  "homeEstateCompatibility": {
+    "usesWorldDescriptor": true,
+    "scope": "home_estate",
+    "persistence": "permanent",
+    "spatiallyIndependentFromParentEntrance": true,
+    "futureExpansionRule": "owned parcel mask determines playable area; derived decorative border is regenerated only on changed perimeter"
+  },
+  "acceptance": {
+    "noStructuralGeologicalNoiseCalls": true,
+    "noHighlandDirtNoise": true,
+    "noAutomaticMountainPathShoulder": true,
+    "onDemandGeneratedChunksUseGeographicStructuralLevels": true,
+    "macroFeaturesAreDeterministic": true,
+    "macroFeaturesAreBounded": true,
+    "legacyRawHeightCliffFallbackRemainsDisabledForOrdinaryGrass": true,
+    "forestHabitatIsBoundedAndDeterministic": true,
+    "starterMainlandNotSingleEllipse": true,
+    "coastlineVariesAcrossBroadSouthernArc": true,
+    "coastlineChunkSeamFree": true
+  }
+}

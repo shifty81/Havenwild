@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.scene_import_node_workflow.v0_1",
+  "updated": "2026-07-12T00:00:00Z",
+  "purpose": "Define the editor workflow for importing authored scenes into the overworld map and binding them through node-logic transitions.",
+  "entryView": "Overworld Layout",
+  "sceneImportWorkflow": [
+    {
+      "step": "import_scene",
+      "input": "worldgen scene JSON or existing project scene",
+      "output": "project-owned SceneMap with stable ProjectSceneId",
+      "preserve": ["terrain", "objects", "stamps", "zones", "transitions", "spawn"]
+    },
+    {
+      "step": "assign_world_rectangle",
+      "input": "ProjectSceneId plus landmass/grid rectangle",
+      "output": "scene rectangle assignment consumed by the overworld map canvas",
+      "notes": "The map preview should redraw from the actual scene tilemap after every terrain/object mutation."
+    },
+    {
+      "step": "create_region_node",
+      "input": "scene assignment",
+      "output": "world-route node with scene id, role, biome, and optional harbor/road tags",
+      "nodeKinds": ["settlement", "wilderness", "coast", "interior", "dungeon", "harbor"]
+    },
+    {
+      "step": "bind_transitions",
+      "input": "source node, target node, source tile rectangle, target spawn",
+      "output": "bidirectional or one-way Transition records in the owning scenes",
+      "logicHooks": ["enter_scene", "leave_scene", "requires_key", "requires_story_flag"]
+    },
+    {
+      "step": "publish_runtime_index",
+      "input": "scene rectangles, region nodes, and transition graph",
+      "output": "runtime world-map index used by client map and minimap"
+    }
+  ],
+  "editorCommands": {
+    "importSceneIntoWorld": "Load scene JSON, assign a new ProjectSceneId if needed, and place it in the Scene Bank.",
+    "placeSceneOnWorldMap": "Drag a scene-bank entry onto the overworld layout to create or update its rectangle assignment.",
+    "linkSceneNodes": "Click source node then target node to create transition logic and optional travel metadata.",
+    "previewRuntimeMap": "Render scene rectangles from current scene contents so player-built structures appear in map previews.",
+    "rebakeSelectedSceneTerrain": "Future command: rebuild terrain visuals from semantic material layers while preserving gameplay content."
+  },
+  "acceptanceChecks": [
+    "Imported scene appears in Scene Bank with stable id.",
+    "Placed scene rectangle is visible on Overworld Layout.",
+    "Clicking a scene rectangle opens that scene in Scene Editor.",
+    "Created node link inserts matching Transition records.",
+    "Client map and minimap refresh after scene terrain or object changes."
+  ]
+}

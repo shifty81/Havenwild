@@ -1,0 +1,372 @@
+{
+  "schema": "havenwild.character_creation_catalog.v0.1",
+  "design_rule": "Initial creation offers a substantial but generic torso, leg, and footwear wardrobe. Headwear, armor, uniforms, rare outfits, outerwear, accessories, and most Universal LPC clothing remain crafting, shop, quest, profession, and loot progression.",
+  "appearance_categories": [
+    {
+      "id": "body",
+      "label": "Body",
+      "supports_color": true,
+      "options": [
+        {
+          "id": "body_base_a",
+          "label": "Body A",
+          "asset_role": "character.body.base_a",
+          "default": true
+        },
+        {
+          "id": "body_base_b",
+          "label": "Body B",
+          "asset_role": "character.body.base_b",
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "head",
+      "label": "Head",
+      "supports_color": true,
+      "options": [
+        {
+          "id": "head_base_01",
+          "label": "Head 01",
+          "asset_role": "character.head.base_01",
+          "default": true
+        },
+        {
+          "id": "head_base_02",
+          "label": "Head 02",
+          "asset_role": "character.head.base_02",
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "hair",
+      "label": "Hair",
+      "supports_color": true,
+      "options": [
+        {
+          "id": "hair_none",
+          "label": "None",
+          "asset_role": "character.hair.none",
+          "default": true
+        },
+        {
+          "id": "hair_short_01",
+          "label": "Short 01",
+          "asset_role": "character.hair.short_01",
+          "default": false
+        },
+        {
+          "id": "hair_long_01",
+          "label": "Long 01",
+          "asset_role": "character.hair.long_01",
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "eyebrows",
+      "label": "Eyebrows",
+      "supports_color": true,
+      "options": [
+        {
+          "id": "eyebrows_thin_01",
+          "label": "Thin Eyebrows",
+          "asset_role": "character.eyebrows.thin_01",
+          "default": true
+        },
+        {
+          "id": "eyebrows_thick_02",
+          "label": "Thick Eyebrows",
+          "asset_role": "character.eyebrows.thick_02",
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "facial_hair",
+      "label": "Facial Hair",
+      "supports_color": true,
+      "options": [
+        {
+          "id": "facial_hair_none",
+          "label": "None",
+          "asset_role": "character.facial_hair.none",
+          "default": true
+        },
+        {
+          "id": "facial_hair_walrus_01",
+          "label": "Walrus Mustache",
+          "asset_role": "character.facial_hair.walrus_01",
+          "default": false
+        },
+        {
+          "id": "facial_hair_chevron_02",
+          "label": "Chevron Mustache",
+          "asset_role": "character.facial_hair.chevron_02",
+          "default": false
+        },
+        {
+          "id": "facial_hair_handlebar_03",
+          "label": "Handlebar Mustache",
+          "asset_role": "character.facial_hair.handlebar_03",
+          "default": false
+        },
+        {
+          "id": "facial_hair_lampshade_04",
+          "label": "Lampshade Mustache",
+          "asset_role": "character.facial_hair.lampshade_04",
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "eyes",
+      "label": "Eyes",
+      "supports_color": true,
+      "options": [
+        {
+          "id": "eyes_base_01",
+          "label": "Eyes 01",
+          "asset_role": "character.eyes.base_01",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "starter_clothing": [
+    {
+      "id": "starter_top_plain_01",
+      "label": "Plain T-shirt",
+      "slot": "top",
+      "asset_role": "character.clothing.top.plain_01",
+      "supports_color": true,
+      "default": true
+    },
+    {
+      "id": "starter_top_long_01",
+      "label": "Plain Long Shirt",
+      "slot": "top",
+      "asset_role": "character.clothing.top.long_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_tunic_01",
+      "label": "Simple Tunic",
+      "slot": "top",
+      "asset_role": "character.clothing.top.tunic_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_vest_01",
+      "label": "Plain Vest",
+      "slot": "top",
+      "asset_role": "character.clothing.top.vest_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_apron_01",
+      "label": "Work Apron",
+      "slot": "top",
+      "asset_role": "character.clothing.top.apron_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_bottom_trousers_01",
+      "label": "Plain Trousers",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.trousers_01",
+      "supports_color": true,
+      "default": true
+    },
+    {
+      "id": "starter_bottom_shorts_01",
+      "label": "Plain Shorts",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.shorts_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_bottom_skirt_01",
+      "label": "Plain Skirt",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.skirt_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_bottom_long_skirt_01",
+      "label": "Plain Long Skirt",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.long_skirt_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_boots_01",
+      "label": "Simple Boots",
+      "slot": "feet",
+      "asset_role": "character.clothing.feet.boots_01",
+      "supports_color": true,
+      "default": true
+    },
+    {
+      "id": "starter_shoes_01",
+      "label": "Simple Shoes",
+      "slot": "feet",
+      "asset_role": "character.clothing.feet.shoes_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_sandals_01",
+      "label": "Simple Sandals",
+      "slot": "feet",
+      "asset_role": "character.clothing.feet.sandals_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_barefoot",
+      "label": "Barefoot",
+      "slot": "feet",
+      "asset_role": "character.clothing.feet.none",
+      "supports_color": false,
+      "default": false
+    },
+    {
+      "id": "starter_top_vneck_tee_01",
+      "label": "V-neck T-shirt",
+      "slot": "top",
+      "asset_role": "character.clothing.top.vneck_tee_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_scoop_tee_01",
+      "label": "Scoop-neck T-shirt",
+      "slot": "top",
+      "asset_role": "character.clothing.top.scoop_tee_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_buttoned_tee_01",
+      "label": "Buttoned T-shirt",
+      "slot": "top",
+      "asset_role": "character.clothing.top.buttoned_tee_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_vneck_long_01",
+      "label": "V-neck Long Shirt",
+      "slot": "top",
+      "asset_role": "character.clothing.top.vneck_long_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_scoop_long_01",
+      "label": "Scoop-neck Long Shirt",
+      "slot": "top",
+      "asset_role": "character.clothing.top.scoop_long_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_buttoned_long_01",
+      "label": "Buttoned Long Shirt",
+      "slot": "top",
+      "asset_role": "character.clothing.top.buttoned_long_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_top_polo_01",
+      "label": "Plain Polo",
+      "slot": "top",
+      "asset_role": "character.clothing.top.polo_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_bottom_hose_01",
+      "label": "Plain Hose",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.hose_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_bottom_leggings_01",
+      "label": "Plain Leggings",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.leggings_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_bottom_cuffed_01",
+      "label": "Cuffed Trousers",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.cuffed_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_bottom_overalls_01",
+      "label": "Plain Overalls",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.overalls_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_bottom_short_shorts_01",
+      "label": "Short Shorts",
+      "slot": "bottom",
+      "asset_role": "character.clothing.bottom.short_shorts_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_feet_ankle_socks_01",
+      "label": "Ankle Socks",
+      "slot": "feet",
+      "asset_role": "character.clothing.feet.ankle_socks_01",
+      "supports_color": true,
+      "default": false
+    },
+    {
+      "id": "starter_feet_high_socks_01",
+      "label": "High Socks",
+      "slot": "feet",
+      "asset_role": "character.clothing.feet.high_socks_01",
+      "supports_color": true,
+      "default": false
+    }
+  ],
+  "prohibited_initial_categories": [
+    "armor",
+    "weapons",
+    "shields",
+    "advanced_outfits",
+    "headwear",
+    "profession_uniforms",
+    "rare_clothing"
+  ],
+  "required_animation_aliases": [
+    "idle_down",
+    "idle_up",
+    "idle_left",
+    "idle_right",
+    "walk_8dir"
+  ]
+}

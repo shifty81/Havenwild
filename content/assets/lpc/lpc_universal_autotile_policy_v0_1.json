@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.lpc.universal_autotile_policy.v0_1",
+  "id": "lpc_universal_autotile_policy_v0_1",
+  "version": "0.1.0",
+  "neighborModel": "eight_neighbor",
+  "resolutionScopes": [
+    "exterior_terrain",
+    "cave_floor_and_wall",
+    "interior_floor_and_wall",
+    "modular_building_exterior"
+  ],
+  "behaviors": {
+    "semantic_boundary": [
+      "grass",
+      "sand",
+      "wet_sand",
+      "pebble_shore",
+      "dirt",
+      "water",
+      "shallow_water",
+      "deep_water",
+      "river_water",
+      "mud_bank"
+    ],
+    "same_family_assembly": [
+      "road",
+      "stone_path",
+      "mountain_path",
+      "wood_floor",
+      "plank_floor",
+      "stone_floor",
+      "brick_floor",
+      "wall",
+      "cliff",
+      "mountain_rock",
+      "bridge",
+      "cave_floor",
+      "cave_wall",
+      "tilled_soil",
+      "watered_soil"
+    ],
+    "derived_overlay": [
+      "crop",
+      "greenhouse_zone",
+      "ocean_deep",
+      "ocean_shallow",
+      "river_mouth_blend",
+      "shore_foam"
+    ],
+    "object_or_stamp": [
+      "tall_grass"
+    ]
+  }
+}

@@ -1,0 +1,3118 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W45C3B/W45D2 publishes only visually reviewed exact source regions from the user-generated evidence bundles.",
+    "Hipped roofs, rope bridges, railed bridge overlays, cement-platform topology and ambiguous roof trim remain deferred rather than guessed.",
+    "Raw pinned LPC sheets remain immutable authority; these records reference exact external source rectangles directly and generated runtime atlases remain optional caches.",
+    "W54A adds the exact brown flat-shingle nine-slice by palette-parallel source cells from the same pinned Flat Shingle Roof A sheet; topology is unchanged from reviewed gray cells."
+  ],
+  "entries": [
+    {
+      "id": "roof_flat_gray_field",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.field",
+      "label": "Flat Shingle Gray \u2014 Field",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              32,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 Field exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          32,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for field; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "field",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_gray_north_eave",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.north_eave",
+      "label": "Flat Shingle Gray \u2014 North Edge",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              32,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 North Edge exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          32,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for north_eave; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "north_eave",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_gray_south_eave",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.south_eave",
+      "label": "Flat Shingle Gray \u2014 South Edge",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              32,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 South Edge exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          32,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for south_eave; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "south_eave",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_gray_west_edge",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.west_edge",
+      "label": "Flat Shingle Gray \u2014 West Edge",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 West Edge exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          0,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for west_rake; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "west_rake",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_gray_east_edge",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.east_edge",
+      "label": "Flat Shingle Gray \u2014 East Edge",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              96,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 East Edge exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          96,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for east_rake; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "east_rake",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_gray_corner_nw",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.corner_nw",
+      "label": "Flat Shingle Gray \u2014 NW Corner",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 NW Corner exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for outer_corner_nw; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "outer_corner_nw",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_gray_corner_ne",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.corner_ne",
+      "label": "Flat Shingle Gray \u2014 NE Corner",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              96,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 NE Corner exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          96,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for outer_corner_ne; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "outer_corner_ne",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_gray_corner_sw",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.corner_sw",
+      "label": "Flat Shingle Gray \u2014 SW Corner",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 SW Corner exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          0,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for outer_corner_sw; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "outer_corner_sw",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_gray_corner_se",
+      "semantic_id": "structure.roof.flat_shingle_a.gray.corner_se",
+      "label": "Flat Shingle Gray \u2014 SE Corner",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              96,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 SE Corner exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          96,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Visually verified W45C3A labelled-board cell for outer_corner_se; gray c0-c3/r0-r3 roof grammar."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.gray",
+        "topology_role": "outer_corner_se",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_gable_shingle_gray_module",
+      "semantic_id": "structure.roof.gable_shingle_a.gray.authored_module",
+      "label": "Gable Shingle Gray \u2014 Authored Module",
+      "category": "building",
+      "source_semantic_id": "structure.roof.gable_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          -2,
+          -4
+        ],
+        "visual_size": [
+          5,
+          5
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "gable",
+        "authored_module",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80.0,
+          160.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              160,
+              160
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Gable Shingle Gray \u2014 Authored Module exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+        "source_rect": [
+          0,
+          0,
+          160,
+          160
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Exact 5x5 bounding rectangle of the visually isolated gray gable assembly in W45C3A evidence; transparent cells are intentional."
+      },
+      "structure": {
+        "connection_family": "roof.gable_shingle_a.gray",
+        "topology_role": "authored_gable_module",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.gable_shingle_a.gray",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_gable_shingle_brown_module",
+      "semantic_id": "structure.roof.gable_shingle_a.brown.authored_module",
+      "label": "Gable Shingle Brown \u2014 Authored Module",
+      "category": "building",
+      "source_semantic_id": "structure.roof.gable_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          -2,
+          -4
+        ],
+        "visual_size": [
+          5,
+          5
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "gable",
+        "authored_module",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80.0,
+          160.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              384,
+              0,
+              160,
+              160
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Gable Shingle Brown \u2014 Authored Module exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+        "source_rect": [
+          384,
+          0,
+          160,
+          160
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "Exact 5x5 bounding rectangle of the visually isolated brown gable assembly in W45C3A evidence; transparent cells are intentional."
+      },
+      "structure": {
+        "connection_family": "roof.gable_shingle_a.brown",
+        "topology_role": "authored_gable_module",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.gable_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "bridge_drawbridge_oak_leaf",
+      "semantic_id": "structure.bridge.drawbridge_a.oak.leaf",
+      "label": "Drawbridge Oak \u2014 Horizontal Leaf",
+      "category": "building",
+      "source_semantic_id": "structure.bridge.drawbridge_a.source",
+      "footprint": {
+        "visual_offset": [
+          -2,
+          -1
+        ],
+        "visual_size": [
+          4,
+          2
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor",
+        "bridge_bank"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "bridge",
+        "drawbridge",
+        "connector",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          64.0,
+          64.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              128,
+              64
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Drawbridge Oak \u2014 Horizontal Leaf exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structural_connector",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Bridges/Drawbridge A.png",
+        "source_rect": [
+          0,
+          0,
+          128,
+          64
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Bridges/Credits.txt",
+        "note": "Exact first-color 4x2 drawbridge leaf assembly from W45D evidence; walkable deck collision is owned by bridge assembly, not rail pixels."
+      },
+      "structure": {
+        "connection_family": "bridge.drawbridge_a.oak",
+        "topology_role": "stateful_leaf",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "structure",
+        "occlusion_group": "structure.bridge.drawbridge_a.oak",
+        "camera_local_occlusion": false,
+        "assembly_family": "bridge.drawbridge_a.oak",
+        "sockets": [
+          {
+            "id": "bank_west",
+            "direction": "west",
+            "kind": "bridge",
+            "offset": [
+              -2,
+              0
+            ],
+            "compatible_with": [
+              "walkable.bank"
+            ]
+          },
+          {
+            "id": "bank_east",
+            "direction": "east",
+            "kind": "bridge",
+            "offset": [
+              1,
+              0
+            ],
+            "compatible_with": [
+              "walkable.bank"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bridge_wood_oak_flat_module",
+      "semantic_id": "structure.bridge.wood_a.oak.flat_module",
+      "label": "Wood Bridge Oak \u2014 Flat Module",
+      "category": "building",
+      "source_semantic_id": "structure.bridge.wood_a.no_rails.source",
+      "footprint": {
+        "visual_offset": [
+          -2,
+          -2
+        ],
+        "visual_size": [
+          4,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor",
+        "bridge_bank"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "bridge",
+        "connector",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          64.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              128,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wood Bridge Oak \u2014 Flat Module exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structural_connector",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - No Rails.png",
+        "source_rect": [
+          0,
+          0,
+          128,
+          96
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Bridges/Credits.txt",
+        "note": "Exact first-color no-rails bridge assembly visually verified on W45D labelled evidence; rail layers remain separate candidates."
+      },
+      "structure": {
+        "connection_family": "bridge.wood_a.oak",
+        "topology_role": "span_module",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "structure",
+        "occlusion_group": "structure.bridge.wood_a.oak",
+        "camera_local_occlusion": false,
+        "assembly_family": "bridge.wood_a.oak",
+        "sockets": [
+          {
+            "id": "bank_a",
+            "direction": "west",
+            "kind": "bridge",
+            "offset": [
+              -2,
+              0
+            ],
+            "compatible_with": [
+              "walkable.bank"
+            ]
+          },
+          {
+            "id": "bank_b",
+            "direction": "east",
+            "kind": "bridge",
+            "offset": [
+              1,
+              0
+            ],
+            "compatible_with": [
+              "walkable.bank"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bridge_wood_oak_arch_module",
+      "semantic_id": "structure.bridge.wood_a.oak.arch_module",
+      "label": "Wood Bridge Oak \u2014 Arched Module",
+      "category": "building",
+      "source_semantic_id": "structure.bridge.wood_a.no_rails.source",
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -2
+        ],
+        "visual_size": [
+          3,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor",
+        "bridge_bank"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "bridge",
+        "connector",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          48.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              128,
+              0,
+              96,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wood Bridge Oak \u2014 Arched Module exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structural_connector",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - No Rails.png",
+        "source_rect": [
+          128,
+          0,
+          96,
+          96
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Bridges/Credits.txt",
+        "note": "Exact first-color no-rails bridge assembly visually verified on W45D labelled evidence; rail layers remain separate candidates."
+      },
+      "structure": {
+        "connection_family": "bridge.wood_a.oak",
+        "topology_role": "arched_span_module",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "structure",
+        "occlusion_group": "structure.bridge.wood_a.oak",
+        "camera_local_occlusion": false,
+        "assembly_family": "bridge.wood_a.oak",
+        "sockets": [
+          {
+            "id": "bank_a",
+            "direction": "west",
+            "kind": "bridge",
+            "offset": [
+              -1,
+              0
+            ],
+            "compatible_with": [
+              "walkable.bank"
+            ]
+          },
+          {
+            "id": "bank_b",
+            "direction": "east",
+            "kind": "bridge",
+            "offset": [
+              1,
+              0
+            ],
+            "compatible_with": [
+              "walkable.bank"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bridge_wood_oak_vertical_module",
+      "semantic_id": "structure.bridge.wood_a.oak.vertical_module",
+      "label": "Wood Bridge Oak \u2014 Vertical Module",
+      "category": "building",
+      "source_semantic_id": "structure.bridge.wood_a.no_rails.source",
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -2
+        ],
+        "visual_size": [
+          3,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor",
+        "bridge_bank"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "bridge",
+        "connector",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          48.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              224,
+              0,
+              96,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wood Bridge Oak \u2014 Vertical Module exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structural_connector",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - No Rails.png",
+        "source_rect": [
+          224,
+          0,
+          96,
+          96
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Bridges/Credits.txt",
+        "note": "Exact first-color no-rails bridge assembly visually verified on W45D labelled evidence; rail layers remain separate candidates."
+      },
+      "structure": {
+        "connection_family": "bridge.wood_a.oak",
+        "topology_role": "vertical_span_module",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "structure",
+        "occlusion_group": "structure.bridge.wood_a.oak",
+        "camera_local_occlusion": false,
+        "assembly_family": "bridge.wood_a.oak",
+        "sockets": [
+          {
+            "id": "bank_a",
+            "direction": "west",
+            "kind": "bridge",
+            "offset": [
+              -1,
+              0
+            ],
+            "compatible_with": [
+              "walkable.bank"
+            ]
+          },
+          {
+            "id": "bank_b",
+            "direction": "east",
+            "kind": "bridge",
+            "offset": [
+              1,
+              0
+            ],
+            "compatible_with": [
+              "walkable.bank"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "platform_dais_steps_light",
+      "semantic_id": "structure.platform.dais_steps_a.light.full_assembly",
+      "label": "Light Dais With Steps",
+      "category": "building",
+      "source_semantic_id": "structure.platform.dais_steps_a.source",
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -2
+        ],
+        "visual_size": [
+          3,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "platform",
+        "steps",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          48.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              96,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Light Dais With Steps exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Platforms/Dias with Steps A.png",
+        "source_rect": [
+          0,
+          0,
+          96,
+          96
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Platforms/Credits.txt",
+        "note": "Exact 3x3 Dais with Steps A assembly; raised appearance does not create a new simulation level by itself."
+      },
+      "structure": {
+        "connection_family": "platform.dais_steps_a.light",
+        "topology_role": "full_platform_with_step_access",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "structure",
+        "occlusion_group": "structure.platform.dais_steps_a.light",
+        "camera_local_occlusion": false,
+        "assembly_family": "platform.dais_steps_a.light",
+        "sockets": []
+      }
+    },
+    {
+      "id": "pillar_stone_gray_narrow",
+      "semantic_id": "structure.pillar.stone_a.gray.narrow.full_assembly",
+      "label": "Narrow Gray Stone Pillar",
+      "category": "building",
+      "source_semantic_id": "structure.pillar.stone_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -2
+        ],
+        "visual_size": [
+          1,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor",
+        "platform"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "pillar",
+        "support",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              160,
+              0,
+              32,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Narrow Gray Stone Pillar exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Pillars/Stone Pillar A.png",
+        "source_rect": [
+          160,
+          0,
+          32,
+          96
+        ],
+        "source_mode": "exact_vertical_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Pillars/Credits.txt",
+        "note": "Exact narrow gray Stone Pillar A c5/r0-r2 capital+shaft+base assembly; collision uses only the foot tile."
+      },
+      "structure": {
+        "connection_family": "pillar.stone_a.gray.narrow",
+        "topology_role": "full_assembly",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "structure",
+        "occlusion_group": "structure.pillar.stone_a.gray.narrow",
+        "camera_local_occlusion": false,
+        "assembly_family": "pillar.stone_a.gray.narrow",
+        "sockets": []
+      }
+    },
+    {
+      "id": "pillar_floral_white",
+      "semantic_id": "structure.pillar.floral_a.white.full_assembly",
+      "label": "White Floral Pillar",
+      "category": "building",
+      "source_semantic_id": "structure.pillar.floral_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -3
+        ],
+        "visual_size": [
+          1,
+          4
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor",
+        "platform"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "pillar",
+        "decorative",
+        "support",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          128.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              32,
+              128
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "White Floral Pillar exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Pillars/Floral Pillar A.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          128
+        ],
+        "source_mode": "exact_vertical_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Pillars/Credits.txt",
+        "note": "Exact white Floral Pillar A c0/r0-r3 capital+two-cell shaft+base assembly; collision uses only the foot tile."
+      },
+      "structure": {
+        "connection_family": "pillar.floral_a.white",
+        "topology_role": "full_assembly",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "structure",
+        "occlusion_group": "structure.pillar.floral_a.white",
+        "camera_local_occlusion": false,
+        "assembly_family": "pillar.floral_a.white",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_field",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.field",
+      "label": "Flat Shingle Brown \u2014 Field",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              416,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 Field exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          416,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "field",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_north_eave",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.north_eave",
+      "label": "Flat Shingle Brown \u2014 North Edge",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              416,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 North Edge exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          416,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "north_eave",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_south_eave",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.south_eave",
+      "label": "Flat Shingle Brown \u2014 South Edge",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              416,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 South Edge exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          416,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "south_eave",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_west_edge",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.west_edge",
+      "label": "Flat Shingle Brown \u2014 West Edge",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              384,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 West Edge exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          384,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "west_rake",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_east_edge",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.east_edge",
+      "label": "Flat Shingle Brown \u2014 East Edge",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              480,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 East Edge exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          480,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "east_rake",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_corner_nw",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.corner_nw",
+      "label": "Flat Shingle Brown \u2014 NW Corner",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              384,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 NW Corner exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          384,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "outer_corner_nw",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_corner_ne",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.corner_ne",
+      "label": "Flat Shingle Brown \u2014 NE Corner",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              480,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 NE Corner exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          480,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "outer_corner_ne",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_corner_sw",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.corner_sw",
+      "label": "Flat Shingle Brown \u2014 SW Corner",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              384,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 SW Corner exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          384,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "outer_corner_sw",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_flat_brown_corner_se",
+      "semantic_id": "structure.roof.flat_shingle_a.brown.corner_se",
+      "label": "Flat Shingle Brown \u2014 SE Corner",
+      "category": "building",
+      "source_semantic_id": "structure.roof.flat_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "flat_roof",
+        "topology"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              480,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Flat Shingle Gray \u2014 SE Corner exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+        "source_rect": [
+          480,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54A exact brown-palette counterpart of the already reviewed flat-shingle topology cell; same sheet/topology, +384px palette offset in the pinned LPC source."
+      },
+      "structure": {
+        "connection_family": "roof.flat_shingle_a.brown",
+        "topology_role": "outer_corner_se",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.flat_shingle_a.brown",
+        "sockets": []
+      }
+    }
+  ]
+}

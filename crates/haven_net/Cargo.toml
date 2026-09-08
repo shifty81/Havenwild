@@ -1,0 +1,10 @@
+[package]
+name = "haven_net"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+haven_authoring = { path = "../haven_authoring" }
+haven_world = { path = "../haven_world" }
+serde.workspace = true

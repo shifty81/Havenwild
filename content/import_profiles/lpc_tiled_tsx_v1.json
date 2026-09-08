@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.import_profile.v1",
+  "id": "lpc_tiled_tsx_v1",
+  "provider": "tiled_tsx",
+  "tile_size": [32, 32],
+  "margin": 0,
+  "spacing": 0,
+  "properties": {
+    "read_wang_sets": true,
+    "read_animation": true,
+    "read_probability": true,
+    "read_collision_objects": true,
+    "production_approval_required": true
+  }
+}

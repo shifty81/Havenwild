@@ -1,0 +1,148 @@
+{
+  "schema": "havenwild.structure_support_topology_contract.v1",
+  "pass": "167Z109W45D1",
+  "authority": "BuildingRecipe/world structural support assemblies over exact PublishedWorldAsset structural components",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "cellSize": [32, 32],
+  "bridgePolicy": {
+    "bridgeIsAssemblyNotPlaceableSheet": true,
+    "bridgeConnectsTwoWalkableBanks": true,
+    "bridgeSpanMayRepeat": true,
+    "bridgeOrientationIsExplicit": true,
+    "railsAreOptionalAssemblyLayers": true,
+    "waterOrVoidClearanceMustRemainTraversable": true,
+    "collisionFollowsWalkableDeckNotVisualRails": true,
+    "bankSocketsRequiredBeforeW46Publication": true,
+    "drawbridgeUsesStatefulConnectorAuthority": true
+  },
+  "platformPolicy": {
+    "platformIsStructuralSurfaceAssembly": true,
+    "platformEdgesAndCornersAreTopology": true,
+    "platformAccessUsesExplicitStepsOrRampConnector": true,
+    "platformDoesNotMasqueradeAsTerrainElevation": true,
+    "platformCanBelongToBuildingOrWorldStructure": true
+  },
+  "pillarPolicy": {
+    "pillarUsesBaseShaftCapitalGrammar": true,
+    "shaftMayRepeatVerticallyWhenSourceSupportsIt": true,
+    "pillarVisualHeightDoesNotChangeSimulationLevel": true,
+    "pillarCanBindWallRoofOrPlatformAssembly": true,
+    "pillarCollisionMustUseFootprintNotFullVisualHeight": true
+  },
+  "requiredTopologyRoles": {
+    "bridge": [
+      "approach_a",
+      "span_repeat",
+      "approach_b",
+      "rail_left",
+      "rail_right",
+      "end_cap_a",
+      "end_cap_b",
+      "support_or_post",
+      "stateful_leaf"
+    ],
+    "platform": [
+      "field",
+      "edge_north",
+      "edge_east",
+      "edge_south",
+      "edge_west",
+      "corner_nw",
+      "corner_ne",
+      "corner_sw",
+      "corner_se",
+      "step_access"
+    ],
+    "pillar": [
+      "base",
+      "shaft",
+      "shaft_repeat",
+      "capital",
+      "full_assembly"
+    ]
+  },
+  "families": [
+    {
+      "id": "bridge.drawbridge_a",
+      "role": "bridge",
+      "source": "assets/source/licensed/lpc_revised/Structure/Bridges/Drawbridge A.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["stateful_leaf", "approach", "connector"]
+    },
+    {
+      "id": "bridge.rope_a.no_rails",
+      "role": "bridge",
+      "source": "assets/source/licensed/lpc_revised/Structure/Bridges/Rope Bridge A - No Rails.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["approach", "span_repeat", "end_cap"]
+    },
+    {
+      "id": "bridge.rope_a.rails",
+      "role": "bridge",
+      "source": "assets/source/licensed/lpc_revised/Structure/Bridges/Rope Bridge A - Rails.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["approach", "span_repeat", "rails", "end_cap"]
+    },
+    {
+      "id": "bridge.wood_a.no_rails",
+      "role": "bridge",
+      "source": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - No Rails.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["approach", "span_repeat", "end_cap", "support_or_post"]
+    },
+    {
+      "id": "bridge.wood_a.rails",
+      "role": "bridge",
+      "source": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - Rails.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["approach", "span_repeat", "rails", "end_cap", "support_or_post"]
+    },
+    {
+      "id": "platform.cement_a",
+      "role": "platform",
+      "source": "assets/source/licensed/lpc_revised/Structure/Platforms/Cement Platform A.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["field", "edge", "corner"]
+    },
+    {
+      "id": "platform.dais_steps_a",
+      "role": "platform",
+      "source": "assets/source/licensed/lpc_revised/Structure/Platforms/Dias with Steps A.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["platform", "step_access"]
+    },
+    {
+      "id": "pillar.floral_a",
+      "role": "pillar",
+      "source": "assets/source/licensed/lpc_revised/Structure/Pillars/Floral Pillar A.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["base", "shaft", "capital", "full_assembly"]
+    },
+    {
+      "id": "pillar.stone_a",
+      "role": "pillar",
+      "source": "assets/source/licensed/lpc_revised/Structure/Pillars/Stone Pillar A.png",
+      "status": "source_grammar_review",
+      "intendedUse": ["base", "shaft", "capital", "full_assembly"]
+    }
+  ],
+  "integrationRules": {
+    "publishedWorldAssetRegistryRemainsVisualIdentityAuthority": true,
+    "generatedRuntimeAtlasesAreCacheOnly": true,
+    "exactSourceRegionsRequiredBeforePublication": true,
+    "sourceSheetsRemainImmutable": true,
+    "buildingRecipeMayReferenceSupportAssemblies": true,
+    "worldStructuralConnectorMayReferenceBridgeAssemblies": true,
+    "noObjectKindSubstituteAuthority": true
+  },
+  "forbiddenPatterns": [
+    "whole bridge source sheet as one normal placeable",
+    "whole pillar sheet as one pillar placeable",
+    "automatic promotion of every non-empty 32x32 cell",
+    "invented source rectangles because raw LPC source is unavailable",
+    "bridge collision derived from rail pixels",
+    "bridge identity derived from generated atlas coordinates",
+    "platform tiles used as fake terrain elevation",
+    "pillar height used as world structural level authority"
+  ]
+}

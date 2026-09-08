@@ -1,0 +1,16 @@
+{
+  "schema": "havenwild.asset_pack.discovery_roots.v1",
+  "roots": [
+    {"path": "content/asset_packs", "scope": "project", "enabled": true},
+    {"path": "user/asset_packs", "scope": "user", "enabled": true},
+    {"path": "mods/asset_packs", "scope": "mod", "enabled": true}
+  ],
+  "manifest_name": "pack.json",
+  "rules": {
+    "recursive": true,
+    "duplicate_pack_ids": "error",
+    "missing_required_dependencies": "error",
+    "disabled_packs": "discover_but_do_not_mount_for_production",
+    "reference_only_packs": "discover_but_do_not_resolve_for_production"
+  }
+}

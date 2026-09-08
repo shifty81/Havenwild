@@ -1,0 +1,227 @@
+{
+  "schema": "havenwild.worldgen.elizawy_tile_lane_isolation_contract.v0_1",
+  "version": 2,
+  "laneId": "elizawy_mainland",
+  "styleFamily": "elizawy_mainland_v1",
+  "sourceRepository": "https://github.com/ElizaWy/LPC",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "allowedSourceRoot": "assets/source/licensed/lpc_revised",
+  "terrainSourceRecords": [
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_autumn.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "9535548bd6bee63155f0fa508a7249c3baf87f7bfc4ed0b75b69ed3df7fda3ed",
+      "semanticRoles": [
+        "cliff"
+      ],
+      "season": "autumn",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_spring.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "f39b288da35fe38d62bb11f0f8a5ab803daf1a23f081cea15c18fc54f0b65ad4",
+      "semanticRoles": [
+        "cliff"
+      ],
+      "season": "spring",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "94bd2ddb2c51677498453486092ef28e57e0c1880f4334359189229590298147",
+      "semanticRoles": [
+        "cliff"
+      ],
+      "season": "summer",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_winter.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "5eb9c10ba5dff5952e84efc24362336e68c4a57c7d4f6b3c6c33cbb8b738ac01",
+      "semanticRoles": [
+        "cliff"
+      ],
+      "season": "winter",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_winter_ice.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "81a0dd8f5e641c98a0bfb078a7097ac7974ba38a6431724b647bcd2ea34557ea",
+      "semanticRoles": [
+        "water",
+        "cliff"
+      ],
+      "season": "winter_ice",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/ice-shallows.png",
+      "dimensions": [
+        192,
+        192
+      ],
+      "sha256": "127e57afb9406d2e4ec973857b5d9e4125dddacbb40157853decd7c52570c0cd",
+      "semanticRoles": [
+        "water"
+      ],
+      "season": null,
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_autumn.png",
+      "dimensions": [
+        512,
+        832
+      ],
+      "sha256": "c72e7faa08c52c0ac3e3b5e6fc86ca96baed66b05962b014466cca5a84304e52",
+      "semanticRoles": [
+        "uncategorized_source"
+      ],
+      "season": "autumn",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_spring.png",
+      "dimensions": [
+        512,
+        832
+      ],
+      "sha256": "48d6a4ac0143ee0b514d893115d8de033ec4ca271a44134f70cfd198d6b8d749",
+      "semanticRoles": [
+        "uncategorized_source"
+      ],
+      "season": "spring",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+      "dimensions": [
+        512,
+        832
+      ],
+      "sha256": "1251a6ea556330190ccb1e3af166eb69fbec4b7a3f7d51c1f54728abd75bd752",
+      "semanticRoles": [
+        "uncategorized_source"
+      ],
+      "season": "summer",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_winter.png",
+      "dimensions": [
+        512,
+        832
+      ],
+      "sha256": "cf7d8e73a45c3bcea9e12290eef5c758971976a2e8abce42b01c5f910c559c4c",
+      "semanticRoles": [
+        "uncategorized_source"
+      ],
+      "season": "winter",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_winter_ice.png",
+      "dimensions": [
+        512,
+        832
+      ],
+      "sha256": "518b7de5da7b3f45a88cc64f7beb149243f2b9c7bdff23101c6b514f255ab78f",
+      "semanticRoles": [
+        "water"
+      ],
+      "season": "winter_ice",
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/tilled_soil.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "4b2bfa6d9b7140f50cdba08a39472e745f065bba65002fe331bcf39580e1a09f",
+      "semanticRoles": [
+        "farm"
+      ],
+      "season": null,
+      "readiness": "catalogued_requires_semantic_promotion"
+    },
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/Waterfall.png",
+      "dimensions": [
+        512,
+        608
+      ],
+      "sha256": "5225ab0a7451a90d3b9b4cad37188b63467dc61797369fcec746b583a270dcb6",
+      "semanticRoles": [
+        "water"
+      ],
+      "season": null,
+      "readiness": "catalogued_requires_semantic_promotion"
+    }
+  ],
+  "forbiddenSourceTokens": [
+    "content/assets/lpc/source/lpc-terrains-v7",
+    "terrain-map-v7.png",
+    "terrain-v7.png",
+    "lpc_mapped_terrain_v7_32",
+    "legacy_mixed_mainland"
+  ],
+  "auditSummary": {
+    "repositoryCoverageComplete": true,
+    "terrainFileCount": 13,
+    "seasonalGroundSheets": 5,
+    "seasonalCliffSheets": 5,
+    "dedicatedRockCliffSheet": true,
+    "dedicatedWaterfallSheet": true,
+    "dedicatedFarmSheet": true,
+    "sourceRevisionVerified": true,
+    "cellLevelSemanticPromotion": "region-audited; exact connected-region runtime recipes still required",
+    "seasonalCliffAlphaGeometryIdentical": true,
+    "cliffCellCount": 224,
+    "cliffGeometryAudited": true
+  },
+  "rules": [
+    "Pure ElizaWy style families may use only the pinned ElizaWy source mount and ElizaWy-derived outputs.",
+    "V7 tuple atlases may not be used as ElizaWy geometry or pixel fallback.",
+    "Terrain and cliff sheets are season-locked as one coherent scene or region style.",
+    "Structural cliff cells require explicit role mapping for faces, corners, ramps, cave hosts, and waterfall sockets.",
+    "Unsupported ElizaWy topology remains diagnostic or same-style generated output; it never borrows V7 pixels."
+  ],
+  "certificationState": "source_pure_ground_and_cliff_geometry_audited_runtime_recipe_mapping_pending",
+  "terrainRoleCatalog": "content/worldgen/elizawy_terrain_role_catalog_v0_1.json",
+  "cliffRoleCatalog": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+  "supplementalSourceRecords": [
+    {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/Rocks, Cliffs.png",
+      "dimensions": [
+        192,
+        128
+      ],
+      "sha256": "aa7b4cb7e20ca8f95071eaa41373ecdacf8995a440595d58b10ec7d1ad243256",
+      "semanticRoles": [
+        "rock",
+        "cliff_detail_prop"
+      ],
+      "readiness": "connected_component_mapping_required"
+    }
+  ]
+}

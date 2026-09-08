@@ -1,0 +1,35 @@
+{
+  "schema": "havenwild.roof_authored_assembly_publication.v1",
+  "pass": "167Z109W57K7",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+  "acceptedAssetIds": [
+    "roof_gable_shingle_brown_shallow_7x4_module"
+  ],
+  "acceptedAssemblies": [
+    {
+      "assetId": "roof_gable_shingle_brown_shallow_7x4_module",
+      "sourceRect": [
+        544,
+        0,
+        224,
+        128
+      ],
+      "sourceSocketPx": [
+        112,
+        128
+      ],
+      "visualGridTiles": [
+        7,
+        4
+      ],
+      "policy": "atomic_intact_unscaled"
+    }
+  ],
+  "rules": {
+    "exactSourceRectsOnly": true,
+    "wholeSheetAsPlaceableForbidden": true,
+    "completeGableModulesMayNotBeConcatenatedToFakeWidth": true,
+    "candidateUntilRuntimeVisualAcceptance": true
+  }
+}

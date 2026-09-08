@@ -1,0 +1,41 @@
+{
+  "schema": "havenwild.universal_lpc.complete_repository_expected_summary.v0_1",
+  "commit": "0f898bb675a1abe16ce430e82e3bf9daed278690",
+  "counts": {
+    "spritesheetPngFiles": 88235,
+    "sheetDefinitionJsonFiles": 768,
+    "creditRecords": 13818,
+    "equipmentDefinitions": 105,
+    "toolDefinitions": 8,
+    "weaponAndShieldDefinitions": 97,
+    "shieldDefinitions": 63
+  },
+  "bodyFamilies": [
+    "male",
+    "muscular",
+    "female",
+    "pregnant",
+    "teen",
+    "child"
+  ],
+  "animations": [
+    "idle",
+    "walk",
+    "run",
+    "jump",
+    "climb",
+    "sit",
+    "emote",
+    "combat",
+    "1h_slash",
+    "1h_backslash",
+    "1h_halfslash",
+    "watering",
+    "thrust",
+    "shoot",
+    "hurt",
+    "spellcast",
+    "slash"
+  ],
+  "status": "raw_source_required_for_strict_certification"
+}

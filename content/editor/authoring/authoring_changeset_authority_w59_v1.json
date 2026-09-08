@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.authoring_changeset_authority.v1",
+  "pass": "167Z109W59",
+  "authority": "Deterministic local hand-authoring delta exchange",
+  "manifest": "WORKSPACE/authoring/changesets/current/manifest.json",
+  "packageCommand": 63,
+  "packageTool": "tools/control/PackageAuthoringChanges.ps1",
+  "packageOutput": "artifacts/authoring-changes",
+  "revisionPolicy": {
+    "format": "vNNN",
+    "incrementsOnCommittedAuthoredOutput": true,
+    "doesNotIncrementPerBrushStroke": true,
+    "sourceVersionsRemainAvailable": true
+  },
+  "changeKinds": [
+    "pixel_region",
+    "building_composite",
+    "terrain_junction",
+    "collision_mask",
+    "scene_delta",
+    "module_transform_target"
+  ],
+  "twoLaneDevelopment": {
+    "localEditorAuthoringPreserved": true,
+    "changesPackageIsUploadableForPatchReconciliation": true,
+    "generatedReferenceLayersAreNotFlattenedIntoPackage": true
+  }
+}

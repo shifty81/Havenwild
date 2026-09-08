@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.inspector_bottom_dock.w60e23.v1",
+  "pass": "H21A14Y",
+  "inspector": {
+    "sharedChrome": true,
+    "contextualProperties": true
+  },
+  "bottomDock": {
+    "tabs": [
+      "Console",
+      "Imports",
+      "Build",
+      "Activity"
+    ],
+    "collapsible": true,
+    "resizable": true,
+    "persistentHeight": true,
+    "validationReportOwner": "right_dock.validation",
+    "duplicateValidationTabForbidden": true
+  },
+  "activeStateLanguage": "shared restrained accent/background treatment"
+}

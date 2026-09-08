@@ -1,0 +1,52 @@
+{
+  "schema": "havenwild.worldgen.alderreach_mountain_authority.v0_1",
+  "revision": "167Z96-runtime-cliff-source-quarantine-v1",
+  "terminology": {
+    "MountainRock": "Rock Ground \u2014 horizontal walkable highland floor",
+    "MountainPath": "Highland shoulder/path material between Rock Ground and lowland terrain",
+    "StructuralCliff": "height-derived blocking face; not a paintable ground tile"
+  },
+  "currentPass": {
+    "globalHeightSupportAcrossPartitions": true,
+    "partitionBoundaryClassificationSeamsRemoved": true,
+    "authoredHighlandShoulderMaterialized": true,
+    "runtimeStructuralCliffArtwork": false,
+    "globalStructuralCacheConsumedByRuntime": true,
+    "heightDerivedCollision": false,
+    "rampAndLadderStampTraversal": false,
+    "completeElizaWyTopologyCoverage": false,
+    "activeStructuralVisualProvider": "none_pending_normalized_atlas",
+    "automaticRampAndLadderPlacement": false,
+    "rawHeightQuantizedIntoStructuralTiers": true,
+    "providerCertifiedCollisionOnly": true,
+    "completeSouthFaceAssembly": false,
+    "incompleteOrientationsFailOpen": true,
+    "generalGrassExcludedFromStructuralElevation": true,
+    "ogaSourceQuarantinedForBoundsMismatch": true
+  },
+  "productionMountainRequirements": {
+    "minimumRangeSpanPartitions": [
+      2,
+      2
+    ],
+    "recommendedMajorRangeSpanPartitions": [
+      3,
+      2
+    ],
+    "elevationTiers": 4,
+    "requiresMultiplePeaks": true,
+    "requiresFoothills": true,
+    "requiresPassesAndRamps": true,
+    "requiresCaveHosts": true,
+    "requiresHeightDerivedCollision": true,
+    "requiresSeasonalElizaWyCliffRecipes": true,
+    "structuralTierHeightRawUnits": 32
+  },
+  "nextStructuralLane": [
+    "normalize the OGA connected source in Pixel Studio using exact in-bounds component regions",
+    "promote complete ElizaWy seasonal face, cap, corner, end, ramp, ladder, cave, waterfall, and bridge recipes",
+    "publish an explicit structural elevation layer from the continuous Alderreach World Editor",
+    "restore collision only for visually certified recipes",
+    "certify player and NPC pathfinding parity over authored traversal attachments"
+  ]
+}

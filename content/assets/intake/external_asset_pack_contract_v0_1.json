@@ -1,0 +1,40 @@
+{
+  "schema": "havenwild.external_asset_pack_contract.v0_1",
+  "purpose": "Keep raw user-supplied asset packs outside source rollups while making them catalogable, editable in Pixel Studio, and explicitly promotable into Havenwild source/runtime content.",
+  "localRootsFile": ".local/havenwild_external_asset_roots.json",
+  "projectIndexRoot": "content/assets/intake/external_pack_indexes",
+  "defaultExternalLibrary": "~/HavenwildAssetLibrary",
+  "supportedSourceExtensions": [
+    ".png",
+    ".gif",
+    ".jpg",
+    ".jpeg",
+    ".bmp",
+    ".webp"
+  ],
+  "intakeStages": [
+    "external_raw",
+    "cataloged_source_only",
+    "reviewed_working_copy",
+    "metadata_complete",
+    "approved_for_publish",
+    "published_runtime"
+  ],
+  "promotionRequirements": [
+    "license_status_reviewed",
+    "source_and_attribution_recorded",
+    "crop_or_grid_defined",
+    "pivot_and_footprints_defined_when_applicable",
+    "animation_clip_layout_defined_when_applicable",
+    "stable_asset_id_assigned",
+    "editor_preview_validated"
+  ],
+  "rules": {
+    "rawAssetsAreCommitted": false,
+    "rawAssetsArePackagedWithClient": false,
+    "catalogMetadataMayBeCommitted": true,
+    "pixelStudioMayOpenExternalSources": true,
+    "externalSourcesAreReadOnlyUntilWorkingCopy": true,
+    "runtimePromotionIsExplicit": true
+  }
+}

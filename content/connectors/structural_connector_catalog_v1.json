@@ -1,0 +1,90 @@
+{
+  "schema": "havenwild.structural_connector_catalog.v1",
+  "pass": "167Z109W51",
+  "authority": "StructuralConnectorRegistry",
+  "visualAuthority": "PublishedWorldAssetRegistry",
+  "placementAuthorities": [
+    "BuildingRecipeRegistry",
+    "SceneMap/worldgen transition authority"
+  ],
+  "purpose": "Normalize traversal semantics across same-building stairs, cave portals and continuous-surface bridges without creating a second visual or placement authority.",
+  "profiles": [
+    {
+      "id": "building.stairs.short_run",
+      "kind": "stairs",
+      "traversalMode": "same_instance_level",
+      "visualAssetId": "stairs_short_run_gray",
+      "levelDelta": 1,
+      "reversible": true,
+      "requiresInteract": true,
+      "status": "exact_candidate"
+    },
+    {
+      "id": "building.stairs.short_step",
+      "kind": "stairs",
+      "traversalMode": "same_instance_level",
+      "visualAssetId": "stairs_short_step_gray",
+      "levelDelta": 1,
+      "reversible": true,
+      "requiresInteract": true,
+      "status": "exact_candidate"
+    },
+    {
+      "id": "cave.narrow_mouth",
+      "kind": "cave_mouth",
+      "traversalMode": "scene_transition",
+      "visualAssetId": "cave_entrance_default",
+      "levelDelta": 0,
+      "reversible": true,
+      "requiresInteract": true,
+      "status": "exact_candidate",
+      "apertureTiles": [
+        1,
+        2
+      ],
+      "sourceEnvelopeTiles": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "cave.depth_transition",
+      "kind": "cave_depth",
+      "traversalMode": "scene_transition",
+      "visualAssetId": null,
+      "levelDelta": 0,
+      "reversible": true,
+      "requiresInteract": true,
+      "status": "deferred_exact_source"
+    },
+    {
+      "id": "bridge.wood_oak.flat",
+      "kind": "bridge",
+      "traversalMode": "continuous_surface",
+      "visualAssetId": "bridge_wood_oak_flat_module",
+      "levelDelta": 0,
+      "reversible": true,
+      "requiresInteract": false,
+      "status": "exact_candidate"
+    },
+    {
+      "id": "bridge.wood_oak.arch",
+      "kind": "bridge",
+      "traversalMode": "continuous_surface",
+      "visualAssetId": "bridge_wood_oak_arch_module",
+      "levelDelta": 0,
+      "reversible": true,
+      "requiresInteract": false,
+      "status": "exact_candidate"
+    }
+  ],
+  "rules": {
+    "sameInstanceLevelNeverChangesScene": true,
+    "sceneTransitionNeverMutatesCameraCutawayState": true,
+    "continuousSurfaceNeverCreatesSceneTeleport": true,
+    "missingVisualMayRemainLogical": true,
+    "connectorVisualsResolveOnlyThroughPublishedWorldAssetRegistry": true,
+    "ordinaryCaveMouthApertureIsOneByTwo": true,
+    "caveThresholdIsSeparateFromAperture": true
+  }
+}

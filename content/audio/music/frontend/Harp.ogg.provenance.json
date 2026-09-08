@@ -1,0 +1,13 @@
+{
+  "schema": "havenwild.audio.provenance.v0_1",
+  "assetId": "frontend_music_harp",
+  "runtimePath": "content/audio/music/frontend/Harp.ogg",
+  "title": "Soft Mysterious Harp Loop",
+  "authors": ["VWolfdog", "Jordy Hake"],
+  "license": "CC-BY-3.0",
+  "sourcePage": "https://opengameart.org/content/soft-mysterious-harp-loop",
+  "sourceFile": "https://opengameart.org/sites/default/files/Harp.ogg",
+  "sha256": "8b3ea6ecdc3af69847c20684dca5a5ad4921bb4b41cc2563811f1f7ac50af489",
+  "playbackVolume": 0.4,
+  "looped": true
+}

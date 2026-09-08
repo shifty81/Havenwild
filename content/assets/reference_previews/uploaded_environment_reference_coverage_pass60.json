@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.uploaded_environment_reference_coverage.v0_1",
+  "updated": "2026-07-11",
+  "policy": "metadata_only_reference_coverage_no_raw_image_packaging_no_pixel_copy_no_palette_lift",
+  "usage": "References were used for category coverage and sheet organization only. No raw uploaded pixels, tracing, palette lifting, or direct runtime promotion.",
+  "familiesObserved": [
+    "cozy_interior_furniture_and_walls",
+    "castle_and_capital_city_modular_architecture",
+    "cave_floor_wall_ledge_and_entrance_kits",
+    "farm_ground_water_cliff_and_path_tiles",
+    "trees_foliage_fences_wells_crates_and_roofs",
+    "four_direction_farm_animal_animation_sheets",
+    "base_character_animation_reference"
+  ],
+  "productionResponse": {
+    "liveNow": [
+      "four_visual_variants_for_each_existing_semantic_runtime_tile",
+      "expanded_runtime_placeable_object_kinds_and_production_32x64_atlas"
+    ],
+    "authoringReady": [
+      "cozy_interior_stamp_atlas",
+      "capital_city_stamp_atlas",
+      "cave_stamp_atlas"
+    ],
+    "deferred": [
+      "original_farm_animal_sprite_rebuilds",
+      "generic_multi_tile_stamp_runtime_binding",
+      "full_building_roof_wall_compositor"
+    ]
+  },
+  "cc0PromotionException": {
+    "introducedBy": "Pass 62 Native Pixel Studio",
+    "manifest": "content/assets/intake/cc0_user_upload_manifest_v0_1.json",
+    "rule": "Only files explicitly recorded as CC0 with checksum may be copied into assets/source/cc0; they remain source-only until explicit crop/review/publish."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z15",
+  "title": "Native Editor Path Literal Repair",
+  "date": "2026-08-02",
+  "cumulativePatchBaseline": "Pass 167Z10 Development Normalization",
+  "result": "Pass 167Z15 Native Editor Path Literal Repair",
+  "problem": "Development path normalization left a malformed Rust string containing tools/automation/\\Bootstrap-UniversalLpcGenerator.cmd.",
+  "correction": "Character Studio now references tools/automation/characters/Bootstrap-UniversalLpcGenerator.cmd and architecture validation rejects mixed path separators in Rust source.",
+  "cumulativeIncludedPasses": [
+    "167Z11",
+    "167Z12",
+    "167Z13",
+    "167Z14",
+    "167Z15"
+  ],
+  "validation": [
+    "source validation profile passed all 19 active gates",
+    "all 17 content-integrity checks passed",
+    "mixed-separator scan passed",
+    "Python syntax passed",
+    "Build.sh syntax passed",
+    "complete source rollup intentionally not produced"
+  ]
+}

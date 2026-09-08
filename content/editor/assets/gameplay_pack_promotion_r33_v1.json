@@ -1,0 +1,87 @@
+{
+  "schema": "havenwild.editor.gameplay_pack_promotion.r33.v1",
+  "pass": "167Z109W81R33",
+  "families": [
+    {
+      "id": "farming",
+      "contains": [
+        "crops",
+        "fruit_trees",
+        "livestock",
+        "fences",
+        "barns",
+        "coops",
+        "apiaries",
+        "processing"
+      ]
+    },
+    {
+      "id": "mining_forge",
+      "contains": [
+        "rocks",
+        "ore",
+        "mine_entrances",
+        "tracks",
+        "carts",
+        "forge",
+        "ingots",
+        "blacksmith"
+      ]
+    },
+    {
+      "id": "forestry_carpentry",
+      "contains": [
+        "trees",
+        "logs",
+        "sawmill",
+        "woodshop",
+        "carpentry"
+      ]
+    },
+    {
+      "id": "tailoring",
+      "contains": [
+        "loom",
+        "spinning_wheel",
+        "fabric",
+        "yarn",
+        "tailor_shop"
+      ]
+    },
+    {
+      "id": "tavern_interiors",
+      "contains": [
+        "bar",
+        "kitchen",
+        "brewery",
+        "tables",
+        "seating",
+        "guest_rooms",
+        "food",
+        "decor"
+      ]
+    },
+    {
+      "id": "water_travel",
+      "contains": [
+        "fish",
+        "docks",
+        "rowboats",
+        "ships",
+        "water_fx"
+      ]
+    },
+    {
+      "id": "combat_creatures",
+      "contains": [
+        "weapons",
+        "shields",
+        "armor",
+        "monsters",
+        "animals",
+        "combat_fx"
+      ]
+    }
+  ],
+  "promotionRule": "Promote semantic families with provenance and gameplay bindings; do not flatten upstream sheets into loose untracked PNGs."
+}

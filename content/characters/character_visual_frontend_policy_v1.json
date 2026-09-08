@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.character_visual_frontend_policy.v1",
+  "character_card_count": 5,
+  "world_save_limit": "unlimited",
+  "flows": {
+    "new_game": ["choose_character", "choose_or_create_world", "launch"],
+    "load_game": ["choose_character", "choose_world", "launch"]
+  },
+  "screens": ["main_menu", "characters", "creator", "worlds"],
+  "character_actions": ["select", "create", "edit", "delete"],
+  "preview": {
+    "mode": "layered_lpc_with_source_fallback",
+    "source_sheet": "character.player.base",
+    "missing_source_behavior": "draw_nonproduction_silhouette",
+    "consumers": ["character_cards", "character_creator"]
+  },
+  "persistence": {
+    "character_store": "account_profile_store",
+    "world_store": "world_save_store",
+    "delete_character_preserves_worlds": true,
+    "delete_world_preserves_characters": true
+  },
+  "world_browser": {
+    "dynamic_directory_scan": true,
+    "runtime_launch_adapter": "legacy_three_world_roots_until_dynamic_runtime_path_migration",
+    "must_display_adapter_boundary": true
+  }
+}

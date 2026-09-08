@@ -1,0 +1,69 @@
+{
+  "schema": "havenwild.global-map-minimap-flora-authority.v0_1",
+  "revision": "167Z109L-live-structural-map-minimap-sync-v1",
+  "checkpoint": "Pass167Z80",
+  "minimap": {
+    "coordinateSpace": "continuous_surface_global_tiles",
+    "centerAuthority": "player_global_tile",
+    "crossPartitionSampling": true,
+    "sceneBorderBehavior": "none",
+    "naturalObjectMarkers": [
+      "tree",
+      "bush",
+      "herb_and_flower",
+      "mushroom"
+    ],
+    "structuralCliffAuthority": "same baked continuous-surface StructuralCellV2 cache used by runtime cliff rendering/collision",
+    "routeVisibility": "Road, MountainPath, StonePath, Bridge and river semantics share world-map code priority"
+  },
+  "worldMap": {
+    "toggleKey": "M",
+    "closeKeys": [
+      "M",
+      "Escape"
+    ],
+    "pan": [
+      "left_mouse_drag",
+      "WASD",
+      "arrow_keys"
+    ],
+    "zoom": "mouse_wheel",
+    "fitKey": "Home",
+    "recenterPlayerKey": "R",
+    "terrainAuthority": "persistent granular exploration cells sampled from actual loaded scene maps plus live baked structural cache",
+    "showsWholeArchipelago": false,
+    "waypoints": "planned_follow_on",
+    "finiteWorldBehavior": "show only cells revealed within the player discovery radius; explored bounds grow continuously rather than one storage partition at a time",
+    "endlessWorldBehavior": "same granular discovery-backed global tile map; exploration extends indefinitely as the player travels",
+    "legacySceneRectangleManifest": "fallback_only_when_no_exterior_partition_can_be_discovered",
+    "explorationPersistence": "worldgen/world_map_exploration.json",
+    "sampleResolution": "2x2 world tiles per map cell; reveal radius 20 tiles; unrevealed cells are not drawn",
+    "routeVisibility": "Road, MountainPath, StonePath, Bridge and river cells are captured from actual explored scene data",
+    "cliffVisibility": "cliff marks come only from the same baked StructuralCellV2/CliffShape15 cache used by runtime cliff rendering; local raw-level inference is forbidden",
+    "streamingSynchronization": "newly loaded, hydrology-reconciled, or activated surface partitions rebuild the continuous structural cache before map capture",
+    "explorationSchema": "havenwild.world_map_exploration.v0_2"
+  },
+  "flora": {
+    "artAuthority": "existing_authored_elizawy_object_atlas",
+    "placementAuthority": "deterministic_pcg_object_population_over_grass",
+    "terrainReplacement": false,
+    "categories": [
+      "tree",
+      "bush",
+      "wild_herb",
+      "wildflower",
+      "reed",
+      "mushroom"
+    ],
+    "newWorldGeneration": true,
+    "existingSaveMigrationVersion": 12,
+    "crossPartitionRendering": true,
+    "auditedFootprintsRequired": true
+  },
+  "nonGoals": [
+    "No generated or replacement flora artwork",
+    "No waypoint or route persistence in this pass",
+    "No minimap rotation in this pass",
+    "No waypoint or route-planning UI in this pass; only route visibility is implemented"
+  ]
+}

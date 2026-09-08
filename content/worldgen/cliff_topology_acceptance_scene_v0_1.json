@@ -1,0 +1,171 @@
+{
+  "schema": "havenwild.worldgen.cliff_topology_acceptance_scene.v0_1",
+  "pass": "167Z106N5R",
+  "revision": "167Z106N5R-cliff-connectors-collision-acceptance-v1",
+  "purpose": "Canonical non-runtime acceptance layout used to certify cliff visual topology before rendering/collision/PCG activation.",
+  "worldGrid": {
+    "tileSizePx": [
+      32,
+      32
+    ],
+    "widthTiles": 64,
+    "heightTiles": 40,
+    "partitionDiagnosticEveryTiles": [
+      16,
+      16
+    ]
+  },
+  "structuralLevels": {
+    "allowed": [
+      0,
+      1,
+      2
+    ],
+    "continuousHeightPaintingForbidden": true
+  },
+  "formation": {
+    "name": "Alderreach Cliff Certification Plateau",
+    "level1PolygonTiles": [
+      [
+        8,
+        6
+      ],
+      [
+        48,
+        6
+      ],
+      [
+        48,
+        13
+      ],
+      [
+        56,
+        13
+      ],
+      [
+        56,
+        27
+      ],
+      [
+        44,
+        27
+      ],
+      [
+        44,
+        32
+      ],
+      [
+        17,
+        32
+      ],
+      [
+        17,
+        27
+      ],
+      [
+        8,
+        27
+      ]
+    ],
+    "level2PolygonTiles": [
+      [
+        22,
+        10
+      ],
+      [
+        39,
+        10
+      ],
+      [
+        39,
+        18
+      ],
+      [
+        35,
+        18
+      ],
+      [
+        35,
+        22
+      ],
+      [
+        22,
+        22
+      ]
+    ],
+    "intent": "large plateau with long edges, convex/concave turns, narrow neck, nested second level and cross-partition boundaries"
+  },
+  "requiredCases": [
+    {
+      "id": "long_straight_south_face",
+      "state": "runtime_active",
+      "recipe": "elizawy.face.south_repeat_a_1x3"
+    },
+    {
+      "id": "outer_corner_left_right",
+      "state": "runtime_active"
+    },
+    {
+      "id": "inner_corner_left_right",
+      "state": "runtime_active"
+    },
+    {
+      "id": "narrow_ridge",
+      "state": "runtime_active"
+    },
+    {
+      "id": "two_level_stack",
+      "state": "runtime_active_body_extension"
+    },
+    {
+      "id": "one_level_ramp",
+      "state": "runtime_active",
+      "recipe": "elizawy.ramp.reviewed_south_column_1x3",
+      "host": "MountainPath pair across one structural resolver step"
+    },
+    {
+      "id": "stairs",
+      "state": "runtime_active",
+      "host": "ObjectKind::Stairs across structural edge"
+    },
+    {
+      "id": "ladder",
+      "state": "runtime_active",
+      "recipe": "elizawy.connector.ladder_a_1x3"
+    },
+    {
+      "id": "narrow_cave",
+      "state": "runtime_active",
+      "recipe": "elizawy.cave.narrow_host_1x3"
+    },
+    {
+      "id": "wide_cave",
+      "state": "runtime_active",
+      "recipe": "elizawy.cave.wide_host_3x3"
+    },
+    {
+      "id": "bridge_socket",
+      "state": "runtime_active_existing_bridge_renderer",
+      "recipe": "elizawy.bridge.water_bay_a_2x4"
+    },
+    {
+      "id": "water_facing_cliff",
+      "state": "runtime_active_grouped_socket",
+      "recipe": "elizawy.water_cliff.valley_a_3x3"
+    },
+    {
+      "id": "waterfall",
+      "state": "runtime_active_south_west_east",
+      "catalog": "content/assets/lpc/elizawy_waterfall_connector_catalog_v0_1.json"
+    },
+    {
+      "id": "cross_partition_seam",
+      "state": "runtime_active_global_neighbor_sampling"
+    },
+    {
+      "id": "season_swap_geometry_parity",
+      "state": "certified_by_shared_alpha_geometry"
+    }
+  ],
+  "activationRule": "N5R activates visible-edge collision and explicit connectors together. A structural edge blocks only while its certified ElizaWy visual provider is loaded; Ramp/Stairs/Ladder/Bridge are the only traversal openings, while caves use transitions and waterfalls remain blocking."
+}

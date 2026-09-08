@@ -1,0 +1,42 @@
+{
+  "schema": "havenwild.open_asset_credit_policy.v0_1",
+  "policyVersion": 1,
+  "broadAcknowledgement": {
+    "enabled": true,
+    "runtimeCreditsScreen": true,
+    "scope": "all commercially approved LPC and OpenGameArt contributors available to Havenwild development",
+    "masterContributorText": "content/legal/open_assets/UNIVERSAL_LPC_MASTER_CONTRIBUTORS.txt",
+    "masterContributorCsv": "content/legal/open_assets/UNIVERSAL_LPC_MASTER_CONTRIBUTORS.csv",
+    "summary": "content/legal/open_assets/UNIVERSAL_LPC_MASTER_CATALOG_SUMMARY.json"
+  },
+  "exactBuildAttribution": {
+    "required": true,
+    "usageManifest": "WORKSPACE/generated/universal_lpc_usage_manifest.json",
+    "outputs": [
+      "OPEN_ASSET_CREDITS.txt",
+      "OPEN_ASSET_CREDITS.csv",
+      "OPEN_ASSET_CREDITS.json"
+    ],
+    "requiredFields": [
+      "source",
+      "authors",
+      "selectedLicense",
+      "sourceUrls",
+      "modified",
+      "modificationNote"
+    ]
+  },
+  "licensePools": {
+    "preferred": ["CC0", "OGA-BY", "CC-BY"],
+    "conditional": ["CC-BY-SA"],
+    "blockedByDefault": ["NonCommercial", "GPL-only", "unknown", "conflicting"]
+  },
+  "rules": [
+    "Broad acknowledgment is additive and never replaces exact attribution.",
+    "Unused approved contributors may be acknowledged in the master catalog.",
+    "Release-specific credits must identify every shipped attributed source.",
+    "Modified or composited ShareAlike artwork must retain applicable ShareAlike treatment.",
+    "Credits should be grouped to remain readable while preserving traceability.",
+    "The game may remain commercially distributed under Havenwild's chosen code and content licenses."
+  ]
+}

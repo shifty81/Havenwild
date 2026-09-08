@@ -1,0 +1,185 @@
+{
+  "schema": "havenwild.building_exterior_grammar_contract.v1",
+  "pass": "167Z109W57K8",
+  "authority": {
+    "geometry": "BuildingRecipeRegistry",
+    "visuals": "PublishedWorldAssetRegistry",
+    "placement": "BuildingInstanceRegistry"
+  },
+  "rules": {
+    "roofMustUseExactPublishedTopology": true,
+    "wholeSheetAsPlaceableForbidden": true,
+    "wrongFacingWallReuseForbidden": true,
+    "missingFacingVisualFailsClosedButRetainsCollision": true,
+    "doorAndWindowOpeningsOwnTheirExactPublishedOverlays": true,
+    "roofOcclusionIsCameraLocal": true,
+    "ordinaryInteriorRemainsSameWorldBuildingInstance": true,
+    "starterHomeMustContainBedroomAndMainLivingCraftCookingRoom": true,
+    "frontWallOnlyCutawayForSingleStoreyStarterHome": true,
+    "completeGableModulesMayNotBeConcatenatedToFakeWidth": true,
+    "cutawayOverlaysMayNotReplaceWallBodies": true,
+    "exteriorFootprintMayIncludeRoofProjectionBeyondWallPlate": true,
+    "duplicateRectangularGableBackingForbidden": true,
+    "linkedInteriorMustReserveEntryCirculation": true,
+    "cameraFacingInteriorCutEdgesMayBePresentationSuppressed": true,
+    "frontGableRequiresWallInfillBeneathRoofline": true,
+    "rooflineAssetMayNotBeMisclassifiedAsFilledRoofPlane": true
+  },
+  "estateStarterCottage": {
+    "recipeId": "havenwild.estate.starter_cottage",
+    "instanceId": "havenwild.estate.dev.starter_cottage",
+    "footprintTiles": [
+      9,
+      9
+    ],
+    "anchorTile": [
+      55,
+      28
+    ],
+    "frontFacing": "south",
+    "frontDoorWorldTile": [
+      59,
+      36
+    ],
+    "rooms": [
+      "bedroom",
+      "main_room"
+    ],
+    "roof": {
+      "mode": "authored_module",
+      "family": "roof.gable_shingle_a.brown.shallow_7x4.front_gable_roofline_with_infill",
+      "moduleAssetId": "roof_gable_shingle_brown_shallow_7x4_roofline",
+      "modulePlacements": [
+        [
+          4,
+          5
+        ]
+      ],
+      "sourceEvidence": {
+        "path": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+        "sourceRect": [
+          544,
+          0,
+          224,
+          128
+        ],
+        "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+        "topologyEvidence": "the 224x128 brown source region is a front gable roofline/rake/eave silhouette with an intentional transparent gable opening; it is consumed once over a five-tile wall plate and receives a separately authored triangular siding infill rather than a rectangular backing"
+      },
+      "renderOriginPx": [
+        32,
+        64
+      ],
+      "wallPlateWidthTiles": 5,
+      "sideEaveTiles": 1
+    },
+    "frontage": {
+      "wallFamily": "wall.siding_plain.cream",
+      "leftAssetId": "wall_siding_plain_cream_front_left",
+      "repeatAssetId": "wall_siding_plain_cream_front_repeat",
+      "rightAssetId": "wall_siding_plain_cream_front_right",
+      "doorAssetId": "door_basic",
+      "windowAssetId": "window_ornamental_tall",
+      "exactFacing": "south",
+      "wallPlateLocalXRange": [
+        2,
+        6
+      ],
+      "doorLocalTile": [
+        4,
+        8
+      ],
+      "windowLocalTiles": [
+        [
+          2,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    "interior": {
+      "layout": "open_plan_7x7_floor_inside_9x9_void_backed_scene",
+      "bedroomLabel": "Bedroom Nook",
+      "mainRoomLabel": "Living / Crafting / Cooking",
+      "rearInteriorFinishAssetId": "wall_drywall_simple",
+      "sideAndFrontPresentation": "collision_only_camera_cut",
+      "presentationRule": "north/rear walls with floor directly south may draw the 32x96 wall body; side/front perimeter walls remain semantic collision but do not repeat CutawayOverlay cells as visible rails",
+      "roomGeometry": "bedroom nook [1,1,7,3] + open-plan living/crafting/cooking [1,4,7,4]",
+      "protectedCirculationTiles": [
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "blockingFurnitureMayOccupyProtectedCirculation": false
+    },
+    "deferredExactFacings": [
+      "north",
+      "east",
+      "west"
+    ],
+    "status": "candidate_front_gable_infill_open_plan_certification_shell_w57k8",
+    "gableInfill": {
+      "assetId": "wall_siding_plain_cream_gable_fill",
+      "sourceRect": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "rows": [
+        {
+          "start": [
+            4,
+            3
+          ],
+          "length": 1
+        },
+        {
+          "start": [
+            3,
+            4
+          ],
+          "length": 3
+        },
+        {
+          "start": [
+            2,
+            5
+          ],
+          "length": 5
+        }
+      ],
+      "shape": "stepped_1_3_5_triangle_under_source_roofline",
+      "collision": "visual_only",
+      "occlusionGroup": "building.gable_infill.estate_cottage"
+    }
+  }
+}

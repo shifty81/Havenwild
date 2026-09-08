@@ -1,0 +1,353 @@
+{
+  "schema": "havenwild.lpc.placeable_object_promotion_plan.v0_1",
+  "id": "lpc_placeable_object_promotion_plan_v0_1",
+  "version": "0.1.0",
+  "pass": 107,
+  "tileSize": 32,
+  "purpose": "Promote the existing Havenwild object palette into production placeable assets using the current object, stamp, footprint, save/load, outliner, inspector, and runtime draw systems.",
+  "runtimeSafety": [
+    "Pass107 is a promotion contract only; it does not change renderer placement behavior.",
+    "Existing ObjectKind, PALETTE_OBJECTS, AssetPaletteCatalog, StampRegistry, PlacedStamp, footprint, collision, undo, save/load, and inspector systems remain the implementation lanes.",
+    "Raw OpenGameArt/LPC dumps stay source/reference material until a promoted record has license, attribution, source rect, atlas binding, footprint, collision, and interaction metadata.",
+    "The editor must not expose unverified source-pack assets as production placeables."
+  ],
+  "sourcePackPolicy": {
+    "preferredAllowedSources": [
+      "elizawy_lpc_main",
+      "lpc_atlas_build_objects",
+      "lpc_atlas_base_terrain",
+      "lpc_plant_repack",
+      "hyptosis_free_tiles_sprites_oga",
+      "hyptosis_organized_oga",
+      "lpc_farm_animals_daniel_eddeland"
+    ],
+    "quarantinedUntilReviewed": [
+      "havenwild_master_asset_pack",
+      "artis_dock_mixed"
+    ],
+    "licenseRequirement": "Each promoted object must retain pack id, source file, source rect, license, attribution, and source URL or local credits reference."
+  },
+  "existingImplementationLanes": [
+    {
+      "lane": "object_palette",
+      "files": [
+        "crates/haven_assets/src/asset_palette.rs",
+        "crates/haven_assets/src/asset_registry.rs",
+        "crates/haven_core/src/foundation/tile_object_catalog.rs"
+      ],
+      "status": "active"
+    },
+    {
+      "lane": "stamp_system",
+      "files": [
+        "content/editor/stamps/generic_multitile_stamp_contract_v0_1.json",
+        "crates/haven_assets/src/stamp_registry.rs",
+        "crates/haven_authoring/src/transaction_stamp.rs",
+        "crates/haven_game/src/runtime_stamp_draw.rs",
+        "crates/haven_editor/src/stamp_inspector.rs"
+      ],
+      "status": "active_for_multitile_and_expandable_placeables"
+    },
+    {
+      "lane": "footprint_runtime",
+      "files": [
+        "content/worldgen/worldgen_object_footprint_registry_v0_4.json",
+        "content/worldgen/worldgen_object_footprint_runtime_v0_6.json"
+      ],
+      "status": "active"
+    }
+  ],
+  "requiredPromotedMetadata": [
+    "stableId",
+    "label",
+    "category",
+    "objectKind",
+    "placementLane",
+    "sourcePack",
+    "sourceFile",
+    "sourceRect",
+    "runtimeAtlas",
+    "atlasRect",
+    "visualFootprint",
+    "collisionFootprint",
+    "interactionFootprint",
+    "anchor",
+    "walkability",
+    "occlusion",
+    "interaction",
+    "license",
+    "attribution",
+    "editorTags",
+    "paletteGroup",
+    "promotionStatus"
+  ],
+  "paletteGroups": [
+    {
+      "id": "nature_foraging",
+      "label": "Nature / Foraging",
+      "objectKinds": [
+        "tree",
+        "bush",
+        "boulder",
+        "ore_node",
+        "mushroom",
+        "herb",
+        "stump",
+        "log"
+      ]
+    },
+    {
+      "id": "town_props",
+      "label": "Town Props",
+      "objectKinds": [
+        "crate",
+        "barrel",
+        "well",
+        "scarecrow",
+        "fence",
+        "lamp",
+        "bench",
+        "sign"
+      ]
+    },
+    {
+      "id": "tavern_interior",
+      "label": "Tavern / Interior",
+      "objectKinds": [
+        "table",
+        "chair",
+        "bar",
+        "keg",
+        "bed",
+        "fireplace"
+      ]
+    },
+    {
+      "id": "building_transitions",
+      "label": "Buildings / Transitions",
+      "objectKinds": [
+        "greenhouse_marker",
+        "door",
+        "stairs",
+        "cave_entrance"
+      ]
+    }
+  ],
+  "objectPromotion": [
+    {
+      "objectKind": "table",
+      "paletteGroup": "tavern_interior",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "chair",
+      "paletteGroup": "tavern_interior",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "bar",
+      "paletteGroup": "tavern_interior",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "keg",
+      "paletteGroup": "tavern_interior",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "bed",
+      "paletteGroup": "tavern_interior",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "fireplace",
+      "paletteGroup": "tavern_interior",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "greenhouse_marker",
+      "paletteGroup": "building_transitions",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas_placeholder",
+      "sourceCandidates": ["lpc_plant_repack", "elizawy_lpc_main"],
+      "promotionStatus": "runtime_bound_placeholder_review_required"
+    },
+    {
+      "objectKind": "tree",
+      "paletteGroup": "nature_foraging",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_plant_repack", "hyptosis_organized_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "bush",
+      "paletteGroup": "nature_foraging",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_plant_repack", "hyptosis_organized_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "boulder",
+      "paletteGroup": "nature_foraging",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "hyptosis_organized_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "ore_node",
+      "paletteGroup": "nature_foraging",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "mushroom",
+      "paletteGroup": "nature_foraging",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_plant_repack"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "herb",
+      "paletteGroup": "nature_foraging",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_plant_repack"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "crate",
+      "paletteGroup": "town_props",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "barrel",
+      "paletteGroup": "town_props",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "well",
+      "paletteGroup": "town_props",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["lpc_atlas_build_objects", "hyptosis_organized_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "scarecrow",
+      "paletteGroup": "town_props",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["lpc_atlas_build_objects", "hyptosis_free_tiles_sprites_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "fence",
+      "paletteGroup": "town_props",
+      "placementLane": "object_binding_then_same_family_stamp",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_fence_stamp_variants"
+    },
+    {
+      "objectKind": "lamp",
+      "paletteGroup": "town_props",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects", "hyptosis_organized_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "bench",
+      "paletteGroup": "town_props",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["lpc_atlas_build_objects", "hyptosis_organized_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "stump",
+      "paletteGroup": "nature_foraging",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_plant_repack", "hyptosis_organized_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "log",
+      "paletteGroup": "nature_foraging",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "hyptosis_organized_oga"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "sign",
+      "paletteGroup": "town_props",
+      "placementLane": "object_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_source_rect_audit"
+    },
+    {
+      "objectKind": "door",
+      "paletteGroup": "building_transitions",
+      "placementLane": "object_binding_then_interaction_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_door_interaction_metadata"
+    },
+    {
+      "objectKind": "stairs",
+      "paletteGroup": "building_transitions",
+      "placementLane": "object_binding_then_transition_binding",
+      "currentBinding": "generated_object_atlas",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_build_objects"],
+      "promotionStatus": "runtime_bound_needs_transition_metadata"
+    },
+    {
+      "objectKind": "cave_entrance",
+      "paletteGroup": "building_transitions",
+      "placementLane": "stamp_required",
+      "currentBinding": "missing_runtime_object_binding",
+      "sourceCandidates": ["elizawy_lpc_main", "lpc_atlas_base_terrain", "lpc_atlas_build_objects"],
+      "promotionStatus": "blocked_until_multitile_stamp_manifest_exists"
+    }
+  ],
+  "nextImplementationPass": [
+    "Generate or select a canonical runtime object atlas manifest for the 25 currently bound ObjectKind entries.",
+    "Create a first project-owned stamp manifest for cave_entrance and any multi-tile variants that cannot fit the 32x64 object binding lane.",
+    "Attach source-pack/license/source-rect provenance to every promoted object record.",
+    "Expose editor palette groups using this manifest instead of one flat Objects list.",
+    "Validate that every visible palette entry can be placed, saved, loaded, selected, moved, erased, and collision-tested."
+  ]
+}

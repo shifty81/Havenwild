@@ -1,0 +1,40 @@
+{
+  "id": "havenwild-worldgen-v0-7",
+  "version": "0.7.0",
+  "title": "Worldgen v0.7 Editor Collision/Interaction Overlay",
+  "base": "havenwild-clean-source-with-worldgen-v0-6.zip",
+  "rustSourceModified": true,
+  "modifiedRustFiles": [
+    "crates/haven_core/src/lib.rs",
+    "crates/haven_game/src/main.rs"
+  ],
+  "newFiles": [
+    "content/packs/worldgen_home_island_v0_7.json",
+    "content/worldgen/worldgen_editor_overlay_profile_v0_7.json",
+    "docs/engineering/worldgen_editor_overlay_v0_7.md",
+    "WORLDGEN_V0_7_APPLY_NOTES.md",
+    "scripts/Validate-WorldgenEditorOverlayV07.py",
+    "scripts/Validate-WorldgenFootprintsV07.py",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenEditorOverlayV07.ps1",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV07.ps1"
+  ],
+  "features": [
+    "Visual footprint overlay toggled by H",
+    "Collision and blocked-tile overlay toggled by C",
+    "Interaction and transition overlay toggled by I",
+    "Multi-tile object placement preview at cursor",
+    "Placement diagnostics before object commit",
+    "Runtime path now loads content/packs/worldgen_home_island_v0_7.json"
+  ],
+  "validation": {
+    "assets": "pass",
+    "runtimeIndex": "pass with 1 expected placeholder-art warning",
+    "footprintsV07": "pass",
+    "editorOverlayV07": "pass",
+    "cargoCheck": "not run; cargo is unavailable in this container"
+  },
+  "expectedWarnings": [
+    "14 scene placeholder object assets still need production atlas art"
+  ],
+  "nextRecommendedPatch": "v0.8 editor object palette/outliner with selectable placed objects, delete/move/resize controls, and per-object footprint editing."
+}

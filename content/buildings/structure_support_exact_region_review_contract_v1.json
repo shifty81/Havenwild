@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.structure_support_exact_region_review_contract.v1",
+  "pass": "167Z109W45D1",
+  "authority": "human-reviewed exact LPC source evidence before bridge/platform/pillar PublishedWorldAsset promotion",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "cellSize": [32, 32],
+  "requiredFamilies": [
+    "bridge.drawbridge_a",
+    "bridge.rope_a.no_rails",
+    "bridge.rope_a.rails",
+    "bridge.wood_a.no_rails",
+    "bridge.wood_a.rails",
+    "platform.cement_a",
+    "platform.dais_steps_a",
+    "pillar.floral_a",
+    "pillar.stone_a"
+  ],
+  "requiredRoleGroups": {
+    "bridge": ["approach_a", "span_repeat", "approach_b", "rail_left", "rail_right", "end_cap_a", "end_cap_b", "support_or_post", "stateful_leaf"],
+    "platform": ["field", "edge_north", "edge_east", "edge_south", "edge_west", "corner_nw", "corner_ne", "corner_sw", "corner_se", "step_access"],
+    "pillar": ["base", "shaft", "shaft_repeat", "capital", "full_assembly"]
+  },
+  "reviewPolicy": {
+    "exactSourceRectRequired": true,
+    "visualHumanReviewRequired": true,
+    "cellCoordinatesAloneDoNotCertify": true,
+    "multiCellAssembliesAllowed": true,
+    "sourcePixelsRemainImmutable": true,
+    "generatedEvidenceIsMachineLocal": true,
+    "generatedEvidenceIsNotRuntimeAuthority": true,
+    "publishOnlyAfterSelectionManifestIsSourceControlled": true,
+    "runtimeAtlasIsCacheOnly": true
+  },
+  "evidenceRequirements": {
+    "labelledGridBoard": true,
+    "cellPixelHash": true,
+    "alphaOccupancy": true,
+    "occupiedBounds": true,
+    "edgeContactMask": true,
+    "duplicatePixelGroups": true,
+    "selectionTemplate": true,
+    "portableEvidenceZip": true
+  },
+  "forbiddenPatterns": [
+    "promote every non-empty support cell",
+    "infer semantic topology role from alpha occupancy alone",
+    "whole source sheet as a normal placeable",
+    "invent source coordinates because raw LPC source is unavailable",
+    "mark bridge platform or pillar source componentRectsReviewed before exact visual evidence is accepted"
+  ]
+}

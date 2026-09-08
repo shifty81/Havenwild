@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild_open_world_preset.schema.v1.json",
+  "title": "Havenwild Open World Preset v1",
+  "type": "object",
+  "required": ["schema", "id", "game", "generator_version", "overworld", "factorio_style_generation", "required_anchors", "generation_stages", "caves", "materials"],
+  "properties": {
+    "schema": { "const": "havenworld.open_world_preset.v1" },
+    "id": { "type": "string", "minLength": 1 },
+    "game": { "const": "Havenwild" },
+    "generator_version": { "const": "havenwild.worldgen.v1" },
+    "default_seed": { "type": "integer", "minimum": 0 },
+    "overworld": {
+      "type": "object",
+      "required": ["surface_id", "mode", "world_size_tiles", "chunk_size_tiles", "tile_size_pixels", "outdoor_transitions_allowed", "interior_transition_types"],
+      "properties": {
+        "surface_id": { "type": "string", "minLength": 1 },
+        "mode": { "const": "continuous_chunked_overworld" },
+        "world_size_tiles": { "$ref": "#/$defs/positivePair" },
+        "chunk_size_tiles": { "$ref": "#/$defs/positivePair" },
+        "tile_size_pixels": { "$ref": "#/$defs/positivePair" },
+        "outdoor_transitions_allowed": { "const": false },
+        "interior_transition_types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "factorio_style_generation": { "type": "object" },
+    "required_anchors": { "type": "array", "items": { "type": "string" }, "minItems": 9 },
+    "generation_stages": { "type": "array", "items": { "type": "string" }, "minItems": 10 },
+    "caves": { "type": "object" },
+    "materials": { "type": "object" }
+  },
+  "$defs": {
+    "positivePair": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "integer", "minimum": 1 },
+        { "type": "integer", "minimum": 1 }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    }
+  }
+}

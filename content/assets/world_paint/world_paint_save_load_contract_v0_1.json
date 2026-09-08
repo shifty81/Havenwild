@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.world_paint_save_load_contract.v0.1",
+  "version": 1,
+  "name": "World Paint Save Load Integration Contract",
+  "canonicalTileSize": [
+    32,
+    32
+  ],
+  "deltaPath": "WORKSPACE/generated/world_paint/world_paint_deltas_v0_1.json",
+  "integrationPoints": [
+    {
+      "id": "startup_world_load",
+      "behavior": "load world source, then replay all paint deltas before first frame"
+    },
+    {
+      "id": "manual_world_load",
+      "behavior": "load saved world, restore layout, replay all paint deltas, then refresh inspector"
+    },
+    {
+      "id": "worldgen_pack_load",
+      "behavior": "load generated pack, then replay all paint deltas against matching scene ids"
+    },
+    {
+      "id": "before_save",
+      "behavior": "replay all paint deltas before save so current world snapshot contains reconstructed paint edits"
+    },
+    {
+      "id": "sequence_restore",
+      "behavior": "restore next paint sequence from max persisted delta sequence"
+    }
+  ],
+  "hotkeyRoutingGuards": [
+    {
+      "key": "H",
+      "paintTabBehavior": "toggle horizontal mirror",
+      "globalBehaviorWhenNotPaint": "toggle footprint overlay"
+    },
+    {
+      "key": "T",
+      "paintTabBehavior": "replay active scene paint deltas",
+      "globalBehaviorWhenNotPaint": "toggle terrain debug overlay"
+    },
+    {
+      "key": "[ / ]",
+      "paintTabBehavior": "cycle subcell mode",
+      "globalBehaviorWhenNotPaint": "cycle transition target"
+    }
+  ],
+  "multiplayerPolicy": {
+    "authoritativeState": "host/server stores compact paint delta operations and/or equivalent scene tile/material state",
+    "clientVisualState": "clients derive shoreline, foam, variation, debris, and overlays deterministically",
+    "replaySafety": "replay is idempotent at current resolved-tile level and should remain deterministic as subcell masks become persistent"
+  }
+}

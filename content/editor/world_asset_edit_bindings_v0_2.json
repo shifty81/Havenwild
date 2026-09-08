@@ -1,0 +1,845 @@
+{
+  "schema": "havenwild.world_asset_edit_bindings.v0_2",
+  "rules": {
+    "generated_outputs_are_read_only": true,
+    "third_party_sources_require_project_override_for_destructive_normalization": true,
+    "save_updates_open_viewport": true,
+    "large_rebuilds_use_background_jobs": true,
+    "overlapping_visuals_require_layer_selection": true
+  },
+  "bindings": [
+    {
+      "semantic_id": "terrain.lpc_v7.dirt.tan.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        32,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.dirt.brown.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        128,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.dirt.dark.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        224,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.rock.white.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        320,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.rock.gray.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        416,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.rock.dark.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        512,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.rock.black.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        608,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.hole.brown.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        704,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.hole.black.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        800,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.mud.brown.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        896,
+        96,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.grass.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        32,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.grass.light.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        128,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.grass.dark.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        224,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.grass.dead.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        320,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.soil.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        416,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.sand.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        512,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.snow.1.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        608,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.snow.2.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        704,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.gravel.1.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        800,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.dirt.roots.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        896,
+        320,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.water.shallows.dirt.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        32,
+        544,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.water.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        128,
+        544,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.water.deep.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        224,
+        544,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.water.purple.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        320,
+        544,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.water.green.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        416,
+        544,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.lava.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        512,
+        544,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.water.shallows.sand.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        160,
+        832,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.ice.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        192,
+        832,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.ice.melting.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        288,
+        832,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.earth.cracked.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        512,
+        768,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.stone.white.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        608,
+        768,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.stone.tan.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        704,
+        768,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.mudstone.gray.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        800,
+        768,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.lpc_v7.mudstone.brown.pure_fill",
+      "source_path": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "source_rect": [
+        896,
+        768,
+        32,
+        32
+      ],
+      "asset_kind": "terrain_material",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "terrain_material_registry",
+        "terrain_atlas",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.cliff.lpc.grass.sheet",
+      "source_path": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "source_rect": [
+        0,
+        0,
+        384,
+        288
+      ],
+      "asset_kind": "structural_cliff_sheet",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "cliff_visual_binding",
+        "structural_cache_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.cliff.lpc.dark_dirt.sheet",
+      "source_path": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_ddirt.png",
+      "source_rect": [
+        0,
+        0,
+        384,
+        288
+      ],
+      "asset_kind": "structural_cliff_sheet",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "cliff_visual_binding",
+        "structural_cache_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.cliff.lpc.sand.sheet",
+      "source_path": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_sand.png",
+      "source_rect": [
+        0,
+        0,
+        384,
+        288
+      ],
+      "asset_kind": "structural_cliff_sheet",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "cliff_visual_binding",
+        "structural_cache_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.cliff.lpc.snow.sheet",
+      "source_path": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_snow.png",
+      "source_rect": [
+        0,
+        0,
+        384,
+        288
+      ],
+      "asset_kind": "structural_cliff_sheet",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "cliff_visual_binding",
+        "structural_cache_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.chicken.walk",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/chicken_walk.png",
+      "source_rect": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.chicken.eat",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/chicken_eat.png",
+      "source_rect": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.cow.walk",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/cow_walk.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.cow.eat",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/cow_eat.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.llama.walk",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/llama_walk.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.llama.eat",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/llama_eat.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.pig.walk",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/pig_walk.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.pig.eat",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/pig_eat.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.sheep.walk",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/sheep_walk.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "livestock.sheep.eat",
+      "source_path": "content/assets/oga_lpc/source/animals/farm_animals/sheep_eat.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "asset_kind": "animated_world_entity",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "livestock_renderer",
+        "animation_preview",
+        "world_viewport"
+      ]
+    },
+    {
+      "semantic_id": "terrain.water.animated_waterfalls.sheet",
+      "source_path": "content/assets/oga_lpc/source/terrain/animated_water/wateranimate2.png",
+      "source_rect": [
+        0,
+        0,
+        576,
+        386
+      ],
+      "asset_kind": "water_effect_sheet",
+      "edit_policy": "source_or_override",
+      "affected_systems": [
+        "waterfall_renderer",
+        "water_effect_preview",
+        "world_viewport"
+      ]
+    }
+  ]
+}

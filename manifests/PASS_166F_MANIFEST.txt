@@ -1,0 +1,17 @@
+Havenwild Pass 166F — Terrain Authoring Stabilization
+Base lineage: Pass 166D4
+Cumulative: includes Pass 166E Runtime UI Normalization
+
+OVERWRITE content/ui/hud/vitals_frame.png
+OVERWRITE crates/haven_game/src/main.rs
+OVERWRITE crates/haven_game/src/runtime_hud.rs
+ADD       crates/haven_game/src/runtime_ui_theme.rs
+OVERWRITE crates/haven_game/src/game_bootstrap.rs
+OVERWRITE crates/haven_game/src/runtime_draw.rs
+OVERWRITE crates/haven_render/src/lib.rs
+OVERWRITE crates/haven_world/src/world_paint.rs
+OVERWRITE crates/haven_editor/src/scene_edit.rs
+ADD       docs/patch/PASS_166E_RUNTIME_UI_NORMALIZATION.md
+ADD       docs/patch/PASS_166F_TERRAIN_AUTHORING_STABILIZATION.md
+ADD       manifests/PASS_166E_MANIFEST.txt
+ADD       manifests/PASS_166F_MANIFEST.txt

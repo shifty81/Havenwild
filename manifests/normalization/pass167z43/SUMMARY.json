@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z43",
+  "title": "Development Layout Migration and Equipment Slot Foundation",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Reproduced the Windows Build all stop after successful LPC indexing, character-cache generation, and ElizaWy object-atlas generation: validate_development_layout rejected the root SCRIPTS tree and four active stale references.",
+    "Moved active pass validators into domain-specific tools/automation/validation/checks folders and removed retired root-path references from both validator registries and the tool registry.",
+    "Updated the shared validation runner to load the canonical tools/automation/validation package only.",
+    "Extended workspace normalization to migrate any existing SCRIPTS/validation framework files before validation, route known pass validators canonically, preserve unknown scripts under tools/archive, and remove the retired root tree.",
+    "Added equivalent PowerShell build preflight so Bash and PowerShell builds normalize the workspace before any validation or compilation step.",
+    "Added the complete LPC equipment data authority with 19 standard equipment slots, one conditional mobility slot, multi-slot occupancy rules, renderer anchors, appearance separation, hotbar/tool hand occupancy, and pregnancy-as-body-state policy.",
+    "Added Equipment, Wardrobe, Appearance, and Loadouts menu contracts while explicitly leaving final graphical runtime screen wiring as follow-on work.",
+    "Added focused synthetic migration and equipment-contract validation and updated cumulative documentation through Pass 167Z43."
+  ],
+  "validation": {
+    "focusedDevelopmentLayoutEquipmentContract": "passed",
+    "legacyScriptsMigrationFixture": "passed",
+    "activeStaleLayoutReferenceScan": "passed",
+    "equipmentSlotCount": "19 standard plus 1 conditional",
+    "pythonCompilation": "passed",
+    "bashSyntax": "passed",
+    "jsonValidation": "passed",
+    "cargoFmtCheckClippyTests": "pending Windows workstation run",
+    "completeBuildAll": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

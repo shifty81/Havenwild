@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.external_source_policy.v1",
+  "project": "Havenwild",
+  "git": {
+    "role": "source_configuration_history",
+    "remote": "https://github.com/shifty81/Havenwild.git",
+    "excludedRoots": ["assets/", "WORKSPACE/", "logs/", "Build/", "target/", "archive/"],
+    "maxSingleFileBytes": 10485760
+  },
+  "externalSources": {
+    "restoreOnDemand": true,
+    "verifyBeforeUse": true,
+    "requiredMetadata": ["source", "revision_or_version", "license", "provenance", "sha256", "destination", "import_recipe"],
+    "existingAcquisitionAuthority": [
+      "content/assets/oga_lpc/manifests/oga_lpc_prototype_source_registry_v0_1.json",
+      "tools/automation/assets/Acquire-OgaLpcGameplayBatchV167S.py",
+      "tools/automation/assets/Build-LpcEcosystemIntakeR18R28.py",
+      "tools/automation/assets/Build-ElizaWyExternalPackIndexV1.py"
+    ]
+  },
+  "projectOwnedNonGitAssets": {
+    "authority": "local_recovery_or_cortex_vault",
+    "mustBeHashed": true,
+    "mustBeRestorableForCleanBootstrap": true
+  },
+  "setupMayPush": false,
+  "greenCommitRequiresPolicyCheck": true
+}

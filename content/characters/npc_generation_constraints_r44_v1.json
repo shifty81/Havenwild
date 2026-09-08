@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.characters.npc_generation_constraints.r44.v1",
+  "pass": "167Z109W81R44",
+  "precedence": [
+    "biological_compatibility",
+    "hard_equipment_conflicts",
+    "profile_requirements",
+    "faction_rules",
+    "profession_rules",
+    "region_climate",
+    "wealth",
+    "season",
+    "weighted_cosmetics"
+  ],
+  "dimensions": [
+    "species",
+    "body",
+    "age",
+    "profession",
+    "faction",
+    "region",
+    "wealth",
+    "season",
+    "culture",
+    "animation_requirements",
+    "tools",
+    "weapons",
+    "armor",
+    "colors"
+  ],
+  "animationAware": true,
+  "populationConstraints": [
+    "profession_counts",
+    "age_distribution",
+    "households",
+    "wealth_distribution",
+    "faction_representation",
+    "workplaces",
+    "housing",
+    "uniqueness"
+  ],
+  "persistentLifeHooks": [
+    "home",
+    "workplace",
+    "profession",
+    "schedule",
+    "relationships",
+    "faction",
+    "settlement",
+    "business",
+    "bed"
+  ],
+  "failurePolicy": "Unsatisfied hard constraints produce an explainable generation failure; never silently substitute forbidden apparel or equipment."
+}

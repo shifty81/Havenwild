@@ -1,0 +1,89 @@
+{
+  "schema": "havenwild.lpc_source_lock.v0_1",
+  "repository": "https://github.com/ElizaWy/LPC",
+  "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "defaultBranch": "main",
+  "tileSize": 32,
+  "fullSourceProjectPath": "assets/source/licensed/lpc_revised",
+  "requiredTopLevelPaths": [
+    "Characters",
+    "FX",
+    "Objects",
+    "Structure",
+    "Terrain",
+    "_ Palette",
+    "_ Test Scenes",
+    "Credits.txt",
+    "README.md"
+  ],
+  "licensePolicy": "Preserve the full ElizaWy/LPC source tree as Havenwild's primary project art foundation. Keep source-local Credits.txt attribution for every promoted asset family; derived catalogs and atlases may not sever that path.",
+  "lockedFiles": [
+    {
+      "repositoryPath": "Terrain/terrain_summer.png",
+      "projectPath": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+      "width": 512,
+      "height": 832,
+      "sha256": "1251a6ea556330190ccb1e3af166eb69fbec4b7a3f7d51c1f54728abd75bd752"
+    }
+  ],
+  "requiredTerrainFiles": [
+    "Terrain/Credits.txt",
+    "Terrain/Rocks, Cliffs.png",
+    "Terrain/Rocks, Grasslands.png",
+    "Terrain/Waterfall.png",
+    "Terrain/cliff_autumn.png",
+    "Terrain/cliff_spring.png",
+    "Terrain/cliff_summer.png",
+    "Terrain/cliff_winter.png",
+    "Terrain/cliff_winter_ice.png",
+    "Terrain/flowers.png",
+    "Terrain/ice-shallows.png",
+    "Terrain/mushrooms.png",
+    "Terrain/plants_autumn.png",
+    "Terrain/plants_spring.png",
+    "Terrain/plants_summer.png",
+    "Terrain/plants_winter.png",
+    "Terrain/terrain_autumn.png",
+    "Terrain/terrain_spring.png",
+    "Terrain/terrain_summer.png",
+    "Terrain/terrain_winter.png",
+    "Terrain/terrain_winter_ice.png",
+    "Terrain/tilled_soil.png",
+    "Terrain/trees_autumn.png",
+    "Terrain/trees_spring.png",
+    "Terrain/trees_summer.png",
+    "Terrain/trees_winter.png",
+    "Terrain/wildflowers_autumn.png",
+    "Terrain/wildflowers_spring.png",
+    "Terrain/wildflowers_summer.png",
+    "Terrain/wildflowers_winter.png"
+  ],
+  "terrainFolderPolicy": "The complete pinned Terrain folder is a production authoring source. Exact authored cells/sprites are selected by manifest; Havenwild must not procedurally redraw equivalent corners, banks, cliffs, ramps, vegetation, rocks, or water features.",
+  "projectAssetAuthority": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
+  "projectAssetAuditContract": "content/assets/lpc/lpc_project_asset_audit_contract_v0_1.json",
+  "requiredRootFiles": [
+    "Credits.txt",
+    "README.md",
+    "GithubReadme.png",
+    "GithubCharacterDemo.gif"
+  ],
+  "sourceTreePolicy": {
+    "role": "primary_project_art_foundation",
+    "preserveRawTree": true,
+    "deriveVirtualCatalogs": true,
+    "fullRepositoryAuditRequired": true,
+    "runtimeUncataloguedUseAllowed": false,
+    "genericReplacementOfExistingElizaWyArtAllowed": false,
+    "normalBuildAuditTool": "tools/automation/assets/Build-ElizaWyProjectAssetAuditV167Z38.py"
+  },
+  "sourceMountProvenance": "WORKSPACE/generated/lpc/elizawy_source_mount_v167z38.json",
+  "requiredDomainRoots": [
+    "Characters",
+    "FX",
+    "Objects",
+    "Structure",
+    "Terrain",
+    "_ Palette",
+    "_ Test Scenes"
+  ]
+}

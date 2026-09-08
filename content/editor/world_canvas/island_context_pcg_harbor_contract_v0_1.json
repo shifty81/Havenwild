@@ -1,0 +1,43 @@
+{
+  "schema": "havenwild.editor.world_canvas.island_context_pcg_harbor.v001",
+  "name": "World Canvas Right-Click, Procedural Islands, and Harbor Region Routes",
+  "requirements": {
+    "contextMenu": [
+      "open assigned scene",
+      "assign selected scene",
+      "clear assignment",
+      "generate selected scene",
+      "generate selected island",
+      "generate all islands",
+      "frame selected island",
+      "refresh harbor route"
+    ],
+    "proceduralIsland": {
+      "multiScene": true,
+      "editableSceneMaps": true,
+      "substantialCentralMountain": true,
+      "coastAndShoreBands": true,
+      "generatedHarbor": true,
+      "adjacentBorderTransitionsPreserveEdgeCoordinate": true
+    },
+    "regionGraph": {
+      "mainHarborIsTravelHub": true,
+      "generatedIslandHarborsLinkFromMainHarbor": true,
+      "linkKind": "sea_route"
+    },
+    "build": {
+      "allBuildProducesClient": "Build/HavenwildClient/HavenwildClient.exe",
+      "allBuildProducesEditor": "Build/HavenwildEditor/HavenwildEditor.exe",
+      "dedicatedCommands": [
+        "client",
+        "apps"
+      ]
+    },
+    "persistence": {
+      "worldPath": "WORKSPACE/saves/world.tworld",
+      "saveKey": "S",
+      "reloadKey": "L",
+      "rebuildHarborRoutesFromAssignments": true
+    }
+  }
+}

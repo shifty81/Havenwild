@@ -1,0 +1,74 @@
+{
+  "schema": "havenwild.editor.brush_resource_catalog.v0_1",
+  "authority": "reuse_existing_asset_ids",
+  "rules": [
+    {
+      "category": "terrain",
+      "resource_class": "semantic_terrain",
+      "brush_modes": ["semantic_terrain", "autotile", "terrain_elevation", "exact_tile"],
+      "default_layer": "terrain",
+      "structural_truth": "terrain_material_plus_structural_elevation"
+    },
+    {
+      "category": "elevation",
+      "resource_class": "structural_source",
+      "brush_modes": ["elevation", "terrain_elevation", "stamp", "exact_tile"],
+      "default_layer": "structural_levels",
+      "direct_cliff_sprite_is_structural_truth": false
+    },
+    {
+      "category": "nature",
+      "resource_class": "placeable_object",
+      "brush_modes": ["object", "stamp", "scatter"],
+      "default_layer": "vegetation"
+    },
+    {
+      "category": "lighting",
+      "resource_class": "light",
+      "brush_modes": ["lighting", "stamp"],
+      "default_layer": "lighting"
+    },
+    {
+      "category": "effects",
+      "resource_class": "effect",
+      "brush_modes": ["atmosphere", "weather", "stamp"],
+      "default_layer": "effects"
+    }
+  ],
+  "canonical_presets": [
+    {
+      "id": "brush.terrain.grass.autotile",
+      "label": "Grass Autotile",
+      "resource": "terrain.grass",
+      "mode": "autotile",
+      "elevation": { "policy": "preserve" }
+    },
+    {
+      "id": "brush.terrain.grass.level2_plateau",
+      "label": "Grassy Level-2 Plateau",
+      "resource": "terrain.grass",
+      "mode": "terrain_elevation",
+      "elevation": { "policy": "set_level", "level": 2 },
+      "cliffs": "automatic",
+      "ramps": "explicit_only"
+    },
+    {
+      "id": "brush.collision.blocked",
+      "label": "Blocked Collision",
+      "resource": "collision.blocked",
+      "mode": "collision"
+    },
+    {
+      "id": "brush.environment.morning_mist",
+      "label": "Morning Mist",
+      "resource": "atmosphere.morning_mist",
+      "mode": "atmosphere"
+    },
+    {
+      "id": "brush.environment.rain",
+      "label": "Rain Region",
+      "resource": "weather.rain",
+      "mode": "weather"
+    }
+  ]
+}

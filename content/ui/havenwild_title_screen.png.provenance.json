@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.asset_provenance.v1",
+  "assetId": "havenwild_title_screen_accepted_v1",
+  "path": "content/ui/havenwild_title_screen.png",
+  "status": "accepted_project_visual_baseline",
+  "ownership": "havenwild_project_owned_generated_artwork",
+  "source": "user-approved image generated during Havenwild development",
+  "externalDependency": false,
+  "licenseRouting": "project_owned",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "sha256": "a6ee0a91ab5195695fd19d3552d1dcb412855cbfa75689fd043f753c5b4ca5d3",
+  "roles": [
+    "title_background",
+    "title_logo",
+    "main_menu_button_art"
+  ],
+  "buttonHitboxAuthority": "crates/haven_game/src/client_character_frontend_draw.rs",
+  "acceptedDate": "2026-08-03"
+}

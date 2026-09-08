@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.roof_exact_region_publication.v1",
+  "pass": "167Z109W45C3B",
+  "evidenceSchema": "havenwild.exact_roof_review_evidence.v1",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "acceptedFamilies": [
+    "roof.flat_shingle_a",
+    "roof.gable_shingle_a"
+  ],
+  "acceptedAssetIds": [
+    "roof_flat_gray_field",
+    "roof_flat_gray_north_eave",
+    "roof_flat_gray_south_eave",
+    "roof_flat_gray_west_edge",
+    "roof_flat_gray_east_edge",
+    "roof_flat_gray_corner_nw",
+    "roof_flat_gray_corner_ne",
+    "roof_flat_gray_corner_sw",
+    "roof_flat_gray_corner_se",
+    "roof_gable_shingle_gray_module",
+    "roof_gable_shingle_brown_module"
+  ],
+  "deferredFamilies": [
+    {
+      "family": "roof.hipped_shingle_a",
+      "reason": "labelled evidence contains interlocking multi-module topology; defer until W46 roof resolver can preview candidate assemblies without guessing role boundaries"
+    },
+    {
+      "family": "roof.adobe_stucco",
+      "reason": "defer style-family publication until first BuildingRecipe needs adobe/parapet construction"
+    },
+    {
+      "family": "roof.adobe_brick",
+      "reason": "defer style-family publication until first BuildingRecipe needs adobe/parapet construction"
+    },
+    {
+      "family": "roof.trim",
+      "reason": "roof trim sheet contains multiple topology systems; retain source grammar pending assembly preview"
+    },
+    {
+      "family": "roof.chimney.brick_a",
+      "reason": "roof attachment socket contract belongs with W46 BuildingRecipe roof penetrations"
+    }
+  ],
+  "reviewRules": {
+    "exactSourceRectsOnly": true,
+    "noWholeSheetPromotion": true,
+    "candidateUntilRuntimeVisualAcceptance": true
+  },
+  "sourceEvidence": {
+    "roof.flat_shingle_a": "9e0e44086d5ae9528473e58c5a66d2b2d943e40d7f0208a7832d937e913b7d98",
+    "roof.gable_shingle_a": "d78e0a048e9b449e1f45ae5bfd31878d9979c879f53a4332a7f3713e9c089ca7"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.authored_character_templates.v0_1",
+  "town_id": "willowmere",
+  "rules": {
+    "sex_values": ["male", "female"],
+    "age_groups": ["child", "teen", "adult", "elder"],
+    "species": "human",
+    "allow_seeded_minor_variation": true,
+    "lock_identity_and_role": true,
+    "require_lpc_compatibility": true,
+    "require_license_clearance": true
+  },
+  "templates": [
+    {"id":"willowmere_elian_voss","visual_tags":["elder","formal_modest","gray_hair","civic_seal"],"outfit_contexts":["everyday","formal"]},
+    {"id":"willowmere_mara_fenwick","visual_tags":["merchant","apron","belt_pouch","hair_tied_back"],"outfit_contexts":["everyday","work"]},
+    {"id":"willowmere_brann_tallow","visual_tags":["blacksmith","work_apron","gloves","soot_palette"],"outfit_contexts":["everyday","work"]},
+    {"id":"willowmere_tessa_rowan","visual_tags":["carpenter","rolled_sleeves","tool_belt","boots"],"outfit_contexts":["everyday","work"]},
+    {"id":"willowmere_sela_mire","visual_tags":["elder","healer","gray_hair","herb_satchel"],"outfit_contexts":["everyday","work"]},
+    {"id":"willowmere_orin_vale","visual_tags":["innkeeper","vest","apron","warm_palette"],"outfit_contexts":["everyday","work"]},
+    {"id":"willowmere_ilya_reed","visual_tags":["farmer","practical_clothes","boots","basket"],"outfit_contexts":["everyday","work","weather"]},
+    {"id":"willowmere_dain_mercer","visual_tags":["ranger","travel_cloak","leather_gear","satchel"],"outfit_contexts":["everyday","travel","weather"]},
+    {"id":"willowmere_nella_voss","visual_tags":["teen","civic_apprentice","satchel","notebook"],"outfit_contexts":["everyday","work"]},
+    {"id":"willowmere_pip_rowan","visual_tags":["child","simple_clothes","small_satchel","toy_accessory"],"outfit_contexts":["everyday"]}
+  ]
+}

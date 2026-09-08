@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W43D",
+  "date": "2026-08-14",
+  "title": "Complete Placeable + Estate Visual Authority Closure",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D"
+  ],
+  "authority": "PublishedWorldAssetRegistry",
+  "publishedRecords": 36,
+  "publishedAliases": 32,
+  "productionSceneCandidates": 29,
+  "remainingSceneBlockers": 12,
+  "objectKindSweep": 26,
+  "estateDisplayName": "Estate",
+  "legacyEstateSceneCode": "farmstead",
+  "placeableAcceptanceScene": "placeable_visual_acceptance",
+  "validation": {
+    "sourceProfile": "PASS",
+    "w40": "PASS",
+    "w40h1": "PASS",
+    "w40h2": "PASS",
+    "w40h3": "PASS",
+    "w43b": "PASS",
+    "w43c": "PASS",
+    "w43d": "PASS",
+    "windowsRustBuild": "PENDING_LOCAL_TOOLCHAIN"
+  },
+  "next": "167Z109W44 exact-source Pixel Studio authority"
+}

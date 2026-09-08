@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.placeable_runtime_dispatch_policy.v1",
+  "requirements": {
+    "stable_asset_ref_is_render_authority": true,
+    "stable_asset_ref_is_interaction_authority": true,
+    "object_kind_is_compatibility_fallback_only": true,
+    "visual_frames_are_pack_defined": true,
+    "interaction_actions_are_pack_defined": true,
+    "object_state_is_persisted": true,
+    "source_textures_are_cached_by_stable_provider": true,
+    "missing_pack_provider_uses_explicit_legacy_fallback": true
+  },
+  "supported_actions": [
+    "inspect",
+    "sit",
+    "sleep",
+    "harvest",
+    "open",
+    "enter_scene"
+  ],
+  "consumers": [
+    "runtime_renderer",
+    "runtime_interaction_dispatch",
+    "f3_editor",
+    "native_editor",
+    "world_save"
+  ]
+}

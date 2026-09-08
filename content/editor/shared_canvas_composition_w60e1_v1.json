@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.shared_canvas_composition.w60e1.v1",
+  "pass": "167Z109W60E1",
+  "authority": "Scene Editor and Pixel Studio selected-region presentation share one prepared scene composition",
+  "selectionRoundTrip": {
+    "preservesWorldOrigin": true,
+    "tilePixels": 32,
+    "requiredReferenceLayers": [
+      "Generated Terrain",
+      "Terrain Transitions",
+      "Existing Visual Overrides",
+      "Buildings",
+      "Objects & Stamps"
+    ],
+    "discoversIntersectingBuildings": true,
+    "discoversIntersectingObjectsAndStamps": true,
+    "pixelStudioMayReconstructTerrainOnly": false
+  },
+  "rules": [
+    "Edit Selected Region represents what the Scene Editor selection contains, not only its semantic terrain cells",
+    "Reference presentation layers are locked and pixel-aligned to the selected scene rectangle",
+    "Buildings are discovered from BuildingInstance authority by intersection with the selected rectangle",
+    "Objects and stamps remain independent reference layers rather than being destructively flattened into terrain"
+  ]
+}

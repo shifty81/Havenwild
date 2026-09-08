@@ -1,0 +1,40 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W45C2",
+  "date": "2026-08-14",
+  "title": "Roof Topology + Exact Wall-Border Authority",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B",
+    "167Z109W45C1",
+    "167Z109W45C2"
+  ],
+  "authority": "PublishedWorldAssetRegistry + BuildingRecipe roof topology contract",
+  "structureSourceSheets": 98,
+  "reviewedStructureSourceSheets": 11,
+  "publishedW45C2WallBorderCandidates": 1,
+  "publishedRoofVisualCandidates": 0,
+  "candidateOnly": true,
+  "acceptanceScene": "structure_roof_trim_acceptance",
+  "roofTopologyContract": "content/buildings/roof_topology_contract_v1.json",
+  "interiorPolicy": "same_world_building_instance",
+  "roofPromotion": "DEFERRED_EXACT_TOPOLOGY_REGION_REVIEW",
+  "validation": {
+    "w45a": "PASS",
+    "w45b": "PASS",
+    "w45c1": "PASS",
+    "w45c2": "PASS",
+    "structureRoofTrimBuildCommand": "PASS",
+    "windowsRustBuild": "PENDING_LOCAL_TOOLCHAIN"
+  },
+  "next": "167Z109W45C3 exact roof region/topology publication; then W45D bridge/platform/pillar/misc support"
+}

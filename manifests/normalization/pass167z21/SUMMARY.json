@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z21",
+  "title": "Windows Case-Insensitive Self-Test Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Removed a duplicate case-only Build fixture that collapses to one path on Windows.",
+    "Retained case-insensitive Build exclusion coverage with distinct client/editor fixtures.",
+    "Advanced the active content validator identity and registry label."
+  ],
+  "completeSourceCreated": false
+}

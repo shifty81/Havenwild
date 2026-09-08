@@ -1,0 +1,21 @@
+HAVENWILD OGA LPC PHASE 1 CREDITS
+
+1) LPC cliffs/mountains with grass top and more!
+Source: https://opengameart.org/content/lpc-cliffsmountains-with-grass-top-and-more
+Selected license: CC-BY-SA 3.0
+Commercial use: permitted under the license.
+Required credits: Lanea Zimmerman (Sharm). Also credit Daniel Eddeland and Wiliam Thompson for the sand-derived material. The page author Evert states no credit to Evert is required.
+Files: LPC_cliffs_grass.png, LPC_cliffs_ddirt.png, LPC_cliffs_snow.png, LPC_cliffs_sand.png
+Modification status: imported unchanged in Phase 1.
+
+2) LPC Animated Water and waterfalls
+Source: https://opengameart.org/content/lpc-animated-water-and-waterfalls
+Author: ZaPaper
+Selected license: CC-BY-SA 3.0
+Commercial use: permitted under the license.
+Attribution instruction: use the original LPC license and attribution; linking to ZaPaper's RPG Game Maker is requested but not mandatory in the page text.
+File: wateranimate2.png
+Modification status: imported unchanged in Phase 1.
+
+CC-BY-SA 3.0 license text:
+https://creativecommons.org/licenses/by-sa/3.0/

@@ -1,0 +1,329 @@
+{
+  "schema": "havenwild.lpc_project_asset_authority.v0_1",
+  "version": "0.1.0",
+  "pass": "167Z38",
+  "source": {
+    "id": "elizawy_lpc",
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "projectMount": "assets/source/licensed/lpc_revised",
+    "rootCredits": "assets/source/licensed/lpc_revised/Credits.txt",
+    "rootReadme": "assets/source/licensed/lpc_revised/README.md",
+    "tileSize": 32,
+    "perspective": "three_quarter_top_down",
+    "visualRole": "primary_project_art_foundation"
+  },
+  "projectPolicy": {
+    "primaryVisualSource": "elizawy_lpc",
+    "sourceTreeIsImmutable": true,
+    "preserveOriginalFolderAndCreditLayout": true,
+    "moveRawThirdPartyFilesIntoProjectOwnedFolders": false,
+    "deriveCatalogsAndAtlasesFromSourceRects": true,
+    "generatedAtlasesAreDisposableCaches": true,
+    "runtimeMayUseUncataloguedSourceFiles": false,
+    "editorMayBrowseEntireSourceRepository": true,
+    "externalNonElizaWyDefaultPolicy": "reference_only_until_explicitly_approved",
+    "universalLpcCharacterGeneratorRole": "character_composition_extension_constrained_to_elizawy_lpc_revised_scale_palette_and_animation_contracts",
+    "testScenesRuntimePolicy": "reference_only",
+    "creditPolicy": "every promoted asset retains nearest source-local Credits.txt plus root Credits.txt",
+    "worldGenerationMustUseElizaWyCatalogs": true,
+    "runtimeNaturalObjectProceduralFallbackAllowed": false,
+    "runtimeExistingElizaWyEquivalentReplacementAllowed": false,
+    "nativeEditorAndRuntimeMustShareStableAssetIds": true,
+    "generatedWorldsMustReserveInfrastructureBeforeEcology": true
+  },
+  "normalizedCatalogRoot": "WORKSPACE/generated/lpc/catalogs",
+  "fullAuditOutput": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38.json.gz",
+  "fullAuditSummary": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38_summary.json",
+  "auditReport": "docs/audits/generated/ELIZAWY_PROJECT_ASSET_AUDIT_V167Z38.md",
+  "domains": [
+    {
+      "id": "terrain",
+      "sourcePrefixes": [
+        "Terrain/"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/terrain.json",
+      "projectNamespaces": [
+        "terrain.ground",
+        "terrain.water",
+        "terrain.coast",
+        "terrain.cliff",
+        "terrain.farm",
+        "terrain.feature"
+      ],
+      "owners": [
+        "worldgen",
+        "runtime_terrain",
+        "world_editor",
+        "pixel_studio"
+      ],
+      "runtimePolicy": "exact_authored_cells_or_reviewed_connected_components"
+    },
+    {
+      "id": "nature",
+      "sourcePrefixes": [
+        "Terrain/"
+      ],
+      "sourceNameTokens": [
+        "tree",
+        "sapling",
+        "stump",
+        "trunk",
+        "plant",
+        "flower",
+        "wildflower",
+        "mushroom",
+        "fungus",
+        "rock",
+        "boulder",
+        "ore",
+        "mineral",
+        "shrub",
+        "bush",
+        "reed",
+        "herb"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/nature.json",
+      "projectNamespaces": [
+        "nature.tree",
+        "nature.shrub",
+        "nature.flower",
+        "nature.mushroom",
+        "nature.herb",
+        "nature.rock",
+        "nature.reed"
+      ],
+      "owners": [
+        "biome_worldgen",
+        "runtime_objects",
+        "world_editor",
+        "foraging",
+        "forestry",
+        "mining"
+      ],
+      "runtimePolicy": "tree_first_ecology_with_native_scale_canopies_explicit_trunk_collision_and_authored_understory"
+    },
+    {
+      "id": "objects",
+      "sourcePrefixes": [
+        "Objects/"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/objects.json",
+      "projectNamespaces": [
+        "object.furniture",
+        "object.storage",
+        "object.crafting",
+        "object.commerce",
+        "object.decor",
+        "object.item",
+        "object.tool",
+        "object.food"
+      ],
+      "owners": [
+        "placeables",
+        "interiors",
+        "inventory",
+        "crafting",
+        "shops",
+        "taverns",
+        "editor"
+      ],
+      "runtimePolicy": "explicit_semantic_binding_and_foot_anchor_required"
+    },
+    {
+      "id": "structure",
+      "sourcePrefixes": [
+        "Structure/"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/structure.json",
+      "projectNamespaces": [
+        "structure.floor",
+        "structure.wall",
+        "structure.door",
+        "structure.window",
+        "structure.roof",
+        "structure.fence",
+        "structure.bridge",
+        "structure.stairs",
+        "structure.misc"
+      ],
+      "owners": [
+        "building_system",
+        "city_authoring",
+        "interiors",
+        "world_editor",
+        "runtime_structures"
+      ],
+      "runtimePolicy": "authored_tile_or_multitile_stamp_with_collision_and_attachment_metadata"
+    },
+    {
+      "id": "characters",
+      "sourcePrefixes": [
+        "Characters/"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/characters.json",
+      "projectNamespaces": [
+        "character.body",
+        "character.head",
+        "character.hair",
+        "character.clothing",
+        "character.armor",
+        "character.tool",
+        "character.weapon",
+        "character.animation"
+      ],
+      "owners": [
+        "character_creator",
+        "npc_generation",
+        "equipment",
+        "animation_runtime",
+        "portrait_pipeline"
+      ],
+      "runtimePolicy": "layered_lpc_revised_character_contract; generator extensions must remain compatible"
+    },
+    {
+      "id": "fx",
+      "sourcePrefixes": [
+        "FX/"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/fx.json",
+      "projectNamespaces": [
+        "fx.interaction",
+        "fx.weather",
+        "fx.magic",
+        "fx.projectile",
+        "fx.environment"
+      ],
+      "owners": [
+        "runtime_fx",
+        "animation_editor",
+        "world_editor"
+      ],
+      "runtimePolicy": "explicit_frame_grid_and_playback_metadata_required"
+    },
+    {
+      "id": "palette",
+      "sourcePrefixes": [
+        "_ Palette/"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/palette.json",
+      "projectNamespaces": [
+        "palette.lpc_revised"
+      ],
+      "owners": [
+        "pixel_studio",
+        "character_creator",
+        "asset_validation"
+      ],
+      "runtimePolicy": "authoring_palette_and_color_harmony_reference"
+    },
+    {
+      "id": "reference_scenes",
+      "sourcePrefixes": [
+        "_ Test Scenes/"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/reference_scenes.json",
+      "projectNamespaces": [
+        "reference.lpc_test_scene"
+      ],
+      "owners": [
+        "asset_audit",
+        "editor_reference"
+      ],
+      "runtimePolicy": "never_ship_as_gameplay_content_without_explicit_promotion"
+    },
+    {
+      "id": "repository_support",
+      "sourcePrefixes": [
+        "GithubReadme.png",
+        "GithubCharacterDemo.gif",
+        ".gitignore"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/repository_support.json",
+      "projectNamespaces": [
+        "reference.repository_preview",
+        "source.repository_support"
+      ],
+      "owners": [
+        "asset_audit",
+        "editor_reference"
+      ],
+      "runtimePolicy": "reference_only_never_used_as_gameplay_asset"
+    },
+    {
+      "id": "legal_and_documentation",
+      "sourcePrefixes": [
+        "Credits.txt",
+        "README.md"
+      ],
+      "sourceNameTokens": [
+        "credits",
+        "readme",
+        "license",
+        "copying",
+        "authors"
+      ],
+      "catalog": "WORKSPACE/generated/lpc/catalogs/legal_and_documentation.json",
+      "projectNamespaces": [
+        "legal.attribution",
+        "documentation.source"
+      ],
+      "owners": [
+        "release_credits",
+        "asset_audit"
+      ],
+      "runtimePolicy": "package_required_attribution_outputs"
+    }
+  ],
+  "treeFirstWorldPolicy": {
+    "generationOrder": [
+      "terrain_and_hydrology",
+      "city_and_required_routes",
+      "player_and_build_clearance",
+      "tree_canopy_and_trunks",
+      "understory_and_forage",
+      "decorative_detail"
+    ],
+    "treeVisualFootprintTiles": [
+      3,
+      4
+    ],
+    "treeTrunkCollisionTiles": [
+      1,
+      1
+    ],
+    "minimumAuthoredTreeVariantsInTestWorld": 4,
+    "genericTreeFallbackAllowed": false,
+    "worldBuiltAroundTrees": true,
+    "rules": [
+      "existing mature tree trunks reserve construction cells unless explicitly cleared",
+      "routes and city plots own deterministic clearance corridors",
+      "understory derives from canopy moisture shade and water proximity",
+      "tree removal must emit stump/log/wood gameplay state rather than erase visual state silently"
+    ]
+  },
+  "editorPolicy": {
+    "assetBrowserRoot": "ElizaWy/LPC",
+    "browseBy": [
+      "domain",
+      "folder",
+      "semantic_role",
+      "season",
+      "theme",
+      "credit_source"
+    ],
+    "sourcePreview": "exact_source_sheet_and_source_rect",
+    "promotionWorkflow": "inspect -> select source rect/component -> assign semantic role -> define footprint/collision -> validate credits -> publish generated binding",
+    "sameCatalogsAsRuntime": true
+  },
+  "systemRouting": {
+    "worldgen": "consume terrain nature structure and object domain catalogs",
+    "runtime": "resolve stable IDs through generated ElizaWy runtime manifests",
+    "editor": "browse all domain catalogs and write stable IDs/source rect bindings",
+    "characterPipeline": "use ElizaWy/LPC Revised as scale palette and animation baseline; Universal LPC is a compatible layered extension",
+    "release": "generate credits from root and nearest source-local credit records"
+  },
+  "projectRoutes": "content/assets/lpc/lpc_project_asset_routes_v0_1.json",
+  "editorLibrary": "content/editor/elizawy_project_asset_library_v0_1.json",
+  "projectAssetCatalog": "content/assets/catalog/havenwild_asset_catalog_v0_1.json"
+}

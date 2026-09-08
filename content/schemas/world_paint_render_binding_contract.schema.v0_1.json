@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.world_paint_render_binding_contract.schema.v0_1",
+  "type": "object",
+  "required": ["schema", "version", "sourceAtlas", "canonicalTileSize", "runtimeBehavior", "authoritativeStatePolicy", "drawPolicy"],
+  "properties": {
+    "schema": {"const": "havenwild.world_paint_render_binding_contract.v0.1"},
+    "version": {"type": "integer", "minimum": 1},
+    "purpose": {"type": "string"},
+    "inputContracts": {"type": "array", "items": {"type": "string"}},
+    "sourceAtlas": {"type": "string"},
+    "canonicalTileSize": {
+      "type": "array",
+      "prefixItems": [{"const": 32}, {"const": 32}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "runtimeBehavior": {"type": "object"},
+    "authoritativeStatePolicy": {"type": "string"},
+    "drawPolicy": {"type": "string"}
+  }
+}

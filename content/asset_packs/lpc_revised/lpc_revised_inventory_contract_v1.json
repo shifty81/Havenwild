@@ -1,0 +1,35 @@
+{
+  "schema": "havenwild.lpc_revised_inventory_contract.v1",
+  "source_root": "assets/source/licensed/lpc_revised",
+  "generated_inventory": "WORKSPACE/generated/lpc_revised_inventory_v1.json",
+  "scope": "entire_repository",
+  "categories": [
+    "terrain", "tile_object", "building", "wall", "floor", "door", "furniture",
+    "crop", "tree", "foliage", "character", "clothing", "armor", "tool", "weapon",
+    "animal", "npc", "animation", "effect", "ui", "item", "interior", "cave",
+    "dungeon", "editor_template", "other"
+  ],
+  "consumers": [
+    "runtime", "pcg", "world_builder", "content_library", "pixel_editor",
+    "character_creator", "npc_generator", "portrait_generator", "animation_runtime"
+  ],
+  "inventory_requirements": {
+    "stable_relative_path": true,
+    "proposed_asset_id": true,
+    "proposed_semantic_id": true,
+    "source_kind": true,
+    "category": true,
+    "tags": true,
+    "image_dimensions_when_available": true,
+    "animation_profile_detection": true,
+    "nearby_license_evidence": true,
+    "technical_readiness_separate_from_license_approval": true
+  },
+  "production_policy": {
+    "default_state": "reference_only",
+    "technical_inventory_allowed_before_license_approval": true,
+    "production_promotion_requires_per_source_license_approval": true,
+    "no_gpl_production_assets": true,
+    "no_implicit_repository_wide_license_assumption": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "havenwild.gui_component_catalog.v1",
+  "theme": "cozy_wood_brass_modular",
+  "source_sheet": "content/ui/gui/reference/havenwild_rustic_gui_kit_v1.png",
+  "reference_screens": {
+    "character_inventory": "content/ui/gui/reference/havenwild_inventory_screen_reference_v1.png",
+    "world_creation": "content/ui/gui/reference/havenwild_world_creation_reference_v1.png"
+  },
+  "production_rules": {
+    "dynamic_text": true,
+    "dynamic_bar_fills": true,
+    "dynamic_portraits": true,
+    "dynamic_minimap": true,
+    "dynamic_day_night_clock": true,
+    "code_generated_scalable_borders": true,
+    "hotbar_player_authored": true,
+    "radial_menu_reuses_hotbar": true,
+    "nine_slice_required_for_image_backed_panels": true,
+    "reference_sheet_requires_reviewed_slicing": true
+  },
+  "families": [
+    "panel",
+    "button",
+    "tab",
+    "slot",
+    "empty_bar_frame",
+    "portrait_frame",
+    "minimap_frame",
+    "player_card",
+    "hotbar",
+    "chat_frame",
+    "generic_panel",
+    "plaque",
+    "ornament",
+    "parchment_panel"
+  ],
+  "screens": [
+    "gameplay_hud",
+    "character_inventory_equipment",
+    "crafting",
+    "world_creation",
+    "dialogue",
+    "chat",
+    "generic_panel"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "havenwild.world_paint_render_cache_contract.v0.1",
+  "version": 1,
+  "purpose": "Persist derived world-paint render bindings so runtime/editor clients can draw strict 32x32 atlas-backed terrain cells without recomputing every binding every frame.",
+  "cacheDocument": "WORKSPACE/generated/world_paint/world_paint_render_cache_v0_1.json",
+  "sourceInputs": {
+    "materialState": "WORKSPACE/generated/world_paint/world_paint_material_state_v0_1.json",
+    "atlasManifest": "content/assets/world_tiles/havenwild_world_environment_test_v0_1.json",
+    "atlasTexture": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png"
+  },
+  "authoritativeBoundary": {
+    "authoritative": [
+      "paint deltas",
+      "material family/layer/subcell state",
+      "edit sequence",
+      "scene id and tile coordinate"
+    ],
+    "derivedCache": [
+      "selected tile id",
+      "selected atlas rect",
+      "transition kind",
+      "neighbor bits",
+      "source resolver status"
+    ],
+    "rule": "Render cache can be regenerated from material state and atlas manifests and must not replace authoritative paint/material state."
+  },
+  "sceneEntryFields": [
+    "scene_id",
+    "x",
+    "y",
+    "family",
+    "layer",
+    "transition_kind",
+    "neighbor_bits",
+    "tile_id",
+    "atlas_rect",
+    "atlas_source",
+    "source_status"
+  ],
+  "validationRules": [
+    "schema must equal havenwild.world_paint_render_cache.v0.1",
+    "atlas rects must remain 32x32",
+    "scene entry scene_id must match containing scene",
+    "duplicate scene/x/y entries are invalid",
+    "cache is disposable and may be rebuilt when material state or atlas manifest changes"
+  ]
+}

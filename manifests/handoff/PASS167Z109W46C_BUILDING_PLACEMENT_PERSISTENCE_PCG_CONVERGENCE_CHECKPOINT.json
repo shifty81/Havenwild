@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W46C",
+  "date": "2026-08-14",
+  "title": "Building Placement / Save / PCG Convergence",
+  "baseline": "167Z109W46B",
+  "authority": "BuildingInstanceRegistry stable placement and persistent state + BuildingRecipeRegistry structural assembly + PublishedWorldAssetRegistry exact visual identity",
+  "acceptanceScene": "pcg_w46c_acceptance_0_0",
+  "saveSidecar": "buildings/building_instance_deltas.json",
+  "editorControls": ["Ctrl+B place", "Ctrl+Alt+Arrow move", "Ctrl+Shift+B delete", "PageUp/PageDown level", "Home cutaway"],
+  "continuousPlacement": "surfaceRegionId + globalAnchorTile",
+  "replication": "host authoritative; global stream sequence separate from per-instance revision; camera-local presentation excluded",
+  "validation": {
+    "userWindowsW46B": "ALL_GREEN",
+    "w46aBuildingRecipeAuthority": "PASS",
+    "w46bBuildingInstanceAuthority": "PASS",
+    "w46cBuildingPersistenceAuthority": "PASS",
+    "architecture": "PASS_420_RUST_FILES_STATIC",
+    "contentIntegrity": "18/18 PASS",
+    "windowsW46C": "PENDING_USER_LOCAL_TEST"
+  },
+  "next": "W47 Interior Grammar / Furnishing Authority after local W46C Cargo/runtime acceptance"
+}

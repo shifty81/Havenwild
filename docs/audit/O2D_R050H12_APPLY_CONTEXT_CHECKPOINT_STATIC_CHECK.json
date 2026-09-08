@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "pass": "O2D-R050H12",
+  "baseline": "O2D-R050H11",
+  "build_status": "AWAITING_WINDOWS_CHECKPOINT",
+  "live_findings_addressed": [
+    "LM Studio request exceeded available context after Desktop Apply",
+    "running cortex.exe locked target/debug during checkpoint build",
+    "Desktop/RPC Apply did not share CLI durable transaction preflight"
+  ],
+  "checks": {
+    "core_context_setting": true,
+    "core_bound_helper": true,
+    "core_bound_test": true,
+    "tools_read_cap": true,
+    "rpc_transaction_parity": true,
+    "rpc_returns_transaction_id": true,
+    "checkpoint_isolated_target": true,
+    "checkpoint_pass_h12": true,
+    "static_guard": true,
+    "batch_bom_free": true
+  },
+  "static_pass": true
+}

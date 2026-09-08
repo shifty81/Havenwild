@@ -1,0 +1,553 @@
+{
+  "schema": "havenwild.lpc_character_layer_catalog.v2",
+  "pass": "167Z40",
+  "profile_id": "lpc.revised.64x96.four_direction.production",
+  "frame_cell": [
+    64,
+    96
+  ],
+  "directions": [
+    "north",
+    "west",
+    "south",
+    "east"
+  ],
+  "future_direction_profile": "lpc.revised.64x96.eight_direction_optional",
+  "layer_order": [
+    "shadow",
+    "wings/back",
+    "weapon/behind",
+    "shield/behind",
+    "body/base",
+    "body/state_overlay",
+    "head/base",
+    "face/eyes",
+    "face/eyebrows",
+    "face/facial_hair",
+    "clothing/legs",
+    "clothing/feet",
+    "clothing/torso",
+    "clothing/accessory",
+    "armor/legs",
+    "armor/feet",
+    "armor/torso",
+    "hair",
+    "headwear",
+    "tool/behind",
+    "tool/front",
+    "weapon/front",
+    "shield/front",
+    "effect/front"
+  ],
+  "slots": [
+    {
+      "id": "shadow",
+      "category": "animation",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "shadow"
+      ]
+    },
+    {
+      "id": "wings/back",
+      "category": "character",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "wings",
+        "back"
+      ]
+    },
+    {
+      "id": "weapon/behind",
+      "category": "weapon",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "weapon",
+        "behind"
+      ]
+    },
+    {
+      "id": "shield/behind",
+      "category": "weapon",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "shield",
+        "behind"
+      ]
+    },
+    {
+      "id": "body/base",
+      "category": "character",
+      "required": true,
+      "multiple": false,
+      "allowed_tags": [
+        "body",
+        "base"
+      ]
+    },
+    {
+      "id": "body/state_overlay",
+      "category": "character",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "body",
+        "state_overlay"
+      ]
+    },
+    {
+      "id": "head/base",
+      "category": "character",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "head",
+        "base"
+      ]
+    },
+    {
+      "id": "face/eyes",
+      "category": "character",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "face",
+        "eyes"
+      ]
+    },
+    {
+      "id": "face/eyebrows",
+      "category": "character",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "face",
+        "eyebrows"
+      ]
+    },
+    {
+      "id": "face/facial_hair",
+      "category": "character",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "face",
+        "facial_hair"
+      ]
+    },
+    {
+      "id": "clothing/legs",
+      "category": "clothing",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "clothing",
+        "legs"
+      ]
+    },
+    {
+      "id": "clothing/feet",
+      "category": "clothing",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "clothing",
+        "feet"
+      ]
+    },
+    {
+      "id": "clothing/torso",
+      "category": "clothing",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "clothing",
+        "torso"
+      ]
+    },
+    {
+      "id": "clothing/accessory",
+      "category": "clothing",
+      "required": false,
+      "multiple": true,
+      "allowed_tags": [
+        "clothing",
+        "accessory"
+      ]
+    },
+    {
+      "id": "armor/legs",
+      "category": "armor",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "armor",
+        "legs"
+      ]
+    },
+    {
+      "id": "armor/feet",
+      "category": "armor",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "armor",
+        "feet"
+      ]
+    },
+    {
+      "id": "armor/torso",
+      "category": "armor",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "armor",
+        "torso"
+      ]
+    },
+    {
+      "id": "hair",
+      "category": "character",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "hair"
+      ]
+    },
+    {
+      "id": "headwear",
+      "category": "clothing",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "headwear"
+      ]
+    },
+    {
+      "id": "tool/behind",
+      "category": "tool",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "tool",
+        "behind"
+      ]
+    },
+    {
+      "id": "tool/front",
+      "category": "tool",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "tool",
+        "front"
+      ]
+    },
+    {
+      "id": "weapon/front",
+      "category": "weapon",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "weapon",
+        "front"
+      ]
+    },
+    {
+      "id": "shield/front",
+      "category": "weapon",
+      "required": false,
+      "multiple": false,
+      "allowed_tags": [
+        "shield",
+        "front"
+      ]
+    },
+    {
+      "id": "effect/front",
+      "category": "effect",
+      "required": false,
+      "multiple": true,
+      "allowed_tags": [
+        "effect",
+        "front"
+      ]
+    }
+  ],
+  "body_families": [
+    "male",
+    "female",
+    "muscular",
+    "pregnant",
+    "teen",
+    "child"
+  ],
+  "animation_families": [
+    {
+      "id": "idle",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 9,
+      "required_baseline": true,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "walk",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 9,
+      "required_baseline": true,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "run",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 8,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "jump",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "climb",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "sit",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 3,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "emote",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "combat",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 8,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "1h_slash",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": [
+        "tool_contact"
+      ]
+    },
+    {
+      "id": "1h_backslash",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": [
+        "tool_contact"
+      ]
+    },
+    {
+      "id": "1h_halfslash",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": [
+        "tool_contact"
+      ]
+    },
+    {
+      "id": "watering",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": [
+        "tool_contact"
+      ]
+    },
+    {
+      "id": "thrust",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 8,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": [
+        "tool_contact"
+      ]
+    },
+    {
+      "id": "shoot",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 13,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "hurt",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "spellcast",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 7,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": []
+    },
+    {
+      "id": "slash",
+      "rows": 4,
+      "frames_per_direction": "source_defined",
+      "runtime_columns": 6,
+      "required_baseline": false,
+      "direction_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "required_events": [
+        "tool_contact"
+      ]
+    }
+  ],
+  "compatibility_matrix": "content/characters/lpc_character_compatibility_matrix_v0_1.json",
+  "consumers": [
+    "player_runtime",
+    "npc_runtime",
+    "character_creator",
+    "portrait_generator",
+    "relationship_family_runtime",
+    "pregnancy_body_state",
+    "equipment_runtime",
+    "multiplayer_replication",
+    "native_editor"
+  ]
+}

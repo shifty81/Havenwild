@@ -1,0 +1,103 @@
+{
+  "schema": "havenwild.runtime_character_animation_binding.v0_1",
+  "revision": "167Z109W15A-semantic-punch-watering-runtime-clip-enforcement-v1",
+  "goal": "bind canonical Havenwild locomotion and gameplay intents to authored Universal LPC-derived runtime clips without silently substituting a different runtime animation when a semantic clip is unavailable",
+  "generatorRevision": "167Z109V1-authored-action-alias-and-directional-coverage-v1",
+  "locomotion": {
+    "idle": "idle",
+    "walk": "walk",
+    "sprint": "run",
+    "sprintUsesDedicatedRunClip": true,
+    "runMayNotFallbackToWalk": true
+  },
+  "gameplayActions": {
+    "hand": {
+      "intent": "Punch",
+      "runtimeClip": "punch",
+      "sourceMotion": "thrust",
+      "reason": "the pinned LPC repository has no punch-named family; the authored unarmed thrust body motion supplies the forward hand strike without using emote or walk"
+    },
+    "axe": {
+      "intent": "OneHandBackslash",
+      "runtimeClip": "1h_backslash",
+      "sourceMotion": "backslash"
+    },
+    "pickaxe": {
+      "intent": "OneHandHalfslash",
+      "runtimeClip": "1h_halfslash",
+      "sourceMotion": "halfslash"
+    },
+    "hoe": {
+      "intent": "OneHandSlash",
+      "runtimeClip": "1h_slash",
+      "sourceMotion": "slash"
+    },
+    "watering_can": {
+      "intent": "Watering",
+      "runtimeClip": "watering",
+      "sourceMotion": "thrust"
+    },
+    "hammer": {
+      "intent": "OneHandHalfslash",
+      "runtimeClip": "1h_halfslash",
+      "sourceMotion": "halfslash"
+    },
+    "fishing_rod": {
+      "intent": "Thrust",
+      "runtimeClip": "thrust",
+      "sourceMotion": "thrust"
+    },
+    "scythe": {
+      "intent": "Slash",
+      "runtimeClip": "slash",
+      "sourceMotion": "slash"
+    }
+  },
+  "sourceAliases": {
+    "punch": [
+      "thrust"
+    ],
+    "combat": [
+      "combat_idle"
+    ],
+    "1h_slash": [
+      "slash"
+    ],
+    "1h_backslash": [
+      "backslash"
+    ],
+    "1h_halfslash": [
+      "halfslash"
+    ],
+    "watering": [
+      "thrust"
+    ]
+  },
+  "directionPolicy": {
+    "fourDirectionActions": "consume authored north/west/south/east rows",
+    "directionIndependentSingleRowActions": [
+      "climb",
+      "hurt"
+    ],
+    "singleRowHandling": "repeat the exact authored source row for all runtime facings; no new pixels are synthesized"
+  },
+  "fallbackPolicy": {
+    "silentIdleOrWalkFallbackForGameplayAction": false,
+    "explicitSemanticFallbacksOnly": true,
+    "explicitFallbacks": {
+      "OneHandSlash": "Slash",
+      "OneHandBackslash": "Slash",
+      "OneHandHalfslash": "Slash",
+      "Combat": "Idle"
+    },
+    "Run": "no fallback; a missing run layer is omitted rather than disguising walk as sprint",
+    "Punch": "dedicated semantic runtime clip required; cache provenance may use approved authored thrust source motion, but runtime must not substitute Thrust",
+    "Watering": "dedicated semantic runtime clip required; cache provenance may use approved authored thrust source motion, but runtime must not substitute Thrust"
+  },
+  "semanticCacheMaterialization": {
+    "manifest": "assets/generated/lpc/characters/havenwild_player_walk_64.json",
+    "punch": "materialized as *_punch_64.png from approved authored thrust-source cache pixels",
+    "watering": "materialized as *_watering_64.png from approved authored thrust-source cache pixels",
+    "runtimeRule": "Punch and Watering keep distinct semantic animation intents and filenames; the compositor does not silently fall back to Thrust at draw time"
+  }
+}

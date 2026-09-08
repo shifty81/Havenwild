@@ -1,0 +1,57 @@
+{
+  "schema": "havenwild.editor.character_animation_coverage.r32.v1",
+  "pass": "167Z109W81R32",
+  "statuses": [
+    "full",
+    "core",
+    "partial",
+    "static",
+    "broken"
+  ],
+  "resolutionOrder": [
+    "exact_authored_action",
+    "certified_compatible_variant",
+    "certified_shared_animation",
+    "unsupported"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "run",
+    "jump",
+    "sit",
+    "emote",
+    "climb",
+    "hurt",
+    "watering",
+    "spellcast",
+    "thrust",
+    "slash",
+    "shoot",
+    "combat",
+    "1h_slash",
+    "1h_backslash",
+    "1h_halfslash",
+    "tool_axe",
+    "tool_hammer",
+    "tool_rod"
+  ],
+  "directions": [
+    "south",
+    "west",
+    "north",
+    "east"
+  ],
+  "matrixAxes": [
+    "item",
+    "body_type",
+    "action",
+    "direction",
+    "source_presence",
+    "resolver_presence",
+    "frame_geometry",
+    "z_order",
+    "required_frame_events"
+  ],
+  "failClosed": true
+}

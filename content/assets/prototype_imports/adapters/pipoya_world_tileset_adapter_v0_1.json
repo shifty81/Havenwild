@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.prototype_asset_import_adapter.v0_1",
+  "id": "adapter.pipoya_world_tileset_32.v0_1",
+  "displayName": "Pipoya RPG World Tileset 32px prototype terrain adapter",
+  "externalSourceId": "third_party.pipoya.free_rpg_world_tileset_32_40_48",
+  "sourceMode": "user_supplied_or_quarantine",
+  "copyMode": "no_raw_copy",
+  "licenseGate": {
+    "commercialPolicyRequired": "allowed_with_attribution_and_metadata",
+    "rawRedistributionAllowed": false,
+    "attributionRequiredInMetadata": true,
+    "releaseBuildRequiresExplicitApproval": true
+  },
+  "sourceInputs": [
+    {
+      "archiveName": "Pipoya RPG World Tileset 48x48 40x40 32x32.zip",
+      "preferredSheetHints": ["32x32", "pipo-map001"],
+      "gridSize": [32, 32],
+      "role": "terrain_water_cliff_road_source"
+    },
+    {
+      "archiveName": "Pipoya RPG World Tileset 48x48 40x40 32x32 for Tiled1.5.zip",
+      "preferredSheetHints": [".tmx", ".tsx", "32x32"],
+      "gridSize": [32, 32],
+      "role": "tiled_import_fixture"
+    }
+  ],
+  "processing": {
+    "adapterKind": "copy_curated_cells_from_user_source",
+    "scalePolicy": "direct_32_to_32",
+    "atlasCellSize": [32, 32],
+    "families": ["terrain.grass", "terrain.dirt", "terrain.water", "terrain.cliff", "terrain.road", "terrain.bridge"],
+    "autotileUse": "prototype transition-rule fixture only until Havenwild-original terrain art replaces it"
+  },
+  "outputPlan": {
+    "processedAtlas": "assets/processed/prototype_tiles/pipoya_world/pipoya_world_terrain_32.png",
+    "metadata": "content/assets/prototype_tiles/pipoya_world/pipoya_world_terrain_32.hhasset.json",
+    "generatedManifest": "WORKSPACE/generated/prototype_imports/pipoya_world_tileset_import_report_v0_1.json"
+  },
+  "releaseGate": {
+    "runtimeDefault": false,
+    "publicRepoRawAssetCopy": false,
+    "requiresAttribution": true,
+    "requiresNoStandaloneAssetExport": true,
+    "allowedBuildProfiles": ["local_dev", "prototype_internal"]
+  },
+  "notes": [
+    "Use the 32x32 variant for Havenwild current tile scale.",
+    "Keep 40x40 and 48x48 sheets as reference/adapters only unless a future viewport scale explicitly needs them."
+  ]
+}

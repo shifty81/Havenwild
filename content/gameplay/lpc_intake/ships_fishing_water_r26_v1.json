@@ -1,0 +1,8 @@
+{
+  "schema":"havenwild.gameplay.lpc_intake.ships_fishing_water.r26.v1",
+  "pass":"W81R26",
+  "assetFamilies":["rowboats","rafts","ships","masts","sails","rigging","decks","docks","piers","fish","aquatic_wildlife","waterfalls","foam","water_fx"],
+  "gameplayLoops":["archipelago_travel","harbor","cargo","fishing","visible_fish","fish_market","cooking","swimming","boats","ship_progression"],
+  "swimInteraction":{"prompt":"F : Swim","entry":"explicit_valid_shoreline_anchor","states":["wade","swim_entry","swim_idle","swim_move","swim_fast","swim_exit","climb_out"]},
+  "productionRule":"World water presentation, shoreline collision, swim eligibility, and navigation depth must share semantic water authority."
+}

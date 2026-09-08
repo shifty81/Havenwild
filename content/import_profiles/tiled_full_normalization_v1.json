@@ -1,0 +1,17 @@
+{
+  "schema": "havenwild.import_profile.v1",
+  "id": "tiled_full_normalization_v1",
+  "provider": "tiled_tsx",
+  "tile_size": null,
+  "margin": 0,
+  "spacing": 0,
+  "properties": {
+    "normalize_wang_sets": true,
+    "normalize_tile_properties": true,
+    "normalize_animation": true,
+    "normalize_probability": true,
+    "normalize_collision_objects": true,
+    "semantic_id_from_class": true,
+    "production_approval_required": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.placeable_state_geometry_behavior_policy.v1",
+  "requirements": {
+    "state_geometry_may_override_collision_and_interaction": true,
+    "open_states_may_disable_movement_blocking": true,
+    "attachment_points_are_state_scoped": true,
+    "behavior_nodes_compile_to_deterministic_commands": true,
+    "runtime_mutation_requires_authority": true,
+    "legacy_object_kind_is_fallback_only": true
+  },
+  "consumers": ["runtime_collision", "runtime_interaction", "behavior_dispatch", "editor_preview", "multiplayer_host"]
+}

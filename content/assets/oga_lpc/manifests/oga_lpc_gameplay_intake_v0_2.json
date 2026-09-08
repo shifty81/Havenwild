@@ -1,0 +1,384 @@
+{
+  "schema": "havenwild.oga_lpc_gameplay_intake.v0_2",
+  "revision": "167Z109M",
+  "policy": {
+    "commercial_use_required": true,
+    "preferred": [
+      "CC0-1.0",
+      "CC-BY-3.0",
+      "CC-BY-4.0",
+      "OGA-BY-3.0"
+    ],
+    "conditional": [
+      "CC-BY-SA-3.0",
+      "CC-BY-SA-4.0"
+    ],
+    "rejected_by_default": [
+      "NC",
+      "GPL-only",
+      "unknown",
+      "conflicting"
+    ],
+    "rawDownloadsAreAuthoringDependencies": true,
+    "runtimePromotionRequiresSemanticRoleAndCredits": true
+  },
+  "entries": [
+    {
+      "id": "oga.lpc.caves",
+      "title": "LPC Caves",
+      "source_page": "https://opengameart.org/content/lpc-caves",
+      "archive_url": "https://opengameart.org/sites/default/files/caves.png",
+      "selected_license": "CC0-1.0",
+      "commercial_use": true,
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "roles": [
+        "cave.entrance",
+        "cave.wall",
+        "cave.corner",
+        "cave.front_ridge",
+        "cave.floor"
+      ],
+      "authors": [
+        "Lanea Zimmerman (Sharm)"
+      ]
+    },
+    {
+      "id": "oga.lpc.cave_openings",
+      "title": "LPC Additional Mountain and Cave Opening Tiles",
+      "source_page": "https://opengameart.org/content/lpc-additional-mountain-and-cave-opening-tiles",
+      "archive_url": "https://opengameart.org/sites/default/files/cave-opening.png",
+      "selected_license": "CC0-1.0",
+      "commercial_use": true,
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "roles": [
+        "cave.entrance_large",
+        "cave.entrance_tileable",
+        "cave.corner_extra",
+        "cave.front_ridge_variant"
+      ],
+      "authors": [
+        "Lanea Zimmerman (Sharm)"
+      ]
+    },
+    {
+      "id": "oga.lpc.mine",
+      "title": "[LPC] Mine",
+      "source_page": "https://opengameart.org/content/lpc-mine",
+      "archive_url": "https://opengameart.org/sites/default/files/lpc-mine.zip",
+      "selected_license": "CC-BY-4.0",
+      "commercial_use": true,
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "roles": [
+        "cave.mine_entrance",
+        "cave.mineshaft",
+        "resource.ore_pile",
+        "resource.mining_tools",
+        "settlement.mine_worksite",
+        "animation.crane"
+      ],
+      "authors": [
+        "bluecarrot16",
+        "Lanea Zimmerman (Sharm)",
+        "Ivan Voirol"
+      ]
+    },
+    {
+      "id": "oga.lpc.farm",
+      "title": "[LPC] Farm",
+      "source_page": "https://opengameart.org/content/lpc-farm",
+      "archive_url": "https://opengameart.org/sites/default/files/lpc-farm.zip",
+      "selected_license": "CC-BY-4.0",
+      "commercial_use": true,
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "roles": [
+        "settlement.farm_barn",
+        "settlement.farm_silo",
+        "settlement.farm_granary",
+        "settlement.farm_coop",
+        "settlement.farm_apiary",
+        "settlement.farm_stable",
+        "route.fence",
+        "machine.windmill",
+        "machine.water_wheel",
+        "machine.food_processing"
+      ],
+      "authors": [
+        "bluecarrot16",
+        "Wolthera van Hövell tot Westerflier (TheraHedwig)",
+        "Ivan Voirol"
+      ]
+    },
+    {
+      "id": "oga.lpc.animated_water",
+      "title": "LPC Animated Water and waterfalls",
+      "source_page": "https://opengameart.org/content/lpc-animated-water-and-waterfalls",
+      "archive_url": "https://opengameart.org/sites/default/files/wateranimate2.png",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "hydrology.water_surface_animation",
+        "hydrology.water_glint",
+        "hydrology.waterfall_animation",
+        "shore.ripple_overlay"
+      ],
+      "authors": [
+        "ZaPaper",
+        "Original LPC contributors"
+      ]
+    },
+    {
+      "id": "oga.lpc.cavern_ruins",
+      "title": "[LPC] Cavern and ruin tiles",
+      "source_page": "https://opengameart.org/content/lpc-cavern-and-ruin-tiles",
+      "archive_url": "https://opengameart.org/sites/default/files/LPC_cavern_ruins.zip",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "cave.interior",
+        "cave.ruin",
+        "cave.track",
+        "cave.crystal",
+        "hydrology.underground_water",
+        "hazard.lava"
+      ],
+      "authors": [
+        "Reemax",
+        "Sharm",
+        "Hyptosis",
+        "Johann C",
+        "HughSpectrum",
+        "Redshrike",
+        "William Thompson",
+        "wulax"
+      ]
+    },
+    {
+      "id": "oga.lpc.basalt_caverns",
+      "title": "[LPC] Basalt Column Caverns",
+      "source_page": "https://opengameart.org/content/lpc-basalt-column-caverns",
+      "archive_url": "https://opengameart.org/sites/default/files/BasaltColumns.png",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "cave.biome_basalt",
+        "geology.basalt_cliff",
+        "cave.deep_wall"
+      ],
+      "authors": [
+        "Eliza Wyatt"
+      ]
+    },
+    {
+      "id": "oga.lpc.trees",
+      "title": "[LPC] Trees",
+      "source_page": "https://opengameart.org/content/lpc-trees",
+      "archive_url": "https://opengameart.org/sites/default/files/lpc-trees.zip",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "ecology.tree_deciduous",
+        "ecology.tree_seasonal",
+        "ecology.tree_stump",
+        "ecology.tree_fallen"
+      ],
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ]
+    },
+    {
+      "id": "oga.lpc.conifers",
+      "title": "[LPC] Conifers",
+      "source_page": "https://opengameart.org/content/lpc-conifers",
+      "archive_url": "https://opengameart.org/sites/default/files/lpc-conifers.zip",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "ecology.tree_conifer",
+        "ecology.tree_snow",
+        "ecology.cold_forest"
+      ],
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ]
+    },
+    {
+      "id": "oga.lpc.plants",
+      "title": "[LPC] Flowers / Plants / Fungi / Wood",
+      "source_page": "https://opengameart.org/content/lpc-flowers-plants-fungi-wood",
+      "archive_url": "https://opengameart.org/sites/default/files/lpc-flowers-plants-fungi-wood.zip",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "ecology.flower",
+        "ecology.bush",
+        "ecology.mushroom",
+        "ecology.forage",
+        "ecology.stump",
+        "ecology.fallen_log",
+        "terrain.detail_forest_floor"
+      ],
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ]
+    },
+    {
+      "id": "oga.lpc.rocks",
+      "title": "[LPC] Rocks",
+      "source_page": "https://opengameart.org/content/lpc-rocks",
+      "archive_url": "https://opengameart.org/sites/default/files/rocks.zip",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "geology.rock",
+        "geology.boulder",
+        "terrain.detail_pebble",
+        "geology.snow_overlay"
+      ],
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ]
+    },
+    {
+      "id": "oga.lpc.crops",
+      "title": "[LPC] Crops",
+      "source_page": "https://opengameart.org/content/lpc-crops",
+      "archive_url": "https://opengameart.org/sites/default/files/crops-v2.1.zip",
+      "selected_license": "CC-BY-SA-4.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "farming.crop_growth",
+        "farming.harvest_visual",
+        "farming.seasonal_crop"
+      ],
+      "authors": [
+        "bluecarrot16",
+        "Daniel Eddeland (daneeklu)",
+        "Joshua Taylor",
+        "Richard Kettering (Jetrel)"
+      ]
+    },
+    {
+      "id": "oga.lpc.fruit_trees",
+      "title": "[LPC] Fruit Trees",
+      "source_page": "https://opengameart.org/content/lpc-fruit-trees",
+      "archive_url": "https://opengameart.org/sites/default/files/lpc-fruit-trees.zip",
+      "selected_license": "CC-BY-SA-4.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "farming.orchard_growth",
+        "farming.fruiting_tree",
+        "farming.harvest_tree"
+      ],
+      "authors": [
+        "bluecarrot16",
+        "Joshua Taylor",
+        "cynicmusic"
+      ]
+    },
+    {
+      "id": "oga.lpc.city_outside",
+      "title": "[LPC] City outside",
+      "source_page": "https://opengameart.org/content/lpc-city-outside",
+      "archive_url": "https://opengameart.org/sites/default/files/LPC_city_outside.zip",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "settlement.city_wall",
+        "settlement.city_roof",
+        "settlement.market",
+        "settlement.statue",
+        "settlement.well",
+        "settlement.civic_detail"
+      ],
+      "authors": [
+        "Reemax",
+        "Sharm",
+        "daneeklu",
+        "Hyptosis",
+        "Johann C",
+        "William Thompson",
+        "wulax"
+      ]
+    },
+    {
+      "id": "oga.lpc.medieval_decor",
+      "title": "[LPC] Medieval Village Decorations",
+      "source_page": "https://opengameart.org/content/lpc-medieval-village-decorations",
+      "archive_url": "https://opengameart.org/sites/default/files/decoration_medieval.zip",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "settlement.market_stall",
+        "settlement.sign",
+        "settlement.lamp",
+        "settlement.banner",
+        "settlement.fence",
+        "settlement.town_square",
+        "settlement.graveyard",
+        "settlement.camp"
+      ],
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ]
+    },
+    {
+      "id": "oga.lpc.wood_bridge",
+      "title": "LPC Wooden Bridge Rework",
+      "source_page": "https://opengameart.org/node/81762",
+      "archive_url": "https://opengameart.org/sites/default/files/lpc_wooden_bridge_rework-1.0.zip",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "route.bridge_wood",
+        "hydrology.crossing"
+      ],
+      "authors": [
+        "Xenodora",
+        "AntumDeluge modifications"
+      ]
+    },
+    {
+      "id": "oga.lpc.dock",
+      "title": "Dock tileset",
+      "source_page": "https://opengameart.org/content/dock-tileset",
+      "archive_url": "https://opengameart.org/sites/default/files/Artis_dock.png",
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "roles": [
+        "settlement.harbor_dock",
+        "settlement.pier",
+        "route.boardwalk",
+        "hydrology.harbor_edge"
+      ],
+      "authors": [
+        "Reid"
+      ]
+    }
+  ]
+}

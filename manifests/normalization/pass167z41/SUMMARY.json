@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z41",
+  "title": "Universal LPC Summary Schema Bootstrap Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Reproduced the Windows Build all failure where a current Universal LPC revision marker allowed a legacy generated summary without a top-level counts object to bypass complete repository re-indexing.",
+    "Added a lightweight Universal LPC generated-summary validator covering canonical schema, locked commit, strict certification, inventory counts, revision marker, and required generated catalogs.",
+    "Changed the Bash build to rebuild the complete Universal LPC repository index whenever its summary is missing, malformed, stale, partial, legacy, or inconsistent with the pinned source.",
+    "Added post-index summary certification to both Bash and PowerShell build paths before the combined LPC project foundation runs.",
+    "Replaced the combined foundation builder's direct summary counts lookup with explicit schema and inventory validation so future failures produce actionable errors instead of KeyError exceptions.",
+    "Updated the authoritative cumulative handoff and apply instructions to Pass 167Z41."
+  ],
+  "validation": {
+    "focusedBootstrapRepairContract": "passed",
+    "legacySummaryFixture": "correctly rejected",
+    "canonicalSummaryFixture": "passed",
+    "pythonCompilation": "passed",
+    "bashSyntax": "passed",
+    "foundationBuilderStaticContract": "passed",
+    "cargoFmtCheckClippyTests": "pending Windows workstation run",
+    "strictFullRepositoryReindex": "pending Windows workstation run with mounted Universal LPC source",
+    "completeBuildAll": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

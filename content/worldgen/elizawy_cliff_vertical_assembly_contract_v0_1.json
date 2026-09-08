@@ -1,0 +1,43 @@
+{
+  "schema": "havenwild.elizawy_cliff.vertical_assembly_contract.v0_1",
+  "pass": "167Z106N5Q",
+  "source": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+  "sourceGridCellPx": [32, 32],
+  "straightSouthFace": {
+    "sourceGridSpan": [10, 9, 1, 3],
+    "sourceRectPx": [320, 288, 32, 96],
+    "horizontalRepeat": "certified_for_straight_runs",
+    "verticalRepeat": "forbidden_complete_envelope",
+    "containsLowerGrassFoot": true,
+    "splitComponents": {
+      "topRock": [320, 288, 32, 32],
+      "bodyRock": [320, 320, 32, 32],
+      "lowerGrassFoot": [320, 352, 32, 32]
+    },
+    "upperWalkableSurface": "separate_surface_terrain_above_host_edge",
+    "placement": "draw_top_then_body_then_single_foot_below_upper_structural_host"
+  },
+  "directMultiLevelDrop": {
+    "runtimePolicy": "repeat_rock_body_only_then_emit_one_grass_foot",
+    "bodyExtension": "two_body_rows_per_additional_structural_face_segment",
+    "forbidden": [
+      "stack_complete_1x3_face_envelopes",
+      "repeat_grass_foot_as_intermediate_terrace",
+      "repeat_corner_foot_as_intermediate_terrace"
+    ]
+  },
+  "targetComposition": [
+    "walkable upper plateau surface",
+    "one cliff lip/boundary",
+    "continuous rock body",
+    "one lower grass-foot transition",
+    "lower terrain surface"
+  ],
+  "shapeCatalog": "content/worldgen/elizawy_cliff_runtime_shape_catalog_v0_1.json",
+  "reference": {
+    "sourceCertificationBoard": "docs/assets/previews/elizawy_cliff_topology_certification_pass167z105.png",
+    "n5qAssemblyBoard": "docs/assets/previews/elizawy_cliff_shape_assembly_pass167z106n5q.png",
+    "compiledSummerTileset": "https://opengameart.org/content/lpc-revised-fully-configured-4-seasons-tilesets-for-tiled-map-editor",
+    "note": "N5Q separates rock-body cells from the single grass-foot cell inside the already certified 1x3 source envelope and uses connected plateau-reference slices for side/corner composition."
+  }
+}

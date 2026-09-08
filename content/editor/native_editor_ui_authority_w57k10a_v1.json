@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.native_editor_ui_authority.v1",
+  "pass": "167Z109W57K10A",
+  "authority": "One editor UI font/theme/material lifetime for the complete native-editor process",
+  "rules": {
+    "fontInitializedBeforeFirstVisibleFrame": true,
+    "fontAtlasRecreatedDuringWorkspaceSwitch": false,
+    "fontAtlasRecreatedAfterPlaySession": false,
+    "startupUsesOnePersistentLoadingSurface": true,
+    "workspaceTextRestoresDefaultMaterialBeforeDraw": true,
+    "fallbackFontMayOnlyAppearWhenWindowsUiFontCannotBeLoaded": true,
+    "primaryTextColorsComeFromEditorTheme": true
+  },
+  "startupStages": [
+    "starting_editor_ui_authority",
+    "loading_project_registries_workspace",
+    "preparing_document_surfaces",
+    "loading_visual_atlases_authored_overrides",
+    "restoring_workspace_canvas_documents",
+    "ready"
+  ],
+  "regressionsPrevented": [
+    "old_font_first_frame_flash",
+    "editor_loading_editor_loading_flash",
+    "black_text_after_animation_or_pixel_asset_load",
+    "dev_client_return_replacing_font_atlas"
+  ]
+}

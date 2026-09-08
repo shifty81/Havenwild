@@ -1,0 +1,48 @@
+{
+  "schema": "havenwild.pass_batch.v1",
+  "batch": "H21A14AB9-AB18",
+  "title": "LPC Content + Gameplay Integration",
+  "passes": [
+    [
+      "AB9",
+      "Curated LPC/OGA content source expansion"
+    ],
+    [
+      "AB10",
+      "Semantic provider/role expansion"
+    ],
+    [
+      "AB11",
+      "Governed source intake + PowerShell/Bash parity"
+    ],
+    [
+      "AB12",
+      "ULPC exact-path semantic/tool classifier repair"
+    ],
+    [
+      "AB13",
+      "Checked-in ULPC equipment/action catalog correction"
+    ],
+    [
+      "AB14",
+      "Crafting-to-ULPC equipment identity bridge"
+    ],
+    [
+      "AB15",
+      "Axe/pickaxe resource interaction ownership"
+    ],
+    [
+      "AB16",
+      "Forage/scythe interaction cleanup"
+    ],
+    [
+      "AB17",
+      "LPC gameplay action binding contract"
+    ],
+    [
+      "AB18",
+      "Full-gate validator + research closure"
+    ]
+  ],
+  "acceptance": "Windows Full Quality Gate required before Batch 2"
+}

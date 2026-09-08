@@ -1,0 +1,39 @@
+{
+  "schema": "havenwild.universal_lpc_sharealike_intake.v0_1",
+  "enabled": true,
+  "sourceCatalog": "content/assets/lpc/universal_lpc_sharealike_catalog_v0_1.json.gz",
+  "sourceMount": "assets/source/licensed/universal_lpc_generator",
+  "recordCount": 2038,
+  "allowedLicenses": [
+    "CC-BY-SA 3.0",
+    "CC-BY-SA 3.0+",
+    "CC-BY-SA 4.0"
+  ],
+  "commercialUseAllowed": true,
+  "selectionPolicy": {
+    "availableInCharacterStudio": true,
+    "availableToPlayerRecipes": true,
+    "availableToNpcRecipes": true,
+    "availableToMonsterRecipes": true,
+    "preferNonShareAlikeAlternativeWhenEquivalent": true,
+    "exactRecipeDependencyTrackingRequired": true
+  },
+  "releasePolicy": {
+    "exportOnlyUsedAssetsByDefault": true,
+    "includeOriginalSourceFiles": true,
+    "includeModifiedOverrides": true,
+    "includeGeneratedCompositesContainingShareAlikeLayers": true,
+    "includeAttribution": true,
+    "includeLicenseText": true,
+    "recordModifications": true,
+    "doNotApplyEffectiveTechnologicalMeasuresToExportedOpenAssets": true,
+    "releaseGateRequired": true
+  },
+  "excluded": [
+    "GPL-only",
+    "NonCommercial",
+    "unknown",
+    "conflicting"
+  ],
+  "note": "This policy makes verified CC-BY-SA records selectable while keeping exact attribution and release obligations machine-checkable."
+}

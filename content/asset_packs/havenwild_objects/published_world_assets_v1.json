@@ -1,0 +1,4892 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W42 evolves the existing PlaceableAssetRegistry into PublishedWorldAsset authority; this is not a second gameplay registry.",
+    "The first 29 published scene candidates retain their authored scene asset IDs in aliases while canonical IDs become stable published identities.",
+    "Generated atlas rectangles are runtime cache coordinates; provenance.source_path/source_rect identify the audited upstream source region.",
+    "W43B adds a singular published Wooden Crate while retaining crate_stack only as a legacy cache/alias name."
+  ],
+  "entries": [
+    {
+      "id": "table_basic",
+      "semantic_id": "furniture.table.basic",
+      "label": "Table",
+      "category": "furniture",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "table",
+      "footprint": {
+        "visual_size": [
+          2,
+          2
+        ],
+        "collision_size": [
+          2,
+          2
+        ],
+        "interaction_size": [
+          2,
+          2
+        ],
+        "blocks_movement": true
+      },
+      "allowed_surfaces": [
+        "floor",
+        "ground"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "wall"
+      ],
+      "placement_tags": [
+        "indoor",
+        "outdoor",
+        "furniture"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16,
+          56
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              64,
+              32,
+              64
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Table selected: seating attachment and meal service."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.placeable.table_basic"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "legacy_curated_placeable",
+        "note": "Curated gameplay metadata retained from the pre-W42 placeable catalog; visual/source certification continues through W43."
+      },
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "chair_basic",
+      "semantic_id": "furniture.chair.basic",
+      "label": "Chair",
+      "category": "furniture",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "chair",
+      "footprint": {
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true
+      },
+      "allowed_surfaces": [
+        "floor",
+        "ground"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "wall"
+      ],
+      "placement_tags": [
+        "indoor",
+        "outdoor",
+        "seating"
+      ],
+      "states": [
+        "default",
+        "occupied"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16,
+          56
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              32,
+              64,
+              32,
+              64
+            ]
+          },
+          {
+            "state": "occupied",
+            "source_rect": [
+              32,
+              64,
+              32,
+              64
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "sit",
+        "message": "Chair selected: seat interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.placeable.chair_basic"
+      },
+      "transitions": [
+        {
+          "from": "default",
+          "trigger": "interact",
+          "to": "occupied",
+          "authority": "host",
+          "message": "Sat in the chair."
+        },
+        {
+          "from": "occupied",
+          "trigger": "interact",
+          "to": "default",
+          "authority": "host",
+          "message": "Stood up from the chair."
+        }
+      ],
+      "state_geometry": [],
+      "attachment_points": [
+        {
+          "id": "seat",
+          "state": "occupied",
+          "offset": [
+            0,
+            0
+          ],
+          "reservation": "actor"
+        }
+      ],
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "legacy_curated_placeable",
+        "note": "Curated gameplay metadata retained from the pre-W42 placeable catalog; visual/source certification continues through W43."
+      },
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "bed_basic",
+      "semantic_id": "furniture.bed.basic",
+      "label": "Bed",
+      "category": "furniture",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "bed",
+      "footprint": {
+        "visual_size": [
+          3,
+          2
+        ],
+        "collision_offset": [
+          0,
+          1
+        ],
+        "collision_size": [
+          3,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          1
+        ],
+        "interaction_size": [
+          3,
+          1
+        ],
+        "blocks_movement": true
+      },
+      "allowed_surfaces": [
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "wall",
+        "ground"
+      ],
+      "placement_tags": [
+        "indoor",
+        "sleep"
+      ],
+      "states": [
+        "made",
+        "occupied"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16,
+          56
+        ],
+        "frames": [
+          {
+            "state": "made",
+            "source_rect": [
+              0,
+              128,
+              32,
+              64
+            ]
+          },
+          {
+            "state": "occupied",
+            "source_rect": [
+              0,
+              128,
+              32,
+              64
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "sleep",
+        "message": "Rested in the bed."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.placeable.bed_basic"
+      },
+      "transitions": [
+        {
+          "from": "made",
+          "trigger": "interact",
+          "to": "occupied",
+          "authority": "host",
+          "message": "Rested in the bed."
+        },
+        {
+          "from": "occupied",
+          "trigger": "reset",
+          "to": "made",
+          "authority": "host",
+          "message": "The bed is ready again."
+        }
+      ],
+      "state_geometry": [],
+      "attachment_points": [
+        {
+          "id": "sleep_slot",
+          "state": "occupied",
+          "offset": [
+            1,
+            1
+          ],
+          "reservation": "actor"
+        }
+      ],
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "legacy_curated_placeable",
+        "note": "Curated gameplay metadata retained from the pre-W42 placeable catalog; visual/source certification continues through W43."
+      },
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "tree_default",
+      "semantic_id": "tree.deciduous.default",
+      "label": "Tree",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "mature",
+        "stump"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16,
+          56
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              0,
+              0,
+              32,
+              64
+            ]
+          },
+          {
+            "state": "stump",
+            "source_rect": [
+              160,
+              192,
+              32,
+              64
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Harvested wood from the tree."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.placeable.tree_default"
+      },
+      "transitions": [
+        {
+          "from": "mature",
+          "trigger": "interact",
+          "to": "stump",
+          "authority": "host",
+          "message": "Harvested the tree; only a stump remains."
+        }
+      ],
+      "state_geometry": [
+        {
+          "state": "mature",
+          "footprint": {
+            "visual_offset": [
+              -1,
+              -3
+            ],
+            "visual_size": [
+              3,
+              4
+            ],
+            "collision_size": [
+              1,
+              1
+            ],
+            "interaction_size": [
+              1,
+              1
+            ],
+            "blocks_movement": true,
+            "occludes_player": true,
+            "fade_when_player_behind": true
+          }
+        },
+        {
+          "state": "stump",
+          "footprint": {
+            "visual_offset": [
+              0,
+              0
+            ],
+            "visual_size": [
+              1,
+              1
+            ],
+            "collision_size": [
+              1,
+              1
+            ],
+            "interaction_size": [
+              1,
+              1
+            ],
+            "blocks_movement": true,
+            "occludes_player": true,
+            "fade_when_player_behind": true
+          }
+        }
+      ],
+      "attachment_points": [],
+      "notes": [
+        "Runtime visual and footprint resolve from havenwild_lpc_objects_160x192_v2 manifest; this placeable record stores gameplay state only."
+      ],
+      "role": "legacy_adapter",
+      "certification": "provisional",
+      "aliases": [
+        "runtime_tree"
+      ],
+      "provenance": {
+        "authority": "legacy_curated_placeable",
+        "note": "Curated gameplay metadata retained from the pre-W42 placeable catalog; visual/source certification continues through W43."
+      },
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "door_basic",
+      "semantic_id": "structure.door.12panel_oak",
+      "label": "12-Panel Oak Door",
+      "category": "door",
+      "source_semantic_id": "structure.door.runtime",
+      "legacy_object_kind": "door",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          1,
+          2
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true
+      },
+      "allowed_surfaces": [
+        "wall",
+        "doorway",
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "door",
+        "opening",
+        "interactive"
+      ],
+      "states": [
+        "closed",
+        "open_left",
+        "open_right",
+        "locked"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16,
+          64
+        ],
+        "frames": [
+          {
+            "state": "closed",
+            "source_rect": [
+              96,
+              0,
+              32,
+              64
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          },
+          {
+            "state": "open_left",
+            "source_rect": [
+              0,
+              0,
+              32,
+              64
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          },
+          {
+            "state": "open_right",
+            "source_rect": [
+              192,
+              0,
+              32,
+              64
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          },
+          {
+            "state": "locked",
+            "source_rect": [
+              96,
+              0,
+              32,
+              64
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          }
+        ],
+        "animations": [
+          {
+            "id": "swing_open_right",
+            "from_state": "closed",
+            "to_state": "open_right",
+            "passable_from_frame": 2,
+            "frames": [
+              {
+                "source_rect": [
+                  96,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  128,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  160,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  192,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "start_sound_event": "door.open.start",
+            "complete_sound_event": "door.open.complete"
+          },
+          {
+            "id": "swing_close_right",
+            "from_state": "open_right",
+            "to_state": "closed",
+            "blocked_from_frame": 1,
+            "frames": [
+              {
+                "source_rect": [
+                  192,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  160,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  128,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  96,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "start_sound_event": "door.close.start",
+            "complete_sound_event": "door.close.complete"
+          },
+          {
+            "id": "swing_open_left",
+            "from_state": "closed",
+            "to_state": "open_left",
+            "passable_from_frame": 2,
+            "frames": [
+              {
+                "source_rect": [
+                  96,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  64,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  32,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  0,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "start_sound_event": "door.open.start",
+            "complete_sound_event": "door.open.complete"
+          },
+          {
+            "id": "swing_close_left",
+            "from_state": "open_left",
+            "to_state": "closed",
+            "blocked_from_frame": 1,
+            "frames": [
+              {
+                "source_rect": [
+                  0,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  32,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  64,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "source_rect": [
+                  96,
+                  0,
+                  32,
+                  64
+                ],
+                "duration_ms": 65,
+                "draw_offset_px": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "start_sound_event": "door.close.start",
+            "complete_sound_event": "door.close.complete"
+          }
+        ]
+      },
+      "interaction": {
+        "action": "open",
+        "message": "Door interaction uses the exact LPC 12-panel door component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.placeable.door_basic"
+      },
+      "transitions": [
+        {
+          "from": "closed",
+          "trigger": "interact",
+          "to": "open_right",
+          "authority": "host",
+          "message": "Opened the door."
+        },
+        {
+          "from": "open_right",
+          "trigger": "interact",
+          "to": "closed",
+          "authority": "host",
+          "message": "Closed the door."
+        },
+        {
+          "from": "open_left",
+          "trigger": "interact",
+          "to": "closed",
+          "authority": "host",
+          "message": "Closed the door."
+        },
+        {
+          "from": "locked",
+          "trigger": "unlock",
+          "to": "closed",
+          "authority": "host",
+          "message": "Unlocked the door."
+        }
+      ],
+      "state_geometry": [
+        {
+          "state": "closed",
+          "footprint": {
+            "visual_offset": [
+              0,
+              -1
+            ],
+            "visual_size": [
+              1,
+              2
+            ],
+            "collision_size": [
+              1,
+              1
+            ],
+            "interaction_size": [
+              1,
+              1
+            ],
+            "blocks_movement": true
+          }
+        },
+        {
+          "state": "open_left",
+          "footprint": {
+            "visual_offset": [
+              0,
+              -1
+            ],
+            "visual_size": [
+              1,
+              2
+            ],
+            "collision_size": [
+              0,
+              0
+            ],
+            "interaction_size": [
+              1,
+              1
+            ],
+            "blocks_movement": false
+          }
+        },
+        {
+          "state": "open_right",
+          "footprint": {
+            "visual_offset": [
+              0,
+              -1
+            ],
+            "visual_size": [
+              1,
+              2
+            ],
+            "collision_size": [
+              0,
+              0
+            ],
+            "interaction_size": [
+              1,
+              1
+            ],
+            "blocks_movement": false
+          }
+        },
+        {
+          "state": "locked",
+          "footprint": {
+            "visual_offset": [
+              0,
+              -1
+            ],
+            "visual_size": [
+              1,
+              2
+            ],
+            "collision_size": [
+              1,
+              1
+            ],
+            "interaction_size": [
+              1,
+              1
+            ],
+            "blocks_movement": true
+          }
+        }
+      ],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [
+        "door_12panel_oak",
+        "door_12_panel_a"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/12 Panel Door A.png",
+        "source_rect": [
+          192,
+          0,
+          256,
+          96
+        ],
+        "source_mode": "exact_state_slots_baked_to_runtime_cache",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Doors/Credits.txt",
+        "note": "W45B selects the first oak colorway and normalizes its seven swing frames into 32x64 runtime frames; the published states use closed/open-left/open-right. W57D maps the full seven-source-position swing family into timed structural door clips. AB48 confirms the generated 32x64 swing cells already share a stable in-cell hinge; static and animated frames therefore use zero extra horizontal translation."
+      },
+      "legacy_object_kind_primary": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "structure": {
+        "connection_family": "doorway.32",
+        "topology_role": "opening",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": true,
+        "sockets": [
+          {
+            "id": "room_north",
+            "direction": "north",
+            "kind": "traversal",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "walkable.floor"
+            ]
+          },
+          {
+            "id": "room_south",
+            "direction": "south",
+            "kind": "traversal",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "walkable.floor"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cave_entrance_default",
+      "semantic_id": "entrance.cave.default",
+      "label": "Cave Entrance",
+      "category": "cave",
+      "source_semantic_id": "structure.cave.mouth.narrow.source",
+      "legacy_object_kind": "cave_entrance",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -2
+        ],
+        "visual_size": [
+          1,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "cliff",
+        "mountain"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "scene_transition",
+        "pcg"
+      ],
+      "states": [
+        "open",
+        "sealed"
+      ],
+      "interaction": {
+        "action": "enter_scene",
+        "message": "Cave entrance selected: scene transition requested.",
+        "target": "scene.cave.default"
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.placeable.cave_entrance_default"
+      },
+      "transitions": [
+        {
+          "from": "sealed",
+          "trigger": "unlock",
+          "to": "open",
+          "authority": "host",
+          "message": "The cave entrance is now open."
+        }
+      ],
+      "state_geometry": [
+        {
+          "state": "open",
+          "footprint": {
+            "visual_offset": [
+              0,
+              -2
+            ],
+            "visual_size": [
+              1,
+              3
+            ],
+            "collision_offset": [
+              0,
+              0
+            ],
+            "collision_size": [
+              0,
+              0
+            ],
+            "interaction_offset": [
+              0,
+              0
+            ],
+            "interaction_size": [
+              1,
+              1
+            ],
+            "blocks_movement": false,
+            "occludes_player": true,
+            "fade_when_player_behind": true
+          }
+        }
+      ],
+      "attachment_points": [],
+      "role": "structural_connector",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "elizawy_lpc_exact_authored_connector",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+        "source_rect": [
+          192,
+          288,
+          32,
+          96
+        ],
+        "source_mode": "exact_authored_1x3_window",
+        "license_authority": "assets/source/licensed/lpc_revised/Terrain/Credits.txt",
+        "note": "W49 exact ordinary cave mouth from pinned ElizaWy/LPC cliff_summer cells c6/r9-r11. Wide 3x3 cave remains explicit-only."
+      },
+      "legacy_object_kind_primary": true,
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "open",
+            "source_rect": [
+              192,
+              288,
+              32,
+              96
+            ]
+          },
+          {
+            "state": "sealed",
+            "source_rect": [
+              192,
+              288,
+              32,
+              96
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shrub_berry_01",
+      "semantic_id": "world_asset.shrub.berry.01",
+      "label": "Berry Bush",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "bush",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "berry_bush"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+        "source_rect": [
+          96,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_spring.png",
+            "sourceRect": [
+              96,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+            "sourceRect": [
+              96,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_autumn.png",
+            "sourceRect": [
+              96,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_winter.png",
+            "sourceRect": [
+              96,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              160,
+              0,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "shrub_berry_02",
+      "semantic_id": "world_asset.shrub.berry.02",
+      "label": "Berry Bush #2",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "bush",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "berry_bush_variant_02"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+        "source_rect": [
+          96,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_spring.png",
+            "sourceRect": [
+              96,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+            "sourceRect": [
+              96,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_autumn.png",
+            "sourceRect": [
+              96,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_winter.png",
+            "sourceRect": [
+              96,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              800,
+              192,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "shrub_berry_03",
+      "semantic_id": "world_asset.shrub.berry.03",
+      "label": "Berry Bush #3",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "bush",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "berry_bush_variant_03"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_spring.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_autumn.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_winter.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              640,
+              768,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "shrub_berry_04",
+      "semantic_id": "world_asset.shrub.berry.04",
+      "label": "Berry Bush #4",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "bush",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "berry_bush_variant_04"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+        "source_rect": [
+          0,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_spring.png",
+            "sourceRect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+            "sourceRect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_autumn.png",
+            "sourceRect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_winter.png",
+            "sourceRect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              800,
+              768,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "resource_boulder_01",
+      "semantic_id": "world_asset.resource.boulder.01",
+      "label": "Boulder",
+      "category": "tile_object",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "boulder",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "boulder"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/Rocks, Grasslands.png",
+        "source_rect": [
+          129,
+          71,
+          29,
+          24
+        ],
+        "source_mode": "lpc_four_connected_authored_rock_component",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              640,
+              0,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Mining interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "resource_boulder_02",
+      "semantic_id": "world_asset.resource.boulder.02",
+      "label": "Boulder #2",
+      "category": "tile_object",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "boulder",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "boulder_variant_02"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/Rocks, Grasslands.png",
+        "source_rect": [
+          64,
+          65,
+          58,
+          30
+        ],
+        "source_mode": "lpc_four_connected_authored_rock_component",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          2,
+          1
+        ],
+        "collision_size": [
+          2,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              960,
+              768,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Mining interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "resource_boulder_03",
+      "semantic_id": "world_asset.resource.boulder.03",
+      "label": "Boulder #3",
+      "category": "tile_object",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "boulder",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "boulder_variant_03"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/Rocks, Grasslands.png",
+        "source_rect": [
+          130,
+          3,
+          59,
+          54
+        ],
+        "source_mode": "lpc_four_connected_authored_rock_component",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          2,
+          2
+        ],
+        "collision_size": [
+          2,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              1120,
+              768,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Mining interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "resource_boulder_04",
+      "semantic_id": "world_asset.resource.boulder.04",
+      "label": "Boulder #4",
+      "category": "tile_object",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "boulder",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "boulder_variant_04"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/Rocks, Grasslands.png",
+        "source_rect": [
+          68,
+          0,
+          50,
+          63
+        ],
+        "source_mode": "lpc_four_connected_authored_rock_component",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          2,
+          2
+        ],
+        "collision_size": [
+          2,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              960,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Mining interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_fallen_log_01",
+      "semantic_id": "world_asset.tree.fallen.log.01",
+      "label": "Fallen Log",
+      "category": "tile_object",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "log",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "fallen_log"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Objects/Small Items/Lumber.png",
+        "source_rect": [
+          130,
+          32,
+          53,
+          54
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          1,
+          2
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              960,
+              576,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "World object interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "forage_mushroom_01",
+      "semantic_id": "world_asset.forage.mushroom.01",
+      "label": "Forage Mushroom",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "mushroom",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "forage_mushroom"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/mushrooms.png",
+        "source_rect": [
+          96,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              960,
+              0,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "forage_mushroom_02",
+      "semantic_id": "world_asset.forage.mushroom.02",
+      "label": "Forage Mushroom #2",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "mushroom",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "forage_mushroom_variant_02"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/mushrooms.png",
+        "source_rect": [
+          128,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              960,
+              192,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "forage_mushroom_03",
+      "semantic_id": "world_asset.forage.mushroom.03",
+      "label": "Forage Mushroom #3",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "mushroom",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "forage_mushroom_variant_03"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/mushrooms.png",
+        "source_rect": [
+          160,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              160,
+              960,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "forage_mushroom_04",
+      "semantic_id": "world_asset.forage.mushroom.04",
+      "label": "Forage Mushroom #4",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "mushroom",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "forage_mushroom_variant_04"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/mushrooms.png",
+        "source_rect": [
+          96,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record"
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              320,
+              960,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_oak_mature_01",
+      "semantic_id": "world_asset.tree.oak.mature.01",
+      "label": "Oak Tree",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "oak_tree"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "source_rect": [
+          321,
+          16,
+          94,
+          125
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_spring.png",
+            "sourceRect": [
+              321,
+              16,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+            "sourceRect": [
+              321,
+              16,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_autumn.png",
+            "sourceRect": [
+              321,
+              16,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_winter.png",
+            "sourceRect": [
+              321,
+              16,
+              94,
+              125
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg",
+        "tree"
+      ],
+      "states": [
+        "mature"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              0,
+              0,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Tree harvesting interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_oak_mature_02",
+      "semantic_id": "world_asset.tree.oak.mature.02",
+      "label": "Oak Tree #2",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "oak_tree_variant_02"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "source_rect": [
+          417,
+          112,
+          94,
+          125
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_spring.png",
+            "sourceRect": [
+              417,
+              112,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+            "sourceRect": [
+              417,
+              112,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_autumn.png",
+            "sourceRect": [
+              417,
+              112,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_winter.png",
+            "sourceRect": [
+              417,
+              112,
+              94,
+              125
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg",
+        "tree"
+      ],
+      "states": [
+        "mature"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              320,
+              0,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Tree harvesting interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_oak_mature_03",
+      "semantic_id": "world_asset.tree.oak.mature.03",
+      "label": "Oak Tree #3",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "oak_tree_variant_03"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "source_rect": [
+          321,
+          272,
+          94,
+          125
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_spring.png",
+            "sourceRect": [
+              321,
+              272,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+            "sourceRect": [
+              321,
+              272,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_autumn.png",
+            "sourceRect": [
+              321,
+              272,
+              94,
+              125
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_winter.png",
+            "sourceRect": [
+              321,
+              272,
+              94,
+              125
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg",
+        "tree"
+      ],
+      "states": [
+        "mature"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              480,
+              0,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Tree harvesting interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_oak_mature_04",
+      "semantic_id": "world_asset.tree.oak.mature.04",
+      "label": "Oak Tree #4",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "oak_tree_variant_04"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "source_rect": [
+          420,
+          357,
+          85,
+          136
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_spring.png",
+            "sourceRect": [
+              420,
+              357,
+              85,
+              136
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+            "sourceRect": [
+              420,
+              357,
+              85,
+              136
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_autumn.png",
+            "sourceRect": [
+              420,
+              357,
+              85,
+              136
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_winter.png",
+            "sourceRect": [
+              420,
+              357,
+              85,
+              136
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg",
+        "tree"
+      ],
+      "states": [
+        "mature"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              640,
+              192,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Tree harvesting interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_oak_mature_05",
+      "semantic_id": "world_asset.tree.oak.mature.05",
+      "label": "Oak Tree #5",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "oak_tree_variant_05"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "source_rect": [
+          225,
+          16,
+          94,
+          100
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_spring.png",
+            "sourceRect": [
+              225,
+              16,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+            "sourceRect": [
+              225,
+              16,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_autumn.png",
+            "sourceRect": [
+              225,
+              16,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_winter.png",
+            "sourceRect": [
+              225,
+              16,
+              94,
+              100
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg",
+        "tree"
+      ],
+      "states": [
+        "mature"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              0,
+              768,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Tree harvesting interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_oak_mature_06",
+      "semantic_id": "world_asset.tree.oak.mature.06",
+      "label": "Oak Tree #6",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "oak_tree_variant_06"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "source_rect": [
+          225,
+          144,
+          94,
+          100
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_spring.png",
+            "sourceRect": [
+              225,
+              144,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+            "sourceRect": [
+              225,
+              144,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_autumn.png",
+            "sourceRect": [
+              225,
+              144,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_winter.png",
+            "sourceRect": [
+              225,
+              144,
+              94,
+              100
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg",
+        "tree"
+      ],
+      "states": [
+        "mature"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              160,
+              768,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Tree harvesting interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_oak_mature_07",
+      "semantic_id": "world_asset.tree.oak.mature.07",
+      "label": "Oak Tree #7",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "oak_tree_variant_07"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "source_rect": [
+          225,
+          272,
+          94,
+          100
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_spring.png",
+            "sourceRect": [
+              225,
+              272,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+            "sourceRect": [
+              225,
+              272,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_autumn.png",
+            "sourceRect": [
+              225,
+              272,
+              94,
+              100
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_winter.png",
+            "sourceRect": [
+              225,
+              272,
+              94,
+              100
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg",
+        "tree"
+      ],
+      "states": [
+        "mature"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              320,
+              768,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Tree harvesting interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "tree_oak_mature_08",
+      "semantic_id": "world_asset.tree.oak.mature.08",
+      "label": "Oak Tree #8",
+      "category": "tree",
+      "source_semantic_id": "tree.catalog.default",
+      "legacy_object_kind": "tree",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "oak_tree_variant_08"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "source_rect": [
+          228,
+          389,
+          85,
+          111
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_spring.png",
+            "sourceRect": [
+              228,
+              389,
+              85,
+              111
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+            "sourceRect": [
+              228,
+              389,
+              85,
+              111
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_autumn.png",
+            "sourceRect": [
+              228,
+              389,
+              85,
+              111
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/trees_winter.png",
+            "sourceRect": [
+              228,
+              389,
+              85,
+              111
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          -1,
+          -3
+        ],
+        "visual_size": [
+          3,
+          4
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg",
+        "tree"
+      ],
+      "states": [
+        "mature"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "mature",
+            "source_rect": [
+              480,
+              768,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Tree harvesting interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "flora_reed_patch_01",
+      "semantic_id": "world_asset.flora.reed.patch.01",
+      "label": "Reed Patch",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "herb",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "reed_patch"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+        "source_rect": [
+          128,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_spring.png",
+            "sourceRect": [
+              128,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+            "sourceRect": [
+              128,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_autumn.png",
+            "sourceRect": [
+              128,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_winter.png",
+            "sourceRect": [
+              128,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              480,
+              576,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "flora_reed_patch_02",
+      "semantic_id": "world_asset.flora.reed.patch.02",
+      "label": "Reed Patch #2",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "herb",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "reed_patch_variant_02"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+        "source_rect": [
+          128,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_spring.png",
+            "sourceRect": [
+              128,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+            "sourceRect": [
+              128,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_autumn.png",
+            "sourceRect": [
+              128,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/plants_winter.png",
+            "sourceRect": [
+              128,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              960,
+              960,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "forage_wild_herb_01",
+      "semantic_id": "world_asset.forage.wild.herb.01",
+      "label": "Wild Herb",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "herb",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "wild_herb"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_spring.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_autumn.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_winter.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              1120,
+              0,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "forage_wild_herb_02",
+      "semantic_id": "world_asset.forage.wild.herb.02",
+      "label": "Wild Herb #2",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "herb",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "wild_herb_variant_02"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+        "source_rect": [
+          0,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_spring.png",
+            "sourceRect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+            "sourceRect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_autumn.png",
+            "sourceRect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_winter.png",
+            "sourceRect": [
+              0,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              480,
+              960,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "forage_wild_herb_03",
+      "semantic_id": "world_asset.forage.wild.herb.03",
+      "label": "Wild Herb #3",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "herb",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "wild_herb_variant_03"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_spring.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_autumn.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_winter.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              640,
+              960,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "flora_wildflower_01",
+      "semantic_id": "world_asset.flora.wildflower.01",
+      "label": "Wildflower Patch",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "herb",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "wildflower_patch"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+        "source_rect": [
+          0,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_spring.png",
+            "sourceRect": [
+              0,
+              96,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+            "sourceRect": [
+              0,
+              96,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_autumn.png",
+            "sourceRect": [
+              0,
+              96,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_winter.png",
+            "sourceRect": [
+              0,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              1120,
+              192,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "flora_wildflower_02",
+      "semantic_id": "world_asset.flora.wildflower.02",
+      "label": "Wildflower Patch #2",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "herb",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "wildflower_patch_variant_02"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+        "source_rect": [
+          0,
+          128,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_spring.png",
+            "sourceRect": [
+              0,
+              128,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+            "sourceRect": [
+              0,
+              128,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_autumn.png",
+            "sourceRect": [
+              0,
+              128,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_winter.png",
+            "sourceRect": [
+              0,
+              128,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              800,
+              960,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "flora_wildflower_03",
+      "semantic_id": "world_asset.flora.wildflower.03",
+      "label": "Wildflower Patch #3",
+      "category": "foliage",
+      "source_semantic_id": "foliage.catalog.default",
+      "legacy_object_kind": "herb",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "wildflower_patch_variant_03"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_manifest",
+        "source_path": "assets/source/licensed/lpc_revised/Terrain/flowers.png",
+        "source_rect": [
+          160,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "lpc_32x32_grid_cell_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "seasonal_sources": [
+          {
+            "season": "spring",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_spring.png",
+            "sourceRect": [
+              160,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "summer",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+            "sourceRect": [
+              160,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "autumn",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_autumn.png",
+            "sourceRect": [
+              160,
+              0,
+              32,
+              32
+            ]
+          },
+          {
+            "season": "winter",
+            "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_winter.png",
+            "sourceRect": [
+              160,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor",
+        "wall"
+      ],
+      "placement_tags": [
+        "outdoor",
+        "natural",
+        "pcg"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              1120,
+              960,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "harvest",
+        "message": "Foraging interaction."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "container_crate_wood_01",
+      "semantic_id": "world_asset.container.crate.wood.01",
+      "label": "Wooden Crate",
+      "category": "tile_object",
+      "source_semantic_id": "object.catalog.runtime",
+      "legacy_object_kind": "crate",
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "crate_stack",
+        "crate_wood_01"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_exact_slice",
+        "source_path": "assets/source/licensed/lpc_revised/Objects/Furniture/Crate.png",
+        "source_rect": [
+          0,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "lpc_exact_source_rect_native_scale_large_cell",
+        "license_authority": "per_source_record",
+        "note": "W43B singular-crate correction. The legacy cache id crate_stack is retained only as a compatibility alias; the published asset is one crate."
+      },
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "allowed_surfaces": [
+        "ground",
+        "floor",
+        "grass",
+        "dirt"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "wall"
+      ],
+      "placement_tags": [
+        "container",
+        "storage",
+        "indoor",
+        "outdoor"
+      ],
+      "states": [
+        "closed"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80,
+          192
+        ],
+        "frames": [
+          {
+            "state": "closed",
+            "source_rect": [
+              640,
+              384,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "open",
+        "message": "Open crate storage."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "legacy_object_kind_primary": true
+    },
+    {
+      "id": "wall_siding_plain_cream_door_header",
+      "semantic_id": "structure.wall.siding_plain.cream.front_door_header",
+      "label": "Cream Siding — Door Header",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.siding_plain.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -3
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          0,
+          0
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "building_floor",
+        "doorway"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "siding",
+        "exterior",
+        "frontage",
+        "south",
+        "door_header"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16,
+          96
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              64,
+              0,
+              32,
+              32
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cream siding doorway header exact source slice."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+        "source_rect": [
+          64,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_top_third_of_reviewed_south_frontage_repeat",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "W57K preserves the top 32px wall/header above the 64px animated front door so opening the door never exposes terrain up to the eave."
+      },
+      "structure": {
+        "connection_family": "wall.siding_plain.cream",
+        "topology_role": "south_frontage_door_header",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.siding_plain.cream",
+        "visibility_role": "wall_occluder",
+        "occlusion_group": "building.wall_shell",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    }
+  ]
+}

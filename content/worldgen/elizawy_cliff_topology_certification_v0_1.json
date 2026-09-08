@@ -1,0 +1,594 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_topology_certification.v0_1",
+  "pass": "167Z106N5R",
+  "revision": "167Z106N5R-topology-runtime-activation-v1",
+  "sourceRepository": "https://github.com/ElizaWy/LPC",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "seasonalSource": "Terrain/cliff_summer.png",
+  "seasonalGeometryFamily": [
+    "Terrain/cliff_spring.png",
+    "Terrain/cliff_summer.png",
+    "Terrain/cliff_autumn.png",
+    "Terrain/cliff_winter.png",
+    "Terrain/cliff_winter_ice.png"
+  ],
+  "sourceDimensionsPx": [
+    512,
+    448
+  ],
+  "sourceGrid": [
+    16,
+    14
+  ],
+  "sourceGridCellPx": [
+    32,
+    32
+  ],
+  "coreRule": "Source-cell addressing, multi-cell visual footprint, structural host footprint, collision and traversal are independent dimensions. A 32x32 address never proves a 1x1 game asset.",
+  "certificationLevels": {
+    "sourceGeometry": "exact source bounds/hash/season geometry",
+    "worldVisualFootprint": "the complete authored visual envelope in world-grid cells",
+    "topologyRole": "what the complete envelope visibly represents",
+    "structuralHost": "which structural-level cells/edges own the recipe",
+    "runtime": "renderer, collision and navigation activation"
+  },
+  "runtimeGate": {
+    "cliffDrawingEnabled": true,
+    "structuralCliffCollision": "authoritative_visible_edges",
+    "certifiedVisualRecipesMayRender": true,
+    "explicitTraversalConnectors": [
+      "ramp",
+      "stairs",
+      "ladder",
+      "bridge"
+    ],
+    "caveEntry": "interaction_transition",
+    "waterfallTraversal": "blocked",
+    "missingVisualProvider": "fail_open"
+  },
+  "certifiedVisualRecipes": [
+    {
+      "id": "elizawy.grass_plateau.rounded_reference_5x4",
+      "role": "complete_reference_plateau_template",
+      "sourceGridSpan": [
+        0,
+        5,
+        5,
+        4
+      ],
+      "worldVisualFootprintTiles": [
+        5,
+        4
+      ],
+      "topology": "rounded_plateau_all_outer_sides",
+      "placementPolicy": "reference_or_complete_stamp_only",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "notes": "Complete grass-topped rounded construction template. It demonstrates joined top, side and south-face geometry; it is not a 20-cell palette of independent placeables.",
+      "sourceRectPx": [
+        0,
+        160,
+        160,
+        128
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.grass_plateau.square_reference_3x4",
+      "role": "complete_reference_plateau_template",
+      "sourceGridSpan": [
+        5,
+        5,
+        3,
+        4
+      ],
+      "worldVisualFootprintTiles": [
+        3,
+        4
+      ],
+      "topology": "square_plateau_orthogonal_outer_sides",
+      "placementPolicy": "reference_or_complete_stamp_only",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "notes": "Complete square construction template used to audit orthogonal plateau edges and face depth.",
+      "sourceRectPx": [
+        160,
+        160,
+        96,
+        128
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.face.south_repeat_a_1x3",
+      "role": "south_facing_straight_face",
+      "sourceGridSpan": [
+        10,
+        9,
+        1,
+        3
+      ],
+      "worldVisualFootprintTiles": [
+        1,
+        3
+      ],
+      "topology": "straight_south_face",
+      "placementPolicy": "horizontal_repeat_candidate_certified_visual_geometry",
+      "repeatAxis": "x",
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "selfRepeatPixelSeamMeanAbs": [
+        2.8125,
+        2.648438,
+        4.21875
+      ],
+      "notes": "The three vertically aligned source cells form one complete 1x3 face column. The column, not any constituent 32x32 cell, is the minimum visual recipe.",
+      "sourceRectPx": [
+        320,
+        288,
+        32,
+        96
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.connector.ladder_a_1x3",
+      "role": "ladder_cliff_connector",
+      "sourceGridSpan": [
+        11,
+        9,
+        1,
+        3
+      ],
+      "worldVisualFootprintTiles": [
+        1,
+        3
+      ],
+      "topology": "straight_south_face_with_ladder",
+      "placementPolicy": "complete_connector_only",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "traversalLaneWidthTiles": 1,
+      "notes": "Visual footprint is certified as 1x3. Traversal edge/path metadata remains blocked from runtime until the editor can bind the host Level N/N+1 edge explicitly.",
+      "sourceRectPx": [
+        352,
+        288,
+        32,
+        96
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.face.south_variant_b_1x3",
+      "role": "south_facing_face_variant",
+      "sourceGridSpan": [
+        12,
+        9,
+        1,
+        3
+      ],
+      "worldVisualFootprintTiles": [
+        1,
+        3
+      ],
+      "topology": "straight_south_face_variant",
+      "placementPolicy": "complete_column_only_not_self_repeat_certified",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "selfRepeatPixelSeamMeanAbs": [
+        12.890625,
+        12.914062,
+        12.390625
+      ],
+      "notes": "Visually a full 1x3 face column, but its left/right pixel edges are not sufficiently self-similar to certify blind horizontal repetition.",
+      "sourceRectPx": [
+        384,
+        288,
+        32,
+        96
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.connector.ladder_b_1x3",
+      "role": "ladder_cliff_connector_variant",
+      "sourceGridSpan": [
+        13,
+        9,
+        1,
+        3
+      ],
+      "worldVisualFootprintTiles": [
+        1,
+        3
+      ],
+      "topology": "straight_south_face_with_ladder_variant",
+      "placementPolicy": "complete_connector_only",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "traversalLaneWidthTiles": 1,
+      "notes": "Second complete 1x3 ladder construction. Do not split it into three placeable ladder tiles.",
+      "sourceRectPx": [
+        416,
+        288,
+        32,
+        96
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.cave.narrow_host_1x3",
+      "role": "narrow_cave_host",
+      "sourceGridSpan": [
+        6,
+        9,
+        1,
+        3
+      ],
+      "worldVisualFootprintTiles": [
+        1,
+        3
+      ],
+      "topology": "south_face_cave_opening_narrow",
+      "placementPolicy": "complete_host_only",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "interactionAnchor": "bottom_center_pending_scene_binding",
+      "notes": "One-tile-wide cave opening visually occupies a 1x3 cliff-face envelope.",
+      "sourceRectPx": [
+        192,
+        288,
+        32,
+        96
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.cave.wide_host_3x3",
+      "role": "wide_cave_host",
+      "sourceGridSpan": [
+        7,
+        9,
+        3,
+        3
+      ],
+      "worldVisualFootprintTiles": [
+        3,
+        3
+      ],
+      "topology": "south_face_cave_opening_wide",
+      "placementPolicy": "complete_host_only",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "interactionAnchor": "bottom_center_pending_scene_binding",
+      "notes": "Wide cave is one authored 3x3 visual host. It must never be stretched from the narrow cave.",
+      "sourceRectPx": [
+        224,
+        288,
+        96,
+        96
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.water_cliff.valley_a_3x3",
+      "role": "water_facing_valley_reference",
+      "sourceGridSpan": [
+        9,
+        0,
+        3,
+        3
+      ],
+      "worldVisualFootprintTiles": [
+        3,
+        3
+      ],
+      "topology": "water_facing_cliff_valley",
+      "placementPolicy": "complete_water_cliff_reference",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "notes": "Connected 3x3 water/cliff construction window; world water sockets still require exact host certification.",
+      "sourceRectPx": [
+        288,
+        0,
+        96,
+        96
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    },
+    {
+      "id": "elizawy.bridge.water_bay_a_2x4",
+      "role": "water_bridge_bay_reference",
+      "sourceGridSpan": [
+        9,
+        3,
+        2,
+        4
+      ],
+      "worldVisualFootprintTiles": [
+        2,
+        4
+      ],
+      "topology": "water_facing_bridge_or_crossing_bay",
+      "placementPolicy": "complete_water_cliff_reference",
+      "repeatAxis": null,
+      "runtimeEligible": false,
+      "collisionCertified": false,
+      "notes": "Connected 2x4 bridge/water-facing construction window. Structural bridge pathfinding remains disabled.",
+      "sourceRectPx": [
+        288,
+        96,
+        64,
+        128
+      ],
+      "sourceAddressGridPx": [
+        32,
+        32
+      ],
+      "sourceEnvelopeEqualsVisualEnvelope": true,
+      "structuralHostMask": null,
+      "collisionEdgeMask": null,
+      "traversalEdgeMask": null,
+      "certification": {
+        "sourceRect": "certified",
+        "sourceGridSpan": "certified",
+        "worldVisualFootprint": "certified",
+        "topologyRole": "certified",
+        "structuralHost": "pending",
+        "collision": "pending",
+        "runtime": "quarantined"
+      }
+    }
+  ],
+  "uncertifiedSourceWindows": [
+    {
+      "id": "complex_transition_strip",
+      "sourceGridSpan": [
+        8,
+        0,
+        1,
+        8
+      ],
+      "reason": "contains several visually distinct diagonal/side constructions; do not treat the whole column as one runtime recipe"
+    },
+    {
+      "id": "right_side_terminal",
+      "sourceGridSpan": [
+        15,
+        0,
+        1,
+        5
+      ],
+      "reason": "terminal/side geometry needs adjacency certification against the orthogonal and water-facing families"
+    },
+    {
+      "id": "vine_feature_windows",
+      "sourceGridSpan": [
+        0,
+        9,
+        6,
+        5
+      ],
+      "reason": "decorative/climbable vine masks overlap multiple cliff roles and need separate collision/traversal review"
+    },
+    {
+      "id": "water_bridge_bay_b",
+      "sourceGridSpan": [
+        12,
+        3,
+        2,
+        4
+      ],
+      "reason": "second variant retained as source geometry but not promoted until socket equivalence is verified"
+    }
+  ],
+  "acceptanceScene": "content/worldgen/cliff_topology_acceptance_scene_v0_1.json",
+  "previewBoard": "docs/assets/previews/elizawy_cliff_topology_certification_pass167z105.png",
+  "referenceComparison": {
+    "testLandscape": "ElizaWy/LPC _ Test Scenes/Test Landscape.png",
+    "demoSummer": "ElizaWy/LPC _ Test Scenes/DemoGame - 2 - Summer.png",
+    "requiredVisualCharacteristics": [
+      "large walkable plateaus with cliff artwork concentrated on their boundaries",
+      "long uninterrupted horizontal faces rather than repeated isolated pillars",
+      "caves embedded in a complete cliff face",
+      "ladders/stairs/bridges occupying explicit connector lanes",
+      "waterfalls spanning the entire visible cliff depth",
+      "season changes preserve topology geometry"
+    ]
+  },
+  "n5rRuntimeActivation": {
+    "shapeCatalog": "content/worldgen/elizawy_cliff_runtime_shape_catalog_v0_1.json",
+    "waterfallCatalog": "content/assets/lpc/elizawy_waterfall_connector_catalog_v0_1.json",
+    "reviewedRampSourceGridSpan": [
+      8,
+      3,
+      1,
+      3
+    ],
+    "ladderSourceGridSpan": [
+      11,
+      9,
+      1,
+      3
+    ],
+    "narrowCaveSourceGridSpan": [
+      6,
+      9,
+      1,
+      3
+    ],
+    "wideCaveSourceGridSpan": [
+      7,
+      9,
+      3,
+      3
+    ],
+    "waterValleySourceGridSpan": [
+      9,
+      0,
+      3,
+      3
+    ],
+    "bridgeWaterBaySourceGridSpan": [
+      9,
+      3,
+      2,
+      4
+    ],
+    "note": "N5R is the first integrated runtime pass; visual anchor tuning remains screenshot-driven while exact source envelopes and traversal ownership stay fixed."
+  },
+  "supersededBy": "content/worldgen/structural_cliff_autotile_authority_v0_1.json",
+  "supersededByPass": "167Z107"
+}

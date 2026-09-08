@@ -1,0 +1,11 @@
+Pass 164H2 - Clippy Dead-Code Build Fix
+Base: Pass 164A complete source lineage
+Cumulative: Passes 164B1 through 164H2
+
+OVERWRITE apps/haven_editor_native/src/app/editor_theme.rs
+OVERWRITE apps/haven_editor_native/src/app/sprite_canvas_authority.rs
+OVERWRITE apps/haven_editor_native/src/app/animation_studio_render.rs
+OVERWRITE apps/haven_editor_native/src/app/pixel_studio_layout.rs
+OVERWRITE apps/haven_editor_native/src/app/sprite_workspace.rs
+ADD docs/patch/PASS_164H2_CLIPPY_DEAD_CODE_BUILD_FIX.md
+ADD manifests/PASS_164H2_MANIFEST.txt

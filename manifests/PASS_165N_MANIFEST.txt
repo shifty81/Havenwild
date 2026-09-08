@@ -1,0 +1,7 @@
+PASS 165N — STATION FUEL, PROCESSING QUEUES, AND OUTPUT STORAGE
+
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+OVERWRITE crates/haven_game/src/station_interaction_runtime.rs
+OVERWRITE crates/haven_game/src/client_pause_menu.rs
+ADD       docs/patch/PASS_165N_STATION_FUEL_PROCESSING_QUEUES.md
+ADD       manifests/PASS_165N_MANIFEST.txt

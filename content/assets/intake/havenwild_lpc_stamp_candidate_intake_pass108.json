@@ -1,0 +1,774 @@
+{
+  "schema": "havenwild.asset_intake.stamp_candidate_queue.v0_1",
+  "id": "havenwild_lpc_stamp_candidate_intake_pass108",
+  "version": "0.1.0",
+  "pass": 108,
+  "purpose": "Normalize numbered candidate stamp/source sheets from HavenwildAssetLibrary into a project review queue before promotion into runtime object/stamp atlases.",
+  "previewBoard": "docs/assets/previews/havenwild_lpc_stamp_candidate_sources_numbered_pass108.png",
+  "previewIndex": "docs/assets/previews/havenwild_lpc_stamp_candidate_sources_numbered_pass108.csv",
+  "sourcePolicy": {
+    "noRuntimePromotionUntilConfirmed": true,
+    "rawPacksRemainExternal": true,
+    "unknownLicenseAssetsRemainQuarantined": true,
+    "requiredApprovalFields": [
+      "number",
+      "decision",
+      "targetKind",
+      "stableId",
+      "sliceRect",
+      "footprint",
+      "licenseAttribution"
+    ]
+  },
+  "sourcePacks": {
+    "elizawy_lpc_main": {
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits"
+    },
+    "hyptosis_organized_oga": {
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0; credit Hyptosis and Zabin/organizers per source catalog"
+    }
+  },
+  "records": [
+    {
+      "number": 1,
+      "label": "Barrel",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Barrel.png",
+      "sourceRect": [
+        0,
+        0,
+        160,
+        64
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Furniture",
+      "intendedObjectKinds": [
+        "barrel"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 2,
+      "label": "Crate",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Crate.png",
+      "sourceRect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Furniture",
+      "intendedObjectKinds": [
+        "crate"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 3,
+      "label": "Table, Rough Wood",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Table, Rough Wood.png",
+      "sourceRect": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Furniture",
+      "intendedObjectKinds": [
+        "table"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 4,
+      "label": "Table, Ornate Wood",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Table, Ornate Wood.png",
+      "sourceRect": [
+        0,
+        0,
+        192,
+        128
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Furniture",
+      "intendedObjectKinds": [
+        "table"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 5,
+      "label": "Chair, Dining A",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Seating/Chair, Dining A.png",
+      "sourceRect": [
+        0,
+        0,
+        224,
+        256
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Furniture",
+      "intendedObjectKinds": [
+        "chair"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 6,
+      "label": "Bar Stools",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Seating/Bar Stools.png",
+      "sourceRect": [
+        0,
+        0,
+        256,
+        32
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Furniture",
+      "intendedObjectKinds": [
+        "chair",
+        "bar"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 7,
+      "label": "Fireplace",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Fireplace.png",
+      "sourceRect": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Furniture",
+      "intendedObjectKinds": [
+        "fireplace"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 8,
+      "label": "Beds, Single  A",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Beds/Beds, Single  A.png",
+      "sourceRect": [
+        0,
+        0,
+        896,
+        256
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Furniture",
+      "intendedObjectKinds": [
+        "bed"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 9,
+      "label": "Sign Backgrounds A",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Structure/Signs/Sign Backgrounds A.png",
+      "sourceRect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "sourceKind": "source_sprite",
+      "previewGroup": "New LPC Town",
+      "intendedObjectKinds": [
+        "sign"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 10,
+      "label": "Plain Fence A",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Structure/Fences/Plain Fence A.png",
+      "sourceRect": [
+        0,
+        0,
+        160,
+        128
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Town",
+      "intendedObjectKinds": [
+        "fence"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 11,
+      "label": "Ornamental Fence A",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Structure/Fences/Ornamental Fence A.png",
+      "sourceRect": [
+        0,
+        0,
+        128,
+        256
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Town",
+      "intendedObjectKinds": [
+        "fence"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 2,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 12,
+      "label": "Lighting, Outdoors",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Objects/Furniture/Lighting, Outdoors.png",
+      "sourceRect": [
+        0,
+        0,
+        64,
+        96
+      ],
+      "sourceKind": "source_sprite",
+      "previewGroup": "New LPC Town",
+      "intendedObjectKinds": [
+        "lamp"
+      ],
+      "promotionLane": "object_binding_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 13,
+      "label": "12 Panel Door A",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Structure/Doors/32x48px Doors/12 Panel Door A.png",
+      "sourceRect": [
+        0,
+        0,
+        896,
+        768
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Building",
+      "intendedObjectKinds": [
+        "door"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 14,
+      "label": "15 Panel Door A",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Structure/Doors/32x64px Doors/15 Panel Door A.png",
+      "sourceRect": [
+        0,
+        0,
+        896,
+        1024
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Building",
+      "intendedObjectKinds": [
+        "door"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 2,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 15,
+      "label": "Arched Doorway A",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Structure/Doors/64x64px Arched Doors/Arched Doorway A.png",
+      "sourceRect": [
+        0,
+        0,
+        160,
+        288
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Building",
+      "intendedObjectKinds": [
+        "door",
+        "cave_entrance"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 16,
+      "label": "Wood Bridge A - Rails",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Structure/Bridges/Wood Bridge A - Rails.png",
+      "sourceRect": [
+        0,
+        0,
+        320,
+        384
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Building",
+      "intendedObjectKinds": [
+        "bridge"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 2,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 17,
+      "label": "Rope Bridge A - Rails",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Structure/Bridges/Rope Bridge A - Rails.png",
+      "sourceRect": [
+        0,
+        0,
+        160,
+        288
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Building",
+      "intendedObjectKinds": [
+        "bridge"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 2,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 18,
+      "label": "trees_summer",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Terrain/trees_summer.png",
+      "sourceRect": [
+        0,
+        0,
+        512,
+        576
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Nature",
+      "intendedObjectKinds": [
+        "tree",
+        "stump",
+        "log"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 19,
+      "label": "Rocks, Grasslands",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Terrain/Rocks, Grasslands.png",
+      "sourceRect": [
+        0,
+        0,
+        192,
+        384
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Nature",
+      "intendedObjectKinds": [
+        "boulder",
+        "ore_node"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 20,
+      "label": "Rocks, Cliffs",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Terrain/Rocks, Cliffs.png",
+      "sourceRect": [
+        0,
+        0,
+        192,
+        128
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Nature",
+      "intendedObjectKinds": [
+        "boulder",
+        "cliff",
+        "mountain_rock"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 2,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 21,
+      "label": "mushrooms",
+      "sourcePack": "elizawy_lpc_main",
+      "sourcePath": "HavenwildAssetLibrary/packs/elizawy_lpc_main/raw/LPC-main/Terrain/mushrooms.png",
+      "sourceRect": [
+        0,
+        0,
+        192,
+        160
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New LPC Nature",
+      "intendedObjectKinds": [
+        "mushroom",
+        "herb"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 1,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0 or OGA-BY 3.0 per included Credits.txt / directory credits",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 22,
+      "label": "town",
+      "sourcePack": "hyptosis_organized_oga",
+      "sourcePath": "HavenwildAssetLibrary/packs/hyptosis_organized_oga/raw/town.png",
+      "sourceRect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New Hyptosis",
+      "intendedObjectKinds": [
+        "town_props_reference"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 3,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0; credit Hyptosis and Zabin/organizers per source catalog",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 23,
+      "label": "trees",
+      "sourcePack": "hyptosis_organized_oga",
+      "sourcePath": "HavenwildAssetLibrary/packs/hyptosis_organized_oga/raw/trees.png",
+      "sourceRect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New Hyptosis",
+      "intendedObjectKinds": [
+        "tree_reference"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 3,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0; credit Hyptosis and Zabin/organizers per source catalog",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    },
+    {
+      "number": 24,
+      "label": "trees_plants_rocks",
+      "sourcePack": "hyptosis_organized_oga",
+      "sourcePath": "HavenwildAssetLibrary/packs/hyptosis_organized_oga/raw/trees_plants_rocks.png",
+      "sourceRect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourceKind": "source_sheet",
+      "previewGroup": "New Hyptosis",
+      "intendedObjectKinds": [
+        "tree",
+        "bush",
+        "mushroom",
+        "herb",
+        "boulder"
+      ],
+      "promotionLane": "stamp_or_tileset_slice_candidates",
+      "priority": 2,
+      "status": "candidate_needs_user_confirmation_and_slice_metadata",
+      "licenseStatus": "allowed_with_attribution",
+      "license": "CC-BY 3.0; credit Hyptosis and Zabin/organizers per source catalog",
+      "requiredBeforePromotion": [
+        "user_number_confirmation",
+        "source_slice_rects",
+        "stable_ids",
+        "runtime_atlas_output",
+        "visual_collision_interaction_footprints",
+        "license_attribution_record"
+      ]
+    }
+  ],
+  "nextSteps": [
+    "User confirms candidate numbers to keep, reject, rename, or inspect.",
+    "Approved candidates receive explicit source slice rects and stable IDs.",
+    "Approved candidates are packed into object or stamp runtime atlases.",
+    "Promoted records update palette groups and placement metadata.",
+    "Validators reject any visible production palette item without atlas, footprint, collision, interaction, and attribution metadata."
+  ]
+}

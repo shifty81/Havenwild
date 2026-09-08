@@ -1,0 +1,10 @@
+{
+  "schema":"havenwild.editor.world_lpc_terrain_nature_exposure.r21.v1",
+  "pass":"W81R21",
+  "paintMaterials":["grass","dirt","mud","sand","gravel","stone","rock","snow","ice","water","lava","stone_path","dirt_path","other_approved_semantic_materials"],
+  "placeAssetGroups":["trees","fruit_trees","bushes","flowers","plants","mushrooms","rocks","ore_nodes","fences","bridges","buildings","doors","furniture","props","clutter","water_features","resource_nodes"],
+  "terrainRule":"Paint semantic materials; transition/corner/shoreline/cliff source cells are resolver data, not normal-user palette entries.",
+  "structuralRule":"Cliff/ramp/stair/cave-mouth/waterfall/collision semantics remain separate from surface material presentation.",
+  "sourcePriority":["LPC Terrains/V7 exact authored tuples","LPC Revised seasonal families","approved OGA LPC gap packs"],
+  "unsupportedRule":"Fail closed to semantic owner fill + diagnostic/repair workflow; never substitute unrelated proxy art."
+}

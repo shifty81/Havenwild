@@ -1,0 +1,334 @@
+{
+  "schema": "havenwild.validation.report.v2",
+  "profile": "source",
+  "registry": "content/build/validator_registry_v3.json",
+  "status": "passed",
+  "startedAt": "2026-08-02T16:04:12.516046+00:00",
+  "durationSeconds": 25.576,
+  "summary": {
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tasks": [
+    {
+      "id": "architecture.foundation.validate_development_layout",
+      "name": "validate_development_layout",
+      "status": "passed",
+      "domain": "architecture",
+      "phase": "foundation",
+      "durationSeconds": 2.065,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/validate_development_layout.py"
+      ],
+      "skippedBecause": [],
+      "order": 0,
+      "legacyTaskId": "validate-development-layout"
+    },
+    {
+      "id": "architecture.foundation.validate_architecture",
+      "name": "validate_architecture",
+      "status": "passed",
+      "domain": "architecture",
+      "phase": "foundation",
+      "durationSeconds": 1.165,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/validate_architecture.py"
+      ],
+      "skippedBecause": [],
+      "order": 10,
+      "legacyTaskId": "validate-architecture"
+    },
+    {
+      "id": "content.foundation.validate_content",
+      "name": "validate_content",
+      "status": "passed",
+      "domain": "content",
+      "phase": "foundation",
+      "durationSeconds": 2.976,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/validate_content.py"
+      ],
+      "skippedBecause": [],
+      "order": 20,
+      "legacyTaskId": "validate-content"
+    },
+    {
+      "id": "content.integrity.current-contract",
+      "name": "Current Content Integrity Contract",
+      "status": "passed",
+      "domain": "content",
+      "phase": "integrity",
+      "durationSeconds": 1.28,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/validate_content_integrity.py"
+      ],
+      "skippedBecause": [],
+      "order": 30,
+      "legacyTaskId": "validate-content-integrity"
+    },
+    {
+      "id": "world.foundation.contract",
+      "name": "World Foundation and Persistence Contract",
+      "status": "passed",
+      "domain": "world",
+      "phase": "world-foundation",
+      "durationSeconds": 4.007,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "tools/automation/validation/checks/worldgen/Validate-HavenwildOpenWorldPreset.py: exit=0",
+        "PASS Havenwild open-world preset: 1024x1024 tiles, 16x16 chunks, 9 required anchors",
+        "tools/automation/validation/checks/worldgen/Validate-WrappedWorldCoordinateFoundationV139.py: exit=0",
+        "Pass 139 wrapped-world coordinate foundation validated against client generation v7",
+        "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldSkeletonV140.py: exit=0",
+        "Pass 140 archipelago world skeleton validated",
+        "tools/automation/validation/checks/terrain/Validate-TerrainWorldSemanticRegistryV142.py: exit=0",
+        "Pass 142 terrain/world semantic registry validated: 32 materials, 38 biome references, stable ids/ordinals clean",
+        "tools/automation/validation/checks/worldgen/Validate-WorldGenerationPipelineOwnershipV143.py: exit=0",
+        "Pass 143 world-generation pipeline ownership validated: 12 ordered stages, 12 owned layers, mutation and persistence contracts clean",
+        "tools/automation/validation/checks/worldgen/Validate-ChunkPersistenceNormalizationV144.py: exit=0",
+        "Pass 144 chunk persistence normalization validated: 6 ownership partitions, canonical wrapped keys, atomic/recovery writes, v4-to-v7 migration contract"
+      ],
+      "skippedBecause": [],
+      "order": 40,
+      "legacyTaskId": null
+    },
+    {
+      "id": "architecture.build-portability.validate_windowsbuildportabilityv146",
+      "name": "Validate-WindowsBuildPortabilityV146",
+      "status": "passed",
+      "domain": "architecture",
+      "phase": "build-portability",
+      "durationSeconds": 1.166,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/checks/build/Validate-WindowsBuildPortabilityV146.py"
+      ],
+      "skippedBecause": [],
+      "order": 50,
+      "legacyTaskId": "validate-windowsbuildportabilityv146"
+    },
+    {
+      "id": "architecture.persistence.validate_savemigrationcompatibilityv146",
+      "name": "Validate-SaveMigrationCompatibilityV146",
+      "status": "passed",
+      "domain": "architecture",
+      "phase": "persistence",
+      "durationSeconds": 1.225,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/checks/persistence/Validate-SaveMigrationCompatibilityV146.py"
+      ],
+      "skippedBecause": [],
+      "order": 60,
+      "legacyTaskId": "validate-savemigrationcompatibilityv146"
+    },
+    {
+      "id": "architecture.compile-contract.validate_rustworkspacecontractv146",
+      "name": "Validate-RustWorkspaceContractV146",
+      "status": "passed",
+      "domain": "architecture",
+      "phase": "compile-contract",
+      "durationSeconds": 1.137,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/checks/build/Validate-RustWorkspaceContractV146.py"
+      ],
+      "skippedBecause": [],
+      "order": 70,
+      "legacyTaskId": "validate-rustworkspacecontractv146"
+    },
+    {
+      "id": "architecture.validation-framework.validate_validationframeworkselftestsv146b",
+      "name": "Validate-ValidationFrameworkSelfTestsV146B",
+      "status": "passed",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "durationSeconds": 1.162,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/checks/build/Validate-ValidationFrameworkSelfTestsV146B.py"
+      ],
+      "skippedBecause": [],
+      "order": 80,
+      "legacyTaskId": "validate-validationframeworkselftestsv146b"
+    },
+    {
+      "id": "architecture.validation-framework.native-contract-v146c",
+      "name": "Native Validation Framework Contract V146C",
+      "status": "passed",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "durationSeconds": 0.7,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "active=19",
+        "native=6",
+        "domainNative=5"
+      ],
+      "skippedBecause": [],
+      "order": 90,
+      "legacyTaskId": null
+    },
+    {
+      "id": "architecture.validation-quality.validate_validatorqualityv146",
+      "name": "Validate-ValidatorQualityV146",
+      "status": "passed",
+      "domain": "architecture",
+      "phase": "validation-quality",
+      "durationSeconds": 1.162,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/checks/build/Validate-ValidatorQualityV146.py"
+      ],
+      "skippedBecause": [],
+      "order": 100,
+      "legacyTaskId": "validate-validatorqualityv146"
+    },
+    {
+      "id": "terrain.runtime.contract",
+      "name": "Terrain Runtime Contract",
+      "status": "passed",
+      "domain": "editor",
+      "phase": "terrain-runtime",
+      "durationSeconds": 0.639,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "direct LPC terrain source and exact-pair runtime authority"
+      ],
+      "skippedBecause": [],
+      "order": 200,
+      "legacyTaskId": null
+    },
+    {
+      "id": "terrain.water.lifecycle",
+      "name": "Terrain Shore and Water Lifecycle",
+      "status": "passed",
+      "domain": "world",
+      "phase": "terrain-lifecycle",
+      "durationSeconds": 0.639,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "client coast, pond, bridge, and water-depth materialization",
+        "terrain topology and LPC water-edge evidence"
+      ],
+      "skippedBecause": [],
+      "order": 210,
+      "legacyTaskId": null
+    },
+    {
+      "id": "terrain.promotion.contract",
+      "name": "Terrain Promotion and Coverage Contract",
+      "status": "passed",
+      "domain": "editor",
+      "phase": "terrain-promotion",
+      "durationSeconds": 0.633,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "production LPC terrain and livestock registry",
+        "promoted terrain acceptance coverage"
+      ],
+      "skippedBecause": [],
+      "order": 220,
+      "legacyTaskId": null
+    },
+    {
+      "id": "editor.authoring.contract",
+      "name": "Editor Authoring and Command Contract",
+      "status": "passed",
+      "domain": "editor",
+      "phase": "editor-authoring",
+      "durationSeconds": 0.64,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "editor command, undo, dirty-chunk, and persistence contract"
+      ],
+      "skippedBecause": [],
+      "order": 230,
+      "legacyTaskId": null
+    },
+    {
+      "id": "characters.world-sync-v148w",
+      "name": "Character world autosave and synchronization V148W",
+      "status": "passed",
+      "domain": "world",
+      "phase": "character-persistence",
+      "durationSeconds": 1.194,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/checks/characters/Validate-CharacterWorldSyncV148W.py"
+      ],
+      "skippedBecause": [],
+      "order": 240,
+      "legacyTaskId": "validate-stable-placeable-runtime-dispatch-v148o"
+    },
+    {
+      "id": "characters.production-catalog-v149j28",
+      "name": "Universal LPC Complete Character and Equipment Catalog V167Z7",
+      "status": "passed",
+      "domain": "content",
+      "phase": "character-promotion",
+      "durationSeconds": 1.418,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/checks/characters/Validate-LpcCharacterProductionCatalogV149J28.py"
+      ],
+      "skippedBecause": [],
+      "order": 250,
+      "legacyTaskId": null
+    },
+    {
+      "id": "assets.production-lpc-runtime-binding-v149j",
+      "name": "Production LPC Runtime Binding Contract",
+      "status": "passed",
+      "domain": "content",
+      "phase": "asset-runtime-binding",
+      "durationSeconds": 1.185,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/checks/characters/Validate-ProductionLpcRuntimeBindingV149J.py"
+      ],
+      "skippedBecause": [],
+      "order": 260,
+      "legacyTaskId": "validate-production-lpc-runtime-binding-v149j"
+    },
+    {
+      "id": "terrain.topology-certification-v167z5",
+      "name": "Terrain Topology and LPC Evidence Certification",
+      "status": "passed",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "durationSeconds": 1.181,
+      "exitCode": 0,
+      "issues": [],
+      "evidence": [
+        "/opt/pyvenv/bin/python3 tools/automation/validation/validate_terrain_topology_v167z5.py"
+      ],
+      "skippedBecause": [],
+      "order": 270,
+      "legacyTaskId": "validate-terrain-topology-v167z5"
+    }
+  ]
+}

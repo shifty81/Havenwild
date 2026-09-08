@@ -1,0 +1,666 @@
+{
+  "schema": "havenwild.building_recipe.v1",
+  "id": "havenwild.prototype.three_level_house",
+  "version": "1.2.0-w47",
+  "label": "Three-Level House Authority Prototype",
+  "classification": {
+    "kind": "diagnostic",
+    "diagnosticOnly": true,
+    "tags": [
+      "w46",
+      "house",
+      "same_world_interior",
+      "multi_level",
+      "cutaway",
+      "w47_interior_grammar"
+    ]
+  },
+  "footprint": [
+    9,
+    7
+  ],
+  "defaultLevel": 0,
+  "levels": [
+    {
+      "level": -1,
+      "id": "cellar",
+      "label": "Cellar / Basement",
+      "bounds": [
+        1,
+        1,
+        7,
+        5
+      ],
+      "floorFills": [
+        {
+          "assetId": "floor_wood_herringbone_dark",
+          "rect": [
+            1,
+            1,
+            7,
+            5
+          ]
+        }
+      ],
+      "wallRuns": [
+        {
+          "id": "cellar_north",
+          "edge": "north",
+          "start": [
+            1,
+            1
+          ],
+          "length": 7,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.cellar"
+        },
+        {
+          "id": "cellar_east",
+          "edge": "east",
+          "start": [
+            7,
+            1
+          ],
+          "length": 5,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.cellar"
+        },
+        {
+          "id": "cellar_south",
+          "edge": "south",
+          "start": [
+            1,
+            5
+          ],
+          "length": 7,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.cellar"
+        },
+        {
+          "id": "cellar_west",
+          "edge": "west",
+          "start": [
+            1,
+            1
+          ],
+          "length": 5,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.cellar"
+        }
+      ],
+      "openings": [],
+      "rooms": [
+        {
+          "id": "cellar_storage",
+          "label": "Cellar Storage",
+          "rect": [
+            1,
+            1,
+            7,
+            5
+          ],
+          "tags": [
+            "storage",
+            "basement"
+          ]
+        }
+      ],
+      "navigation": {
+        "walkableRects": [
+          [
+            1,
+            1,
+            7,
+            5
+          ]
+        ],
+        "blockedTiles": []
+      },
+      "furnishings": [
+        {
+          "id": "cellar_crate_a",
+          "assetId": "container_crate_wood_01",
+          "roomId": "cellar_storage",
+          "tile": [
+            2,
+            2
+          ],
+          "kind": "container",
+          "state": "closed",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "storage",
+              "purpose": "container_access",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "inventory"
+            }
+          ]
+        },
+        {
+          "id": "cellar_crate_b",
+          "assetId": "container_crate_wood_01",
+          "roomId": "cellar_storage",
+          "tile": [
+            4,
+            2
+          ],
+          "kind": "container",
+          "state": "closed",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "storage",
+              "purpose": "container_access",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "inventory"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 0,
+      "id": "ground",
+      "label": "Ground Floor",
+      "bounds": [
+        0,
+        0,
+        9,
+        7
+      ],
+      "floorFills": [
+        {
+          "assetId": "floor_wood_herringbone_light",
+          "rect": [
+            1,
+            1,
+            7,
+            5
+          ]
+        }
+      ],
+      "wallRuns": [
+        {
+          "id": "ground_north",
+          "edge": "north",
+          "start": [
+            0,
+            0
+          ],
+          "length": 9,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.ground"
+        },
+        {
+          "id": "ground_east",
+          "edge": "east",
+          "start": [
+            8,
+            0
+          ],
+          "length": 7,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.ground"
+        },
+        {
+          "id": "ground_south",
+          "edge": "south",
+          "start": [
+            0,
+            6
+          ],
+          "length": 9,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.ground"
+        },
+        {
+          "id": "ground_west",
+          "edge": "west",
+          "start": [
+            0,
+            0
+          ],
+          "length": 7,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.ground"
+        }
+      ],
+      "openings": [
+        {
+          "id": "front_door",
+          "kind": "door",
+          "edge": "south",
+          "tile": [
+            4,
+            6
+          ],
+          "assetId": "door_basic",
+          "state": "closed"
+        },
+        {
+          "id": "front_window_left",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            2,
+            6
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        },
+        {
+          "id": "front_window_right",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            6,
+            6
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "ground_living",
+          "label": "Ground-Floor Living Space",
+          "rect": [
+            1,
+            1,
+            7,
+            5
+          ],
+          "tags": [
+            "living",
+            "entry"
+          ]
+        }
+      ],
+      "navigation": {
+        "walkableRects": [
+          [
+            1,
+            1,
+            7,
+            5
+          ]
+        ],
+        "blockedTiles": []
+      },
+      "furnishings": [
+        {
+          "id": "living_table",
+          "assetId": "table_basic",
+          "roomId": "ground_living",
+          "tile": [
+            3,
+            2
+          ],
+          "kind": "furniture",
+          "state": "default",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "service",
+              "purpose": "meal_service",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "living_chair_left",
+          "assetId": "chair_basic",
+          "roomId": "ground_living",
+          "tile": [
+            2,
+            3
+          ],
+          "kind": "furniture",
+          "state": "default",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ]
+        },
+        {
+          "id": "living_chair_right",
+          "assetId": "chair_basic",
+          "roomId": "ground_living",
+          "tile": [
+            6,
+            3
+          ],
+          "kind": "furniture",
+          "state": "default",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "id": "upstairs",
+      "label": "Upstairs",
+      "bounds": [
+        0,
+        0,
+        9,
+        7
+      ],
+      "floorFills": [
+        {
+          "assetId": "floor_wood_herringbone_light",
+          "rect": [
+            1,
+            1,
+            7,
+            5
+          ]
+        }
+      ],
+      "wallRuns": [
+        {
+          "id": "upstairs_north",
+          "edge": "north",
+          "start": [
+            0,
+            0
+          ],
+          "length": 9,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.upstairs"
+        },
+        {
+          "id": "upstairs_east",
+          "edge": "east",
+          "start": [
+            8,
+            0
+          ],
+          "length": 7,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.upstairs"
+        },
+        {
+          "id": "upstairs_south",
+          "edge": "south",
+          "start": [
+            0,
+            6
+          ],
+          "length": 9,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.upstairs"
+        },
+        {
+          "id": "upstairs_west",
+          "edge": "west",
+          "start": [
+            0,
+            0
+          ],
+          "length": 7,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.upstairs"
+        }
+      ],
+      "openings": [
+        {
+          "id": "upstairs_window_left",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            2,
+            6
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        },
+        {
+          "id": "upstairs_window_right",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            6,
+            6
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "upstairs_bedroom",
+          "label": "Upstairs Bedroom Zone",
+          "rect": [
+            1,
+            1,
+            7,
+            5
+          ],
+          "tags": [
+            "bedroom",
+            "upper_floor"
+          ]
+        }
+      ],
+      "navigation": {
+        "walkableRects": [
+          [
+            1,
+            1,
+            7,
+            5
+          ]
+        ],
+        "blockedTiles": []
+      },
+      "furnishings": [
+        {
+          "id": "upstairs_bed",
+          "assetId": "bed_basic",
+          "roomId": "upstairs_bedroom",
+          "tile": [
+            2,
+            2
+          ],
+          "kind": "furniture",
+          "state": "made",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "sleep",
+              "purpose": "sleep",
+              "offset": [
+                1,
+                1
+              ],
+              "reservation": "actor"
+            }
+          ]
+        },
+        {
+          "id": "upstairs_chair",
+          "assetId": "chair_basic",
+          "roomId": "upstairs_bedroom",
+          "tile": [
+            6,
+            3
+          ],
+          "kind": "furniture",
+          "state": "default",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "connectors": [
+    {
+      "id": "cellar_to_ground",
+      "kind": "stairs",
+      "assetId": "stairs_short_run_gray",
+      "fromLevel": -1,
+      "toLevel": 0,
+      "fromTile": [
+        2,
+        4
+      ],
+      "toTile": [
+        2,
+        4
+      ],
+      "reversible": true
+    },
+    {
+      "id": "ground_to_upstairs",
+      "kind": "stairs",
+      "assetId": "stairs_short_run_gray",
+      "fromLevel": 0,
+      "toLevel": 1,
+      "fromTile": [
+        6,
+        4
+      ],
+      "toTile": [
+        6,
+        4
+      ],
+      "reversible": true
+    }
+  ],
+  "roof": {
+    "level": 1,
+    "mode": "flat_nine_slice",
+    "family": "roof.flat_shingle_a.gray",
+    "rect": [
+      0,
+      0,
+      9,
+      7
+    ],
+    "occlusionGroup": "building.roof",
+    "cameraLocalOcclusion": true,
+    "components": {
+      "field": "roof_flat_gray_field",
+      "northEdge": "roof_flat_gray_north_eave",
+      "southEdge": "roof_flat_gray_south_eave",
+      "westEdge": "roof_flat_gray_west_edge",
+      "eastEdge": "roof_flat_gray_east_edge",
+      "northWestCorner": "roof_flat_gray_corner_nw",
+      "northEastCorner": "roof_flat_gray_corner_ne",
+      "southWestCorner": "roof_flat_gray_corner_sw",
+      "southEastCorner": "roof_flat_gray_corner_se"
+    },
+    "authoredModuleAssetId": null
+  },
+  "cutawayGroups": [
+    {
+      "id": "building.roof",
+      "visibilityRole": "roof_occluder",
+      "levels": [
+        1
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_shell.ground",
+      "visibilityRole": "wall_occluder",
+      "levels": [
+        0
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_shell.upstairs",
+      "visibilityRole": "wall_occluder",
+      "levels": [
+        1
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_shell.cellar",
+      "visibilityRole": "wall_occluder",
+      "levels": [
+        -1
+      ],
+      "cameraLocal": true
+    }
+  ],
+  "persistence": {
+    "interiorPolicy": "same_world_building_instance",
+    "allLevelsAuthoritative": true,
+    "separateScene": false,
+    "portableInstanceIdentity": true
+  }
+}

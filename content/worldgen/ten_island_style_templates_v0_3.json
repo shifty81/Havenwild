@@ -1,0 +1,198 @@
+{
+  "id": "ten_island_style_templates_v0_3",
+  "version": "0.3.0",
+  "kind": "island_style_templates",
+  "status": "planning_scaffold_for_v0_4_plus",
+  "islands": [
+    {
+      "id": "home_temperate_mountain",
+      "name": "Home Island",
+      "style": "temperate wooded coastal mountain tavern",
+      "woodTrees": [
+        "oak",
+        "birch"
+      ],
+      "fruitTrees": [
+        "apple",
+        "pear"
+      ],
+      "signatureCrops": [
+        "barley",
+        "carrot",
+        "turnip"
+      ],
+      "cityStyle": "warm timber and stone"
+    },
+    {
+      "id": "pine_coast_fishing",
+      "name": "Pine Coast Island",
+      "style": "windy pine coast and fishing hamlet",
+      "woodTrees": [
+        "pine",
+        "cedar"
+      ],
+      "fruitTrees": [
+        "plum",
+        "cranberry_bog_shrub"
+      ],
+      "signatureCrops": [
+        "potato",
+        "rye",
+        "sea_kale"
+      ],
+      "cityStyle": "weathered shingles and dock pylons"
+    },
+    {
+      "id": "sunherb_med",
+      "name": "Sunherb Island",
+      "style": "mediterranean herbs, terraces, whitewashed walls",
+      "woodTrees": [
+        "olive_wood",
+        "cypress"
+      ],
+      "fruitTrees": [
+        "lemon",
+        "fig"
+      ],
+      "signatureCrops": [
+        "oregano",
+        "tomato",
+        "garlic"
+      ],
+      "cityStyle": "white stucco and blue tile"
+    },
+    {
+      "id": "tropical_orchard",
+      "name": "Tropical Orchard Island",
+      "style": "lush fruit groves and warm beaches",
+      "woodTrees": [
+        "palm",
+        "mahogany"
+      ],
+      "fruitTrees": [
+        "mango",
+        "banana"
+      ],
+      "signatureCrops": [
+        "pineapple",
+        "ginger",
+        "sugarcane"
+      ],
+      "cityStyle": "bright wood, woven awnings"
+    },
+    {
+      "id": "highland_sheep",
+      "name": "Highland Island",
+      "style": "stone fences, sheep fields, cold hills",
+      "woodTrees": [
+        "ash",
+        "rowan"
+      ],
+      "fruitTrees": [
+        "elderberry",
+        "crabapple"
+      ],
+      "signatureCrops": [
+        "oats",
+        "cabbage",
+        "heather"
+      ],
+      "cityStyle": "gray stone and slate roofs"
+    },
+    {
+      "id": "marsh_reed",
+      "name": "Marshreed Island",
+      "style": "wetland reeds, boardwalks, fog",
+      "woodTrees": [
+        "willow",
+        "alder"
+      ],
+      "fruitTrees": [
+        "bog_berry",
+        "persimmon"
+      ],
+      "signatureCrops": [
+        "rice",
+        "watercress",
+        "reed_fiber"
+      ],
+      "cityStyle": "raised boardwalk huts"
+    },
+    {
+      "id": "volcanic_mineral",
+      "name": "Volcanic Island",
+      "style": "black sand, hot springs, mineral caves",
+      "woodTrees": [
+        "ironwood",
+        "char_pine"
+      ],
+      "fruitTrees": [
+        "dragonfruit",
+        "spiceberry"
+      ],
+      "signatureCrops": [
+        "pepper",
+        "ash_yam",
+        "mineral_mushroom"
+      ],
+      "cityStyle": "dark basalt and copper roofs"
+    },
+    {
+      "id": "autumn_maple",
+      "name": "Maplefall Island",
+      "style": "permanent autumn maple forest and forage",
+      "woodTrees": [
+        "maple",
+        "beech"
+      ],
+      "fruitTrees": [
+        "chestnut",
+        "persimmon"
+      ],
+      "signatureCrops": [
+        "pumpkin",
+        "beet",
+        "sage"
+      ],
+      "cityStyle": "red timber and paper lanterns"
+    },
+    {
+      "id": "northern_snow",
+      "name": "Snowcap Island",
+      "style": "snowy northern harbor and evergreen groves",
+      "woodTrees": [
+        "spruce",
+        "fir"
+      ],
+      "fruitTrees": [
+        "snow_apple",
+        "juniper_berry"
+      ],
+      "signatureCrops": [
+        "winter_wheat",
+        "parsnip",
+        "frost_mint"
+      ],
+      "cityStyle": "log cabins and heavy stone hearths"
+    },
+    {
+      "id": "old_growth_mystic",
+      "name": "Oldgrowth Island",
+      "style": "ancient forest, mushrooms, ruins, magical springs",
+      "woodTrees": [
+        "ancient_oak",
+        "silverwood"
+      ],
+      "fruitTrees": [
+        "moonpear",
+        "glowplum"
+      ],
+      "signatureCrops": [
+        "mushroom",
+        "moonroot",
+        "lavender"
+      ],
+      "cityStyle": "living wood and mossy stone"
+    }
+  ]
+}

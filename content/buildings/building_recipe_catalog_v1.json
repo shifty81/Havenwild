@@ -1,0 +1,27 @@
+{
+  "schema": "havenwild.building_recipe_catalog.v1",
+  "pass": "167Z109W57K11",
+  "authority": "BuildingRecipeRegistry",
+  "entries": [
+    {
+      "id": "havenwild.prototype.three_level_house",
+      "path": "content/buildings/recipes/three_level_house_prototype_v1.json",
+      "status": "candidate"
+    },
+    {
+      "id": "havenwild.tavern.standard_three_level",
+      "path": "content/buildings/recipes/tavern_standard_three_level_v1.json",
+      "status": "candidate"
+    },
+    {
+      "id": "havenwild.estate.starter_cottage",
+      "path": "content/buildings/recipes/estate_starter_cottage_v1.json",
+      "status": "candidate"
+    },
+    {
+      "id": "havenwild.estate.house_two_story_upgrade",
+      "path": "content/buildings/recipes/estate_two_story_house_upgrade_v1.json",
+      "status": "candidate"
+    }
+  ]
+}

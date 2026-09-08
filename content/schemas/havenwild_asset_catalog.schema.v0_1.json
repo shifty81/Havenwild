@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.asset_catalog.v0_1",
+  "type": "object",
+  "required": [
+    "schema",
+    "indexes",
+    "editorContracts"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.asset_catalog.v0_1"
+    },
+    "indexes": {
+      "type": "array"
+    },
+    "editorContracts": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W45C2 begins dedicated roof/wall-border authority without guessing roof cells.",
+    "Formal Crown Molding publishes one exact repeatable wall-attached border cell; roof sheets remain topology source families until exact region roles are accepted.",
+    "Roof assembly grammar is owned by content/buildings/roof_topology_contract_v1.json and will feed W46 BuildingRecipe authority."
+  ],
+  "entries": [
+    {
+      "id": "wall_border_formal_crown_repeat",
+      "semantic_id": "structure.wall_border.formal_crown.repeat",
+      "label": "Formal Crown Molding Repeat",
+      "category": "wall",
+      "source_semantic_id": "structure.wall_border.runtime",
+      "footprint": {
+        "visual_offset": [0, 0],
+        "visual_size": [1, 1],
+        "collision_offset": [0, 0],
+        "collision_size": [0, 0],
+        "interaction_offset": [0, 0],
+        "interaction_size": [1, 1],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [0, 0],
+      "allowed_surfaces": ["wall", "building_wall"],
+      "forbidden_surfaces": ["ground", "water"],
+      "placement_tags": ["structure", "wall_border", "trim", "interior", "repeat_x"],
+      "states": ["default"],
+      "visual": {
+        "foot_anchor": [16.0, 32.0],
+        "frames": [
+          {"state": "default", "source_rect": [0, 0, 32, 32]}
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Formal Crown Molding exact repeatable wall-border candidate."
+      },
+      "behavior": {"interaction_trigger": "interact"},
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Formal Crown Molding.png",
+        "source_rect": [0, 64, 32, 32],
+        "source_mode": "exact_repeat_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Credits.txt",
+        "note": "The first four bottom-row 32x32 cells are pixel-identical; one exact cell is published as the repeatable horizontal border segment."
+      },
+      "structure": {
+        "connection_family": "wall_border.formal_crown",
+        "topology_role": "repeat_segment",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.any",
+        "attachment_surface": "wall",
+        "visibility_role": "wall_finish",
+        "occlusion_group": "building.wall_finish",
+        "camera_local_occlusion": true,
+        "repeat_axis": "x",
+        "assembly_family": "wall_border.formal_crown",
+        "sockets": []
+      }
+    }
+  ]
+}

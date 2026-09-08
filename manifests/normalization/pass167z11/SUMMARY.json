@@ -1,0 +1,40 @@
+{
+  "schema": "havenwild.normalization.pass167z11.v1",
+  "sourceBaseline": "Pass167Z10_DevelopmentNormalization",
+  "authoritativeBaseline": "Pass167Z11_BuildBootstrapRepair",
+  "rootFiles": [
+    ".gitignore",
+    "Cargo.lock",
+    "Cargo.toml",
+    "HavenwildTools.cmd",
+    "README.md"
+  ],
+  "singleRootLauncher": "HavenwildTools.cmd",
+  "fixes": [
+    "automatic Windows overwrite-extraction casing repair, legacy log merge, and known transient cleanup",
+    "Windows-safe exact-name legacy root validation",
+    "automatic Universal LPC archive parking under IMPORTS",
+    "deterministic direct-LPC compatibility asset bootstrap before Rust tests"
+  ],
+  "runtimeTerrainAuthority": "direct pinned LPC source rectangles and authored transition blocks",
+  "compatibilityOutputs": [
+    "assets/generated/worldgen_v0_1/terrain/lpc_terrain_summer_complete_map_32.json",
+    "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+    "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+    "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.json",
+    "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.png",
+    "assets/generated/worldgen_v0_1/terrain/lpc_expandable_ponds_32.json"
+  ],
+  "validation": [
+    "source profile passed",
+    "Python syntax passed",
+    "Build.sh syntax passed",
+    "archive parking smoke test passed"
+  ],
+  "toolFiles": 470,
+  "knownTransientRemovals": [
+    "crates/haven_world/src/autotile/shoreline_resolver_tests.rs.tmp",
+    "manifests/ROLLUP_CARGO_CHECK.log",
+    "manifests/ROLLUP_FMT_CHECK.log"
+  ]
+}

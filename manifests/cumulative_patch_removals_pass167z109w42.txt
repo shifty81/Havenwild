@@ -1,0 +1,4 @@
+PATCH_MANIFEST.txt
+SHA256SUMS.txt
+content/asset_packs/havenwild_objects/placeables_v1.json
+crates/haven_core/src/foundation/placeable_object_catalog.rs

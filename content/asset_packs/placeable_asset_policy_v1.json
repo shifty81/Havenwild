@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.placeable_asset_policy.v1",
+  "version": 1,
+  "catalog_semantic_prefix": "placeable.catalog.",
+  "rules": {
+    "discover_from_all_mounted_production_packs": true,
+    "stable_identity_is_pack_qualified": true,
+    "footprints_are_pack_defined": true,
+    "anchors_are_pack_defined": true,
+    "collision_is_pack_defined": true,
+    "placement_surfaces_are_pack_defined": true,
+    "states_are_pack_defined": true,
+    "legacy_object_defaults_are_fallback_only": true,
+    "runtime_and_editor_share_registry": true,
+    "unknown_categories_are_allowed": true
+  },
+  "placeable_categories": [
+    "tile_object", "building", "wall", "floor", "door", "furniture",
+    "crop", "tree", "foliage", "tool", "animal", "npc", "item",
+    "scene", "interior", "cave", "dungeon", "editor_template", "other"
+  ],
+  "consumers": ["runtime_f3", "native_editor", "content_browser", "asset_palette", "pcg"]
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z13",
+  "title": "Dependency Content Validation Scope Repair",
+  "date": "2026-08-02",
+  "base": "Pass 167Z12 Automation Import Bootstrap Repair",
+  "result": "Pass 167Z13 Dependency Content Validation Scope Repair",
+  "problem": "Generic JSON validation scanned mounted Universal LPC negative-test fixtures and JSON-with-comments configuration as if they were Havenwild content.",
+  "projectOwnedJsonValidator": "tools/automation/validation/validate_content.py",
+  "excludedExternalRoots": [
+    ".local/",
+    "IMPORTS/",
+    "assets/source/licensed/",
+    "WORKSPACE/",
+    "logs/",
+    "target/",
+    "node_modules/",
+    "archive/"
+  ],
+  "dedicatedDependencyAuthority": [
+    "LPC source lock",
+    "Universal LPC repository identity",
+    "character/equipment catalog",
+    "production runtime bindings",
+    "direct LPC terrain authority"
+  ],
+  "regressionGuard": "Validate-ValidationFrameworkSelfTestsV146B.py runs the content-validator scope self-test.",
+  "validation": [
+    "mounted dependency malformed fixture simulation passed",
+    "malformed Havenwild content probe was rejected",
+    "source validation profile passed all 19 active gates",
+    "all 17 content-integrity checks passed",
+    "Python syntax passed",
+    "Build.sh syntax passed",
+    "external Rust/Cargo completion pending local workstation rerun"
+  ]
+}

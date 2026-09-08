@@ -1,0 +1,53 @@
+{
+  "schema": "havenwild.runtime_character_visual_authority.v0_1",
+  "revision": "167Z109V1-runtime-character-visual-policy-v2",
+  "authority": {
+    "productionBinding": "content/characters/production_lpc_runtime_binding_v167z40.json",
+    "compatibilityMatrix": "content/characters/lpc_character_compatibility_matrix_v0_1.json",
+    "texturePolicyModule": "crates/haven_game/src/character_visual_policy.rs",
+    "layeredCompositor": "crates/haven_game/src/character_runtime_compositor.rs",
+    "animationBinding": "content/characters/runtime_character_animation_binding_v0_1.json"
+  },
+  "pixelRendering": {
+    "filter": "nearest",
+    "appliesTo": [
+      "generated modular LPC layers",
+      "stable asset-ref character textures",
+      "frontend LPC preview layers",
+      "source-backed player compatibility atlas"
+    ],
+    "smoothFilteringAllowed": false
+  },
+  "productionFallbackOrder": [
+    "saved layered appearance resolved through generated compatible LPC cache",
+    "stable asset-ref source for the saved layer",
+    "generated compatible LPC cache for the saved layer",
+    "omit optional unresolved layer",
+    "for a missing action texture use only the explicit semantic fallback table; never silently substitute walk/emote for sprint or tool actions",
+    "if required body/base is unresolved, reject layered appearance and use character.player.base source-backed compatibility atlas"
+  ],
+  "requiredLayers": [
+    "body/base"
+  ],
+  "proceduralCharacterArtworkFallback": false,
+  "sourceBackedCompatibility": {
+    "semanticId": "character.player.base",
+    "frameSize": [
+      64,
+      96
+    ],
+    "purpose": "keep player visible when layered appearance cannot resolve without inventing replacement character artwork",
+    "notASecondAuthoringModel": true
+  },
+  "frontendPreview": {
+    "usesNearestFiltering": true,
+    "nonproductionMissingSourceIndicatorAllowed": true,
+    "productionRuntimePolicyIndependent": true
+  },
+  "moduleBoundary": {
+    "character_visual_policy": "texture loading/filtering and fallback identity only",
+    "character_runtime_compositor": "layer resolution, canonical locomotion/action clip selection, explicit source-alias fallback and layered drawing only",
+    "runtime_draw": "select layered runtime or source-backed compatibility visual; no procedural player body drawing",
+    "client_frontend": "frontend flow and preview asset orchestration; texture policy delegated to character_visual_policy"
+  }
+}

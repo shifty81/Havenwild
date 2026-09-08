@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.elizawy_cliff.runtime_preview_certification.v0_1",
+  "pass": "167Z106N5Q",
+  "source": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+  "sourceDimensionsPx": [512, 448],
+  "sourceGridCellPx": [32, 32],
+  "certifiedRuntimeVisual": {
+    "recipeFamily": "elizawy.primary_cardinal_cliff_shape_assembly",
+    "shapeCatalog": "content/worldgen/elizawy_cliff_runtime_shape_catalog_v0_1.json",
+    "cardinalMasksResolved": 15,
+    "straightSouthSourceGridSpan": [10, 9, 1, 3],
+    "multiLevelPolicy": "rock_body_extension_only_with_single_lower_grass_foot",
+    "runtimeVisualEnabled": true
+  },
+  "runtimeGate": {
+    "collision": "fail_open",
+    "eastWestSides": "visual_enabled",
+    "corners": "visual_enabled",
+    "endCaps": "visual_enabled_by_boundary_shape_composition",
+    "innerCorners": "visual_enabled_by_adjacent_face_composition",
+    "narrowRidges": "visual_enabled",
+    "waterFacingCliffs": "quarantined",
+    "ramps": "quarantined",
+    "ladders": "quarantined",
+    "caves": "quarantined",
+    "bridges": "quarantined",
+    "waterfalls": "quarantined",
+    "multiLevelVerticalExtension": "enabled_body_only_single_foot"
+  },
+  "reason": "N5Q promotes the primary dry cardinal cliff boundary grammar after image comparison against the ElizaWy rounded/square plateau references. Complete grass-foot envelopes are never stacked."
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.architecture.diagnostics_hot_reload.w69.v1",
+  "pass": "167Z109W69",
+  "approvedStaged": [
+    {
+      "crate": "tracing",
+      "version": "0.1.44",
+      "role": "structured events/spans behind haven_diagnostics"
+    },
+    {
+      "crate": "tracing-subscriber",
+      "version": "0.3.23",
+      "role": "diagnostic sinks/filtering"
+    },
+    {
+      "crate": "notify",
+      "version": "8.2",
+      "role": "asset/config/source watcher adapter"
+    },
+    {
+      "crate": "puffin",
+      "version": "0.20",
+      "role": "editor/game profiling"
+    }
+  ],
+  "soundStaged": [
+    "kira",
+    "fundsp",
+    "cpal",
+    "midly",
+    "midir",
+    "rtrb",
+    "rustfft",
+    "rubato",
+    "rustysynth"
+  ],
+  "rule": "Activate staged crates in bounded green gates; do not replace Havenwild authority."
+}

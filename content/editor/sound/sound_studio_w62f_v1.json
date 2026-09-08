@@ -1,0 +1,11 @@
+{
+  "schema": "havenwild.sound_studio.w62f.v1",
+  "firstClassWorkspace": true,
+  "usesCanvasWorkspace": true,
+  "documents": ["audio_graph", "midi_notes", "instrument_patch", "sound_event", "ambience", "music_state", "waveform"],
+  "initialInstruments": ["sine", "square", "triangle", "noise", "pluck"],
+  "initialNodes": ["oscillator", "noise", "envelope", "filter", "gain", "pan", "mixer", "delay", "lfo", "midi_note", "instrument", "output"],
+  "activatedBackend": "Hound deterministic WAV preview",
+  "stagedBackends": ["FunDSP", "Kira", "CPAL", "RustySynth", "midly", "midir", "rtrb", "RustFFT", "rubato"],
+  "runtimeContractOwner": "haven_audio"
+}

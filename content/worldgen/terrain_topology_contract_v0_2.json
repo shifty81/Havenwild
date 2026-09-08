@@ -1,0 +1,150 @@
+{
+  "schema": "havenwild.terrain_topology_contract.v0_2",
+  "version": 3,
+  "tile_size": 32,
+  "generated_semantic_policy": {
+    "compatibility_only_tiles": [
+      "ShoreFoam",
+      "RiverMouthBlend"
+    ],
+    "walkable_rock": [
+      "MountainRock",
+      "MountainPath"
+    ],
+    "blocking_elevation_faces": [
+      "Cliff",
+      "Wall",
+      "CaveWall"
+    ],
+    "water_depth_order": [
+      "DeepWater",
+      "Water",
+      "ShallowWater"
+    ],
+    "coast_profiles": {
+      "sandy": [
+        "Grass",
+        "Sand",
+        "WetSand",
+        "OceanShallow",
+        "OceanDeep"
+      ],
+      "pebbled": [
+        "Grass",
+        "PebbleShore",
+        "WetSand",
+        "ShallowWater",
+        "Water",
+        "DeepWater"
+      ],
+      "muddy_freshwater": [
+        "Grass",
+        "MudBank",
+        "ShallowWater",
+        "DeepWater"
+      ]
+    },
+    "route_tiles": [
+      "Road",
+      "StonePath",
+      "MountainPath",
+      "Bridge"
+    ],
+    "cultivated_tiles": [
+      "TilledSoil",
+      "WateredSoil",
+      "Crop"
+    ],
+    "base_ground_tiles": [
+      "Grass",
+      "TallGrass",
+      "Dirt",
+      "Sand",
+      "PebbleShore",
+      "WetSand",
+      "MudBank",
+      "MountainRock"
+    ]
+  },
+  "adjacency_rules": [
+    {
+      "id": "deep_water_requires_water_buffer",
+      "tile": "DeepWater",
+      "neighbor_mode": "8-way",
+      "allowed_neighbors": [
+        "DeepWater",
+        "ShallowWater",
+        "Water",
+        "OceanDeep",
+        "OceanShallow",
+        "Bridge"
+      ]
+    },
+    {
+      "id": "ocean_deep_requires_water_buffer",
+      "tile": "OceanDeep",
+      "neighbor_mode": "8-way",
+      "allowed_neighbors": [
+        "OceanDeep",
+        "Water",
+        "OceanShallow",
+        "Bridge"
+      ]
+    },
+    {
+      "id": "wet_sand_requires_water_contact",
+      "tile": "WetSand",
+      "neighbor_mode": "8-way",
+      "required_any": [
+        "ShallowWater",
+        "Water",
+        "OceanShallow",
+        "RiverWater"
+      ]
+    },
+    {
+      "id": "cliff_requires_walkable_top",
+      "tile": "Cliff",
+      "neighbor_mode": "8-way",
+      "required_any": [
+        "MountainRock",
+        "MountainPath"
+      ]
+    },
+    {
+      "id": "bridge_requires_route_connection",
+      "tile": "Bridge",
+      "neighbor_mode": "4-way",
+      "required_any": [
+        "Bridge",
+        "Road",
+        "StonePath",
+        "MountainPath"
+      ]
+    }
+  ],
+  "runtime_rules": {
+    "mapped_tuple_atlas_owns_mixed_boundaries": true,
+    "animated_water_owns_pure_water_interiors": true,
+    "solid_color_spans_are_emergency_only": true,
+    "frame_plan_rebuild_triggers": [
+      "camera_tile_bounds",
+      "scene",
+      "terrain_revision",
+      "paint_revision"
+    ],
+    "normal_gameplay_scans_debug_overlays": false,
+    "direct_lpc_quadrant_composition_owns_compound_boundaries": false,
+    "pixel_snapped_terrain_origin": true,
+    "direct_lpc_tiles_use_exact_32x32_destination": true,
+    "single_visual_family_per_contiguous_biome": true,
+    "presentation_authority": "exact_v7_owner_fill_plus_intersection_tuple_overlays_w77",
+    "unsupported_mixed_tuple_policy": "owner_fill_plus_diagnostic_workbench_candidate"
+  },
+  "certification": {
+    "acceptance_manifest": "content/worldgen/scenes/terrain_acceptance/terrain_acceptance_scene_manifest_v1.json",
+    "client_scene": "content/worldgen/scenes/open_world/willowmere_outskirts_region_v0_1.json",
+    "client_metrics": "docs/audits/generated/havenwild_open_world_biome_v167z38_metrics.json",
+    "validator": "tools/automation/validation/validate_terrain_topology_v167z5.py"
+  }
+}

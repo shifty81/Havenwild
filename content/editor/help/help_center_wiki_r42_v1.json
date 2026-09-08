@@ -1,0 +1,58 @@
+{
+  "schema": "havenwild.editor.help_center_wiki.r42.v1",
+  "pass": "167Z109W81R42",
+  "requirements": [
+    "searchable_index",
+    "contextual_f1",
+    "related_articles",
+    "workflow_articles",
+    "troubleshooting",
+    "version_tags",
+    "help_coverage_validation"
+  ],
+  "categories": [
+    "getting_started",
+    "editor_shell",
+    "world_studio",
+    "scene_studio",
+    "pixel_studio",
+    "animation_studio",
+    "character_studio",
+    "logic_studio",
+    "sound_studio",
+    "assets",
+    "layers",
+    "gameplay_authoring",
+    "troubleshooting",
+    "licensing"
+  ],
+  "workflowExamples": [
+    "generate_world",
+    "edit_terrain",
+    "make_cliff",
+    "create_waterfall",
+    "repair_transition",
+    "edit_world_pixels",
+    "create_scene",
+    "place_building",
+    "create_npc",
+    "equip_character",
+    "promote_lpc_asset",
+    "animate_tree",
+    "create_mining_node",
+    "create_item_weapon",
+    "create_sound",
+    "play_scene",
+    "recover_document"
+  ],
+  "coverageRule": "Every registered studio, major panel, semantic layer, primary tool, important command and workflow must resolve to a HelpArticleId or be explicitly exempted.",
+  "articleCount": 78,
+  "coverageRegistry": "content/editor/help/help_coverage_registry_r42_v1.json",
+  "coverageTargets": [
+    "all_editor_viewports",
+    "all_canvas_layer_kinds",
+    "all_universal_tools",
+    "major_editor_features"
+  ],
+  "profileRuleAuthoring": "Character Studio NPC Profile Rules edits a derived variant; base profiles remain read-only and variants are persisted under content/characters/npc_profiles."
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "havenwild.external_asset_pack_index.v0_1",
+  "generatedUtc": "2026-07-12T03:06:41.581744+00:00",
+  "pack": {
+    "id": "artis_dock_mixed",
+    "displayName": "Artis Dock Mixed Assets",
+    "archiveName": "Artis_dock.zip",
+    "archiveSha256": "6c15d49805dc48ddcf01bed655e967947d6bd0b1da03f670aee3cd92706e0192",
+    "externalRawRoot": "external://artis_dock_mixed",
+    "licenseStatus": "unknown_requires_review",
+    "attribution": "WaterAndFire.png: Sharm and Curt, CC-BY 3.0, https://opengameart.org/content/lpc-animated-water-and-fire. Remaining files require separate source verification.",
+    "sourceUrl": "https://opengameart.org/content/lpc-animated-water-and-fire",
+    "rawFilesCommitted": false,
+    "rawFilesPackaged": false
+  },
+  "summary": {
+    "files": 5,
+    "images": 4,
+    "unreadableImages": 0,
+    "categoryCounts": {
+      "structure.roof": 1,
+      "terrain.water": 1,
+      "unclassified": 2
+    }
+  },
+  "records": [
+    {
+      "relativePath": "Artis_dock.png",
+      "extension": ".png",
+      "sizeBytes": 28549,
+      "sha256": "11f6435aa55b0b072d0dbea8c4d6a044a8cf54f446713833b4215016b79711ef",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "unclassified"
+      ],
+      "width": 512,
+      "height": 256,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "attrib.txt",
+      "extension": ".txt",
+      "sizeBytes": 59,
+      "sha256": "3243558a2f95d9869c8f7539c44af42299ee89af0066309574ab0277aa820610",
+      "promotionState": "cataloged_source_only"
+    },
+    {
+      "relativePath": "cottage.png",
+      "extension": ".png",
+      "sizeBytes": 55774,
+      "sha256": "b0c076d67a13608c4542654131c97435aaef24375ef437876da5b6cff380731b",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "unclassified"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "thatched-roof.png",
+      "extension": ".png",
+      "sizeBytes": 51798,
+      "sha256": "ce93207a11ffc5f22aff46f878631347884c48053474d5733901b1c6b03ee9ee",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "structure.roof"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "WaterAndFire.png",
+      "extension": ".png",
+      "sizeBytes": 14826,
+      "sha256": "10355bed8683be0381e2cd79a28ecab7d49ef3ef5ff595454fab8797aade6dcf",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "terrain.water"
+      ],
+      "width": 192,
+      "height": 256,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    }
+  ]
+}

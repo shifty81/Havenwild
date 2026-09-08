@@ -1,0 +1,127 @@
+{
+  "schema": "havenwild.loot.clothing_tables.v0_1",
+  "itemCatalog": "content/characters/gameplay_clothing_item_catalog_v0_1.json",
+  "rules": {
+    "rollsAreDeterministicFromWorldSeedAndContainerId": true,
+    "duplicateProtectionWithinSingleRoll": true,
+    "onlyRuntimeReadyItemsEnterCurrentClient": true
+  },
+  "tables": [
+    {
+      "id": "clothing_common_household",
+      "rolls": [
+        1,
+        2
+      ],
+      "entries": [
+        {
+          "itemId": "clothing_linen_tshirt",
+          "weight": 25
+        },
+        {
+          "itemId": "clothing_plain_trousers",
+          "weight": 25
+        },
+        {
+          "itemId": "clothing_plain_skirt",
+          "weight": 18
+        },
+        {
+          "itemId": "clothing_simple_shoes",
+          "weight": 20
+        },
+        {
+          "itemId": "clothing_simple_sandals",
+          "weight": 12
+        }
+      ]
+    },
+    {
+      "id": "clothing_farmstead",
+      "rolls": [
+        1,
+        2
+      ],
+      "entries": [
+        {
+          "itemId": "clothing_work_apron",
+          "weight": 24
+        },
+        {
+          "itemId": "clothing_long_work_shirt",
+          "weight": 22
+        },
+        {
+          "itemId": "clothing_simple_boots",
+          "weight": 22
+        },
+        {
+          "itemId": "headwear_felt_hat",
+          "weight": 12
+        },
+        {
+          "itemId": "clothing_work_shorts",
+          "weight": 20
+        }
+      ]
+    },
+    {
+      "id": "clothing_travel_cache",
+      "rolls": [
+        1,
+        2
+      ],
+      "entries": [
+        {
+          "itemId": "clothing_traveler_tunic",
+          "weight": 25
+        },
+        {
+          "itemId": "headwear_travel_hood",
+          "weight": 18
+        },
+        {
+          "itemId": "clothing_simple_boots",
+          "weight": 24
+        },
+        {
+          "itemId": "clothing_plain_trousers",
+          "weight": 20
+        },
+        {
+          "itemId": "clothing_plain_vest",
+          "weight": 13
+        }
+      ]
+    },
+    {
+      "id": "clothing_coastal_cache",
+      "rolls": [
+        1,
+        2
+      ],
+      "entries": [
+        {
+          "itemId": "clothing_simple_sandals",
+          "weight": 28
+        },
+        {
+          "itemId": "clothing_work_shorts",
+          "weight": 26
+        },
+        {
+          "itemId": "clothing_plain_vest",
+          "weight": 18
+        },
+        {
+          "itemId": "headwear_travel_hood",
+          "weight": 10
+        },
+        {
+          "itemId": "clothing_linen_tshirt",
+          "weight": 18
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1231 @@
+{
+  "schema": "havenwild.building_recipe.v1",
+  "id": "havenwild.tavern.standard_three_level",
+  "version": "1.1.0-w52",
+  "label": "Havenwild Standard Three-Level Tavern",
+  "classification": {
+    "kind": "tavern",
+    "diagnosticOnly": false,
+    "tags": [
+      "w48",
+      "production_candidate",
+      "tavern",
+      "same_world_interior",
+      "multi_level",
+      "cutaway",
+      "guest_floor",
+      "cellar"
+    ]
+  },
+  "footprint": [
+    15,
+    11
+  ],
+  "defaultLevel": 0,
+  "levels": [
+    {
+      "level": -1,
+      "id": "cellar",
+      "label": "Cellar",
+      "bounds": [
+        0,
+        0,
+        15,
+        11
+      ],
+      "floorFills": [
+        {
+          "assetId": "floor_wood_herringbone_dark",
+          "rect": [
+            1,
+            1,
+            13,
+            9
+          ]
+        }
+      ],
+      "wallRuns": [
+        {
+          "id": "cellar_north",
+          "edge": "north",
+          "start": [
+            0,
+            0
+          ],
+          "length": 15,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.cellar"
+        },
+        {
+          "id": "cellar_east",
+          "edge": "east",
+          "start": [
+            14,
+            0
+          ],
+          "length": 11,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.cellar"
+        },
+        {
+          "id": "cellar_south",
+          "edge": "south",
+          "start": [
+            0,
+            10
+          ],
+          "length": 15,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.cellar"
+        },
+        {
+          "id": "cellar_west",
+          "edge": "west",
+          "start": [
+            0,
+            0
+          ],
+          "length": 11,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.cellar"
+        }
+      ],
+      "openings": [],
+      "rooms": [
+        {
+          "id": "cellar_storage",
+          "label": "Tavern Cellar Storage",
+          "rect": [
+            1,
+            1,
+            13,
+            9
+          ],
+          "tags": [
+            "cellar",
+            "storage",
+            "stock",
+            "tavern"
+          ]
+        }
+      ],
+      "furnishings": [
+        {
+          "id": "cellar_crate_a",
+          "assetId": "container_crate_wood_01",
+          "roomId": "cellar_storage",
+          "tile": [
+            3,
+            3
+          ],
+          "kind": "container",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "storage",
+              "purpose": "container_access",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "inventory"
+            }
+          ],
+          "state": "closed"
+        },
+        {
+          "id": "cellar_crate_b",
+          "assetId": "container_crate_wood_01",
+          "roomId": "cellar_storage",
+          "tile": [
+            5,
+            3
+          ],
+          "kind": "container",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "storage",
+              "purpose": "container_access",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "inventory"
+            }
+          ],
+          "state": "closed"
+        },
+        {
+          "id": "cellar_crate_c",
+          "assetId": "container_crate_wood_01",
+          "roomId": "cellar_storage",
+          "tile": [
+            7,
+            3
+          ],
+          "kind": "container",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "storage",
+              "purpose": "container_access",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "inventory"
+            }
+          ],
+          "state": "closed"
+        },
+        {
+          "id": "cellar_keg_rack_a",
+          "assetId": "container_keg_wood_01",
+          "roomId": "cellar_storage",
+          "tile": [
+            10,
+            3
+          ],
+          "kind": "container",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "tap",
+              "purpose": "drink_storage",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "cellar_keg_rack_b",
+          "assetId": "container_keg_wood_01",
+          "roomId": "cellar_storage",
+          "tile": [
+            11,
+            3
+          ],
+          "kind": "container",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "tap",
+              "purpose": "drink_storage",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "default"
+        }
+      ],
+      "navigation": {
+        "walkableRects": [
+          [
+            1,
+            1,
+            13,
+            9
+          ]
+        ],
+        "blockedTiles": []
+      }
+    },
+    {
+      "level": 0,
+      "id": "ground",
+      "label": "Tavern Ground Floor",
+      "bounds": [
+        0,
+        0,
+        15,
+        11
+      ],
+      "floorFills": [
+        {
+          "assetId": "floor_wood_herringbone_light",
+          "rect": [
+            1,
+            1,
+            13,
+            9
+          ]
+        }
+      ],
+      "wallRuns": [
+        {
+          "id": "ground_north",
+          "edge": "north",
+          "start": [
+            0,
+            0
+          ],
+          "length": 15,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.ground"
+        },
+        {
+          "id": "ground_east",
+          "edge": "east",
+          "start": [
+            14,
+            0
+          ],
+          "length": 11,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.ground"
+        },
+        {
+          "id": "ground_south",
+          "edge": "south",
+          "start": [
+            0,
+            10
+          ],
+          "length": 15,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.ground"
+        },
+        {
+          "id": "ground_west",
+          "edge": "west",
+          "start": [
+            0,
+            0
+          ],
+          "length": 11,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.ground"
+        },
+        {
+          "id": "ground_service_partition",
+          "edge": "interior",
+          "start": [
+            1,
+            4
+          ],
+          "length": 13,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_interior.tavern.ground"
+        }
+      ],
+      "openings": [
+        {
+          "id": "tavern_front_door",
+          "kind": "door",
+          "edge": "south",
+          "tile": [
+            7,
+            10
+          ],
+          "assetId": "door_basic",
+          "state": "closed"
+        },
+        {
+          "id": "tavern_front_window_left",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            3,
+            10
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        },
+        {
+          "id": "tavern_front_window_right",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            11,
+            10
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        },
+        {
+          "id": "kitchen_door",
+          "kind": "door",
+          "edge": "interior",
+          "tile": [
+            4,
+            4
+          ],
+          "assetId": "door_basic",
+          "state": "open_left"
+        },
+        {
+          "id": "service_door",
+          "kind": "door",
+          "edge": "interior",
+          "tile": [
+            9,
+            4
+          ],
+          "assetId": "door_basic",
+          "state": "open_left"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "ground_kitchen",
+          "label": "Kitchen",
+          "rect": [
+            1,
+            1,
+            5,
+            3
+          ],
+          "tags": [
+            "kitchen",
+            "cooking",
+            "staff"
+          ]
+        },
+        {
+          "id": "ground_service",
+          "label": "Service and Bar Prep",
+          "rect": [
+            6,
+            1,
+            8,
+            3
+          ],
+          "tags": [
+            "service",
+            "bar",
+            "staff"
+          ]
+        },
+        {
+          "id": "ground_taproom",
+          "label": "Taproom",
+          "rect": [
+            1,
+            5,
+            13,
+            5
+          ],
+          "tags": [
+            "taproom",
+            "dining",
+            "customers"
+          ]
+        }
+      ],
+      "furnishings": [
+        {
+          "id": "kitchen_prep_table",
+          "assetId": "table_basic",
+          "roomId": "ground_kitchen",
+          "tile": [
+            3,
+            2
+          ],
+          "kind": "workstation",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "prep",
+              "purpose": "food_prep",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "kitchen_hearth",
+          "assetId": "fixture_fireplace_cast_iron_01",
+          "roomId": "ground_kitchen",
+          "tile": [
+            1,
+            2
+          ],
+          "kind": "workstation",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "cook",
+              "purpose": "cooking_station",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "lit"
+        },
+        {
+          "id": "service_storage",
+          "assetId": "container_crate_wood_01",
+          "roomId": "ground_service",
+          "tile": [
+            12,
+            2
+          ],
+          "kind": "container",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "storage",
+              "purpose": "container_access",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "inventory"
+            }
+          ],
+          "state": "closed"
+        },
+        {
+          "id": "bar_counter_run",
+          "assetId": "furniture_bar_counter_wood_4",
+          "roomId": "ground_service",
+          "tile": [
+            7,
+            3
+          ],
+          "kind": "fixture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "serve",
+              "purpose": "bar_service",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "taproom_table_west",
+          "assetId": "table_basic",
+          "roomId": "ground_taproom",
+          "tile": [
+            3,
+            6
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "service",
+              "purpose": "meal_service",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "taproom_chair_west_a",
+          "assetId": "chair_basic",
+          "roomId": "ground_taproom",
+          "tile": [
+            2,
+            8
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "taproom_chair_west_b",
+          "assetId": "chair_basic",
+          "roomId": "ground_taproom",
+          "tile": [
+            5,
+            8
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "taproom_table_east",
+          "assetId": "table_basic",
+          "roomId": "ground_taproom",
+          "tile": [
+            8,
+            6
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "service",
+              "purpose": "meal_service",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "taproom_chair_east_a",
+          "assetId": "chair_basic",
+          "roomId": "ground_taproom",
+          "tile": [
+            7,
+            8
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "taproom_chair_east_b",
+          "assetId": "chair_basic",
+          "roomId": "ground_taproom",
+          "tile": [
+            10,
+            8
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "taproom_inn_sign",
+          "assetId": "sign_wall_inn",
+          "roomId": "ground_taproom",
+          "tile": [
+            5,
+            10
+          ],
+          "kind": "wall_mounted",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "inspect",
+              "purpose": "sign",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "default",
+          "wallAttachment": "south"
+        },
+        {
+          "id": "taproom_pub_sign",
+          "assetId": "sign_wall_pub",
+          "roomId": "ground_taproom",
+          "tile": [
+            9,
+            10
+          ],
+          "kind": "wall_mounted",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "inspect",
+              "purpose": "sign",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ],
+          "state": "default",
+          "wallAttachment": "south"
+        }
+      ],
+      "navigation": {
+        "walkableRects": [
+          [
+            1,
+            1,
+            5,
+            3
+          ],
+          [
+            6,
+            1,
+            8,
+            3
+          ],
+          [
+            1,
+            5,
+            13,
+            5
+          ]
+        ],
+        "blockedTiles": []
+      }
+    },
+    {
+      "level": 1,
+      "id": "guest",
+      "label": "Guest Floor",
+      "bounds": [
+        0,
+        0,
+        15,
+        11
+      ],
+      "floorFills": [
+        {
+          "assetId": "floor_wood_herringbone_light",
+          "rect": [
+            1,
+            1,
+            13,
+            9
+          ]
+        }
+      ],
+      "wallRuns": [
+        {
+          "id": "guest_north_shell",
+          "edge": "north",
+          "start": [
+            0,
+            0
+          ],
+          "length": 15,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.guest"
+        },
+        {
+          "id": "guest_east_shell",
+          "edge": "east",
+          "start": [
+            14,
+            0
+          ],
+          "length": 11,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.guest"
+        },
+        {
+          "id": "guest_south_shell",
+          "edge": "south",
+          "start": [
+            0,
+            10
+          ],
+          "length": 15,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.guest"
+        },
+        {
+          "id": "guest_west_shell",
+          "edge": "west",
+          "start": [
+            0,
+            0
+          ],
+          "length": 11,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_shell.tavern.guest"
+        },
+        {
+          "id": "guest_partition_north",
+          "edge": "interior",
+          "start": [
+            1,
+            3
+          ],
+          "length": 13,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_interior.tavern.guest"
+        },
+        {
+          "id": "guest_partition_south",
+          "edge": "interior",
+          "start": [
+            1,
+            6
+          ],
+          "length": 13,
+          "visualAssetId": "wall_drywall_simple",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_interior.tavern.guest"
+        }
+      ],
+      "openings": [
+        {
+          "id": "guest_north_door",
+          "kind": "door",
+          "edge": "interior",
+          "tile": [
+            7,
+            3
+          ],
+          "assetId": "door_basic",
+          "state": "open_left"
+        },
+        {
+          "id": "guest_south_door",
+          "kind": "door",
+          "edge": "interior",
+          "tile": [
+            7,
+            6
+          ],
+          "assetId": "door_basic",
+          "state": "open_left"
+        },
+        {
+          "id": "guest_front_window_left",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            3,
+            10
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        },
+        {
+          "id": "guest_front_window_right",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            11,
+            10
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "guest_north",
+          "label": "Guest Room North",
+          "rect": [
+            1,
+            1,
+            13,
+            2
+          ],
+          "tags": [
+            "guest_room",
+            "sleep"
+          ]
+        },
+        {
+          "id": "guest_middle",
+          "label": "Guest Room Middle",
+          "rect": [
+            1,
+            4,
+            13,
+            2
+          ],
+          "tags": [
+            "guest_room",
+            "sleep"
+          ]
+        },
+        {
+          "id": "guest_south",
+          "label": "Guest Room South",
+          "rect": [
+            1,
+            7,
+            13,
+            3
+          ],
+          "tags": [
+            "guest_room",
+            "sleep",
+            "stairs"
+          ]
+        }
+      ],
+      "furnishings": [
+        {
+          "id": "guest_bed_north",
+          "assetId": "bed_basic",
+          "roomId": "guest_north",
+          "tile": [
+            2,
+            1
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "sleep",
+              "purpose": "sleep",
+              "offset": [
+                1,
+                1
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "made"
+        },
+        {
+          "id": "guest_chair_north",
+          "assetId": "chair_basic",
+          "roomId": "guest_north",
+          "tile": [
+            10,
+            1
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "guest_bed_middle",
+          "assetId": "bed_basic",
+          "roomId": "guest_middle",
+          "tile": [
+            2,
+            4
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "sleep",
+              "purpose": "sleep",
+              "offset": [
+                1,
+                1
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "made"
+        },
+        {
+          "id": "guest_chair_middle",
+          "assetId": "chair_basic",
+          "roomId": "guest_middle",
+          "tile": [
+            10,
+            4
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "default"
+        },
+        {
+          "id": "guest_bed_south",
+          "assetId": "bed_basic",
+          "roomId": "guest_south",
+          "tile": [
+            2,
+            7
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "sleep",
+              "purpose": "sleep",
+              "offset": [
+                1,
+                1
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "made"
+        },
+        {
+          "id": "guest_chair_south",
+          "assetId": "chair_basic",
+          "roomId": "guest_south",
+          "tile": [
+            10,
+            8
+          ],
+          "kind": "furniture",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": false,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ],
+              "reservation": "actor"
+            }
+          ],
+          "state": "default"
+        }
+      ],
+      "navigation": {
+        "walkableRects": [
+          [
+            1,
+            1,
+            13,
+            2
+          ],
+          [
+            1,
+            4,
+            13,
+            2
+          ],
+          [
+            1,
+            7,
+            13,
+            3
+          ]
+        ],
+        "blockedTiles": []
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "id": "cellar_to_ground",
+      "kind": "stairs",
+      "assetId": "stairs_short_run_gray",
+      "fromLevel": -1,
+      "toLevel": 0,
+      "fromTile": [
+        2,
+        8
+      ],
+      "toTile": [
+        2,
+        8
+      ],
+      "reversible": true
+    },
+    {
+      "id": "ground_to_guest",
+      "kind": "stairs",
+      "assetId": "stairs_short_run_gray",
+      "fromLevel": 0,
+      "toLevel": 1,
+      "fromTile": [
+        12,
+        8
+      ],
+      "toTile": [
+        12,
+        8
+      ],
+      "reversible": true
+    }
+  ],
+  "roof": {
+    "level": 1,
+    "mode": "flat_nine_slice",
+    "family": "roof.flat_shingle_a.gray",
+    "rect": [
+      0,
+      0,
+      15,
+      11
+    ],
+    "occlusionGroup": "building.roof.tavern",
+    "cameraLocalOcclusion": true,
+    "components": {
+      "field": "roof_flat_gray_field",
+      "northEdge": "roof_flat_gray_north_eave",
+      "southEdge": "roof_flat_gray_south_eave",
+      "westEdge": "roof_flat_gray_west_edge",
+      "eastEdge": "roof_flat_gray_east_edge",
+      "northWestCorner": "roof_flat_gray_corner_nw",
+      "northEastCorner": "roof_flat_gray_corner_ne",
+      "southWestCorner": "roof_flat_gray_corner_sw",
+      "southEastCorner": "roof_flat_gray_corner_se"
+    },
+    "authoredModuleAssetId": null
+  },
+  "cutawayGroups": [
+    {
+      "id": "building.roof.tavern",
+      "visibilityRole": "roof_occluder",
+      "levels": [
+        1
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_shell.tavern.ground",
+      "visibilityRole": "wall_occluder",
+      "levels": [
+        0
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_shell.tavern.guest",
+      "visibilityRole": "wall_occluder",
+      "levels": [
+        1
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_shell.tavern.cellar",
+      "visibilityRole": "wall_occluder",
+      "levels": [
+        -1
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_interior.tavern.ground",
+      "visibilityRole": "interior_partition",
+      "levels": [
+        0
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_interior.tavern.guest",
+      "visibilityRole": "interior_partition",
+      "levels": [
+        1
+      ],
+      "cameraLocal": true
+    }
+  ],
+  "persistence": {
+    "interiorPolicy": "same_world_building_instance",
+    "allLevelsAuthoritative": true,
+    "separateScene": false,
+    "portableInstanceIdentity": true
+  }
+}

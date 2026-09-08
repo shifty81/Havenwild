@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.incremental_patch_manifest.v1",
+  "pass": "167Z109W56IJ3R1",
+  "baseline": "167Z109W56IJ3",
+  "patchType": "incremental_overwrite",
+  "rootPolicy": "no patch-only files at repository root",
+  "changedFiles": [
+    "manifests/removals/PATCH_REMOVALS.txt",
+    "content/build/w56ij3r1_root_contamination_cleanup_v1.json",
+    "docs/current/HAVENWILD_W56IJ3R1_ROOT_CONTAMINATION_CLEANUP.md"
+  ],
+  "removals": [
+    "Open2DTools.cmd"
+  ],
+  "notes": [
+    "Cleanup-only pass; no Rust, runtime, worldgen, editor, asset, or gameplay source changes.",
+    "Preserves the strict five-file Havenwild repository-root contract.",
+    "The removal manifest is consumed by HavenwildTools.ps1 at startup."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z53",
+  "baseline": "167Z10",
+  "date": "2026-08-03",
+  "title": "Authored Rock Variant Selection Repair",
+  "overwriteCapable": true,
+  "changedFiles": [
+    "README.md",
+    "content/build/validator_registry_v3.json",
+    "content/validation/validation_manifest_v1.json",
+    "docs/current/APPLY_THIS_ROLLUP.md",
+    "docs/current/APPLY_THIS_SOURCE_ROLLUP.md",
+    "docs/current/CURRENT_SOURCE_HANDOFF.md",
+    "docs/current/PASS167Z53_AUTHORED_ROCK_VARIANT_SELECTION_REPAIR.md",
+    "docs/handoffs/PASS167Z53_AUTHORED_ROCK_VARIANT_SELECTION_REPAIR.md",
+    "manifests/cumulative_patch_checksums_pass167z53.sha256",
+    "manifests/cumulative_patch_manifest_pass167z53.json",
+    "manifests/cumulative_patch_removals_pass167z53.txt",
+    "manifests/normalization/pass167z53/SUMMARY.json",
+    "manifests/patches/pass167z53/APPLY.md",
+    "manifests/patches/pass167z53/CHECKSUMS.sha256",
+    "manifests/patches/pass167z53/PATCH_MANIFEST.json",
+    "manifests/patches/pass167z53/REMOVALS.txt",
+    "tools/automation/assets/Promote-LpcRuntimeAssets.py",
+    "tools/automation/validation/checks/assets/Validate-AuthoredRockVariantSelectionPass167Z53.py",
+    "tools/automation/validation/checks/assets/Validate-DirectVisualBaselinePass167Z52.py",
+    "tools/build/Build.sh"
+  ],
+  "removedFiles": [],
+  "notes": [
+    "The Z52 boulder_variant_04 build failure was caused by requiring one exact tall/narrow silhouette.",
+    "Missing rock preference classes now use remaining distinct authored components before any aliasing.",
+    "Every rock footprint remains derived from its selected source rectangle.",
+    "The accepted title and hydrology direct-source baseline remain unchanged.",
+    "Windows Cargo, Clippy, tests, release builds, and live visual certification remain required."
+  ]
+}

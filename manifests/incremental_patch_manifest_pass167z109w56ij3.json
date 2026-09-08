@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.incremental_patch_manifest.v1",
+  "pass": "167Z109W56IJ3",
+  "baseline": "167Z109W56IJ2R1",
+  "patchType": "incremental_overwrite",
+  "rootPolicy": "no patch-only files at repository root",
+  "changedFiles": [
+    "tools/control/ProjectCommandRegistry.ps1",
+    "tools/control/HavenwildTools.ps1",
+    "tools/build/Build.sh",
+    "tools/automation/validation/checks/worldgen/Validate-W56IntegratedVisualAcceptance.py",
+    "content/build/w56ij_integrated_visual_acceptance_v1.json",
+    "apps/haven_editor_native/src/app/mod.rs",
+    "content/build/w56ij3_editor_client_parity_launch_v1.json",
+    "docs/current/HAVENWILD_W56IJ3_EDITOR_CLIENT_VISUAL_PARITY.md"
+  ],
+  "removals": [],
+  "notes": [
+    "Adds direct native-editor launch for the exact same isolated W56 integrated visual acceptance pack used by the client.",
+    "Keeps the Control Center main menu compact; new command is exposed only under Run and the registered-command compatibility layer.",
+    "No production worldgen, scene art, terrain, or save data is changed."
+  ]
+}

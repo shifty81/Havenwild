@@ -1,0 +1,35 @@
+{
+  "id": "havenwild-worldgen-v0-8",
+  "version": "0.8.0",
+  "name": "Worldgen v0.8 Object Outliner + Footprint Editing",
+  "base": "havenwild-clean-source-with-worldgen-v0-7.zip",
+  "rustSourceModified": true,
+  "cargoCheckRun": false,
+  "cargoCheckReason": "cargo is not installed in this container",
+  "validatorsRun": [
+    "Validate-WorldgenObjectOutlinerV08.py",
+    "Validate-WorldgenAssets.py",
+    "Validate-WorldgenRuntimeIndex.py",
+    "Validate-WorldgenFootprintsV08.py"
+  ],
+  "features": [
+    "Objects tab now has a scene-object outliner alongside object placement tools",
+    "Placed objects can be selected from the outliner or picked from the cursor cell",
+    "Selected object visual/collision footprints are highlighted in the scene overlay",
+    "Selected objects can be nudged by arrow keys or moved to the cursor anchor",
+    "Move operations validate against multi-tile collision/interaction footprint rules before committing",
+    "Selected objects can be deleted with the Delete button, Delete key, or Backspace key"
+  ],
+  "changedFiles": [
+    "crates/haven_core/src/lib.rs",
+    "crates/haven_game/src/main.rs",
+    "content/packs/worldgen_home_island_v0_8.json",
+    "content/worldgen/worldgen_editor_object_outliner_profile_v0_8.json",
+    "scripts/Validate-WorldgenObjectOutlinerV08.py",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenObjectOutlinerV08.ps1",
+    "scripts/Validate-WorldgenFootprintsV08.py",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV08.ps1",
+    "docs/engineering/worldgen_editor_object_outliner_v0_8.md",
+    "WORLDGEN_V0_8_APPLY_NOTES.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z57",
+  "baseline": "167Z10",
+  "date": "2026-08-03",
+  "title": "Dedicated Water Depth Renderer Clippy Cleanup",
+  "overwriteCapable": true,
+  "changedFiles": [
+    "README.md",
+    "crates/haven_game/src/terrain_transition_draw.rs",
+    "docs/current/APPLY_THIS_ROLLUP.md",
+    "docs/current/APPLY_THIS_SOURCE_ROLLUP.md",
+    "docs/current/CURRENT_SOURCE_HANDOFF.md",
+    "docs/current/PASS167Z57_WATER_DEPTH_RENDERER_CLIPPY_CLEANUP.md",
+    "docs/handoffs/PASS167Z57_WATER_DEPTH_RENDERER_CLIPPY_CLEANUP.md",
+    "manifests/cumulative_patch_checksums_pass167z57.sha256",
+    "manifests/cumulative_patch_manifest_pass167z57.json",
+    "manifests/cumulative_patch_removals_pass167z57.txt",
+    "manifests/normalization/pass167z57/SUMMARY.json",
+    "manifests/patches/pass167z57/APPLY.md",
+    "manifests/patches/pass167z57/CHECKSUMS.sha256",
+    "manifests/patches/pass167z57/PATCH_MANIFEST.json",
+    "manifests/patches/pass167z57/REMOVALS.txt",
+    "tools/automation/validation/checks/Validate-Pass167Z57.py"
+  ],
+  "removedFiles": [],
+  "notes": [
+    "The Z56 workstation build completed Cargo check and reached strict Clippy.",
+    "The seven Clippy failures were retired generic transition-selection helpers superseded by the dedicated WaterRenderMask depth renderer.",
+    "Pass 167Z57 removes inactive code and obsolete tests directly from terrain_transition_draw.rs without dead-code suppression or source-rewriter scripts.",
+    "The active authored LPC water-depth renderer, title, music, rocks, sand policy, hydrology, characters, and saves are preserved."
+  ]
+}

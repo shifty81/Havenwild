@@ -1,0 +1,8 @@
+PASS 165L — CRAFTING STATION WORLD PLACEMENT
+OVERWRITE crates/haven_game/src/main.rs
+OVERWRITE crates/haven_game/src/client_pause_menu.rs
+OVERWRITE crates/haven_game/src/runtime_draw.rs
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+ADD crates/haven_game/src/station_placement_runtime.rs
+ADD docs/patch/PASS_165L_CRAFTING_STATION_WORLD_PLACEMENT.md
+ADD manifests/PASS_165L_MANIFEST.txt

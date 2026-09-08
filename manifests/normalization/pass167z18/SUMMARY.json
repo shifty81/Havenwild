@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z18",
+  "title": "Build Output Validation and Staging Repair",
+  "baseline": "Pass167Z10",
+  "cumulativeThrough": "Pass167Z18",
+  "changes": [
+    "Exclude generated Build application folders from project JSON validation using case-insensitive path ownership rules.",
+    "Prune dependency tests, JSONC configuration, node_modules, and Git internals from staged client/editor content.",
+    "Clean stale dependency-development paths from existing generated application folders during workspace preflight.",
+    "Extend validator self-tests and Windows build portability checks for the corrected ownership contract."
+  ],
+  "sourceRollupCreated": false,
+  "delivery": "cumulative overwrite patch only"
+}

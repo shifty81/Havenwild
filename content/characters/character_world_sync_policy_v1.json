@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.character_world_sync_policy.v1",
+  "autosave_interval_seconds": 120,
+  "save_triggers": [
+    "manual_world_save",
+    "autosave",
+    "scene_transition",
+    "developer_scene_jump",
+    "return_to_main_menu",
+    "quit_desktop",
+    "server_disconnect"
+  ],
+  "authority": {
+    "mutation_owner": "listen_server_host",
+    "clients_are_replicas": true,
+    "reject_client_authored_mutations": true,
+    "reject_stale_sequences": true,
+    "transport_status": "contract_ready_transport_pending"
+  },
+  "replicated_fields": [
+    "world_id",
+    "character_id",
+    "scene_id",
+    "tile_position",
+    "global_reputation",
+    "relationship_count",
+    "quest_flag_count",
+    "last_played_unix_seconds"
+  ],
+  "rules": {
+    "persist_before_or_immediately_after_scene_transition": true,
+    "persist_on_clean_runtime_exit": true,
+    "world_and_character_identity_must_match_before_client_apply": true,
+    "scene_must_exist_before_client_apply": true,
+    "network_transport_is_not_claimed_complete": true
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "havenwild.external_asset_pack_index.v0_1",
+  "generatedUtc": "2026-07-12T02:34:08.154804+00:00",
+  "pack": {
+    "id": "hyptosis_organized_oga",
+    "displayName": "Hyptosis Organized Tiles",
+    "archiveName": "hyptosis-organized.zip",
+    "archiveSha256": "dfee07206446fc0dd617ad0a25af8b8924502e514a794990ba608dc2a16b5a0b",
+    "externalRawRoot": "external://hyptosis_organized_oga",
+    "licenseStatus": "allowed_with_attribution",
+    "attribution": "Hyptosis created the art; Zabin organized the tiles. Lamp fixture: Curt, Sharm, William.Thompsonj, and mold.",
+    "sourceUrl": "https://opengameart.org/content/lots-of-hyptosis-tiles-organized",
+    "rawFilesCommitted": false,
+    "rawFilesPackaged": false
+  },
+  "summary": {
+    "files": 4,
+    "images": 4,
+    "unreadableImages": 0,
+    "categoryCounts": {
+      "foliage.tree": 3,
+      "unclassified": 1
+    }
+  },
+  "records": [
+    {
+      "relativePath": "town.png",
+      "extension": ".png",
+      "sizeBytes": 132566,
+      "sha256": "f19704e5348c8ffdb19b4822f7ce6c9b40d41ef9a237fe183189de28f894cd2a",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "unclassified"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "trees.png",
+      "extension": ".png",
+      "sizeBytes": 74575,
+      "sha256": "f2beb497343f9fabec0d935d77f8569bf4ecc2e6afeb7f42f1903b5c08199178",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "foliage.tree"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "trees_plants.png",
+      "extension": ".png",
+      "sizeBytes": 79471,
+      "sha256": "34b21fe36defad94b5c194da36b5356ee41eb1936753b6f8fea0c3322951d368",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "foliage.tree"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "trees_plants_rocks.png",
+      "extension": ".png",
+      "sizeBytes": 112886,
+      "sha256": "aaa66c121c054a18d4ce284a7cc26bd2aa7fc1e85e17e16ca5a2633e6ef556c1",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "foliage.tree"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    }
+  ]
+}

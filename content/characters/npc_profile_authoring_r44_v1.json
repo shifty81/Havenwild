@@ -1,0 +1,47 @@
+{
+  "schema": "havenwild.characters.npc_profile_authoring.r44.v1",
+  "pass": "167Z109W81R44",
+  "authority": "UniversalLpcNpcGenerationCatalog",
+  "rules": {
+    "baseProfilesReadOnly": true,
+    "derivedVariantsWritable": true,
+    "variantDirectory": "content/characters/npc_profiles",
+    "variantSchema": "havenwild.universal_lpc_npc_generation_profile_variant.v1",
+    "inheritanceAware": true,
+    "generateFromUnsavedDraft": true,
+    "saveRequiresValidation": true
+  },
+  "characterStudioSurface": {
+    "profileSelector": true,
+    "generate": true,
+    "effectiveRulesInspector": true,
+    "profileRulesDraft": true,
+    "editablePopulationFields": [
+      "minimum",
+      "maximum",
+      "weight",
+      "requiresHome",
+      "requiresWorkplace"
+    ],
+    "saveDerivedVariant": true
+  },
+  "nextExpandableFields": [
+    "wardrobeCategories",
+    "equipmentCategories",
+    "requiredAnimations",
+    "preferredOptionTags",
+    "forbiddenOptionTags",
+    "species",
+    "roles",
+    "factions",
+    "wealthTiers",
+    "seasons",
+    "lifeHooks"
+  ],
+  "safety": [
+    "Editing Profile Rules never overwrites a base profile.",
+    "Closing Profile Rules discards the unsaved draft.",
+    "Saved variants retain a parent profile id and a bumped profile version.",
+    "Generation may preview an unsaved draft through the same builder/compositor authority used by saved profiles."
+  ]
+}

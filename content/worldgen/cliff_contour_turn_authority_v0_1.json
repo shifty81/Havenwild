@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.worldgen.cliff_contour_turn_authority.v0_1",
+  "revision": "167Z109W1-topology-driven-south-corner-turns-v1",
+  "status": "active",
+  "purpose": "Remove remaining square stair-step artifacts by resolving visible south cliff turns from contour topology instead of exact raw CliffShape15 identity.",
+  "structuralAuthority": {
+    "source": "TavernMap.structural_levels -> StructuralCellV2.exposed_edges -> CliffShape15",
+    "changedByThisPass": false,
+    "collisionStillDerivedFromStructure": true,
+    "sourcePixelsNeverCreateTopology": true
+  },
+  "visualRules": {
+    "southWestTurnMasks": [12, 13],
+    "southEastTurnMasks": [6, 7],
+    "mask13Rule": "NorthSouthWest keeps the authored southwest rounded south/west face and independently overlays the north/back rim.",
+    "mask7Rule": "NorthEastSouth keeps the authored southeast rounded south/east face and independently overlays the north/back rim.",
+    "doubleSidedFrontCaps": [14, 15],
+    "doubleSidedFrontCapStatus": "remain explicit orthogonal caps until the dedicated multi-cell two-corner recipe is solved; never fake them with one one-sided diagonal",
+    "v7OwnsPlateauFill": true,
+    "elizawyOwnsOnlyCliffRimWallFootProjection": true
+  },
+  "chainOwnership": {
+    "key": "south diagonal orientation",
+    "notKey": "exact CliffShape15 enum equality",
+    "searchRadiusCells": 4,
+    "compatibleSouthWestMasks": [12, 13],
+    "compatibleSouthEastMasks": [6, 7],
+    "reason": "mixed masks along one generated diagonal contour must not be treated as repeated isolated posts"
+  },
+  "collisionParity": {
+    "straightSouthRowsOneLevel": 2,
+    "isolatedDiagonalRowsOneLevel": 3,
+    "diagonalChainRowsOneLevel": 2,
+    "extraRowsPerAdditionalFaceSegment": 2,
+    "mask7And13UseSameDepthRuleAsMask6And12": true
+  },
+  "deliberatelyUnchanged": [
+    "world seeds",
+    "structural Level 0/1/2 generation",
+    "ramp selection",
+    "hydrology",
+    "waterfall eligibility",
+    "cave placement",
+    "V7 terrain fill",
+    "save schemas"
+  ],
+  "nextTerrainWork": [
+    "solve mask14/mask15 and terminal/cap ownership as continuous contour bands",
+    "continuous south wall/foot spans and coastal toe ownership",
+    "shoreline and animated water completion",
+    "waterfall hydrology completion",
+    "cave entrance and graph-first cave completion"
+  ]
+}

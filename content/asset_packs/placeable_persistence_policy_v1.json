@@ -1,0 +1,14 @@
+{
+  "schema": "havenwild.placeable_persistence_policy.v1",
+  "stable_reference_fields": ["pack_id", "category", "asset_id", "source_id", "variant_id"],
+  "save_record": "object_asset",
+  "legacy_object_kind_role": "compatibility_fallback_only",
+  "editor_selection_sources": ["content_library", "native_placeable_registry", "f3_placeable_cycle"],
+  "requirements": {
+    "new_placeables_require_legacy_object_kind": false,
+    "stable_refs_round_trip_in_world_saves": true,
+    "missing_provider_keeps_saved_identity": true,
+    "runtime_and_editor_share_registry": true,
+    "legacy_saves_remain_readable": true
+  }
+}

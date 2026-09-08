@@ -1,0 +1,40 @@
+{
+  "schema": "havenwild.lpc_terrain_promotion.v0_1",
+  "source": "assets/source/licensed/lpc_revised/terrain/terrain_summer.png",
+  "cellSize": 32,
+  "grid": [16, 26],
+  "license": "OGA-BY 3.0",
+  "attribution": [
+    "Lanea Zimmerman (Sharm)",
+    "Eliza Wyatt (DeathsDarling)"
+  ],
+  "sourceUrl": "https://github.com/ElizaWy/LPC",
+  "coordinateConvention": "zero-based [column,row] on the 32x32 source grid",
+  "baseTileCells": {
+    "grass": [[3, 2], [4, 2], [3, 4], [4, 4]],
+    "tall_grass": [[3, 1], [4, 1], [3, 2], [4, 2]],
+    "sand": [[3, 5], [4, 5], [3, 6], [4, 6]],
+    "wet_sand": [[9, 5], [10, 5], [9, 6], [10, 6]],
+    "pebble_shore": [[9, 3], [10, 3], [9, 4], [10, 4]],
+    "road": [[6, 2], [6, 3], [6, 4], [6, 5]],
+    "mountain_path": [[6, 2], [6, 3], [6, 4], [6, 5]],
+    "dirt": [[6, 2], [6, 3], [6, 4], [6, 5]],
+    "water": [[12, 17], [13, 17], [14, 17], [15, 17]],
+    "shallow_water": [[12, 17], [13, 17], [14, 17], [15, 17]],
+    "river_water": [[12, 17], [13, 17], [14, 17], [15, 17]],
+    "deep_water": [[12, 24], [13, 24], [14, 24], [15, 24]],
+    "ocean_deep": [[12, 24], [13, 24], [14, 24], [15, 24]],
+    "ocean_shallow": [[12, 17], [13, 17], [14, 17], [15, 17]],
+    "river_mouth_blend": [[12, 17], [13, 17], [14, 17], [15, 17]],
+    "shore_foam": [[5, 20], [8, 20], [13, 20], [15, 20]],
+    "mud_bank": [[6, 2], [6, 3], [6, 4], [6, 5]]
+  },
+  "transitionBlocks": {
+    "grass_to_water_round": [0, 10, 3, 3],
+    "dirt_to_water_round": [6, 10, 3, 3],
+    "grass_water_edges": [12, 10, 4, 3],
+    "dirt_water_edges": [12, 13, 4, 3],
+    "sand_to_shallow_round": [0, 20, 3, 3],
+    "shallow_to_deep_round": [0, 23, 3, 3]
+  }
+}

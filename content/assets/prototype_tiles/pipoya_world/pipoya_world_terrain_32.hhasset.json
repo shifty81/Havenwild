@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.prototype_asset.v0_1",
+  "assetId": "prototype.pipoya_world.terrain_32",
+  "assetKind": "terrain_atlas",
+  "externalSourceId": "third_party.pipoya.free_rpg_world_tileset_32_40_48",
+  "adapterId": "adapter.pipoya_world_tileset_32.v0_1",
+  "image": "assets/processed/prototype_tiles/pipoya_world/pipoya_world_terrain_32.png",
+  "sourceMode": "user_supplied_or_quarantine",
+  "copyMode": "no_raw_copy_until_bake",
+  "cellSize": [32, 32],
+  "families": ["terrain.grass", "terrain.dirt", "terrain.water", "terrain.cliff", "terrain.road", "terrain.bridge"],
+  "runtimeDefault": false,
+  "releaseRestriction": "prototype_only_until_final_art_replacement_or_explicit_release_approval",
+  "attribution": {
+    "author": "Pipoya",
+    "source": "PIPOYA FREE RPG World Tileset 32x32 40x40 48x48",
+    "licenseStatus": "commercial_allowed_no_standalone_resale"
+  },
+  "validation": {
+    "requiresProcessedImageBeforeRuntimeUse": true,
+    "requiresNoStandaloneAssetExport": true,
+    "requiresAtlasManifestBeforeWorldgenBinding": true
+  },
+  "notes": [
+    "Metadata stub only. The raw source pack is not copied into runtime folders by this pass.",
+    "Use for terrain/autotile/transition testing once the user-supplied source has been locally baked."
+  ]
+}

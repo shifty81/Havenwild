@@ -1,0 +1,101 @@
+{
+  "id": "worldgen_home_island_v0_7",
+  "name": "Worldgen Home Island v0.7 Editor Overlay Runtime Pack",
+  "version": "0.7.0",
+  "kind": "worldgen_asset_pack",
+  "masterManifest": "assets/generated/worldgen_v0_1/worldgen_asset_manifest_v0_1.json",
+  "runtimeBindings": "assets/generated/worldgen_v0_1/runtime_bindings/rust_tilekind_mapping_v0_1.json",
+  "biomeManifest": "assets/generated/worldgen_v0_1/home_island/home_island_biome_v0_1.json",
+  "sceneContracts": [
+    "content/worldgen/home_island_scene_contract_v0_1.json"
+  ],
+  "sceneFiles": [
+    "content/worldgen/scenes/home_island/farmstead_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/north_road_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/south_field_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/east_woods_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_mouth_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/tavern_interior_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cellar_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/guest_floor_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_depths_scene_v0_3.json"
+  ],
+  "worldSurface": "content/worldgen/home_island_world_surface_v0_3.json",
+  "placementRules": "content/worldgen/home_island_placement_rules_v0_3.json",
+  "autotileRules": "content/worldgen/autotile_rules_v0_3.json",
+  "editorLayerRegistry": "content/worldgen/worldgen_editor_layer_registry_v0_3.json",
+  "biomePalette": "content/worldgen/home_island_biome_palette_v0_3.json",
+  "edgeBorderResolution": "content/worldgen/world_edge_border_resolution_v0_3.json",
+  "islandTemplates": "content/worldgen/ten_island_style_templates_v0_3.json",
+  "smokeTests": [
+    "assets/generated/worldgen_v0_1/home_island/home_island_worldgen_smoke_test_v0_1.json",
+    "content/worldgen/scenes/home_island/farmstead_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/north_road_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/south_field_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/east_woods_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_mouth_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/tavern_interior_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cellar_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/guest_floor_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_depths_scene_v0_3.json"
+  ],
+  "previews": [
+    "assets/generated/worldgen_v0_1/home_island/previews/home_island_scene_contact_sheet_v0_3.png",
+    "assets/generated/worldgen_v0_1/home_island/previews/home_island_navigation_graph_v0_4.png",
+    "assets/generated/worldgen_v0_1/home_island/previews/home_island_runtime_index_preview_v0_4.png"
+  ],
+  "editor": {
+    "defaultScene": "farmstead",
+    "defaultPreview": "assets/generated/worldgen_v0_1/home_island/previews/home_island_scene_contact_sheet_v0_3.png",
+    "requiredPanels": [
+      "Layer Stack",
+      "Scene Outliner",
+      "Footprint Inspector",
+      "Validation Console",
+      "Scene Edge Resolver"
+    ],
+    "runtimeIndex": "assets/generated/worldgen_v0_1/runtime_bindings/worldgen_runtime_index_v0_4.json",
+    "importQueue": "content/worldgen/worldgen_editor_import_queue_v0_4.json",
+    "requiredEditorPanels": [
+      "Content Packs",
+      "Tile/Autotile Palette",
+      "Object Footprint Inspector",
+      "Collision/Interaction Overlay",
+      "World Graph",
+      "Validation Console",
+      "Placement Preview Diagnostics"
+    ],
+    "overlayProfile": "content/worldgen/worldgen_editor_overlay_profile_v0_7.json"
+  },
+  "runtimeIndex": "assets/generated/worldgen_v0_1/runtime_bindings/worldgen_runtime_index_v0_4.json",
+  "runtimeLoadOrder": "content/worldgen/worldgen_runtime_load_order_v0_4.json",
+  "assetLookup": "content/worldgen/worldgen_asset_lookup_v0_4.json",
+  "objectFootprintRegistry": "content/worldgen/worldgen_object_footprint_registry_v0_4.json",
+  "transitionRegistry": "content/worldgen/home_island_transition_registry_v0_4.json",
+  "navigationGraph": "content/worldgen/home_island_navigation_graph_v0_4.json",
+  "collisionInteractionOverlay": "content/worldgen/worldgen_collision_interaction_overlay_v0_4.json",
+  "cameraCompositionProfile": "content/worldgen/worldgen_camera_composition_profile_v0_4.json",
+  "validationProfile": "content/worldgen/worldgen_validation_profile_v0_4.json",
+  "previousPack": "content/worldgen/packs/worldgen_home_island_v0_6.json",
+  "runtimeSourceLoader": "crates/haven_core/src/worldgen_loader.rs",
+  "runtimeEntryPoint": "GameWorld::load_worldgen_pack_path",
+  "editorHotkey": "F10 while dev mode is enabled reloads the v0.7 scene JSON pack into the active runtime world.",
+  "objectFootprintRuntime": "content/worldgen/worldgen_object_footprint_runtime_v0_6.json",
+  "v06RuntimeFeatures": [
+    "ObjectFootprint stored per PlacedObject",
+    "Visual/collision/interaction rectangles parsed from scene JSON",
+    "Movement collision checks blocking object footprints",
+    "Inspector reports visual/collision/interaction footprint bounds",
+    "Render sorting uses collision footprint bottom edge",
+    "Save/load preserves custom object footprint metadata"
+  ],
+  "editorOverlayProfile": "content/worldgen/worldgen_editor_overlay_profile_v0_7.json",
+  "v07EditorOverlayFeatures": [
+    "H toggles visual footprint outlines",
+    "C toggles collision and blocked-tile overlay",
+    "I toggles interaction and transition overlay",
+    "Object placement previews show valid/blocked state before committing",
+    "Object placement diagnostics report first blocking issue in the status line",
+    "Build-mode object placement rejects invalid multi-tile placement instead of silently overlapping footprints"
+  ]
+}

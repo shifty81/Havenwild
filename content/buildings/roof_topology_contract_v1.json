@@ -1,0 +1,179 @@
+{
+  "schema": "havenwild.roof_topology_contract.v1",
+  "pass": "167Z109W57K8",
+  "authority": "BuildingRecipe roof assembly over exact PublishedWorldAsset structural components",
+  "defaultPolicy": "topology_assembly_not_monolithic_sprite",
+  "buildingIntegration": {
+    "belongsToBuildingInstance": true,
+    "normalRoofDoesNotCreateScene": true,
+    "upperFloorsAndBasementsRemainSameBuildingInstance": true,
+    "roofOcclusionIsCameraLocal": true,
+    "roofOcclusionNeverMutatesWorldState": true,
+    "roofGroupsArePerStructuralLevel": true
+  },
+  "requiredTopologyRoles": [
+    "field",
+    "north_eave",
+    "south_eave",
+    "west_rake",
+    "east_rake",
+    "ridge_horizontal",
+    "ridge_vertical",
+    "gable_west",
+    "gable_east",
+    "hip_nw",
+    "hip_ne",
+    "hip_sw",
+    "hip_se",
+    "valley_nw",
+    "valley_ne",
+    "valley_sw",
+    "valley_se",
+    "outer_corner_nw",
+    "outer_corner_ne",
+    "outer_corner_sw",
+    "outer_corner_se",
+    "inner_corner_nw",
+    "inner_corner_ne",
+    "inner_corner_sw",
+    "inner_corner_se",
+    "trim_repeat",
+    "trim_end_left",
+    "trim_end_right"
+  ],
+  "roofFamilies": [
+    {
+      "id": "roof.flat_shingle_a",
+      "source": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+      "status": "source_grammar_review",
+      "intendedUse": [
+        "field",
+        "eave",
+        "corner",
+        "trim"
+      ]
+    },
+    {
+      "id": "roof.gable_shingle_a",
+      "source": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+      "status": "source_grammar_review",
+      "intendedUse": [
+        "field",
+        "eave",
+        "rake",
+        "ridge",
+        "gable",
+        "corner"
+      ]
+    },
+    {
+      "id": "roof.hipped_shingle_a",
+      "source": "assets/source/licensed/lpc_revised/Structure/Roofing/Hipped Shingle Roof A.png",
+      "status": "source_grammar_review",
+      "intendedUse": [
+        "field",
+        "eave",
+        "hip",
+        "valley",
+        "ridge",
+        "corner"
+      ]
+    },
+    {
+      "id": "roof.adobe_stucco",
+      "source": "assets/source/licensed/lpc_revised/Structure/Roofing/Adobe Stucco Roof.png",
+      "status": "source_grammar_review",
+      "intendedUse": [
+        "flat_or_parapet_assembly",
+        "corner",
+        "edge"
+      ]
+    },
+    {
+      "id": "roof.adobe_brick",
+      "source": "assets/source/licensed/lpc_revised/Structure/Roofing/Adobe Brick Roof.png",
+      "status": "source_grammar_review",
+      "intendedUse": [
+        "flat_or_parapet_assembly",
+        "corner",
+        "edge"
+      ]
+    },
+    {
+      "id": "roof.trim",
+      "source": "assets/source/licensed/lpc_revised/Structure/Roofing/Roof Trim.png",
+      "status": "source_grammar_review",
+      "intendedUse": [
+        "trim",
+        "ridge",
+        "rake",
+        "eave",
+        "edge_finish"
+      ]
+    },
+    {
+      "id": "roof.chimney.brick_a",
+      "source": "assets/source/licensed/lpc_revised/Structure/Roofing/Brick Chimney A.png",
+      "status": "source_component_review",
+      "intendedUse": [
+        "roof_attachment",
+        "chimney"
+      ]
+    }
+  ],
+  "resolverRules": {
+    "deriveTopologyFromBuildingFootprint": true,
+    "preserveExactSourceRegions": true,
+    "generatedRuntimeAtlasIsCacheOnly": true,
+    "allowManualTopologyOverride": true,
+    "allowAuthoredRoofStampOnlyWhenExplicit": true,
+    "requireSeamAcceptanceBeforeCertification": true,
+    "requireCutawayGroupBinding": true
+  },
+  "forbiddenPatterns": [
+    "whole source sheet as one roof placeable",
+    "invented roof pixels not present in approved Havenwild-derived art",
+    "automatic promotion of any non-empty 32x32 cell",
+    "roof identity derived from runtime atlas coordinates",
+    "roof cutaway stored as authoritative multiplayer world state",
+    "separate scene merely because a building has an upstairs or basement",
+    "concatenating complete gable assemblies to synthesize arbitrary roof width",
+    "overlapping complete roof assemblies at L/T/cross junctions without an exact reviewed junction asset",
+    "treating a front-gable roofline/rake/eave silhouette as a filled roof plane",
+    "using a rectangular wall backing behind an intentionally transparent gable opening"
+  ],
+  "authoredAssemblyPolicy": {
+    "atomicConnectedAssemblyMayBeUsedOncePerRoofWing": true,
+    "completeGableAssembliesMayNotBeConcatenatedToSynthesizeWidth": true,
+    "multiWingRoofsRequireExplicitWingIdentity": true,
+    "wingIntersectionsRequireReviewedHipValleyOrJunctionAssets": true,
+    "unsupportedJunctionsFailClosedInsteadOfOverlappingWholeRoofs": true,
+    "sourceSocketMustMatchBuildingArchitecturalSocket": true,
+    "scaleSourceArtwork": false,
+    "starterCottageReference": {
+      "assetId": "roof_gable_shingle_brown_shallow_7x4_roofline",
+      "sourceRect": [
+        544,
+        0,
+        224,
+        128
+      ],
+      "sourceSocketPx": [
+        112,
+        128
+      ],
+      "buildingSocket": "roof_wall_plate",
+      "requiresGableWallInfill": true,
+      "gableWallInfillAssetId": "wall_siding_plain_cream_gable_fill",
+      "gableWallInfillRows": [
+        1,
+        3,
+        5
+      ],
+      "wallPlateWidthTiles": 5,
+      "sideEaveTiles": 1
+    },
+    "frontGableRooflineRequiresWallInfill": true,
+    "roofEnvelopeAndWallPlateAreIndependent": true
+  }
+}

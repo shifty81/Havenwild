@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.lpc_character_creator_source_policy.v0_1",
+  "pass": "167Z40",
+  "sourceCatalogs": [
+    "content/assets/lpc/universal_lpc_complete_repository_index_v0_1.json.gz",
+    "content/assets/lpc/universal_lpc_equipment_action_catalog_v0_1.json",
+    "content/characters/lpc_character_compatibility_matrix_v0_1.json"
+  ],
+  "creatorPolicy": {
+    "initialCreatorUsesCuratedEverydayOptions": true,
+    "initialCreatorExcludesArmor": true,
+    "initialCreatorExcludesPregnancyAsCosmeticChoice": true,
+    "fullCompatibleRepositoryVisibleInCharacterStudio": true,
+    "fullCompatibleRepositoryVisibleInNpcAuthoring": true,
+    "clothingUnlocksThroughCraftLootShopQuestAndRelationshipSystems": true,
+    "stableAssetRefsPersistInSaves": true,
+    "bodySpecificLayerGeometryRequired": true,
+    "bodySpecificAnimationCoverageRequired": true,
+    "incompatibleCombinationsAreHiddenWithReason": true
+  },
+  "runtimeBodyStatePolicy": {
+    "adultBodies": ["male", "female", "muscular"],
+    "lifeSimulationBodies": ["pregnant"],
+    "ageStageBodies": ["teen", "child"],
+    "pregnancyBodyIsDrivenByFamilyState": true,
+    "pregnancyBodyMustRestorePriorAdultBodyAfterStateEnds": true,
+    "pregnancyBodyRequiresCompatibleClothingLayers": true,
+    "multiplayerAuthority": "server_social_state"
+  },
+  "authoringSurfaces": {
+    "newCharacter": "curated_appearance_and_everyday_clothing",
+    "characterStudio": "all_compatible_cataloged_layers",
+    "npcEditor": "all_compatible_cataloged_layers_and_age_states",
+    "wardrobe": "owned_or_unlocked_compatible_layers",
+    "familySystem": "body_state_and_age_stage_transitions"
+  }
+}

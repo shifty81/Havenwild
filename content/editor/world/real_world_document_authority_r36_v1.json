@@ -1,0 +1,14 @@
+{
+  "schema": "havenwild.editor.real_world_document_authority.r36.v1",
+  "pass": "167Z109W81R36",
+  "document": "Development World",
+  "authorityChain": [
+    "world_generation_pipeline",
+    "world_definition",
+    "world_instance",
+    "world_studio",
+    "runtime"
+  ],
+  "rule": "World Studio and runtime consume the same persistent world authority; preview-only worlds are diagnostics, not a competing source of truth.",
+  "authoredOverrides": "Generated base plus authored overrides; regeneration preserves compatible authored overrides and sends conflicts to review."
+}

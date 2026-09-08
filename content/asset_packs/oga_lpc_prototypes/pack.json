@@ -1,0 +1,55 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "oga_lpc_prototypes",
+  "display_name": "Curated OpenGameArt LPC Prototype Providers",
+  "version": "167Z109M",
+  "license": {
+    "license_id": "mixed_per_source_record",
+    "attribution": [
+      "content/assets/oga_lpc/manifests/oga_lpc_prototype_source_registry_v0_1.json"
+    ],
+    "commercial_use": true,
+    "redistribution": true,
+    "production_approved": false
+  },
+  "dependencies": [],
+  "priority": 45,
+  "sources": [
+    {
+      "id": "source_registry",
+      "kind": "sidecar",
+      "path": "content/assets/oga_lpc/manifests/oga_lpc_prototype_source_registry_v0_1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "role_registry",
+      "kind": "sidecar",
+      "path": "content/assets/oga_lpc/manifests/oga_lpc_prototype_role_registry_v0_1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "external_root",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/oga_lpc_prototypes",
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "assets": [
+    {
+      "id": "prototype_provider_registry",
+      "category": "editor_template",
+      "semantic_id": "oga_lpc.prototype.provider.registry",
+      "source_id": "role_registry",
+      "tags": ["prototype", "lpc", "opengameart", "terrain", "worldgen"],
+      "metadata": {
+        "production_state": "authoring_dependency_only",
+        "runtime_promotion": "explicit_semantic_role_only"
+      }
+    }
+  ],
+  "production_enabled": false,
+  "authority": "content/worldgen/unified_terrain_world_lane_authority_v0_1.json"
+}

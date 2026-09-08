@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.dynamic_world_runtime_policy.v1",
+  "runtime_world_identity": "WorldSaveId",
+  "world_directory_pattern": "world_<stable-id>",
+  "world_metadata_file": "world.json",
+  "world_save_limit": "unlimited",
+  "character_selection_required": true,
+  "character_world_link_required": true,
+  "legacy_slot_migration": {
+    "supported": true,
+    "source_directories": ["slot_1", "slot_2", "slot_3"],
+    "target_pattern": "world_legacy_slot_<n>",
+    "preserve_world_data": true
+  },
+  "runtime_launch": {
+    "request_fields": ["character_id", "world_id"],
+    "direct_client_save_slot_dependency": false,
+    "dynamic_paths": true
+  },
+  "ownership": {
+    "character_profile": "account",
+    "world_state": "world",
+    "character_world_state": "world/characters/<character-id>.json"
+  }
+}

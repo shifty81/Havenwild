@@ -1,0 +1,6 @@
+Havenwild Pass 165Y
+Overwrite-capable incremental patch
+
+crates/haven_game/src/client_frontend.rs
+docs/patch/PASS_165Y_FRONTEND_MUSIC_VOLUME_BALANCE.md
+manifests/PASS_165Y_MANIFEST.txt

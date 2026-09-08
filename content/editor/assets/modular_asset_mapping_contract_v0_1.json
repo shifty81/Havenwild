@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.editor.modular_asset_mapping.v0_1",
+  "tileGrid": 32,
+  "assetClasses": [
+    "tile",
+    "autotile_set",
+    "multi_tile_stamp",
+    "object",
+    "building",
+    "roof",
+    "tree",
+    "fence",
+    "coastline",
+    "inventory_icon",
+    "dropped_item",
+    "character_base",
+    "character_layer",
+    "tool_animation",
+    "effect_animation",
+    "ui_element"
+  ],
+  "stampRequirements": ["sourceRect", "gridWidth", "gridHeight", "pivot", "visualFootprint", "collisionFootprint", "interactionFootprint"],
+  "characterLayerRequirements": ["animation", "slot", "variant", "frameWidth", "frameHeight", "directions", "framesPerDirection"],
+  "pairedRepresentations": ["inventory_icon", "dropped_item", "equipped_character_layer"],
+  "promotion": "all inferred records remain draft until source, license, crop, footprint, and representation links are reviewed"
+}

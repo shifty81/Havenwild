@@ -1,0 +1,2 @@
+# W53A introduces no additional removals.
+# Cumulative W40 lineage removals remain in manifests/cumulative_patch_removals_pass167z109w53a.txt.

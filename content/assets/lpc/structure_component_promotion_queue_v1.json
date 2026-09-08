@@ -1,0 +1,803 @@
+{
+  "schema": "havenwild.structure_component_promotion_queue.v1",
+  "pass": "167Z109W45D2",
+  "sourceInventory": "content/assets/lpc/structure_source_inventory_v1.json",
+  "currentBlockersFirst": [
+    "door",
+    "stairs",
+    "fence",
+    "sign"
+  ],
+  "notes": [
+    "The first four roles directly replace W43 fail-closed legacy structure/object substitutions.",
+    "Do not promote a whole sheet. Review exact connected cells/stamps and publish components through PublishedWorldAssetRegistry.",
+    "Building reference sheets remain decomposition references for W46 BuildingRecipe authority.",
+    "When W45B/W45C/W45C2/W45D2 published catalogs are present, reviewed exact source sheets remain COMPONENT_CANDIDATE across deterministic W45A rebuilds. W45C3A and W45D1 evidence-only checkpoints do not mark additional sheets reviewed."
+  ],
+  "entries": [
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x48px_doors/12_panel_door_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/12 Panel Door A.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x48px_doors/12_panel_door_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/12 Panel Door B.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x48px_doors/barred_prison_door_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/Barred Prison Door A.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x48px_doors/doorframe_a_shadows",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/Doorframe A Shadows.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x48px_doors/doorframe_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/Doorframe A.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x48px_doors/doorframe_b_shadows",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/DoorFrame B Shadows.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x48px_doors/doorframe_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/Doorframe B.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x64px_doors/15_panel_door_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x64px Doors/15 Panel Door A.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x64px_doors/doorframe_a_shadows",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x64px Doors/Doorframe A Shadows.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/32x64px_doors/doorframe_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x64px Doors/Doorframe A.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/64x64px_arched_doors/arched_doorway_a_shadows",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/64x64px Arched Doors/Arched Doorway A Shadows.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/64x64px_arched_doors/arched_doorway_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/64x64px Arched Doors/Arched Doorway A.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/doors/64x64px_arched_doors/arched_double_doors_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/64x64px Arched Doors/Arched Double Doors A.png",
+      "role": "door",
+      "priority": 10,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/stairs/cement_stairs_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Cement Stairs A.png",
+      "role": "stairs",
+      "priority": 20,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/stairs/formal_interior_stairs_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Formal Interior Stairs A.png",
+      "role": "stairs",
+      "priority": 20,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/stairs/short_steps_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Short Steps A.png",
+      "role": "stairs",
+      "priority": 20,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/stairs/wood_interior_stairs_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Wood Interior Stairs A.png",
+      "role": "stairs",
+      "priority": 20,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/stairs/wood_interior_stairs_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Wood Interior Stairs B.png",
+      "role": "stairs",
+      "priority": 20,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/stairs/wood_interior_stairs_wall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Wood Interior Stairs Wall.png",
+      "role": "stairs",
+      "priority": 20,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/fences/ornamental_fence_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Fences/Ornamental Fence A.png",
+      "role": "fence",
+      "priority": 30,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/fences/ornamental_fence_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Fences/Ornamental Fence B.png",
+      "role": "fence",
+      "priority": 30,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/fences/plain_fence_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Fences/Plain Fence A.png",
+      "role": "fence",
+      "priority": 30,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/signs/sign_backgrounds_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+      "role": "sign",
+      "priority": 40,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/signs/sign_icons_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Icons A.png",
+      "role": "sign",
+      "priority": 40,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/diamond_tile_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Diamond Tile A.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/diamond_tile_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Diamond Tile B.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/diamond_tile_c",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Diamond Tile C.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/floral_carpet_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Floral Carpet A.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/floral_carpet_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Floral Carpet B.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/geometric_carpet_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Geometric Carpet A.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/geometric_carpet_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Geometric Carpet B.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/geometric_carpet_c",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Geometric Carpet C.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/gritty_dirt",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Gritty Dirt.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/herringbone_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Herringbone A.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/subfloor",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Subfloor.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/tile_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Tile A.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/tile_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Tile B.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/tile_c",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Tile C.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/wood_floor_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Wood Floor A.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/floor/wood_floor_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Wood Floor B.png",
+      "role": "floor",
+      "priority": 50,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/adobe_brick_wall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Adobe Brick Wall.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/adobe_stucco_wall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Adobe Stucco Wall.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/brick_wall_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Brick Wall A.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/brick_wall_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Brick Wall B.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/brick_wall_block_edging",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Brick Wall Block Edging.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/cutawayoverlay",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/CutawayOverlay.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/diamond_wallpaper",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Diamond Wallpaper.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/drywall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Drywall.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/floral_wallpaper_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Floral Wallpaper A.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/floral_wallpaper_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Floral Wallpaper B.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/grainy_plain_wall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Grainy Plain Wall.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/half-wall_paneling_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Half-Wall Paneling A.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/jagged_stone_walls",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Jagged Stone Walls.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/molding",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Molding.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/painted_walls",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Painted Walls.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/panels_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Panels A.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/siding,_plain",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/striped_wallpaper_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Striped Wallpaper A.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/striped_wallpaper_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Striped Wallpaper B.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/walls/striped_wallpaper_c",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Striped Wallpaper C.png",
+      "role": "wall",
+      "priority": 60,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/wall_borders/decorative_border_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Decorative Border A.png",
+      "role": "wall_border",
+      "priority": 70,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/wall_borders/formal_crown_molding",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Formal Crown Molding.png",
+      "role": "wall_border",
+      "priority": 70,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/wall_borders/pillar_crown_molding",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Pillar Crown Molding.png",
+      "role": "wall_border",
+      "priority": 70,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/wall_borders/plain_edged_border_-_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Plain Edged Border - A.png",
+      "role": "wall_border",
+      "priority": 70,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/wall_borders/plain_edged_border",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Plain Edged Border.png",
+      "role": "wall_border",
+      "priority": 70,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/wall_borders/plain_smooth_border",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Plain Smooth Border.png",
+      "role": "wall_border",
+      "priority": 70,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/wall_borders/textured_wood_border",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Textured Wood Border.png",
+      "role": "wall_border",
+      "priority": 70,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/windows/ornamental_windows_a_-_emission",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows A - Emission.png",
+      "role": "window",
+      "priority": 80,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/windows/ornamental_windows_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows A.png",
+      "role": "window",
+      "priority": 80,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/windows/ornamental_windows_b_-_emission",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows B - Emission.png",
+      "role": "window",
+      "priority": 80,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/windows/ornamental_windows_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows B.png",
+      "role": "window",
+      "priority": 80,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/windows/stone_windows_a_-_emission",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Stone Windows A - Emission.png",
+      "role": "window",
+      "priority": 80,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/windows/stone_windows_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Stone Windows A.png",
+      "role": "window",
+      "priority": 80,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/windows/window_awnings_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Window Awnings A.png",
+      "role": "window",
+      "priority": 80,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/roofing/adobe_brick_roof",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Adobe Brick Roof.png",
+      "role": "roof",
+      "priority": 90,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/roofing/adobe_stucco_roof",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Adobe Stucco Roof.png",
+      "role": "roof",
+      "priority": 90,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/roofing/brick_chimney_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Brick Chimney A.png",
+      "role": "roof",
+      "priority": 90,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/roofing/flat_shingle_roof_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+      "role": "roof",
+      "priority": 90,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/roofing/gable_shingle_roof_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+      "role": "roof",
+      "priority": 90,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/roofing/hipped_shingle_roof_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Hipped Shingle Roof A.png",
+      "role": "roof",
+      "priority": 90,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/roofing/roof_trim",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Roof Trim.png",
+      "role": "roof",
+      "priority": 90,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/bridges/drawbridge_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Drawbridge A.png",
+      "role": "bridge",
+      "priority": 100,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/bridges/rope_bridge_a_-_no_rails",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Rope Bridge A - No Rails.png",
+      "role": "bridge",
+      "priority": 100,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/bridges/rope_bridge_a_-_rails",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Rope Bridge A - Rails.png",
+      "role": "bridge",
+      "priority": 100,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/bridges/wood_bridge_a_-_no_rails",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - No Rails.png",
+      "role": "bridge",
+      "priority": 100,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/bridges/wood_bridge_a_-_rails",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - Rails.png",
+      "role": "bridge",
+      "priority": 100,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/platforms/cement_platform_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Platforms/Cement Platform A.png",
+      "role": "platform",
+      "priority": 110,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/platforms/dias_with_steps_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Platforms/Dias with Steps A.png",
+      "role": "platform",
+      "priority": 110,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/pillars/floral_pillar_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Pillars/Floral Pillar A.png",
+      "role": "pillar",
+      "priority": 120,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/pillars/stone_pillar_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Pillars/Stone Pillar A.png",
+      "role": "pillar",
+      "priority": 120,
+      "nextAction": "inspect_structure_acceptance_scene",
+      "promotionTarget": "PublishedWorldAsset:structure_component_candidate"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/misc/drain_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Drain A.png",
+      "role": "misc",
+      "priority": 130,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/misc/fountain_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Fountain A.png",
+      "role": "misc",
+      "priority": 130,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/misc/pool_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Pool A.png",
+      "role": "misc",
+      "priority": 130,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/misc/prison_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Prison A.png",
+      "role": "misc",
+      "priority": 130,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/misc/trellis_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Trellis A.png",
+      "role": "misc",
+      "priority": 130,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "PublishedWorldAsset:structure_component"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/structures/brick_house_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Structures/Brick House A.png",
+      "role": "building_reference",
+      "priority": 900,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "reference_only_decompose_into_building_recipe"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/structures/brick_house_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Structures/Brick House B.png",
+      "role": "building_reference",
+      "priority": 900,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "reference_only_decompose_into_building_recipe"
+    },
+    {
+      "sourceInventoryId": "lpc/structure/structures/paneled_house_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Structures/Paneled House A.png",
+      "role": "building_reference",
+      "priority": 900,
+      "nextAction": "review_exact_component_rects",
+      "promotionTarget": "reference_only_decompose_into_building_recipe"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+HAVENWILD PASS 167H1 — CUMULATIVE TERRAIN/WORLDGEN ROLLUP
+Date: 2026-08-01
+
+Apply base:
+- Havenwild Pass 166V or any source already containing Pass 166V.
+- This archive cumulatively carries Passes 166W, 166X, 166Y, 166Z, 167A, 167B, 167C, 167E (including the intended 167D full-world hydrology files), 167F, 167G, and 167H.
+
+Important:
+- The earlier Pass 167D archive was zero bytes. Pass 167E carried the required full_world_hydrology_bake.rs implementation and supersedes that failed package.
+- Extract into the repository root and allow overwrite.
+- This is an overwrite-capable cumulative incremental rollup, not a complete source archive.
+
+Included functional lanes:
+- Willowmere/starter-capital authority groundwork
+- WorldManifestV2 and generation stage graph
+- SurfaceCellV1 semantic terrain foundation
+- Canonical Hydrology Resolver V2
+- TavernMap/TileKind hydrology compatibility bridge
+- Cross-chunk and surface-residency hydrology reconciliation
+- Full-world wrapped hydrology bake
+- Atomic world-bake persistence
+- Canonical elevation/cliff resolver V2
+- Production cliff routing and full-world structural bake
+- Atomic structural cache persistence
+- Canonical traversal, cliff, cave-host, and waterfall queries
+
+Certification command:
+tools/build/Build.cmd all
+
+SUPERSEDED BY PASS 167I CUMULATIVE ROLLUP

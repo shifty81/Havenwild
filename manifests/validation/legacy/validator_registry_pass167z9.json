@@ -1,0 +1,667 @@
+{
+  "schema": "havenwild.validator.registry.v3",
+  "version": 3,
+  "policy": {
+    "nativeResultRequiredForDomainValidators": true,
+    "validatorsReadOnlyByDefault": true,
+    "legacyProcessAdapters": "migration-only",
+    "targetActiveValidatorCount": 25
+  },
+  "validators": [
+    {
+      "id": "architecture.foundation.validate_development_layout",
+      "legacy_task_id": "validate-development-layout",
+      "name": "validate_development_layout",
+      "domain": "architecture",
+      "phase": "foundation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_development_layout.py"
+      ],
+      "order": 0,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "architecture.foundation.validate_architecture",
+      "legacy_task_id": "validate-architecture",
+      "name": "validate_architecture",
+      "domain": "architecture",
+      "phase": "foundation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_architecture.py"
+      ],
+      "order": 1,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "content.foundation.validate_content",
+      "legacy_task_id": "validate-content",
+      "name": "validate_content",
+      "domain": "content",
+      "phase": "foundation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_content.py"
+      ],
+      "order": 2,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "terrain.runtime.contract",
+      "name": "Terrain Runtime Contract",
+      "domain": "editor",
+      "phase": "terrain-runtime",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.terrain_runtime",
+      "function": "validate",
+      "order": 50,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "architecture.foundation.validate_architecture"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "terrain.water.lifecycle",
+      "name": "Terrain Shore and Water Lifecycle",
+      "domain": "world",
+      "phase": "terrain-lifecycle",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.terrain_water",
+      "function": "validate",
+      "order": 51,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "terrain.runtime.contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "terrain.promotion.contract",
+      "name": "Terrain Promotion and Coverage Contract",
+      "domain": "editor",
+      "phase": "terrain-promotion",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.terrain_promotion",
+      "function": "validate",
+      "order": 52,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "terrain.runtime.contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "editor.authoring.contract",
+      "name": "Editor Authoring and Command Contract",
+      "domain": "editor",
+      "phase": "editor-authoring",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.editor_contract",
+      "function": "validate",
+      "order": 53,
+      "profiles": [
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "terrain.runtime.contract"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "world.foundation.contract",
+      "name": "World Foundation and Persistence Contract",
+      "domain": "world",
+      "phase": "world-foundation",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.world_contract",
+      "function": "validate",
+      "order": 54,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "content.foundation.validate_content"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.packaging.validate_sourcerollupcompletenessv146",
+      "legacy_task_id": "validate-sourcerollupcompletenessv146",
+      "name": "Validate-SourceRollupCompletenessV146",
+      "domain": "architecture",
+      "phase": "packaging",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-SourceRollupCompletenessV146.py"
+      ],
+      "order": 95,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "architecture.asset-generation.validate_generatedassetbuildgraphv146",
+      "legacy_task_id": "validate-generatedassetbuildgraphv146",
+      "name": "Validate-GeneratedAssetBuildGraphV146",
+      "domain": "architecture",
+      "phase": "asset-generation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-GeneratedAssetBuildGraphV146.py"
+      ],
+      "order": 96,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "architecture.packaging.validate_sourcerollupcompletenessv146"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.build-portability.validate_windowsbuildportabilityv146",
+      "legacy_task_id": "validate-windowsbuildportabilityv146",
+      "name": "Validate-WindowsBuildPortabilityV146",
+      "domain": "architecture",
+      "phase": "build-portability",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-WindowsBuildPortabilityV146.py"
+      ],
+      "order": 97,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "architecture.persistence.validate_savemigrationcompatibilityv146",
+      "legacy_task_id": "validate-savemigrationcompatibilityv146",
+      "name": "Validate-SaveMigrationCompatibilityV146",
+      "domain": "architecture",
+      "phase": "persistence",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/persistence/Validate-SaveMigrationCompatibilityV146.py"
+      ],
+      "order": 98,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "architecture.compile-contract.validate_rustworkspacecontractv146",
+      "legacy_task_id": "validate-rustworkspacecontractv146",
+      "name": "Validate-RustWorkspaceContractV146",
+      "domain": "architecture",
+      "phase": "compile-contract",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-RustWorkspaceContractV146.py"
+      ],
+      "order": 100,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation-quality.validate_validatorqualityv146",
+      "legacy_task_id": "validate-validatorqualityv146",
+      "name": "Validate-ValidatorQualityV146",
+      "domain": "architecture",
+      "phase": "validation-quality",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidatorQualityV146.py"
+      ],
+      "order": 101,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "terrain.water.lifecycle"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.generated-freshness.validate_generatedoutputfreshnessv146b",
+      "legacy_task_id": "validate-generatedoutputfreshnessv146b",
+      "name": "Validate-GeneratedOutputFreshnessV146B",
+      "domain": "architecture",
+      "phase": "generated-freshness",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-GeneratedOutputFreshnessV146B.py"
+      ],
+      "order": 103,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "content/build/generated_output_registry_v2.json"
+      ],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation-framework.validate_validationframeworkselftestsv146b",
+      "legacy_task_id": "validate-validationframeworkselftestsv146b",
+      "name": "Validate-ValidationFrameworkSelfTestsV146B",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidationFrameworkSelfTestsV146B.py"
+      ],
+      "order": 104,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "tools/automation/validation/registry.py",
+        "tools/automation/validation/result.py"
+      ],
+      "depends_on": [],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation-framework.native-contract-v146c",
+      "name": "Native Validation Framework Contract V146C",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "severity": "error",
+      "runner": "native",
+      "module": "validation.domains.framework_contract",
+      "function": "validate",
+      "order": 105,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "architecture.validation-framework.validate_validationframeworkselftestsv146b"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.generated-provenance.validate_generatedoutputprovenancev146d",
+      "legacy_task_id": "validate-generatedoutputprovenancev146d",
+      "name": "Validate-GeneratedOutputProvenanceV146D",
+      "domain": "architecture",
+      "phase": "generated-provenance",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-GeneratedOutputProvenanceV146D.py"
+      ],
+      "order": 106,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "content/build/generated_output_registry_v2.json"
+      ],
+      "depends_on": [
+        "architecture.generated-freshness.validate_generatedoutputfreshnessv146b"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.atomic-generation.validate_atomicgenerationv146d",
+      "legacy_task_id": "validate-atomicgenerationv146d",
+      "name": "Validate-AtomicGenerationV146D",
+      "domain": "architecture",
+      "phase": "asset-generation",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-AtomicGenerationV146D.py"
+      ],
+      "order": 107,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "tools/automation/common/atomic_io.py"
+      ],
+      "depends_on": [
+        "architecture.generated-provenance.validate_generatedoutputprovenancev146d"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.build-reporting.validate_unifiedbuildreportingv146e",
+      "legacy_task_id": "validate-unifiedbuildreportingv146e",
+      "name": "Validate-UnifiedBuildReportingV146E",
+      "domain": "architecture",
+      "phase": "build-reporting",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-UnifiedBuildReportingV146E.py"
+      ],
+      "order": 108,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "tools/automation/reports/Build-ReportV146E.py",
+        "tools/automation/reports/Write-BuildAttestationV146E.py"
+      ],
+      "depends_on": [
+        "architecture.atomic-generation.validate_atomicgenerationv146d"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.build-attestation.validate_buildattestationv146e",
+      "legacy_task_id": "validate-buildattestationv146e",
+      "name": "Validate-BuildAttestationV146E",
+      "domain": "architecture",
+      "phase": "build-reporting",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-BuildAttestationV146E.py"
+      ],
+      "order": 109,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "tools/automation/reports/Write-BuildAttestationV146E.py"
+      ],
+      "depends_on": [
+        "architecture.build-reporting.validate_unifiedbuildreportingv146e"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "architecture.validation-execution-responsiveness-v146g",
+      "name": "Validator Execution Responsiveness",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidatorExecutionResponsivenessV146G.py"
+      ],
+      "order": 985,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "tools/automation/validation/readonly.py",
+        "tools/automation/validation/native.py"
+      ],
+      "depends_on": [
+        "architecture.validation-framework.native-contract-v146c"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "assets.universal-import-provider-framework-v148b",
+      "name": "Universal Import Provider Framework",
+      "domain": "assets",
+      "phase": "asset-import",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-UniversalImportProviderFrameworkV148B.py"
+      ],
+      "order": 1120,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "crates/haven_assets/src/asset_import.rs",
+        "content/import_profiles/raw_sheet_32_v1.json",
+        "content/import_profiles/lpc_tiled_tsx_v1.json"
+      ],
+      "depends_on": [
+        "architecture.validation-framework.native-contract-v146c"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "assets.category-metadata-tiled-normalization-v148c",
+      "legacy_task_id": "validate-category-metadata-tiled-normalization-v148c",
+      "name": "Validate-CategoryMetadataAndTiledNormalizationV148C",
+      "domain": "assets",
+      "phase": "import-normalization",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-CategoryMetadataAndTiledNormalizationV148C.py"
+      ],
+      "order": 1130,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [],
+      "depends_on": [
+        "assets.universal-import-provider-framework-v148b"
+      ],
+      "read_only": true
+    },
+    {
+      "id": "characters.world-sync-v148w",
+      "name": "Character world autosave and synchronization V148W",
+      "domain": "assets",
+      "phase": "asset-registry",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "python",
+        "tools/automation/validation/checks/characters/Validate-CharacterWorldSyncV148W.py"
+      ],
+      "order": 1140,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "crates/haven_game/src/character_world_runtime.rs",
+        "crates/haven_game/src/character_world_sync.rs",
+        "crates/haven_net/src/lib.rs",
+        "content/characters/character_world_sync_policy_v1.json"
+      ],
+      "depends_on": [
+        "assets.category-metadata-tiled-normalization-v148c"
+      ],
+      "read_only": true,
+      "legacy_task_id": "validate-stable-placeable-runtime-dispatch-v148o",
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterWorldSyncV148W.py",
+      "description": "Validate autosave, scene/exit/disconnect persistence, host-authored snapshots, stale-sequence rejection, and client replica application.",
+      "paths": [
+        "tools/automation/validation/checks/characters/Validate-CharacterWorldRuntimeStateV148V.py",
+        "tools/automation/validation/checks/characters/Validate-CharacterWorldSyncV148W.py"
+      ]
+    },
+    {
+      "id": "characters.production-catalog-v149j28",
+      "name": "Universal LPC Complete Character and Equipment Catalog V167Z7",
+      "domain": "assets",
+      "phase": "character-promotion",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-LpcCharacterProductionCatalogV149J28.py"
+      ],
+      "order": 1145,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "tools/automation/characters/Build-UniversalLpcCompleteRepositoryIndexV167Z7.py",
+        "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py",
+        "content/assets/lpc/universal_lpc_complete_repository_index_v0_1.json.gz",
+        "content/assets/lpc/universal_lpc_equipment_action_catalog_v0_1.json",
+        "crates/haven_assets/src/universal_lpc_equipment_catalog.rs",
+        "crates/haven_game/src/character_repository_catalog.rs"
+      ],
+      "depends_on": [
+        "assets.category-metadata-tiled-normalization-v148c"
+      ],
+      "read_only": true,
+      "description": "Validate the complete Universal LPC character repository index, runtime character caches, and gameplay equipment catalog."
+    },
+    {
+      "id": "world.surface-chunk-runtime-v149f",
+      "name": "Surface Chunk Jobs Cache and Delta Contract",
+      "domain": "build",
+      "phase": "stabilization",
+      "severity": "error",
+      "runner": "process",
+      "command": [
+        "python",
+        "tools/automation/validation/checks/worldgen/Validate-SurfaceChunkJobsCacheAndDeltasV149F.py"
+      ],
+      "order": 1150,
+      "profiles": [
+        "quick",
+        "source",
+        "full"
+      ],
+      "requires": [
+        "crates/haven_world/src/surface_chunk_jobs.rs",
+        "crates/haven_save/src/surface_chunk_storage.rs",
+        "content/world/surface_chunk_runtime_policy_v1.json"
+      ],
+      "depends_on": [
+        "assets.universal-import-provider-framework-v148b"
+      ],
+      "read_only": true,
+      "path": "tools/automation/validation/checks/worldgen/Validate-SurfaceChunkJobsCacheAndDeltasV149F.py",
+      "description": "Validates background surface generation jobs, disk baseline caching, delta precedence, and generated chunk eviction.",
+      "paths": [
+        "tools/automation/validation/checks/worldgen/Validate-ProceduralChunkResidencyV149E.py",
+        "tools/automation/validation/checks/worldgen/Validate-SurfaceChunkJobsCacheAndDeltasV149F.py",
+        "content/world/surface_chunk_runtime_policy_v1.json"
+      ]
+    }
+  ]
+}

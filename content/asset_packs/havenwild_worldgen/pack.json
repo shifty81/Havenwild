@@ -1,0 +1,168 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "havenwild_worldgen",
+  "display_name": "Havenwild World and Terrain",
+  "version": "0.2.0",
+  "license": {
+    "license_id": "project-authored",
+    "attribution": [],
+    "commercial_use": true,
+    "redistribution": true,
+    "production_approved": true
+  },
+  "production_enabled": true,
+  "dependencies": [
+    {
+      "pack_id": "havenwild_core",
+      "version_requirement": null,
+      "optional": false
+    }
+  ],
+  "priority": 95,
+  "sources": [
+    {
+      "id": "base_terrain",
+      "kind": "generated",
+      "path": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "live_autotile",
+      "kind": "generated",
+      "path": "assets/generated/worldgen_v0_1/terrain/live_autotile_16_32.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "mapped_lpc_terrain",
+      "kind": "generated",
+      "path": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "worldgen_manifest",
+      "kind": "sidecar",
+      "path": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "terrain_transition_atlas",
+      "kind": "generated",
+      "path": "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "terrain_catalog",
+      "category": "terrain",
+      "semantic_id": "terrain.catalog.default",
+      "source_id": "worldgen_manifest",
+      "variants": [],
+      "tags": [
+        "terrain",
+        "worldgen",
+        "default"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "grass",
+      "category": "terrain",
+      "semantic_id": "terrain.grass",
+      "source_id": "base_terrain",
+      "variants": [],
+      "tags": [
+        "terrain",
+        "ground",
+        "grass"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "sand",
+      "category": "terrain",
+      "semantic_id": "terrain.sand",
+      "source_id": "mapped_lpc_terrain",
+      "variants": [],
+      "tags": [
+        "terrain",
+        "ground",
+        "sand"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "shallow_water",
+      "category": "terrain",
+      "semantic_id": "terrain.water.shallow",
+      "source_id": "mapped_lpc_terrain",
+      "variants": [],
+      "tags": [
+        "terrain",
+        "water",
+        "shallow"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "deep_water",
+      "category": "terrain",
+      "semantic_id": "terrain.water.deep",
+      "source_id": "mapped_lpc_terrain",
+      "variants": [],
+      "tags": [
+        "terrain",
+        "water",
+        "deep"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "road",
+      "category": "terrain",
+      "semantic_id": "terrain.path.road",
+      "source_id": "live_autotile",
+      "variants": [],
+      "tags": [
+        "terrain",
+        "path",
+        "road"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "terrain_transition_atlas",
+      "category": "terrain",
+      "semantic_id": "terrain.transition.atlas",
+      "source_id": "terrain_transition_atlas",
+      "variants": [],
+      "tags": [
+        "terrain",
+        "transition",
+        "renderer"
+      ],
+      "metadata": {}
+    }
+  ]
+}

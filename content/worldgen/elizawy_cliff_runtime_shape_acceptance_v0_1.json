@@ -1,0 +1,61 @@
+{
+  "schema": "havenwild.elizawy_cliff.runtime_shape_acceptance.v0_1",
+  "pass": "167Z106N5Q",
+  "sourceScene": "content/worldgen/cliff_topology_acceptance_scene_v0_1.json",
+  "shapeCatalog": "content/worldgen/elizawy_cliff_runtime_shape_catalog_v0_1.json",
+  "visualAcceptance": [
+    {
+      "id": "long_straight_south_face",
+      "required": [
+        "continuous rock wall across the horizontal run",
+        "one grass foot at the bottom of each world column",
+        "no grass seam inside a tall face"
+      ]
+    },
+    {
+      "id": "outer_corner_left_right",
+      "required": [
+        "rounded plateau reference corner columns replace blunt straight-face ends",
+        "east/west side continuation meets the south face without a separate full cliff stamp"
+      ]
+    },
+    {
+      "id": "inner_corner_left_right",
+      "required": [
+        "diagonal notch is detected from adjacent cardinal face termination",
+        "neighboring wall geometry owns the corner and a contextual lip closes the join"
+      ]
+    },
+    {
+      "id": "narrow_ridge_and_caps",
+      "required": [
+        "opposite-edge masks render both required boundary directions",
+        "three-edge and isolated masks do not disappear or fall back to a south-only pillar"
+      ]
+    },
+    {
+      "id": "two_level_stack",
+      "required": [
+        "additional structural level repeats rock body only",
+        "exactly one lower grass foot remains visible"
+      ]
+    },
+    {
+      "id": "cross_partition_seam",
+      "required": [
+        "shape resolution samples structural neighbors through the global surface manifest",
+        "partition boundaries do not create end caps or visual gaps"
+      ]
+    }
+  ],
+  "stillQuarantined": [
+    "water-facing cliff grammar",
+    "ramps",
+    "ladders",
+    "cave mouth interaction",
+    "bridges",
+    "waterfalls",
+    "cliff collision and traversal blocking"
+  ],
+  "liveReviewRequired": true
+}

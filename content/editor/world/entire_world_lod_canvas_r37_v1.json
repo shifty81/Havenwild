@@ -1,0 +1,57 @@
+{
+  "schema": "havenwild.editor.entire_world_lod_canvas.r37.v1",
+  "pass": "167Z109W81R37",
+  "levels": [
+    {
+      "id": "world",
+      "shows": [
+        "entire_archipelago",
+        "ocean",
+        "major_landmasses",
+        "biomes",
+        "major_rivers",
+        "cities",
+        "routes"
+      ]
+    },
+    {
+      "id": "region",
+      "shows": [
+        "forests",
+        "local_rivers",
+        "settlements",
+        "fields",
+        "scene_boundaries",
+        "caves"
+      ]
+    },
+    {
+      "id": "chunk",
+      "shows": [
+        "resolved_terrain",
+        "buildings",
+        "trees",
+        "rocks",
+        "foliage",
+        "objects"
+      ]
+    },
+    {
+      "id": "tile",
+      "shows": [
+        "32px_terrain",
+        "transitions",
+        "collision"
+      ]
+    },
+    {
+      "id": "pixel",
+      "shows": [
+        "raster_pixels",
+        "pixel_authoring"
+      ]
+    }
+  ],
+  "editLocks": "Macro zoom edits macro authorities; pixel/raster mutation requires close zoom or explicit Pixel Studio handoff.",
+  "lazyMaterialization": true
+}

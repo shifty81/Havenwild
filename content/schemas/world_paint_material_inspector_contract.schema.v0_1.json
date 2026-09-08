@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.world_paint_material_inspector_contract.schema.v0.1",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "name",
+    "purpose",
+    "runtime_path",
+    "selected_cell_inspection",
+    "paint_tab_controls",
+    "module_boundaries",
+    "multiplayer_policy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.world_paint_material_inspector_contract.v0.1"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selected_cell_inspection": {
+      "type": "object"
+    },
+    "paint_tab_controls": {
+      "type": "array",
+      "minItems": 1
+    },
+    "module_boundaries": {
+      "type": "object"
+    },
+    "multiplayer_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "non_goals": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "havenwild.unified_asset_browser.w62h.v1",
+  "pass": "167Z109W62H",
+  "authority": "One project-wide asset-browser presentation/runtime with contextual adapters per studio",
+  "contexts": [
+    "world",
+    "scene",
+    "pixel",
+    "animation",
+    "character",
+    "logic",
+    "sound"
+  ],
+  "rules": {
+    "browserCardRendererShared": true,
+    "thumbnailRuntimeShared": true,
+    "thumbnailDrawsBeforeLabels": true,
+    "textMaterialRestoredAfterThumbnail": true,
+    "fullSourceSheetsForbiddenForBrowserGpuPreview": true,
+    "sourceAuthorityRemainsInOwningAssetSystem": true,
+    "contextAdaptersMayFilterWithoutForkingBrowserChrome": true,
+    "semanticAssetsRemainMovableUntilExplicitlyBaked": true
+  },
+  "thumbnailBudget": {
+    "maximumEdgePixels": 96,
+    "maximumResidentEntries": 96,
+    "maximumSourceDimensionPixels": 4096,
+    "maximumSourceBytes": 33554432,
+    "loadPerFrame": 1,
+    "filter": "nearest"
+  },
+  "blackTextRegressionContainment": [
+    "downsample file-backed previews before GPU upload",
+    "never upload full Pixel/Animation source sheets for card thumbnails",
+    "draw thumbnail before card labels",
+    "reassert default camera/material around browser image sampling",
+    "keep the dedicated editor font atlas process-lifetime authority",
+    "restore UI camera/material after Pixel and Animation canvas texture sampling"
+  ],
+  "nextSurfaceNormalization": [
+    "merge duplicate Assets and Library browsing into one contextual Asset Browser surface",
+    "move Intake to browser import action plus File/Import",
+    "reuse the same browser in the canvas Asset Shelf",
+    "add Favorites, Recent, Search, Tags, Provider, Readiness and All Assets consistently",
+    "move thumbnail decoding onto haven_jobs while GPU upload stays on the main thread"
+  ]
+}

@@ -1,0 +1,487 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W57K8 corrects the shallow brown front-gable source region classification: it is a roofline/rake/eave silhouette with an intentional transparent gable opening, not a filled roof plane.",
+    "The starter cottage consumes the roofline once, intact and unscaled, and fills only the triangular opening with exact cream siding cells.",
+    "This sidecar supersedes the active K7 authored-roof publication without deleting the historical K7 evidence file.",
+    "W57K10 publishes the exact top 32px left/right frontage slices so the wall edge remains continuous into the gable/eave junction instead of being overwritten by a center-repeat infill cell."
+  ],
+  "entries": [
+    {
+      "id": "roof_gable_shingle_brown_shallow_7x4_roofline",
+      "semantic_id": "structure.roof.gable_shingle_a.brown.shallow_7x4_roofline",
+      "label": "Brown Gable Roofline \u2014 Shallow 7x4",
+      "category": "building",
+      "source_semantic_id": "structure.roof.gable_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          7,
+          4
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "gable",
+        "roofline",
+        "eave",
+        "rake",
+        "authored_module",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          112.0,
+          128.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              544,
+              0,
+              224,
+              128
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Exact brown shallow gable roofline/rake/eave source region."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+        "source_rect": [
+          544,
+          0,
+          224,
+          128
+        ],
+        "source_mode": "exact_front_gable_roofline_region",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W57K8 corrects the semantic classification of this source region. It is a gable roofline/rake/eave silhouette with intentional transparent gable opening, not a filled roof plane. A separately published siding infill supplies the wall under the slopes."
+      },
+      "structure": {
+        "connection_family": "roof.gable_shingle_a.brown",
+        "topology_role": "front_gable_roofline",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.gable_shingle_a.brown.front_gable",
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_siding_plain_cream_gable_fill",
+      "semantic_id": "structure.wall.siding_plain.cream.gable_fill_cell",
+      "label": "Cream Siding \u2014 Gable Fill Cell",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.siding_plain.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          0,
+          0
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "wall",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "siding",
+        "exterior",
+        "gable",
+        "infill",
+        "visual_only"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              64,
+              0,
+              32,
+              32
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Exact one-tile cream siding cell for gable wall infill."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+        "source_rect": [
+          64,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_one_tile_siding_infill_slice",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "W57K8 reuses the exact top 32px cream siding repeat as a one-tile visual-only gable infill cell. Rows are assembled 1/3/5 behind the roofline; no rectangular backing is permitted."
+      },
+      "structure": {
+        "connection_family": "wall.siding_plain.cream",
+        "topology_role": "gable_infill_cell",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.siding_plain.cream",
+        "visibility_role": "wall_occluder",
+        "occlusion_group": "building.gable_infill",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_siding_plain_cream_gable_fill_left",
+      "semantic_id": "structure.wall.siding_plain.cream.gable_infill_left_edge",
+      "label": "Cream Siding \u2014 Gable Base Left Edge",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.siding_plain.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          0,
+          0
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "wall",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "siding",
+        "exterior",
+        "gable",
+        "infill",
+        "visual_only"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              32,
+              32
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Exact one-tile cream siding cell for gable wall infill."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_top_third_of_reviewed_south_frontage_edge",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "W57K10 preserves the exact left/right siding edge through the gable-base/eave junction so the starter facade no longer loses its exterior border beneath the roof."
+      },
+      "structure": {
+        "connection_family": "wall.siding_plain.cream",
+        "topology_role": "gable_infill_left_edge",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.siding_plain.cream",
+        "visibility_role": "wall_occluder",
+        "occlusion_group": "building.gable_infill",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_siding_plain_cream_gable_fill_right",
+      "semantic_id": "structure.wall.siding_plain.cream.gable_infill_right_edge",
+      "label": "Cream Siding \u2014 Gable Base Right Edge",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.siding_plain.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          0,
+          0
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "wall",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "siding",
+        "exterior",
+        "gable",
+        "infill",
+        "visual_only"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              128,
+              0,
+              32,
+              32
+            ],
+            "draw_offset_px": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Exact one-tile cream siding cell for gable wall infill."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+        "source_rect": [
+          128,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_top_third_of_reviewed_south_frontage_edge",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "W57K10 preserves the exact left/right siding edge through the gable-base/eave junction so the starter facade no longer loses its exterior border beneath the roof."
+      },
+      "structure": {
+        "connection_family": "wall.siding_plain.cream",
+        "topology_role": "gable_infill_right_edge",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.siding_plain.cream",
+        "visibility_role": "wall_occluder",
+        "occlusion_group": "building.gable_infill",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    }
+  ]
+}

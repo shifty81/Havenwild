@@ -1,0 +1,9 @@
+module,primary_surface,priority,notes
+Project shell,Main Rust Editor,P0,"Open/save project, docked panels, asset browser, scene list"
+Pixel art editor,Main Rust Editor,P0,"Core authoring for tiles, sprites, masks, overlays, UI skins"
+Command bus,Shared,P0,"Main editor, overlay, web tools all submit commands"
+Runtime bridge,In-game overlay,P0,"Apply runtime-safe commands, dirty rebuild, save state"
+Terrain compositor preview,Main Rust Editor,P1,V005 terrain render preview and dirty-cell rebuild
+Object placement,Main Rust Editor + Overlay,P1,"Footprints, sockets, collision, Y-sort preview"
+Parcel system,Overlay + Main Editor,P1,"Owned land, City Hall purchase, scene expansion"
+Web database editors,Web,P2,"Items, recipes, NPCs, quests, economy, localization"

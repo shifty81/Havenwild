@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z50",
+  "baseline": "167Z10",
+  "date": "2026-08-03",
+  "title": "Format-Independent Visual Regression Migration Repair",
+  "overwriteCapable": true,
+  "changedFiles": [
+    "README.md",
+    "tools/build/Build.sh",
+    "tools/build/Build.ps1",
+    "tools/automation/project/Repair-VisualRegressionSurfaceV167Z50.py",
+    "docs/current/CURRENT_SOURCE_HANDOFF.md",
+    "docs/current/APPLY_THIS_ROLLUP.md",
+    "docs/current/APPLY_THIS_SOURCE_ROLLUP.md",
+    "docs/current/PASS167Z50_FORMAT_INDEPENDENT_VISUAL_REGRESSION_MIGRATION_REPAIR.md",
+    "docs/handoffs/PASS167Z50_FORMAT_INDEPENDENT_VISUAL_REGRESSION_MIGRATION_REPAIR.md",
+    "manifests/normalization/pass167z50/SUMMARY.json"
+  ],
+  "removedFiles": [],
+  "notes": [
+    "Pass Z49 behavior is unchanged; only the pre-Cargo migration matching strategy is repaired.",
+    "The migration now accepts compact and cargo-formatted Rust source layouts.",
+    "The legacy Z49 migration file remains archived in-place but is no longer invoked by either build path."
+  ]
+}

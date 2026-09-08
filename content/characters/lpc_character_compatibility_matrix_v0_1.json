@@ -1,0 +1,249 @@
+{
+  "schema": "havenwild.lpc_character_compatibility_matrix.v0_1",
+  "pass": "167Z40",
+  "frameContract": {
+    "sourceCell": [
+      64,
+      64
+    ],
+    "runtimeCell": [
+      64,
+      96
+    ],
+    "directions": [
+      "north",
+      "west",
+      "south",
+      "east"
+    ],
+    "footAnchor": "bottom_center",
+    "filter": "nearest",
+    "frameCountAuthority": "source_sheet_geometry"
+  },
+  "bodyFamilies": {
+    "male": {
+      "runtimeRole": "adult_masculine",
+      "required": [
+        "idle",
+        "walk"
+      ]
+    },
+    "female": {
+      "runtimeRole": "adult_feminine",
+      "required": [
+        "idle",
+        "walk"
+      ]
+    },
+    "muscular": {
+      "runtimeRole": "adult_muscular",
+      "required": [
+        "idle",
+        "walk"
+      ]
+    },
+    "pregnant": {
+      "runtimeRole": "pregnancy_body_state",
+      "required": [
+        "idle",
+        "walk"
+      ],
+      "lifeSimulationOnly": true
+    },
+    "teen": {
+      "runtimeRole": "teen_npc_body",
+      "required": [
+        "idle",
+        "walk"
+      ]
+    },
+    "child": {
+      "runtimeRole": "child_npc_body",
+      "required": [
+        "idle",
+        "walk"
+      ]
+    }
+  },
+  "animationFamilies": [
+    {
+      "id": "idle",
+      "runtimeColumns": 9,
+      "requiredBaseline": true,
+      "sourceDefined": true
+    },
+    {
+      "id": "walk",
+      "runtimeColumns": 9,
+      "requiredBaseline": true,
+      "sourceDefined": true
+    },
+    {
+      "id": "run",
+      "runtimeColumns": 8,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "jump",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "climb",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "sit",
+      "runtimeColumns": 3,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "emote",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "combat",
+      "runtimeColumns": 8,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "1h_slash",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "1h_backslash",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "1h_halfslash",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "watering",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "thrust",
+      "runtimeColumns": 8,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "shoot",
+      "runtimeColumns": 13,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "hurt",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "spellcast",
+      "runtimeColumns": 7,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    },
+    {
+      "id": "slash",
+      "runtimeColumns": 6,
+      "requiredBaseline": false,
+      "sourceDefined": true
+    }
+  ],
+  "layerSlots": [
+    "shadow",
+    "wings/back",
+    "weapon/behind",
+    "shield/behind",
+    "body/base",
+    "body/state_overlay",
+    "head/base",
+    "face/eyes",
+    "face/eyebrows",
+    "face/facial_hair",
+    "clothing/legs",
+    "clothing/feet",
+    "clothing/torso",
+    "clothing/accessory",
+    "armor/legs",
+    "armor/feet",
+    "armor/torso",
+    "hair",
+    "headwear",
+    "tool/behind",
+    "tool/front",
+    "weapon/front",
+    "shield/front",
+    "effect/front"
+  ],
+  "toolActionBindings": {
+    "hand": {
+      "primary": "emote",
+      "fallback": "idle",
+      "staminaCost": 0
+    },
+    "axe": {
+      "primary": "1h_backslash",
+      "fallback": "1h_slash",
+      "staminaCost": 6
+    },
+    "pickaxe": {
+      "primary": "1h_halfslash",
+      "fallback": "1h_slash",
+      "staminaCost": 7
+    },
+    "hoe": {
+      "primary": "1h_slash",
+      "fallback": "slash",
+      "staminaCost": 4
+    },
+    "watering_can": {
+      "primary": "watering",
+      "fallback": "1h_halfslash",
+      "staminaCost": 2
+    },
+    "hammer": {
+      "primary": "1h_halfslash",
+      "fallback": "1h_slash",
+      "staminaCost": 5
+    },
+    "fishing_rod": {
+      "primary": "thrust",
+      "fallback": "shoot",
+      "staminaCost": 3
+    },
+    "scythe": {
+      "primary": "slash",
+      "fallback": "1h_slash",
+      "staminaCost": 4
+    }
+  },
+  "compatibilityPolicy": {
+    "exactBodyLayerAnimationRequired": true,
+    "fallbackRequiresExplicitMapping": true,
+    "crossBodyGeometrySubstitutionAllowed": false,
+    "clothingShownOnlyWhenAnimationCompatible": true,
+    "editorMustExposeCompatibilityReason": true,
+    "saveUsesStableAssetRefs": true,
+    "proceduralCharacterFallbackAllowed": false
+  }
+}

@@ -1,0 +1,95 @@
+HAVENWILD UNIVERSAL LPC MASTER CONTRIBUTOR ACKNOWLEDGMENT
+
+This master catalog acknowledges every contributor attached to the
+commercially approved Universal LPC source records available to Havenwild
+development. It is intentionally broader than the exact used-in-build credits.
+
+Approved source records: 13,818
+Conditional CC-BY-SA records: 2,038
+Unique acknowledged contributors: 71
+
+The exact source file, title/path, author list, source URLs, selected license,
+and modification state for shipped assets are generated separately for each
+release. This master list does not weaken or replace those exact records.
+
+CONTRIBUTORS
+------------
+7Soul — 14 approved source record(s) — CC0
+?? — 15 approved source record(s) — CC-BY-SA 3.0
+Ahmad3366 — 20 approved source record(s) — OGA-BY 3.0
+AntumDeluge — 58 approved source record(s) — CC-BY 3.0; CC0
+Barbara Riviera — 60 approved source record(s) — CC-BY-SA 3.0
+Benjamin K. Smith (BenCreating) — 486 approved source record(s) — CC-BY 3.0; CC-BY-SA 3.0; OGA-BY 3.0
+bluecarrot16 — 7017 approved source record(s) — CC-BY 3.0; CC-BY-SA 3.0; CC0; OGA-BY 3.0; OGA-BY 3.0+; OGA-BY-3.0
+Bluecarrot16 — 156 approved source record(s) — OGA-BY 3.0
+Carlo Enrico Victoria (Nemisys) — 30 approved source record(s) — CC-BY-SA 3.0
+Charles Sanchez (CharlesGabriel) — 15 approved source record(s) — CC-BY-SA 3.0
+Cobra Hubbard (BlueVortexGames) — 15 approved source record(s) — CC-BY 3.0
+dalonedrau — 21 approved source record(s) — CC-BY-SA 3.0
+Daniel Eddeland (daneeklu) — 207 approved source record(s) — CC-BY 3.0; CC-BY-SA 3.0
+DarkwallLKE — 33 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+DCSS authors — 60 approved source record(s) — CC0
+Dr. Jamgo — 8 approved source record(s) — CC0
+drjamgo@hotmail.com — 36 approved source record(s) — CC0
+Durrani — 90 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Eliza Wyatt — 2 approved source record(s) — OGA-BY 3.0
+Eliza Wyatt (ElizaWy) — 90 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+ElizaWy — 4531 approved source record(s) — CC-BY-SA 3.0; CC0; OGA-BY 3.0
+ElizaWy; walk and down by JaidynReiman — 56 approved source record(s) — OGA-BY 3.0
+Emilio J. Sanchez-Sierra — 15 approved source record(s) — CC-BY-SA 3.0
+Evert — 172 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Fabzy — 120 approved source record(s) — CC-BY-SA 3.0
+gr3yh47 — 60 approved source record(s) — CC-BY-SA 3.0
+Inboxninja — 22 approved source record(s) — CC-BY-SA 3.0
+JaidynReiman — 8241 approved source record(s) — CC-BY 3.0; CC-BY-SA 3.0; CC0; OGA-BY 3.0; OGA-BY 3.0+; OGA-BY-3.0
+Joe White — 126 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Johannes Sjölund (wulax) — 2636 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0; OGA-BY 3.0+
+Joshua Taylor — 15 approved source record(s) — CC-BY-SA 3.0
+kcilds/Rocetti/Eredah — 15 approved source record(s) — CC-BY 4.0
+kheftel — 45 approved source record(s) — OGA-BY 3.0
+kirts — 30 approved source record(s) — CC0
+laetissima — 646 approved source record(s) — CC-BY-SA 3.0
+Lanea Zimmerman (Sharm) — 127 approved source record(s) — OGA-BY 3.0
+LordNeo — 12 approved source record(s) — CC0
+Luke Mehl — 68 approved source record(s) — CC-BY-SA 3.0
+macmanmatty — 60 approved source record(s) — CC-BY-SA 3.0
+Makrohn — 45 approved source record(s) — CC-BY-SA 3.0
+Mandi Paugh — 192 approved source record(s) — CC-BY 3.0; CC-BY-SA 3.0; OGA-BY 3.0
+Manuel Riecke (MrBeast) — 405 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Marcel van de Steeg (MadMarcel) — 87 approved source record(s) — OGA-BY 3.0
+Matthew Krohn (makrohn) — 722 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Matthew Krohn (Makrohn) — 30 approved source record(s) — OGA-BY 3.0
+Michael Whitlock (bigbeargames) — 385 approved source record(s) — CC-BY 3.0; CC-BY-SA 3.0; CC0; OGA-BY 3.0
+MuffinElZangano — 90 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Napsio (Vitruvian Studio) — 354 approved source record(s) — CC-BY 3.0; OGA-BY 3.0
+Nila122 — 1102 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Nyom — 30 approved source record(s) — OGA-BY 3.0
+Page — 15 approved source record(s) — OGA-BY 3.0
+Pierre Vigier (pvigier) — 153 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0; OGA-BY 3.0+; OGA-BY-3.0
+Pierre Vigier and DCSS artists (see https://github.com/crawl/tiles/blob/master/ARTISTS.md) — 36 approved source record(s) — OGA-BY 3.0
+PlatForge project — 15 approved source record(s) — CC-BY-SA 3.0
+Radomir Dopieralski — 30 approved source record(s) — CC-BY-SA 3.0
+Sander Frenken (castelonia) — 2031 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Shaun Williams — 30 approved source record(s) — CC-BY-SA 3.0
+Skorpio — 30 approved source record(s) — CC-BY-SA 3.0
+Stafford McIntyre — 15 approved source record(s) — CC-BY-SA 3.0
+Stephen Challener (Redshrike) — 2682 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0; OGA-BY 3.0+
+Thane Brimhall (pennomi) — 646 approved source record(s) — CC-BY-SA 3.0
+The Foreman — 96 approved source record(s) — OGA-BY 4.0
+thecilekli — 135 approved source record(s) — CC0
+TheraHedwig — 75 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+Tracy — 60 approved source record(s) — CC-BY 3.0
+tskaufma — 12 approved source record(s) — OGA-BY 3.0
+Tuomo Untinen (reemax) — 111 approved source record(s) — CC-BY 3.0; CC-BY-SA 3.0; OGA-BY 3.0; OGA-BY-3.0
+William.Thompsonj — 162 approved source record(s) — CC-BY-SA 3.0; OGA-BY 3.0
+William.Thomsponj — 30 approved source record(s) — OGA-BY 3.0
+Yamilian — 45 approved source record(s) — CC-BY-SA 3.0
+Zi Ye — 15 approved source record(s) — OGA-BY 3.0
+
+SOURCE CATALOGS
+---------------
+content/assets/lpc/universal_lpc_commercial_catalog_v0_1.json.gz
+content/assets/lpc/universal_lpc_sharealike_catalog_v0_1.json.gz
+
+See UNIVERSAL_LPC_MASTER_CONTRIBUTORS.csv for grouped source URLs and
+categories. See the per-build OPEN_ASSET_CREDITS files for exact usage.

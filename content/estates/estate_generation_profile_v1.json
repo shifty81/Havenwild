@@ -1,0 +1,143 @@
+{
+  "schema": "havenwild.estate_generation_profile.v1",
+  "pass": "167Z109W57K8",
+  "sceneId": "farmstead",
+  "displayName": "Estate",
+  "sceneSize": [
+    96,
+    64
+  ],
+  "seed": 167530814,
+  "initialBuildableRect": [
+    10,
+    10,
+    76,
+    48
+  ],
+  "fixedEntrance": {
+    "side": "south",
+    "rect": [
+      46,
+      59,
+      5,
+      5
+    ],
+    "transitionId": "to_north_road"
+  },
+  "highlandBorder": {
+    "north": 8,
+    "west": 8,
+    "east": 8,
+    "southExceptEntrance": 5,
+    "tileFamilies": [
+      "Grass"
+    ],
+    "structuralLevel": 2,
+    "derivedCliffFaces": true,
+    "rawCliffTerrainForbidden": true,
+    "surfacePolicy": "grass_top_over_level2_structural_cliff_faces",
+    "southEntranceTreatment": "natural_opening; fence band deferred until a ground-level gate assembly is certified"
+  },
+  "caveMouth": {
+    "tile": [
+      78,
+      8
+    ],
+    "assetId": "cave_entrance_default",
+    "transitionScene": "cave_mouth",
+    "apertureTiles": [
+      1,
+      2
+    ],
+    "sourceEnvelopeTiles": [
+      1,
+      3
+    ],
+    "hostStructuralLevel": 2,
+    "approachStructuralLevel": 0,
+    "interactionTile": [
+      78,
+      10
+    ],
+    "thresholdTile": [
+      78,
+      9
+    ],
+    "interactionPolicy": "stand on clear approach tile; threshold receiver remains visual/structural only"
+  },
+  "starterCottage": {
+    "instanceId": "havenwild.estate.dev.starter_cottage",
+    "anchorTile": [
+      55,
+      28
+    ],
+    "productionPolicy": "development_fixture_or_progression_unlock",
+    "exteriorStatus": "candidate_front_gable_infill_open_plan_certification_shell",
+    "roofFamily": "roof.gable_shingle_a.brown.shallow_7x4.front_gable_roofline_with_infill",
+    "deferredFacings": [
+      "north",
+      "east",
+      "west"
+    ],
+    "note": "W57K8 uses a 9x9 architectural envelope with a centered five-tile wall plate beneath one exact seven-tile front-gable roofline. One-tile side eaves remain visible, the transparent gable opening receives stepped 1/3/5 exact cream siding infill, and the linked interior is an independent seven-by-seven playable open plan with a protected center circulation lane.",
+    "footprintTiles": [
+      9,
+      9
+    ],
+    "roomProgram": [
+      "bedroom_nook",
+      "open_living_crafting_cooking"
+    ],
+    "wallPlateWidthTiles": 5,
+    "sideEaveTiles": 1,
+    "linkedInteriorPlayableTiles": [
+      7,
+      7
+    ]
+  },
+  "floraProfile": {
+    "trees": "tree_oak_mature_01..08",
+    "berryShrubs": "shrub_berry_01..04",
+    "boulders": "resource_boulder_01..04",
+    "forage": [
+      "forage_mushroom_01..04",
+      "forage_wild_herb_01..03",
+      "flora_wildflower_01..03"
+    ],
+    "quarantinedExcluded": [
+      "well",
+      "scarecrow",
+      "bench",
+      "log",
+      "greenhouse_marker",
+      "sign"
+    ]
+  },
+  "composition": {
+    "profile": "edge_woodland_clear_center_v1",
+    "centralBuildPad": [
+      31,
+      22,
+      40,
+      28
+    ],
+    "cottageReservedRect": [
+      53,
+      26,
+      11,
+      12
+    ],
+    "gardenZone": [
+      12,
+      26,
+      20,
+      16
+    ],
+    "minimumPublishedTreeCount": 28,
+    "minimumPublishedShrubCount": 8,
+    "minimumPublishedBoulderCount": 8,
+    "minimumPublishedForageCount": 12,
+    "routePolicy": "south_gate_to_home_to_cave_kept_walkable",
+    "objectPolicy": "cluster_around_edges_keep_build_center_clear"
+  }
+}

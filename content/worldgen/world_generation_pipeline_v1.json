@@ -1,0 +1,401 @@
+{
+  "schema": "havenwild.world_generation_pipeline.v1",
+  "version": 1,
+  "policy": {
+    "deterministicByDefault": true,
+    "undeclaredMutation": "forbidden",
+    "stageOrder": "append-only",
+    "previewMustBeReversible": true,
+    "authoredOverridesSurviveRegeneration": true,
+    "playerDeltasSurviveRegeneration": true,
+    "futureStageRule": "Every world-generation stage must declare stable id, order, seed domain, inputs, outputs, mutation rights, preview behavior, persistence interaction, and validator owner."
+  },
+  "layers": [
+    {
+      "id": "topology",
+      "owner": "world_topology",
+      "persistence": "baseline"
+    },
+    {
+      "id": "landmass",
+      "owner": "archipelago_skeleton",
+      "persistence": "baseline"
+    },
+    {
+      "id": "ocean_depth",
+      "owner": "ocean_depth_bands",
+      "persistence": "baseline"
+    },
+    {
+      "id": "macro_biome",
+      "owner": "macro_biomes",
+      "persistence": "baseline"
+    },
+    {
+      "id": "elevation",
+      "owner": "geological_form",
+      "persistence": "baseline"
+    },
+    {
+      "id": "hydrology",
+      "owner": "rivers_and_watersheds",
+      "persistence": "baseline"
+    },
+    {
+      "id": "shore_normalization",
+      "owner": "shore_normalization",
+      "persistence": "derived"
+    },
+    {
+      "id": "anchor_reservations",
+      "owner": "roads_settlements_anchors",
+      "persistence": "authored"
+    },
+    {
+      "id": "local_terrain",
+      "owner": "local_terrain_materialization",
+      "persistence": "baseline"
+    },
+    {
+      "id": "ecology",
+      "owner": "props_and_ecology",
+      "persistence": "baseline"
+    },
+    {
+      "id": "structures",
+      "owner": "structures",
+      "persistence": "authored"
+    },
+    {
+      "id": "chunk_baseline",
+      "owner": "validate_and_bake_chunk_baseline",
+      "persistence": "baseline"
+    }
+  ],
+  "stages": [
+    {
+      "id": "world_topology",
+      "order": 1,
+      "status": "active",
+      "seedDomain": "world.topology",
+      "deterministic": true,
+      "inputs": [
+        "world_seed",
+        "world_settings"
+      ],
+      "outputs": [
+        "topology"
+      ],
+      "mayMutate": [
+        "topology"
+      ],
+      "mustNotMutate": [
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "whole_world",
+      "persistenceInteraction": "writes_generator_metadata",
+      "validator": "validate-wrappedworldcoordinatefoundationv139"
+    },
+    {
+      "id": "archipelago_skeleton",
+      "order": 2,
+      "status": "active",
+      "seedDomain": "world.landmass",
+      "deterministic": true,
+      "inputs": [
+        "topology",
+        "world_seed"
+      ],
+      "outputs": [
+        "landmass"
+      ],
+      "mayMutate": [
+        "landmass"
+      ],
+      "mustNotMutate": [
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "whole_world",
+      "persistenceInteraction": "baseline_only",
+      "validator": "validate-archipelagoworldskeletonv140"
+    },
+    {
+      "id": "ocean_depth_bands",
+      "order": 3,
+      "status": "active",
+      "seedDomain": "world.ocean_depth",
+      "deterministic": true,
+      "inputs": [
+        "topology",
+        "landmass"
+      ],
+      "outputs": [
+        "ocean_depth"
+      ],
+      "mayMutate": [
+        "ocean_depth"
+      ],
+      "mustNotMutate": [
+        "landmass",
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "dirty_regions",
+      "persistenceInteraction": "baseline_only",
+      "validator": "validate-worldgenerationpipelineownershipv143"
+    },
+    {
+      "id": "macro_biomes",
+      "order": 4,
+      "status": "active",
+      "seedDomain": "world.biomes",
+      "deterministic": true,
+      "inputs": [
+        "landmass",
+        "ocean_depth",
+        "biome_registry"
+      ],
+      "outputs": [
+        "macro_biome"
+      ],
+      "mayMutate": [
+        "macro_biome"
+      ],
+      "mustNotMutate": [
+        "landmass",
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "dirty_regions",
+      "persistenceInteraction": "baseline_only",
+      "validator": "validate-worldgenerationpipelineownershipv143"
+    },
+    {
+      "id": "geological_form",
+      "order": 5,
+      "status": "planned",
+      "seedDomain": "world.geology",
+      "deterministic": true,
+      "inputs": [
+        "landmass",
+        "macro_biome"
+      ],
+      "outputs": [
+        "elevation"
+      ],
+      "mayMutate": [
+        "elevation"
+      ],
+      "mustNotMutate": [
+        "landmass",
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "dirty_regions",
+      "persistenceInteraction": "baseline_only",
+      "validator": "validate-worldgenerationpipelineownershipv143"
+    },
+    {
+      "id": "rivers_and_watersheds",
+      "order": 6,
+      "status": "planned",
+      "seedDomain": "world.hydrology",
+      "deterministic": true,
+      "inputs": [
+        "elevation",
+        "macro_biome"
+      ],
+      "outputs": [
+        "hydrology"
+      ],
+      "mayMutate": [
+        "hydrology"
+      ],
+      "mustNotMutate": [
+        "elevation",
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "dirty_regions",
+      "persistenceInteraction": "baseline_only",
+      "validator": "validate-worldgenerationpipelineownershipv143"
+    },
+    {
+      "id": "shore_normalization",
+      "order": 7,
+      "status": "active",
+      "seedDomain": "world.shore_normalization",
+      "deterministic": true,
+      "inputs": [
+        "landmass",
+        "ocean_depth",
+        "hydrology",
+        "terrain_semantic_registry"
+      ],
+      "outputs": [
+        "shore_normalization"
+      ],
+      "mayMutate": [
+        "shore_normalization"
+      ],
+      "mustNotMutate": [
+        "landmass",
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "local_region",
+      "persistenceInteraction": "derived_recompute",
+      "validator": "validate-shorewaterlifecyclev138"
+    },
+    {
+      "id": "roads_settlements_anchors",
+      "order": 8,
+      "status": "active",
+      "seedDomain": "world.anchors",
+      "deterministic": true,
+      "inputs": [
+        "landmass",
+        "macro_biome",
+        "shore_normalization"
+      ],
+      "outputs": [
+        "anchor_reservations"
+      ],
+      "mayMutate": [
+        "anchor_reservations"
+      ],
+      "mustNotMutate": [
+        "player_deltas"
+      ],
+      "preview": "reversible_commit_required",
+      "runtimeRegeneration": "explicit_only",
+      "persistenceInteraction": "authored_override_preserved",
+      "validator": "validate-archipelagoworldskeletonv140"
+    },
+    {
+      "id": "local_terrain_materialization",
+      "order": 9,
+      "status": "active",
+      "seedDomain": "world.local_terrain",
+      "deterministic": true,
+      "inputs": [
+        "macro_biome",
+        "elevation",
+        "hydrology",
+        "shore_normalization",
+        "terrain_semantic_registry"
+      ],
+      "outputs": [
+        "local_terrain"
+      ],
+      "mayMutate": [
+        "local_terrain"
+      ],
+      "mustNotMutate": [
+        "anchor_reservations",
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "dirty_regions",
+      "persistenceInteraction": "baseline_plus_overrides",
+      "validator": "validate-terrainworldsemanticregistryv142"
+    },
+    {
+      "id": "props_and_ecology",
+      "order": 10,
+      "status": "planned",
+      "seedDomain": "world.ecology",
+      "deterministic": true,
+      "inputs": [
+        "macro_biome",
+        "local_terrain",
+        "anchor_reservations"
+      ],
+      "outputs": [
+        "ecology"
+      ],
+      "mayMutate": [
+        "ecology"
+      ],
+      "mustNotMutate": [
+        "local_terrain",
+        "authored_overrides",
+        "player_deltas"
+      ],
+      "preview": "reversible",
+      "runtimeRegeneration": "dirty_regions",
+      "persistenceInteraction": "baseline_plus_harvest_deltas",
+      "validator": "validate-worldgenerationpipelineownershipv143"
+    },
+    {
+      "id": "structures",
+      "order": 11,
+      "status": "planned",
+      "seedDomain": "world.structures",
+      "deterministic": true,
+      "inputs": [
+        "anchor_reservations",
+        "local_terrain",
+        "ecology"
+      ],
+      "outputs": [
+        "structures"
+      ],
+      "mayMutate": [
+        "structures"
+      ],
+      "mustNotMutate": [
+        "player_deltas"
+      ],
+      "preview": "reversible_commit_required",
+      "runtimeRegeneration": "explicit_only",
+      "persistenceInteraction": "authored_override_preserved",
+      "validator": "validate-worldgenerationpipelineownershipv143"
+    },
+    {
+      "id": "validate_and_bake_chunk_baseline",
+      "order": 12,
+      "status": "active",
+      "seedDomain": "world.chunk_bake",
+      "deterministic": true,
+      "inputs": [
+        "topology",
+        "landmass",
+        "ocean_depth",
+        "macro_biome",
+        "elevation",
+        "hydrology",
+        "shore_normalization",
+        "anchor_reservations",
+        "local_terrain",
+        "ecology",
+        "structures"
+      ],
+      "outputs": [
+        "chunk_baseline"
+      ],
+      "mayMutate": [
+        "chunk_baseline"
+      ],
+      "mustNotMutate": [
+        "authored_overrides",
+        "player_deltas",
+        "runtime_transient"
+      ],
+      "preview": "none",
+      "runtimeRegeneration": "dirty_chunks",
+      "persistenceInteraction": "canonical_chunk_baseline",
+      "validator": "validate-worldgenerationpipelineownershipv143"
+    }
+  ]
+}

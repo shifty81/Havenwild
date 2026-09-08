@@ -1,0 +1,23 @@
+{
+  "schema":"havenwild.legal.lpc_release_license_policy.r27.v1",
+  "pass":"W81R27",
+  "intent":"Keep Havenwild code/editor/runtime proprietary while satisfying per-artwork licenses.",
+  "preferredOrder":["CC0-1.0","OGA-BY-4.0","OGA-BY-3.0","CC-BY-4.0","CC-BY-3.0","CC-BY-SA-4.0","CC-BY-SA-3.0"],
+  "policies": {
+    "CC0-1.0":"green; attribution retained voluntarily for provenance",
+    "OGA-BY-3.0":"green; attribution required",
+    "OGA-BY-4.0":"green; attribution required",
+    "CC-BY-3.0":"green_conditional; attribution/change notice and distribution review required",
+    "CC-BY-4.0":"green_conditional; attribution/change notice and distribution review required",
+    "CC-BY-SA-3.0":"yellow; commercial/closed-source code allowed but derivative artwork keeps ShareAlike obligations",
+    "CC-BY-SA-4.0":"yellow; commercial/closed-source code allowed but derivative artwork keeps ShareAlike obligations",
+    "GPL-only":"blocked by default",
+    "NC":"blocked",
+    "ND":"blocked for derivative authoring pipeline",
+    "unknown_or_unverified":"blocked"
+  },
+  "multiLicenseRule":"Select one offered license deliberately; prefer CC0/OGA-BY when offered as alternatives.",
+  "requiredRecordFields":["asset_id","title","authors","source_url","offered_licenses","selected_license","attribution_text","source_hash","modified","modification_notes","derivative_parent","production_state"],
+  "releaseGate":["all used assets have verified provenance","no red/unknown asset is referenced by production manifests","credits generated from exact used assets","ShareAlike derivative package generated where required"],
+  "disclaimer":"Project policy and automation guidance; not legal advice."
+}

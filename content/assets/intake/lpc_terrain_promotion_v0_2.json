@@ -1,0 +1,472 @@
+{
+  "schema": "havenwild.lpc_terrain_promotion.v0_2",
+  "source": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+  "cellSize": 32,
+  "grid": [
+    16,
+    26
+  ],
+  "license": "OGA-BY 3.0",
+  "attribution": [
+    "Lanea Zimmerman (Sharm)",
+    "Eliza Wyatt (DeathsDarling)"
+  ],
+  "sourceUrl": "https://github.com/ElizaWy/LPC",
+  "coordinateConvention": "zero-based [column,row] on the 32x32 source grid",
+  "baseTileCells": {
+    "grass": [
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "tall_grass": [
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "sand": [
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "wet_sand": [
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    "pebble_shore": [
+      [
+        9,
+        3
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "road": [
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "stone_path": [
+      [
+        9,
+        3
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "mountain_path": [
+      [
+        10,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        9,
+        3
+      ]
+    ],
+    "dirt": [
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "water": [
+      [
+        12,
+        16
+      ],
+      [
+        13,
+        16
+      ],
+      [
+        14,
+        16
+      ],
+      [
+        15,
+        16
+      ]
+    ],
+    "shallow_water": [
+      [
+        12,
+        17
+      ],
+      [
+        13,
+        17
+      ],
+      [
+        14,
+        17
+      ],
+      [
+        15,
+        17
+      ]
+    ],
+    "river_water": [
+      [
+        12,
+        16
+      ],
+      [
+        13,
+        16
+      ],
+      [
+        14,
+        16
+      ],
+      [
+        15,
+        16
+      ]
+    ],
+    "deep_water": [
+      [
+        12,
+        16
+      ],
+      [
+        13,
+        16
+      ],
+      [
+        14,
+        16
+      ],
+      [
+        15,
+        16
+      ]
+    ],
+    "ocean_deep": [
+      [
+        12,
+        16
+      ],
+      [
+        13,
+        16
+      ],
+      [
+        14,
+        16
+      ],
+      [
+        15,
+        16
+      ]
+    ],
+    "ocean_shallow": [
+      [
+        12,
+        17
+      ],
+      [
+        13,
+        17
+      ],
+      [
+        14,
+        17
+      ],
+      [
+        15,
+        17
+      ]
+    ],
+    "river_mouth_blend": [
+      [
+        12,
+        17
+      ],
+      [
+        13,
+        17
+      ],
+      [
+        14,
+        17
+      ],
+      [
+        15,
+        17
+      ]
+    ],
+    "shore_foam": [
+      [
+        12,
+        17
+      ],
+      [
+        13,
+        17
+      ],
+      [
+        14,
+        17
+      ],
+      [
+        15,
+        17
+      ]
+    ],
+    "mud_bank": [
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        4,
+        3
+      ]
+    ]
+  },
+  "transitionMaskBlocks": {
+    "grass_to_dirt": [
+      6,
+      0,
+      3,
+      3
+    ],
+    "sand_to_ocean": [
+      6,
+      10,
+      3,
+      3
+    ],
+    "riverbank_mud": [
+      6,
+      10,
+      3,
+      3
+    ]
+  },
+  "transitionMaskModel": "Compose each NESW mask from the standard LPC 3x3 edge/corner block using direction-correct halves and quadrants, classify the authored material region, and bake only a narrow transparent contour band. The atlas never stores opaque white replacement tiles.",
+  "maskBits": {
+    "north": 1,
+    "east": 2,
+    "south": 4,
+    "west": 8
+  },
+  "baseTileTransforms": {
+    "water": {
+      "multiply": [
+        0.92,
+        0.98,
+        1.04
+      ],
+      "add": [
+        0,
+        2,
+        5
+      ]
+    },
+    "river_water": {
+      "multiply": [
+        0.92,
+        1.0,
+        1.08
+      ],
+      "add": [
+        0,
+        3,
+        7
+      ]
+    },
+    "shallow_water": {
+      "multiply": [
+        1.06,
+        1.08,
+        1.06
+      ],
+      "add": [
+        4,
+        6,
+        4
+      ]
+    },
+    "ocean_shallow": {
+      "multiply": [
+        0.98,
+        1.03,
+        1.06
+      ],
+      "add": [
+        0,
+        3,
+        5
+      ]
+    },
+    "river_mouth_blend": {
+      "multiply": [
+        0.98,
+        1.04,
+        1.04
+      ],
+      "add": [
+        2,
+        4,
+        4
+      ]
+    },
+    "shore_foam": {
+      "multiply": [
+        1.1,
+        1.12,
+        1.1
+      ],
+      "add": [
+        8,
+        10,
+        12
+      ]
+    },
+    "deep_water": {
+      "multiply": [
+        0.58,
+        0.67,
+        0.78
+      ],
+      "add": [
+        0,
+        0,
+        4
+      ]
+    },
+    "ocean_deep": {
+      "multiply": [
+        0.42,
+        0.54,
+        0.68
+      ],
+      "add": [
+        0,
+        0,
+        3
+      ]
+    }
+  },
+  "notes": [
+    "Pass 96A restores metadata omitted by the Pass 95 source-only export.",
+    "Coordinates are copied from the validated complete summer source contract; none are guessed."
+  ],
+  "sourceContract": "content/assets/intake/lpc_terrain_summer_complete_map_v0_1.json"
+}

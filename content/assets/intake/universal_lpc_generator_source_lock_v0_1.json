@@ -1,0 +1,63 @@
+{
+  "schema": "havenwild.universal_lpc_generator_source_lock.v0_1",
+  "repository": "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator",
+  "commit": "0f898bb675a1abe16ce430e82e3bf9daed278690",
+  "defaultBranch": "master",
+  "archiveFileName": "Universal-LPC-Spritesheet-Character-Generator-master.zip",
+  "archiveSha256": "7a6ea376d41090b87182b669c74d5b6832ece92595da290b8f73f49e7fb432fc",
+  "archiveExpectedRoot": "Universal-LPC-Spritesheet-Character-Generator-master",
+  "localCachePath": ".local/dependencies/universal_lpc_generator/0f898bb675a1abe16ce430e82e3bf9daed278690",
+  "mountProjectPath": "assets/source/licensed/universal_lpc_generator",
+  "requiredTopLevelPaths": [
+    "spritesheets",
+    "sheet_definitions",
+    "palette_definitions",
+    "CREDITS.csv",
+    "LICENSE",
+    "README.md"
+  ],
+  "expectedInventory": {
+    "spritesheetPngFiles": 88235,
+    "sheetDefinitionJsonFiles": 768,
+    "creditRecords": 13818,
+    "equipmentDefinitions": 105,
+    "toolDefinitions": 8,
+    "weaponAndShieldDefinitions": 97,
+    "shieldDefinitions": 63
+  },
+  "bodyFamilies": [
+    "male",
+    "muscular",
+    "female",
+    "pregnant",
+    "teen",
+    "child"
+  ],
+  "requiredAnimationFamilies": [
+    "spellcast",
+    "thrust",
+    "walk",
+    "slash",
+    "shoot",
+    "hurt",
+    "watering",
+    "idle",
+    "jump",
+    "run",
+    "sit",
+    "emote",
+    "climb",
+    "combat",
+    "1h_slash",
+    "1h_backslash",
+    "1h_halfslash"
+  ],
+  "sourcePolicy": {
+    "role": "character_equipment_animation_extension",
+    "rawTreeImmutable": true,
+    "preserveDefinitionAndCreditPaths": true,
+    "runtimeUseRequiresCompatibilityAndLicenseGate": true,
+    "generatedCachesDisposable": true,
+    "blanketProductionApproval": false
+  }
+}

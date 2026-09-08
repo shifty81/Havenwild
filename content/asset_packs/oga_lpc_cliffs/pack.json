@@ -1,0 +1,63 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "oga_lpc_cliffs",
+  "display_name": "OGA LPC Grass-Top Cliffs — Quarantined Authoring Reference",
+  "version": "0.3.0",
+  "license": {
+    "license_id": "CC-BY-SA-3.0",
+    "attribution": [
+      "Lanea Zimmerman (Sharm)",
+      "Daniel Eddeland",
+      "Wiliam Thompson"
+    ],
+    "commercial_use": true,
+    "redistribution": true,
+    "production_approved": true,
+    "source_url": "https://opengameart.org/content/lpc-cliffsmountains-with-grass-top-and-more"
+  },
+  "production_enabled": false,
+  "dependencies": [
+    {
+      "pack_id": "havenwild_core",
+      "version_requirement": null,
+      "optional": false
+    }
+  ],
+  "priority": 72,
+  "sources": [
+    {
+      "id": "cliff_grass_sheet",
+      "kind": "raw_sheet",
+      "path": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "cliff_grass_reference_sheet",
+      "category": "tile_object",
+      "semantic_id": "reference.cliff.sheet.oga_lpc_grass_top",
+      "source_id": "cliff_grass_sheet",
+      "variants": [],
+      "tags": [
+        "cliff",
+        "grass_top",
+        "authoring_reference",
+        "requires_normalization"
+      ],
+      "metadata": {
+        "runtime_state": "quarantined_source_geometry",
+        "source_dimensions": [
+          384,
+          288
+        ],
+        "required_workflow": "pixel_studio_structural_cliff_normalization"
+      }
+    }
+  ]
+}

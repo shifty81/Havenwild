@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.gamemaker_workspace_document_lifecycle.w76uv.v1",
+  "pass": "167Z109W76U-V",
+  "intent": "GameMaker-style persistent workspace with real document lifecycle rather than fixed always-open editor surfaces",
+  "sceneWorkspace": {
+    "tabsRepresentOpenDocumentsOnly": true,
+    "closeTabNeverDeletesScene": true,
+    "createFromPlus": true,
+    "reopenClosed": true,
+    "recentClosedLimit": 12,
+    "sceneLibraryIsDurableCatalogAuthority": true,
+    "emptyWorkspaceWhenNoDocumentsOpen": true,
+    "dirtyIndicator": true,
+    "perDocumentViewState": true,
+    "shortcuts": {
+      "close": "Ctrl+W",
+      "reopenClosed": "Ctrl+Shift+T",
+      "saveAll": "Ctrl+S"
+    },
+    "browseProjectScenes": true,
+    "restoreLastActiveOpenDocument": true
+  },
+  "doNotRegress": [
+    "Tool Rail and Layers remain outside the canvas",
+    "closing a tab does not remove the scene from GameWorld",
+    "Delete Scene remains a separate explicit destructive command",
+    "Scene Library and Outliner reopen existing project scenes through the same Game Canvas document authority",
+    "Pixel Studio keeps its existing real multi-document and split-pane behavior"
+  ],
+  "nextAdapters": [
+    "World documents",
+    "Animation documents",
+    "Character recipes",
+    "Logic graphs",
+    "Sound documents",
+    "UI documents are now implemented through Game Canvas"
+  ]
+}

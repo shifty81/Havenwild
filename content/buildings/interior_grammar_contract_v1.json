@@ -1,0 +1,34 @@
+{
+  "schema": "havenwild.building_interior_grammar.v1",
+  "pass": "167Z109W47",
+  "authority": "BuildingRecipeRegistry",
+  "instanceAuthority": "BuildingInstanceRegistry",
+  "visualAuthority": "PublishedWorldAssetRegistry",
+  "purpose": "Keep rooms, furnishings, fixtures, navigation, collision, sorting and interaction sockets inside the same multi-level BuildingInstance authority without restoring one-scene-per-interior.",
+  "rules": {
+    "roomsRemainRecipeOwned": true,
+    "furnishingsRemainRecipeOwned": true,
+    "furnishingVisualsResolveThroughPublishedWorldAssetRegistry": true,
+    "furnishingStatePersistsInBuildingInstanceDelta": true,
+    "furnishingStateReplicatesHostAuthoritatively": true,
+    "cameraCutawayNeverPersistsAsFurnitureState": true,
+    "navigationUsesRoomAndFurnishingAuthority": true,
+    "wallMountedAssetsRequireWallAttachment": true,
+    "unresolvedVisualsFailClosedAsDeferredExactSource": true,
+    "ordinaryInteriorsNeverRequireSeparateScene": true
+  },
+  "furnishingKinds": [
+    "furniture",
+    "fixture",
+    "wall_mounted",
+    "workstation",
+    "container",
+    "decoration"
+  ],
+  "persistentState": {
+    "sidecar": "buildings/building_instance_deltas.json",
+    "field": "furnishingStates",
+    "key": "recipe-stable furnishing id",
+    "cameraLocalFieldsForbidden": ["inside", "activeLevel", "roof cutaway", "wall cutaway"]
+  }
+}

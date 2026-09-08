@@ -1,0 +1,65 @@
+{
+  "schema": "havenwild.editor.production_world_generator.r38.v1",
+  "pass": "167Z109W81R38",
+  "controls": [
+    "seed",
+    "world_size",
+    "major_islands",
+    "mountains",
+    "rivers",
+    "forests",
+    "cliff_coasts",
+    "settlements",
+    "caves",
+    "resources"
+  ],
+  "advanced": [
+    "hydrology",
+    "ridge_constraints",
+    "coast_exposure",
+    "sediment",
+    "biome_weights",
+    "resource_density",
+    "settlement_density"
+  ],
+  "pipeline": [
+    "macro_landmass_masks",
+    "ridge_mountain_constraints",
+    "continuous_elevation",
+    "drainage_erosion",
+    "geology_hydrology",
+    "coast_classification",
+    "discrete_levels",
+    "cliff_extraction",
+    "terrain_presentation"
+  ],
+  "protectedAuthorities": [
+    "willowmere_authored_core"
+  ],
+  "regenerationScopes": [
+    "entire_world",
+    "island",
+    "region",
+    "hydrology",
+    "vegetation",
+    "resources",
+    "settlements"
+  ],
+  "regionIdentity": {
+    "authority": "ProductionWorldRegionKey",
+    "stableAcrossReload": true,
+    "seedScoped": true,
+    "supportsGeneratedRegionsBeyondLegacySceneRectangles": true,
+    "legacySceneRectangleAdapter": "derive key from seed + landmassId + gridX + gridY"
+  },
+  "topologyAuthority": {
+    "extent": "finite",
+    "majorLandmassRange": [
+      3,
+      15
+    ],
+    "oceanOnAllOuterBoundaries": true,
+    "outerOceanGuardRequired": true,
+    "willowmereGeneratedFirst": true
+  }
+}

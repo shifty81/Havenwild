@@ -1,0 +1,29 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W45A",
+  "date": "2026-08-14",
+  "title": "LPC Structure Source Certification Queue",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A"
+  ],
+  "authority": "PublishedWorldAssetRegistry",
+  "structureSourceSheets": 98,
+  "structureRoles": 14,
+  "unclassifiedStructureSheets": 0,
+  "blockerFirstRoles": ["door", "stairs", "fence", "sign"],
+  "validation": {
+    "sourceProfile": "PASS",
+    "w44a": "PASS",
+    "w45a": "PASS",
+    "windowsRustBuild": "PENDING_LOCAL_TOOLCHAIN"
+  },
+  "next": "167Z109W45B exact component/stamp review and publication"
+}

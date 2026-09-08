@@ -1,0 +1,949 @@
+{
+  "schema": "havenwild.universal_lpc_npc_generation_profiles.v0_1",
+  "policy": "content/characters/universal_lpc_character_generation_policy_v0_1.json",
+  "profiles": [
+    {
+      "id": "willowmere_common_resident",
+      "region": "Willowmere",
+      "species": [
+        "Human"
+      ],
+      "pools": [
+        "npc_common",
+        "regional_culture"
+      ],
+      "ageWeights": {
+        "Child": 0.14,
+        "Teen": 0.12,
+        "Adult": 0.58,
+        "Elder": 0.16
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "resident",
+        "laborer",
+        "courier",
+        "retired",
+        "student"
+      ],
+      "outfits": [
+        "Everyday",
+        "Work",
+        "Rain",
+        "Winter",
+        "Festival"
+      ],
+      "factions": [
+        "civilian"
+      ],
+      "wealthTiers": [
+        "modest",
+        "common"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 8,
+        "maximum": null,
+        "weight": 8,
+        "uniquePerSettlement": false,
+        "requiresHome": true,
+        "requiresWorkplace": false
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": []
+    },
+    {
+      "id": "willowmere_farmer",
+      "region": "Willowmere Outskirts",
+      "species": [
+        "Human"
+      ],
+      "pools": [
+        "npc_common",
+        "regional_culture"
+      ],
+      "ageWeights": {
+        "Teen": 0.1,
+        "Adult": 0.72,
+        "Elder": 0.18
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "farmer",
+        "farmhand",
+        "rancher",
+        "beekeeper"
+      ],
+      "outfits": [
+        "Everyday",
+        "Work",
+        "Rain",
+        "Winter"
+      ],
+      "factions": [
+        "willowmere_civilian"
+      ],
+      "wealthTiers": [
+        "working",
+        "modest"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [
+        "tools"
+      ],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [
+        "work",
+        "apron",
+        "hat",
+        "boots"
+      ],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 2,
+        "maximum": null,
+        "weight": 5,
+        "uniquePerSettlement": false,
+        "requiresHome": true,
+        "requiresWorkplace": true
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [
+          "farm",
+          "ranch",
+          "apiary"
+        ],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": [],
+      "extends": "willowmere_common_resident"
+    },
+    {
+      "id": "willowmere_merchant",
+      "region": "Willowmere",
+      "species": [
+        "Human"
+      ],
+      "pools": [
+        "npc_common",
+        "regional_culture"
+      ],
+      "ageWeights": {
+        "Teen": 0.05,
+        "Adult": 0.72,
+        "Elder": 0.23
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "merchant",
+        "shopkeeper",
+        "innkeeper",
+        "market_vendor"
+      ],
+      "outfits": [
+        "Everyday",
+        "Work",
+        "Formal",
+        "Festival"
+      ],
+      "factions": [
+        "willowmere_civilian",
+        "merchant_guild"
+      ],
+      "wealthTiers": [
+        "common",
+        "comfortable",
+        "wealthy"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [
+        "formal",
+        "vest",
+        "coat",
+        "hat"
+      ],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 1,
+        "maximum": 12,
+        "weight": 2,
+        "uniquePerSettlement": false,
+        "requiresHome": true,
+        "requiresWorkplace": true
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [
+          "shop",
+          "market",
+          "tavern"
+        ],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": [],
+      "extends": "willowmere_common_resident"
+    },
+    {
+      "id": "willowmere_craftsperson",
+      "region": "Willowmere",
+      "species": [
+        "Human"
+      ],
+      "pools": [
+        "npc_common",
+        "regional_culture"
+      ],
+      "ageWeights": {
+        "Teen": 0.12,
+        "Adult": 0.7,
+        "Elder": 0.18
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "blacksmith",
+        "carpenter",
+        "tailor",
+        "mason",
+        "cook"
+      ],
+      "outfits": [
+        "Everyday",
+        "Work",
+        "Travel"
+      ],
+      "factions": [
+        "willowmere_civilian",
+        "craft_guild"
+      ],
+      "wealthTiers": [
+        "working",
+        "common"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [
+        "tools"
+      ],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [
+        "work",
+        "apron",
+        "boots"
+      ],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 2,
+        "maximum": 20,
+        "weight": 3,
+        "uniquePerSettlement": false,
+        "requiresHome": true,
+        "requiresWorkplace": true
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [
+          "workshop",
+          "forge",
+          "tailor",
+          "kitchen"
+        ],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": [],
+      "extends": "willowmere_common_resident"
+    },
+    {
+      "id": "coastal_maritime",
+      "region": "Coast",
+      "species": [
+        "Human"
+      ],
+      "pools": [
+        "npc_common",
+        "regional_culture"
+      ],
+      "ageWeights": {
+        "Child": 0.1,
+        "Teen": 0.13,
+        "Adult": 0.6,
+        "Elder": 0.17
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "fisher",
+        "sailor",
+        "dockworker",
+        "harbormaster",
+        "boatwright"
+      ],
+      "outfits": [
+        "Everyday",
+        "Work",
+        "Rain",
+        "Winter",
+        "Travel"
+      ],
+      "factions": [
+        "coastal_civilian"
+      ],
+      "wealthTiers": [
+        "working",
+        "common"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [
+        "tools"
+      ],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [
+        "travel",
+        "hood",
+        "boots"
+      ],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 1,
+        "maximum": null,
+        "weight": 3,
+        "uniquePerSettlement": false,
+        "requiresHome": true,
+        "requiresWorkplace": true
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [
+          "dock",
+          "shipyard",
+          "fishing"
+        ],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": []
+    },
+    {
+      "id": "distant_island_people",
+      "region": "Far Islands",
+      "species": [
+        "Human",
+        "ElfLike",
+        "Beastfolk",
+        "Lizardfolk"
+      ],
+      "pools": [
+        "regional_culture",
+        "fantastical_people"
+      ],
+      "ageWeights": {
+        "Child": 0.12,
+        "Teen": 0.12,
+        "Adult": 0.6,
+        "Elder": 0.16
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "resident",
+        "guide",
+        "merchant",
+        "artisan",
+        "guardian"
+      ],
+      "outfits": [
+        "Everyday",
+        "Work",
+        "Formal",
+        "Festival",
+        "Combat"
+      ],
+      "factions": [
+        "civilian"
+      ],
+      "wealthTiers": [
+        "modest",
+        "common"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 1,
+        "maximum": null,
+        "weight": 2,
+        "uniquePerSettlement": false,
+        "requiresHome": true,
+        "requiresWorkplace": false
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": []
+    },
+    {
+      "id": "ruins_inhabitant",
+      "region": "Ruins",
+      "species": [
+        "Human",
+        "Undead",
+        "CorruptedHumanoid",
+        "Skeleton",
+        "Zombie"
+      ],
+      "pools": [
+        "ruins_and_corruption",
+        "creature_and_monster"
+      ],
+      "ageWeights": {
+        "Adult": 0.75,
+        "Elder": 0.25
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "ruin_dweller",
+        "guardian",
+        "cultist",
+        "monster",
+        "boss"
+      ],
+      "outfits": [
+        "Everyday",
+        "Combat",
+        "Uniform"
+      ],
+      "factions": [
+        "ruins_hostile"
+      ],
+      "wealthTiers": [
+        "scarce"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [
+        "weapon",
+        "shield"
+      ],
+      "requiredAnimations": [
+        "idle",
+        "walk"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [
+        "combat",
+        "armor",
+        "armour"
+      ],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 0,
+        "maximum": null,
+        "weight": 1,
+        "uniquePerSettlement": false,
+        "requiresHome": false,
+        "requiresWorkplace": false
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": []
+    },
+    {
+      "id": "willowmere_guard",
+      "region": "Willowmere",
+      "species": [
+        "Human"
+      ],
+      "pools": [
+        "npc_common",
+        "regional_culture"
+      ],
+      "ageWeights": {
+        "Adult": 0.85,
+        "Elder": 0.15
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "guard",
+        "watch"
+      ],
+      "outfits": [
+        "Uniform",
+        "Combat"
+      ],
+      "factions": [
+        "willowmere_guard"
+      ],
+      "wealthTiers": [
+        "common",
+        "comfortable"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [
+        "weapon",
+        "shield"
+      ],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run",
+        "slash",
+        "thrust"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [
+        "uniform",
+        "armor",
+        "armour",
+        "helmet"
+      ],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 2,
+        "maximum": 24,
+        "weight": 3,
+        "uniquePerSettlement": false,
+        "requiresHome": true,
+        "requiresWorkplace": true
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [
+          "guard_post",
+          "barracks"
+        ],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": [],
+      "extends": "willowmere_common_resident"
+    },
+    {
+      "id": "frontier_miner",
+      "region": "Frontier",
+      "species": [
+        "Human",
+        "ElfLike",
+        "Beastfolk"
+      ],
+      "pools": [
+        "npc_common",
+        "regional_culture"
+      ],
+      "ageWeights": {
+        "Teen": 0.08,
+        "Adult": 0.78,
+        "Elder": 0.14
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "miner",
+        "prospector"
+      ],
+      "outfits": [
+        "Work",
+        "Travel"
+      ],
+      "factions": [
+        "frontier_civilian"
+      ],
+      "wealthTiers": [
+        "working",
+        "common"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [
+        "tools"
+      ],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [
+        "work",
+        "boots",
+        "helmet"
+      ],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 1,
+        "maximum": null,
+        "weight": 2,
+        "uniquePerSettlement": false,
+        "requiresHome": true,
+        "requiresWorkplace": true
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [
+          "mine",
+          "quarry"
+        ],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": [],
+      "extends": "willowmere_common_resident"
+    },
+    {
+      "id": "frontier_bandit",
+      "region": "Frontier",
+      "species": [
+        "Human",
+        "ElfLike",
+        "Beastfolk"
+      ],
+      "pools": [
+        "regional_culture",
+        "fantastical_people"
+      ],
+      "ageWeights": {
+        "Teen": 0.06,
+        "Adult": 0.88,
+        "Elder": 0.06
+      },
+      "sexWeights": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "roles": [
+        "bandit",
+        "raider"
+      ],
+      "outfits": [
+        "Combat",
+        "Travel"
+      ],
+      "factions": [
+        "bandit"
+      ],
+      "wealthTiers": [
+        "scarce",
+        "working"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "wardrobeCategories": [
+        "hair",
+        "eyebrows",
+        "eyes",
+        "torso",
+        "legs",
+        "feet",
+        "hat",
+        "back"
+      ],
+      "equipmentCategories": [
+        "weapon",
+        "shield"
+      ],
+      "requiredAnimations": [
+        "idle",
+        "walk",
+        "run",
+        "slash"
+      ],
+      "forbiddenOptionTags": [],
+      "preferredOptionTags": [
+        "hood",
+        "mask",
+        "armor",
+        "armour"
+      ],
+      "profileVersion": 1,
+      "population": {
+        "minimum": 0,
+        "maximum": null,
+        "weight": 1,
+        "uniquePerSettlement": false,
+        "requiresHome": false,
+        "requiresWorkplace": false
+      },
+      "lifeHooks": {
+        "homeTags": [
+          "housing"
+        ],
+        "workplaceTags": [],
+        "scheduleTags": [
+          "daily_schedule"
+        ],
+        "relationshipTags": [
+          "settlement_social"
+        ]
+      },
+      "requiredOptionTags": [],
+      "extends": "willowmere_common_resident"
+    }
+  ],
+  "authoredNpcRule": "Authored NPCs keep fixed identity and recipe templates. Profiles generate supporting populations and outfit variants only."
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "havenwild.world_paint_material_inspector_contract.v0.1",
+  "version": 1,
+  "name": "World Paint Material-State Inspector",
+  "purpose": "Expose selected-cell material-family, layer, subcell, weight, sequence, and readiness data in the Paint tab without mixing UI, persistence, and deterministic world logic.",
+  "runtime_path": "WORKSPACE/generated/world_paint/world_paint_material_state_v0_1.json",
+  "selected_cell_inspection": {
+    "scene_id": "active scene code",
+    "coordinates": "selected tile x/y in canonical 32x32 world grid",
+    "entries": "all material-state cell/layer records at that coordinate",
+    "primary": "latest entry by last_sequence",
+    "readiness_flags": [
+      "ready_for_adjacency",
+      "ready_for_debris"
+    ],
+    "display_fields": [
+      "family",
+      "layer",
+      "subcell_mode",
+      "weights_u8.len",
+      "last_sequence",
+      "resolved_tile_kind"
+    ]
+  },
+  "paint_tab_controls": [
+    {
+      "label": "Inspect",
+      "action": "load selected-cell material-state inspection"
+    },
+    {
+      "hotkey": "I",
+      "action": "inspect selected-cell material state"
+    }
+  ],
+  "module_boundaries": {
+    "haven_world": "inspection query structs/functions over material-state document",
+    "haven_game": "Paint-tab button/hotkey/display only",
+    "haven_editor": "future reusable egui inspector commands and property binding",
+    "haven_assets": "tile manifests and material contracts"
+  },
+  "multiplayer_policy": "Inspector reads local material-state mirror/cache; authoritative edits still come from host/server paint deltas and material-state replication.",
+  "non_goals": [
+    "No raw pixel overlay storage",
+    "No runtime art copying",
+    "No monolithic editor implementation"
+  ]
+}

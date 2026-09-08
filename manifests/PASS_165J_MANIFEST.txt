@@ -1,0 +1,8 @@
+PASS 165J — STATION DEPLOYMENT AND RECIPES
+
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+ADD       docs/patch/PASS_165J_STATION_DEPLOYMENT_AND_RECIPES.md
+ADD       manifests/PASS_165J_MANIFEST.txt
+
+BASELINE: Havenwild Pass 165I
+REMOVALS: none

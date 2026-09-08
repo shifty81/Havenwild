@@ -1,0 +1,50 @@
+{
+  "schema": "havenwild.generic_multitile_stamp_system.v001",
+  "version": "0.2.0",
+  "tileSize": 32,
+  "purpose": "Reusable multi-tile visual assemblies from project-owned and approved licensed sources with stable identity, collision, interaction, undo, save, editor preview, and runtime rendering.",
+  "registryManifests": [
+    "assets/generated/worldgen_v0_1/terrain/lpc_expandable_ponds_32.json"
+  ],
+  "stableIdentity": {
+    "assetKey": "manifest object id",
+    "instanceId": "stamp_<16 hexadecimal digits>",
+    "selection": "SelectionItem::Stamp(StampInstanceId)",
+    "persistenceRecord": "stamp <instance_id> <asset_key> <anchor_x> <anchor_y> <15 footprint and behavior fields>"
+  },
+  "footprintModel": {
+    "visual": "rectangular tile footprint derived from visualFootprint and origin",
+    "collision": "rectangular movement-blocking footprint derived from collisionFootprint",
+    "interaction": "defaults to collision footprint and remains separately persisted",
+    "anchor": "bottom-oriented reusable manifest origin",
+    "placementRules": [
+      "all active footprints stay inside scene bounds",
+      "blocking collision stays on walkable terrain",
+      "no overlap with placed objects",
+      "no overlap with other stamps"
+    ]
+  },
+  "editorWorkflow": [
+    "Open Scene Editor and Assets dock",
+    "Choose Stamps or search by label, category, stable ID, or footprint",
+    "Select a thumbnail to activate Objects layer and Place tool",
+    "Move pointer over canvas to preview ghost, anchor, and valid/invalid footprint",
+    "Click to place as one typed undo transaction",
+    "Select any visual tile or outliner row to bind stable selection and inspector",
+    "Drag selection or use clipboard duplicate/paste to move/copy with collision validation",
+    "For expandable LPC ponds, use Inspector width/height controls to repeat authored center and edge cells without stretching pixels",
+    "Delete or erase and use Ctrl+Z/Ctrl+Y for typed undo/redo",
+    "Use Save All or Ctrl+S to persist stamp records in the shared world document"
+  ],
+  "runtime": {
+    "renderer": "loads all unique registry atlas sheets with nearest filtering",
+    "sort": "stamp collision foot sorts with objects, customers, and player",
+    "collision": "TavernMap::is_cell_walkable checks blocking stamp footprint",
+    "fallback": "unresolved assets render an explicit bounded placeholder"
+  },
+  "definitionEditing": "Reusable stamp rect, origin, source roles, and minimum footprints are edited through approved manifest/Asset Intake workflows. Expandable placed instances may resize width and height; freeform occupied-cell editing remains a later pass.",
+  "licensePolicy": "Only ElizaWy/LPC source-derived stamp manifests are active. Every promoted family must retain source-lock, author, source, license, and coordinate metadata; mixed, prototype, placeholder, or unresolved uploads remain excluded.",
+  "registryAtlasOverrides": {
+    "assets/generated/worldgen_v0_1/terrain/lpc_expandable_ponds_32.json": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png"
+  }
+}

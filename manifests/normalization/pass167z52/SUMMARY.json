@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z52",
+  "date": "2026-08-03",
+  "title": "Direct Source Visual Baseline and Hydrology Stabilization",
+  "status": "ready_for_windows_build",
+  "changes": [
+    "Embed and directly load the accepted scenic title image with six mapped source-coordinate buttons",
+    "Style subsequent frontend screens over the accepted title background",
+    "Disable normal-build Rust source mutation scripts",
+    "Extract ElizaWy rocks as fixed authored size classes without cell clipping or variant shifting",
+    "Bind boulder collision and selection footprints to deterministic visual variants",
+    "Resolve marine and freshwater depth bands separately and preserve marine sand policy"
+  ],
+  "localValidation": {
+    "titleChecksumAndDimensions": true,
+    "titleHitboxPreview": true,
+    "pythonCompile": true,
+    "bashSyntax": true,
+    "jsonParse": true,
+    "staticRustDelimiterScan": true,
+    "focusedSourceValidator": true,
+    "cargo": false,
+    "reasonCargoNotRun": "Rust toolchain is unavailable in the artifact environment"
+  }
+}

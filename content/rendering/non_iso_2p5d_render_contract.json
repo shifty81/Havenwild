@@ -1,0 +1,39 @@
+{
+  "projection": "2.5d_non_isometric_orthogonal",
+  "tile_size_px": 32,
+  "camera": {
+    "mode": "orthographic_topdown_oblique_art",
+    "grid_projection": "orthogonal_screen_grid",
+    "world_to_screen": "screen_x = tile_x * 32; screen_y = tile_y * 32"
+  },
+  "snap_rule": "All gameplay placement/action targeting snaps to integer 32x32 tile cells.",
+  "sprite_anchor_rule": "Ground tiles are 32x32. Tall objects may be 32x64/64x96 but must define a bottom foot anchor that snaps to a ground tile center.",
+  "sort_key": "primary layer, then foot_anchor_screen_y, then tie_breaker_x, then object_id",
+  "layers": [
+    "void_background",
+    "terrain_base",
+    "terrain_variant",
+    "season_overlay",
+    "soil_state",
+    "water_animation",
+    "floor_overlay",
+    "object_back",
+    "actor_y_sorted",
+    "object_front",
+    "roof_cutaway",
+    "tool_preview",
+    "ui_overlay"
+  ],
+  "action_grid": {
+    "hoe": "single tile or upgraded row/area",
+    "water": "single/line/3x3 by tool tier",
+    "dig": "single tile",
+    "plant": "single prepared soil tile",
+    "build": "rectangular footprint with collision validation"
+  },
+  "implementation_notes": [
+    "Never bake watered/season/hover state into base tile enum unless it changes collision or base gameplay identity.",
+    "Use overlay layers for visual richness and tool previews.",
+    "For non-isometric 2.5D, do not use diagonal grid math; use orthogonal tile coordinates plus Y-sorting."
+  ]
+}

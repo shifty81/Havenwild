@@ -1,0 +1,74 @@
+{
+  "schema": "havenwild.oss_dependency_intake.w62a.v1",
+  "baseline": "Pass167Z109W61D1",
+  "policy": {
+    "havenwildTypesRemainAuthoritative": true,
+    "thirdPartyTypesForbiddenInPublicSaveSchemas": true,
+    "adapterBoundaryRequired": true,
+    "activateDependenciesInGreenBoundedGates": true
+  },
+  "activatedThisPass": [
+    {
+      "crate": "rayon",
+      "version": "1.12",
+      "adapter": "haven_jobs",
+      "purpose": "background parallel work",
+      "lockState": "already present in W61D1 Cargo.lock"
+    },
+    {
+      "crate": "hound",
+      "version": "3.5",
+      "adapter": "haven_audio",
+      "purpose": "deterministic WAV preview/export",
+      "lockState": "already present in W61D1 Cargo.lock"
+    }
+  ],
+  "havenwildFoundationCrates": [
+    "haven_identity",
+    "haven_diagnostics",
+    "haven_schema",
+    "haven_jobs",
+    "haven_spatial",
+    "haven_audio",
+    "haven_logic"
+  ],
+  "stagedBehindAdaptersAfterFirstGreenGate": [
+    "tracing",
+    "tracing-subscriber",
+    "sysinfo",
+    "puffin",
+    "taffy",
+    "cosmic-text",
+    "notify",
+    "uuid",
+    "slotmap",
+    "schemars",
+    "serde_path_to_error",
+    "rstar",
+    "geo",
+    "petgraph",
+    "pathfinding",
+    "parry2d",
+    "FastNoise Lite",
+    "FunDSP",
+    "Kira",
+    "CPAL",
+    "RustySynth",
+    "midly",
+    "midir",
+    "rtrb",
+    "RustFFT",
+    "rubato"
+  ],
+  "referenceOnly": [
+    {
+      "project": "LibreSprite",
+      "use": "workflow/behavior reference; clean Havenwild implementation"
+    },
+    {
+      "project": "Quartz",
+      "use": "archived Rust/FunDSP node-workflow reference only"
+    }
+  ],
+  "interchangeConceptReferences": ["LDtk", "Tiled"]
+}

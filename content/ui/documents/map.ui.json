@@ -1,0 +1,7 @@
+{
+  "schema":"havenwild.ui_document.v1","id":"map","display_name":"World Map","kind":"map","reference_size":[1920,1080],"snap_px":8,"safe_area":[48,48,48,48],
+  "widgets":[
+    {"id":"map_frame","kind":"minimap_frame","rect":{"x":96.0,"y":80.0,"width":1728.0,"height":888.0},"label":"World Map","data_bindings":[{"property":"map","source":"world.map_view"},{"property":"exploration","source":"world.map_exploration"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"close","kind":"button","rect":{"x":1664.0,"y":104.0,"width":120.0,"height":48.0},"label":"Close","parent":"map_frame","data_bindings":[],"behavior_bindings":[{"event":"on_click","action":"ui.close_current","arguments":{}}],"locked":false,"visible":true}
+  ],"metadata":{"runtime_context":"world_map.open"}
+}

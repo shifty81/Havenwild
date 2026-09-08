@@ -1,0 +1,17 @@
+{
+  "schema": "havenwild.editor.infinite_canvas.w66.v1",
+  "pass": "167Z109W66",
+  "priority": "P0",
+  "rules": [
+    "Document overlays must clip to their document canvas",
+    "Transform gizmo handles/pivot/rotation hit testing cannot escape canvas",
+    "Collapsed Tool/Layer rails reclaim canvas area",
+    "Split document panes remain inside CanvasWorkspace",
+    "Right dock and bottom contextual tray never become document draw surfaces"
+  ],
+  "currentProof": [
+    "Pixel selection marquee clipping",
+    "Pixel transform gizmo clipping",
+    "dual Pixel companion canvas"
+  ]
+}

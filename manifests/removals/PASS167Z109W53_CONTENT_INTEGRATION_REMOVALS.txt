@@ -1,0 +1,2 @@
+# W46C-W53 introduces no additional removals.
+# Cumulative W40 lineage removals remain in manifests/cumulative_patch_removals_pass167z109w53.txt.

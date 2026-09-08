@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.terrain_reference_integrity.v1",
+  "version": 2,
+  "canonicalGeneratedMapImage": {
+    "path": "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png",
+    "actual": {
+      "width": 512,
+      "height": 31488
+    },
+    "sha256": "adc395adc3defb182389d4ca888afdd896bdd6b672ab92609b428a5bbd79cd25",
+    "status": "present_and_runtime_source",
+    "note": "Height includes appended authored extras beyond the base TSX image declaration."
+  },
+  "referenceDuplicate": {
+    "formerPath": "assets/reference/terrain/havenwild_terrain_standard_v1/source/terrain_generated_map_v7.png",
+    "status": "removed_invalid_33x2048_duplicate"
+  },
+  "runtimeAtlas": {
+    "path": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+    "manifest": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+    "builder": "tools/automation/terrain/Build-LpcMappedTerrainV7.py",
+    "status": "regenerated_from_canonical_source"
+  },
+  "exactViewportRendering": "runtime_compact_atlas_available",
+  "licensing": "reference_only_mixed_license_until_region_level_clearance"
+}

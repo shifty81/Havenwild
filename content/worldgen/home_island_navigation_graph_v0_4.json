@@ -1,0 +1,172 @@
+{
+  "id": "home_island_navigation_graph_v0_4",
+  "version": "0.4.1-w53b",
+  "kind": "scene_navigation_graph",
+  "nodes": [
+    {
+      "sceneId": "farmstead",
+      "title": "Estate",
+      "sceneKind": "exterior",
+      "biome": "temperate",
+      "role": "player_owned_exterior"
+    },
+    {
+      "sceneId": "north_road",
+      "title": "North Road",
+      "sceneKind": "exterior",
+      "biome": "temperate",
+      "role": "main_city_approach"
+    },
+    {
+      "sceneId": "south_field",
+      "title": "South Field",
+      "sceneKind": "exterior",
+      "biome": "temperate",
+      "role": "farm_expansion"
+    },
+    {
+      "sceneId": "east_woods",
+      "title": "East Woods",
+      "sceneKind": "exterior",
+      "biome": "temperate",
+      "role": "woodland_foraging"
+    },
+    {
+      "sceneId": "cave_mouth",
+      "title": "Cave Mouth",
+      "sceneKind": "exterior",
+      "biome": "highlands",
+      "role": "mountain_cave_entry"
+    },
+    {
+      "sceneId": "cave_depths",
+      "title": "Cave Depths",
+      "sceneKind": "cave",
+      "biome": "cave",
+      "role": "dungeon_cave_depths"
+    }
+  ],
+  "transitionEdges": [
+    {
+      "from": "farmstead",
+      "to": "north_road",
+      "via": "to_north_road",
+      "returnRequired": true
+    },
+    {
+      "from": "farmstead",
+      "to": "south_field",
+      "via": "to_south_field",
+      "returnRequired": true
+    },
+    {
+      "from": "farmstead",
+      "to": "east_woods",
+      "via": "to_east_woods",
+      "returnRequired": true
+    },
+    {
+      "from": "farmstead",
+      "to": "cave_mouth",
+      "via": "to_cave_mouth",
+      "returnRequired": true
+    },
+    {
+      "from": "north_road",
+      "to": "farmstead",
+      "via": "to_farmstead",
+      "returnRequired": true
+    },
+    {
+      "from": "south_field",
+      "to": "farmstead",
+      "via": "to_farmstead",
+      "returnRequired": true
+    },
+    {
+      "from": "east_woods",
+      "to": "farmstead",
+      "via": "to_farmstead",
+      "returnRequired": true
+    },
+    {
+      "from": "cave_mouth",
+      "to": "farmstead",
+      "via": "to_farmstead",
+      "returnRequired": true
+    },
+    {
+      "from": "cave_mouth",
+      "to": "cave_depths",
+      "via": "to_cave_depths",
+      "returnRequired": true
+    },
+    {
+      "from": "cave_depths",
+      "to": "cave_mouth",
+      "via": "to_cave_mouth",
+      "returnRequired": true
+    }
+  ],
+  "worldSurfaceEdges": [
+    {
+      "from": "farmstead",
+      "to": "north_road",
+      "edge": "north",
+      "transition": "to_north_road"
+    },
+    {
+      "from": "farmstead",
+      "to": "south_field",
+      "edge": "south",
+      "transition": "to_south_field"
+    },
+    {
+      "from": "farmstead",
+      "to": "east_woods",
+      "edge": "east",
+      "transition": "to_east_woods"
+    },
+    {
+      "from": "farmstead",
+      "to": "cave_mouth",
+      "edge": "north_mountain",
+      "transition": "to_cave_mouth"
+    }
+  ],
+  "entryScene": "farmstead",
+  "reservedExpansionNodes": [
+    {
+      "sceneId": "west_forest_reserved",
+      "rect": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "status": "reserved"
+    },
+    {
+      "sceneId": "southwest_field_reserved",
+      "rect": [
+        0,
+        2,
+        1,
+        1
+      ],
+      "status": "reserved"
+    },
+    {
+      "sceneId": "coast_reserved",
+      "rect": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "status": "reserved"
+    }
+  ],
+  "editorUse": "World tab scene picker and transition overlay. Ordinary building interiors are BuildingInstance levels, not navigation nodes.",
+  "ordinaryInteriorPolicy": "same_world_building_instance"
+}

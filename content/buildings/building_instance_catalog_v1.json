@@ -1,0 +1,27 @@
+{
+  "schema": "havenwild.building_instance_catalog.v1",
+  "pass": "167Z109W57K8",
+  "authority": "BuildingInstanceRegistry",
+  "entries": [
+    {
+      "id": "havenwild.acceptance.standard_tavern",
+      "path": "content/buildings/instances/tavern_runtime_acceptance_v1.json",
+      "status": "candidate"
+    },
+    {
+      "id": "havenwild.acceptance.three_level_house",
+      "path": "content/buildings/instances/three_level_house_runtime_acceptance_v1.json",
+      "status": "candidate"
+    },
+    {
+      "id": "havenwild.estate.dev.starter_cottage",
+      "path": "content/buildings/instances/estate_starter_cottage_v1.json",
+      "status": "candidate"
+    },
+    {
+      "id": "havenwild.acceptance.w56_integrated_cottage",
+      "path": "content/buildings/instances/w56_integrated_visual_acceptance_cottage_v1.json",
+      "status": "candidate"
+    }
+  ]
+}

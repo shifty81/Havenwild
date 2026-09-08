@@ -1,0 +1,124 @@
+{
+  "schema": "havenwild.lpc_project_foundation_authority.v0_1",
+  "version": "0.1.0",
+  "pass": "167Z40",
+  "visualContract": {
+    "tileSize": 32,
+    "perspective": "three_quarter_top_down",
+    "characterCell": [
+      64,
+      64
+    ],
+    "runtimeCharacterCell": [
+      64,
+      96
+    ],
+    "nearestFiltering": true,
+    "paletteAuthority": "LPC Revised palette and source-local ramps"
+  },
+  "providers": [
+    {
+      "id": "elizawy_lpc_revised",
+      "role": "primary_world_environment_structure_object_fx_and_character_baseline",
+      "repository": "https://github.com/ElizaWy/LPC",
+      "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+      "mount": "assets/source/licensed/lpc_revised",
+      "lock": "content/assets/intake/lpc_source_lock_v0_1.json",
+      "audit": "tools/automation/assets/Build-ElizaWyProjectAssetAuditV167Z38.py",
+      "requiredDomains": [
+        "terrain",
+        "nature",
+        "objects",
+        "structure",
+        "characters",
+        "effects",
+        "palette",
+        "reference_scenes",
+        "repository_support",
+        "legal_docs"
+      ]
+    },
+    {
+      "id": "universal_lpc_character_generator",
+      "role": "complete_character_clothing_equipment_tool_weapon_shield_body_and_animation_extension",
+      "repository": "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator",
+      "commit": "0f898bb675a1abe16ce430e82e3bf9daed278690",
+      "mount": "assets/source/licensed/universal_lpc_generator",
+      "lock": "content/assets/intake/universal_lpc_generator_source_lock_v0_1.json",
+      "indexer": "tools/automation/characters/Build-UniversalLpcCompleteRepositoryIndexV167Z7.py",
+      "runtimeCacheBuilder": "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py"
+    }
+  ],
+  "projectDomains": {
+    "world": {
+      "providerPriority": [
+        "elizawy_lpc_revised"
+      ],
+      "routes": [
+        "terrain",
+        "water",
+        "coast",
+        "cliffs",
+        "nature",
+        "buildings",
+        "interiors",
+        "objects",
+        "furniture",
+        "bridges",
+        "fences",
+        "doors",
+        "roofs",
+        "floors",
+        "walls",
+        "effects"
+      ]
+    },
+    "characters": {
+      "providerPriority": [
+        "elizawy_lpc_revised",
+        "universal_lpc_character_generator"
+      ],
+      "routes": [
+        "body",
+        "head",
+        "eyes",
+        "hair",
+        "facial_hair",
+        "clothing",
+        "armor",
+        "headwear",
+        "accessories",
+        "tools",
+        "weapons",
+        "shields",
+        "wings",
+        "animations",
+        "children",
+        "teen",
+        "pregnancy",
+        "elderly"
+      ]
+    },
+    "ui_and_authoring": {
+      "sharedStableIds": true,
+      "sharedSourceRects": true,
+      "sharedCompatibilityMatrix": true,
+      "sharedCredits": true
+    }
+  },
+  "promotionRules": [
+    "Every raw source file is inventoried and routed; no source file is silently ignored.",
+    "ElizaWy assets are the primary project visual baseline and remain at original relative paths.",
+    "Universal LPC assets supplement character coverage only when body, layer, animation geometry, palette, and license are compatible.",
+    "All compatible assets are exposed to editor catalogs; runtime caches are generated on demand instead of pre-baking every source permutation.",
+    "Per-asset credits and licenses follow every stable asset id into runtime, saves, editor previews, packaging, and the credits screen.",
+    "A missing compatible authored asset is omitted and diagnosed; generic circles, rectangles, or synthetic replacement sprites are forbidden."
+  ],
+  "outputs": {
+    "foundationSummary": "WORKSPACE/generated/lpc/foundation/lpc_project_foundation_summary_v167z40.json",
+    "domainCatalog": "WORKSPACE/generated/lpc/foundation/project_domain_catalog_v167z40.json.gz",
+    "characterCompatibilityCatalog": "WORKSPACE/generated/lpc/foundation/character_compatibility_catalog_v167z40.json.gz",
+    "auditReport": "docs/audits/generated/LPC_PROJECT_FOUNDATION_AUDIT_V167Z40.md",
+    "characterCreatorPolicy": "content/characters/lpc_character_creator_source_policy_v0_1.json"
+  }
+}

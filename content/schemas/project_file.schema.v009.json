@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.project_file.v009",
+  "type": "object",
+  "required": [
+    "project_id",
+    "name",
+    "scenes",
+    "assets",
+    "databases"
+  ],
+  "properties": {
+    "project_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "databases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "editor_layout": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "runtime_config": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  }
+}

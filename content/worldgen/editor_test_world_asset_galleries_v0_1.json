@@ -1,0 +1,53 @@
+{
+  "schema": "havenwild.editor_test_world_asset_galleries.v0_1",
+  "world_id": "havenwild_editor_test_world",
+  "purpose": "Every production visual must be inspectable in the same client-loaded test world used by world generation.",
+  "rules": {
+    "client_worldgen_test_mode_uses_gallery": true,
+    "world_assets_are_selected_by_stable_id": true,
+    "generated_atlas_ids_are_not_authored": true,
+    "right_click_opens_reviewed_source_or_override": true,
+    "gallery_changes_do_not_modify_player_saves": true
+  },
+  "galleries": [
+    {
+      "id": "terrain_materials",
+      "origin_tile": [8, 8],
+      "row_width": 10,
+      "spacing_tiles": 2,
+      "source_registry": "content/assets/lpc/lpc_production_visual_registry_v0_2.json#/terrain_v7/terrain_types",
+      "preview_modes": ["pure_fill", "four_neighbor_transition", "eight_neighbor_transition"]
+    },
+    {
+      "id": "structural_cliffs",
+      "origin_tile": [8, 24],
+      "row_width": 4,
+      "spacing_tiles": 4,
+      "source_registry": "content/assets/lpc/lpc_production_visual_registry_v0_2.json#/structural_cliffs",
+      "preview_modes": ["straight", "inside_corner", "outside_corner", "multi_level", "ramp", "water_facing", "cave_host"]
+    },
+    {
+      "id": "water_and_waterfalls",
+      "origin_tile": [8, 48],
+      "row_width": 4,
+      "spacing_tiles": 4,
+      "source_registry": "content/assets/lpc/lpc_production_visual_registry_v0_2.json#/animated_water",
+      "preview_modes": ["shallow", "deep", "river_flow", "waterfall", "splash_pool", "freeze_thaw"]
+    },
+    {
+      "id": "livestock",
+      "origin_tile": [36, 8],
+      "row_width": 5,
+      "spacing_tiles": 6,
+      "source_registry": "content/assets/oga_lpc/manifests/oga_lpc_farm_animals_runtime_catalog_v0_1.json#/species",
+      "preview_modes": ["idle", "walk_north", "walk_west", "walk_south", "walk_east", "eat"]
+    },
+    {
+      "id": "pending_farming_and_vegetation",
+      "origin_tile": [36, 36],
+      "state": "blocked_until_archives_are_locally_acquired_and_credits_inspected",
+      "intake_manifest": "content/assets/oga_lpc/manifests/oga_lpc_gameplay_intake_v0_2.json",
+      "planned_rows": ["crops", "fruit_trees", "deciduous_trees", "conifers", "forage", "farm_buildings", "fish"]
+    }
+  ]
+}

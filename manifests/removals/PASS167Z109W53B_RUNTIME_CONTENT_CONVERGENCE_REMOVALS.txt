@@ -1,0 +1,2 @@
+# W53B introduces no repository-source removals.
+# Runtime retirement of tavern_interior/cellar/guest_floor is save/content-authority behavior; historical source fixtures remain available for compatibility/audit until a later explicit archive pass.

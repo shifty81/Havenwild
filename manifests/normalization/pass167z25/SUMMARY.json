@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z25",
+  "title": "Direct LPC Contour and Shoreline Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Replaced opaque compound transition fills with authored four-quadrant LPC composition.",
+    "Moved ocean shallow/deep base pixels onto the same summer LPC families as their transition art.",
+    "Added shallow-water bank ownership for road and farm contacts and restored mixed-water inner-corner continuity.",
+    "Made bridge transition topology use its water underlay while preventing bank overlays from covering the bridge structure.",
+    "Simplified freshwater and ocean test-world depth bands and preserved shoreline cells from wide route shoulders.",
+    "Rebuilt visual certification through the direct-LPC runtime contract with zero owner-fill fallbacks.",
+    "Extracted transition drawing into a focused Rust module rather than raising terrain_render.rs limits."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "terrainTopology": "passed",
+    "directLpcEvidence": "16224 cells, 1857 transition cells, 0 unresolved transitions",
+    "cargo": "pending Windows workstation rerun"
+  },
+  "completeSourceCreated": false
+}

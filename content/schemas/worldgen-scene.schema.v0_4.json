@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.worldgen.scene.schema.v0_4",
+  "title": "Havenwild Worldgen Scene v0.4",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "kind",
+    "sceneId",
+    "sceneKind",
+    "biome",
+    "sceneSize",
+    "tileSize",
+    "edgePolicy",
+    "layers",
+    "objects",
+    "transitions",
+    "spawns"
+  ],
+  "properties": {
+    "kind": {
+      "const": "worldgen_scene"
+    },
+    "sceneId": {
+      "type": "string"
+    },
+    "sceneKind": {
+      "enum": [
+        "exterior",
+        "interior",
+        "cave"
+      ]
+    },
+    "biome": {
+      "type": "string"
+    },
+    "sceneSize": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "tileSize": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "layers": {
+      "type": "object",
+      "required": [
+        "terrain"
+      ]
+    },
+    "objects": {
+      "type": "array"
+    },
+    "transitions": {
+      "type": "array"
+    },
+    "spawns": {
+      "type": "array"
+    }
+  }
+}

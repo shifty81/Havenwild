@@ -1,0 +1,9 @@
+{
+  "schema":"havenwild.ui_document.v1","id":"world_creation","display_name":"World Creation","kind":"world_creation","reference_size":[1920,1080],"snap_px":8,"safe_area":[48,48,48,48],
+  "widgets":[
+    {"id":"categories","kind":"tab","rect":{"x":192.0,"y":144.0,"width":320.0,"height":744.0},"label":"Basic / World Gen / Gameplay / Advanced","data_bindings":[{"property":"selection","source":"world_creation.active_category"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"options","kind":"panel","rect":{"x":544.0,"y":144.0,"width":768.0,"height":744.0},"label":"World Options","data_bindings":[{"property":"settings","source":"world_creation.settings"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"preview","kind":"image","rect":{"x":1344.0,"y":144.0,"width":384.0,"height":384.0},"label":"Seed Preview","data_bindings":[{"property":"image","source":"world_creation.preview"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"create","kind":"button","rect":{"x":1344.0,"y":816.0,"width":384.0,"height":72.0},"label":"Create World","data_bindings":[{"property":"enabled","source":"world_creation.valid"}],"behavior_bindings":[{"event":"on_click","action":"world_creation.create","arguments":{}}],"locked":false,"visible":true}
+  ],"metadata":{"source_contract":"content/ui/world_creation_wizard_v0_1.json"}
+}

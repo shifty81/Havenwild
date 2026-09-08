@@ -1,0 +1,7 @@
+OVERWRITE crates/haven_game/src/main.rs
+ADD crates/haven_game/src/runtime_ui_theme.rs
+OVERWRITE crates/haven_game/src/runtime_hud.rs
+OVERWRITE crates/haven_render/src/lib.rs
+OVERWRITE content/ui/hud/vitals_frame.png
+ADD docs/patch/PASS_166E_RUNTIME_UI_NORMALIZATION.md
+ADD manifests/PASS_166E_MANIFEST.txt

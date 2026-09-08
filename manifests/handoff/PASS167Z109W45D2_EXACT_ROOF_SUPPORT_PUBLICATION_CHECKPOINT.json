@@ -1,0 +1,43 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W45D2",
+  "date": "2026-08-14",
+  "title": "Exact Roof + Structural Support Publication",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B",
+    "167Z109W45C1",
+    "167Z109W45C2",
+    "167Z109W45C3A",
+    "167Z109W45D1",
+    "167Z109W45D1A",
+    "167Z109W45C3B",
+    "167Z109W45D2"
+  ],
+  "authority": "PublishedWorldAssetRegistry + exact pinned-LPC evidence-backed structure regions",
+  "structureSourceSheets": 98,
+  "reviewedStructureSourceSheets": 18,
+  "publishedExactStructureCandidates": 18,
+  "candidateOnly": true,
+  "exactModuleCatalog": "content/asset_packs/havenwild_objects/published_structure_exact_modules_v1.json",
+  "roofPublication": "content/buildings/roof_exact_region_publication_v1.json",
+  "supportPublication": "content/buildings/structure_support_exact_region_publication_v1.json",
+  "validation": {
+    "userWindowsW45D1A": "ALL_GREEN",
+    "w45d2ExactPublication": "PASS",
+    "architecture": "PASS",
+    "projectContent": "PASS",
+    "contentIntegrity": "18/18 PASS",
+    "windowsW45D2": "PENDING_USER_LOCAL_TEST"
+  },
+  "next": "W46 BuildingRecipe Authority after local Build all, Validate current source, and command 43 acceptance"
+}

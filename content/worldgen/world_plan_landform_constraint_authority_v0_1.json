@@ -1,0 +1,271 @@
+{
+  "schema": "havenwild.world_plan_landform_constraint_authority.v0_1",
+  "revision": "167Z109P",
+  "purpose": "Locks the seed-stable mainland/landform feature graph and the local constrained-synthesis layer used to turn semantic Havenwild topology into coherent LPC-compatible terrain assemblies without letting tile selection own macro geography.",
+  "researchBasis": {
+    "lpcProceduralGenerationDiscussion": "https://opengameart.org/forumtopic/procedural-world-generation-using-lpc-assets",
+    "waveFunctionCollapseReference": "https://github.com/mxgmn/WaveFunctionCollapse",
+    "adoptedPrinciples": [
+      "generate semantic geography and gameplay constraints before rasterizing or selecting art",
+      "treat rivers, settlements, roads and caves as graph/features that pre-exist local decoration",
+      "use local constrained synthesis only after macro and meso structure is known",
+      "allow explicit non-Wang adjacency relationships for asymmetric LPC assemblies",
+      "keep source art licensing separate from algorithm/reference licensing"
+    ]
+  },
+  "pipeline": [
+    "world_seed",
+    "domain_seeds",
+    "world_plan",
+    "landform_feature_graph",
+    "geology_and_climate",
+    "watersheds_and_hydrology",
+    "mainland_city_and_route_reservations",
+    "cave_graph_and_surface_connector_reservations",
+    "ecology_regions",
+    "semantic_terrain_grid",
+    "canonical_surface_and_structural_topology",
+    "terrain_recipe_constraints",
+    "local_constraint_synthesis_when_required",
+    "seasonal_visual_provider_resolution",
+    "cached_runtime_chunk_recipe",
+    "render_collision_navigation_map_editor_consumers"
+  ],
+  "seedPolicy": {
+    "root": "world_seed",
+    "domainSeparated": true,
+    "domainsAddedByThisAuthority": [
+      "landform_feature_graph",
+      "mainland_city_sites",
+      "trade_routes",
+      "expedition_network",
+      "terrain_constraint_synthesis"
+    ],
+    "featureSeed": "hash(world_seed, domain_id, feature_id, world_coordinate)",
+    "stabilityInvariant": "Adding or changing local detail rolls may not move existing cities, rivers, mountain massifs, cave systems or primary trade routes."
+  },
+  "structuralTierPolicy": {
+    "runtimeTypeDirection": "StructuralTier(u8)",
+    "normalSurfaceMaximum": 2,
+    "currentGameplayTiers": [0, 1, 2],
+    "meaning": {
+      "0": "lowland/base surface",
+      "1": "raised shelf, mountain base or plateau",
+      "2": "upper highland/summit terrace"
+    },
+    "invariant": "Current gameplay remains Level 0/1/2 while consumers avoid hard-coding exactly three representable tiers."
+  },
+  "landformFeatureGraph": {
+    "featureKinds": [
+      "mountain_massif",
+      "highland",
+      "plateau",
+      "valley",
+      "basin",
+      "canyon",
+      "coastal_cliff",
+      "island",
+      "wetland"
+    ],
+    "featureIdentity": "Every major generated landform owns a deterministic WorldFeatureId and may cross any number of storage partitions.",
+    "chunkRule": "Chunks materialize the intersecting portion of pre-existing features; chunks do not invent independent macro landforms."
+  },
+  "mountainMassif": {
+    "generationGrammar": [
+      "ridge_spine",
+      "major_lobes",
+      "secondary_spurs",
+      "valleys_and_saddles",
+      "hydrology_erosion_notches",
+      "tier_1_outer_terrace",
+      "tier_2_irregular_inner_highland",
+      "cliff_contour_graph",
+      "passes_and_connectors",
+      "cave_entrance_candidates",
+      "ecology_zones",
+      "detail_profiles"
+    ],
+    "shapeRules": [
+      "finished mountains may not be generated as one circle or ellipse",
+      "tier 2 is not a uniformly inset copy of tier 1",
+      "terraces may be offset, split, elongated or interrupted by valleys",
+      "large ranges may share ridge nodes and form connected massif systems",
+      "hydrology may cut valid notches and mandatory waterfall corridors through terraces"
+    ],
+    "mainlandGuarantee": {
+      "minimumMajorMassifs": 1,
+      "minimumCaveBearingMassifs": 1,
+      "caveEntrancePreference": "exposed accessible lower mountain/cliff wall with sufficient rock mass behind it"
+    }
+  },
+  "coastalCliffs": {
+    "firstClassCoastType": true,
+    "semanticStack": [
+      "upland_surface",
+      "structural_rim",
+      "cliff_wall",
+      "optional_coastal_toe",
+      "shore_interaction",
+      "shallows_or_direct_deep_water",
+      "ocean"
+    ],
+    "toeMaterials": [
+      "none",
+      "sand",
+      "wet_sand",
+      "pebble",
+      "talus",
+      "wet_rock",
+      "mud"
+    ],
+    "toeWidth": {
+      "minimum": 0,
+      "rule": "Width and material derive from geology, coast profile, wave exposure and erosion. A sheer sea cliff may use width zero and fall directly into deeper water."
+    },
+    "waterPresentation": [
+      "shore_foam",
+      "wave_splash",
+      "rock_surge",
+      "directional_current_when_applicable"
+    ],
+    "providerInvariant": "Changing seasonal or biome art may not change the coastal structural boundary or navigation/collision."
+  },
+  "mainlandInvariant": {
+    "primaryMainlandCount": 1,
+    "primaryCityCount": 3,
+    "cities": [
+      {
+        "role": "western_harbor_capital",
+        "regionConstraint": "western/left mainland coast",
+        "requiredGeography": ["major_viable_harbor", "large_buildable_area", "regional_road_access"],
+        "gameplay": ["main_city", "capital_civic_services", "main_trade_market", "outer_island_gateway"]
+      },
+      {
+        "role": "mountain_city",
+        "regionConstraint": "inside or immediately adjoining the major mountainous/highland province",
+        "requiredGeography": ["massif_access", "cave_or_mine_access", "mountain_pass_or_viable_trade_approach"],
+        "gameplay": ["mining", "smithing", "stone_and_ore_trade", "cave_progression"]
+      },
+      {
+        "role": "southern_sandy_city",
+        "regionConstraint": "southern sandy/dry province",
+        "requiredGeography": ["sand_or_dry_coast_region", "buildable_lowland", "trade_route_access"],
+        "gameplay": ["southern_regional_trade", "dryland_and_coastal_economy", "distinct_architecture_and_ecology"]
+      }
+    ],
+    "siteSelection": "Generate and score multiple deterministic candidates per required province, then solve all three sites together. The three required roles may not be dropped when a candidate fails.",
+    "tradeTriangle": {
+      "directScheduledRouteRequiredForEveryCityPair": true,
+      "routeClasses": ["primary_road", "mountain_pass_road", "river_freight", "coastal_shipping"],
+      "roadCostsConsume": ["structural_tier", "cliffs", "water", "wetland", "forest", "existing_road", "bridge_site", "mountain_pass"],
+      "npcSchedules": "Primary routes carry deterministic merchant, courier, passenger and freight schedules."
+    }
+  },
+  "npcTradeSimulation": {
+    "nearPlayer": "materialized runtime actor follows the physical route",
+    "farFromPlayer": "abstract route schedule tracks departure, ETA, cargo and route progress without simulating every actor frame",
+    "materializationInvariant": "Approaching a scheduled traveler materializes it at the deterministic route position implied by simulation time.",
+    "businessIntegration": "Eligible inns, taverns, markets and later player businesses near a route can become scheduled or probabilistic stops."
+  },
+  "expeditionNetwork": {
+    "gateway": "western_harbor_capital",
+    "outerIslandRole": "PCG mission/extraction gameplay using the same terrain, geology, hydrology, ecology, cave and provider contracts as the mainland",
+    "missionTravel": {
+      "knownDestination": true,
+      "knownObjective": true,
+      "knownExtractionAnchor": true,
+      "returnSchedule": true
+    },
+    "stowawayTravel": {
+      "smallFee": true,
+      "destination": "random compatible outbound expedition area",
+      "formalMissionRequired": false,
+      "pickupAnchor": "same drop-off location",
+      "defaultReturnWindowInGameDays": 1,
+      "missedPickup": "recoverable gameplay state; never a hard save lock"
+    },
+    "missionPlannerRule": "Mission objectives query real generated feature IDs such as caves, ruins, waterfalls, resource provinces and ecology regions rather than placing arbitrary objectives independently of geography."
+  },
+  "caveConnection": {
+    "surfaceEntranceSelection": [
+      "valid_exposed_cliff_or_rock_host",
+      "sufficient_rock_mass_behind_host",
+      "walkable_approach",
+      "no_protected_city_or_route_conflict",
+      "matching_subsurface_graph_node"
+    ],
+    "binding": ["surface_entrance_feature_id", "cave_system_feature_id", "entrance_node_id"],
+    "subsurface": "Graph-first deterministic cave systems continue through on-demand underground chunks and may connect underground rivers, chambers, ore provinces, ruins and deeper strata.",
+    "geometryRule": "Organic cave geometry may be roughened after connectivity is guaranteed; local noise or WFC may not break required graph connections."
+  },
+  "constraintSynthesis": {
+    "implementation": "crates/haven_world/src/terrain_constraint_solver.rs",
+    "scope": "bounded local synthesis after semantic/topological constraints are known",
+    "notResponsibleFor": [
+      "continent_shape",
+      "mountain_placement",
+      "structural_tier_assignment",
+      "river_drainage",
+      "city_placement",
+      "trade_route_graph",
+      "cave_graph_connectivity"
+    ],
+    "bestUses": [
+      "multi_cell_cliff_rim_wall_foot_assemblies",
+      "straight_diagonal_concave_convex_cliff_joins",
+      "coastal_cliff_toe_and_surf_modules",
+      "cave_wall_floor_detail_arrangements",
+      "shore_detail_arrangements",
+      "settlement_local_decor_and_building_module_arrangements"
+    ],
+    "moduleContract": [
+      "stable_module_id",
+      "semantic_role",
+      "weight",
+      "north_socket",
+      "east_socket",
+      "south_socket",
+      "west_socket",
+      "optional_explicit_non_wang_adjacency",
+      "logical_host_footprint",
+      "visual_footprint",
+      "collision_footprint",
+      "provider_role",
+      "season_geometry_group"
+    ],
+    "solverRules": [
+      "hard semantic constraints are applied before observation",
+      "propagation may only remove candidates",
+      "same world/feature seed and same constraints produce the same result",
+      "explicit adjacency may override simple matching sockets",
+      "contradictions are reported and never silently mutate macro topology",
+      "runtime rendering consumes cached solved recipes; it does not run expensive synthesis every frame"
+    ],
+    "fallback": "If a complex optional visual solve contradicts, use the deterministic canonical fallback recipe and report validation evidence; never delete a required cliff, cave, road or hydrology feature to satisfy art."
+  },
+  "cliffContourTarget": {
+    "nextRuntimeAdapter": "Trace contiguous structural boundaries into segments, constrain segment cells to canonical rim/wall/foot/join roles, solve compatible visual modules, cache the result by dirty region, and suppress all per-cell generic fallbacks inside the solved footprint.",
+    "bands": ["rim", "wall_body", "foot"],
+    "joins": [
+      "straight_to_diagonal_sw",
+      "diagonal_sw_to_straight",
+      "straight_to_diagonal_se",
+      "diagonal_se_to_straight",
+      "convex_turn",
+      "concave_turn",
+      "terminal_cap"
+    ]
+  },
+  "validationRequirements": [
+    "exactly three primary mainland city roles exist",
+    "all three primary city pairs have at least one direct scheduled trade route",
+    "western primary city owns the outer-island expedition gateway",
+    "at least one major cave-bearing massif exists",
+    "mountain massifs have ridge spines and non-circular nested structural terraces",
+    "coastal cliffs support optional zero-width shore toes",
+    "constraint synthesis is local and cannot change macro geography",
+    "every complex structural module declares logical, visual and collision footprints",
+    "constraint results are deterministic by feature/world seed",
+    "expensive local synthesis is cached outside the per-frame renderer"
+  ]
+}

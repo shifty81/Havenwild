@@ -1,0 +1,9 @@
+{
+  "schema":"havenwild.ui_document.v1","id":"loading_default","display_name":"Default Loading Screen","kind":"loading","reference_size":[1920,1080],"snap_px":8,"safe_area":[48,48,48,48],
+  "widgets":[
+    {"id":"location_art","kind":"image","rect":{"x":0.0,"y":0.0,"width":1920.0,"height":1080.0},"label":"Location Art","data_bindings":[{"property":"image","source":"transition.location_art"}],"behavior_bindings":[],"locked":true,"visible":true},
+    {"id":"location_name","kind":"label","rect":{"x":128.0,"y":760.0,"width":1000.0,"height":64.0},"label":"Location","data_bindings":[{"property":"text","source":"transition.location_name"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"tip","kind":"label","rect":{"x":128.0,"y":840.0,"width":1200.0,"height":64.0},"label":"Tip","data_bindings":[{"property":"text","source":"transition.tip"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"progress","kind":"progress","rect":{"x":128.0,"y":936.0,"width":1664.0,"height":32.0},"label":"Loading Progress","data_bindings":[{"property":"value","source":"transition.progress"}],"behavior_bindings":[],"locked":false,"visible":true}
+  ],"metadata":{"transition_role":"default_loading_presentation"}
+}

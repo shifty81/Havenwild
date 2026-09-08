@@ -1,0 +1,540 @@
+{
+  "schema": "havenwild.terrain_material_registry.v0_1",
+  "version": "0.1.0",
+  "purpose": "Canonical semantic terrain contract for editor exposure, biome palettes, LPC atlas baking, generated terrain rules, and terrain completion validation.",
+  "paintModes": {
+    "direct": "Normal editor brush material.",
+    "advanced": "Editor-visible only with an advanced/generated badge or advanced filter.",
+    "generated": "Created by terrain normalization, worldgen, or gameplay systems rather than ordinary free painting.",
+    "deferred": "Reserved for later scene/object/gameplay systems and not part of overworld terrain completion."
+  },
+  "statuses": {
+    "production": "Safe default material or direct brush.",
+    "preview": "Visible/usable with known incomplete topology or pair coverage.",
+    "incomplete": "Known semantic material, but missing required topology, pair coverage, or editor treatment.",
+    "deferred": "Explicitly out of current terrain pass scope."
+  },
+  "detailControls": {
+    "detailVariationPercent": {
+      "default": 0,
+      "description": "Disabled for non-grass terrain fills. Only audited complete single-cell grass accents may vary; larger source details are atomic stamps."
+    },
+    "rareDetailPercent": {
+      "default": 0,
+      "description": "Disabled in terrain fill selection. Forage, dig spots, rocks, and authored multi-cell details are separate object/stamp spawn systems."
+    }
+  },
+  "materials": [
+    {
+      "code": "grass",
+      "label": "Grass",
+      "tileKind": "Grass",
+      "category": "ground",
+      "editorGroup": "Ground",
+      "paintMode": "direct",
+      "status": "production",
+      "topology": "complete_ground_corner",
+      "validBiomes": [
+        "temperate",
+        "coastal",
+        "forest",
+        "farm",
+        "town",
+        "highlands",
+        "river_wetland"
+      ],
+      "notes": "Primary overworld base ground; supports deterministic detail variants."
+    },
+    {
+      "code": "tall_grass",
+      "label": "Tall Grass",
+      "tileKind": "TallGrass",
+      "category": "ground_overlay",
+      "editorGroup": "Ground",
+      "paintMode": "advanced",
+      "status": "preview",
+      "topology": "overlay_or_grass_dark_fill",
+      "validBiomes": [
+        "temperate",
+        "forest",
+        "farm",
+        "river_wetland"
+      ],
+      "notes": "Currently maps visually through Grass_Dark; long-term should be either a ground variant or vegetation overlay."
+    },
+    {
+      "code": "dirt",
+      "label": "Dirt",
+      "tileKind": "Dirt",
+      "category": "ground",
+      "editorGroup": "Ground",
+      "paintMode": "direct",
+      "status": "production",
+      "topology": "complete_ground_corner",
+      "validBiomes": [
+        "temperate",
+        "forest",
+        "farm",
+        "town",
+        "highlands",
+        "river_wetland",
+        "cave"
+      ],
+      "notes": "Primary earth material."
+    },
+    {
+      "code": "sand",
+      "label": "Sand",
+      "tileKind": "Sand",
+      "category": "ground",
+      "editorGroup": "Ground",
+      "paintMode": "direct",
+      "status": "production",
+      "topology": "complete_ground_corner",
+      "validBiomes": [
+        "coastal",
+        "river_wetland",
+        "temperate"
+      ],
+      "notes": "Primary dry beach/desert material; wet-sand edge should be generated when adjacent to water."
+    },
+    {
+      "code": "wet_sand",
+      "label": "Wet Sand",
+      "tileKind": "WetSand",
+      "category": "shore",
+      "editorGroup": "Shore",
+      "paintMode": "deferred",
+      "status": "deferred",
+      "topology": "legacy_alias_to_sand",
+      "validBiomes": [
+        "coastal",
+        "river_wetland"
+      ],
+      "notes": "Retired from active generation and editor palettes. Legacy saves migrate to V7 Sand; coastlines transition directly into V7 Water_Shallows_Sand."
+    },
+    {
+      "code": "gravel",
+      "label": "Gravel",
+      "tileKind": "PebbleShore",
+      "category": "ground",
+      "editorGroup": "Ground",
+      "paintMode": "direct",
+      "status": "production",
+      "topology": "ground_corner",
+      "validBiomes": [
+        "coastal",
+        "temperate",
+        "highlands",
+        "river_wetland",
+        "cave"
+      ],
+      "notes": "General walkable Gravel ground. It may be used along shores, but does not imply shoreline semantics. Missing direct V7 pairs use reviewed V7-only connector tuples while the Gravel owner fill remains unchanged."
+    },
+    {
+      "code": "shore_foam",
+      "label": "Shore Foam",
+      "tileKind": "ShoreFoam",
+      "category": "shore",
+      "editorGroup": "Shore",
+      "paintMode": "generated",
+      "status": "incomplete",
+      "topology": "water_edge_overlay",
+      "validBiomes": [
+        "coastal",
+        "river_wetland"
+      ],
+      "notes": "Legacy visual-only alias. Hidden from active V7 terrain painting; V7 Water_Shallows_Sand supplies the authored ocean edge."
+    },
+    {
+      "code": "mud",
+      "label": "Mud",
+      "tileKind": "MudBank",
+      "category": "ground",
+      "editorGroup": "Ground",
+      "paintMode": "direct",
+      "status": "production",
+      "topology": "ground_corner",
+      "validBiomes": [
+        "river_wetland",
+        "temperate",
+        "coastal",
+        "cave",
+        "farm"
+      ],
+      "notes": "General walkable Mud ground. Watered tilled soil is a separate farming state. Missing direct V7 pairs use reviewed V7-only connector tuples."
+    },
+    {
+      "code": "road",
+      "label": "Road",
+      "tileKind": "Road",
+      "category": "path",
+      "editorGroup": "Paths",
+      "paintMode": "direct",
+      "status": "production",
+      "topology": "complete_ground_corner",
+      "validBiomes": [
+        "temperate",
+        "town",
+        "farm",
+        "coastal",
+        "forest"
+      ],
+      "notes": "General dirt/tan travel path."
+    },
+    {
+      "code": "stone_path",
+      "label": "Stone Path",
+      "tileKind": "StonePath",
+      "category": "path",
+      "editorGroup": "Paths",
+      "paintMode": "direct",
+      "status": "incomplete",
+      "topology": "path_ground_corner",
+      "validBiomes": [
+        "town",
+        "temperate",
+        "interior",
+        "cave"
+      ],
+      "notes": "Should be constructed path stone; must separate from Pebble Shore."
+    },
+    {
+      "code": "mountain_path",
+      "label": "Mountain Path",
+      "tileKind": "MountainPath",
+      "category": "path",
+      "editorGroup": "Paths",
+      "paintMode": "direct",
+      "status": "incomplete",
+      "topology": "path_ground_corner",
+      "validBiomes": [
+        "highlands",
+        "forest",
+        "cave"
+      ],
+      "notes": "Needs missing pair coverage against sand/dirt/grass. Active certification source lane: V7 only; hidden from ElizaWy style palettes."
+    },
+    {
+      "code": "bridge",
+      "label": "Bridge",
+      "tileKind": "Bridge",
+      "category": "path_structure",
+      "editorGroup": "Paths",
+      "paintMode": "advanced",
+      "status": "preview",
+      "topology": "same_family_structure",
+      "validBiomes": [
+        "temperate",
+        "coastal",
+        "river_wetland",
+        "town"
+      ],
+      "notes": "Should eventually be object/stamp or structural path with placement rules over water."
+    },
+    {
+      "code": "water",
+      "label": "Water",
+      "tileKind": "Water",
+      "category": "water",
+      "editorGroup": "Water",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "water_depth_corner",
+      "validBiomes": [
+        "coastal",
+        "river_wetland",
+        "temperate",
+        "forest",
+        "cave"
+      ],
+      "notes": "Generic water; should normalize into shallow/deep bands where appropriate."
+    },
+    {
+      "code": "shallow_water",
+      "label": "Shallow Water",
+      "tileKind": "ShallowWater",
+      "category": "water",
+      "editorGroup": "Water",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "water_depth_corner",
+      "validBiomes": [
+        "coastal",
+        "river_wetland",
+        "temperate",
+        "forest"
+      ],
+      "notes": "Required gameplay border between land/shore and deep water. V7 Water_Shallows_Dirt transitions through exact V7 tuples; no generated foam or cross-style depth overlay."
+    },
+    {
+      "code": "deep_water",
+      "label": "Deep Water",
+      "tileKind": "DeepWater",
+      "category": "water",
+      "editorGroup": "Water",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "water_depth_corner",
+      "validBiomes": [
+        "coastal",
+        "river_wetland"
+      ],
+      "notes": "Deep water interior; must not touch land directly."
+    },
+    {
+      "code": "river_water",
+      "label": "River Water",
+      "tileKind": "RiverWater",
+      "category": "water",
+      "editorGroup": "Water",
+      "paintMode": "generated",
+      "status": "incomplete",
+      "topology": "river_water_corner",
+      "validBiomes": [
+        "river_wetland",
+        "forest",
+        "temperate"
+      ],
+      "notes": "Generated/advanced river channel material."
+    },
+    {
+      "code": "river_mouth_blend",
+      "label": "River Mouth Blend",
+      "tileKind": "RiverMouthBlend",
+      "category": "water",
+      "editorGroup": "Water",
+      "paintMode": "generated",
+      "status": "incomplete",
+      "topology": "river_ocean_transition",
+      "validBiomes": [
+        "coastal",
+        "river_wetland"
+      ],
+      "notes": "Generated where river water meets ocean/lake/shore."
+    },
+    {
+      "code": "ocean_shallow",
+      "label": "Ocean Shallow",
+      "tileKind": "OceanShallow",
+      "category": "water",
+      "editorGroup": "Water",
+      "paintMode": "generated",
+      "status": "incomplete",
+      "topology": "ocean_depth_band",
+      "validBiomes": [
+        "coastal"
+      ],
+      "notes": "Generated coastal ocean band. Renders through terrain-v7 Water so it can transition cleanly into Water_Deep."
+    },
+    {
+      "code": "ocean_deep",
+      "label": "Ocean Deep",
+      "tileKind": "OceanDeep",
+      "category": "water",
+      "editorGroup": "Water",
+      "paintMode": "generated",
+      "status": "incomplete",
+      "topology": "ocean_depth_band",
+      "validBiomes": [
+        "coastal"
+      ],
+      "notes": "Generated open-ocean interior."
+    },
+    {
+      "code": "cliff",
+      "label": "Cliff",
+      "tileKind": "Cliff",
+      "category": "rock",
+      "editorGroup": "Rock",
+      "paintMode": "direct",
+      "status": "incomplete",
+      "topology": "structural_rock",
+      "validBiomes": [
+        "highlands",
+        "coastal",
+        "cave"
+      ],
+      "notes": "Structural cliff topology; explicitly not ground-corner mapped."
+    },
+    {
+      "code": "mountain_rock",
+      "label": "Rock Ground",
+      "tileKind": "MountainRock",
+      "category": "rock_ground",
+      "editorGroup": "Ground",
+      "paintMode": "direct",
+      "status": "production",
+      "topology": "ground_corner",
+      "validBiomes": [
+        "highlands",
+        "cave",
+        "temperate"
+      ],
+      "notes": "Walkable natural Rock Ground backed by V7 Rock_Dark. Vertical cliffs are derived from elevation and use a separate structural provider."
+    },
+    {
+      "code": "cave_floor",
+      "label": "Cave Floor",
+      "tileKind": "CaveFloor",
+      "category": "cave",
+      "editorGroup": "Cave",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "ground_or_cave_floor",
+      "validBiomes": [
+        "cave"
+      ],
+      "notes": "Cave ground fill; needs cave-specific variants and transitions. Active certification source lane: V7 only; hidden from ElizaWy style palettes."
+    },
+    {
+      "code": "cave_wall",
+      "label": "Cave Wall",
+      "tileKind": "CaveWall",
+      "category": "cave",
+      "editorGroup": "Cave",
+      "paintMode": "direct",
+      "status": "incomplete",
+      "topology": "same_family_wall",
+      "validBiomes": [
+        "cave"
+      ],
+      "notes": "Cave wall family; not part of generic ground blending."
+    },
+    {
+      "code": "wall",
+      "label": "Wall",
+      "tileKind": "Wall",
+      "category": "interior",
+      "editorGroup": "Interior",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "same_family_wall",
+      "validBiomes": [
+        "interior",
+        "town"
+      ],
+      "notes": "Building/interior wall family."
+    },
+    {
+      "code": "wood_floor",
+      "label": "Wood Floor",
+      "tileKind": "WoodFloor",
+      "category": "interior",
+      "editorGroup": "Interior",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "same_family_floor",
+      "validBiomes": [
+        "interior",
+        "town"
+      ],
+      "notes": "Interior/built floor."
+    },
+    {
+      "code": "plank_floor",
+      "label": "Plank Floor",
+      "tileKind": "PlankFloor",
+      "category": "interior",
+      "editorGroup": "Interior",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "same_family_floor",
+      "validBiomes": [
+        "interior",
+        "town"
+      ],
+      "notes": "Interior/built floor."
+    },
+    {
+      "code": "stone_floor",
+      "label": "Stone Floor",
+      "tileKind": "StoneFloor",
+      "category": "interior",
+      "editorGroup": "Interior",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "same_family_floor",
+      "validBiomes": [
+        "interior",
+        "town",
+        "cave"
+      ],
+      "notes": "Interior/dungeon floor."
+    },
+    {
+      "code": "brick_floor",
+      "label": "Brick Floor",
+      "tileKind": "BrickFloor",
+      "category": "interior",
+      "editorGroup": "Interior",
+      "paintMode": "direct",
+      "status": "preview",
+      "topology": "same_family_floor",
+      "validBiomes": [
+        "interior",
+        "town"
+      ],
+      "notes": "Interior/town floor."
+    },
+    {
+      "code": "tilled_soil",
+      "label": "Tilled Soil",
+      "tileKind": "TilledSoil",
+      "category": "farm",
+      "editorGroup": "Farm",
+      "paintMode": "direct",
+      "status": "production",
+      "topology": "farm_soil",
+      "validBiomes": [
+        "farm",
+        "greenhouse"
+      ],
+      "notes": "Farm plot base."
+    },
+    {
+      "code": "watered_soil",
+      "label": "Watered Tilled Soil",
+      "tileKind": "WateredSoil",
+      "category": "farm_state",
+      "editorGroup": "Farm",
+      "paintMode": "derived_state",
+      "status": "production",
+      "topology": "farm_soil_state",
+      "validBiomes": [
+        "farm",
+        "greenhouse"
+      ],
+      "notes": "Created only by watering a TilledSoil gameplay cell; not exposed as a direct terrain brush."
+    },
+    {
+      "code": "crop_seedling",
+      "label": "Crop Seedling",
+      "tileKind": "Crop",
+      "category": "farm",
+      "editorGroup": "Farm",
+      "paintMode": "generated",
+      "status": "incomplete",
+      "topology": "crop_overlay",
+      "validBiomes": [
+        "farm",
+        "greenhouse"
+      ],
+      "notes": "Gameplay crop state, not ordinary terrain painting."
+    },
+    {
+      "code": "greenhouse_zone",
+      "label": "Greenhouse Zone",
+      "tileKind": "GreenhouseZone",
+      "category": "deferred",
+      "editorGroup": "Deferred",
+      "paintMode": "deferred",
+      "status": "deferred",
+      "topology": "interior_scene_transition_marker",
+      "validBiomes": [
+        "greenhouse"
+      ],
+      "notes": "Not overworld terrain. Greenhouse stamp should transition into a greenhouse interior scene."
+    }
+  ]
+}

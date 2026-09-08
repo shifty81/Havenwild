@@ -1,0 +1,8 @@
+{
+  "schema":"havenwild.gameplay.lpc_intake.tavern_interiors_storage.r24.v1",
+  "pass":"W81R24",
+  "assetFamilies":["tavern","inn","bar","kitchen","brewery","tables","chairs","stools","fireplaces","stoves","pots","brewing_vessels","glassware","utensils","rugs","banners","lighting","beds","furniture","crates","barrels","sacks","baskets","jars"],
+  "gameplayLoops":["tavern_management","cooking","brewing","guest_rooms","staff_workstations","storage","stock","serving","entertainment","decorating","shops","business"],
+  "storageSemantics":{"crate":"general_goods","barrel":"liquid_or_bulk_food","basket":"crops","sack":"grain_or_bulk_dry","chest":"valuables","jar_pot":"ingredients_or_preservation"},
+  "productionRule":"Visual container type may drive default storage filters while preserving player-configurable storage policies."
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "havenwild.editor.asset_promotion_authority.r30.v1",
+  "pass": "167Z109W81R30",
+  "principles": [
+    "Source discovery and production binding are separate states.",
+    "Batch promotion is the default for compatible LPC families; manual Finish Setup is the repair path.",
+    "Unknown or blocked licensing fails closed.",
+    "Promotion never mutates upstream source files; Havenwild metadata and derivatives remain separate."
+  ],
+  "states": [
+    "cataloged",
+    "license_cleared",
+    "compatibility_verified",
+    "havenwild_approved",
+    "production_ready",
+    "needs_repair",
+    "blocked"
+  ],
+  "semanticTypes": [
+    "terrain_material",
+    "terrain_transition",
+    "structural_cliff",
+    "tree",
+    "plant",
+    "crop",
+    "resource_node",
+    "furniture",
+    "container",
+    "lighting",
+    "building_part",
+    "workstation",
+    "food",
+    "tool",
+    "weapon",
+    "shield",
+    "creature",
+    "vehicle",
+    "effect",
+    "audio"
+  ],
+  "wizardFields": [
+    "semantic_type",
+    "display_name",
+    "gameplay_tags",
+    "placement_footprint",
+    "collision_profile",
+    "interaction_profile",
+    "animation_profile",
+    "biome_tags",
+    "season_tags",
+    "icon_recipe",
+    "world_representation",
+    "selected_license",
+    "attribution",
+    "source_checksum"
+  ],
+  "batchProfiles": [
+    "terrain_family",
+    "seasonal_vegetation_family",
+    "resource_family",
+    "furniture_family",
+    "container_family",
+    "crafting_station_family",
+    "tool_weapon_family",
+    "fx_family"
+  ],
+  "actions": [
+    "inspect_source",
+    "finish_setup",
+    "batch_promote_family",
+    "validate",
+    "promote",
+    "open_source",
+    "where_used"
+  ]
+}

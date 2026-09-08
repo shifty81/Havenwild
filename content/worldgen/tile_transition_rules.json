@@ -1,0 +1,69 @@
+{
+  "schema": "havenwild.worldgen.tile_transition_rules.v1",
+  "tile_size": 32,
+  "autotile_mask": {
+    "type": "8_neighbor_bitmask",
+    "bits": {
+      "N": 1,
+      "E": 2,
+      "S": 4,
+      "W": 8,
+      "NE": 16,
+      "SE": 32,
+      "SW": 64,
+      "NW": 128
+    },
+    "rule": "Primary cardinal neighbors choose edge/corner connectivity. Diagonals only matter when both adjacent cardinals exist."
+  },
+  "transition_priority": [
+    "interior_void",
+    "wall",
+    "mountain_rock",
+    "cliff",
+    "deep_water",
+    "water",
+    "shallow_water",
+    "wet_sand",
+    "sand",
+    "pebble_shore",
+    "mud",
+    "dirt",
+    "grass",
+    "road",
+    "floor"
+  ],
+  "height_to_tile_default": [
+    { "when": "height <= water_level - 10", "tile": "deep_water" },
+    { "when": "height <= water_level - 3", "tile": "water" },
+    { "when": "height <= water_level", "tile": "shallow_water" },
+    { "when": "height <= water_level + 4", "tile": "wet_sand" },
+    { "when": "height <= water_level + 10", "tile": "sand" },
+    { "when": "height >= mountain_level + 10", "tile": "mountain_rock" },
+    { "when": "height >= mountain_level", "tile": "cliff" },
+    { "when": "else", "tile": "grass" }
+  ],
+  "must_have_edges": [
+    { "from": "deep_water", "to": "water", "reason": "prevents hard ocean/lake edge" },
+    { "from": "water", "to": "shallow_water", "reason": "readable fishable shoreline" },
+    { "from": "shallow_water", "to": "wet_sand", "reason": "visible waterline" },
+    { "from": "wet_sand", "to": "sand", "reason": "coastal blend" },
+    { "from": "sand", "to": "grass", "reason": "island beach into land" },
+    { "from": "grass", "to": "dirt", "reason": "farm fields and worn paths" },
+    { "from": "dirt", "to": "road", "reason": "road readability" },
+    { "from": "grass", "to": "cliff", "reason": "height step" },
+    { "from": "cliff", "to": "mountain_rock", "reason": "mountain band" },
+    { "from": "cave_floor", "to": "cave_wall", "reason": "underground navigation" },
+    { "from": "wood_floor", "to": "wall", "reason": "interior room boundary" }
+  ],
+  "state_layers_not_tiles": [
+    "soil_quality",
+    "watered_today",
+    "fertilized",
+    "crop_growth_stage",
+    "seasonal_tint",
+    "construction_state",
+    "cleanliness",
+    "room_zone",
+    "fish_population"
+  ]
+}

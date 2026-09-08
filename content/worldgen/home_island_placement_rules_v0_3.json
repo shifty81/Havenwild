@@ -1,0 +1,95 @@
+{
+  "id": "home_island_placement_rules_v0_3",
+  "version": "0.3.0",
+  "kind": "worldgen_placement_rules",
+  "tileSize": [
+    32,
+    32
+  ],
+  "rules": {
+    "multiTileObjects": {
+      "rectMode": "top_left_rectangles",
+      "visualRect": "may be larger than collisionRect",
+      "collisionRect": "authoritative for blocking pathing",
+      "interactionRects": "authoritative for use prompts/click targets",
+      "origin": "top_left for generated scenes; editor may add pivot/origin later"
+    },
+    "trees": {
+      "normalMatureVisualMax": [
+        3,
+        5
+      ],
+      "normalCollision": [
+        1,
+        1
+      ],
+      "specialLandmarkVisualMax": [
+        5,
+        5
+      ],
+      "specialLandmarkCollisionMax": [
+        2,
+        2
+      ],
+      "fadeWhenPlayerBehind": true,
+      "seasonVariants": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "previewStates": [
+        "sapling",
+        "young",
+        "mature_3x3",
+        "tall_mature_3x5",
+        "special_5x5",
+        "stump",
+        "chopped_fallen"
+      ]
+    },
+    "walls": {
+      "minimumVisualHeightTiles": 3,
+      "minimumVisualThicknessTiles": 2,
+      "fadeRadiusTiles": 2,
+      "requiresOcclusionLayer": true
+    },
+    "tablesAndSeating": {
+      "seatAttachments": "generic_adjacent_tile_points",
+      "individualTableSeats": 1,
+      "smallTableSeats": 2,
+      "mediumTableSeats": 4,
+      "largeTableSeats": 6,
+      "chairsMustBeDetachedManuallyInBuildMode": true
+    },
+    "sceneEdges": {
+      "mustAvoidExposedVoid": true,
+      "resolveAgainstWorldSurfaceNeighbors": true,
+      "fallbacks": [
+        "dense_forest",
+        "cliff_wall",
+        "ocean_edge",
+        "interior_black_void",
+        "cave_darkness"
+      ]
+    },
+    "water": {
+      "families": [
+        "ocean",
+        "freshwater",
+        "river",
+        "river_mouth_blend"
+      ],
+      "riverToOceanTransitionRequired": true,
+      "shorelineAnimationFrames": 4,
+      "oceanWaveFrames": 6
+    }
+  },
+  "validation": {
+    "rejectObjectOutsideScene": true,
+    "warnIfVisualRectExceedsScene": true,
+    "rejectCollisionOutsideScene": true,
+    "rejectVoidBorder": true,
+    "requireReturnTransitions": true
+  }
+}

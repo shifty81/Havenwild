@@ -1,0 +1,2890 @@
+{
+  "schema": "havenwild.tool.registry.v1",
+  "version": "167Z43",
+  "rootLauncher": "HavenwildTools.cmd",
+  "policy": {
+    "singleRootLauncher": true,
+    "looseAutomationFilesAllowed": false,
+    "canonicalLogsRoot": "logs/",
+    "canonicalDocumentationRoot": "docs/",
+    "canonicalManifestRoot": "manifests/",
+    "activeValidationRoot": "tools/automation/validation/",
+    "historicalValidationRoot": "tools/automation/validation/checks/"
+  },
+  "entries": [
+    {
+      "path": "tools/automation/validation/checks/architecture/Validate-DevelopmentLayoutEquipmentSlotsPass167Z43.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-LpcProjectFoundationPass167Z40.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-UlpcPartialActionGeometryPass167Z42.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/archive/legacy_pass_tools/Apply-Pass92A.cmd",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.cmd",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.sh",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "sh"
+    },
+    {
+      "path": "tools/archive/legacy_pass_tools/VERIFY_PASS161D6R.cmd",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/archive/legacy_pass_tools/VERIFY_PASS161D6R1.cmd",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/archive/legacy_pass_tools/VERIFY_PASS161D6R2.cmd",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/automation/archive/pass145_compatibility/archived_manifest_tasks.json",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "json"
+    },
+    {
+      "path": "tools/automation/archive/validators/pass146c/domain_replacements.json",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "json"
+    },
+    {
+      "path": "tools/automation/assets/Acquire-OgaLpcGameplayBatchV167S.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Apply-IncorrectGameplayToolAtlasRemovalPass92A.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Bake-AssetIntakeAtlasV66.ps1",
+      "domain": "automation",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/assets/Bake-AssetIntakeAtlasV66.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Build-ElizaWyProjectAssetAuditV167Z38.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Build-HavenwildAssetUtilizationAuditV115.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Build-HavenwildOpenAssetCredits.cmd",
+      "domain": "automation",
+      "status": "active",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/automation/assets/Build-LpcProjectFoundationV167Z40.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Build-OgaLpcCliffCatalogV167Q.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Catalog-ExternalSpriteLibrary.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/DryRun-PrototypeAssetBakeV29.ps1",
+      "domain": "automation",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/assets/DryRun-PrototypeAssetBakeV29.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Generate-AssetCatalog.ps1",
+      "domain": "automation",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/assets/Generate-AssetCatalog.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Generate-Havenwild2p5DGridAssets.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Generate-PrototypeAssets.ps1",
+      "domain": "automation",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/assets/Prepare-ExternalAssetPack.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Promote-LpcRuntimeAssets.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/archive/web_editor/Start-AssetEditor.ps1",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/characters/Bootstrap-UniversalLpcGenerator.cmd",
+      "domain": "automation",
+      "status": "active",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/automation/characters/Build-LpcPlayerAtlas.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-ModularLpcCharacterLayers.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcBroadCreditsV167Y.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcCharacterAuthorityV167V.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcCharacterAuthorityV167W.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcCompleteRepositoryIndexV167Z7.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcGameplayWardrobe.cmd",
+      "domain": "automation",
+      "status": "active",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcGameplayWardrobeV167Y6.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcRuntimeComponentV167Z40.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcUsageManifest.cmd",
+      "domain": "automation",
+      "status": "active",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/automation/characters/Build-UniversalLpcUsageManifestV167X.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/characters/Ensure-UniversalLpcGenerator.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/common/__init__.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/common/atomic_io.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/dependencies/Ensure-LpcDependency.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/packaging/Create-ChatGPTSourceRollup.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/packaging/Create-SourceOnlyRollup.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/project/Build-LpcMappingQueuesV148Y.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/project/Build-LpcProductionTilesetAndLivestockV167U.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/project/Build-LpcRevisedInventoryV148X.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/project/Normalize-WorkspaceLayout.py",
+      "domain": "project",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/project/Stamp-GeneratedOutputProvenanceV146D.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/README.md",
+      "domain": "automation",
+      "status": "active",
+      "kind": "md"
+    },
+    {
+      "path": "tools/automation/release/Build-HavenwildOpenAssetCreditsV167Y.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/release/Build-UniversalLpcOpenAssetBundleV167W.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/release/Stage-ApplicationContent.py",
+      "domain": "release",
+      "status": "active",
+      "kind": "python"
+    },
+    {
+      "path": "tools/automation/reports/Build-ReportV146E.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/reports/lpc_terrain_pattern_audit_v147r.json",
+      "domain": "automation",
+      "status": "active",
+      "kind": "json"
+    },
+    {
+      "path": "tools/automation/reports/lpc_terrain_pattern_audit_v147r.md",
+      "domain": "automation",
+      "status": "active",
+      "kind": "md"
+    },
+    {
+      "path": "tools/automation/reports/Write-BuildAttestationV146E.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Audit-LpcTerrainPatternsV147R.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-LpcMappedTerrainV7.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-LpcPathGroundPromotionV137.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-LpcProductionTuplePromotionV136.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-LpcSeasonalTerrainTopologyV106.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-LpcSummerRuntimeConformanceV107.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-LpcTerrainSummerCompleteMapV103.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-LpcTupleCoverageAuditV133.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-LpcTuplePromotionPlanV134.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-OpenGameArtTerrainCatalogV123.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Build-TiledCornerTerrainCatalog.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Ensure-BaseTerrainBootstrapV145D.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Generate-GodotStyleTerrainCoverageBoardV147R.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Generate-HavenwildProductionTerrainPass59.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Generate-LiveAutotileAtlas.ps1",
+      "domain": "automation",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/terrain/Generate-LiveAutotileAtlas.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Generate-TerrainAcceptanceScenes.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Promote-LpcExpandablePondsV87.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Promote-LpcTerrainCoastlinesV85.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Promote-LpcTerrainCoastlinesV86.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Promote-LpcTerrainFamiliesV90.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Promote-LpcTerrainV84.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Render-TerrainLpcCertification.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/terrain/Sync-LpcSummerRuntimeMetadataV108.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/__init__.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetIntakeBootstrapV145E.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetPackDiscoveryAndMigrationV148D.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetPaletteAtlasBindingV65.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetPaletteAtlasBindingV65.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetReferencePreviewStubV32.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetReferencePreviewStubV32.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetSourceAvailabilityUiV30.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetSourceAvailabilityUiV30.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetSourceLocalImportInstructionsV31.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-AssetSourceLocalImportInstructionsV31.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-CategoryMetadataAndTiledNormalizationV148C.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-ClientCameraZoomAtlasTestHotfixV99.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-DonorReferenceAssetCatalogV27.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-DonorReferenceAssetCatalogV27.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-ExternalAssetIntakeV25.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-ExternalAssetIntakeV25.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-ExternalAssetPackIntakeV83.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-GeneratedAssetBuildGraphV146.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-GenericMultitileStampSystemV78.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-GenericPlaceablePersistenceV148N.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-GenericPlaceableStateTransitionsV148P.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-HavenAssetsBootstrapAndTestsV145L.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-HavenwildAssetUtilizationAuditV115.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-LpcPlaceableObjectPromotionV119.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-LpcProductionAssetsV167U.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-OgaLpcCommercialIntake.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-OpenAssetBroadCreditsV167Y.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-PackDefinedPlaceableAssetsV148M.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-PrototypeAssetBakeDryRunV29.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-PrototypeAssetBakeDryRunV29.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-PrototypeAssetImportAdapterV26.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-PrototypeAssetImportAdapterV26.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-RuntimeAssetAdapterMigrationV148G.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-RuntimeStartupAssetCacheV148H.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-SemanticStampDiscoveryV148L.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-SharedSemanticAssetResolutionV148F.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-StablePlaceableRuntimeDispatchV148O.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-StableTextureCacheV148I.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-StampUpdateRequestImportV91.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-StateGeometryAndBehaviorExecutionV148Q.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-TransitionAtlasGroupRustSyntaxV109.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-UniversalAssetPackFoundationV148A.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-WorldAssetEditBindings.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-AntiMonolithGuardrailsV37.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-AntiMonolithGuardrailsV37.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-AtomicGenerationV146D.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-BashBuildEntrypointV69.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-BuildAttestationV146E.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-BuildPipelinePass156A.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-CapabilityValidatorHotfixPass156A1.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-CleanSourceBuildV146.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-CompileWarningCleanupV46.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-CompileWarningCleanupV46.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-GameCompileHotfixV48.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-GameCompileHotfixV48.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-GeneratedOutputFreshnessV146B.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-GeneratedOutputProvenanceV146D.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-HavenToolsNamespacedExportsV52.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-HavenToolsNamespacedExportsV52.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-LpcDependencyAcquisitionV145B.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-LpcDependencyMountV104.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-PythonUtf8BuildReportsV145F.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-RecurringCompileFixesV53.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-RecurringCompileFixesV53.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-RustWorkspaceContractV146.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-SemanticResourceProvidersV148K.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-SourceRollupBootstrapV145A.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-SourceRollupCompletenessV146.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-TestableFoundationGateV149A.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-UnifiedBuildReportingV146E.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-ValidationFrameworkSelfTestsV146B.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-ValidationNormalizationV141.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-ValidatorExecutionResponsivenessV146G.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-ValidatorFrameworkV146B.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-ValidatorQualityV146.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/build/Validate-WindowsBuildPortabilityV146.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-AnimatedCharacterRuntimeV149I.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterClientIntegrationV138.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterCreationFoundationV136.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterCreatorCatalogV149J18.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterCreatorGuiV139.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterCreatorLayoutV149J23.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterCreatorWardrobeV167Y5.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterProfileAndWardrobeV137.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterRuntimeIntegrationV150H.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterSelectionCreatorUiV148S.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterSheetCatalogAndWorldParityV149J22.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterSpriteRuntimeV140.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterStudioUsageTrackingV167X.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterVisualFidelityV149J24.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterVisualFrontendV148T.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterWorldRuntimeStateV148V.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-CharacterWorldSyncV148W.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-GameplayCharacterEquipmentPolicyV149J30.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-GameplayWardrobeV167Y6.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-InteractiveCharacterCreatorV149H.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-LpcCharacterInventoryAndIdleV149J27.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-LpcCharacterProductionCatalogV149J28.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-LpcCharacterRepositoryPromotionV149J26.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-LpcCharacterSemanticChannelsV149J25.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-LpcSparseWaterAnimationV130.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationAndShoreDepthV128.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationOwnershipV129.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-ModularLpcCharacterRuntimeV149J16.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-NativeAnimationStudioV80.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-PixelAnimationRoundtripBridgeV82.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-ProductionLpcRuntimeBindingV149J.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-StarterCreatorScopeV149J29.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-UniversalLpcCharacterAuthorityV167V.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-UniversalLpcCharacterPipelineV148R.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/characters/Validate-UniversalLpcShareAlikeV167W.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-AssetIntakeAtlasAuthoringV66.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-AssetIntakeAtlasAuthoringV66.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-AssetReferenceBrowserV28.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-AssetReferenceBrowserV28.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-ClientSavePreviewPauseMenuV75.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-ContinuousSurfaceCanvasV149C.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-EditorArchitectureNormalizationV58.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-EditorArchitectureNormalizationV58.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-EditorCommandUndoNormalizationV145.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-EditorRegistryDerivedTestsV110.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-LpcClientEditorStabilityV102.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-NativeEditorStartupRenderStabilityV105.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-NativePixelStudioV79.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-OperationalPixelStudioV149G.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-PermanentCanvasToolingV57.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-PermanentCanvasToolingV57.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-PixelDocumentLayerSystemV81.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-ProductionInfiniteCanvasToolsV62.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-ProductionInfiniteCanvasToolsV62.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-ProductionObjectOutlinerInspectorV63.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-ProductionObjectOutlinerInspectorV63.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-StableSelectionHitTestingV60.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-StableSelectionHitTestingV60.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-StampInspectorClippyHotfixV90.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-TransactionalUndoV61.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-TransactionalUndoV61.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-UniversalContentBrowserV148E.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-UniversalImportProviderFrameworkV148B.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/persistence/Validate-ClientSaveSlotsV74.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/persistence/Validate-LpcEnvironmentTileMigrationV112.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/persistence/Validate-NativeValidatorMigrationV146C.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/persistence/Validate-SaveGenerationValidatorCompatibilityV145G.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/persistence/Validate-SaveMigrationCompatibilityV146.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-AdaptiveRenderBudgetPass153N.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-AnimatedWaterPass153B.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-CameraZoomOrientationHotfix.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-ClientCameraZoomClippyHotfixV100.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-FrameProfilePass153K.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-PerformanceSnapshotPass153M.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-PresentationGapProfilingPass153L.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-ProductionRenderCheckpointPass154A.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-RenderBudgetPass153J.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-RetainedCommandCoordinateParityPass154F.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-RetainedCommandParityPass154E.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-RuntimeDiagnosticsExtractionPass153T.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-RuntimeViewCullingUnitIsolationV96.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-StableRenderBindingsV148J.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-TransitionWorklistPass153G.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-VisibleTraversalCachePass153U.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/rendering/Validate-VisibleTraversalTelemetryPass153V.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-BaseTerrainBootstrapV145D.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-BaseTerrainChunkCachePass153Q.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-CoastlineCleanupV12.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ExpandablePondBootstrapV145M.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-GenericTiledTerrainCatalogV123.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-GodotTerrainReferenceAuditV147R.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LiveAutotileTerrainTransitionsV64.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LiveAutotileTerrainTransitionsV64.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcAuthoredReplacementRolesV111.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcClosedSandGrassCornerTopologyV121.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcCoastlineSaveRegenerationV85.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcCompleteRoleTerrainRuntimeStabilityV98.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcEdgeSignatureSeamsV108.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcEnvironmentTopologyPolicyV117.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcExpandablePondFamiliesV86.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcMappedEditorTerrainAndWaterPaintV135.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainReplacementV122.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainRuntimePerformanceV124.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainRuntimePerformanceV124.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainRuntimePromotionV128.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcMappedTupleFallbackV131.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcMappingQueuesV148Y.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcMixedCornerTopologyV116.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcPaintTopologySharedLifecycleV145J.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcPaintTopologyStabilityV114.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcPathAutotilePromotionV85.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcPathGroundPromotionV137.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcProductionTuplePromotionV136.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcRevisedRepositoryInventoryV148X.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcSameFamilyPromotionPlanV118.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcSandGrassBlobTerrainV127.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcSeasonalTerrainTopologyV106.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcSparseLandTileOwnershipV126.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcStampCandidateIntakeV120.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcStructuralRockTerrainDeferralV125.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcSummerRuntimePromotionV107.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcTerrainDetailEditorWindowV123.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcTerrainFamilyFoundationV93.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcTerrainOwnerSideWorldTestsV97.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcTerrainSummerCompleteMapV103.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcTileAwareTerrainTransitionsV84.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcTupleCoverageAuditV133.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcTuplePromotionPlanV134.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-LpcUniversalAutotilePolicyV113.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-NativeAutotileBoundaryFallbackV124.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-OrganicCoastlineLpcAtlasV84.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ProductionTerrainTilesV76.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-RuntimePathPaintBindingStabilizationV92.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ShapeMaterialTerrainPass155B.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ShoreFoamTestContractV145N.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ShoreLifecycleRingGeometryV145O.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleContractV146.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleV138.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ShoreWaterNormalizationV127.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-ShoreWaterValidatorSharedLifecycleV145K.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainAtlasManifestV14.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainAtlasTransitionsV13.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainDebugOverlayV11.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainMaterialRegistryV126.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainPromotionPass151.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftAutoFixV23.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftDiagnosticsV22.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftEditorV19.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftPromotionV20.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftUndoV24.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionManifestReloadV21.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionRuleEditorV18.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionRuleInspectorV16.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionRulePreviewV17.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionRulesV15.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-TerrainWorldSemanticRegistryV142.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-UltraWideWaterLodPass153I.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-V7TerrainAuthorityPass152A.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-V7WaterMaskFoundationPass153A.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-VisibleTerrainSnapshotPass153P.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-VisibleTerrainWorklistPass153H.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WaterDetailLodPass153D.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WaterMaskCachePass153E.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WaterMaterialPass155A.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WaterOpticsContractPass153C.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WaterPassBatchingPass153F.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WaterRenderBudgetExtractionPass153O.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintBrushBackendV34.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintBrushBackendV34.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintDeltaPersistenceV35.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintDeltaPersistenceV35.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintDeltaReplayV38.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintDeltaReplayV38.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintLayerCompositionV47.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintLayerCompositionV47.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialAdjacencyV42.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialAdjacencyV42.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialInspectorV41.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialInspectorV41.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialStateLayerV40.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialStateLayerV40.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintMirrorAndPixelEditorV36.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintMirrorAndPixelEditorV36.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintRenderBindingV44.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintRenderBindingV44.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintRenderCacheV45.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintRenderCacheV45.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintSaveLoadIntegrationV39.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintSaveLoadIntegrationV39.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintSingleCellOverlayV125.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintTransitionTileResolverV43.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/Validate-WorldPaintTransitionTileResolverV43.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/terrain/validate_terrain_material_bindings.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ArchipelagoClippyCleanV145I.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldSkeletonV140.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldTileCoordImportV145H.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ChunkPersistenceNormalizationV144.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ChunkSurfaceDescriptorCachePass154B.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ContinuousOverworldStreamingV149D.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-DynamicWorldRuntimeV148U.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleClippyHotfixV89.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleCompileHotfixV88.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleLegacyMigrationV87.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneStarterGenerationV95.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-FirstIslandAssetGuiContractsV55.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-FirstIslandAssetGuiContractsV55.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-HavenwildOpenWorldPreset.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-IslandAssemblySaveRoutesV72.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-IslandPcgTestPathV70.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ProceduralChunkResidencyV149E.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-ProductionEnvironmentLibraryV77.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-RetainedChunkCommandBuffersPass154C.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-RetainedChunkExecutionPass154D.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-RetainedChunkTelemetryPass153S.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SceneBankRuntimeFramingV68.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SceneIdentityMigrationV54.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SceneIdentityMigrationV54.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SceneReferenceBridgeV56.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SceneReferenceBridgeV56.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SceneRegistryExpandedSpawnTestV94.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SceneRegistryFoundationNormalizationV59.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SceneRegistryFoundationNormalizationV59.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SeededArchipelagoSpacingV73.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-StructuralArchipelagoWorkspaceV71.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-SurfaceChunkJobsCacheAndDeltasV149F.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-VisibleChunkTraversalPass153R.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldCanvasIslandPcgHarborV67.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldCanvasSceneBankV51.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldCanvasSceneBankV51.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenAssets.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenAssets.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenEditorOverlayV07.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenEditorOverlayV07.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldGenerationPipelineOwnershipV143.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintEditorV09.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintEditorV09.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV06.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV06.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV07.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV07.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV08.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV08.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV09.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV09.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV10.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV10.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenLoaderV05.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenObjectOutlinerV08.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenObjectOutlinerV08.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenRuntimeIndex.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenRuntimeIndex.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenSceneExportV10.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldgenSceneExportV10.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldTileContractV33.ps1",
+      "domain": "automation",
+      "status": "archived",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WorldTileContractV33.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/worldgen/Validate-WrappedWorldCoordinateFoundationV139.py",
+      "domain": "archive",
+      "status": "archived",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/context.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/domains/current_contract.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/domains/editor_contract.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/domains/framework_contract.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/domains/terrain_promotion.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/domains/terrain_runtime.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/domains/terrain_water.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/domains/world_contract.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/generated_outputs.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/native.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/README.md",
+      "domain": "automation",
+      "status": "active",
+      "kind": "md"
+    },
+    {
+      "path": "tools/automation/validation/readonly.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/registry.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/reporting.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/result.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/run_capability_suites.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/validate.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/validate_architecture.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/validate_content.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/validate_content_integrity.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/validate_development_layout.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/validate_project_content.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/validate_terrain_topology_v167z5.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/validation_runner.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Build-ClientWorldgenTestSceneV167Z.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Build-LpcWorldPaintEnvironmentTest.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Build-WorldgenRuntimeIndex.ps1",
+      "domain": "automation",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/automation/worldgen/Build-WorldgenRuntimeIndex.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Generate-HavenwildProductionEnvironmentPass60.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Generate-HavenwildStampLibraryPreviewPass61.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Generate-HavenwildWorldgenExpansion.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Generate-HavenwildWorldTiles.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Generate-HomeIslandScenes.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Generate-StructuralArchipelagoPreviews.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Generate-WorldgenAssets.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/worldgen/Promote-SceneScaleV88.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/build/Build.cmd",
+      "domain": "build",
+      "status": "active",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/build/Build.ps1",
+      "domain": "build",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/build/Build.sh",
+      "domain": "build",
+      "status": "active",
+      "kind": "sh"
+    },
+    {
+      "path": "tools/build/dev.sh",
+      "domain": "build",
+      "status": "active",
+      "kind": "sh"
+    },
+    {
+      "path": "tools/build/README.md",
+      "domain": "build",
+      "status": "active",
+      "kind": "md"
+    },
+    {
+      "path": "tools/control/ApplyPatchRemovals.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/AuditRoot.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/CertifyTerrainPipeline.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/CollectTerrainCertificationEvidence.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/GenerateTerrainAcceptanceScenes.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/HavenwildTools.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/NormalizationAudit.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/PackageProject.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/ProjectCommandRegistry.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/ProjectStatus.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/README.md",
+      "domain": "control",
+      "status": "active",
+      "kind": "md"
+    },
+    {
+      "path": "tools/control/RebuildTerrainAtlas.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/TerrainAcceptanceAudit.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/TerrainCertificationAudit.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/TerrainGameplayAudit.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/TerrainTupleAudit.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/control/WorkspaceMaintenance.ps1",
+      "domain": "control",
+      "status": "active",
+      "kind": "ps1"
+    },
+    {
+      "path": "tools/README.md",
+      "domain": "README.md",
+      "status": "active",
+      "kind": "md"
+    },
+    {
+      "path": "tools/automation/validation/checks/architecture/Validate-RepositoryContentNormalizationPass167Z106N5.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
+    }
+  ]
+}

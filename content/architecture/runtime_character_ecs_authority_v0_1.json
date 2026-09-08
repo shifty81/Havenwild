@@ -1,0 +1,64 @@
+{
+  "schema": "havenwild.runtime_character_ecs_authority.v0_1",
+  "revision": "167Z109U-v1",
+  "behaviorPreserving": true,
+  "goal": "replace scattered player animation/motion fields with one ECS-backed canonical runtime character state while retaining current controls, collision, stamina, saves and Universal LPC visuals",
+  "authority": {
+    "ecsCrate": "haven_ecs",
+    "ecsWorldType": "haven_ecs::EntityWorld",
+    "entityIdType": "haven_ecs::EntityId",
+    "characterStateType": "haven_sim::CharacterRuntimeState",
+    "characterAnimationIntentType": "haven_sim::CharacterAnimationIntent",
+    "runtimeVisualAdapter": "crates/haven_game/src/character_ecs_runtime.rs",
+    "visualProvider": "existing Universal LPC runtime compositor/cache"
+  },
+  "playerParity": {
+    "positionRemainsGameOwnedThisPass": true,
+    "collisionAndStreamingUnchanged": true,
+    "facingMovesIntoCharacterRuntimeState": true,
+    "movingFlagMovesIntoCharacterRuntimeState": true,
+    "locomotionPhaseMovesIntoCharacterRuntimeState": true,
+    "actionIntentMovesIntoCharacterRuntimeState": true,
+    "actionPhaseMovesIntoCharacterRuntimeState": true,
+    "actionRemainingMovesIntoCharacterRuntimeState": true,
+    "toolActionDurationsUnchanged": true,
+    "lpcFrameSelectionUnchanged": true,
+    "staminaBehaviorUnchanged": true,
+    "saveSchemaUnchanged": true,
+    "networkEnvelopeUnchanged": true
+  },
+  "ecsScope": {
+    "genericTypedComponentStorage": true,
+    "spawnDespawn": true,
+    "typedGetGetMutRemove": true,
+    "entitiesWithComponent": true,
+    "noArchetypeSchedulerYet": true,
+    "noPopulationMigrationYet": true,
+    "noTerrainAsEntities": true,
+    "noWorldPlanAsEntities": true
+  },
+  "futureCharacterLane": {
+    "sharedByPlayerAndNpc": true,
+    "modularNpcGenerator": true,
+    "professionCompositionNotNpcSubclasses": true,
+    "targetProfessions": [
+      "traveler",
+      "explorer",
+      "miner",
+      "logger",
+      "fisherman",
+      "farmer",
+      "merchant",
+      "craftsperson",
+      "harbor_worker"
+    ],
+    "universalLpcRemainsVisualProviderNotGameplayAuthority": true
+  },
+  "scopeGuards": [
+    "U does not migrate terrain, WorldPlan, cave graphs or settlements into ECS",
+    "U does not implement the population simulator, profession AI, economy or schedule system",
+    "U does not change player art or animation timing",
+    "U does not create a second character renderer",
+    "future NPCs consume the same CharacterRuntimeState and visual adapter rather than a bespoke NPC animation path"
+  ]
+}

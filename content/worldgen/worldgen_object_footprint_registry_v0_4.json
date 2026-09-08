@@ -1,0 +1,2324 @@
+{
+  "id": "worldgen_object_footprint_registry_v0_4",
+  "version": "0.4.0",
+  "kind": "object_footprint_registry",
+  "rulesSource": "content/worldgen/home_island_placement_rules_v0_3.json",
+  "records": [
+    {
+      "assetId": "aging_barrel_row",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        8,
+        2
+      ],
+      "collisionFootprint": [
+        8,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "cellar",
+          "objectId": "aging_barrel_row_a",
+          "visualRect": [
+            8,
+            9,
+            8,
+            2
+          ],
+          "collisionRect": [
+            8,
+            10,
+            8,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "bar_counter_stage_01",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        12,
+        2
+      ],
+      "collisionFootprint": [
+        12,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "tavern_interior",
+          "objectId": "main_bar_counter_stage_01",
+          "visualRect": [
+            5,
+            7,
+            12,
+            2
+          ],
+          "collisionRect": [
+            5,
+            8,
+            12,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "cave_mouth_entrance",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        6,
+        5
+      ],
+      "collisionFootprint": [
+        4,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "cave_mouth",
+          "objectId": "cave_entrance",
+          "visualRect": [
+            21,
+            10,
+            6,
+            5
+          ],
+          "collisionRect": [
+            22,
+            14,
+            4,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "fallen_log",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "low_object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "east_woods",
+          "objectId": "forage_log_01",
+          "visualRect": [
+            14,
+            17,
+            3,
+            1
+          ],
+          "collisionRect": [
+            14,
+            17,
+            3,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "greenhouse_stub",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        8,
+        6
+      ],
+      "collisionFootprint": [
+        8,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "south_field",
+          "objectId": "small_greenhouse_marker",
+          "visualRect": [
+            30,
+            19,
+            8,
+            6
+          ],
+          "collisionRect": [
+            30,
+            24,
+            8,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "guest_bed",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        3,
+        2
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "guest_floor",
+          "objectId": "starter_guest_bed_a",
+          "visualRect": [
+            5,
+            6,
+            3,
+            2
+          ],
+          "collisionRect": [
+            5,
+            7,
+            3,
+            1
+          ]
+        },
+        {
+          "sceneId": "guest_floor",
+          "objectId": "starter_guest_bed_b",
+          "visualRect": [
+            21,
+            6,
+            3,
+            2
+          ],
+          "collisionRect": [
+            21,
+            7,
+            3,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "home_ancient_oak_landmark_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        5,
+        5
+      ],
+      "collisionFootprint": [
+        2,
+        2
+      ],
+      "origin": [
+        2,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_apple_tree_mature",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "farmstead",
+          "objectId": "apple_tree_sample",
+          "visualRect": [
+            7,
+            14,
+            3,
+            5
+          ],
+          "collisionRect": [
+            8,
+            18,
+            1,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "home_barrel",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_fallen_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_fallen_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_fallen_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_fallen_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_mature_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_mature_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_mature_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_mature_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_sapling_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_sapling_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_sapling_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_sapling_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_stump_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_stump_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_stump_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_stump_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_tall_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_tall_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_tall_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_tall_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_tree_mature",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "east_woods",
+          "objectId": "birch_tree_cluster_a",
+          "visualRect": [
+            20,
+            6,
+            3,
+            5
+          ],
+          "collisionRect": [
+            21,
+            10,
+            1,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "home_birch_young_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_young_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_young_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_birch_young_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_branch",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": false,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_cave_entrance",
+      "source": "atlas",
+      "objectType": "structure",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_city_house_shell",
+      "source": "atlas",
+      "objectType": "structure",
+      "visualFootprint": [
+        4,
+        4
+      ],
+      "collisionFootprint": [
+        4,
+        1
+      ],
+      "origin": [
+        2,
+        3
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_crate",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_flower_blue",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": false,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_flower_gold",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": false,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_lamp",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_mushroom",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": false,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_fallen_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_fallen_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_fallen_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_fallen_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_mature_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_mature_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_mature_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_mature_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_sapling_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_sapling_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_sapling_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_sapling_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_stump_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_stump_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_stump_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_stump_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_tall_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_tall_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_tall_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_tall_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_tree_mature",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "farmstead",
+          "objectId": "oak_tree_sample",
+          "visualRect": [
+            35,
+            13,
+            3,
+            5
+          ],
+          "collisionRect": [
+            36,
+            17,
+            1,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "home_oak_young_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_young_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_young_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_oak_young_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_outside_bar",
+      "source": "atlas",
+      "objectType": "structure",
+      "visualFootprint": [
+        4,
+        2
+      ],
+      "collisionFootprint": [
+        4,
+        1
+      ],
+      "origin": [
+        2,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "farmstead",
+          "objectId": "outside_bar_stage_01",
+          "visualRect": [
+            28,
+            17,
+            4,
+            2
+          ],
+          "collisionRect": [
+            28,
+            18,
+            4,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_reed",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": false,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_rock_small",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": false,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_shell",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": false,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_sign",
+      "source": "atlas",
+      "objectType": "clutter",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "home_tavern_mountain_entrance",
+      "source": "atlas",
+      "objectType": "structure",
+      "visualFootprint": [
+        6,
+        5
+      ],
+      "collisionFootprint": [
+        6,
+        1
+      ],
+      "origin": [
+        3,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "farmstead",
+          "objectId": "home_tavern_mountain_entrance",
+          "visualRect": [
+            21,
+            6,
+            6,
+            5
+          ],
+          "collisionRect": [
+            21,
+            10,
+            6,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": false
+      }
+    },
+    {
+      "assetId": "large_table_six_seat",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        6,
+        4
+      ],
+      "collisionFootprint": [
+        6,
+        2
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "tavern_interior",
+          "objectId": "starter_large_table",
+          "visualRect": [
+            20,
+            16,
+            6,
+            4
+          ],
+          "collisionRect": [
+            20,
+            17,
+            6,
+            2
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "old_growth_landmark_tree",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        5,
+        5
+      ],
+      "collisionFootprint": [
+        2,
+        2
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "east_woods",
+          "objectId": "special_old_growth_preview",
+          "visualRect": [
+            37,
+            13,
+            5,
+            5
+          ],
+          "collisionRect": [
+            38,
+            17,
+            2,
+            2
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "ore_node_copper",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "low_object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "cave_depths",
+          "objectId": "ore_node_copper_preview",
+          "visualRect": [
+            12,
+            22,
+            1,
+            1
+          ],
+          "collisionRect": [
+            12,
+            22,
+            1,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "stone_signpost",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        1,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "north_road",
+          "objectId": "city_waystone",
+          "visualRect": [
+            25,
+            13,
+            1,
+            2
+          ],
+          "collisionRect": [
+            25,
+            14,
+            1,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    },
+    {
+      "assetId": "stove_oven_2x3",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "visualFootprint": [
+        2,
+        3
+      ],
+      "collisionFootprint": [
+        2,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "requiresManualDetachInBuildMode": false,
+      "sceneUsages": [
+        {
+          "sceneId": "tavern_interior",
+          "objectId": "kitchen_stove_stub",
+          "visualRect": [
+            34,
+            8,
+            2,
+            3
+          ],
+          "collisionRect": [
+            34,
+            10,
+            2,
+            1
+          ]
+        }
+      ],
+      "validation": {
+        "visualCanExceedCollision": true,
+        "blocking": true,
+        "needsAtlasArt": true
+      }
+    }
+  ]
+}

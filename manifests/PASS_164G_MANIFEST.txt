@@ -1,0 +1,12 @@
+Pass: 164G
+Title: Alpha Trim Scanner and Variable-Rectangle Atlas Draft
+Lineage: Havenwild Complete Source Rollup Pass 164A + cumulative passes 164B1 through 164F
+Deletes: none
+Adds:
+- crates/haven_pixel/src/atlas_draft.rs
+- docs/patch/PASS_164G_ALPHA_TRIM_VARIABLE_ATLAS_DRAFT.md
+Updates:
+- crates/haven_pixel/src/lib.rs
+- apps/haven_editor_native/src/app/pixel_studio_layout.rs
+- apps/haven_editor_native/src/app/pixel_studio_render.rs
+- apps/haven_editor_native/src/app/pixel_studio_input.rs

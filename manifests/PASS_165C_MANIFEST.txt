@@ -1,0 +1,11 @@
+PASS 165C — FRONTEND NAVIGATION AND SAVE SAFETY
+
+OVERWRITE crates/haven_game/src/client_frontend.rs
+CARRY     crates/haven_game/src/client_character_frontend_draw.rs
+CARRY     content/audio/music/frontend/Harp.wav
+CARRY     content/audio/music/frontend/Harp.ogg
+CARRY     apps/haven_editor_native/src/app/draw_scene_views.rs
+CARRY     apps/haven_editor_native/src/app/mod.rs
+CARRY     apps/haven_editor_native/src/app/autotile_authoring.rs
+ADD       docs/patch/PASS_165C_FRONTEND_NAVIGATION_SAVE_SAFETY.md
+ADD       manifests/PASS_165C_MANIFEST.txt

@@ -1,0 +1,170 @@
+{
+  "schema": "havenwild.lpc.same_family_promotion_plan.v0_1",
+  "id": "lpc_same_family_promotion_plan_v0_1",
+  "version": "0.1.0",
+  "pass": 106,
+  "neighborModel": "eight_neighbor",
+  "purpose": "Plan the LPC promotion order for tile families that assemble against their own kind: roads, paths, bridges, caves, floors, walls, cliffs, and modular structures.",
+  "runtimeSafety": [
+    "Pass106 is a planning and validation pass only; it does not change renderer placement behavior.",
+    "A resolved cell may use one complete replacement role at a time.",
+    "Do not layer complete replacement cells over one another to fake mixed topology.",
+    "Mixed edge-plus-diagonal visuals stay deferred until a source family provides authored cells for that exact topology."
+  ],
+  "sameFamilyRoleRequirements": {
+    "description": "Minimum authored role coverage before a same-family group can be promoted from mapping-required to production paint.",
+    "roles": [
+      "center_fill",
+      "isolated",
+      "end_north",
+      "end_east",
+      "end_south",
+      "end_west",
+      "straight_north_south",
+      "straight_east_west",
+      "corner_north_east",
+      "corner_south_east",
+      "corner_south_west",
+      "corner_north_west",
+      "tee_north_east_south",
+      "tee_east_south_west",
+      "tee_south_west_north",
+      "tee_west_north_east",
+      "cross",
+      "mixed_role_deferred"
+    ],
+    "notes": [
+      "The first production cut can use the cardinal 16-mask set plus a repeatable center fill.",
+      "Diagonal context can be preserved for future authored mixed roles, but must not trigger layered full-tile replacement."
+    ]
+  },
+  "promotionGroups": [
+    {
+      "id": "road_path_bridge",
+      "priority": 1,
+      "status": "planned_mapping_required",
+      "tileKinds": [
+        "road",
+        "stone_path",
+        "mountain_path",
+        "bridge"
+      ],
+      "scope": [
+        "world",
+        "town",
+        "road_connector",
+        "river_crossing"
+      ],
+      "sourceCandidates": [
+        "lpc_atlas_base_terrain",
+        "lpc_atlas_build_objects",
+        "elizawy_lpc_main",
+        "havenwild_asset_dump_open_game_art"
+      ],
+      "promotionTasks": [
+        "Choose one LPC-compatible authored source family per material.",
+        "Map center fill, end caps, straights, corners, tees, and cross roles.",
+        "Generate a complete 16-mask same-family atlas from authored cells.",
+        "Validate that bridges connect to roads/paths without pretending water is part of the same family.",
+        "Expose production road/path paint only after every role is verified."
+      ]
+    },
+    {
+      "id": "cave_floor_wall",
+      "priority": 2,
+      "status": "planned_mapping_required",
+      "tileKinds": [
+        "cave_floor",
+        "cave_wall"
+      ],
+      "scope": [
+        "cave",
+        "mine",
+        "underground_transition"
+      ],
+      "sourceCandidates": [
+        "lpc_atlas_base_terrain",
+        "lpc_atlas_build_objects",
+        "havenwild_asset_dump_open_game_art"
+      ],
+      "promotionTasks": [
+        "Map floor continuity separately from wall/cap continuity.",
+        "Keep cave wall collision/walkability separate from visual wall assembly.",
+        "Promote cave floors before cave walls if wall roles are incomplete."
+      ]
+    },
+    {
+      "id": "interior_floor_wall",
+      "priority": 3,
+      "status": "planned_mapping_required",
+      "tileKinds": [
+        "wood_floor",
+        "plank_floor",
+        "stone_floor",
+        "brick_floor",
+        "wall"
+      ],
+      "scope": [
+        "interior",
+        "tavern",
+        "house",
+        "shop",
+        "modular_building_shell"
+      ],
+      "sourceCandidates": [
+        "lpc_atlas_build_objects",
+        "lpc_revised_character_basics_dependency_context",
+        "havenwild_asset_dump_open_game_art"
+      ],
+      "promotionTasks": [
+        "Keep floor assembly, wall assembly, and roof/building exterior modules as separate families.",
+        "Require clear wall caps and corners before enabling production wall paint.",
+        "Reserve doors, windows, counters, and trim as stamps or derived overlays."
+      ]
+    },
+    {
+      "id": "cliff_and_mountain",
+      "priority": 4,
+      "status": "planned_mapping_required",
+      "tileKinds": [
+        "cliff",
+        "mountain_rock"
+      ],
+      "scope": [
+        "world",
+        "highlands",
+        "cave_mouth",
+        "scene_edge"
+      ],
+      "sourceCandidates": [
+        "lpc_atlas_base_terrain",
+        "havenwild_asset_dump_open_game_art"
+      ],
+      "promotionTasks": [
+        "Map cliff faces, caps, inside corners, outside corners, and scene-edge endings.",
+        "Keep mountain rocks that behave like props out of same-family terrain assembly.",
+        "Do not use cliff cells to solve beach, road, or cave transitions."
+      ]
+    }
+  ],
+  "editorExposure": {
+    "defaultProductionPalette": [
+      "grass",
+      "dirt",
+      "sand",
+      "wet_sand",
+      "pebble_shore",
+      "shallow_water",
+      "deep_water"
+    ],
+    "sameFamilyFamilies": "Hidden or marked Mapping Required until their group reaches verified authored role coverage.",
+    "derivedFamilies": "Not direct paint buttons; generated from neighboring terrain or simulation state.",
+    "objectFamilies": "Placed through object or stamp workflows, not terrain paint."
+  },
+  "nextImplementationPass": [
+    "Audit actual source cells for road_path_bridge.",
+    "Choose canonical LPC road/path/bridge sources.",
+    "Generate preview boards for each required role before wiring renderer selection.",
+    "Only then bind roads and paths to production editor paint."
+  ]
+}

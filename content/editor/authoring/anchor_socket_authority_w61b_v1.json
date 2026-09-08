@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.anchor_socket_authority.w61b.v1",
+  "pass": "W61B",
+  "authority": "crates/haven_authoring/src/transform.rs",
+  "anchorKinds": [
+    "placement",
+    "transform_pivot",
+    "hinge_pivot",
+    "ground",
+    "foot_left",
+    "foot_right",
+    "shadow",
+    "interaction",
+    "effect",
+    "camera",
+    "socket"
+  ],
+  "namedSockets": true,
+  "hierarchicalTransformNodes": true,
+  "rule": "door hinges, tree pivots, character joints, equipment sockets and pixel transform pivots share one transform/anchor family"
+}

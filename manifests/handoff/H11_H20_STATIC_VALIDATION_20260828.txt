@@ -1,0 +1,57 @@
+PASS | H11 Bottom Dock full report | full validation rows + scrolled renderer
+PASS | H11 Top/Copy All | Top and Copy All actions present
+PASS | H11 persisted scroll state | workspace shell stores validation scroll
+PASS | H12 individual published asset cards | runtime-ready published definitions injected into palette
+PASS | H13 exact semantic selection | stable placeable id retained
+PASS | H12/H14 real thumbnails | published source texture used for card preview
+PASS | H14 real placeable placement authority | existing exact runtime placeable path remains authoritative
+PASS | H15 assembled Character Studio preview | existing assembled layered preview retained
+PASS | H16 power-of-two far LOD | far preview step 16 instead of 12
+PASS | H17 ridge geography | bent ridge-chain/band elevation authority present
+PASS | H17 elevation no longer ellipse-driven | elevation feature uses bent ridge bands; ellipse remains only for non-elevation grove/clearing grammar
+PASS | H18 riparian shoulder | freshwater-adjacent elevated terrain avoids exposed rock curb
+PASS | H18 waterfall ownership | continuous fall edge deduped
+PASS | H18 harbor authority retained | existing landfall/reservation harbor solver retained
+PASS | H19 freshwater-safe ramp topology | generated ramps cannot use freshwater corridor
+PASS | H19 ridge fallback | fallback no longer stamps ellipse
+PASS | H20 background workers | prepare/persist/hydrology/structural queues present
+PASS | H20 fail-closed boundary | boundary requests background chunk instead of sync generation
+PASS | H20 no sync chunk IO/PCG at crossing | movement-boundary function contains no sync load/generate/baseline save
+PASS | H20 bounded integration | chunk publication is time/count budgeted
+PASS | H20 async hydrology | hydrology worker + stale token authority
+PASS | H20 local structural rebuild | structural solve snapshots residency neighborhood only
+PASS | H20 async exploration persistence | map discovery persistence leaves movement frame
+PASS | H20 development telemetry | visible streaming backlog/cost telemetry
+
+SUMMARY: 24/24 PASS
+
+
+--- Existing content-integrity suite ---
+INFO LPC source mount absent; lock metadata validated, mounted files deferred
+OK LPC source lock
+INFO full ElizaWy source tree absent; generated repository audit deferred until dependency mount
+OK Project-wide ElizaWy asset authority
+OK complete LPC summer map
+INFO seasonal LPC source sheets deferred until dependency mount
+OK seasonal terrain topology
+OK transition atlas integrity
+OK open-world preset
+OK generated-output registry
+OK LPC production assets
+OK Character creation clothing policy
+OK Client generated test world
+OK Terrain topology certification
+OK Universal LPC character authority
+OK Universal LPC complete repository authority
+OK Character Studio usage tracking
+OK Open-asset broad credits
+OK Gameplay wardrobe pipeline
+OK Direct LPC terrain authority
+INFO LPC bridge source deferred until dependency mount
+OK Character rendering and frame performance
+Content integrity passed: 18 checks
+
+
+--- Environment certification note ---
+Cargo/rustc unavailable in sandbox. Windows Full Quality Gate required.
+Architecture validator is inherited-red on the pristine supplied baseline; see handoff notes.

@@ -1,0 +1,58 @@
+{
+  "schema": "havenwild.alderreach_capital_harbor_authority.v0_1",
+  "pass": "Pass167Z84",
+  "identity": {
+    "world": "Havenwild",
+    "mainIsland": "Alderreach",
+    "capital": "Willowmere",
+    "port": "Willowmere Harbor"
+  },
+  "scale": {
+    "newWorldPartitionGrid": [8, 5],
+    "partitionTileSize": [96, 64],
+    "continuousTileSize": [768, 320],
+    "newWorldPartitions": 40,
+    "legacyPartitionGrid": [5, 4],
+    "legacyPartitions": 20,
+    "areaMultiplier": 2.0
+  },
+  "saveNamespace": {
+    "regionId": "havenwild_mainland",
+    "sceneIdPrefix": "pcg_havenwild_mainland_",
+    "displayNameMayChangeWithoutChangingSaveIdentity": true
+  },
+  "capital": {
+    "districts": [
+      "civic_lot",
+      "market_lot",
+      "residential_lot",
+      "artisan_lot",
+      "agricultural_lot"
+    ],
+    "lotRendering": "invisible_metadata_until_authored_content_owns_visible_tiles",
+    "plazaMaximumStonePathTiles": 121,
+    "forbiddenPlaceholderObjects": ["well_pump_from_water_cooler_source"]
+  },
+  "harbor": {
+    "zone": "harbor_lot",
+    "roadEndsOnDryLand": true,
+    "overWaterTraversalOwners": ["boardwalk", "dock", "pier", "bridge", "ship_transition"],
+    "futureAssetRoles": [
+      "harbor_plaza",
+      "seawall",
+      "warehouse",
+      "harbor_office",
+      "cargo_props",
+      "mooring_posts",
+      "boats_and_ships"
+    ]
+  },
+  "legacyRepair": {
+    "generationVersion": 14,
+    "removeMisclassifiedWaterCoolerWell": true,
+    "clearLargeStonePathPlotPads": true,
+    "restoreWaterWhereRoadIntrudedAtLandfall": true,
+    "preservePlayerAuthoredContent": true,
+    "resizeExistingWorld": false
+  }
+}

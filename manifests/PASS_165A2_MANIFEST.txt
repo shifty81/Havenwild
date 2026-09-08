@@ -1,0 +1,4 @@
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE crates/haven_game/src/client_character_frontend_draw.rs
+OVERWRITE apps/haven_editor_native/src/app/draw.rs
+ADD docs/patch/PASS_165A2_FRONTEND_INPUT_AND_EDITOR_TEXT_REPAIR.md

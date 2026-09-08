@@ -1,0 +1,75 @@
+{
+  "schema": "havenwild.editor.native_pixel_studio.v0_1",
+  "workspace": "Pixel Studio",
+  "baseTileSize": [
+    32,
+    32
+  ],
+  "characterFrameSize": [
+    64,
+    96
+  ],
+  "sourceRoots": [
+    "assets/source/intake",
+    "assets/source/original",
+    "assets/source/cc0/user_uploads",
+    "assets/generated"
+  ],
+  "tools": [
+    "pencil",
+    "eraser",
+    "fill",
+    "eyedropper",
+    "selection",
+    "line",
+    "rectangle"
+  ],
+  "canvas": {
+    "nearestNeighbor": true,
+    "checkerboard": true,
+    "pixelGrid": true,
+    "atlasGrid": true,
+    "pointerCenteredZoom": true,
+    "middleMousePan": true,
+    "spaceDragPan": true,
+    "repeatPreview3x3": true
+  },
+  "atlasGridRealignment": {
+    "nonDestructive": true,
+    "requiresArmingAndConfirmation": true,
+    "movesPixels": false,
+    "metadataFields": [
+      "cellWidth",
+      "cellHeight",
+      "offsetX",
+      "offsetY"
+    ]
+  },
+  "publishing": {
+    "workingCopyRoot": "assets/source/original/pixel_studio",
+    "metadataSuffix": ".hhasset.json",
+    "assetIntakeCatalog": "content/assets/intake/asset_intake_catalog_v0_1.json",
+    "promotionIsExplicit": true,
+    "runtimeBakeIsSeparate": true
+  },
+  "undo": {
+    "snapshotLimit": 64,
+    "pixelEdits": true,
+    "fill": true,
+    "line": true,
+    "rectangle": true,
+    "flipSelection": true
+  },
+  "licensePolicy": {
+    "cc0UploadsManifest": "content/assets/intake/cc0_user_upload_manifest_v0_1.json",
+    "sourceArtRemainsTraceable": true,
+    "generatedAndIntakeSourcesAreNeverOverwritten": true
+  },
+  "selectionWorkflow": {
+    "dragRectangle": true,
+    "shiftClickSelectsAtlasCell": true,
+    "altClickSetsPivot": true,
+    "bottomCenterPivotShortcut": true,
+    "fitVisualFootprintFromSelection": true
+  }
+}

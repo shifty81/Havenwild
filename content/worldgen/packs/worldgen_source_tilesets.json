@@ -1,0 +1,46 @@
+{
+  "schema": "havenwild.worldgen_source_tilesets.v1",
+  "updated": "2026-05-25",
+  "packs": [
+    {
+      "id": "worldgen.full_terrain.v001",
+      "name": "Havenwild Worldgen Full Terrain Tileset",
+      "version": "v001",
+      "sourceArchive": "assets/raw/worldgen-tilesets/full-terrain-v001/source.zip",
+      "extractedPath": "assets/raw/worldgen-tilesets/full-terrain-v001/extracted",
+      "projectUse": "source_authoring_reference",
+      "status": "staged_not_runtime_bound",
+      "notes": "Broad 4096-slot terrain-only atlas for worldgen coverage exploration. Useful as a source/reference baseline, but likely too large to maintain as the canonical runtime tileset."
+    },
+    {
+      "id": "worldgen.compact_plusmask.v002",
+      "name": "Havenwild Compact Plus-Mask Tileset",
+      "version": "v002",
+      "sourceArchive": "assets/raw/worldgen-tilesets/compact-plusmask-v002/source.zip",
+      "extractedPath": "assets/raw/worldgen-tilesets/compact-plusmask-v002/extracted",
+      "projectUse": "source_authoring_reference",
+      "status": "staged_not_runtime_bound",
+      "notes": "Compact plus-mask autotile experiment. Suitable as a road/path/connector reference, but later corner-mask shoreline work supersedes it for coast and bank transitions."
+    },
+    {
+      "id": "worldgen.corner_mask.v003",
+      "name": "Havenwild Corner-Mask Tileset",
+      "version": "v003",
+      "sourceArchive": "assets/raw/worldgen-tilesets/corner-mask-v003/source.zip",
+      "extractedPath": "assets/raw/worldgen-tilesets/corner-mask-v003/extracted",
+      "projectUse": "source_authoring_reference",
+      "status": "staged_not_runtime_bound",
+      "notes": "Corner-mask / marching-squares shoreline pack that fixes the plus-mask shoreline artifacts from v002. Strong candidate reference for coast, riverbank, lake, cave, and cliff transition logic."
+    },
+    {
+      "id": "worldgen.depth_shore.v004",
+      "name": "Havenwild Depth Shore Profiles",
+      "version": "v004",
+      "sourceArchive": "assets/raw/worldgen-tilesets/depth-shore-v004/source.zip",
+      "extractedPath": "assets/raw/worldgen-tilesets/depth-shore-v004/extracted",
+      "projectUse": "source_authoring_reference",
+      "status": "staged_not_runtime_bound",
+      "notes": "Production-style shoreline/depth profile follow-up to v003. Best current source pack for richer water depth bands, shore profile selection, and corner-mask terrain edge behavior."
+    }
+  ]
+}

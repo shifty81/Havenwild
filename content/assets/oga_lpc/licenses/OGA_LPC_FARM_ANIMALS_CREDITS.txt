@@ -1,0 +1,9 @@
+LPC style farm animals
+Author: Daniel Eddeland (daneeklu)
+Selected license for Havenwild: CC-BY 3.0
+Source: https://opengameart.org/content/lpc-style-farm-animals
+
+The source submission provides walking and eating animations for chicken, cow,
+llama, pig, and sheep, plus supplied shadows for chicken, cow, and llama.
+Havenwild must retain this attribution in distributed credits and provide the
+applicable CC-BY 3.0 license notice.

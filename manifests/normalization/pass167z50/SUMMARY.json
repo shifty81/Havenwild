@@ -1,0 +1,17 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z50",
+  "title": "Format-Independent Visual Regression Migration Repair",
+  "date": "2026-08-03",
+  "baseline": "167Z10",
+  "status": "ready_for_windows_build",
+  "scope": [
+    "cargo-formatted creator preview migration",
+    "body-specific creator layer loader migration",
+    "frontend grouped import migration",
+    "bush and forage footprint migration"
+  ],
+  "behaviorChanged": false,
+  "supersedesMigration": "Repair-VisualRegressionSurfaceV167Z49.py",
+  "activeMigration": "tools/automation/project/Repair-VisualRegressionSurfaceV167Z50.py"
+}

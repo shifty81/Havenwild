@@ -1,0 +1,44 @@
+{
+  "schema": "havenwild.world_terrain_authority_bridge.v0_1",
+  "revision": "167Z109R-v1",
+  "goal": "preserve the Pass167Z109Q visual/runtime result while consolidating semantic terrain, structural terrain, map roles, traversal-edge rules and retained presentation metadata behind one public Havenwild terrain recipe bridge",
+  "behaviorPreserving": true,
+  "canonicalRecipe": {
+    "rustType": "haven_world::SurfaceTerrainRecipeV1",
+    "module": "crates/haven_world/src/terrain_runtime_recipe.rs",
+    "owns": [
+      "semantic_tile",
+      "base_terrain_class",
+      "base_collision_class",
+      "visual_overlay_semantics",
+      "material_role",
+      "persisted_structural_level",
+      "baked_structural_cell",
+      "canonical_cliff_shape15",
+      "world_map_role"
+    ],
+    "doesNotOwn": [
+      "provider_source_rectangles",
+      "raw_atlas_coordinates",
+      "cliff_projection_art_assembly",
+      "worldgen_macro_feature_planning",
+      "player_or_authored_override_storage"
+    ]
+  },
+  "consumersMigratedThisPass": {
+    "baseTerrainCache": "uses resolve_surface_presentation_recipe_v1 for the existing shape/material result",
+    "worldMapAndMinimap": "use SurfaceTerrainRecipeV1::map_code instead of independently classifying tile plus structural state",
+    "structuralTraversal": "uses surface_structural_move_blocked_v1 for the existing two-sided baked-edge test",
+    "cliffRenderer": "continues its zero-regression StructuralCellV2 fast path; StructuralCellV2 is the structural field wrapped by SurfaceTerrainRecipeV1"
+  },
+  "compatibility": {
+    "explorationMapCodesUnchanged": true,
+    "saveSchemaUnchanged": true,
+    "terrainProviderUnchanged": true,
+    "cliffProviderUnchanged": true,
+    "structuralBakeUnchanged": true,
+    "worldGenerationUnchanged": true,
+    "expectedVisualOutput": "Pass167Z109Q parity"
+  },
+  "next": "normalize the native editor canvas/shared authoring path around the same public recipe and coordinate authority before visible cliff contour replacement"
+}

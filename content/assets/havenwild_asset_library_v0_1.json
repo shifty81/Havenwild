@@ -1,0 +1,75 @@
+{
+  "schema": "havenwild.asset_library.v0_1",
+  "version": "0.1.0",
+  "purpose": "Project-wide registry of LPC, Havenwild-authored, and user-modified asset sources before baking into runtime/editor atlases.",
+  "statuses": [
+    "production",
+    "preview",
+    "source_only",
+    "blocked"
+  ],
+  "sources": [
+    {
+      "id": "lpc_terrains_v7",
+      "label": "LPC Terrains v7",
+      "kind": "terrain_tileset",
+      "status": "production",
+      "sourceRoot": "content/assets/lpc/source/lpc-terrains-v7",
+      "primaryImage": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "metadata": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.tsx",
+      "generatedCompanionImage": "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png",
+      "generatedCompanionMetadata": "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.tsx",
+      "bakeTargets": [
+        "terrain_runtime_atlas",
+        "editor_terrain_thumbnails"
+      ],
+      "license": "See CREDITS-terrain.txt",
+      "notes": "Canonical terrain source family. terrain-v7.png supplies authored materials and pure variants; terrain-map-v7 is the generated mixed-topology companion used for runtime/editor baking."
+    },
+    {
+      "id": "havenwild_production_environment_pass60",
+      "label": "Havenwild Production Environment Library Pass60",
+      "kind": "reference_and_original_runtime_pixels",
+      "status": "production",
+      "sourceRoot": "project_sources",
+      "primaryImage": "project_sources/01-havenwild_production_environment_library_pass60-2-.png",
+      "metadata": null,
+      "bakeTargets": [
+        "editor_reference_board"
+      ],
+      "license": "Project-owned Havenwild pixels plus uploaded coverage references",
+      "notes": "Reference board for current semantic terrain and object goals."
+    },
+    {
+      "id": "lpc_dependency_external",
+      "label": "Pinned LPC Dependency",
+      "kind": "external_lpc_repository",
+      "status": "source_only",
+      "sourceRoot": "external/pinned-lpc-dependency",
+      "primaryImage": null,
+      "metadata": null,
+      "bakeTargets": [
+        "future_asset_audit",
+        "future_bulk_import"
+      ],
+      "license": "Per upstream credits/licenses",
+      "notes": "Build validates pinned dependency; future importer should scan this source for seasonal terrain, character layers, animals, crops, props, effects, and UI."
+    },
+    {
+      "id": "lpc_victorian_buildings",
+      "label": "LPC Victorian Buildings",
+      "kind": "multi_cell_building_source_family",
+      "status": "source_only",
+      "sourceRoot": "content/assets/lpc/source/victorian-buildings",
+      "primaryImage": "content/assets/lpc/source/victorian-buildings/victorian-mansion.png",
+      "metadata": "content/assets/lpc/victorian_building_source_family_v0_1.json",
+      "bakeTargets": [
+        "native_editor_building_source_browser",
+        "pixel_studio_building_workbench",
+        "future_world_builder_certified_component_catalog"
+      ],
+      "license": "CC-BY-SA-3.0 selected route; see CREDITS-victorian.txt and source-family contract",
+      "notes": "Irregular packed sheets with multi-cell visual assemblies. Source grid is an addressing hint only; runtime promotion remains disabled until component-region, footprint, socket, collision, and composition certification."
+    }
+  ]
+}

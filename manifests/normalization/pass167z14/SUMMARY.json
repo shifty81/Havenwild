@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z14",
+  "title": "Cross-Platform Validation Self-Test Repair",
+  "date": "2026-08-02",
+  "cumulativePatchBaseline": "Pass 167Z10 Development Normalization",
+  "result": "Pass 167Z14 Cross-Platform Validation Self-Test Repair",
+  "problem": "The content-validator self-test expected a POSIX path literal while Windows emitted a backslash-separated relative path.",
+  "correction": "Validation diagnostics now use Path.as_posix() for stable repository-relative paths.",
+  "cumulativeIncludedPasses": [
+    "167Z11",
+    "167Z12",
+    "167Z13",
+    "167Z14"
+  ],
+  "validation": [
+    "content validator scope self-test passed",
+    "validation framework self-tests passed",
+    "source validation profile passed all 19 active gates",
+    "all 17 content-integrity checks passed",
+    "invalid Havenwild JSON remains rejected",
+    "complete source rollup intentionally not produced"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "schema":"havenwild.ui_document.v1","id":"pause","display_name":"Pause Menu","kind":"pause","reference_size":[1920,1080],"snap_px":8,"safe_area":[48,48,48,48],
+  "widgets":[
+    {"id":"pause_panel","kind":"nine_slice","rect":{"x":664.0,"y":176.0,"width":592.0,"height":728.0},"label":"Pause","data_bindings":[],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"continue","kind":"button","rect":{"x":744.0,"y":296.0,"width":432.0,"height":64.0},"label":"Continue","parent":"pause_panel","data_bindings":[],"behavior_bindings":[{"event":"on_click","action":"ui.pause.resume","arguments":{}}],"locked":false,"visible":true},
+    {"id":"settings","kind":"button","rect":{"x":744.0,"y":384.0,"width":432.0,"height":64.0},"label":"Settings","parent":"pause_panel","data_bindings":[],"behavior_bindings":[{"event":"on_click","action":"ui.open.settings","arguments":{}}],"locked":false,"visible":true}
+  ],"metadata":{"runtime_context":"pause_menu_open"}
+}

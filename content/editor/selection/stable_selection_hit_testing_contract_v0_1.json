@@ -1,0 +1,42 @@
+{
+  "schema": "havenwild.editor.stable_selection_hit_testing.v0.1",
+  "pass": "48C",
+  "identity": {
+    "objects": "ObjectId",
+    "transitions": "TransitionId",
+    "zones": "ZoneId",
+    "regionNodes": "RegionNodeId",
+    "sceneScope": "ProjectSceneId"
+  },
+  "selection": {
+    "type": "EditorSelection",
+    "primaryItemType": "SelectionItem",
+    "stableEntityKeysRequired": true,
+    "vectorIndexesForbiddenForPersistentSelection": true,
+    "boundsType": "GridRect"
+  },
+  "canvasHitTesting": {
+    "owner": "haven_authoring",
+    "resultType": "CanvasHit",
+    "singleScreenToGridAuthority": true,
+    "windowingDependenciesAllowed": false,
+    "layers": [
+      "Terrain",
+      "Objects",
+      "Zones",
+      "Transitions"
+    ]
+  },
+  "persistence": {
+    "objectIdsRoundTrip": true,
+    "transitionIdsRoundTrip": true,
+    "legacyObjectLinesReceiveIds": true,
+    "legacyTransitionLinesReceiveIds": true
+  },
+  "transactions": {
+    "contractType": "EditTransaction",
+    "operationType": "EditOperation",
+    "executionDeferredTo": "Pass 48D",
+    "gestureCoalescingRequired": true
+  }
+}

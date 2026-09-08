@@ -1,0 +1,2078 @@
+[
+  {
+    "from": "Build.cmd",
+    "to": "tools\\build\\Build.cmd"
+  },
+  {
+    "from": "Build.ps1",
+    "to": "tools\\build\\Build.ps1"
+  },
+  {
+    "from": "Build.sh",
+    "to": "tools\\build\\Build.sh"
+  },
+  {
+    "from": "SCRIPTS/Apply-IncorrectGameplayToolAtlasRemovalPass92A.py",
+    "to": "tools/automation/assets/Apply-IncorrectGameplayToolAtlasRemovalPass92A.py"
+  },
+  {
+    "from": "SCRIPTS/Audit-LpcTerrainPatternsV147R.py",
+    "to": "tools/automation/terrain/Audit-LpcTerrainPatternsV147R.py"
+  },
+  {
+    "from": "SCRIPTS/Bake-AssetIntakeAtlasV66.ps1",
+    "to": "tools/automation/assets/Bake-AssetIntakeAtlasV66.ps1"
+  },
+  {
+    "from": "SCRIPTS/Bake-AssetIntakeAtlasV66.py",
+    "to": "tools/automation/assets/Bake-AssetIntakeAtlasV66.py"
+  },
+  {
+    "from": "SCRIPTS/Bootstrap-UniversalLpcGenerator.cmd",
+    "to": "tools/automation/characters/Bootstrap-UniversalLpcGenerator.cmd"
+  },
+  {
+    "from": "SCRIPTS/Build-HavenwildAssetUtilizationAuditV115.py",
+    "to": "tools/automation/assets/Build-HavenwildAssetUtilizationAuditV115.py"
+  },
+  {
+    "from": "SCRIPTS/Build-HavenwildOpenAssetCredits.cmd",
+    "to": "tools/automation/assets/Build-HavenwildOpenAssetCredits.cmd"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcMappedTerrainV7.py",
+    "to": "tools/automation/terrain/Build-LpcMappedTerrainV7.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcMappingQueuesV148Y.py",
+    "to": "tools/automation/project/Build-LpcMappingQueuesV148Y.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcPathGroundPromotionV137.py",
+    "to": "tools/automation/terrain/Build-LpcPathGroundPromotionV137.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcPlayerAtlas.py",
+    "to": "tools/automation/characters/Build-LpcPlayerAtlas.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcProductionTuplePromotionV136.py",
+    "to": "tools/automation/terrain/Build-LpcProductionTuplePromotionV136.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcRevisedInventoryV148X.py",
+    "to": "tools/automation/project/Build-LpcRevisedInventoryV148X.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcSeasonalTerrainTopologyV106.py",
+    "to": "tools/automation/terrain/Build-LpcSeasonalTerrainTopologyV106.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcSummerRuntimeConformanceV107.py",
+    "to": "tools/automation/terrain/Build-LpcSummerRuntimeConformanceV107.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcTerrainSummerCompleteMapV103.py",
+    "to": "tools/automation/terrain/Build-LpcTerrainSummerCompleteMapV103.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcTupleCoverageAuditV133.py",
+    "to": "tools/automation/terrain/Build-LpcTupleCoverageAuditV133.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcTuplePromotionPlanV134.py",
+    "to": "tools/automation/terrain/Build-LpcTuplePromotionPlanV134.py"
+  },
+  {
+    "from": "SCRIPTS/Build-LpcWorldPaintEnvironmentTest.py",
+    "to": "tools/automation/worldgen/Build-LpcWorldPaintEnvironmentTest.py"
+  },
+  {
+    "from": "SCRIPTS/Build-ModularLpcCharacterLayers.py",
+    "to": "tools/automation/characters/Build-ModularLpcCharacterLayers.py"
+  },
+  {
+    "from": "SCRIPTS/Build-OpenGameArtTerrainCatalogV123.py",
+    "to": "tools/automation/terrain/Build-OpenGameArtTerrainCatalogV123.py"
+  },
+  {
+    "from": "SCRIPTS/Build-ReportV146E.py",
+    "to": "tools/automation/reports/Build-ReportV146E.py"
+  },
+  {
+    "from": "SCRIPTS/Build-TiledCornerTerrainCatalog.py",
+    "to": "tools/automation/terrain/Build-TiledCornerTerrainCatalog.py"
+  },
+  {
+    "from": "SCRIPTS/Build-UniversalLpcGameplayWardrobe.cmd",
+    "to": "tools/automation/characters/Build-UniversalLpcGameplayWardrobe.cmd"
+  },
+  {
+    "from": "SCRIPTS/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py",
+    "to": "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py"
+  },
+  {
+    "from": "SCRIPTS/Build-UniversalLpcUsageManifest.cmd",
+    "to": "tools/automation/characters/Build-UniversalLpcUsageManifest.cmd"
+  },
+  {
+    "from": "SCRIPTS/Build-WorldgenRuntimeIndex.ps1",
+    "to": "tools/automation/worldgen/Build-WorldgenRuntimeIndex.ps1"
+  },
+  {
+    "from": "SCRIPTS/Build-WorldgenRuntimeIndex.py",
+    "to": "tools/automation/worldgen/Build-WorldgenRuntimeIndex.py"
+  },
+  {
+    "from": "SCRIPTS/Catalog-ExternalSpriteLibrary.py",
+    "to": "tools/automation/assets/Catalog-ExternalSpriteLibrary.py"
+  },
+  {
+    "from": "SCRIPTS/Create-ChatGPTSourceRollup.py",
+    "to": "tools/automation/packaging/Create-ChatGPTSourceRollup.py"
+  },
+  {
+    "from": "SCRIPTS/Create-SourceOnlyRollup.py",
+    "to": "tools/automation/packaging/Create-SourceOnlyRollup.py"
+  },
+  {
+    "from": "SCRIPTS/DryRun-PrototypeAssetBakeV29.ps1",
+    "to": "tools/automation/assets/DryRun-PrototypeAssetBakeV29.ps1"
+  },
+  {
+    "from": "SCRIPTS/DryRun-PrototypeAssetBakeV29.py",
+    "to": "tools/automation/assets/DryRun-PrototypeAssetBakeV29.py"
+  },
+  {
+    "from": "SCRIPTS/Ensure-BaseTerrainBootstrapV145D.py",
+    "to": "tools/automation/terrain/Ensure-BaseTerrainBootstrapV145D.py"
+  },
+  {
+    "from": "SCRIPTS/Ensure-LpcDependency.py",
+    "to": "tools/automation/dependencies/Ensure-LpcDependency.py"
+  },
+  {
+    "from": "SCRIPTS/Ensure-UniversalLpcGenerator.py",
+    "to": "tools/automation/characters/Ensure-UniversalLpcGenerator.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-AssetCatalog.ps1",
+    "to": "tools/automation/assets/Generate-AssetCatalog.ps1"
+  },
+  {
+    "from": "SCRIPTS/Generate-AssetCatalog.py",
+    "to": "tools/automation/assets/Generate-AssetCatalog.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-GodotStyleTerrainCoverageBoardV147R.py",
+    "to": "tools/automation/terrain/Generate-GodotStyleTerrainCoverageBoardV147R.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-Havenwild2p5DGridAssets.py",
+    "to": "tools/automation/assets/Generate-Havenwild2p5DGridAssets.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-HavenwildProductionEnvironmentPass60.py",
+    "to": "tools/automation/worldgen/Generate-HavenwildProductionEnvironmentPass60.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-HavenwildProductionTerrainPass59.py",
+    "to": "tools/automation/terrain/Generate-HavenwildProductionTerrainPass59.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-HavenwildStampLibraryPreviewPass61.py",
+    "to": "tools/automation/worldgen/Generate-HavenwildStampLibraryPreviewPass61.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-HavenwildWorldTiles.py",
+    "to": "tools/automation/worldgen/Generate-HavenwildWorldTiles.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-HavenwildWorldgenExpansion.py",
+    "to": "tools/automation/worldgen/Generate-HavenwildWorldgenExpansion.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-HomeIslandScenes.py",
+    "to": "tools/automation/worldgen/Generate-HomeIslandScenes.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-LiveAutotileAtlas.ps1",
+    "to": "tools/automation/terrain/Generate-LiveAutotileAtlas.ps1"
+  },
+  {
+    "from": "SCRIPTS/Generate-LiveAutotileAtlas.py",
+    "to": "tools/automation/terrain/Generate-LiveAutotileAtlas.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-PrototypeAssets.ps1",
+    "to": "tools/automation/assets/Generate-PrototypeAssets.ps1"
+  },
+  {
+    "from": "SCRIPTS/Generate-StructuralArchipelagoPreviews.py",
+    "to": "tools/automation/worldgen/Generate-StructuralArchipelagoPreviews.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-TerrainAcceptanceScenes.py",
+    "to": "tools/automation/terrain/Generate-TerrainAcceptanceScenes.py"
+  },
+  {
+    "from": "SCRIPTS/Generate-WorldgenAssets.py",
+    "to": "tools/automation/worldgen/Generate-WorldgenAssets.py"
+  },
+  {
+    "from": "SCRIPTS/Prepare-ExternalAssetPack.py",
+    "to": "tools/automation/assets/Prepare-ExternalAssetPack.py"
+  },
+  {
+    "from": "SCRIPTS/Promote-LpcExpandablePondsV87.py",
+    "to": "tools/automation/terrain/Promote-LpcExpandablePondsV87.py"
+  },
+  {
+    "from": "SCRIPTS/Promote-LpcRuntimeAssets.py",
+    "to": "tools/automation/assets/Promote-LpcRuntimeAssets.py"
+  },
+  {
+    "from": "SCRIPTS/Promote-LpcTerrainCoastlinesV85.py",
+    "to": "tools/automation/terrain/Promote-LpcTerrainCoastlinesV85.py"
+  },
+  {
+    "from": "SCRIPTS/Promote-LpcTerrainCoastlinesV86.py",
+    "to": "tools/automation/terrain/Promote-LpcTerrainCoastlinesV86.py"
+  },
+  {
+    "from": "SCRIPTS/Promote-LpcTerrainFamiliesV90.py",
+    "to": "tools/automation/terrain/Promote-LpcTerrainFamiliesV90.py"
+  },
+  {
+    "from": "SCRIPTS/Promote-LpcTerrainV84.py",
+    "to": "tools/automation/terrain/Promote-LpcTerrainV84.py"
+  },
+  {
+    "from": "SCRIPTS/Promote-SceneScaleV88.py",
+    "to": "tools/automation/worldgen/Promote-SceneScaleV88.py"
+  },
+  {
+    "from": "SCRIPTS/Render-TerrainLpcCertification.py",
+    "to": "tools/automation/terrain/Render-TerrainLpcCertification.py"
+  },
+  {
+    "from": "SCRIPTS/Stamp-GeneratedOutputProvenanceV146D.py",
+    "to": "tools/automation/project/Stamp-GeneratedOutputProvenanceV146D.py"
+  },
+  {
+    "from": "SCRIPTS/Start-AssetEditor.ps1",
+    "to": "tools/automation/assets/Start-AssetEditor.ps1"
+  },
+  {
+    "from": "SCRIPTS/Sync-LpcSummerRuntimeMetadataV108.py",
+    "to": "tools/automation/terrain/Sync-LpcSummerRuntimeMetadataV108.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AdaptiveRenderBudgetPass153N.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-AdaptiveRenderBudgetPass153N.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AnimatedCharacterRuntimeV149I.py",
+    "to": "tools/automation/validation/checks/characters/Validate-AnimatedCharacterRuntimeV149I.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AntiMonolithGuardrailsV37.ps1",
+    "to": "tools/automation/validation/checks/misc/Validate-AntiMonolithGuardrailsV37.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-AntiMonolithGuardrailsV37.py",
+    "to": "tools/automation/validation/checks/misc/Validate-AntiMonolithGuardrailsV37.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ArchipelagoClippyCleanV145I.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ArchipelagoClippyCleanV145I.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ArchipelagoWorldSkeletonV140.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldSkeletonV140.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ArchipelagoWorldTileCoordImportV145H.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldTileCoordImportV145H.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetIntakeAtlasAuthoringV66.ps1",
+    "to": "tools/automation/validation/checks/editor/Validate-AssetIntakeAtlasAuthoringV66.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetIntakeAtlasAuthoringV66.py",
+    "to": "tools/automation/validation/checks/editor/Validate-AssetIntakeAtlasAuthoringV66.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetIntakeBootstrapV145E.py",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetIntakeBootstrapV145E.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetPackDiscoveryAndMigrationV148D.py",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetPackDiscoveryAndMigrationV148D.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetPaletteAtlasBindingV65.ps1",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetPaletteAtlasBindingV65.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetPaletteAtlasBindingV65.py",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetPaletteAtlasBindingV65.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetReferenceBrowserV28.ps1",
+    "to": "tools/automation/validation/checks/editor/Validate-AssetReferenceBrowserV28.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetReferenceBrowserV28.py",
+    "to": "tools/automation/validation/checks/editor/Validate-AssetReferenceBrowserV28.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetReferencePreviewStubV32.ps1",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetReferencePreviewStubV32.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetReferencePreviewStubV32.py",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetReferencePreviewStubV32.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetSourceAvailabilityUiV30.ps1",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetSourceAvailabilityUiV30.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetSourceAvailabilityUiV30.py",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetSourceAvailabilityUiV30.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetSourceLocalImportInstructionsV31.ps1",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetSourceLocalImportInstructionsV31.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-AssetSourceLocalImportInstructionsV31.py",
+    "to": "tools/automation/validation/checks/assets/Validate-AssetSourceLocalImportInstructionsV31.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-AtomicGenerationV146D.py",
+    "to": "tools/automation/validation/checks/build/Validate-AtomicGenerationV146D.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-BaseTerrainBootstrapV145D.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-BaseTerrainBootstrapV145D.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-BaseTerrainChunkCachePass153Q.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-BaseTerrainChunkCachePass153Q.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-BashBuildEntrypointV69.py",
+    "to": "tools/automation/validation/checks/build/Validate-BashBuildEntrypointV69.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-BuildAttestationV146E.py",
+    "to": "tools/automation/validation/checks/build/Validate-BuildAttestationV146E.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CameraZoomOrientationHotfix.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-CameraZoomOrientationHotfix.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CategoryMetadataAndTiledNormalizationV148C.py",
+    "to": "tools/automation/validation/checks/misc/Validate-CategoryMetadataAndTiledNormalizationV148C.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterClientIntegrationV138.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterClientIntegrationV138.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterCreationFoundationV136.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterCreationFoundationV136.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterCreatorCatalogV149J18.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterCreatorCatalogV149J18.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterCreatorGuiV139.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterCreatorGuiV139.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterCreatorLayoutV149J23.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterCreatorLayoutV149J23.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterProfileAndWardrobeV137.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterProfileAndWardrobeV137.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterRuntimeIntegrationV150H.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterRuntimeIntegrationV150H.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterSelectionCreatorUiV148S.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterSelectionCreatorUiV148S.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterSheetCatalogAndWorldParityV149J22.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterSheetCatalogAndWorldParityV149J22.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterSpriteRuntimeV140.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterSpriteRuntimeV140.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterVisualFidelityV149J24.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterVisualFidelityV149J24.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterVisualFrontendV148T.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterVisualFrontendV148T.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterWorldRuntimeStateV148V.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterWorldRuntimeStateV148V.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CharacterWorldSyncV148W.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterWorldSyncV148W.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ChunkPersistenceNormalizationV144.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ChunkPersistenceNormalizationV144.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ChunkSurfaceDescriptorCachePass154B.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ChunkSurfaceDescriptorCachePass154B.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CleanSourceBuildV146.py",
+    "to": "tools/automation/validation/checks/build/Validate-CleanSourceBuildV146.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ClientCameraZoomAtlasTestHotfixV99.py",
+    "to": "tools/automation/validation/checks/assets/Validate-ClientCameraZoomAtlasTestHotfixV99.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ClientCameraZoomClippyHotfixV100.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-ClientCameraZoomClippyHotfixV100.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ClientSavePreviewPauseMenuV75.py",
+    "to": "tools/automation/validation/checks/editor/Validate-ClientSavePreviewPauseMenuV75.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ClientSaveSlotsV74.py",
+    "to": "tools/automation/validation/checks/persistence/Validate-ClientSaveSlotsV74.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CoastlineCleanupV12.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-CoastlineCleanupV12.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-CompileWarningCleanupV46.ps1",
+    "to": "tools/automation/validation/checks/build/Validate-CompileWarningCleanupV46.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-CompileWarningCleanupV46.py",
+    "to": "tools/automation/validation/checks/build/Validate-CompileWarningCleanupV46.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ContinuousOverworldStreamingV149D.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ContinuousOverworldStreamingV149D.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ContinuousSurfaceCanvasV149C.py",
+    "to": "tools/automation/validation/checks/editor/Validate-ContinuousSurfaceCanvasV149C.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-DonorReferenceAssetCatalogV27.ps1",
+    "to": "tools/automation/validation/checks/assets/Validate-DonorReferenceAssetCatalogV27.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-DonorReferenceAssetCatalogV27.py",
+    "to": "tools/automation/validation/checks/assets/Validate-DonorReferenceAssetCatalogV27.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-DynamicWorldRuntimeV148U.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-DynamicWorldRuntimeV148U.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-EditorArchitectureNormalizationV58.ps1",
+    "to": "tools/automation/validation/checks/editor/Validate-EditorArchitectureNormalizationV58.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-EditorArchitectureNormalizationV58.py",
+    "to": "tools/automation/validation/checks/editor/Validate-EditorArchitectureNormalizationV58.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-EditorCommandUndoNormalizationV145.py",
+    "to": "tools/automation/validation/checks/editor/Validate-EditorCommandUndoNormalizationV145.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-EditorRegistryDerivedTestsV110.py",
+    "to": "tools/automation/validation/checks/editor/Validate-EditorRegistryDerivedTestsV110.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ExpandablePondBootstrapV145M.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ExpandablePondBootstrapV145M.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ExpandedSceneScaleClippyHotfixV89.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleClippyHotfixV89.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ExpandedSceneScaleCompileHotfixV88.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleCompileHotfixV88.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ExpandedSceneScaleLegacyMigrationV87.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleLegacyMigrationV87.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ExpandedSceneStarterGenerationV95.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneStarterGenerationV95.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ExternalAssetIntakeV25.ps1",
+    "to": "tools/automation/validation/checks/assets/Validate-ExternalAssetIntakeV25.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-ExternalAssetIntakeV25.py",
+    "to": "tools/automation/validation/checks/assets/Validate-ExternalAssetIntakeV25.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ExternalAssetPackIntakeV83.py",
+    "to": "tools/automation/validation/checks/assets/Validate-ExternalAssetPackIntakeV83.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-FirstIslandAssetGuiContractsV55.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-FirstIslandAssetGuiContractsV55.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-FirstIslandAssetGuiContractsV55.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-FirstIslandAssetGuiContractsV55.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GameCompileHotfixV48.ps1",
+    "to": "tools/automation/validation/checks/build/Validate-GameCompileHotfixV48.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-GameCompileHotfixV48.py",
+    "to": "tools/automation/validation/checks/build/Validate-GameCompileHotfixV48.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GameplayCharacterEquipmentPolicyV149J30.py",
+    "to": "tools/automation/validation/checks/characters/Validate-GameplayCharacterEquipmentPolicyV149J30.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GeneratedAssetBuildGraphV146.py",
+    "to": "tools/automation/validation/checks/assets/Validate-GeneratedAssetBuildGraphV146.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GeneratedOutputFreshnessV146B.py",
+    "to": "tools/automation/validation/checks/build/Validate-GeneratedOutputFreshnessV146B.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GeneratedOutputProvenanceV146D.py",
+    "to": "tools/automation/validation/checks/build/Validate-GeneratedOutputProvenanceV146D.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GenericMultitileStampSystemV78.py",
+    "to": "tools/automation/validation/checks/misc/Validate-GenericMultitileStampSystemV78.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GenericPlaceablePersistenceV148N.py",
+    "to": "tools/automation/validation/checks/assets/Validate-GenericPlaceablePersistenceV148N.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GenericPlaceableStateTransitionsV148P.py",
+    "to": "tools/automation/validation/checks/assets/Validate-GenericPlaceableStateTransitionsV148P.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GenericTiledTerrainCatalogV123.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-GenericTiledTerrainCatalogV123.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-GodotTerrainReferenceAuditV147R.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-GodotTerrainReferenceAuditV147R.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-HavenAssetsBootstrapAndTestsV145L.py",
+    "to": "tools/automation/validation/checks/assets/Validate-HavenAssetsBootstrapAndTestsV145L.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-HavenToolsNamespacedExportsV52.ps1",
+    "to": "tools/automation/validation/checks/build/Validate-HavenToolsNamespacedExportsV52.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-HavenToolsNamespacedExportsV52.py",
+    "to": "tools/automation/validation/checks/build/Validate-HavenToolsNamespacedExportsV52.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-HavenwildAssetUtilizationAuditV115.py",
+    "to": "tools/automation/validation/checks/assets/Validate-HavenwildAssetUtilizationAuditV115.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-HavenwildOpenWorldPreset.py",
+    "to": "tools/automation/validation/checks/misc/Validate-HavenwildOpenWorldPreset.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-InteractiveCharacterCreatorV149H.py",
+    "to": "tools/automation/validation/checks/characters/Validate-InteractiveCharacterCreatorV149H.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-IslandAssemblySaveRoutesV72.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-IslandAssemblySaveRoutesV72.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-IslandPcgTestPathV70.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-IslandPcgTestPathV70.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LiveAutotileTerrainTransitionsV64.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-LiveAutotileTerrainTransitionsV64.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-LiveAutotileTerrainTransitionsV64.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LiveAutotileTerrainTransitionsV64.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcAuthoredReplacementRolesV111.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcAuthoredReplacementRolesV111.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcCharacterInventoryAndIdleV149J27.py",
+    "to": "tools/automation/validation/checks/characters/Validate-LpcCharacterInventoryAndIdleV149J27.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcCharacterProductionCatalogV149J28.py",
+    "to": "tools/automation/validation/checks/characters/Validate-LpcCharacterProductionCatalogV149J28.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcCharacterRepositoryPromotionV149J26.py",
+    "to": "tools/automation/validation/checks/characters/Validate-LpcCharacterRepositoryPromotionV149J26.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcCharacterSemanticChannelsV149J25.py",
+    "to": "tools/automation/validation/checks/characters/Validate-LpcCharacterSemanticChannelsV149J25.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcClientEditorStabilityV102.py",
+    "to": "tools/automation/validation/checks/editor/Validate-LpcClientEditorStabilityV102.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcClosedSandGrassCornerTopologyV121.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcClosedSandGrassCornerTopologyV121.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcCoastlineSaveRegenerationV85.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcCoastlineSaveRegenerationV85.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcCompleteRoleTerrainRuntimeStabilityV98.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcCompleteRoleTerrainRuntimeStabilityV98.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcDependencyAcquisitionV145B.py",
+    "to": "tools/automation/validation/checks/build/Validate-LpcDependencyAcquisitionV145B.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcDependencyMountV104.py",
+    "to": "tools/automation/validation/checks/build/Validate-LpcDependencyMountV104.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcEdgeSignatureSeamsV108.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcEdgeSignatureSeamsV108.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcEnvironmentTileMigrationV112.py",
+    "to": "tools/automation/validation/checks/persistence/Validate-LpcEnvironmentTileMigrationV112.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcEnvironmentTopologyPolicyV117.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcEnvironmentTopologyPolicyV117.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcExpandablePondFamiliesV86.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcExpandablePondFamiliesV86.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcMappedEditorTerrainAndWaterPaintV135.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcMappedEditorTerrainAndWaterPaintV135.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcMappedTerrainReplacementV122.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainReplacementV122.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcMappedTerrainRuntimePerformanceV124.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainRuntimePerformanceV124.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcMappedTerrainRuntimePerformanceV124.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainRuntimePerformanceV124.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcMappedTerrainRuntimePromotionV128.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainRuntimePromotionV128.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcMappedTupleFallbackV131.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcMappedTupleFallbackV131.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcMappingQueuesV148Y.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcMappingQueuesV148Y.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcMixedCornerTopologyV116.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcMixedCornerTopologyV116.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcPaintTopologySharedLifecycleV145J.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcPaintTopologySharedLifecycleV145J.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcPaintTopologyStabilityV114.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcPaintTopologyStabilityV114.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcPathAutotilePromotionV85.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcPathAutotilePromotionV85.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcPathGroundPromotionV137.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcPathGroundPromotionV137.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcPlaceableObjectPromotionV119.py",
+    "to": "tools/automation/validation/checks/assets/Validate-LpcPlaceableObjectPromotionV119.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcProductionTuplePromotionV136.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcProductionTuplePromotionV136.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcRevisedRepositoryInventoryV148X.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcRevisedRepositoryInventoryV148X.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcSameFamilyPromotionPlanV118.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcSameFamilyPromotionPlanV118.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcSandGrassBlobTerrainV127.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcSandGrassBlobTerrainV127.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcSeasonalTerrainTopologyV106.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcSeasonalTerrainTopologyV106.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcSparseLandTileOwnershipV126.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcSparseLandTileOwnershipV126.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcSparseWaterAnimationV130.py",
+    "to": "tools/automation/validation/checks/characters/Validate-LpcSparseWaterAnimationV130.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcStampCandidateIntakeV120.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcStampCandidateIntakeV120.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcStructuralRockTerrainDeferralV125.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcStructuralRockTerrainDeferralV125.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcSummerRuntimePromotionV107.py",
+    "to": "tools/automation/validation/checks/misc/Validate-LpcSummerRuntimePromotionV107.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcTerrainDetailEditorWindowV123.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcTerrainDetailEditorWindowV123.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcTerrainFamilyFoundationV93.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcTerrainFamilyFoundationV93.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcTerrainOwnerSideWorldTestsV97.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcTerrainOwnerSideWorldTestsV97.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcTerrainSummerCompleteMapV103.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcTerrainSummerCompleteMapV103.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcTileAwareTerrainTransitionsV84.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcTileAwareTerrainTransitionsV84.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcTupleCoverageAuditV133.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcTupleCoverageAuditV133.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcTuplePromotionPlanV134.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcTuplePromotionPlanV134.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcUniversalAutotilePolicyV113.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-LpcUniversalAutotilePolicyV113.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcWaterAnimationAndShoreDepthV128.py",
+    "to": "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationAndShoreDepthV128.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-LpcWaterAnimationOwnershipV129.py",
+    "to": "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationOwnershipV129.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ModularLpcCharacterRuntimeV149J16.py",
+    "to": "tools/automation/validation/checks/characters/Validate-ModularLpcCharacterRuntimeV149J16.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-NativeAnimationStudioV80.py",
+    "to": "tools/automation/validation/checks/characters/Validate-NativeAnimationStudioV80.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-NativeAutotileBoundaryFallbackV124.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-NativeAutotileBoundaryFallbackV124.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-NativeEditorStartupRenderStabilityV105.py",
+    "to": "tools/automation/validation/checks/editor/Validate-NativeEditorStartupRenderStabilityV105.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-NativePixelStudioV79.py",
+    "to": "tools/automation/validation/checks/editor/Validate-NativePixelStudioV79.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-NativeValidatorMigrationV146C.py",
+    "to": "tools/automation/validation/checks/persistence/Validate-NativeValidatorMigrationV146C.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-OperationalPixelStudioV149G.py",
+    "to": "tools/automation/validation/checks/editor/Validate-OperationalPixelStudioV149G.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-OrganicCoastlineLpcAtlasV84.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-OrganicCoastlineLpcAtlasV84.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PackDefinedPlaceableAssetsV148M.py",
+    "to": "tools/automation/validation/checks/assets/Validate-PackDefinedPlaceableAssetsV148M.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PerformanceSnapshotPass153M.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-PerformanceSnapshotPass153M.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PermanentCanvasToolingV57.ps1",
+    "to": "tools/automation/validation/checks/editor/Validate-PermanentCanvasToolingV57.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-PermanentCanvasToolingV57.py",
+    "to": "tools/automation/validation/checks/editor/Validate-PermanentCanvasToolingV57.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PixelAnimationRoundtripBridgeV82.py",
+    "to": "tools/automation/validation/checks/characters/Validate-PixelAnimationRoundtripBridgeV82.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PixelDocumentLayerSystemV81.py",
+    "to": "tools/automation/validation/checks/editor/Validate-PixelDocumentLayerSystemV81.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PresentationGapProfilingPass153L.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-PresentationGapProfilingPass153L.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProceduralChunkResidencyV149E.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-ProceduralChunkResidencyV149E.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProductionEnvironmentLibraryV77.py",
+    "to": "tools/automation/validation/checks/misc/Validate-ProductionEnvironmentLibraryV77.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProductionInfiniteCanvasToolsV62.ps1",
+    "to": "tools/automation/validation/checks/editor/Validate-ProductionInfiniteCanvasToolsV62.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProductionInfiniteCanvasToolsV62.py",
+    "to": "tools/automation/validation/checks/editor/Validate-ProductionInfiniteCanvasToolsV62.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProductionLpcRuntimeBindingV149J.py",
+    "to": "tools/automation/validation/checks/misc/Validate-ProductionLpcRuntimeBindingV149J.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProductionObjectOutlinerInspectorV63.ps1",
+    "to": "tools/automation/validation/checks/editor/Validate-ProductionObjectOutlinerInspectorV63.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProductionObjectOutlinerInspectorV63.py",
+    "to": "tools/automation/validation/checks/editor/Validate-ProductionObjectOutlinerInspectorV63.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProductionRenderCheckpointPass154A.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-ProductionRenderCheckpointPass154A.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ProductionTerrainTilesV76.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ProductionTerrainTilesV76.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PrototypeAssetBakeDryRunV29.ps1",
+    "to": "tools/automation/validation/checks/assets/Validate-PrototypeAssetBakeDryRunV29.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-PrototypeAssetBakeDryRunV29.py",
+    "to": "tools/automation/validation/checks/assets/Validate-PrototypeAssetBakeDryRunV29.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PrototypeAssetImportAdapterV26.ps1",
+    "to": "tools/automation/validation/checks/assets/Validate-PrototypeAssetImportAdapterV26.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-PrototypeAssetImportAdapterV26.py",
+    "to": "tools/automation/validation/checks/assets/Validate-PrototypeAssetImportAdapterV26.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-PythonUtf8BuildReportsV145F.py",
+    "to": "tools/automation/validation/checks/build/Validate-PythonUtf8BuildReportsV145F.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RecurringCompileFixesV53.ps1",
+    "to": "tools/automation/validation/checks/build/Validate-RecurringCompileFixesV53.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-RecurringCompileFixesV53.py",
+    "to": "tools/automation/validation/checks/build/Validate-RecurringCompileFixesV53.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RetainedChunkCommandBuffersPass154C.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-RetainedChunkCommandBuffersPass154C.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RetainedChunkExecutionPass154D.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-RetainedChunkExecutionPass154D.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RetainedChunkTelemetryPass153S.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-RetainedChunkTelemetryPass153S.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RetainedCommandCoordinateParityPass154F.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-RetainedCommandCoordinateParityPass154F.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RetainedCommandParityPass154E.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-RetainedCommandParityPass154E.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RuntimeAssetAdapterMigrationV148G.py",
+    "to": "tools/automation/validation/checks/assets/Validate-RuntimeAssetAdapterMigrationV148G.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RuntimeDiagnosticsExtractionPass153T.py",
+    "to": "tools/automation/validation/checks/misc/Validate-RuntimeDiagnosticsExtractionPass153T.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RuntimePathPaintBindingStabilizationV92.py",
+    "to": "tools/automation/validation/checks/misc/Validate-RuntimePathPaintBindingStabilizationV92.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RuntimeStartupAssetCacheV148H.py",
+    "to": "tools/automation/validation/checks/assets/Validate-RuntimeStartupAssetCacheV148H.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RuntimeViewCullingUnitIsolationV96.py",
+    "to": "tools/automation/validation/checks/misc/Validate-RuntimeViewCullingUnitIsolationV96.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-RustWorkspaceContractV146.py",
+    "to": "tools/automation/validation/checks/build/Validate-RustWorkspaceContractV146.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SaveGenerationValidatorCompatibilityV145G.py",
+    "to": "tools/automation/validation/checks/persistence/Validate-SaveGenerationValidatorCompatibilityV145G.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SaveMigrationCompatibilityV146.py",
+    "to": "tools/automation/validation/checks/persistence/Validate-SaveMigrationCompatibilityV146.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SceneBankRuntimeFramingV68.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SceneBankRuntimeFramingV68.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SceneIdentityMigrationV54.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SceneIdentityMigrationV54.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-SceneIdentityMigrationV54.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SceneIdentityMigrationV54.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SceneReferenceBridgeV56.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SceneReferenceBridgeV56.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-SceneReferenceBridgeV56.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SceneReferenceBridgeV56.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SceneRegistryExpandedSpawnTestV94.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SceneRegistryExpandedSpawnTestV94.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SceneRegistryFoundationNormalizationV59.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SceneRegistryFoundationNormalizationV59.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-SceneRegistryFoundationNormalizationV59.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SceneRegistryFoundationNormalizationV59.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SeededArchipelagoSpacingV73.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SeededArchipelagoSpacingV73.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SemanticResourceProvidersV148K.py",
+    "to": "tools/automation/validation/checks/build/Validate-SemanticResourceProvidersV148K.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SemanticStampDiscoveryV148L.py",
+    "to": "tools/automation/validation/checks/misc/Validate-SemanticStampDiscoveryV148L.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ShapeMaterialTerrainPass155B.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ShapeMaterialTerrainPass155B.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SharedSemanticAssetResolutionV148F.py",
+    "to": "tools/automation/validation/checks/assets/Validate-SharedSemanticAssetResolutionV148F.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ShoreFoamTestContractV145N.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ShoreFoamTestContractV145N.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ShoreLifecycleRingGeometryV145O.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ShoreLifecycleRingGeometryV145O.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ShoreWaterLifecycleContractV146.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleContractV146.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ShoreWaterLifecycleV138.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleV138.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ShoreWaterNormalizationV127.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ShoreWaterNormalizationV127.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ShoreWaterValidatorSharedLifecycleV145K.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-ShoreWaterValidatorSharedLifecycleV145K.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SourceRollupBootstrapV145A.py",
+    "to": "tools/automation/validation/checks/build/Validate-SourceRollupBootstrapV145A.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SourceRollupCompletenessV146.py",
+    "to": "tools/automation/validation/checks/build/Validate-SourceRollupCompletenessV146.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StablePlaceableRuntimeDispatchV148O.py",
+    "to": "tools/automation/validation/checks/assets/Validate-StablePlaceableRuntimeDispatchV148O.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StableRenderBindingsV148J.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-StableRenderBindingsV148J.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StableSelectionHitTestingV60.ps1",
+    "to": "tools/automation/validation/checks/misc/Validate-StableSelectionHitTestingV60.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-StableSelectionHitTestingV60.py",
+    "to": "tools/automation/validation/checks/misc/Validate-StableSelectionHitTestingV60.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StableTextureCacheV148I.py",
+    "to": "tools/automation/validation/checks/assets/Validate-StableTextureCacheV148I.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StampInspectorClippyHotfixV90.py",
+    "to": "tools/automation/validation/checks/editor/Validate-StampInspectorClippyHotfixV90.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StampUpdateRequestImportV91.py",
+    "to": "tools/automation/validation/checks/misc/Validate-StampUpdateRequestImportV91.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StarterCreatorScopeV149J29.py",
+    "to": "tools/automation/validation/checks/characters/Validate-StarterCreatorScopeV149J29.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StateGeometryAndBehaviorExecutionV148Q.py",
+    "to": "tools/automation/validation/checks/misc/Validate-StateGeometryAndBehaviorExecutionV148Q.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-StructuralArchipelagoWorkspaceV71.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-StructuralArchipelagoWorkspaceV71.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-SurfaceChunkJobsCacheAndDeltasV149F.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-SurfaceChunkJobsCacheAndDeltasV149F.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainAtlasManifestV14.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainAtlasManifestV14.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainAtlasTransitionsV13.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainAtlasTransitionsV13.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainDebugOverlayV11.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainDebugOverlayV11.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainMaterialRegistryV126.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainMaterialRegistryV126.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainPromotionPass151.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainPromotionPass151.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionDraftAutoFixV23.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftAutoFixV23.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionDraftDiagnosticsV22.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftDiagnosticsV22.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionDraftEditorV19.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftEditorV19.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionDraftPromotionV20.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftPromotionV20.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionDraftUndoV24.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionDraftUndoV24.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionManifestReloadV21.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionManifestReloadV21.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionRuleEditorV18.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionRuleEditorV18.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionRuleInspectorV16.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionRuleInspectorV16.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionRulePreviewV17.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionRulePreviewV17.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainTransitionRulesV15.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainTransitionRulesV15.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TerrainWorldSemanticRegistryV142.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-TerrainWorldSemanticRegistryV142.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TestableFoundationGateV149A.py",
+    "to": "tools/automation/validation/checks/build/Validate-TestableFoundationGateV149A.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TransactionalUndoV61.ps1",
+    "to": "tools/automation/validation/checks/misc/Validate-TransactionalUndoV61.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-TransactionalUndoV61.py",
+    "to": "tools/automation/validation/checks/misc/Validate-TransactionalUndoV61.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TransitionAtlasGroupRustSyntaxV109.py",
+    "to": "tools/automation/validation/checks/assets/Validate-TransitionAtlasGroupRustSyntaxV109.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-TransitionWorklistPass153G.py",
+    "to": "tools/automation/validation/checks/misc/Validate-TransitionWorklistPass153G.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-UltraWideWaterLodPass153I.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-UltraWideWaterLodPass153I.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-UnifiedBuildReportingV146E.py",
+    "to": "tools/automation/validation/checks/build/Validate-UnifiedBuildReportingV146E.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-UniversalAssetPackFoundationV148A.py",
+    "to": "tools/automation/validation/checks/assets/Validate-UniversalAssetPackFoundationV148A.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-UniversalContentBrowserV148E.py",
+    "to": "tools/automation/validation/checks/misc/Validate-UniversalContentBrowserV148E.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-UniversalImportProviderFrameworkV148B.py",
+    "to": "tools/automation/validation/checks/misc/Validate-UniversalImportProviderFrameworkV148B.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-UniversalLpcCharacterPipelineV148R.py",
+    "to": "tools/automation/validation/checks/characters/Validate-UniversalLpcCharacterPipelineV148R.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-V7TerrainAuthorityPass152A.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-V7TerrainAuthorityPass152A.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-V7WaterMaskFoundationPass153A.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-V7WaterMaskFoundationPass153A.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ValidationFrameworkSelfTestsV146B.py",
+    "to": "tools/automation/validation/checks/build/Validate-ValidationFrameworkSelfTestsV146B.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ValidationNormalizationV141.py",
+    "to": "tools/automation/validation/checks/build/Validate-ValidationNormalizationV141.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ValidatorExecutionResponsivenessV146G.py",
+    "to": "tools/automation/validation/checks/build/Validate-ValidatorExecutionResponsivenessV146G.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ValidatorFrameworkV146B.py",
+    "to": "tools/automation/validation/checks/build/Validate-ValidatorFrameworkV146B.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-ValidatorQualityV146.py",
+    "to": "tools/automation/validation/checks/build/Validate-ValidatorQualityV146.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-VisibleChunkTraversalPass153R.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-VisibleChunkTraversalPass153R.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-VisibleTerrainSnapshotPass153P.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-VisibleTerrainSnapshotPass153P.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-VisibleTerrainWorklistPass153H.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-VisibleTerrainWorklistPass153H.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-VisibleTraversalCachePass153U.py",
+    "to": "tools/automation/validation/checks/misc/Validate-VisibleTraversalCachePass153U.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-VisibleTraversalTelemetryPass153V.py",
+    "to": "tools/automation/validation/checks/misc/Validate-VisibleTraversalTelemetryPass153V.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WaterDetailLodPass153D.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WaterDetailLodPass153D.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WaterMaskCachePass153E.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WaterMaskCachePass153E.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WaterMaterialPass155A.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WaterMaterialPass155A.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WaterOpticsContractPass153C.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WaterOpticsContractPass153C.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WaterPassBatchingPass153F.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WaterPassBatchingPass153F.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WaterRenderBudgetExtractionPass153O.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WaterRenderBudgetExtractionPass153O.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WindowsBuildPortabilityV146.py",
+    "to": "tools/automation/validation/checks/build/Validate-WindowsBuildPortabilityV146.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldCanvasIslandPcgHarborV67.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldCanvasIslandPcgHarborV67.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldCanvasSceneBankV51.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldCanvasSceneBankV51.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldCanvasSceneBankV51.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldCanvasSceneBankV51.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldGenerationPipelineOwnershipV143.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldGenerationPipelineOwnershipV143.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintBrushBackendV34.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintBrushBackendV34.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintBrushBackendV34.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintBrushBackendV34.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintDeltaPersistenceV35.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintDeltaPersistenceV35.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintDeltaPersistenceV35.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintDeltaPersistenceV35.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintDeltaReplayV38.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintDeltaReplayV38.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintDeltaReplayV38.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintDeltaReplayV38.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintLayerCompositionV47.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintLayerCompositionV47.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintLayerCompositionV47.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintLayerCompositionV47.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintMaterialAdjacencyV42.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialAdjacencyV42.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintMaterialAdjacencyV42.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialAdjacencyV42.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintMaterialInspectorV41.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialInspectorV41.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintMaterialInspectorV41.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialInspectorV41.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintMaterialStateLayerV40.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialStateLayerV40.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintMaterialStateLayerV40.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintMaterialStateLayerV40.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintMirrorAndPixelEditorV36.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintMirrorAndPixelEditorV36.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintMirrorAndPixelEditorV36.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintMirrorAndPixelEditorV36.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintRenderBindingV44.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintRenderBindingV44.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintRenderBindingV44.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintRenderBindingV44.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintRenderCacheV45.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintRenderCacheV45.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintRenderCacheV45.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintRenderCacheV45.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintSaveLoadIntegrationV39.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintSaveLoadIntegrationV39.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintSaveLoadIntegrationV39.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintSaveLoadIntegrationV39.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintSingleCellOverlayV125.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintSingleCellOverlayV125.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintTransitionTileResolverV43.ps1",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintTransitionTileResolverV43.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldPaintTransitionTileResolverV43.py",
+    "to": "tools/automation/validation/checks/terrain/Validate-WorldPaintTransitionTileResolverV43.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldTileContractV33.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldTileContractV33.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldTileContractV33.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldTileContractV33.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenAssets.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenAssets.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenAssets.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenAssets.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenEditorOverlayV07.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenEditorOverlayV07.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenEditorOverlayV07.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenEditorOverlayV07.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintEditorV09.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintEditorV09.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintEditorV09.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintEditorV09.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV06.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV06.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV06.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV06.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV07.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV07.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV07.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV07.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV08.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV08.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV08.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV08.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV09.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV09.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV09.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV09.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV10.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV10.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenFootprintsV10.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV10.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenLoaderV05.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenLoaderV05.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenObjectOutlinerV08.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenObjectOutlinerV08.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenObjectOutlinerV08.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenObjectOutlinerV08.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenRuntimeIndex.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenRuntimeIndex.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenRuntimeIndex.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenRuntimeIndex.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenSceneExportV10.ps1",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenSceneExportV10.ps1"
+  },
+  {
+    "from": "SCRIPTS/Validate-WorldgenSceneExportV10.py",
+    "to": "tools/automation/validation/checks/worldgen/Validate-WorldgenSceneExportV10.py"
+  },
+  {
+    "from": "SCRIPTS/Validate-WrappedWorldCoordinateFoundationV139.py",
+    "to": "tools/automation/validation/checks/misc/Validate-WrappedWorldCoordinateFoundationV139.py"
+  },
+  {
+    "from": "SCRIPTS/Write-BuildAttestationV146E.py",
+    "to": "tools/automation/reports/Write-BuildAttestationV146E.py"
+  },
+  {
+    "from": "SCRIPTS/archive/pass145_compatibility/archived_manifest_tasks.json",
+    "to": "tools/automation/archive/pass145_compatibility/archived_manifest_tasks.json"
+  },
+  {
+    "from": "SCRIPTS/archive/validators/pass146c/domain_replacements.json",
+    "to": "tools/automation/archive/validators/pass146c/domain_replacements.json"
+  },
+  {
+    "from": "SCRIPTS/assets/Acquire-OgaLpcGameplayBatchV167S.py",
+    "to": "tools/automation/assets/Acquire-OgaLpcGameplayBatchV167S.py"
+  },
+  {
+    "from": "SCRIPTS/assets/Build-LpcProductionTilesetAndLivestockV167U.py",
+    "to": "tools/automation/project/Build-LpcProductionTilesetAndLivestockV167U.py"
+  },
+  {
+    "from": "SCRIPTS/assets/Build-OgaLpcCliffCatalogV167Q.py",
+    "to": "tools/automation/assets/Build-OgaLpcCliffCatalogV167Q.py"
+  },
+  {
+    "from": "SCRIPTS/assets/Build-UniversalLpcBroadCreditsV167Y.py",
+    "to": "tools/automation/characters/Build-UniversalLpcBroadCreditsV167Y.py"
+  },
+  {
+    "from": "SCRIPTS/assets/Build-UniversalLpcCharacterAuthorityV167V.py",
+    "to": "tools/automation/characters/Build-UniversalLpcCharacterAuthorityV167V.py"
+  },
+  {
+    "from": "SCRIPTS/assets/Build-UniversalLpcCharacterAuthorityV167W.py",
+    "to": "tools/automation/characters/Build-UniversalLpcCharacterAuthorityV167W.py"
+  },
+  {
+    "from": "SCRIPTS/assets/Build-UniversalLpcCompleteRepositoryIndexV167Z7.py",
+    "to": "tools/automation/characters/Build-UniversalLpcCompleteRepositoryIndexV167Z7.py"
+  },
+  {
+    "from": "SCRIPTS/assets/Build-UniversalLpcGameplayWardrobeV167Y6.py",
+    "to": "tools/automation/characters/Build-UniversalLpcGameplayWardrobeV167Y6.py"
+  },
+  {
+    "from": "SCRIPTS/assets/Build-UniversalLpcUsageManifestV167X.py",
+    "to": "tools/automation/characters/Build-UniversalLpcUsageManifestV167X.py"
+  },
+  {
+    "from": "SCRIPTS/generation/Build-ClientWorldgenTestSceneV167Z.py",
+    "to": "tools/automation/worldgen/Build-ClientWorldgenTestSceneV167Z.py"
+  },
+  {
+    "from": "SCRIPTS/generation/atomic_io.py",
+    "to": "tools/automation/common/atomic_io.py"
+  },
+  {
+    "from": "SCRIPTS/menu/Open2D.MenuHost.psm1",
+    "to": "tools/automation/archive/foreign_open2d_menu/Open2D.MenuHost.psm1"
+  },
+  {
+    "from": "SCRIPTS/release/Build-HavenwildOpenAssetCreditsV167Y.py",
+    "to": "tools/automation/release/Build-HavenwildOpenAssetCreditsV167Y.py"
+  },
+  {
+    "from": "SCRIPTS/release/Build-UniversalLpcOpenAssetBundleV167W.py",
+    "to": "tools/automation/release/Build-UniversalLpcOpenAssetBundleV167W.py"
+  },
+  {
+    "from": "SCRIPTS/reports/lpc_terrain_pattern_audit_v147r.json",
+    "to": "tools/automation/reports/lpc_terrain_pattern_audit_v147r.json"
+  },
+  {
+    "from": "SCRIPTS/reports/lpc_terrain_pattern_audit_v147r.md",
+    "to": "tools/automation/reports/lpc_terrain_pattern_audit_v147r.md"
+  },
+  {
+    "from": "SCRIPTS/validate.py",
+    "to": "tools/automation/validation/validate.py"
+  },
+  {
+    "from": "SCRIPTS/validation/__init__.py",
+    "to": "tools/automation/validation/__init__.py"
+  },
+  {
+    "from": "SCRIPTS/validation/context.py",
+    "to": "tools/automation/validation/context.py"
+  },
+  {
+    "from": "SCRIPTS/validation/domains/editor_contract.py",
+    "to": "tools/automation/validation/domains/editor_contract.py"
+  },
+  {
+    "from": "SCRIPTS/validation/domains/framework_contract.py",
+    "to": "tools/automation/validation/domains/framework_contract.py"
+  },
+  {
+    "from": "SCRIPTS/validation/domains/terrain_promotion.py",
+    "to": "tools/automation/validation/domains/terrain_promotion.py"
+  },
+  {
+    "from": "SCRIPTS/validation/domains/terrain_runtime.py",
+    "to": "tools/automation/validation/domains/terrain_runtime.py"
+  },
+  {
+    "from": "SCRIPTS/validation/domains/terrain_water.py",
+    "to": "tools/automation/validation/domains/terrain_water.py"
+  },
+  {
+    "from": "SCRIPTS/validation/domains/world_contract.py",
+    "to": "tools/automation/validation/domains/world_contract.py"
+  },
+  {
+    "from": "SCRIPTS/validation/generated_outputs.py",
+    "to": "tools/automation/validation/generated_outputs.py"
+  },
+  {
+    "from": "SCRIPTS/validation/native.py",
+    "to": "tools/automation/validation/native.py"
+  },
+  {
+    "from": "SCRIPTS/validation/readonly.py",
+    "to": "tools/automation/validation/readonly.py"
+  },
+  {
+    "from": "SCRIPTS/validation/registry.py",
+    "to": "tools/automation/validation/registry.py"
+  },
+  {
+    "from": "SCRIPTS/validation/reporting.py",
+    "to": "tools/automation/validation/reporting.py"
+  },
+  {
+    "from": "SCRIPTS/validation/result.py",
+    "to": "tools/automation/validation/result.py"
+  },
+  {
+    "from": "SCRIPTS/validation/run_capability_suites.py",
+    "to": "tools/automation/validation/run_capability_suites.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_architecture.py",
+    "to": "tools/automation/validation/validate_architecture.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_character_creator_wardrobe_v167y5.py",
+    "to": "tools/automation/validation/validate_character_creator_wardrobe_v167y5.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_character_studio_usage_tracking_v167x.py",
+    "to": "tools/automation/validation/validate_character_studio_usage_tracking_v167x.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_content.py",
+    "to": "tools/automation/validation/validate_content.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_content_integrity.py",
+    "to": "tools/automation/validation/validate_content_integrity.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_gameplay_wardrobe_v167y6.py",
+    "to": "tools/automation/validation/validate_gameplay_wardrobe_v167y6.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_lpc_production_assets_v167u.py",
+    "to": "tools/automation/validation/validate_lpc_production_assets_v167u.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_oga_lpc_commercial_intake.py",
+    "to": "tools/automation/validation/validate_oga_lpc_commercial_intake.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_open_asset_broad_credits_v167y.py",
+    "to": "tools/automation/validation/validate_open_asset_broad_credits_v167y.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_pass153b_animated_water.py",
+    "to": "tools/automation/validation/validate_pass153b_animated_water.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_pass153j_render_budget.py",
+    "to": "tools/automation/validation/validate_pass153j_render_budget.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_pass153k_frame_profile.py",
+    "to": "tools/automation/validation/validate_pass153k_frame_profile.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_pass156a1_capability_validator_hotfix.py",
+    "to": "tools/automation/validation/validate_pass156a1_capability_validator_hotfix.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_pass156a_build_pipeline.py",
+    "to": "tools/automation/validation/validate_pass156a_build_pipeline.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_terrain_topology_v167z5.py",
+    "to": "tools/automation/validation/validate_terrain_topology_v167z5.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_universal_lpc_character_authority_v167v.py",
+    "to": "tools/automation/validation/validate_universal_lpc_character_authority_v167v.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_universal_lpc_sharealike_v167w.py",
+    "to": "tools/automation/validation/validate_universal_lpc_sharealike_v167w.py"
+  },
+  {
+    "from": "SCRIPTS/validation/validate_world_asset_edit_bindings.py",
+    "to": "tools/automation/validation/validate_world_asset_edit_bindings.py"
+  },
+  {
+    "from": "SCRIPTS/validation_runner.py",
+    "to": "tools/automation/validation/validation_runner.py"
+  },
+  {
+    "from": "SCRIPTS/validators/validate_terrain_material_bindings.py",
+    "to": "tools/automation/validation/checks/misc/validate_terrain_material_bindings.py"
+  },
+  {
+    "from": "TOOLS/ProjectTools/ApplyPatchRemovals.ps1",
+    "to": "tools/control/ApplyPatchRemovals.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/AuditRoot.ps1",
+    "to": "tools/control/AuditRoot.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/CertifyTerrainPipeline.ps1",
+    "to": "tools/control/CertifyTerrainPipeline.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/CollectTerrainCertificationEvidence.ps1",
+    "to": "tools/control/CollectTerrainCertificationEvidence.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/GenerateTerrainAcceptanceScenes.ps1",
+    "to": "tools/control/GenerateTerrainAcceptanceScenes.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/HavenwildTools.ps1",
+    "to": "tools/control/HavenwildTools.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/NormalizationAudit.ps1",
+    "to": "tools/control/NormalizationAudit.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/PackageProject.ps1",
+    "to": "tools/control/PackageProject.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/ProjectCommandRegistry.ps1",
+    "to": "tools/control/ProjectCommandRegistry.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/ProjectStatus.ps1",
+    "to": "tools/control/ProjectStatus.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/RebuildTerrainAtlas.ps1",
+    "to": "tools/control/RebuildTerrainAtlas.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/TerrainAcceptanceAudit.ps1",
+    "to": "tools/control/TerrainAcceptanceAudit.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/TerrainCertificationAudit.ps1",
+    "to": "tools/control/TerrainCertificationAudit.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/TerrainGameplayAudit.ps1",
+    "to": "tools/control/TerrainGameplayAudit.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/TerrainTupleAudit.ps1",
+    "to": "tools/control/TerrainTupleAudit.ps1"
+  },
+  {
+    "from": "TOOLS/ProjectTools/WorkspaceMaintenance.ps1",
+    "to": "tools/control/WorkspaceMaintenance.ps1"
+  },
+  {
+    "from": "TOOLS/archive/legacy_pass_tools/Apply-Pass92A.cmd",
+    "to": "tools/archive/legacy_pass_tools/Apply-Pass92A.cmd"
+  },
+  {
+    "from": "TOOLS/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.cmd",
+    "to": "tools/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.cmd"
+  },
+  {
+    "from": "TOOLS/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.sh",
+    "to": "tools/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.sh"
+  },
+  {
+    "from": "TOOLS/archive/root_legacy/Apply-Pass92A.cmd",
+    "to": "tools/archive/legacy_pass_tools/Apply-Pass92A.cmd"
+  },
+  {
+    "from": "TOOLS/archive/root_legacy/CLEANUP_OBSOLETE_PASS_FILES.cmd",
+    "to": "tools/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.cmd"
+  },
+  {
+    "from": "TOOLS/archive/root_legacy/CLEANUP_OBSOLETE_PASS_FILES.sh",
+    "to": "tools/archive/legacy_pass_tools/CLEANUP_OBSOLETE_PASS_FILES.sh"
+  },
+  {
+    "from": "TOOLS/archive/root_legacy/VERIFY_PASS161D6R.cmd",
+    "to": "tools/archive/root_legacy/VERIFY_PASS161D6R.cmd"
+  },
+  {
+    "from": "TOOLS/archive/root_legacy/VERIFY_PASS161D6R1.cmd",
+    "to": "tools/archive/root_legacy/VERIFY_PASS161D6R1.cmd"
+  },
+  {
+    "from": "TOOLS/archive/root_legacy/VERIFY_PASS161D6R2.cmd",
+    "to": "tools/archive/root_legacy/VERIFY_PASS161D6R2.cmd"
+  },
+  {
+    "from": "dev.sh",
+    "to": "tools\\build\\dev.sh"
+  },
+  {
+    "from": "src/apps/EditorNativeMenuService.cpp",
+    "to": "archive/source/legacy_cpp_shell/apps/EditorNativeMenuService.cpp"
+  },
+  {
+    "from": "src/apps/NativeProductShell.cpp",
+    "to": "archive/source/legacy_cpp_shell/apps/NativeProductShell.cpp"
+  },
+  {
+    "from": "src/apps/ProjectLiveContentService.cpp",
+    "to": "archive/source/legacy_cpp_shell/apps/ProjectLiveContentService.cpp"
+  },
+  {
+    "from": "src/core/App.cpp",
+    "to": "archive/source/legacy_cpp_shell/core/App.cpp"
+  },
+  {
+    "from": "src/pixel/PixelDocument.cpp",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelDocument.cpp"
+  },
+  {
+    "from": "src/pixel/PixelDocument.h",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelDocument.h"
+  },
+  {
+    "from": "src/pixel/PixelDocumentStorage.cpp",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelDocumentStorage.cpp"
+  },
+  {
+    "from": "src/pixel/PixelImageAuthority.cpp",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelImageAuthority.cpp"
+  },
+  {
+    "from": "src/pixel/PixelLayer.cpp",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelLayer.cpp"
+  },
+  {
+    "from": "src/pixel/PixelLayer.h",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelLayer.h"
+  },
+  {
+    "from": "src/pixel/PixelLayerAuthority.cpp",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelLayerAuthority.cpp"
+  },
+  {
+    "from": "src/pixel/PixelLayerAuthority.h",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelLayerAuthority.h"
+  },
+  {
+    "from": "src/pixel/PixelStudioCanvasController.cpp",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelStudioCanvasController.cpp"
+  },
+  {
+    "from": "src/pixel/PixelStudioCanvasController.h",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelStudioCanvasController.h"
+  },
+  {
+    "from": "src/pixel/PixelStudioPanelAdapters.cpp",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelStudioPanelAdapters.cpp"
+  },
+  {
+    "from": "src/pixel/PixelStudioPanelAdapters.h",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelStudioPanelAdapters.h"
+  },
+  {
+    "from": "src/pixel/PixelStudioPresentation.cpp",
+    "to": "archive/source/legacy_cpp_shell/pixel/PixelStudioPresentation.cpp"
+  },
+  {
+    "from": "src/project/NativeProcessExecutor.cpp",
+    "to": "archive/source/legacy_cpp_shell/project/NativeProcessExecutor.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioAdjustmentPreviewSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioAdjustmentPreviewSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioAdjustmentStackSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioAdjustmentStackSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioFloatingSelectionSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioFloatingSelectionSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioFloatingTransformHandlesSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioFloatingTransformHandlesSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioInteractiveTransformSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioInteractiveTransformSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioLayerAuthoringSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioLayerAuthoringSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioLayerBulkDragSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioLayerBulkDragSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioLayerDestructiveOperationsSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioLayerDestructiveOperationsSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioLayerMaskClippingSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioLayerMaskClippingSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioLayerPresentationSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioLayerPresentationSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioLayerToolbarTimelineSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioLayerToolbarTimelineSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioMaskEditingSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioMaskEditingSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioMaskLinkTransformSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioMaskLinkTransformSmoke.cpp"
+  },
+  {
+    "from": "src/tools/Open2DPixelStudioSelectionSnapClipboardSmoke.cpp",
+    "to": "archive/source/legacy_cpp_shell/tools/Open2DPixelStudioSelectionSnapClipboardSmoke.cpp"
+  },
+  {
+    "from": "src/ui/framework/NativeDockWindowHost.cpp",
+    "to": "archive/source/legacy_cpp_shell/ui/framework/NativeDockWindowHost.cpp"
+  },
+  {
+    "from": "src/ui/framework/NativeJobsPanel.cpp",
+    "to": "archive/source/legacy_cpp_shell/ui/framework/NativeJobsPanel.cpp"
+  },
+  {
+    "from": "src/ui/framework/NativeJobsPanel.h",
+    "to": "archive/source/legacy_cpp_shell/ui/framework/NativeJobsPanel.h"
+  },
+  {
+    "from": "src/workspace/WorkspaceCanvas.cpp",
+    "to": "archive/source/legacy_cpp_shell/workspace/WorkspaceCanvas.cpp"
+  },
+  {
+    "from": "src/workspace/WorkspaceCanvas.h",
+    "to": "archive/source/legacy_cpp_shell/workspace/WorkspaceCanvas.h"
+  },
+  {
+    "from": "tools/automation/validation/validate_character_creator_wardrobe_v167y5.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterCreatorWardrobeV167Y5.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_character_studio_usage_tracking_v167x.py",
+    "to": "tools/automation/validation/checks/characters/Validate-CharacterStudioUsageTrackingV167X.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_gameplay_wardrobe_v167y6.py",
+    "to": "tools/automation/validation/checks/characters/Validate-GameplayWardrobeV167Y6.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_universal_lpc_character_authority_v167v.py",
+    "to": "tools/automation/validation/checks/characters/Validate-UniversalLpcCharacterAuthorityV167V.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_universal_lpc_sharealike_v167w.py",
+    "to": "tools/automation/validation/checks/characters/Validate-UniversalLpcShareAlikeV167W.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_lpc_production_assets_v167u.py",
+    "to": "tools/automation/validation/checks/assets/Validate-LpcProductionAssetsV167U.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_oga_lpc_commercial_intake.py",
+    "to": "tools/automation/validation/checks/assets/Validate-OgaLpcCommercialIntake.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_open_asset_broad_credits_v167y.py",
+    "to": "tools/automation/validation/checks/assets/Validate-OpenAssetBroadCreditsV167Y.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_world_asset_edit_bindings.py",
+    "to": "tools/automation/validation/checks/assets/Validate-WorldAssetEditBindings.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_pass153b_animated_water.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-AnimatedWaterPass153B.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_pass153j_render_budget.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-RenderBudgetPass153J.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_pass153k_frame_profile.py",
+    "to": "tools/automation/validation/checks/rendering/Validate-FrameProfilePass153K.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_pass156a1_capability_validator_hotfix.py",
+    "to": "tools/automation/validation/checks/build/Validate-CapabilityValidatorHotfixPass156A1.py"
+  },
+  {
+    "from": "tools/automation/validation/validate_pass156a_build_pipeline.py",
+    "to": "tools/automation/validation/checks/build/Validate-BuildPipelinePass156A.py"
+  },
+  {
+    "from": "tools/archive/root_legacy/VERIFY_PASS161D6R.cmd",
+    "to": "tools/archive/legacy_pass_tools/VERIFY_PASS161D6R.cmd"
+  },
+  {
+    "from": "tools/archive/root_legacy/VERIFY_PASS161D6R1.cmd",
+    "to": "tools/archive/legacy_pass_tools/VERIFY_PASS161D6R1.cmd"
+  },
+  {
+    "from": "tools/archive/root_legacy/VERIFY_PASS161D6R2.cmd",
+    "to": "tools/archive/legacy_pass_tools/VERIFY_PASS161D6R2.cmd"
+  }
+]

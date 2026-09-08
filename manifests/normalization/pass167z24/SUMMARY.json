@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z24",
+  "title": "Worldgen Tile Serialization Round-Trip Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Changed worldgen tile export names to derive from canonical TileKind codes rather than player-facing labels.",
+    "Restored canonical OceanShallow and OceanDeep ordering in exported scene JSON.",
+    "Added backward-compatible loader aliases for prior ShallowOcean and DeepOcean exports.",
+    "Added unit coverage for canonical serialization and legacy alias loading."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "worldgenRoundTripFix": "source-reviewed and unit-covered",
+    "cargo": "pending Windows workstation rerun"
+  },
+  "completeSourceCreated": false
+}

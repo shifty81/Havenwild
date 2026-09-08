@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z34",
+  "title": "Authored LPC Tuple Contract Alignment",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Aligned canonical tuple tests with the freshwater dirt-shallow and ocean sand-shallow material families.",
+    "Replaced the obsolete sand/freshwater mixed test with an exact authored sand/ocean-shallow corner test.",
+    "Required exact authored three-material terrain-map-v7 junctions to resolve instead of being rejected.",
+    "Clarified that only tuple signatures absent from the authored atlas use semantic-fill fallback diagnostics."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "authoredTupleStaticVerification": "passed",
+    "cargo": "pending Windows workstation rerun",
+    "expectedWindowsRepair": "haven_assets 55-test suite passes the three previously failing tuple tests"
+  },
+  "completeSourceCreated": false
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.world_paint_material_adjacency.v0.1",
+  "version": 1,
+  "purpose": "Resolve selected-cell and scene-wide material-state adjacency from persisted world-paint material cells without storing rendered visual overlays as authoritative state.",
+  "canonical_tile_size": [
+    32,
+    32
+  ],
+  "source_state": "WORKSPACE/generated/world_paint/world_paint_material_state_v0_1.json",
+  "resolver_outputs": [
+    "neighbor_mask",
+    "shoreline_candidate",
+    "cave_edge_candidate",
+    "paved_brick_edge_candidate",
+    "wood_floor_edge_candidate",
+    "transition_role_hint",
+    "ready_for_autotile",
+    "ready_for_debris"
+  ],
+  "multiplayer_policy": "Host/server may store material cells and paint operations; clients derive adjacency reports, shoreline overlays, foam, debris, and variation deterministically from shared manifests.",
+  "ui_controls": {
+    "selected_cell": "Adj button or Y hotkey",
+    "active_scene_summary": "SceneAdj button or U hotkey"
+  }
+}

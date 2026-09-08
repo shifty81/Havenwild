@@ -1,0 +1,6 @@
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE crates/haven_game/src/client_entry.rs
+ADD/OVERWRITE content/audio/music/frontend/Harp.wav
+ADD/OVERWRITE content/audio/music/frontend/Harp.ogg
+ADD docs/patch/PASS_165A8_FRONTEND_AUDIO_WAV_FALLBACK.md
+ADD manifests/PASS_165A8_MANIFEST.txt

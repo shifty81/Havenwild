@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.collision_authoring.w60e2.v1",
+  "pass": "167Z109W60E2",
+  "authority": "Computed runtime collision reference plus explicit authored add/subtract masks",
+  "pixelStudio": {
+    "referenceLayer": "Physical Collision Reference",
+    "referenceLocked": true,
+    "editableLayers": [
+      "Collision Add",
+      "Collision Subtract"
+    ],
+    "defaultSnapPx": 8,
+    "minimumPrecisionPx": 1
+  },
+  "runtime": {
+    "registry": "content/world/collision_overrides_v1.json",
+    "visualAlphaTracingIsAuthority": false,
+    "subtractCanOpenBaseCollision": true,
+    "addCanBlockOpenSpace": true,
+    "structuralCliffEdgesRemainCanonical": true
+  },
+  "rules": [
+    "Collision reference is computed from gameplay collision authorities, not sprite alpha",
+    "Visual painting never silently mutates collision",
+    "Authored collision persists independently and is consumed by runtime movement",
+    "Sub-tile masks are aligned pixel-for-pixel with the selected world region"
+  ]
+}

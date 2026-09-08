@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.prototype_asset_local_bake_plan.schema.v0_1",
+  "title": "Havenwild Prototype Asset Local Bake Plan v0.1",
+  "type": "object",
+  "required": [
+    "schema",
+    "enabledByDefault",
+    "dryRunOnly",
+    "copyRawAssets",
+    "generateRuntimeAssets",
+    "reportPath",
+    "entries"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.prototype_asset_local_bake_plan.v0_1"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "enabledByDefault": {
+      "const": false
+    },
+    "dryRunOnly": {
+      "const": true
+    },
+    "copyRawAssets": {
+      "const": false
+    },
+    "generateRuntimeAssets": {
+      "const": false
+    },
+    "reportPath": {
+      "type": "string",
+      "pattern": "^WORKSPACE/generated/prototype_imports/.*\\.json$"
+    },
+    "sourceLookupRoots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockedPolicyTokens": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "adapterId",
+          "mode",
+          "allowedOutputMode"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "adapterId": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "expectedSourceState": {
+            "type": "string"
+          },
+          "allowedOutputMode": {
+            "const": "report_only_no_runtime_assets"
+          }
+        }
+      }
+    },
+    "blockedSourceProbePolicy": {
+      "type": "object"
+    },
+    "safetyNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

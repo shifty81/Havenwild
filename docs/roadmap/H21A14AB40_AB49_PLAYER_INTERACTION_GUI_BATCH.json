@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.pass_batch.v1",
+  "batch": "H21A14AB40-AB49",
+  "title": "Player Interaction + GUI Production Closure",
+  "passes": [
+    {"pass":"AB40","title":"HUD anchor closure","status":"implemented"},
+    {"pass":"AB41","title":"LPC-derived real item icon authority","status":"implemented"},
+    {"pass":"AB42","title":"Circular detailed minimap","status":"implemented"},
+    {"pass":"AB43","title":"Bottom-left bounded runtime chat","status":"implemented"},
+    {"pass":"AB44","title":"Actual-character equipment paper doll","status":"implemented"},
+    {"pass":"AB45","title":"Mouse backpack/equipment drag-drop","status":"implemented"},
+    {"pass":"AB46","title":"World-space ranged targeting and charge input","status":"implemented"},
+    {"pass":"AB47","title":"Projectile/impact foundation","status":"implemented"},
+    {"pass":"AB48","title":"LPC door hinge normalization repair","status":"implemented"},
+    {"pass":"AB49","title":"GUI/input/door regression validator","status":"implemented"}
+  ],
+  "deferredToAB50Plus": [
+    "ECS wildlife damage/health and carcasses",
+    "weapon statistics and ammunition",
+    "skill-scaled combat damage",
+    "network chat transport",
+    "production audio/impact VFX"
+  ]
+}

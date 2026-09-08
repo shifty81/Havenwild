@@ -1,0 +1,211 @@
+{
+  "schema": "havenwild.environment_catalog.v0_1",
+  "time_of_day": [
+    {
+      "stable_id": "time.standard",
+      "stages": [
+        {
+          "name": "Dawn",
+          "minute": 360,
+          "ambient_percent": 45,
+          "shadow_percent": 35,
+          "tint_rgba": [
+            220,
+            180,
+            150,
+            255
+          ]
+        },
+        {
+          "name": "Day",
+          "minute": 480,
+          "ambient_percent": 100,
+          "shadow_percent": 65,
+          "tint_rgba": [
+            255,
+            255,
+            255,
+            255
+          ]
+        },
+        {
+          "name": "Evening",
+          "minute": 1080,
+          "ambient_percent": 55,
+          "shadow_percent": 40,
+          "tint_rgba": [
+            220,
+            170,
+            150,
+            255
+          ]
+        },
+        {
+          "name": "Night",
+          "minute": 1260,
+          "ambient_percent": 24,
+          "shadow_percent": 20,
+          "tint_rgba": [
+            110,
+            130,
+            175,
+            255
+          ]
+        }
+      ]
+    }
+  ],
+  "atmosphere": [
+    {
+      "stable_id": "atmosphere.clear",
+      "kind": "clear",
+      "density_percent": 0,
+      "tint_rgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "soft_edge_tiles": 4,
+      "low_lying": false
+    },
+    {
+      "stable_id": "atmosphere.morning_mist",
+      "kind": "morning_mist",
+      "density_percent": 24,
+      "tint_rgba": [
+        220,
+        230,
+        230,
+        150
+      ],
+      "soft_edge_tiles": 8,
+      "low_lying": true
+    },
+    {
+      "stable_id": "atmosphere.cave_dust",
+      "kind": "cave_dust",
+      "density_percent": 18,
+      "tint_rgba": [
+        150,
+        140,
+        125,
+        120
+      ],
+      "soft_edge_tiles": 4,
+      "low_lying": false
+    },
+    {
+      "stable_id": "atmosphere.storm_haze",
+      "kind": "storm_haze",
+      "density_percent": 38,
+      "tint_rgba": [
+        150,
+        160,
+        175,
+        150
+      ],
+      "soft_edge_tiles": 10,
+      "low_lying": false
+    }
+  ],
+  "weather": [
+    {
+      "stable_id": "weather.clear",
+      "kind": "clear",
+      "precipitation_percent": 0,
+      "cloud_cover_percent": 10,
+      "wind_percent": 10,
+      "ambient_light_modifier_percent": 0,
+      "atmosphere_profile": "atmosphere.clear",
+      "ambience_sound": null,
+      "lightning_enabled": false
+    },
+    {
+      "stable_id": "weather.rain",
+      "kind": "rain",
+      "precipitation_percent": 65,
+      "cloud_cover_percent": 75,
+      "wind_percent": 35,
+      "ambient_light_modifier_percent": -15,
+      "atmosphere_profile": "atmosphere.morning_mist",
+      "ambience_sound": "audio.weather.rain",
+      "lightning_enabled": false
+    },
+    {
+      "stable_id": "weather.thunderstorm",
+      "kind": "thunderstorm",
+      "precipitation_percent": 95,
+      "cloud_cover_percent": 95,
+      "wind_percent": 75,
+      "ambient_light_modifier_percent": -35,
+      "atmosphere_profile": "atmosphere.storm_haze",
+      "ambience_sound": "audio.weather.heavy_rain",
+      "lightning_enabled": true
+    }
+  ],
+  "lights": [
+    {
+      "stable_id": "light.lantern.warm",
+      "radius_tiles": 6.0,
+      "intensity_percent": 70,
+      "tint_rgba": [
+        255,
+        205,
+        140,
+        255
+      ],
+      "soft_falloff": true,
+      "casts_shadows": true,
+      "night_only": true,
+      "flicker_profile": "flicker.lantern"
+    },
+    {
+      "stable_id": "light.fireplace.warm",
+      "radius_tiles": 7.0,
+      "intensity_percent": 82,
+      "tint_rgba": [
+        255,
+        170,
+        95,
+        255
+      ],
+      "soft_falloff": true,
+      "casts_shadows": true,
+      "night_only": false,
+      "flicker_profile": "flicker.fire"
+    }
+  ],
+  "environments": [
+    {
+      "schema": "havenwild.environment_system.v0_1",
+      "stable_id": "environment.outdoor.standard",
+      "kind": "outdoor",
+      "time_of_day": "time.standard",
+      "base_ambient_percent": 100,
+      "weather_enabled": true,
+      "inherited_outdoor_weather": false,
+      "default_atmosphere": "atmosphere.clear"
+    },
+    {
+      "schema": "havenwild.environment_system.v0_1",
+      "stable_id": "environment.interior.standard",
+      "kind": "interior",
+      "time_of_day": "time.standard",
+      "base_ambient_percent": 35,
+      "weather_enabled": false,
+      "inherited_outdoor_weather": true,
+      "default_atmosphere": "atmosphere.clear"
+    },
+    {
+      "schema": "havenwild.environment_system.v0_1",
+      "stable_id": "environment.cave.standard",
+      "kind": "cave",
+      "time_of_day": null,
+      "base_ambient_percent": 5,
+      "weather_enabled": false,
+      "inherited_outdoor_weather": false,
+      "default_atmosphere": "atmosphere.cave_dust"
+    }
+  ]
+}

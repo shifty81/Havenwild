@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.editor.pixel_animation_roundtrip_bridge.v0_1",
+  "title": "Pixel Studio and Animation Studio Round-Trip Bridge",
+  "ownership": {
+    "hostExecutable": "HavenwildEditor",
+    "pixelWorkspace": "Pixel Studio",
+    "animationWorkspace": "Animation Studio",
+    "separateExecutablesRequired": false
+  },
+  "openFrame": {
+    "entryAction": "Edit Selected Frame in Pixel Studio",
+    "keyboardShortcut": "E",
+    "requiresSelectedClip": true,
+    "requiresSelectedFrame": true,
+    "preservesClipIndex": true,
+    "preservesFrameIndex": true,
+    "focusesSelectedFrame": true
+  },
+  "sourcePolicy": {
+    "editsOriginalImportedSourceDirectly": false,
+    "createsOrReusesLayeredWorkingCopy": true,
+    "animationSourceRebindsToWorkingCopyOnSave": true,
+    "generatedRuntimeOutputsRemainSeparate": true
+  },
+  "pixelAnimationTab": {
+    "showsClipAndFrameContext": true,
+    "showsPreviousAndNextOnionSkin": true,
+    "showsPivotOverlay": true,
+    "showsShadowOverlay": true,
+    "showsSocketOverlays": true,
+    "supportsFocusFrame": true,
+    "supportsSaveAndReturn": true,
+    "supportsReturnWithoutSaving": true
+  },
+  "saveReturn": {
+    "savesLayeredPixelDocument": true,
+    "updatesAnimationSourcePath": true,
+    "updatesAnimationImageDimensions": true,
+    "syncsFramePivotFromPixelDocument": true,
+    "reloadsAnimationPreviewTexture": true,
+    "returnsToSameClipAndFrame": true,
+    "keyboardShortcut": "Ctrl+Enter"
+  },
+  "safety": {
+    "blocksCanvasCropDuringFrameBridge": true,
+    "blocksCanvasTrimDuringFrameBridge": true,
+    "blocksCanvasResizeDuringFrameBridge": true,
+    "refusesCrossAnimationWrite": true,
+    "autosaveRecoveryRemainsEnabled": true
+  }
+}

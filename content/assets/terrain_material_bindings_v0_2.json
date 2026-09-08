@@ -1,0 +1,168 @@
+{
+  "schema": "havenwild.terrain_material_bindings.v0_2",
+  "version": "0.5.0",
+  "purpose": "Authoritative V7 terrain-closeout material intent. Exact V7 tuples own common contacts; reviewed V7-only connector tuples bridge Gravel, Rock Ground and Mud where the sheet lacks a direct pair. WetSand is a legacy Sand alias, WateredSoil is a farming state, and structural cliffs remain elevation-derived.",
+  "bindings": [
+    {
+      "tileKind": "Grass",
+      "material": "Grass",
+      "geometryFamily": "flat_ground",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "TallGrass",
+      "material": null,
+      "geometryFamily": "vegetation_overlay",
+      "renderMode": "overlay",
+      "overlay": "tall_grass",
+      "tupleFallbackMaterial": "Grass"
+    },
+    {
+      "tileKind": "Dirt",
+      "material": "Dirt_Brown",
+      "geometryFamily": "flat_ground",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "Sand",
+      "material": "Sand",
+      "geometryFamily": "flat_ground",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "WetSand",
+      "material": "Sand",
+      "geometryFamily": "legacy_sand_alias",
+      "renderMode": "corner_tuple",
+      "directPaintAllowed": false
+    },
+    {
+      "tileKind": "PebbleShore",
+      "material": "Gravel_1",
+      "geometryFamily": "gravel_ground",
+      "renderMode": "corner_tuple",
+      "directPaintAllowed": true,
+      "edgePolicy": "exact_v7_tuple_else_owner_fill_workbench_candidate"
+    },
+    {
+      "tileKind": "Road",
+      "material": "Dirt_Tan",
+      "geometryFamily": "path_ground",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "StonePath",
+      "material": "Stone_Tan",
+      "geometryFamily": "path_ground",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "MountainPath",
+      "material": "Dirt_Roots",
+      "geometryFamily": "highland_surface_or_ramp_approach",
+      "renderMode": "corner_tuple",
+      "directPaintAllowed": true,
+      "rampRequiresElevationMetadata": true
+    },
+    {
+      "tileKind": "Bridge",
+      "material": null,
+      "geometryFamily": "bridge_structure",
+      "renderMode": "structure",
+      "tupleFallbackMaterial": "Dirt_Tan"
+    },
+    {
+      "tileKind": "Cliff",
+      "material": null,
+      "geometryFamily": "structural_cliff",
+      "renderMode": "derived_elevation_structure",
+      "directPaintAllowed": false
+    },
+    {
+      "tileKind": "MountainRock",
+      "material": "Rock_Dark",
+      "geometryFamily": "flat_rock_ground",
+      "renderMode": "corner_tuple",
+      "directPaintAllowed": true,
+      "edgePolicy": "exact_v7_tuple_else_owner_fill_workbench_candidate"
+    },
+    {
+      "tileKind": "CaveFloor",
+      "material": "Mudstone_Brown",
+      "geometryFamily": "flat_ground",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "TilledSoil",
+      "material": "Soil",
+      "geometryFamily": "farm_ground",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "WateredSoil",
+      "material": "Mud_Brown",
+      "geometryFamily": "farm_moisture_state",
+      "renderMode": "corner_tuple",
+      "directPaintAllowed": false,
+      "stateOwner": "watering_action_on_tilled_soil"
+    },
+    {
+      "tileKind": "MudBank",
+      "material": "Mud_Brown",
+      "geometryFamily": "mud_ground",
+      "renderMode": "corner_tuple",
+      "directPaintAllowed": true,
+      "edgePolicy": "exact_v7_tuple_else_owner_fill_workbench_candidate"
+    },
+    {
+      "tileKind": "ShallowWater",
+      "material": "Water_Shallows_Dirt",
+      "geometryFamily": "freshwater_shallows",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "OceanShallow",
+      "material": "Water_Shallows_Sand",
+      "geometryFamily": "ocean_shallows",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "Water",
+      "material": "Water",
+      "geometryFamily": "water_mid_depth",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "RiverWater",
+      "material": "Water",
+      "geometryFamily": "river_channel",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "DeepWater",
+      "material": "Water_Deep",
+      "geometryFamily": "water_depth",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "OceanDeep",
+      "material": "Water_Deep",
+      "geometryFamily": "water_depth",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "RiverMouthBlend",
+      "material": "Water_Shallows_Dirt",
+      "geometryFamily": "river_mouth",
+      "renderMode": "corner_tuple"
+    },
+    {
+      "tileKind": "ShoreFoam",
+      "material": null,
+      "geometryFamily": "shore_overlay",
+      "renderMode": "overlay",
+      "overlay": "shore_foam",
+      "tupleFallbackMaterial": "Water_Shallows_Sand"
+    }
+  ]
+}

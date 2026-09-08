@@ -1,0 +1,9 @@
+Havenwild Pass 165Z
+Title Menu Hover Border Removal
+
+Overwrite-capable files:
+crates/haven_game/src/client_character_frontend_draw.rs
+docs/patch/PASS_165Z_TITLE_MENU_HOVER_BORDER_REMOVAL.md
+manifests/PASS_165Z_MANIFEST.txt
+
+Apply after Pass 165Y.

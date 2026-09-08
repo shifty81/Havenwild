@@ -1,0 +1,34 @@
+{
+  "schema": "haven.first_island_generation_profile.v0_1",
+  "id": "havenwild_main_island_v0_1",
+  "canonicalTilePixels": [32, 32],
+  "worldCanvasTiles": [384, 256],
+  "targetSceneTiles": [96, 64],
+  "playerFacingZoomTarget": 1.18,
+  "purpose": "Generate the first editable island as a coherent overworld canvas composed from large editable exterior scene rectangles.",
+  "islandShape": {
+    "style": "coastal_mountain_island",
+    "centerMountain": true,
+    "cityAndHarborBias": "west_southwest",
+    "tavernBias": "mountain_base_near_main_road",
+    "shoreBands": ["deep_water", "shallow_water", "wet_sand", "sand", "land"],
+    "roads": ["east_west_main_road", "tavern_spur", "city_harbor_spur", "mountain_pass_stub"]
+  },
+  "scenePlacementRules": [
+    "Exterior scenes occupy rectangles on the overworld canvas and draw live SceneMap thumbnails.",
+    "Scene borders must line up with neighboring exterior scenes before ghost-border baking.",
+    "Interior, cave, dungeon, and event scenes remain in the scene bank and are linked by transitions.",
+    "Canvas edits should support zoom, pan, rectangle move, rectangle resize, and thumbnail refresh."
+  ],
+  "generationPasses": [
+    "height_noise",
+    "island_contour",
+    "shoreline_bands",
+    "mountain_core",
+    "road_skeleton",
+    "scene_rectangle_assignment",
+    "transition_link_seed",
+    "ghost_border_seed",
+    "validation"
+  ]
+}

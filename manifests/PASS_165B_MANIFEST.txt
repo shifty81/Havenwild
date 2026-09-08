@@ -1,0 +1,11 @@
+PASS 165B MODULAR RUNTIME TITLE MENU
+
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE crates/haven_game/src/client_character_frontend_draw.rs
+OVERWRITE content/audio/music/frontend/Harp.wav
+OVERWRITE content/audio/music/frontend/Harp.ogg
+OVERWRITE apps/haven_editor_native/src/app/draw_scene_views.rs
+OVERWRITE apps/haven_editor_native/src/app/mod.rs
+OVERWRITE apps/haven_editor_native/src/app/autotile_authoring.rs
+ADD docs/patch/PASS_165B_MODULAR_RUNTIME_TITLE_MENU.md
+ADD manifests/PASS_165B_MANIFEST.txt

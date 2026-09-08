@@ -1,0 +1,50 @@
+{
+  "schema": "havenwild.production_lpc_runtime_binding.v167z40",
+  "pass": "167Z40",
+  "authority": "content/assets/lpc/lpc_project_foundation_authority_v0_1.json",
+  "compatibility": "content/characters/lpc_character_compatibility_matrix_v0_1.json",
+  "providers": {
+    "baseline": "elizawy_lpc_revised",
+    "extensions": "universal_lpc_character_generator"
+  },
+  "runtime": {
+    "selection": "stable_asset_ref_plus_body_animation_compatibility",
+    "generatedCacheRoot": "assets/generated/lpc/characters",
+    "manifest": "assets/generated/lpc/characters/havenwild_player_walk_64.json",
+    "requiredBaselineAnimations": [
+      "idle",
+      "walk"
+    ],
+    "optionalActionAnimations": [
+      "run",
+      "jump",
+      "climb",
+      "sit",
+      "emote",
+      "combat",
+      "1h_slash",
+      "1h_backslash",
+      "1h_halfslash",
+      "watering",
+      "thrust",
+      "shoot",
+      "hurt",
+      "spellcast",
+      "slash"
+    ],
+    "fallback": "nearest_explicit_compatible_animation_then_omit_layer",
+    "proceduralFallback": false
+  },
+  "consumers": [
+    "character_creator",
+    "runtime_player",
+    "npc_population",
+    "relationship_family_runtime",
+    "pregnancy_body_state",
+    "wardrobe",
+    "equipment",
+    "portrait",
+    "multiplayer_replica",
+    "native_editor"
+  ]
+}

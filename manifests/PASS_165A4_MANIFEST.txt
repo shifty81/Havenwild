@@ -1,0 +1,5 @@
+OVERWRITE apps/haven_editor_native/src/app/draw.rs
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE crates/haven_game/src/client_character_frontend_draw.rs
+ADD docs/patch/PASS_165A4_BUILD_API_COMPATIBILITY_REPAIR.md
+ADD manifests/PASS_165A4_MANIFEST.txt

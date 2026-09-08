@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.editor_command.v009",
+  "type": "object",
+  "required": [
+    "command_id",
+    "command_type",
+    "source",
+    "target",
+    "payload"
+  ],
+  "properties": {
+    "command_id": {
+      "type": "string"
+    },
+    "command_type": {
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "MainEditor",
+        "InGameOverlay",
+        "WebEditor",
+        "RuntimeScript",
+        "Importer",
+        "ValidatorAutoFix"
+      ]
+    },
+    "target": {
+      "type": "object"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "preview_only": {
+      "type": "boolean"
+    },
+    "validation_result": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "undo_patch": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  }
+}

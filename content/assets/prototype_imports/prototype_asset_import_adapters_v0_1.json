@@ -1,0 +1,11 @@
+{
+  "schema": "havenwild.prototype_asset_import_adapter_catalog.v0_1",
+  "updated": "2026-07-09",
+  "purpose": "Catalog of safe no-raw-copy prototype asset import adapters. These adapter records describe how user-supplied/quarantined third-party sources may be processed into metadata-backed prototype outputs without bundling raw source packs by default.",
+  "defaultCopyMode": "no_raw_copy",
+  "adapters": [
+    "content/assets/prototype_imports/adapters/pipoya_world_tileset_adapter_v0_1.json",
+    "content/assets/prototype_imports/adapters/free_pixel_food_icon_adapter_v0_1.json",
+    "content/assets/prototype_imports/adapters/pixel_mart_icon_adapter_v0_1.json"
+  ]
+}

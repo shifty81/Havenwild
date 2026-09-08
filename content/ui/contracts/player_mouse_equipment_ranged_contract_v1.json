@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.player_mouse_equipment_ranged_contract.v1",
+  "revision": "H21A14AB49",
+  "mainMenuPolicy": "preserve_existing_main_menu_visual_direction",
+  "hud": {
+    "fullWidthBottomBar": false,
+    "portraitVitalsAnchor": "top_left",
+    "minimapAnchor": "top_right",
+    "minimapShape": "circle",
+    "chatAnchor": "bottom_left",
+    "hotbar": "compact_independent_center_bottom",
+    "itemIconAuthority": "generated_from_pinned_equipment_source_art"
+  },
+  "inventoryEquipment": {
+    "paperDoll": "actual_runtime_character_compositor",
+    "equipmentSlots": ["head", "torso", "legs", "feet", "back", "hands", "main_hand", "off_hand"],
+    "mouseDragDrop": true,
+    "backpackToEquipment": true,
+    "equipmentToBackpack": true,
+    "itemIdentityAuthority": "PlayerInventoryUi.ItemStack.item_id"
+  },
+  "ranged": {
+    "worldSpaceMouseTarget": true,
+    "holdToCharge": true,
+    "releaseToFire": true,
+    "chargeFeedback": true,
+    "projectileFoundation": true,
+    "animationReleaseAuthority": "Universal LPC contact frame",
+    "futureTargetAuthority": "ECS wildlife/NPC/combat target components"
+  },
+  "doors": {
+    "source": "certified LPC 12-panel oak swing strip",
+    "hingePolicy": "source cells are already hinge-normalized; do not add per-frame horizontal translation",
+    "sceneAndBuildingInstanceSharePolicy": true
+  }
+}

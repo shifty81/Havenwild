@@ -1,0 +1,5 @@
+Havenwild Pass 166D2 — Character Profile Float Equality Repair
+
+OVERWRITE crates/haven_save/src/character_profiles.rs
+ADD docs/patch/PASS_166D2_CHARACTER_PROFILE_FLOAT_EQUALITY_REPAIR.md
+ADD manifests/PASS_166D2_MANIFEST.txt

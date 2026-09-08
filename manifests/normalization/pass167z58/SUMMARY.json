@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z58",
+  "date": "2026-08-03",
+  "title": "Junction-Safe Release Content Staging",
+  "status": "ready_for_windows_build",
+  "changes": [
+    "Recognize licensed dependency mounts through both lexical project paths and resolved Windows junction targets",
+    "Exclude dependency source-control and development fixtures before application-content copy",
+    "Prune forbidden dependency-development paths from generated client/editor destinations as a final safeguard",
+    "Preserve production LPC assets and keep cleanup destination-only",
+    "Update Windows portability validation for junction-safe staging and the current build validation profile"
+  ],
+  "localValidation": {
+    "focusedPassValidator": true,
+    "lexicalLicensedPathFixture": true,
+    "stagedDestinationCleanupFixture": true,
+    "productionAssetPreservationFixture": true,
+    "windowsPortabilityValidator": true,
+    "pythonCompile": true,
+    "jsonParse": true,
+    "zipIntegrity": true,
+    "cargo": false,
+    "reasonCargoNotRun": "Rust toolchain is unavailable in the artifact environment; the supplied workstation log already proves Cargo check, strict Clippy, tests, debug build, and release compilation pass before staging"
+  },
+  "workstationCertification": [
+    "Run HavenwildTools.cmd option 2",
+    "Confirm both application bundles stage without forbidden dependency-development paths",
+    "Confirm Build/HavenwildClient/HavenwildClient.exe remains ready",
+    "Confirm Build/HavenwildEditor/HavenwildEditor.exe remains ready"
+  ]
+}

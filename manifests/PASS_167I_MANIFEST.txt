@@ -1,0 +1,8 @@
+PASS 167I RUNTIME STRUCTURAL RESIDENCY
+DATE 2026-08-01
+BASE Havenwild_Pass167H1_CumulativeTerrainWorldgenRollup_20260801
+TYPE cumulative overwrite-capable terrain/worldgen patch
+FILES
+crates/haven_game/src/runtime_surface_streaming.rs
+docs/patch/PASS_167I_RUNTIME_STRUCTURAL_RESIDENCY.md
+manifests/PASS_167I_MANIFEST.txt

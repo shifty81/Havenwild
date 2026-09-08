@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.pixel_editor.cc0_animation_sheet_profiles.v0_1",
+  "profiles": [
+    {
+      "matches": ["chicken_walk", "chicken_eat"],
+      "frameSize": [32, 32],
+      "rows": ["N", "W", "S", "E"],
+      "framesPerRow": 4
+    },
+    {
+      "matches": ["llama_walk", "llama_eat", "pig_walk", "pig_eat"],
+      "frameSize": [128, 128],
+      "rows": ["N", "W", "S", "E"],
+      "framesPerRow": 4
+    },
+    {
+      "matches": ["horse"],
+      "frameSize": [128, 128],
+      "rows": ["walk_N", "walk_W", "walk_S", "walk_E", "idle_N", "idle_W", "idle_S", "idle_E"],
+      "framesPerRow": 4
+    },
+    {
+      "matches": ["cat", "base"],
+      "frameSize": [32, 32],
+      "rows": [],
+      "framesPerRow": 0,
+      "notes": "Use manual cell selection because these sheets combine variants or non-uniform clip groups."
+    }
+  ]
+}

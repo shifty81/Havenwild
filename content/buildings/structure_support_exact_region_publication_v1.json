@@ -1,0 +1,53 @@
+{
+  "schema": "havenwild.structure_support_exact_region_publication.v1",
+  "pass": "167Z109W45D2",
+  "evidenceSchema": "havenwild.exact_structure_support_review_evidence.v1",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "acceptedFamilies": [
+    "bridge.drawbridge_a",
+    "bridge.wood_a.no_rails",
+    "platform.dais_steps_a",
+    "pillar.stone_a",
+    "pillar.floral_a"
+  ],
+  "acceptedAssetIds": [
+    "bridge_drawbridge_oak_leaf",
+    "bridge_wood_oak_flat_module",
+    "bridge_wood_oak_arch_module",
+    "bridge_wood_oak_vertical_module",
+    "platform_dais_steps_light",
+    "pillar_stone_gray_narrow",
+    "pillar_floral_white"
+  ],
+  "deferredFamilies": [
+    {
+      "family": "bridge.rope_a.no_rails",
+      "reason": "publish with rope sag/end-cap assembly resolver in W46 structural connector preview"
+    },
+    {
+      "family": "bridge.rope_a.rails",
+      "reason": "rails must remain separate from walkable-deck collision authority"
+    },
+    {
+      "family": "bridge.wood_a.rails",
+      "reason": "rail overlay must be paired with the accepted no-rails deck modules, not baked into collision identity"
+    },
+    {
+      "family": "platform.cement_a",
+      "reason": "edge/corner semantics need platform topology preview before assignment"
+    }
+  ],
+  "reviewRules": {
+    "exactSourceRectsOnly": true,
+    "noWholeSheetPromotion": true,
+    "candidateUntilRuntimeVisualAcceptance": true,
+    "bridgeRailCollisionSeparated": true
+  },
+  "sourceEvidence": {
+    "bridge.drawbridge_a": "23c7805444acd46dfa6c1bf4f3c9e4b2a3241029eab4ac64c6075ec79351a5ad",
+    "bridge.wood_a.no_rails": "f514822ea07fad29cdcf53c3e819f3c38fd49c20d9f74962cef806ed53425093",
+    "platform.dais_steps_a": "27c0a3705906ced8cd3824799e36c9853f9a2ad4a7c9c123e0d67307c279d70c",
+    "pillar.stone_a": "9fa1c4e00ca64ab47834b9ada4eee4dd21d675a90b257eb84bb8d0a1bc2c2b11",
+    "pillar.floral_a": "8e5e37e4e298b04c965c7a9629cb43f926c7db87114abcb816c2ae9a1bece2d0"
+  }
+}

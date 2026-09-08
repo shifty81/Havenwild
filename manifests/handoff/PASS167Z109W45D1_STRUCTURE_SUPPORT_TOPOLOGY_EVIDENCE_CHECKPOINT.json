@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W45D1",
+  "date": "2026-08-14",
+  "title": "Structure Support Topology + Exact Review Evidence",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A", "167Z109W42", "167Z109W43A", "167Z109W43B",
+    "167Z109W43C", "167Z109W43D", "167Z109W44A", "167Z109W45A",
+    "167Z109W45A1", "167Z109W45B", "167Z109W45C1", "167Z109W45C2",
+    "167Z109W45C3A", "167Z109W45D1"
+  ],
+  "authority": "PublishedWorldAssetRegistry + exact human-reviewed LPC structure evidence",
+  "structureSourceSheets": 98,
+  "reviewedStructureSourceSheets": 11,
+  "supportSourceSheetsUnderReview": 9,
+  "publishedSupportVisualCandidates": 0,
+  "candidateOnly": true,
+  "supportTopologyContract": "content/buildings/structure_support_topology_contract_v1.json",
+  "supportReviewContract": "content/buildings/structure_support_exact_region_review_contract_v1.json",
+  "machineLocalSupportEvidenceBundle": "WORKSPACE/generated/structure_review/Havenwild_W45D_ExactStructureSupportEvidence.zip",
+  "machineLocalRoofEvidenceBundle": "WORKSPACE/generated/structure_review/Havenwild_W45C3A_ExactRoofEvidence.zip",
+  "supportPromotion": "DEFERRED_UNTIL_W45D2_VISUAL_REVIEW",
+  "validation": {
+    "w45a": "PASS",
+    "w45b": "PASS",
+    "w45c1": "PASS",
+    "w45c2": "PASS",
+    "w45c3a": "PASS",
+    "w45d1SourceAuthority": "PASS",
+    "architecture": "PASS",
+    "projectContent": "PASS",
+    "contentIntegrity": "18/18 PASS",
+    "windowsEvidenceGeneration": "PENDING_LOCAL_PINNED_LPC_MOUNT",
+    "windowsRustBuild": "PENDING_USER_LOCAL_TEST"
+  },
+  "next": "Run local fast build + source validation, generate commands 41/42 evidence bundles, upload both, then source-control exact roof/support selections in W45C3B/W45D2 before W46 BuildingRecipe authority"
+}

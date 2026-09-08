@@ -1,0 +1,18 @@
+{
+  "schema": "havenwild.editor.transition_authoring.r40.v1",
+  "pass": "167Z109W81R40",
+  "normalFlow": [
+    "paint_semantic_materials",
+    "resolve_exact_transition",
+    "render"
+  ],
+  "repairFlow": [
+    "detect_unsupported_pair_or_tuple",
+    "open_transition_authoring",
+    "edit_layered_pixel_document",
+    "preview_in_world_context",
+    "publish_candidate",
+    "refresh_world"
+  ],
+  "derivedLayerPolicy": "Generated transition output is read-only from normal World/Scene painting."
+}

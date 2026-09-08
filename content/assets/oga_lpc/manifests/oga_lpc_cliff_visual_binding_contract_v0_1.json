@@ -1,0 +1,71 @@
+{
+  "schema": "havenwild.oga_lpc_cliff_visual_binding_contract.v0_1",
+  "authority": "haven_world structural elevation/cliff cache",
+  "render_owner": "haven_render",
+  "asset_owner": "haven_assets",
+  "editor_owner": "Havenwild Native Editor",
+  "tile_size": 32,
+  "surface_materials": [
+    "grass",
+    "dark_dirt",
+    "sand",
+    "snow"
+  ],
+  "required_semantic_roles": [
+    "top_cap",
+    "face_straight_north",
+    "face_straight_south",
+    "face_straight_east",
+    "face_straight_west",
+    "outer_corner",
+    "inner_corner",
+    "isolated_pillar",
+    "diagonal_ramp_ne_sw",
+    "diagonal_ramp_nw_se",
+    "ladder_overlay",
+    "rope_bridge_overlay"
+  ],
+  "selection_inputs": [
+    "surface_material",
+    "exposed_edge_mask",
+    "face_segment_index",
+    "corner_topology",
+    "ramp_direction",
+    "season"
+  ],
+  "overlay_sockets": {
+    "cave_entrance": [
+      "host_face",
+      "threshold",
+      "dark_recess",
+      "approach"
+    ],
+    "waterfall": [
+      "source_lip",
+      "vertical_fall",
+      "splash_pool"
+    ],
+    "ladder": [
+      "top_anchor",
+      "face_run",
+      "bottom_anchor"
+    ]
+  },
+  "rules": [
+    "Never persist a visual cell ID as semantic terrain authority.",
+    "Only reviewed cells may be selected by production rendering.",
+    "Generated atlases are derived output and are not edited directly.",
+    "Pinned or third-party source edits create Havenwild-owned overrides.",
+    "Cave entrances and waterfalls are composited features over a valid structural host face.",
+    "Raw geological byte height is quantized into structural tiers before cliff collision or face selection.",
+    "A procedural edge may block movement only when the active provider can render a complete reviewed assembly for that edge.",
+    "The packaged OGA sheet is a read-only connected-art reference until Pixel Studio publishes a normalized atlas.",
+    "No procedural collision or runtime face may be certified from an misclassified or unreviewed source region.",
+    "Runtime cliffs fail open while the normalized structural role family is incomplete."
+  ],
+  "runtime_state": "quarantined_semantic_source_role",
+  "source_dimensions": [
+    384,
+    288
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "havenwild.terrain_authoring_palette.v1",
+  "version": 3,
+  "description": "Normal V7 ground-material palette. Gravel, Rock Ground and Mud use exact or reviewed source-authored V7 connector edges. Watered tilled soil is a farming state and is not a direct terrain brush. Structural cliffs are generated from elevation.",
+  "entries": [
+    {
+      "tileKind": "Grass",
+      "terrainStandardCode": "Grass",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    },
+    {
+      "tileKind": "Dirt",
+      "terrainStandardCode": "Dirt_Brown",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    },
+    {
+      "tileKind": "Sand",
+      "terrainStandardCode": "Sand",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    },
+    {
+      "tileKind": "PebbleShore",
+      "terrainStandardCode": "Gravel_1",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true,
+      "displayLabel": "Gravel",
+      "role": "general_walkable_gravel_ground",
+      "edgePolicy": "exact_v7_tuple_else_owner_fill_workbench_candidate"
+    },
+    {
+      "tileKind": "Road",
+      "terrainStandardCode": "Stone_Tan",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    },
+    {
+      "tileKind": "StonePath",
+      "terrainStandardCode": "Stone_Tan",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    },
+    {
+      "tileKind": "MountainPath",
+      "terrainStandardCode": "Dirt_Roots",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    },
+    {
+      "tileKind": "MountainRock",
+      "terrainStandardCode": "Rock_Dark",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true,
+      "displayLabel": "Rock Ground",
+      "role": "walkable_natural_rock_floor",
+      "edgePolicy": "exact_v7_tuple_else_owner_fill_workbench_candidate"
+    },
+    {
+      "tileKind": "CaveFloor",
+      "terrainStandardCode": "Mudstone_Brown",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    },
+    {
+      "tileKind": "TilledSoil",
+      "terrainStandardCode": "Soil",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    },
+    {
+      "tileKind": "MudBank",
+      "displayLabel": "Mud",
+      "terrainStandardCode": "Mud_Brown",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true,
+      "role": "general_walkable_mud_ground",
+      "edgePolicy": "exact_v7_tuple_else_owner_fill_workbench_candidate"
+    },
+    {
+      "tileKind": "ShallowWater",
+      "terrainStandardCode": "Water_Shallows_Dirt",
+      "semanticAuthority": "TileKind",
+      "runtimeReady": true
+    }
+  ],
+  "advancedRegisteredFamilies": 34,
+  "advancedFamilyPaintingStatus": "deferred_until_save_schema_supports_stable_family_identity",
+  "structuralCliffAuthoring": {
+    "directTileBrush": false,
+    "editorTab": "Elevation",
+    "contract": "content/worldgen/cliff_authoring_contract_v0_1.json",
+    "workflow": [
+      "raise/lower/smooth elevation",
+      "choose style pack surface and cliff provider",
+      "rebuild structural faces",
+      "place ramps/cave entrances/waterfalls on validated faces"
+    ]
+  },
+  "farmingStatePolicy": {
+    "wateredSoilDirectBrush": false,
+    "wateredSoilCreatedBy": "watering_action_on_tilled_soil",
+    "wateredSoilVisualMaterial": "Mud_Brown",
+    "generalMudBrush": "MudBank"
+  }
+}

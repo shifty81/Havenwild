@@ -1,0 +1,27 @@
+{
+  "schema": "havenwild.client_worldgen_test_world.v0_2",
+  "enabled_by_default": false,
+  "environment_override": "HAVENWILD_CLIENT_WORLDGEN_TEST",
+  "load_priority": [
+    "content/worldgen/packs/worldgen_open_world_test_v0_12.json",
+    "content/worldgen/packs/worldgen_open_world_v0_1.json",
+    "content/worldgen/packs/worldgen_home_island_runtime_export_v0_10.json",
+    "selected_persistent_world_save"
+  ],
+  "rules": {
+    "persistent_world_is_not_overwritten": true,
+    "world_paint_deltas_are_replayed": true,
+    "continuous_outdoor_region_is_default": true,
+    "legacy_farmstead_is_default": false,
+    "editor_export_is_preferred": false,
+    "disable_values": [
+      "0",
+      "false",
+      "off",
+      "no"
+    ],
+    "production_pack_is_authoritative_during_worldgen_development": false,
+    "terrain_acceptance_scenes_are_diagnostic_only": true,
+    "developer_scene_navigation": "Explicit certification mode only: set HAVENWILD_CLIENT_WORLDGEN_TEST=1"
+  }
+}

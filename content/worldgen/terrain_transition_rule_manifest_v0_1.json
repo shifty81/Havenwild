@@ -1,0 +1,296 @@
+{
+  "schema": "havenwild.worldgen.terrain_transition_rule_manifest.v0_1",
+  "id": "terrain_transition_rule_manifest_v0_1",
+  "kind": "terrain_transition_rules",
+  "version": "0.4.0",
+  "description": "Pass 95 owner-side LPC terrain transitions with distinct wet sand and pebble-path semantic families.",
+  "selectorHelp": {
+    "familyCodes": [
+      "grass",
+      "dirt",
+      "sand",
+      "wet_sand",
+      "road",
+      "pebble_path",
+      "wood_floor",
+      "stone_floor",
+      "farm",
+      "shallow_water",
+      "water",
+      "deep_water",
+      "rock_wall",
+      "cave",
+      "greenhouse",
+      "void"
+    ],
+    "selectorCodes": [
+      "land",
+      "soft_natural",
+      "constructed",
+      "blocking_wall",
+      "non_blocking_wall",
+      "any"
+    ]
+  },
+  "resolutionModel": {
+    "phase": "owner_side_edge_or_inner_corner",
+    "priority": "highest priority matching rule wins; one side owns each boundary so adjacent cells do not paint competing overlays",
+    "cardinalMask": "NESW 4-way edge mask is passed to the normalized LPC family atlas",
+    "diagonalRule": "Inner corners use the dedicated authored 2x2 LPC role for the matching diagonal direction; they are not folded into outer cardinal masks."
+  },
+  "rules": [
+    {
+      "id": "shallow_water_touching_grass_bank",
+      "center": "shallow_water",
+      "neighbor": "grass",
+      "material": "grass_fringe",
+      "atlasGroup": "grass_bank_over_shallow",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 160,
+      "reason": "Shallow-water cells own the authored LPC grass bank."
+    },
+    {
+      "id": "fresh_water_touching_grass_bank",
+      "center": "water",
+      "neighbor": "grass",
+      "material": "grass_fringe",
+      "atlasGroup": "grass_bank_over_shallow",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 155,
+      "reason": "Fresh-water and river cells reuse the reviewed shallow grass-bank family."
+    },
+    {
+      "id": "shallow_water_touching_dirt_bank",
+      "center": "shallow_water",
+      "neighbor": "dirt",
+      "material": "dirt_blend",
+      "atlasGroup": "dirt_bank_over_shallow",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 160,
+      "reason": "Shallow-water cells own the authored LPC dirt bank."
+    },
+    {
+      "id": "fresh_water_touching_dirt_bank",
+      "center": "water",
+      "neighbor": "dirt",
+      "material": "dirt_blend",
+      "atlasGroup": "dirt_bank_over_shallow",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 155,
+      "reason": "Fresh-water and river cells reuse the reviewed dirt-bank family."
+    },
+    {
+      "id": "shallow_water_touching_sand_bank",
+      "center": "shallow_water",
+      "neighbor": "sand",
+      "material": "wet_sand",
+      "atlasGroup": "sand_bank_over_shallow",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 165,
+      "reason": "Beach cells use the dedicated LPC sand-to-shallow-water family."
+    },
+    {
+      "id": "fresh_water_touching_sand_bank",
+      "center": "water",
+      "neighbor": "sand",
+      "material": "wet_sand",
+      "atlasGroup": "sand_bank_over_shallow",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 155,
+      "reason": "Fresh-water and river cells use the same reviewed sand bank."
+    },
+    {
+      "id": "deep_water_touching_shallow_rim",
+      "center": "deep_water",
+      "neighbor": "shallow_water",
+      "material": "shallow_water_edge",
+      "atlasGroup": "shallow_rim_over_deep",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 170,
+      "reason": "Deep-water cells own the authored LPC shallow-depth ring."
+    },
+    {
+      "id": "deep_water_touching_fresh_rim",
+      "center": "deep_water",
+      "neighbor": "water",
+      "material": "shallow_water_edge",
+      "atlasGroup": "shallow_rim_over_deep",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 165,
+      "reason": "Generic fresh water acts as a shallow rim around deep water."
+    },
+    {
+      "id": "grass_touching_dirt_edge",
+      "center": "grass",
+      "neighbor": "dirt",
+      "material": "dirt_blend",
+      "atlasGroup": "grass_over_dirt",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 130,
+      "reason": "Grass cells own the authored LPC dirt exterior edge."
+    },
+    {
+      "id": "grass_touching_farm_edge",
+      "center": "grass",
+      "neighbor": "farm",
+      "material": "dirt_blend",
+      "atlasGroup": "grass_over_dirt",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 125,
+      "reason": "Grass cells own the farm-soil exterior edge."
+    },
+    {
+      "id": "grass_touching_sand_edge",
+      "center": "grass",
+      "neighbor": "sand",
+      "material": "sand_blend",
+      "atlasGroup": "grass_over_sand",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 135,
+      "reason": "Grass cells own the dedicated LPC sand exterior edge."
+    },
+    {
+      "id": "wet_sand_touching_dry_sand_edge",
+      "center": "wet_sand",
+      "neighbor": "sand",
+      "material": "sand_blend",
+      "atlasGroup": "sand_over_wet_sand",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 150,
+      "reason": "Wet-sand cells own the authored dry-sand exterior edge and 2x2 concave roles."
+    },
+    {
+      "id": "pebble_path_touching_dirt_edge",
+      "center": "pebble_path",
+      "neighbor": "dirt",
+      "material": "stone_shoulder",
+      "atlasGroup": "pebble_path_over_dirt",
+      "appliesTo": [
+        "edge"
+      ],
+      "priority": 120,
+      "reason": "Pebble/stone path cells own the authored dirt exterior edge; no unverified inner corner is requested."
+    },
+    {
+      "id": "road_touching_natural_shoulder",
+      "center": "road",
+      "neighbor": "soft_natural",
+      "material": "road_shoulder",
+      "atlasGroup": "riverbank_mud",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 90,
+      "reason": "Road cells own their natural shoulder."
+    },
+    {
+      "id": "stone_floor_touching_natural_shoulder",
+      "center": "stone_floor",
+      "neighbor": "soft_natural",
+      "material": "stone_shoulder",
+      "atlasGroup": "riverbank_mud",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 85,
+      "reason": "Stone floors and paths own their natural shoulder."
+    },
+    {
+      "id": "rock_wall_touching_open_shadow",
+      "center": "blocking_wall",
+      "neighbor": "non_blocking_wall",
+      "material": "rock_shadow",
+      "atlasGroup": "riverbank_mud",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 95,
+      "reason": "Blocking walls own their waterline or ground shadow."
+    },
+    {
+      "id": "deep_water_direct_grass_safety_rim",
+      "center": "deep_water",
+      "neighbor": "grass",
+      "material": "shallow_water_edge",
+      "atlasGroup": "shallow_rim_over_deep",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 40,
+      "reason": "Safety rendering for invalid topology; validation should insert shallow water."
+    },
+    {
+      "id": "deep_water_direct_dirt_safety_rim",
+      "center": "deep_water",
+      "neighbor": "dirt",
+      "material": "shallow_water_edge",
+      "atlasGroup": "shallow_rim_over_deep",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 40,
+      "reason": "Safety rendering for invalid topology; validation should insert shallow water."
+    },
+    {
+      "id": "deep_water_direct_sand_safety_rim",
+      "center": "deep_water",
+      "neighbor": "sand",
+      "material": "shallow_water_edge",
+      "atlasGroup": "shallow_rim_over_deep",
+      "appliesTo": [
+        "edge",
+        "corner"
+      ],
+      "priority": 40,
+      "reason": "Safety rendering for invalid topology; validation should insert shallow water."
+    }
+  ],
+  "editorPreview": {
+    "showRuleId": true,
+    "showMaterial": true,
+    "showAtlasGroup": true,
+    "showPriority": true,
+    "showFallbackStatus": true
+  }
+}

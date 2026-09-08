@@ -1,0 +1,146 @@
+{
+  "schema": "havenwild.mainland_surface_features.v0_2",
+  "version": 2,
+  "checkpoint": "Pass167Z83",
+  "pass": "Pass167Z84",
+  "generationVersion": 14,
+  "regionalIdentity": {
+    "world": "Havenwild",
+    "mainIslandDisplayName": "Alderreach",
+    "capital": "Willowmere",
+    "southernPort": "Willowmere Harbor",
+    "persistentRegionId": "havenwild_mainland",
+    "saveCompatibility": "Existing pcg_havenwild_mainland_* scene IDs remain unchanged. Alderreach is the player-facing landmass name."
+  },
+  "surfaceAuthority": "continuous_global_pcg_surface",
+  "storagePolicy": "Exterior scene rectangles are storage partitions, never roads, city districts, landmass edges, or player-facing scenes.",
+  "newWorldScale": {
+    "partitionGrid": [8, 5],
+    "partitionTiles": [96, 64],
+    "continuousSurfaceTiles": [768, 320],
+    "partitionCount": 40,
+    "legacyGrid": [5, 4],
+    "legacySurfaceTiles": [480, 256],
+    "legacyPartitionCount": 20,
+    "areaMultiplier": 2.0,
+    "legacySavePolicy": "Generation-version migration does not resize an occupied world. Explicit world regeneration is required to receive the expanded landmass."
+  },
+  "resources": {
+    "implemented": true,
+    "objectKinds": ["boulder", "ore_node"],
+    "placement": "deterministic_global_coordinates",
+    "terrainCompatibility": {
+      "boulder": ["grass", "dirt", "mountain_rock"],
+      "ore_node": ["mountain_rock"]
+    },
+    "artAuthority": "existing audited Havenwild/ElizaWy-backed object atlas",
+    "terrainReplacement": false,
+    "districtExclusion": "Natural scatter may not occupy any reserved civic, market, residential, artisan, harbor, agricultural, cave, or public-path zone."
+  },
+  "roads": {
+    "implemented": true,
+    "material": "road",
+    "widthTiles": 3,
+    "crossPartitionPathfinding": true,
+    "routes": [
+      "Willowmere Harbor dry-land approach to Willowmere",
+      "Willowmere to north Alderreach approach",
+      "Willowmere to west Alderreach approach",
+      "Willowmere to east Alderreach approach",
+      "Willowmere to promoted cave host when available"
+    ],
+    "zone": "public_path",
+    "outdoorSceneTransitions": false,
+    "harborTermination": "Ordinary road terrain must terminate on dry coastal land. Boardwalk, seawall, dock, bridge, and pier assets own all later over-water traversal."
+  },
+  "willowmere": {
+    "implementedStage": "global capital site, street framework, compact civic plaza, invisible district and building-lot reservations, and civic object anchors",
+    "permanentCapital": true,
+    "authority": "content/worldgen/starter_town_authority_v0_1.json",
+    "buildingPlotReservations": 8,
+    "districtZones": [
+      "civic_lot",
+      "market_lot",
+      "residential_lot",
+      "artisan_lot",
+      "harbor_lot",
+      "agricultural_lot"
+    ],
+    "lotVisualPolicy": "Reserved lots are metadata only and may not paint giant StonePath rectangles.",
+    "civicPlaza": {
+      "material": "stone_path",
+      "maximumTiles": 121,
+      "purpose": "small visible public square rather than building-footprint placeholders"
+    },
+    "civicObjects": ["bench", "lamp", "sign"],
+    "wellStatus": "deferred_until_period_appropriate_authored_well_or_fountain_is_promoted",
+    "quarantinedMisclassification": "assets/source/licensed/lpc_revised/Objects/Furniture/Water Cooler.png must never bind to ObjectKind::Well",
+    "fullBuildingStampStatus": "blocked until external ElizaWy/OpenGameArt LPC structure sheets pass semantic, footprint, license, and attribution promotion",
+    "rawExternalAssetsPackaged": false,
+    "noMandatoryPlayerFarmstead": true
+  },
+  "harbor": {
+    "implementedStage": "dry coastal landfall, invisible harbor district reservation, and road approach",
+    "visibleCompletionDeferred": [
+      "harbor_plaza",
+      "seawall",
+      "boardwalk",
+      "docks",
+      "piers",
+      "warehouses",
+      "customs_or_harbor_office",
+      "ferry_and_ship_anchors"
+    ],
+    "waterProtection": "Migration restores road cells that intruded into heavily water-adjacent shoreline cells."
+  },
+  "caves": {
+    "implemented": true,
+    "hostRule": "contiguous high-elevation mountain-rock face with audited 4x4 placement clearance",
+    "objectKind": "cave_entrance",
+    "zone": "cave",
+    "transitionStatus": "entrance host is materialized; dedicated per-cave instance routing remains follow-on"
+  },
+  "cliffs": {
+    "semanticAuthority": "height-derived structural output",
+    "resolver": "crates/haven_world/src/elevation_cliff_v2.rs",
+    "bridge": "crates/haven_world/src/terrain_cliff_bridge.rs",
+    "elizawyRoleCatalog": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+    "renderStatus": "Exact seasonal source sheets remain audited but require full source remount and promotion; placeholders and mixed-style pixels remain forbidden.",
+    "flatCliffTerrainBrush": false
+  },
+  "toolActions": {
+    "implemented": true,
+    "selectedToolAuthority": "GameplayTool hotbar selection",
+    "movementPolicy": "stop while player_action_remaining is positive, play mapped action, then restore normal movement input",
+    "repeatInputPolicy": "ignore additional tool-use clicks while the action timer owns the character",
+    "bindings": {
+      "hand": "emote",
+      "axe": "one_hand_backslash",
+      "pickaxe": "one_hand_halfslash",
+      "hoe": "one_hand_slash",
+      "watering_can": "watering",
+      "hammer": "one_hand_halfslash",
+      "fishing_rod": "thrust",
+      "scythe": "slash"
+    },
+    "bindingAuthority": "content/characters/lpc_character_compatibility_matrix_v0_1.json"
+  },
+  "migration": {
+    "fromGenerationVersions": "1-13",
+    "preserveExistingRoadInfrastructure": true,
+    "preservePlayerAuthoredObjectsAndStamps": true,
+    "removeZ83WaterCoolerWellAtCapitalCenter": true,
+    "replaceZ83LargeStonePathLotPadsWithLocalDominantGround": true,
+    "repairHarborRoadIntrusions": true,
+    "addInvisibleDistrictReservations": true,
+    "doNotResizeOccupiedWorld": true,
+    "saveAfterMigration": true
+  },
+  "assetPromotionAuthority": "content/assets/intake/havenwild_asset_promotion_closeout_v0_1.json",
+  "artPolicy": {
+    "generatedReplacementArt": false,
+    "recoloredArt": false,
+    "crossStyleTerrainPixels": false,
+    "missingAuthoredPixels": "block promotion and report the exact source/semantic gap"
+  }
+}

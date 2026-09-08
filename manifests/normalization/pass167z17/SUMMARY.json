@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z17",
+  "title": "Direct LPC Terrain Visual Repair",
+  "date": "2026-08-02",
+  "cumulativePatchBaseline": "Pass 167Z10 Development Normalization",
+  "result": "Pass 167Z17 Direct LPC Terrain Visual Repair",
+  "problem": "The live client still showed placeholder tree/bar squares, scattered watered-soil patches, repeated center-only farm furrows, path-art coastline cells, bridge terrain beside water, broad block bridges, and opaque compound transition fragments.",
+  "correction": "Runtime transition ownership now uses direct exact roles plus exact ordered-pair compound atlas entries; field boundaries use terrain-v7 edge/corner cells; ocean semantics use reviewed v7 fills; bridge rendering is a dedicated LPC structure overlay; and the generated test world uses smoothed coast/pond/field topology without placeholder sample objects.",
+  "cumulativeIncludedPasses": [
+    "167Z11", "167Z12", "167Z13", "167Z14", "167Z15", "167Z16", "167Z17"
+  ],
+  "validation": [
+    "source validation profile passed all 19 active gates",
+    "all 17 content-integrity checks passed",
+    "Python syntax passed",
+    "terrain topology and LPC evidence generation passed",
+    "Windows Cargo, Clippy, tests, and live visual certification remain local"
+  ]
+}

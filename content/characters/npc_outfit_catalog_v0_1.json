@@ -1,0 +1,187 @@
+{
+  "schema": "havenwild.character.npc_outfit_catalog.v0_1",
+  "itemCatalog": "content/characters/gameplay_clothing_item_catalog_v0_1.json",
+  "generationProfiles": "content/characters/universal_lpc_npc_generation_profiles_v0_1.json",
+  "rules": {
+    "outfitsAreDeterministicPerNpcIdentity": true,
+    "sexDoesNotRestrictClothing": true,
+    "facialHairPolicyRemainsSeparate": true,
+    "authoredNpcsMayLockAnySlot": true,
+    "generatedNpcsCanSwitchContextOutfits": true
+  },
+  "outfits": [
+    {
+      "id": "everyday_plain",
+      "contexts": [
+        "Everyday"
+      ],
+      "roles": [
+        "resident",
+        "student",
+        "retired"
+      ],
+      "weightedItems": {
+        "torso": [
+          "clothing_linen_tshirt",
+          "clothing_long_work_shirt"
+        ],
+        "legs": [
+          "clothing_plain_trousers",
+          "clothing_plain_skirt"
+        ],
+        "feet": [
+          "clothing_simple_shoes",
+          "clothing_simple_sandals"
+        ]
+      }
+    },
+    {
+      "id": "farmer_work",
+      "contexts": [
+        "Work"
+      ],
+      "roles": [
+        "farmer",
+        "farmhand",
+        "rancher",
+        "beekeeper"
+      ],
+      "weightedItems": {
+        "torso": [
+          "clothing_work_apron",
+          "clothing_long_work_shirt"
+        ],
+        "legs": [
+          "clothing_plain_trousers",
+          "clothing_work_shorts"
+        ],
+        "feet": [
+          "clothing_simple_boots"
+        ],
+        "head": [
+          "headwear_felt_hat"
+        ]
+      }
+    },
+    {
+      "id": "craftsperson_work",
+      "contexts": [
+        "Work"
+      ],
+      "roles": [
+        "blacksmith",
+        "carpenter",
+        "tailor",
+        "mason",
+        "cook"
+      ],
+      "weightedItems": {
+        "torso": [
+          "clothing_work_apron",
+          "clothing_plain_vest",
+          "clothing_long_work_shirt"
+        ],
+        "legs": [
+          "clothing_plain_trousers"
+        ],
+        "feet": [
+          "clothing_simple_boots",
+          "clothing_simple_shoes"
+        ]
+      }
+    },
+    {
+      "id": "coastal_work",
+      "contexts": [
+        "Work",
+        "Travel"
+      ],
+      "roles": [
+        "fisher",
+        "sailor",
+        "dockworker",
+        "harbormaster",
+        "boatwright"
+      ],
+      "weightedItems": {
+        "torso": [
+          "clothing_plain_vest",
+          "clothing_traveler_tunic"
+        ],
+        "legs": [
+          "clothing_work_shorts",
+          "clothing_plain_trousers"
+        ],
+        "feet": [
+          "clothing_simple_sandals",
+          "clothing_simple_boots"
+        ],
+        "head": [
+          "headwear_felt_hat",
+          "headwear_travel_hood"
+        ]
+      }
+    },
+    {
+      "id": "rain_travel",
+      "contexts": [
+        "Rain",
+        "Winter",
+        "Travel"
+      ],
+      "roles": [
+        "resident",
+        "courier",
+        "merchant",
+        "guide",
+        "sailor"
+      ],
+      "weightedItems": {
+        "torso": [
+          "clothing_traveler_tunic",
+          "clothing_long_work_shirt"
+        ],
+        "legs": [
+          "clothing_plain_trousers",
+          "clothing_long_skirt"
+        ],
+        "feet": [
+          "clothing_simple_boots"
+        ],
+        "head": [
+          "headwear_travel_hood"
+        ]
+      }
+    },
+    {
+      "id": "festival_plain",
+      "contexts": [
+        "Festival",
+        "Formal"
+      ],
+      "roles": [
+        "resident",
+        "merchant",
+        "shopkeeper",
+        "innkeeper",
+        "artisan"
+      ],
+      "weightedItems": {
+        "torso": [
+          "clothing_traveler_tunic",
+          "clothing_linen_tshirt"
+        ],
+        "legs": [
+          "clothing_long_skirt",
+          "clothing_plain_trousers"
+        ],
+        "feet": [
+          "clothing_simple_shoes"
+        ],
+        "head": [
+          "headwear_felt_hat"
+        ]
+      }
+    }
+  ]
+}

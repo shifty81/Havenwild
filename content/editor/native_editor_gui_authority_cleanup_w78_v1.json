@@ -1,0 +1,59 @@
+{
+  "schema": "havenwild.editor.native_gui_authority_cleanup.w78.v1",
+  "pass": "167Z109W78",
+  "purpose": "Remove compiled duplicate/retired native-editor GUI authorities while preserving their real operations in canonical W76 CanvasWorkspace owners.",
+  "authority": {
+    "toolSelection": "canvas_tool_rack + tool_registry",
+    "layerManagement": "canvas_layers",
+    "pixelContextGeometry": "pixel_context_layout",
+    "rightInspector": "right_dock",
+    "worldProperties": "world_surface_authoring_ui through RightDockTab::Properties",
+    "canvasViewControls": "canvas_controller + canvas_view"
+  },
+  "pixelLayers": {
+    "canonicalRail": "apps/haven_editor_native/src/app/canvas_layers.rs",
+    "supports": [
+      "select",
+      "show_hide",
+      "lock_unlock",
+      "add",
+      "duplicate",
+      "delete",
+      "reorder",
+      "merge_down",
+      "rename",
+      "opacity"
+    ],
+    "duplicatePanelForbidden": true,
+    "documentGeometryOperationsRemainHeadless": true,
+    "implementationModules": [
+      "apps/haven_editor_native/src/app/canvas_layers.rs",
+      "apps/haven_editor_native/src/app/pixel_layer_rail.rs"
+    ]
+  },
+  "retiredRuntimeModules": [
+    "apps/haven_editor_native/src/app/pixel_layer_panel.rs",
+    "apps/haven_editor_native/src/app/scene_toolrail.rs",
+    "apps/haven_editor_native/src/app/asset_shelf.rs",
+    "apps/haven_editor_native/src/app/asset_library_panel.rs",
+    "apps/haven_editor_native/src/app/asset_intake_panel.rs"
+  ],
+  "retiredSymbols": [
+    "WorldInspectorTab",
+    "handle_scene_rectangle_inspector_click",
+    "tool_group_popup_rect",
+    "draw_tool_group_popup",
+    "pixel_document_tabs_bar_rect",
+    "pixel_zoom_out_rect",
+    "pixel_zoom_in_rect"
+  ],
+  "historicalRepairPolicy": {
+    "w60e3aCompileRepair": "fail_closed",
+    "mustNotRecreateRetiredModules": true
+  },
+  "warningCleanup": {
+    "deadCodeSuppressionsAdded": false,
+    "knownW77NativeEditorWarningAuthoritiesRemoved": true,
+    "windowsCargoGateIsAuthoritative": true
+  }
+}

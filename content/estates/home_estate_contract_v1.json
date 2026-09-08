@@ -1,0 +1,79 @@
+{
+  "schema": "havenwild.home_estate_contract.v1",
+  "pass": "167Z109W54F",
+  "displayName": "Estate",
+  "legacySceneCompatibilityId": "farmstead",
+  "instanceAuthority": "BuildingInstanceRegistry + EstateInstanceId persistence",
+  "visualAuthority": "PublishedWorldAssetRegistry",
+  "terrainAuthority": "AuthoredTerrainProviderRegistry",
+  "instancePolicy": {
+    "oneCanonicalEstatePerPlayer": true,
+    "portableAcrossSingleAndMultiplayer": true,
+    "serverAuthoritativeDuringSession": true,
+    "sameEstateInstanceIdAcrossServers": true,
+    "serverReplicaNeverBecomesSeparateAuthority": true
+  },
+  "propertyPolicy": {
+    "boundedInitialProperty": true,
+    "fixedEntranceSide": "south",
+    "expandThroughEntranceSide": false,
+    "expandableDirections": [
+      "north",
+      "east",
+      "west"
+    ],
+    "adjacentChunkPurchase": true,
+    "seamlessTerrainStitching": true,
+    "decorativeHighlandBorderMovesOutwardWithExpansion": true
+  },
+  "landmarkPolicy": {
+    "decorativeHighlandsUnreachable": true,
+    "caveEntranceRequiredInHighlandFace": true,
+    "ordinaryCaveMouthAssetId": "cave_entrance_default",
+    "fixedSharedWorldEntranceRequired": true,
+    "caveInteractionOccursFromClearApproachTile": true
+  },
+  "progressionPolicy": {
+    "fullyEstablishedStartingBase": false,
+    "estateUnlockedAfterFieldSurvivalPhase": true,
+    "starterCottage": "development_fixture_or_progression_unlock",
+    "businessAndFarmExpansionLater": true
+  },
+  "visualPolicy": {
+    "quarantinedLegacyKindsNeverGenerated": [
+      "well",
+      "scarecrow",
+      "bench",
+      "log",
+      "greenhouse_marker",
+      "sign"
+    ],
+    "typedFenceDoorStairsAndWallSignsAllowed": true,
+    "noPlaceholderSubstitution": true,
+    "southHighlandFenceBandDeferred": true
+  },
+  "compositionPolicy": {
+    "edgeWoodlandFramesProperty": true,
+    "centralBuildPadReserved": true,
+    "cottageApproachReserved": true,
+    "gardenStarterZoneSeparateFromHomePad": true,
+    "publishedObjectsOnly": true,
+    "deterministicSeededComposition": true,
+    "criticalRoutesMustRemainReachable": [
+      "south_gate",
+      "starter_cottage_approach",
+      "cave_approach"
+    ]
+  },
+  "starterBuildingExteriorPolicy": {
+    "candidateMayRenderWhenExactFrontageAndRoofResolve": true,
+    "unprovenFacingsRemainLogicalOnly": true,
+    "rotatingOrMirroringWrongFacingWallArtForbidden": true,
+    "cameraLocalRoofCutawayRequired": true,
+    "sameWorldInteriorRequired": true,
+    "joinedAuthoredRoofModulesMayNotOverlapOrGap": true,
+    "roofEnvelopeAndWallPlateAreIndependent": true,
+    "frontGableTransparentOpeningRequiresShapedWallInfill": true,
+    "rectangularGableBackingForbidden": true
+  }
+}

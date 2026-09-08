@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.project_panel_mapping.w60e16.v1",
+  "standard": {
+    "top": "structural_workspace_tabs",
+    "leftOuter": "project_or_asset_browser",
+    "leftCanvas": [
+      "tool_rail",
+      "layer_rail"
+    ],
+    "center": "canvas_or_graph",
+    "right": "inspector_properties",
+    "bottom": "contextual_bottom_dock"
+  },
+  "workspaces": {
+    "world_routes": "shared_canvas_shell",
+    "world_editor": "shared_canvas_shell",
+    "scene_bank": "shared_canvas_shell",
+    "scene_editor": "shared_canvas_shell",
+    "pixel_studio": "shared_canvas_shell",
+    "animation_studio": "shared_canvas_shell",
+    "character_studio": "shared_canvas_shell"
+  },
+  "rule": "workspace_specific_functionality_changes adapters, not shell geometry or widget language"
+}

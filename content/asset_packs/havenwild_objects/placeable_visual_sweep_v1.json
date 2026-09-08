@@ -1,0 +1,562 @@
+{
+  "schema": "havenwild.placeable_visual_sweep.v1",
+  "pass": "167Z109W52",
+  "policy": {
+    "ordinaryPlaceablesAreSingular": true,
+    "incorrectSemanticSubstitutionsFailClosed": true,
+    "missingArtworkRemainsExplicit": true,
+    "legacyObjectKindIsCompatibilityOnly": true,
+    "crateStacksRequireExplicitAssembly": true,
+    "certificationRequiresRuntimeVisualReview": true
+  },
+  "statusCounts": {
+    "CANDIDATE": 20,
+    "MISSING": 2,
+    "REJECTED": 4
+  },
+  "entries": [
+    {
+      "objectKind": "table",
+      "label": "Table",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "table_round",
+      "nextAction": "visual_review",
+      "note": "Real LPC furniture source; verify table shape/anchor in expanded acceptance board.",
+      "runtimeCache": {
+        "id": "table_round",
+        "index": 8,
+        "rect": [
+          0,
+          192,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Table, Rough Wood.png",
+        "sourceRect": [
+          8,
+          22,
+          80,
+          42
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "chair",
+      "label": "Chair",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "chair_wood",
+      "nextAction": "visual_review",
+      "note": "Real LPC chair source; verify orientation and seat anchor.",
+      "runtimeCache": {
+        "id": "chair_wood",
+        "index": 9,
+        "rect": [
+          160,
+          192,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Seating/Chair, Dining A.png",
+        "sourceRect": [
+          164,
+          11,
+          24,
+          21
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "bar",
+      "label": "Bar",
+      "status": "CANDIDATE",
+      "role": "building_component",
+      "runtimeBinding": "bar_counter",
+      "nextAction": "visual_review",
+      "note": "Exact authored 4-tile Countertop.png run now published as the Tavern service counter; inspect seams/anchor in W52 board.",
+      "runtimeCache": {
+        "id": "bar_counter",
+        "index": 10,
+        "rect": [
+          320,
+          192,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Countertop.png",
+        "sourceRect": [
+          6,
+          0,
+          52,
+          154
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "keg",
+      "label": "Keg",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "keg",
+      "nextAction": "visual_review",
+      "note": "Exact singular Barrel.png cask variant now published; grouped-barrel fallback retired.",
+      "runtimeCache": {
+        "id": "keg",
+        "index": 11,
+        "rect": [
+          480,
+          192,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Barrel.png",
+        "sourceRect": [
+          96,
+          2,
+          48,
+          61
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "bed",
+      "label": "Guest Bed",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "bed_basic",
+      "nextAction": "visual_review",
+      "note": "Real LPC bed source; verify 3x2 gameplay footprint against source pixels.",
+      "runtimeCache": {
+        "id": "bed_basic",
+        "index": 16,
+        "rect": [
+          0,
+          384,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Beds/Beds, Single  A.png",
+        "sourceRect": [
+          51,
+          138,
+          59,
+          52
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "fireplace",
+      "label": "Fireplace",
+      "status": "CANDIDATE",
+      "role": "structure_component",
+      "runtimeBinding": "fireplace",
+      "nextAction": "visual_review",
+      "note": "Exact cast-iron off/lit cells now published and used by Tavern kitchen hearth.",
+      "runtimeCache": {
+        "id": "fireplace",
+        "index": 17,
+        "rect": [
+          160,
+          384,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Fireplace.png",
+        "sourceRect": [
+          1,
+          16,
+          94,
+          72
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "greenhouse_marker",
+      "label": "Greenhouse Marker",
+      "status": "MISSING",
+      "role": "building_recipe",
+      "runtimeBinding": null,
+      "nextAction": "retire_legacy_marker",
+      "note": "Legacy construction marker remains fail-closed; W53 Estate uses BuildingRecipe/structure authority for greenhouse content instead of a fake marker."
+    },
+    {
+      "objectKind": "tree",
+      "label": "Tree",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "oak_tree",
+      "nextAction": "visual_review",
+      "note": "Published tree family exists; continue anchor/trunk certification.",
+      "runtimeCache": {
+        "id": "oak_tree",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "sourceRect": [
+          321,
+          16,
+          94,
+          125
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "bush",
+      "label": "Berry Bush",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "berry_bush",
+      "nextAction": "visual_review",
+      "note": "Published berry family exists.",
+      "runtimeCache": {
+        "id": "berry_bush",
+        "index": 1,
+        "rect": [
+          160,
+          0,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Terrain/plants_summer.png",
+        "sourceRect": [
+          96,
+          0,
+          32,
+          32
+        ],
+        "sourceMode": "lpc_32x32_grid_cell_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "boulder",
+      "label": "Boulder",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "boulder",
+      "nextAction": "visual_review",
+      "note": "Published boulder family exists.",
+      "runtimeCache": {
+        "id": "boulder",
+        "index": 4,
+        "rect": [
+          640,
+          0,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Terrain/Rocks, Grasslands.png",
+        "sourceRect": [
+          129,
+          71,
+          29,
+          24
+        ],
+        "sourceMode": "lpc_four_connected_authored_rock_component"
+      }
+    },
+    {
+      "objectKind": "ore_node",
+      "label": "Ore Node",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "ore_node",
+      "nextAction": "visual_review",
+      "note": "W49 publishes exact iron identity; other ore material identities remain separate rather than recolored.",
+      "runtimeCache": {
+        "id": "ore_node",
+        "index": 5,
+        "rect": [
+          800,
+          0,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Small Items/Ores & Ingots/Ore, Iron.png",
+        "sourceRect": [
+          3,
+          35,
+          28,
+          28
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "mushroom",
+      "label": "Mushroom",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "forage_mushroom",
+      "nextAction": "visual_review",
+      "note": "Published mushroom family exists.",
+      "runtimeCache": {
+        "id": "forage_mushroom",
+        "index": 6,
+        "rect": [
+          960,
+          0,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Terrain/mushrooms.png",
+        "sourceRect": [
+          96,
+          32,
+          32,
+          32
+        ],
+        "sourceMode": "lpc_32x32_grid_cell_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "herb",
+      "label": "Wild Herb",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "wild_herb",
+      "nextAction": "split_semantic_families",
+      "note": "Published herb/flower/reed families exist; generic ObjectKind remains compatibility only.",
+      "runtimeCache": {
+        "id": "wild_herb",
+        "index": 7,
+        "rect": [
+          1120,
+          0,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Terrain/wildflowers_summer.png",
+        "sourceRect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "sourceMode": "lpc_32x32_grid_cell_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "crate",
+      "label": "Crate",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "crate_stack",
+      "nextAction": "certify_singular",
+      "note": "W43B exact slice [0,32,32,32] renders one crate; crate_stack is compatibility naming only.",
+      "runtimeCache": {
+        "id": "crate_stack",
+        "index": 20,
+        "rect": [
+          640,
+          384,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Crate.png",
+        "sourceRect": [
+          0,
+          32,
+          32,
+          32
+        ],
+        "sourceMode": "lpc_exact_source_rect_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "barrel",
+      "label": "Barrel",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "barrel",
+      "nextAction": "visual_review",
+      "note": "Exact singular Barrel.png variant published; grouped connected-component fallback retired.",
+      "runtimeCache": {
+        "id": "barrel",
+        "index": 21,
+        "rect": [
+          800,
+          384,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Barrel.png",
+        "sourceRect": [
+          96,
+          2,
+          48,
+          61
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "well",
+      "label": "Well",
+      "status": "REJECTED",
+      "role": "placeable",
+      "runtimeBinding": null,
+      "nextAction": "find_real_source",
+      "note": "Water Cooler substitution remains quarantined."
+    },
+    {
+      "objectKind": "scarecrow",
+      "label": "Scarecrow",
+      "status": "REJECTED",
+      "role": "placeable",
+      "runtimeBinding": null,
+      "nextAction": "find_real_source",
+      "note": "Dress Form/missing-cache substitution is not production scarecrow art."
+    },
+    {
+      "objectKind": "fence",
+      "label": "Fence Segment",
+      "status": "CANDIDATE",
+      "role": "structure_component",
+      "runtimeBinding": null,
+      "nextAction": "visual_review",
+      "note": "Resolved by W45 structural fence components through PublishedWorldAssetRegistry."
+    },
+    {
+      "objectKind": "lamp",
+      "label": "Lamp Post",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "lamp_post",
+      "nextAction": "visual_review",
+      "note": "Real LPC outdoor-lighting source.",
+      "runtimeCache": {
+        "id": "lamp_post",
+        "index": 25,
+        "rect": [
+          160,
+          576,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Objects/Furniture/Lighting, Outdoors.png",
+        "sourceRect": [
+          7,
+          4,
+          18,
+          80
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "bench",
+      "label": "Bench",
+      "status": "REJECTED",
+      "role": "placeable",
+      "runtimeBinding": null,
+      "nextAction": "find_real_source",
+      "note": "Long ottoman substitution is not a production bench."
+    },
+    {
+      "objectKind": "stump",
+      "label": "Tree Stump",
+      "status": "CANDIDATE",
+      "role": "placeable",
+      "runtimeBinding": "tree_stump",
+      "nextAction": "visual_review",
+      "note": "Real tree source; verify stump component and footprint.",
+      "runtimeCache": {
+        "id": "tree_stump",
+        "index": 29,
+        "rect": [
+          800,
+          576,
+          160,
+          192
+        ],
+        "source": "assets/source/licensed/lpc_revised/Terrain/trees_summer.png",
+        "sourceRect": [
+          225,
+          16,
+          94,
+          100
+        ],
+        "sourceMode": "lpc_connected_component_native_scale_large_cell"
+      }
+    },
+    {
+      "objectKind": "log",
+      "label": "Fallen Log",
+      "status": "REJECTED",
+      "role": "placeable",
+      "runtimeBinding": null,
+      "nextAction": "find_real_source",
+      "note": "Lumber.png reads as cut lumber, not a fallen trunk."
+    },
+    {
+      "objectKind": "sign",
+      "label": "Signboard",
+      "status": "MISSING",
+      "role": "placeable",
+      "runtimeBinding": null,
+      "nextAction": "use_typed_sign_components",
+      "note": "Generic standing Sign stays fail-closed; W45 wall signs are the production sign authority where their wall-mounted role applies."
+    },
+    {
+      "objectKind": "door",
+      "label": "Door",
+      "status": "CANDIDATE",
+      "role": "structure_component",
+      "runtimeBinding": null,
+      "nextAction": "visual_review",
+      "note": "Resolved by W45 exact door structure authority."
+    },
+    {
+      "objectKind": "stairs",
+      "label": "Stairs",
+      "status": "CANDIDATE",
+      "role": "structure_component",
+      "runtimeBinding": null,
+      "nextAction": "visual_review",
+      "note": "Resolved by W45 exact short-step/stair-run structure authority."
+    },
+    {
+      "objectKind": "cave_entrance",
+      "label": "Cave Entrance",
+      "status": "CANDIDATE",
+      "role": "structural_connector",
+      "runtimeBinding": null,
+      "nextAction": "visual_review",
+      "note": "W49 exact ElizaWy 1x3 narrow cave-mouth connector published."
+    }
+  ],
+  "knownQuarantines": [
+    "well",
+    "scarecrow",
+    "bench",
+    "log",
+    "sign",
+    "stairs"
+  ],
+  "knownPlaceholders": [
+    "greenhouse_marker"
+  ],
+  "knownStructuralDeferrals": [
+    "door",
+    "fence",
+    "cave_entrance"
+  ],
+  "notes": [
+    "W43B expands visual review to every current ObjectKind instead of only the 29 W42 scene aliases.",
+    "CANDIDATE means source-backed and eligible for visual acceptance; it does not mean production-certified.",
+    "The generated cache id crate_stack is retained only for compatibility; its W43B pixels and footprint represent one wooden crate."
+  ]
+}

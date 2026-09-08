@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z38",
+  "title": "Project-Wide ElizaWy Asset Authority and Tree-First World",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Established the exact pinned ElizaWy/LPC repository as Havenwild's primary project art foundation across terrain, nature, objects, structures, characters, FX, palettes, editor reference, and release attribution.",
+    "Added a strict complete-repository audit that assigns collision-safe stable IDs, preserves source-local/root credit context, and emits shared runtime/editor domain catalogs without moving the raw dependency tree.",
+    "Added project-wide authority, route, editor-library, audit-contract, and root-catalog metadata for ten asset domains.",
+    "Promoted a natural-scale 160x192 ElizaWy object atlas with eight tree IDs, four bush IDs, four rock IDs, four mushroom IDs, and authored herb, flower, and reed variants.",
+    "Rebuilt Willowmere outskirts around a tree-first ecology pass after infrastructure clearances; the deterministic scene contains 55 trees across eight IDs and 174 natural objects total.",
+    "Made runtime and native editor object selection coordinate-deterministic and removed generic nature fallback rendering; missing authored bindings are omitted and diagnosed.",
+    "Integrated dependency provenance, cached strict repository audit, object-atlas generation, and tree-first world materialization into Windows and shell Build all workflows."
+  ],
+  "validation": {
+    "jsonParse": "passed",
+    "pythonCompilation": "passed for all changed Python files",
+    "bashSyntax": "passed",
+    "targetedAuthorityContract": "passed against reconstructed cumulative source",
+    "priorZ37Guard": "passed with Z38 atlas supersession",
+    "syntheticRepositoryAudit": "passed: 46 files, 10 required domains, zero unrouted files, zero duplicate stable IDs",
+    "syntheticObjectAtlas": "passed: 48 records and eight distinct tree source components",
+    "treeFirstWorldgen": "passed: 55 trees, eight tree IDs, 174 natural objects, zero transition-band violations",
+    "rustDelimiterScan": "passed for changed Rust modules; worldgen_loader change reviewed separately because baseline character-literal syntax defeats the lightweight scanner",
+    "cargo": "pending Windows workstation run",
+    "officialRepositoryAudit": "generated on the workstation after the exact pinned dependency is mounted",
+    "liveVisual": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

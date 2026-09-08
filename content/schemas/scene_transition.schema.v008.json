@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.scene_transition.v008",
+  "type": "object",
+  "required": [
+    "transition_id",
+    "kind",
+    "source_scene_id",
+    "target_scene_id",
+    "source_anchor",
+    "target_anchor"
+  ],
+  "properties": {
+    "transition_id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "walk_edge_transition",
+        "door_transition",
+        "cave_transition",
+        "harbor_travel_transition",
+        "city_district_transition",
+        "owned_land_transition",
+        "dungeon_depth_transition"
+      ]
+    },
+    "source_scene_id": {
+      "type": "string"
+    },
+    "target_scene_id": {
+      "type": "string"
+    },
+    "source_anchor": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "target_anchor": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "facing_direction": {
+      "enum": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ]
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

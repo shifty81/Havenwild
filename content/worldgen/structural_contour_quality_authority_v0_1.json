@@ -1,0 +1,34 @@
+{
+  "schema": "havenwild.worldgen.structural_contour_quality_authority.v0_1",
+  "pass": "167Z109I",
+  "status": "active",
+  "purpose": "Keep generated Level 1/2 macro landforms compatible with the fully mapped LPC cliff shape lane by removing one-cell rasterization posts and notches before cliff masks, rendering, and collision are derived.",
+  "authority": {
+    "implementation": "crates/haven_world/src/structural_landform_masks.rs::normalize_structural_contours",
+    "callSite": "crates/haven_world/src/structural_landform_generation.rs",
+    "runsAfter": "fill_small_structural_holes",
+    "runsBefore": "ramp selection and structural-level persistence",
+    "iterations": 2,
+    "thresholds": [1, 2]
+  },
+  "rules": {
+    "removeGeneratedTerminal": "For a threshold mask, a raised generated cell with <=1 same-threshold cardinal neighbor is lowered one structural tier.",
+    "fillGeneratedNotch": "For a threshold mask, a lower generated cell with >=3 same-threshold cardinal neighbors is raised to that threshold.",
+    "preserveDiagonal": "Any generated cell with >=2 same-threshold cardinal supports is preserved; normal 45-degree stair-step contours therefore remain available to the ElizaWy rounded/diagonal recipes.",
+    "protectedCells": "Protected civic/road cells remain Level 0 and are never raised by contour cleanup.",
+    "editorAuthoredLevels": "Not modified. This pass only normalizes the fresh PCG macro-landform mask before it is written into SceneMap structural_levels."
+  },
+  "collisionContract": {
+    "source": "The normalized structural_levels field",
+    "visualAndCollisionShareResult": true,
+    "imagePixelsCreateCollision": false,
+    "connectorOverridesRemain": ["ramp", "stairs", "ladder", "bridge"]
+  },
+  "acceptance": [
+    "single-cell south spur is removed",
+    "single-cell enclosed notch is filled",
+    "two-neighbor diagonal staircase boundary is preserved",
+    "Level 2 terminal falls back to Level 1",
+    "runtime diagnostic reports Pass 167Z109I"
+  ]
+}

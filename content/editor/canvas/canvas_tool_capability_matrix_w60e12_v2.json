@@ -1,0 +1,156 @@
+{
+  "schema": "havenwild.canvas_tool_capability_matrix.v2",
+  "pass": "167Z109W60E12",
+  "rule": "An enabled tool must own a real adapter for the active canvas and active layer. Plain keys belong to the shared Tool Rail; Shift-modified keys belong to the active workspace.",
+  "layerGroups": {
+    "visual": [
+      "terrain",
+      "terrain_transitions",
+      "structural_terrain_cliffs",
+      "buildings",
+      "objects_stamps",
+      "authored_pixels",
+      "character_parts"
+    ],
+    "gameplay": [
+      "physical_collision",
+      "navigation_block",
+      "interaction",
+      "zones_triggers",
+      "transitions_links",
+      "shelter_interior",
+      "occlusion",
+      "water_swim",
+      "spawn_population",
+      "buildability_farming",
+      "hitboxes",
+      "hurtboxes",
+      "logic_bindings"
+    ],
+    "animation": [
+      "frame_artwork",
+      "pivot_origin",
+      "foot_ground_anchor",
+      "shadow_anchor",
+      "sockets",
+      "frame_events"
+    ],
+    "guides": [
+      "source_reference",
+      "grid_tile_bounds",
+      "symmetry_axes",
+      "frame_bounds",
+      "pcg_source"
+    ]
+  },
+  "workspaces": {
+    "scene_editor": {
+      "wired": [
+        "terrain paint/erase/fill/replace/pick/rectangle",
+        "building select/place/move(nudge)/pick/delete/pixel_edit",
+        "object select/place/move/pick/delete/pixel_edit",
+        "semantic paint/erase/fill/pick/rectangle",
+        "transition place/erase/pick",
+        "structural and collision pixel_edit"
+      ]
+    },
+    "world_editor": {
+      "wired": [
+        "terrain paint/erase/fill/replace/pick/rectangle/pixel_edit",
+        "object place/pick/pixel_edit",
+        "zones",
+        "structural rectangle/fill/pick"
+      ],
+      "next": [
+        "explicit object move",
+        "global semantic layers"
+      ]
+    },
+    "pixel_studio": {
+      "wired": [
+        "1px pencil",
+        "marquee",
+        "flip H/V",
+        "rotate 90",
+        "nudge",
+        "crop",
+        "opaque bounds",
+        "foreground-color bounds",
+        "symmetry H/V movable axes",
+        "repeat X/Y/XY",
+        "line/rectangle/fill/pick/erase",
+        "collision add/sub"
+      ]
+    },
+    "animation_studio": {
+      "wired": [
+        "frame artwork",
+        "pivot",
+        "foot anchor",
+        "shadow anchor",
+        "sockets",
+        "events",
+        "hitbox rectangles",
+        "hurtbox rectangles",
+        "pixel frame editing",
+        "timing/onion/playback/publish"
+      ],
+      "next": [
+        "motion/root path",
+        "clip default vs frame override UI",
+        "attachment preview"
+      ]
+    },
+    "character_studio": {
+      "next": [
+        "live composite canvas",
+        "equipment layers",
+        "palette variants",
+        "directional animation preview",
+        "shared anchors/sockets",
+        "publish character"
+      ]
+    },
+    "world_routes": {
+      "wired": [
+        "select",
+        "pan",
+        "link harbor route"
+      ]
+    },
+    "scene_bank": {
+      "wired": [
+        "select",
+        "pan",
+        "open scene"
+      ]
+    },
+    "logic_node_editor": {
+      "next": [
+        "select",
+        "pan",
+        "place",
+        "move",
+        "link",
+        "box select",
+        "groups",
+        "bindings",
+        "runtime trace"
+      ]
+    }
+  },
+  "shortcuts": {
+    "1": "select",
+    "2": "paint",
+    "3": "rectangle",
+    "4": "fill",
+    "5": "move",
+    "6": "pick",
+    "7": "place",
+    "8": "erase",
+    "9": "pan",
+    "alt+1..9": "layer selection",
+    "ctrl+e": "pixel edit",
+    "shift+workspace_key": "reserved for active workspace"
+  }
+}

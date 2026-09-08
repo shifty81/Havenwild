@@ -1,0 +1,467 @@
+{
+  "schema": "havenwild.editor.help_coverage_registry.r42.v1",
+  "pass": "167Z109W81R42",
+  "policy": "Every registered Studio, semantic Canvas layer, universal tool and major workflow surface must resolve to searchable Help. New enum variants fail validation until mapped.",
+  "studios": [
+    {
+      "id": "RegionGraph",
+      "helpPage": "WorldRoutes"
+    },
+    {
+      "id": "SceneRectangles",
+      "helpPage": "WorldStudio"
+    },
+    {
+      "id": "SceneBank",
+      "helpPage": "SceneBrowser"
+    },
+    {
+      "id": "SceneMap",
+      "helpPage": "SceneStudio"
+    },
+    {
+      "id": "PixelStudio",
+      "helpPage": "PixelAuthoring"
+    },
+    {
+      "id": "AnimationStudio",
+      "helpPage": "AnimationStudio"
+    },
+    {
+      "id": "CharacterStudio",
+      "helpPage": "CharacterStudio"
+    },
+    {
+      "id": "LogicStudio",
+      "helpPage": "LogicStudio"
+    },
+    {
+      "id": "SoundStudio",
+      "helpPage": "SoundStudio"
+    }
+  ],
+  "semanticLayers": [
+    {
+      "id": "Terrain",
+      "helpPage": "TerrainMaterials"
+    },
+    {
+      "id": "TerrainTransitions",
+      "helpPage": "Transitions"
+    },
+    {
+      "id": "Water",
+      "helpPage": "WaterHydrology"
+    },
+    {
+      "id": "RoadsPaths",
+      "helpPage": "RoadsPaths"
+    },
+    {
+      "id": "Vegetation",
+      "helpPage": "Vegetation"
+    },
+    {
+      "id": "Resources",
+      "helpPage": "Resources"
+    },
+    {
+      "id": "Structures",
+      "helpPage": "Structures"
+    },
+    {
+      "id": "Furniture",
+      "helpPage": "FurnitureProps"
+    },
+    {
+      "id": "Props",
+      "helpPage": "FurnitureProps"
+    },
+    {
+      "id": "Characters",
+      "helpPage": "SceneNpcEditing"
+    },
+    {
+      "id": "Triggers",
+      "helpPage": "TriggersInteractions"
+    },
+    {
+      "id": "Lighting",
+      "helpPage": "LightingFx"
+    },
+    {
+      "id": "SoundEmitters",
+      "helpPage": "SoundEmitters"
+    },
+    {
+      "id": "Effects",
+      "helpPage": "LightingFx"
+    },
+    {
+      "id": "Buildings",
+      "helpPage": "Structures"
+    },
+    {
+      "id": "Objects",
+      "helpPage": "FurnitureProps"
+    },
+    {
+      "id": "AuthoredPixels",
+      "helpPage": "WorldPixelMode"
+    },
+    {
+      "id": "Collision",
+      "helpPage": "WorldCollision"
+    },
+    {
+      "id": "Navigation",
+      "helpPage": "WorldCollision"
+    },
+    {
+      "id": "Zones",
+      "helpPage": "SceneLogic"
+    },
+    {
+      "id": "Links",
+      "helpPage": "SceneLogic"
+    },
+    {
+      "id": "Shelter",
+      "helpPage": "Structures"
+    },
+    {
+      "id": "WaterSwim",
+      "helpPage": "WaterHydrology"
+    },
+    {
+      "id": "SpawnPopulation",
+      "helpPage": "WorldNpcSpawns"
+    },
+    {
+      "id": "BuildabilityFarming",
+      "helpPage": "TerrainMaterials"
+    },
+    {
+      "id": "LogicBindings",
+      "helpPage": "SceneLogic"
+    },
+    {
+      "id": "StructuralLevels",
+      "helpPage": "ElevationCliffs"
+    },
+    {
+      "id": "SourceReference",
+      "helpPage": "AssetStatus"
+    },
+    {
+      "id": "AnimationFrames",
+      "helpPage": "FramesCels"
+    },
+    {
+      "id": "AnimationAnchors",
+      "helpPage": "AnchorsSockets"
+    },
+    {
+      "id": "AnimationFootAnchor",
+      "helpPage": "AnchorsSockets"
+    },
+    {
+      "id": "AnimationShadowAnchor",
+      "helpPage": "AnchorsSockets"
+    },
+    {
+      "id": "AnimationSockets",
+      "helpPage": "AnchorsSockets"
+    },
+    {
+      "id": "AnimationHitboxes",
+      "helpPage": "HitboxesHurtboxes"
+    },
+    {
+      "id": "AnimationHurtboxes",
+      "helpPage": "HitboxesHurtboxes"
+    },
+    {
+      "id": "AnimationEvents",
+      "helpPage": "AnimationEvents"
+    },
+    {
+      "id": "CharacterParts",
+      "helpPage": "CharacterLayers"
+    },
+    {
+      "id": "PixelLayer",
+      "helpPage": "PixelLayers"
+    },
+    {
+      "id": "Interaction",
+      "helpPage": "TriggersInteractions"
+    },
+    {
+      "id": "Occlusion",
+      "helpPage": "CharacterOcclusion"
+    },
+    {
+      "id": "LogicNodes",
+      "helpPage": "LogicStudio"
+    },
+    {
+      "id": "LogicConnections",
+      "helpPage": "LogicStudio"
+    },
+    {
+      "id": "SoundNodes",
+      "helpPage": "SoundStudio"
+    },
+    {
+      "id": "SoundConnections",
+      "helpPage": "SoundStudio"
+    },
+    {
+      "id": "SoundTimeline",
+      "helpPage": "SoundStudio"
+    },
+    {
+      "id": "Guides",
+      "helpPage": "Canvas"
+    }
+  ],
+  "tools": [
+    {
+      "id": "Inspect",
+      "helpPage": "ToolRail"
+    },
+    {
+      "id": "Select",
+      "helpPage": "ToolRail"
+    },
+    {
+      "id": "Pan",
+      "helpPage": "Canvas"
+    },
+    {
+      "id": "Paint",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Erase",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Fill",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Replace",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Pick",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "MagicSelect",
+      "helpPage": "PixelSelectionTransform"
+    },
+    {
+      "id": "Rectangle",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Ellipse",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Line",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Gradient",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Blur",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Smudge",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Lighten",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Darken",
+      "helpPage": "PixelDrawingTools"
+    },
+    {
+      "id": "Place",
+      "helpPage": "AssetBrowser"
+    },
+    {
+      "id": "Move",
+      "helpPage": "ToolRail"
+    },
+    {
+      "id": "Link",
+      "helpPage": "SceneLogic"
+    },
+    {
+      "id": "Collision",
+      "helpPage": "WorldCollision"
+    },
+    {
+      "id": "PixelEdit",
+      "helpPage": "WorldPixelMode"
+    },
+    {
+      "id": "Anchor",
+      "helpPage": "AnchorsSockets"
+    },
+    {
+      "id": "Socket",
+      "helpPage": "AnchorsSockets"
+    },
+    {
+      "id": "Event",
+      "helpPage": "AnimationEvents"
+    }
+  ],
+  "majorFeatures": [
+    {
+      "id": "project_home",
+      "helpPage": "ProjectHome"
+    },
+    {
+      "id": "document_tabs",
+      "helpPage": "DocumentTabs"
+    },
+    {
+      "id": "tool_rail",
+      "helpPage": "ToolRail"
+    },
+    {
+      "id": "layer_rail",
+      "helpPage": "LayerRail"
+    },
+    {
+      "id": "inspector",
+      "helpPage": "Inspector"
+    },
+    {
+      "id": "right_dock",
+      "helpPage": "RightDock"
+    },
+    {
+      "id": "undo_redo",
+      "helpPage": "UndoRedo"
+    },
+    {
+      "id": "validation",
+      "helpPage": "Validation"
+    },
+    {
+      "id": "settings_activity",
+      "helpPage": "SettingsActivity"
+    },
+    {
+      "id": "asset_browser",
+      "helpPage": "AssetBrowser"
+    },
+    {
+      "id": "asset_promotion",
+      "helpPage": "AssetPromotion"
+    },
+    {
+      "id": "batch_promotion",
+      "helpPage": "BatchPromotion"
+    },
+    {
+      "id": "where_used",
+      "helpPage": "WhereUsed"
+    },
+    {
+      "id": "licensing",
+      "helpPage": "Licensing"
+    },
+    {
+      "id": "entire_world_canvas",
+      "helpPage": "EntireWorldCanvas"
+    },
+    {
+      "id": "world_generation",
+      "helpPage": "WorldGeneration"
+    },
+    {
+      "id": "regeneration_scopes",
+      "helpPage": "RegenerationScopes"
+    },
+    {
+      "id": "authored_overrides",
+      "helpPage": "AuthoredOverrides"
+    },
+    {
+      "id": "transition_repair",
+      "helpPage": "TransitionRepair"
+    },
+    {
+      "id": "character_create",
+      "helpPage": "CharacterCreate"
+    },
+    {
+      "id": "wardrobe_gear",
+      "helpPage": "WardrobeGear"
+    },
+    {
+      "id": "equipment_slots",
+      "helpPage": "EquipmentSlots"
+    },
+    {
+      "id": "character_layers",
+      "helpPage": "CharacterLayers"
+    },
+    {
+      "id": "character_occlusion",
+      "helpPage": "CharacterOcclusion"
+    },
+    {
+      "id": "animation_coverage",
+      "helpPage": "AnimationCoverage"
+    },
+    {
+      "id": "npc_generator",
+      "helpPage": "NpcGenerator"
+    },
+    {
+      "id": "npc_profiles",
+      "helpPage": "NpcProfiles"
+    },
+    {
+      "id": "profile_inheritance",
+      "helpPage": "ProfileInheritance"
+    },
+    {
+      "id": "population_generation",
+      "helpPage": "PopulationGeneration"
+    },
+    {
+      "id": "play_testing",
+      "helpPage": "PlayTesting"
+    },
+    {
+      "id": "save_recovery",
+      "helpPage": "SaveRecovery"
+    },
+    {
+      "id": "troubleshooting",
+      "helpPage": "Troubleshooting"
+    }
+  ],
+  "counts": {
+    "studios": 9,
+    "semanticLayers": 46,
+    "tools": 25,
+    "majorFeatures": 32
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "worldgen_camera_composition_profile_v0_4",
+  "version": "0.4.0",
+  "kind": "camera_composition_profile",
+  "cameraStyle": "fixed_orthographic_depth_view",
+  "tileSize": [
+    32,
+    32
+  ],
+  "targetGameplayVisibleTiles": {
+    "horizontal": 30,
+    "vertical": 18,
+    "note": "Scene previews are full 96x64 maps; gameplay camera shows a window into them."
+  },
+  "safeSceneBorderTiles": {
+    "minimum": 3,
+    "recommended": 5,
+    "purpose": "Prevent visible void and allow forest/cliff/ocean edge filler beyond camera edge."
+  },
+  "depthRules": [
+    {
+      "layer": "terrain",
+      "depthOrder": 0
+    },
+    {
+      "layer": "low_object",
+      "depthOrder": 10
+    },
+    {
+      "layer": "object",
+      "depthOrder": 20,
+      "sort": "by_y_then_x"
+    },
+    {
+      "layer": "tall_object",
+      "depthOrder": 30,
+      "sort": "by_y_then_x",
+      "fadeWhenPlayerBehind": true
+    },
+    {
+      "layer": "roof_canopy",
+      "depthOrder": 40,
+      "fadeWhenPlayerBehind": true
+    },
+    {
+      "layer": "overlay",
+      "depthOrder": 50
+    }
+  ],
+  "wallFade": {
+    "enabled": true,
+    "radiusTiles": 2,
+    "appliesTo": [
+      "walls",
+      "trees",
+      "mountain_facade",
+      "cave_foreground"
+    ]
+  },
+  "cinematicPan": {
+    "supportedByContract": true,
+    "triggerSource": "scene events/story events",
+    "authoringLayer": "interactions/transitions/events future pass"
+  }
+}

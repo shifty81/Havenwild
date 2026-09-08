@@ -1,0 +1,65 @@
+{
+  "schema": "havenwild.lpc_revised_category_coverage.v1",
+  "status": "project_foundation_with_per_asset_license_and_compatibility_gates",
+  "families": {
+    "world": [
+      "terrain",
+      "tile_object",
+      "building",
+      "wall",
+      "floor",
+      "door",
+      "furniture",
+      "interior",
+      "cave",
+      "dungeon"
+    ],
+    "nature_and_farming": [
+      "crop",
+      "tree",
+      "foliage",
+      "animal"
+    ],
+    "characters": [
+      "character",
+      "npc",
+      "clothing",
+      "armor",
+      "tool",
+      "weapon",
+      "animation"
+    ],
+    "presentation": [
+      "effect",
+      "ui",
+      "item"
+    ],
+    "authoring": [
+      "editor_template",
+      "other"
+    ]
+  },
+  "promotion_pipeline": [
+    "inventory",
+    "classify",
+    "license_review",
+    "metadata_mapping",
+    "preview_validation",
+    "runtime_validation",
+    "production_approval"
+  ],
+  "rules": {
+    "do_not_flatten_repository": true,
+    "preserve_original_relative_path": true,
+    "preserve_per_source_license_evidence": true,
+    "allow_multiple_packs_from_one_repository": true,
+    "character_assets_share_modular_compositor": true,
+    "terrain_assets_share_semantic_autotile_pipeline": true,
+    "objects_share_generic_placeable_pipeline": true
+  },
+  "pass": "167Z40",
+  "providers": [
+    "elizawy_lpc_revised",
+    "universal_lpc_character_generator"
+  ]
+}

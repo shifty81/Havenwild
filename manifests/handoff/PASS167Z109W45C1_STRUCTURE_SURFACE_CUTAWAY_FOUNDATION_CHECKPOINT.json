@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W45C1",
+  "date": "2026-08-14",
+  "title": "Exact Structure Surface + Multi-Level Cutaway Foundation",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B",
+    "167Z109W45C1"
+  ],
+  "authority": "PublishedWorldAssetRegistry",
+  "structureSourceSheets": 98,
+  "reviewedStructureSourceSheets": 10,
+  "publishedW45C1StructureCandidates": 10,
+  "candidateOnly": true,
+  "acceptanceScene": "structure_surface_acceptance",
+  "buildingVisibilityContract": "content/buildings/building_level_visibility_contract_v1.json",
+  "interiorPolicy": "same_world_building_instance",
+  "roofPromotion": "DEFERRED_EXACT_GRAMMAR_REVIEW",
+  "validation": {
+    "w45a": "PASS",
+    "w45b": "PASS",
+    "w45c1": "PASS",
+    "structureSurfacesBuildCommand": "PASS",
+    "windowsRustBuild": "PENDING_LOCAL_TOOLCHAIN"
+  },
+  "next": "167Z109W45C2 exact roof + dedicated Wall Border grammar review/publication; then W45D bridge/platform/pillar/misc support"
+}

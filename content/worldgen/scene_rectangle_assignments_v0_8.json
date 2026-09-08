@@ -1,0 +1,453 @@
+{
+  "schema": "havenwild.scene_rectangle_assignments.v008",
+  "assignments": [
+    {
+      "scene_code": "farmstead",
+      "rectangle_id": "SP_HOME_TAVERN_ISLAND",
+      "role": "home_tavern_mountain_base",
+      "ownership": "player_home",
+      "notes": "Starter prototype tavern exterior / farmstead maps onto the special home tavern mountain-base region."
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_0_0",
+      "rectangle_id": "S000",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_1_0",
+      "rectangle_id": "S001",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_2_0",
+      "rectangle_id": "S002",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_3_0",
+      "rectangle_id": "S003",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_4_0",
+      "rectangle_id": "S004",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_5_0",
+      "rectangle_id": "S043",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_6_0",
+      "rectangle_id": "S044",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_7_0",
+      "rectangle_id": "S045",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_0_1",
+      "rectangle_id": "S005",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_1_1",
+      "rectangle_id": "S006",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_2_1",
+      "rectangle_id": "S007",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_3_1",
+      "rectangle_id": "S008",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_4_1",
+      "rectangle_id": "S009",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_5_1",
+      "rectangle_id": "S046",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_6_1",
+      "rectangle_id": "S047",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_7_1",
+      "rectangle_id": "S048",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_0_2",
+      "rectangle_id": "S010",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_1_2",
+      "rectangle_id": "S011",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_2_2",
+      "rectangle_id": "S012",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_3_2",
+      "rectangle_id": "S013",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_4_2",
+      "rectangle_id": "S014",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_5_2",
+      "rectangle_id": "S049",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_6_2",
+      "rectangle_id": "S050",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_7_2",
+      "rectangle_id": "S051",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_0_3",
+      "rectangle_id": "S015",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_1_3",
+      "rectangle_id": "S016",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_2_3",
+      "rectangle_id": "S017",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_3_3",
+      "rectangle_id": "S018",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_4_3",
+      "rectangle_id": "S019",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_5_3",
+      "rectangle_id": "S052",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_6_3",
+      "rectangle_id": "S053",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_7_3",
+      "rectangle_id": "S054",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_0_4",
+      "rectangle_id": "S055",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_1_4",
+      "rectangle_id": "S056",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_2_4",
+      "rectangle_id": "S057",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_3_4",
+      "rectangle_id": "S058",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_4_4",
+      "rectangle_id": "S059",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_5_4",
+      "rectangle_id": "S060",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_6_4",
+      "rectangle_id": "S061",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_havenwild_mainland_7_4",
+      "rectangle_id": "S062",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_northwatch_isle_0_0",
+      "rectangle_id": "S020",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_northwatch_isle_1_0",
+      "rectangle_id": "S021",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_gullmere_0_0",
+      "rectangle_id": "S022",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_gullmere_1_0",
+      "rectangle_id": "S023",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_gullmere_0_1",
+      "rectangle_id": "S024",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_gullmere_1_1",
+      "rectangle_id": "S025",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_sunbreak_key_0_0",
+      "rectangle_id": "S026",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_sunbreak_key_1_0",
+      "rectangle_id": "S027",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_amber_shoal_0_0",
+      "rectangle_id": "S028",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_amber_shoal_1_0",
+      "rectangle_id": "S029",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_amber_shoal_0_1",
+      "rectangle_id": "S030",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_amber_shoal_1_1",
+      "rectangle_id": "S031",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_southfen_isle_0_0",
+      "rectangle_id": "S032",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_southfen_isle_1_0",
+      "rectangle_id": "S033",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_lowmire_cay_0_0",
+      "rectangle_id": "S034",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_lowmire_cay_1_0",
+      "rectangle_id": "S035",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_stonewake_0_0",
+      "rectangle_id": "S036",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_stonewake_1_0",
+      "rectangle_id": "S037",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_stonewake_0_1",
+      "rectangle_id": "S038",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_stonewake_1_1",
+      "rectangle_id": "S039",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_mistbarrow_0_0",
+      "rectangle_id": "S040",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_mistbarrow_1_0",
+      "rectangle_id": "S041",
+      "role": "forest_border",
+      "ownership": "wilderness",
+      "notes": null
+    },
+    {
+      "scene_code": "pcg_brineglass_0_0",
+      "rectangle_id": "S042",
+      "role": "harbor",
+      "ownership": "civic",
+      "notes": null
+    }
+  ]
+}

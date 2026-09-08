@@ -1,0 +1,6 @@
+PASS 167K — CUMULATIVE TERRAIN IDENTITY NORMALIZATION
+crates/haven_core/src/foundation/tile_object_catalog.rs
+crates/haven_core/src/terrain_contract.rs
+crates/haven_world/src/terrain_identity_v2.rs
+crates/haven_world/src/lib.rs
+docs/patch/PASS_167K_TERRAIN_IDENTITY_NORMALIZATION.md

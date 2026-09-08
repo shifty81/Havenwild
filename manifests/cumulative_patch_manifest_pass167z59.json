@@ -1,0 +1,33 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z59",
+  "baseline": "167Z10",
+  "date": "2026-08-03",
+  "title": "Checkpoint Packaging Repair",
+  "overwriteCapable": true,
+  "changedFiles": [
+    "README.md",
+    "docs/current/APPLY_THIS_ROLLUP.md",
+    "docs/current/APPLY_THIS_SOURCE_ROLLUP.md",
+    "docs/current/CURRENT_SOURCE_HANDOFF.md",
+    "docs/current/PASS167Z59_CHECKPOINT_PACKAGING_REPAIR.md",
+    "docs/handoffs/PASS167Z59_CHECKPOINT_PACKAGING_REPAIR.md",
+    "manifests/cumulative_patch_checksums_pass167z59.sha256",
+    "manifests/cumulative_patch_manifest_pass167z59.json",
+    "manifests/cumulative_patch_removals_pass167z59.txt",
+    "manifests/normalization/pass167z59/SUMMARY.json",
+    "manifests/patches/pass167z59/APPLY.md",
+    "manifests/patches/pass167z59/CHECKSUMS.sha256",
+    "manifests/patches/pass167z59/PATCH_MANIFEST.json",
+    "manifests/patches/pass167z59/REMOVALS.txt",
+    "tools/automation/validation/checks/Validate-Pass167Z59.py",
+    "tools/control/PackageProject.ps1"
+  ],
+  "removedFiles": [],
+  "notes": [
+    "The Pass 167Z58 workstation build is fully green: validation, formatting, Cargo check, strict Clippy, all tests, debug build, optimized releases, and application staging passed.",
+    "Complete source packaging failed before enumeration because PowerShell received a two-character string where TrimStart required individual Char values.",
+    "Pass 167Z59 replaces the active packaging script directly and does not modify gameplay, rendering, audio, world generation, assets, saves, or release binaries.",
+    "Source rollups now exclude machine-local state, logs, build products, imports, raw third-party dependency mounts, and junction targets while preserving Havenwild-owned source."
+  ]
+}

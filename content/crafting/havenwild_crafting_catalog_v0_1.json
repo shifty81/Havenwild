@@ -1,0 +1,793 @@
+{
+  "schema": "havenwild.crafting_catalog.v0_1",
+  "stations": [
+    {
+      "id": "hand",
+      "display_name": "Hand Crafting",
+      "input_slots": 4,
+      "output_slots": 1,
+      "fuel_slots": 0,
+      "recipe_category": "basic"
+    },
+    {
+      "id": "workbench",
+      "display_name": "Workbench",
+      "input_slots": 9,
+      "output_slots": 1,
+      "fuel_slots": 0,
+      "recipe_category": "construction"
+    },
+    {
+      "id": "campfire",
+      "display_name": "Campfire",
+      "input_slots": 2,
+      "output_slots": 4,
+      "fuel_slots": 1,
+      "recipe_category": "cooking"
+    },
+    {
+      "id": "primitive_forge",
+      "display_name": "Primitive Forge",
+      "input_slots": 3,
+      "output_slots": 4,
+      "fuel_slots": 1,
+      "recipe_category": "smithing"
+    },
+    {
+      "id": "tailor_bench",
+      "display_name": "Tailor Bench",
+      "input_slots": 9,
+      "output_slots": 4,
+      "fuel_slots": 0,
+      "recipe_category": "tailoring"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "primitive_axe",
+      "display_name": "Primitive Axe",
+      "station_id": "hand",
+      "ingredients": [
+        [
+          "stick",
+          1
+        ],
+        [
+          "stone",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "item.ulpc.tools_tool_axe",
+        "Primitive Axe",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "torch",
+      "display_name": "Torch",
+      "station_id": "hand",
+      "ingredients": [
+        [
+          "stick",
+          1
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "torch",
+        "Torch",
+        2
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "campfire_kit",
+      "display_name": "Campfire Kit",
+      "station_id": "hand",
+      "ingredients": [
+        [
+          "stick",
+          3
+        ],
+        [
+          "stone",
+          4
+        ]
+      ],
+      "output": [
+        "campfire_kit",
+        "Campfire Kit",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "workbench_kit",
+      "display_name": "Workbench Kit",
+      "station_id": "hand",
+      "ingredients": [
+        [
+          "wood",
+          4
+        ],
+        [
+          "fiber",
+          2
+        ]
+      ],
+      "output": [
+        "workbench_kit",
+        "Workbench Kit",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "primitive_forge_kit",
+      "display_name": "Primitive Forge Kit",
+      "station_id": "hand",
+      "ingredients": [
+        [
+          "stone",
+          6
+        ],
+        [
+          "wood",
+          2
+        ],
+        [
+          "fiber",
+          2
+        ]
+      ],
+      "output": [
+        "primitive_forge_kit",
+        "Primitive Forge Kit",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "basic_chest",
+      "display_name": "Basic Chest",
+      "station_id": "workbench",
+      "ingredients": [
+        [
+          "wood",
+          6
+        ],
+        [
+          "fiber",
+          2
+        ]
+      ],
+      "output": [
+        "basic_chest",
+        "Basic Chest",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "stone_hammer",
+      "display_name": "Stone Hammer",
+      "station_id": "workbench",
+      "ingredients": [
+        [
+          "stick",
+          1
+        ],
+        [
+          "stone",
+          3
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "item.ulpc.tools_tool_hammer",
+        "Stone Hammer",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "charcoal",
+      "display_name": "Charcoal",
+      "station_id": "campfire",
+      "ingredients": [
+        [
+          "wood",
+          2
+        ]
+      ],
+      "output": [
+        "charcoal",
+        "Charcoal",
+        1
+      ],
+      "process_seconds": 8.0,
+      "fuel_cost": 1
+    },
+    {
+      "id": "torch_bundle",
+      "display_name": "Torch Bundle",
+      "station_id": "campfire",
+      "ingredients": [
+        [
+          "stick",
+          2
+        ],
+        [
+          "fiber",
+          2
+        ]
+      ],
+      "output": [
+        "torch",
+        "Torch",
+        4
+      ],
+      "process_seconds": 4.0,
+      "fuel_cost": 1
+    },
+    {
+      "id": "copper_ingot",
+      "display_name": "Copper Ingot",
+      "station_id": "primitive_forge",
+      "ingredients": [
+        [
+          "copper_ore",
+          2
+        ],
+        [
+          "charcoal",
+          1
+        ]
+      ],
+      "output": [
+        "copper_ingot",
+        "Copper Ingot",
+        1
+      ],
+      "process_seconds": 12.0,
+      "fuel_cost": 1
+    },
+    {
+      "id": "copper_pick",
+      "display_name": "Copper Pick",
+      "station_id": "primitive_forge",
+      "ingredients": [
+        [
+          "copper_ingot",
+          3
+        ],
+        [
+          "stick",
+          1
+        ]
+      ],
+      "output": [
+        "item.ulpc.tools_tool_pickaxe",
+        "Copper Pick",
+        1
+      ],
+      "process_seconds": 6.0,
+      "fuel_cost": 1
+    },
+    {
+      "id": "woven_cloth",
+      "display_name": "Woven Cloth",
+      "station_id": "hand",
+      "ingredients": [
+        [
+          "fiber",
+          3
+        ]
+      ],
+      "output": [
+        "cloth",
+        "Woven Cloth",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_bench_kit",
+      "display_name": "Tailor Bench Kit",
+      "station_id": "workbench",
+      "ingredients": [
+        [
+          "wood",
+          4
+        ],
+        [
+          "fiber",
+          4
+        ]
+      ],
+      "output": [
+        "tailor_bench_kit",
+        "Tailor Bench Kit",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_linen_tshirt",
+      "display_name": "Linen T-shirt",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_linen_tshirt",
+        "Linen T-shirt",
+        1
+      ],
+      "process_seconds": 4.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_long_work_shirt",
+      "display_name": "Long Work Shirt",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          3
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_long_work_shirt",
+        "Long Work Shirt",
+        1
+      ],
+      "process_seconds": 5.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_traveler_tunic",
+      "display_name": "Traveler Tunic",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          4
+        ],
+        [
+          "fiber",
+          2
+        ]
+      ],
+      "output": [
+        "clothing_traveler_tunic",
+        "Traveler Tunic",
+        1
+      ],
+      "process_seconds": 7.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_plain_vest",
+      "display_name": "Plain Vest",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_plain_vest",
+        "Plain Vest",
+        1
+      ],
+      "process_seconds": 4.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_work_apron",
+      "display_name": "Work Apron",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          3
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_work_apron",
+        "Work Apron",
+        1
+      ],
+      "process_seconds": 5.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_plain_trousers",
+      "display_name": "Plain Trousers",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          3
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_plain_trousers",
+        "Plain Trousers",
+        1
+      ],
+      "process_seconds": 5.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_work_shorts",
+      "display_name": "Work Shorts",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_work_shorts",
+        "Work Shorts",
+        1
+      ],
+      "process_seconds": 4.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_plain_skirt",
+      "display_name": "Plain Skirt",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          3
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_plain_skirt",
+        "Plain Skirt",
+        1
+      ],
+      "process_seconds": 5.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_long_skirt",
+      "display_name": "Long Skirt",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          4
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_long_skirt",
+        "Long Skirt",
+        1
+      ],
+      "process_seconds": 6.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_simple_sandals",
+      "display_name": "Simple Sandals",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "fiber",
+          2
+        ],
+        [
+          "wood",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_simple_sandals",
+        "Simple Sandals",
+        1
+      ],
+      "process_seconds": 3.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_felt_hat",
+      "display_name": "Felt Hat",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "headwear_felt_hat",
+        "Felt Hat",
+        1
+      ],
+      "process_seconds": 4.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "tailor_travel_hood",
+      "display_name": "Travel Hood",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "cloth",
+          3
+        ],
+        [
+          "fiber",
+          2
+        ]
+      ],
+      "output": [
+        "headwear_travel_hood",
+        "Travel Hood",
+        1
+      ],
+      "process_seconds": 5.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "cobble_simple_shoes",
+      "display_name": "Simple Shoes",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "leather",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_simple_shoes",
+        "Simple Shoes",
+        1
+      ],
+      "process_seconds": 5.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "cobble_simple_boots",
+      "display_name": "Simple Boots",
+      "station_id": "tailor_bench",
+      "ingredients": [
+        [
+          "leather",
+          3
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "clothing_simple_boots",
+        "Simple Boots",
+        1
+      ],
+      "process_seconds": 7.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "stone_hoe",
+      "display_name": "Stone Hoe",
+      "station_id": "workbench",
+      "ingredients": [
+        [
+          "stick",
+          1
+        ],
+        [
+          "stone",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "item.ulpc.tools_tool_hoe",
+        "Stone Hoe",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "wooden_watering_can",
+      "display_name": "Wooden Watering Can",
+      "station_id": "workbench",
+      "ingredients": [
+        [
+          "wood",
+          4
+        ],
+        [
+          "fiber",
+          2
+        ]
+      ],
+      "output": [
+        "item.ulpc.tools_tool_watering_can",
+        "Wooden Watering Can",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "stone_shovel",
+      "display_name": "Stone Shovel",
+      "station_id": "workbench",
+      "ingredients": [
+        [
+          "stick",
+          1
+        ],
+        [
+          "stone",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "item.ulpc.tools_tool_shovel",
+        "Stone Shovel",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "simple_fishing_rod",
+      "display_name": "Simple Fishing Rod",
+      "station_id": "workbench",
+      "ingredients": [
+        [
+          "wood",
+          2
+        ],
+        [
+          "fiber",
+          3
+        ]
+      ],
+      "output": [
+        "item.ulpc.tools_tool_rod",
+        "Simple Fishing Rod",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    },
+    {
+      "id": "field_scythe",
+      "display_name": "Field Scythe",
+      "station_id": "primitive_forge",
+      "ingredients": [
+        [
+          "copper_ingot",
+          2
+        ],
+        [
+          "wood",
+          2
+        ],
+        [
+          "fiber",
+          1
+        ]
+      ],
+      "output": [
+        "item.ulpc.weapons_polearm_weapon_polearm_scythe",
+        "Field Scythe",
+        1
+      ],
+      "process_seconds": 5.0,
+      "fuel_cost": 1
+    },
+    {
+      "id": "utility_whip",
+      "display_name": "Utility Whip",
+      "station_id": "workbench",
+      "ingredients": [
+        [
+          "leather",
+          2
+        ],
+        [
+          "fiber",
+          2
+        ],
+        [
+          "wood",
+          1
+        ]
+      ],
+      "output": [
+        "item.ulpc.tools_tool_whip",
+        "Utility Whip",
+        1
+      ],
+      "process_seconds": 0.0,
+      "fuel_cost": 0
+    }
+  ]
+}

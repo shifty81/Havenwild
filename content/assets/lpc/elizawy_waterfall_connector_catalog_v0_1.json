@@ -1,0 +1,370 @@
+{
+  "schema": "havenwild.lpc.elizawy_waterfall_connector_catalog.v0_1",
+  "pass": "167Z106N5R",
+  "sourceRepository": "https://github.com/ElizaWy/LPC",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourcePath": "Terrain/Waterfall.png",
+  "sourceDimensionsPx": [
+    512,
+    608
+  ],
+  "sourceGrid": [
+    16,
+    19
+  ],
+  "sourceGridCellPx": [
+    32,
+    32
+  ],
+  "sha256": "5225ab0a7451a90d3b9b4cad37188b63467dc61797369fcec746b583a270dcb6",
+  "classification": "animated multi-cell structural water connector; not a 1x1 terrain tile",
+  "independentCellPlacementAllowed": false,
+  "frameGroups": [
+    {
+      "id": "south_frame_0",
+      "sourceGridSpan": [
+        0,
+        0,
+        3,
+        5
+      ],
+      "sourceRectPx": [
+        0,
+        0,
+        96,
+        160
+      ],
+      "visualRole": "south_facing_animated_frame",
+      "frameIndex": 0,
+      "worldVisualFootprintTiles": [
+        3,
+        5
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "south_frame_1",
+      "sourceGridSpan": [
+        3,
+        0,
+        3,
+        5
+      ],
+      "sourceRectPx": [
+        96,
+        0,
+        96,
+        160
+      ],
+      "visualRole": "south_facing_animated_frame",
+      "frameIndex": 1,
+      "worldVisualFootprintTiles": [
+        3,
+        5
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "south_frame_2",
+      "sourceGridSpan": [
+        6,
+        0,
+        3,
+        5
+      ],
+      "sourceRectPx": [
+        192,
+        0,
+        96,
+        160
+      ],
+      "visualRole": "south_facing_animated_frame",
+      "frameIndex": 2,
+      "worldVisualFootprintTiles": [
+        3,
+        5
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "south_frame_3",
+      "sourceGridSpan": [
+        9,
+        0,
+        3,
+        5
+      ],
+      "sourceRectPx": [
+        288,
+        0,
+        96,
+        160
+      ],
+      "visualRole": "south_facing_animated_frame",
+      "frameIndex": 3,
+      "worldVisualFootprintTiles": [
+        3,
+        5
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "west_frame_0",
+      "sourceGridSpan": [
+        0,
+        5,
+        2,
+        7
+      ],
+      "sourceRectPx": [
+        0,
+        160,
+        64,
+        224
+      ],
+      "visualRole": "west_facing_animated_frame",
+      "frameIndex": 0,
+      "worldVisualFootprintTiles": [
+        2,
+        7
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "west_frame_1",
+      "sourceGridSpan": [
+        3,
+        5,
+        2,
+        7
+      ],
+      "sourceRectPx": [
+        96,
+        160,
+        64,
+        224
+      ],
+      "visualRole": "west_facing_animated_frame",
+      "frameIndex": 1,
+      "worldVisualFootprintTiles": [
+        2,
+        7
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "west_frame_2",
+      "sourceGridSpan": [
+        6,
+        5,
+        2,
+        7
+      ],
+      "sourceRectPx": [
+        192,
+        160,
+        64,
+        224
+      ],
+      "visualRole": "west_facing_animated_frame",
+      "frameIndex": 2,
+      "worldVisualFootprintTiles": [
+        2,
+        7
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "west_frame_3",
+      "sourceGridSpan": [
+        9,
+        5,
+        2,
+        7
+      ],
+      "sourceRectPx": [
+        288,
+        160,
+        64,
+        224
+      ],
+      "visualRole": "west_facing_animated_frame",
+      "frameIndex": 3,
+      "worldVisualFootprintTiles": [
+        2,
+        7
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "east_frame_0",
+      "sourceGridSpan": [
+        1,
+        12,
+        2,
+        7
+      ],
+      "sourceRectPx": [
+        32,
+        384,
+        64,
+        224
+      ],
+      "visualRole": "east_facing_animated_frame",
+      "frameIndex": 0,
+      "worldVisualFootprintTiles": [
+        2,
+        7
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "east_frame_1",
+      "sourceGridSpan": [
+        4,
+        12,
+        2,
+        7
+      ],
+      "sourceRectPx": [
+        128,
+        384,
+        64,
+        224
+      ],
+      "visualRole": "east_facing_animated_frame",
+      "frameIndex": 1,
+      "worldVisualFootprintTiles": [
+        2,
+        7
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "east_frame_2",
+      "sourceGridSpan": [
+        7,
+        12,
+        2,
+        7
+      ],
+      "sourceRectPx": [
+        224,
+        384,
+        64,
+        224
+      ],
+      "visualRole": "east_facing_animated_frame",
+      "frameIndex": 2,
+      "worldVisualFootprintTiles": [
+        2,
+        7
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "east_frame_3",
+      "sourceGridSpan": [
+        10,
+        12,
+        2,
+        7
+      ],
+      "sourceRectPx": [
+        320,
+        384,
+        64,
+        224
+      ],
+      "visualRole": "east_facing_animated_frame",
+      "frameIndex": 3,
+      "worldVisualFootprintTiles": [
+        2,
+        7
+      ],
+      "structuralHostMask": "exact matching cardinal waterfall edge from StructuralCellV2.waterfall_edges",
+      "runtimeEligible": true,
+      "certification": "runtime_frame_envelope_and_edge_host_active_n5r"
+    },
+    {
+      "id": "auxiliary_tiling_parts",
+      "sourceGridSpan": [
+        12,
+        0,
+        3,
+        7
+      ],
+      "sourceRectPx": [
+        384,
+        0,
+        96,
+        224
+      ],
+      "visualRole": "tiling_or_cap_parts_pending_exact_semantic_review",
+      "frameIndex": null,
+      "worldVisualFootprintTiles": [
+        3,
+        7
+      ],
+      "structuralHostMask": null,
+      "runtimeEligible": false,
+      "certification": "visual_frame_envelope_certified_structural_host_pending"
+    }
+  ],
+  "recipeStatus": "source_and_world_visual_frame_envelopes_certified_world_host_animation_socket_and_collision_recipe_pending",
+  "requiredRuntimeMetadata": [
+    "worldVisualFootprintTiles",
+    "structuralHostMask",
+    "cliffLipSocket",
+    "sourceWaterSocket",
+    "destinationWaterSocket",
+    "animationFrames",
+    "animationFps",
+    "collisionEdgeMask",
+    "occlusionMask",
+    "soundEmitterAnchor"
+  ],
+  "runtimeEnabled": false,
+  "z105TopologyCertification": "content/worldgen/elizawy_cliff_topology_certification_v0_1.json",
+  "revision": "167Z106N5R-waterfall-runtime-host-activation-v1",
+  "runtimeActivation": {
+    "enabled": true,
+    "supportedDirections": [
+      "south",
+      "west",
+      "east"
+    ],
+    "unsupportedDirections": [
+      "north"
+    ],
+    "sourceSemantic": "RiverWater structural drop into lower water neighbor",
+    "hostAuthority": "StructuralCellV2.waterfall_edges",
+    "animationFps": 7,
+    "frameCountPerDirection": 4,
+    "playerTraversal": "blocked_across_waterfall_cliff_face",
+    "visualPlacement": "multi-cell authored envelope anchored to the structural host; west/east anchors are first-pass N5R placement and remain screenshot-reviewable",
+    "northPolicy": "no north-facing frame group exists in the pinned source catalog; no invented rotated art is generated"
+  }
+}

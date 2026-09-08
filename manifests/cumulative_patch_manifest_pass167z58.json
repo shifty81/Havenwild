@@ -1,0 +1,34 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z58",
+  "baseline": "167Z10",
+  "date": "2026-08-03",
+  "title": "Junction-Safe Release Content Staging",
+  "overwriteCapable": true,
+  "changedFiles": [
+    "README.md",
+    "docs/current/APPLY_THIS_ROLLUP.md",
+    "docs/current/APPLY_THIS_SOURCE_ROLLUP.md",
+    "docs/current/CURRENT_SOURCE_HANDOFF.md",
+    "docs/current/PASS167Z58_JUNCTION_SAFE_RELEASE_CONTENT_STAGING.md",
+    "docs/handoffs/PASS167Z58_JUNCTION_SAFE_RELEASE_CONTENT_STAGING.md",
+    "manifests/cumulative_patch_checksums_pass167z58.sha256",
+    "manifests/cumulative_patch_manifest_pass167z58.json",
+    "manifests/cumulative_patch_removals_pass167z58.txt",
+    "manifests/normalization/pass167z58/SUMMARY.json",
+    "manifests/patches/pass167z58/APPLY.md",
+    "manifests/patches/pass167z58/CHECKSUMS.sha256",
+    "manifests/patches/pass167z58/PATCH_MANIFEST.json",
+    "manifests/patches/pass167z58/REMOVALS.txt",
+    "tools/automation/release/Stage-ApplicationContent.py",
+    "tools/automation/validation/checks/Validate-Pass167Z58.py",
+    "tools/automation/validation/checks/build/Validate-WindowsBuildPortabilityV146.py"
+  ],
+  "removedFiles": [],
+  "notes": [
+    "The Z57 workstation run passed validation, Cargo check, strict Clippy, all tests, debug build, and optimized client/editor compilation.",
+    "Release failed only while staging application content because Windows junction resolution caused the licensed-source ignore callback to leave the project mount path.",
+    "Pass 167Z58 recognizes both lexical mount paths and resolved junction targets, excludes dependency-development content before copy, and prunes/verifies the generated destination as a final safeguard.",
+    "Production LPC assets, gameplay, title UI, audio, terrain, water, rocks, character systems, and release binary compilation are unchanged."
+  ]
+}

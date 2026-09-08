@@ -1,0 +1,55 @@
+{
+  "schema": "havenwild.reference_asset_packs.v1",
+  "updated": "2026-05-25",
+  "packs": [
+    {
+      "id": "reference.pixel_art_top_down_basic.v1_2_3",
+      "name": "Pixel Art Top Down - Basic",
+      "version": "1.2.3",
+      "sourceArchive": "assets/raw/reference-packs/pixel-art-top-down-basic-v1.2.3/source.zip",
+      "extractedPath": "assets/raw/reference-packs/pixel-art-top-down-basic-v1.2.3/extracted",
+      "sourceDownloadSeen": "C:/Users/Shifty/Downloads/Pixel Art Top Down - Basic v1.2.3.zip",
+      "licenseStatus": "needs_explicit_license_record",
+      "projectUse": "reference_only",
+      "notes": "Use for scale, path, wall, structure, prop-density, and 2.5D composition reference. Do not promote sprites into generated/project-owned assets until license terms are recorded."
+    },
+    {
+      "id": "reference.universal_animation_library.standard",
+      "name": "Universal Animation Library",
+      "version": "Standard",
+      "sourceArchive": "assets/raw/reference-packs/universal-animation-library-standard/source.zip",
+      "extractedPath": "assets/raw/reference-packs/universal-animation-library-standard/extracted",
+      "sourceDownloadSeen": "C:/Users/Shifty/Downloads/Universal Animation Library[Standard] (3).zip",
+      "requestedArchiveMissing": "C:/Users/Shifty/Downloads/Universal Animation Library[Standard] (4).zip",
+      "licenseStatus": "cc0_1_0",
+      "projectUse": "source_reference",
+      "notes": "Use for character motion vocabulary, animation-state planning, and future native animation catalog tooling."
+    },
+    {
+      "id": "reference.character_reference_sheets.v1",
+      "name": "Character Reference Sheets",
+      "version": "1",
+      "sourceFiles": [
+        "assets/raw/reference-packs/character-reference-sheets/character-reference-male.png",
+        "assets/raw/reference-packs/character-reference-sheets/character-reference-female.png"
+      ],
+      "projectUse": "reference_only",
+      "licenseStatus": "project_owned_reference_pending_contract",
+      "notes": "Loose visual reference sheets for character silhouette, scale, facing, and outfit planning. Keep as reference-only inputs until a formal character asset contract is defined."
+    },
+    {
+      "id": "reference.2p5d_assets_examples.v1",
+      "name": "2.5D Assets Examples",
+      "version": "1",
+      "sourceArchive": "assets/raw/reference-packs/25d-assets-examples/source.zip",
+      "sourceFiles": [
+        "assets/raw/reference-packs/25d-assets-examples/25d_assets_reference_audit.md",
+        "assets/raw/reference-packs/25d-assets-examples/25d_assets_audit_manifest.csv",
+        "assets/raw/reference-packs/25d-assets-examples/25d_assets_contact_sheet.jpg"
+      ],
+      "projectUse": "reference_only",
+      "licenseStatus": "mixed_third_party_reference_needs_explicit_review",
+      "notes": "Large mixed 2.5D reference bundle used for visual grammar, layering, livestock silhouette, terrain coverage, and sprite-sheet organization study only. Do not ship or trace directly."
+    }
+  ]
+}

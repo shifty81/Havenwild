@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.oga_lpc_gameplay_binding_contract.v0_1",
+  "revision": "167Z109M",
+  "rule": "art is presentation; world/gameplay authority remains canonical data and TerrainRecipe semantics",
+  "domains": {
+    "terrain_surface": {
+      "requires": ["surface_material", "canonical_shape", "season", "provider_id", "variant_seed"],
+      "visual_roles": ["base", "edge", "inner_corner", "outer_corner", "detail_underlay", "detail_overlay"]
+    },
+    "structural_cliffs": {
+      "requires": ["structural_level", "structural_shape", "rim_recipe", "wall_recipe", "collision_recipe", "navigation_recipe"],
+      "visual_roles": ["rim", "front_wall", "diagonal_start", "diagonal_middle", "diagonal_end", "join", "foot", "cap", "detail"]
+    },
+    "hydrology": {
+      "requires": ["water_class", "depth", "flow_direction", "flow_speed", "basin_id", "downstream_id", "shore_class"],
+      "visual_roles": ["base", "current", "ripple", "foam", "shore_interaction", "waterfall", "spray", "seasonal_state"]
+    },
+    "caves": {
+      "requires": ["cave_system_id", "graph_node_id", "geology", "cave_biome", "entrance_recipe", "persistence_scope"],
+      "visual_roles": ["entrance", "floor", "wall", "corner", "stairs", "shaft", "ore", "crystal", "fungus", "ruin", "water"]
+    },
+    "crops": {
+      "requires": ["crop_id", "growth_days", "growth_stage_count", "regrow", "season_rules", "harvest_item", "watering_state"],
+      "visual_roles": ["seed", "sprout", "young", "mature", "fruiting", "withered"]
+    },
+    "trees": {
+      "requires": ["species_id", "native_region", "biome_tags", "tree_stand_id", "growth_stage", "season_variant", "trunk_collision", "canopy_footprint", "log_yield", "tap_output", "fruit_output"],
+      "visual_roles": ["sapling", "young", "mature", "stump", "fallen", "spring", "summer", "autumn", "winter"]
+    },
+    "livestock": {
+      "requires": ["species_id", "age", "sex", "hunger", "health", "produce_cycle", "breeding_state", "schedule"],
+      "animations": ["idle", "walk", "eat", "sleep", "hurt", "produce"]
+    },
+    "fish": {
+      "requires": ["species_id", "water_type", "depth_range", "flow_range", "temperature_range", "season", "time_window", "weather_bias", "abundance", "catch_difficulty"],
+      "presentation": ["school", "hooked", "caught_icon"]
+    },
+    "farm_buildings": {
+      "requires": ["placeable_id", "footprint", "collision", "interaction_sockets", "storage_network", "craft_station", "upgrade_tier"],
+      "roles": ["barn", "coop", "stable", "apiary", "processing_station", "windmill", "water_wheel"]
+    },
+    "forage": {
+      "requires": ["forage_id", "biome_tags", "moisture", "light", "soil", "season", "cluster_profile", "respawn_days", "harvest_item", "rarity"],
+      "visual_roles": ["flower", "fungus", "herb", "bush", "fallen_wood"]
+    },
+    "settlements": {
+      "requires": ["settlement_id", "settlement_type", "district_graph", "street_graph", "plot_id", "reservation_owner", "building_recipe"],
+      "visual_roles": ["wall", "roof", "door", "window", "market", "civic_detail", "harbor", "farm_outskirts"]
+    }
+  }
+}

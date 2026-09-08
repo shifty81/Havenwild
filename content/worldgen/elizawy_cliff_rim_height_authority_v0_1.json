@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_rim_height_authority.v0_1",
+  "pass": "167Z109W12",
+  "revision": "167Z109W12-clean-rounded-rims-and-tier-minus-one-middle-repeats-v1",
+  "status": "active",
+  "source": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "path": "Terrain/cliff_summer.png",
+    "gridCellPx": 32
+  },
+  "reportedRuntimeEvidence": [
+    "flat Level-2 south faces still read one full rock tile too tall after W10/W11.2",
+    "north/back horizontal rim runs used a sparse square-template cell and appeared broken or vertically detached",
+    "east side whole-cell projection used c7r6, whose source cell overlaps the complex transition strip and produced diagonal brown wedges/posts on vertical boundaries"
+  ],
+  "correction": {
+    "heightAccounting": {
+      "rule": "top_or_shoulder_owns_first_structural_tier; repeatable_middle_rows = max(edge_tier_delta - 1, 0); fixed_foot_terminates_recipe",
+      "tier1": "top/shoulder + foot",
+      "tier2": "top/shoulder + one body + foot",
+      "tier3": "top/shoulder + two bodies + foot",
+      "stretchingAllowed": false,
+      "bodyModule": "exact authored 32x32 repeat cell"
+    },
+    "cleanRoundedRimCells": {
+      "northStraight": [2, 5],
+      "northWestConvex": [1, 5],
+      "northEastConvex": [3, 5],
+      "westStraight": [0, 5],
+      "eastStraight": [4, 5]
+    },
+    "retiredRuntimeContourCells": {
+      "northStraight": [6, 5],
+      "westStraight": [5, 6],
+      "eastStraight": [7, 6],
+      "reason": "square-template cells are connected construction references; c7r6 overlaps another authored transition assembly and must not be emitted as an independent whole-cell generated contour"
+    },
+    "directionalArtPolicy": "use distinct authored west/east cells; no runtime mirroring or rotation",
+    "plateauFillAuthority": "V7 semantic surface provider",
+    "structuralHeightAuthority": "exact per-edge StructuralCellV2 tier delta",
+    "collisionParity": "receiver projection depth = top/shoulder + repeatable middle rows + foot"
+  },
+  "unchanged": [
+    "structural Level 0/1/2 topology",
+    "W7 authored directional ramp stamps and traversal authority",
+    "one-tile ordinary cave mouth policy",
+    "W10 exact edge-specific delta calculation",
+    "W10 complete diagonal shoulder/body/foot family",
+    "V7 surface/toe ownership"
+  ],
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_rim_height_pass167z109w12.png",
+  "next": "local runtime visual check; if clean, finish actual in-world ramp visibility and freeze ordinary cliffs before shoreline/water"
+}

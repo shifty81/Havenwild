@@ -1,0 +1,58 @@
+{
+  "schema": "havenwild.architecture.project_scale_foundation.w68.v1",
+  "pass": "167Z109W68",
+  "approvedStaged": [
+    {
+      "crate": "uuid",
+      "version": "1.24",
+      "boundary": "haven_identity",
+      "use": "UUID v7 durable backing while HavenId remains public"
+    },
+    {
+      "crate": "slotmap",
+      "version": "1.1",
+      "boundary": "transient handles",
+      "use": "runtime/editor handles only"
+    },
+    {
+      "crate": "schemars",
+      "version": "1.2",
+      "boundary": "haven_schema",
+      "use": "schema generation"
+    },
+    {
+      "crate": "serde_path_to_error",
+      "version": "0.1.20",
+      "boundary": "haven_schema",
+      "use": "path-aware decode errors"
+    },
+    {
+      "crate": "blake3",
+      "version": "1",
+      "boundary": "content fingerprints",
+      "use": "cache/provenance/dedup fingerprints"
+    },
+    {
+      "crate": "rstar",
+      "version": "0.13",
+      "boundary": "haven_spatial",
+      "use": "infinite-canvas/world spatial index"
+    },
+    {
+      "crate": "petgraph",
+      "version": "0.8",
+      "boundary": "graph adapters",
+      "use": "logic/sound/dependency algorithms"
+    },
+    {
+      "crate": "parry2d",
+      "version": "0.25",
+      "boundary": "geometry adapter",
+      "use": "hit tests/placement/collision authoring"
+    }
+  ],
+  "deferredUntilMsrvCertified": [
+    "rusqlite",
+    "sysinfo"
+  ]
+}

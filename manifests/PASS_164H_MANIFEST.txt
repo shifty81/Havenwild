@@ -1,0 +1,10 @@
+PASS 164H — Object Geometry Inspector and Batch Atlas Review
+BASE: Havenwild Complete Source Rollup Pass 164A + cumulative Pass 164G
+ADD/OVERWRITE:
+- crates/haven_pixel/src/atlas_draft.rs
+- crates/haven_pixel/src/lib.rs
+- docs/patch/PASS_164H_OBJECT_GEOMETRY_INSPECTOR_BATCH_REVIEW.md
+- manifests/PASS_164H_MANIFEST.txt
+VALIDATION:
+- ZIP integrity required
+- Local tools/build/Build.cmd all required

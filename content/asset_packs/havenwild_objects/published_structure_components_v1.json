@@ -1,0 +1,1213 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W45B publishes exact door/stairs/fence/sign structural components through the existing PublishedWorldAssetRegistry.",
+    "All records remain candidate until the W45B acceptance scene is inspected in native editor + client.",
+    "The generic standing Sign ObjectKind remains intentionally fail-closed; W45B wall plaques do not masquerade as a standing signpost."
+  ],
+  "entries": [
+    {
+      "id": "stairs_short_step_gray",
+      "semantic_id": "structure.stairs.short_step.gray",
+      "label": "Short Stone Steps",
+      "category": "building",
+      "source_semantic_id": "structure.building.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "stairs",
+        "connector"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              32,
+              64,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Short Stone Steps structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structural_connector",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Stairs/Short Steps A.png",
+        "source_rect": [
+          64,
+          64,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Stairs/Credits.txt",
+        "note": "Exact gray Short Steps A middle tread cell; replaces the forbidden ladder-as-stairs substitution."
+      },
+      "structure": {
+        "connection_family": "stairs.short_steps",
+        "topology_role": "short_step",
+        "facing": "south",
+        "level_delta": 1,
+        "reversible": true,
+        "sockets": [
+          {
+            "id": "lower",
+            "direction": "south",
+            "kind": "walk",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "walkable.floor"
+            ]
+          },
+          {
+            "id": "upper",
+            "direction": "north",
+            "kind": "walk",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "walkable.floor"
+            ]
+          }
+        ]
+      },
+      "legacy_object_kind_primary": true,
+      "legacy_object_kind": "stairs"
+    },
+    {
+      "id": "stairs_short_run_gray",
+      "semantic_id": "structure.stairs.short_run.gray",
+      "label": "Short Stone Stair Run",
+      "category": "building",
+      "source_semantic_id": "structure.building.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -4
+        ],
+        "visual_size": [
+          1,
+          5
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "stairs",
+        "connector",
+        "multi_cell"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16,
+          160
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              64,
+              32,
+              160
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Short Stone Stair Run structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structural_connector",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Stairs/Short Steps A.png",
+        "source_rect": [
+          64,
+          0,
+          32,
+          160
+        ],
+        "source_mode": "exact_column_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Stairs/Credits.txt",
+        "note": "One complete gray five-cell Short Steps A column retained as an authored stair-run connector candidate."
+      },
+      "structure": {
+        "connection_family": "stairs.short_steps",
+        "topology_role": "stair_run",
+        "facing": "south",
+        "level_delta": 1,
+        "reversible": true,
+        "sockets": [
+          {
+            "id": "lower",
+            "direction": "south",
+            "kind": "walk",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "walkable.floor"
+            ]
+          },
+          {
+            "id": "upper",
+            "direction": "north",
+            "kind": "walk",
+            "offset": [
+              0,
+              -4
+            ],
+            "compatible_with": [
+              "walkable.floor"
+            ]
+          }
+        ]
+      },
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "fence_plain_horizontal",
+      "semantic_id": "structure.fence.plain.horizontal",
+      "label": "Plain Fence \u2014 Horizontal",
+      "category": "building",
+      "source_semantic_id": "structure.building.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "fence",
+        "connected"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              64,
+              64,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Plain Fence \u2014 Horizontal structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Fences/Plain Fence A.png",
+        "source_rect": [
+          32,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Fences/Credits.txt",
+        "note": "Exact Plain Fence A cell; W45B publishes connected fence vocabulary without whole-sheet identity."
+      },
+      "structure": {
+        "connection_family": "fence.plain",
+        "topology_role": "straight",
+        "facing": "east_west",
+        "level_delta": 0,
+        "reversible": true,
+        "sockets": [
+          {
+            "id": "west",
+            "direction": "west",
+            "kind": "fence",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "fence.plain"
+            ]
+          },
+          {
+            "id": "east",
+            "direction": "east",
+            "kind": "fence",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "fence.plain"
+            ]
+          }
+        ]
+      },
+      "legacy_object_kind_primary": true,
+      "legacy_object_kind": "fence"
+    },
+    {
+      "id": "fence_plain_vertical",
+      "semantic_id": "structure.fence.plain.vertical",
+      "label": "Plain Fence \u2014 Vertical",
+      "category": "building",
+      "source_semantic_id": "structure.building.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "fence",
+        "connected"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              96,
+              64,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Plain Fence \u2014 Vertical structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Fences/Plain Fence A.png",
+        "source_rect": [
+          96,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Fences/Credits.txt",
+        "note": "Exact Plain Fence A cell; W45B publishes connected fence vocabulary without whole-sheet identity."
+      },
+      "structure": {
+        "connection_family": "fence.plain",
+        "topology_role": "straight",
+        "facing": "north_south",
+        "level_delta": 0,
+        "reversible": true,
+        "sockets": [
+          {
+            "id": "north",
+            "direction": "north",
+            "kind": "fence",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "fence.plain"
+            ]
+          },
+          {
+            "id": "south",
+            "direction": "south",
+            "kind": "fence",
+            "offset": [
+              0,
+              0
+            ],
+            "compatible_with": [
+              "fence.plain"
+            ]
+          }
+        ]
+      },
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "fence_plain_post",
+      "semantic_id": "structure.fence.plain.post",
+      "label": "Plain Fence Post",
+      "category": "building",
+      "source_semantic_id": "structure.building.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "fence",
+        "connected"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              128,
+              64,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Plain Fence Post structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Fences/Plain Fence A.png",
+        "source_rect": [
+          0,
+          96,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Fences/Credits.txt",
+        "note": "Exact Plain Fence A cell; W45B publishes connected fence vocabulary without whole-sheet identity."
+      },
+      "structure": {
+        "connection_family": "fence.plain",
+        "topology_role": "post",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": true,
+        "sockets": []
+      },
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "sign_wall_sword",
+      "semantic_id": "structure.sign.wall.sword",
+      "label": "Wall Sign \u2014 Sword",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "sign",
+        "wall_mounted",
+        "sword"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              64,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wall Sign \u2014 Sword structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_composite_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_layer_composite",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Signs/Credits.txt",
+        "source_layers": [
+          {
+            "id": "background",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          },
+          {
+            "id": "icon",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Icons A.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          }
+        ],
+        "note": "Wall-mounted LPC sign plaque. Generic standing Sign remains fail-closed until a semantically correct standing sign source is promoted."
+      },
+      "structure": {
+        "connection_family": "sign.wall.plaque",
+        "topology_role": "wall_attachment",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "any",
+        "attachment_surface": "wall",
+        "sockets": []
+      },
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "sign_wall_shield",
+      "semantic_id": "structure.sign.wall.shield",
+      "label": "Wall Sign \u2014 Shield",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "sign",
+        "wall_mounted",
+        "shield"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              96,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wall Sign \u2014 Shield structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_composite_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_layer_composite",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Signs/Credits.txt",
+        "source_layers": [
+          {
+            "id": "background",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          },
+          {
+            "id": "icon",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Icons A.png",
+            "sourceRect": [
+              32,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          }
+        ],
+        "note": "Wall-mounted LPC sign plaque. Generic standing Sign remains fail-closed until a semantically correct standing sign source is promoted."
+      },
+      "structure": {
+        "connection_family": "sign.wall.plaque",
+        "topology_role": "wall_attachment",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "any",
+        "attachment_surface": "wall",
+        "sockets": []
+      },
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "sign_wall_potion",
+      "semantic_id": "structure.sign.wall.potion",
+      "label": "Wall Sign \u2014 Potion",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "sign",
+        "wall_mounted",
+        "potion"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              128,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wall Sign \u2014 Potion structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_composite_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_layer_composite",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Signs/Credits.txt",
+        "source_layers": [
+          {
+            "id": "background",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          },
+          {
+            "id": "icon",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Icons A.png",
+            "sourceRect": [
+              64,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          }
+        ],
+        "note": "Wall-mounted LPC sign plaque. Generic standing Sign remains fail-closed until a semantically correct standing sign source is promoted."
+      },
+      "structure": {
+        "connection_family": "sign.wall.plaque",
+        "topology_role": "wall_attachment",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "any",
+        "attachment_surface": "wall",
+        "sockets": []
+      },
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "sign_wall_inn",
+      "semantic_id": "structure.sign.wall.inn",
+      "label": "Wall Sign \u2014 Inn",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "sign",
+        "wall_mounted",
+        "inn"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              160,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wall Sign \u2014 Inn structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_composite_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_layer_composite",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Signs/Credits.txt",
+        "source_layers": [
+          {
+            "id": "background",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          },
+          {
+            "id": "icon",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Icons A.png",
+            "sourceRect": [
+              96,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          }
+        ],
+        "note": "Wall-mounted LPC sign plaque. Generic standing Sign remains fail-closed until a semantically correct standing sign source is promoted."
+      },
+      "structure": {
+        "connection_family": "sign.wall.plaque",
+        "topology_role": "wall_attachment",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "any",
+        "attachment_surface": "wall",
+        "sockets": []
+      },
+      "legacy_object_kind_primary": false
+    },
+    {
+      "id": "sign_wall_pub",
+      "semantic_id": "structure.sign.wall.pub",
+      "label": "Wall Sign \u2014 Pub",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "sign",
+        "wall_mounted",
+        "pub"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              192,
+              96,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Wall Sign \u2014 Pub structural component."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_composite_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_layer_composite",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Signs/Credits.txt",
+        "source_layers": [
+          {
+            "id": "background",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+            "sourceRect": [
+              0,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          },
+          {
+            "id": "icon",
+            "source": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Icons A.png",
+            "sourceRect": [
+              128,
+              0,
+              32,
+              32
+            ],
+            "blend": "normal"
+          }
+        ],
+        "note": "Wall-mounted LPC sign plaque. Generic standing Sign remains fail-closed until a semantically correct standing sign source is promoted."
+      },
+      "structure": {
+        "connection_family": "sign.wall.plaque",
+        "topology_role": "wall_attachment",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "any",
+        "attachment_surface": "wall",
+        "sockets": []
+      },
+      "legacy_object_kind_primary": false
+    }
+  ]
+}

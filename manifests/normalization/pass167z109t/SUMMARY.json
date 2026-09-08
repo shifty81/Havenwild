@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z109T",
+  "title": "Normalization D - WorldPlan Compatibility Bridge",
+  "behaviorPreserving": true,
+  "completed": [
+    "SurfaceWorldPlanV1 created before fresh surface materialization",
+    "current mainland feature pass routed through WorldPlan compatibility materializer",
+    "existing-save mainland feature migration routed through the same plan bridge",
+    "current structural/ecology seed expressions owned by the plan without changing their values",
+    "GeneratedIsland exposes the feature-first WorldPlan",
+    "target mainland contract carries western harbor, mountain city, southern sandy city, trade triangle, cave-bearing massif and expedition gateway"
+  ],
+  "notMaterializedYet": [
+    "target three-city placement",
+    "target ridge-first massif",
+    "target trade triangle",
+    "cliff contour/rim/wall/foot replacement",
+    "new shoreline/water presentation"
+  ],
+  "next": "167Z109U small runtime/ECS + canonical character-state foundation with current player visual parity"
+}

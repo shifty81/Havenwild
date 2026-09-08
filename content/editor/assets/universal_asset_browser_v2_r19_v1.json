@@ -1,0 +1,16 @@
+{
+  "schema":"havenwild.editor.universal_asset_browser.r19.v1",
+  "pass":"W81R19",
+  "presentation":"virtualized_scrolling_thumbnail_grid",
+  "forbidPrimaryPagination":true,
+  "searchScopes":["name","semantic_id","category","tag","provider","author","source_pack","license"],
+  "filters":["domain","category","subcategory","provider","license_tier","production_state","runtime_readiness","animated","interactive","biome","season","body_family","animation_family"],
+  "statusBadges":["production_ready","needs_binding","needs_animation","needs_collision","needs_interaction","sharealike","license_review","blocked"],
+  "modes":["paint_materials","place_assets","character_parts","wardrobe_and_gear","source_library","advanced_provenance"],
+  "rules":[
+    "Catalogued assets stay visible even when not runtime-bound.",
+    "Blocked assets may be inspected but never promoted or resolved into release output.",
+    "Large result sets must use lazy thumbnails and virtualization.",
+    "Semantic category hierarchy is authoritative; raw directory structure remains available only in advanced source view."
+  ]
+}

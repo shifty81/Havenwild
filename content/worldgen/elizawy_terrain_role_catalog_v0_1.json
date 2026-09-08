@@ -1,0 +1,116 @@
+{
+  "schema": "havenwild.worldgen.elizawy_terrain_role_catalog.v0_1",
+  "version": 1,
+  "laneId": "elizawy_mainland",
+  "styleFamily": "elizawy_mainland_v1",
+  "sourceRepository": "https://github.com/ElizaWy/LPC",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "auditAuthority": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38_summary.json",
+  "crossFamilyFallbackAllowed": false,
+  "families": [
+    {
+      "id": "seasonal_ground_water_coast",
+      "sources": [
+        "Terrain/terrain_spring.png",
+        "Terrain/terrain_summer.png",
+        "Terrain/terrain_autumn.png",
+        "Terrain/terrain_winter.png",
+        "Terrain/terrain_winter_ice.png"
+      ],
+      "roles": [
+        "grass",
+        "dirt",
+        "sand",
+        "wet_sand",
+        "shallow_water",
+        "deep_water",
+        "shoreline",
+        "terrain_transitions"
+      ],
+      "status": "source_audited_exact_cell_promotion_in_progress"
+    },
+    {
+      "id": "seasonal_structural_cliffs",
+      "sources": [
+        "Terrain/cliff_spring.png",
+        "Terrain/cliff_summer.png",
+        "Terrain/cliff_autumn.png",
+        "Terrain/cliff_winter.png",
+        "Terrain/cliff_winter_ice.png"
+      ],
+      "roles": [
+        "plateau_top",
+        "vertical_face",
+        "inner_corner",
+        "outer_corner",
+        "diagonal_face",
+        "ramp",
+        "cave_opening",
+        "vine_face",
+        "ladder_face",
+        "water_facing_face",
+        "bridge_face"
+      ],
+      "status": "source_and_geometry_audited_runtime_recipe_mapping_pending"
+    },
+    {
+      "id": "farm_soil",
+      "sources": [
+        "Terrain/tilled_soil.png"
+      ],
+      "roles": [
+        "tilled_soil",
+        "watered_soil",
+        "crop_bed_transitions"
+      ],
+      "status": "source_audited"
+    },
+    {
+      "id": "winter_shallows",
+      "sources": [
+        "Terrain/ice-shallows.png"
+      ],
+      "roles": [
+        "ice_edge",
+        "frozen_shallow_water",
+        "thaw_transition"
+      ],
+      "status": "source_audited"
+    },
+    {
+      "id": "waterfall_features",
+      "sources": [
+        "Terrain/Waterfall.png"
+      ],
+      "roles": [
+        "waterfall_lip",
+        "waterfall_face",
+        "waterfall_splash",
+        "side_fall"
+      ],
+      "status": "source_audited_runtime_animation_mapping_pending"
+    },
+    {
+      "id": "rock_props",
+      "sources": [
+        "Terrain/Rocks, Cliffs.png"
+      ],
+      "roles": [
+        "rock_prop",
+        "boulder",
+        "cliff_detail_prop"
+      ],
+      "status": "source_audited_connected_component_mapping_required"
+    }
+  ],
+  "editorPolicy": {
+    "groundTab": "only reviewed horizontal semantic materials",
+    "elevationTab": "height editing and structural face rebuild",
+    "sourcesTab": "source provenance, seasonal variants, role readiness, and promotion status",
+    "forbidden": [
+      "raw atlas coordinate painting",
+      "cross-family fallback",
+      "flat TileKind::Cliff brush"
+    ]
+  }
+}

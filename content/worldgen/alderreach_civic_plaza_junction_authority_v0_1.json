@@ -1,0 +1,48 @@
+{
+  "schema": "havenwild.alderreach_civic_plaza_junction_authority.v0_1",
+  "pass": "Pass167Z86",
+  "scope": "Willowmere civic plaza terrain junction closeout",
+  "reportedVisualFailure": {
+    "location": "Willowmere central plaza road entrances and outer corners",
+    "symptom": "Square owner-fill blocks and broken-looking edges where StonePath touched brown Dirt directly",
+    "rootCause": "The source-pure V7 atlas contains complete Stone_Tan-to-Dirt_Tan and Dirt_Tan-to-Dirt_Brown tuples, but contains no Stone_Tan-to-Dirt_Brown tuple. The compact plaza was therefore creating unsupported two- and three-material contacts."
+  },
+  "materialAuthority": {
+    "plaza": {
+      "tileKind": "StonePath",
+      "v7Material": "Stone_Tan",
+      "footprint": [11, 11]
+    },
+    "apron": {
+      "tileKind": "Road",
+      "v7Material": "Dirt_Tan",
+      "widthTiles": 1,
+      "footprint": [13, 13],
+      "zone": "public_path"
+    },
+    "supportedSequence": [
+      "Stone_Tan",
+      "Dirt_Tan",
+      "Dirt_Brown_or_Grass"
+    ],
+    "generatedOrRecoloredPixelsAllowed": false,
+    "crossStyleFallbackAllowed": false
+  },
+  "migration": {
+    "generationVersion": 15,
+    "existingCapitalDetectionOrder": [
+      "legacy well marker",
+      "civic/market/residential/artisan lot centroid",
+      "compact StonePath plaza centroid"
+    ],
+    "addMissingRoadApronToExistingGeneratedCapital": true,
+    "repaintUnrelatedPlayerTerrain": false,
+    "resizeExistingWorld": false
+  },
+  "acceptance": [
+    "Every cardinal neighbor leaving the 11x11 StonePath plaza is Road.",
+    "No StonePath plaza cell directly touches brown Dirt, Mud, Sand, or water.",
+    "Road approaches merge into the one-tile apron without a second material seam.",
+    "The V7 mapped terrain atlas remains unchanged and source-pure."
+  ]
+}

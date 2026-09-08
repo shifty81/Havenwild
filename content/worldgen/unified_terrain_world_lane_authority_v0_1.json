@@ -1,0 +1,657 @@
+{
+  "schema": "havenwild.unified_terrain_world_lane_authority.v0_1",
+  "revision": "167Z109P",
+  "tileSize": 32,
+  "purpose": "Single deterministic authority for Havenwild macro geography, normalized structural elevation, hydrology, terrain topology, caves, ecology, detail decoration, settlements, runtime recipes, maps, persistence and seasonal visual providers.",
+  "invariants": [
+    "world seed is the root of all generated content but each domain receives an independently derived deterministic seed",
+    "ordinary structural authoring is discrete Level 0/2/3/4; Level 1 is reserved for certified 2\u21921\u21920 ramp transition cells; no freeform numeric elevation painting",
+    "generated freshwater has a complete downhill drainage path and cannot terminate arbitrarily on land",
+    "flowing water crossing a certified structural drop creates a waterfall connector; Level 1 may only occur inside a certified ramp transition and is not generic cliff terrain",
+    "canonical semantics and topology are resolved before visual providers",
+    "season/provider changes cannot change topology, collision, cave identity, roads, hydrology or world seed",
+    "raw source pixels never define collision, navigation, gameplay values or PCG ownership",
+    "details may decorate a host recipe but may not silently alter host topology",
+    "all infinite-world cross-chunk features are coordinate/feature-seed deterministic",
+    "authored, generated and player-modified layers remain separately owned"
+  ],
+  "seedDomains": [
+    "geography",
+    "geology",
+    "climate",
+    "hydrology",
+    "structure",
+    "settlement",
+    "road",
+    "cave",
+    "ecology",
+    "tree_stands",
+    "forage",
+    "resource",
+    "detail",
+    "landmark",
+    "wildlife",
+    "landform_feature_graph",
+    "mainland_city_sites",
+    "trade_routes",
+    "expedition_network",
+    "terrain_constraint_synthesis"
+  ],
+  "worldPlan": {
+    "macro": [
+      "continental_regions",
+      "coast_profiles",
+      "climate_regions",
+      "geological_provinces",
+      "watersheds",
+      "major_rivers",
+      "major_lakes",
+      "highland_regions",
+      "settlement_network",
+      "regional_road_graph",
+      "major_cave_system_anchors",
+      "landmarks",
+      "landform_feature_graph",
+      "mainland_city_triangle",
+      "expedition_network"
+    ],
+    "meso": [
+      "river_valleys",
+      "wetlands",
+      "forest_regions",
+      "tree_stands",
+      "local_roads",
+      "villages",
+      "cliff_complexes",
+      "cave_entrances",
+      "local_lakes",
+      "districts",
+      "harbors",
+      "resource_regions"
+    ],
+    "micro": [
+      "surface_shape",
+      "transition_shape",
+      "rim_shape",
+      "wall_shape",
+      "shore_shape",
+      "water_animation",
+      "detail_tiles",
+      "forage_clusters",
+      "rocks",
+      "object_stamps"
+    ]
+  },
+  "semanticCellFields": [
+    "surface_material",
+    "structural_level",
+    "biome",
+    "climate",
+    "temperature",
+    "moisture",
+    "soil_type",
+    "soil_fertility",
+    "soil_moisture",
+    "geology",
+    "water_class",
+    "water_depth",
+    "flow_direction",
+    "flow_speed",
+    "shore_class",
+    "route_class",
+    "structural_shape",
+    "connector",
+    "cave_relationship",
+    "ecology_community",
+    "detail_profile",
+    "reservation_owner"
+  ],
+  "recipeLayerOrder": [
+    "base_surface",
+    "surface_transition",
+    "detail_underlay",
+    "structural_rim",
+    "structural_wall",
+    "hydrology_base",
+    "hydrology_motion",
+    "shoreline_overlay",
+    "detail_overlay",
+    "ecology_objects",
+    "feature_objects",
+    "seasonal_weather_overlay"
+  ],
+  "structural": {
+    "levels": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "canonicalFamilies": [
+      "SurfaceShape15",
+      "StructuralShape15",
+      "RimShape",
+      "WallShape",
+      "JoinShape",
+      "ConnectorShape",
+      "ContourSegment",
+      "ConstraintModule"
+    ],
+    "rimRoles": [
+      "straight",
+      "inner_corner",
+      "outer_corner",
+      "diagonal",
+      "terminal_cap",
+      "connector_cut"
+    ],
+    "wallRoles": [
+      "straight",
+      "diagonal_start",
+      "diagonal_middle",
+      "diagonal_end",
+      "straight_to_diagonal",
+      "diagonal_to_straight",
+      "foot",
+      "terminal_cap"
+    ],
+    "ownership": "multi-cell structural recipes claim their complete visual footprint before generic fallback; overlapping wall fallbacks are forbidden",
+    "connectors": [
+      "ramp_left",
+      "ramp_right",
+      "stairs",
+      "ladder",
+      "bridge",
+      "cave_entrance",
+      "waterfall"
+    ],
+    "reservedTransitionLevels": {
+      "1": "certified authored 2\u21921\u21920 ramp transition only"
+    },
+    "authoringStepOrder": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "normalization": "legacy/AUTO Level 1 is promoted or collapsed; only complete certified ramp corridors may retain Level 1"
+  },
+  "terrainDetails": {
+    "groups": {
+      "grass": [
+        "tufts",
+        "wildflowers",
+        "clover",
+        "dry_patch",
+        "fallen_leaves",
+        "sticks",
+        "small_stones"
+      ],
+      "dirt": [
+        "pebbles",
+        "roots",
+        "cracks",
+        "weeds",
+        "moist_patch"
+      ],
+      "sand": [
+        "shells",
+        "pebbles",
+        "driftwood",
+        "seaweed",
+        "wet_patch"
+      ],
+      "rock": [
+        "cracks",
+        "rubble",
+        "moss",
+        "lichen",
+        "mineral_fleck"
+      ],
+      "cliff": [
+        "crack",
+        "moss",
+        "vine",
+        "root",
+        "grass_ledge",
+        "rubble_foot",
+        "mineral_exposure",
+        "wet_streak"
+      ],
+      "cave_floor": [
+        "gravel",
+        "cracks",
+        "puddle",
+        "fungus",
+        "bones",
+        "small_stones"
+      ],
+      "cave_wall": [
+        "cracks",
+        "moss",
+        "ore_vein",
+        "roots",
+        "crystals",
+        "damp_streak"
+      ],
+      "water": [
+        "ripple",
+        "current_streak",
+        "foam",
+        "small_wave",
+        "floating_leaf",
+        "lily_pad",
+        "reed",
+        "bubble",
+        "spray"
+      ]
+    },
+    "placementContract": [
+      "valid_host_role",
+      "biome",
+      "moisture",
+      "season",
+      "density",
+      "cluster_profile",
+      "minimum_spacing",
+      "footprint",
+      "priority",
+      "deterministic_variant"
+    ],
+    "interactiveSplit": "decorative and gameplay-interactive versions of similar art must use distinct semantic roles"
+  },
+  "hydrology": {
+    "waterClasses": [
+      "ocean",
+      "lake",
+      "pond",
+      "river",
+      "stream",
+      "spring",
+      "marsh",
+      "waterfall",
+      "underground_stream",
+      "underground_lake"
+    ],
+    "waterRecipeLayers": [
+      "depth_base",
+      "surface_animation",
+      "directional_current",
+      "shore_interaction",
+      "foam",
+      "floating_detail",
+      "seasonal_state"
+    ],
+    "watershedFields": [
+      "basin_id",
+      "source_id",
+      "downstream_id",
+      "tributary_order",
+      "outlet",
+      "floodplain",
+      "groundwater_bias"
+    ],
+    "shoreClasses": [
+      "sandy_beach",
+      "pebble_beach",
+      "mud_bank",
+      "rocky_shore",
+      "grass_bank",
+      "marsh_coast",
+      "cliff_coast",
+      "river_delta",
+      "estuary"
+    ],
+    "waterfallRule": "flowing water crossing a structural drop must instantiate a structural waterfall feature with upper lip, face animation, splash and downstream continuation"
+  },
+  "caves": {
+    "surfaceCandidateRequirements": [
+      "valid_rock_or_cliff_host",
+      "sufficient_rock_mass",
+      "outside_reserved_city_building",
+      "outside_protected_road_corridor",
+      "valid_surface_traversal",
+      "near_deterministic_underground_graph_node"
+    ],
+    "graphFirst": true,
+    "logicalStrata": [
+      "surface",
+      "shallow_caves",
+      "deep_caves",
+      "special_geology"
+    ],
+    "graphNodeTypes": [
+      "entrance",
+      "passage",
+      "chamber",
+      "shaft",
+      "underground_river",
+      "underground_lake",
+      "mine_region",
+      "resource_region",
+      "ruin",
+      "special_cavern",
+      "deep_connector"
+    ],
+    "infiniteGeneration": "cave systems expand by deterministic graph/chunk coordinates; explored or modified chunks persist",
+    "surfaceBinding": [
+      "cave_system_id",
+      "entrance_node_id",
+      "world_coordinate",
+      "entrance_recipe_id"
+    ],
+    "biomes": [
+      "dry_limestone",
+      "wet_cavern",
+      "fungal_cavern",
+      "crystal_cavern",
+      "ore_rich",
+      "underground_river",
+      "ancient_ruin",
+      "basalt_geothermal"
+    ]
+  },
+  "ecology": {
+    "communityFirst": true,
+    "treeHierarchy": [
+      "biome_region",
+      "woodland_patch",
+      "tree_stand",
+      "individual_tree"
+    ],
+    "treeStandFields": [
+      "dominant_species",
+      "secondary_species",
+      "density",
+      "age_distribution",
+      "spacing",
+      "edge_falloff",
+      "clearing_rate",
+      "soil_preferences",
+      "moisture_preferences",
+      "seasonal_visual_family"
+    ],
+    "islandNativeTreeRule": "ordinary islands select two native tree species and form coherent stands/transitions rather than uniform checkerboard mixing",
+    "forageFields": [
+      "species",
+      "biome",
+      "moisture",
+      "light",
+      "soil",
+      "season",
+      "cluster_size",
+      "rarity",
+      "regrowth_days",
+      "tree_association",
+      "water_association"
+    ],
+    "forageAnchors": {
+      "tree_stand": [
+        "mushroom",
+        "acorn_or_seed",
+        "fallen_branch"
+      ],
+      "river_bank": [
+        "reed",
+        "water_herb",
+        "clay_patch"
+      ],
+      "rocky_cliff": [
+        "mineral_node",
+        "special_herb"
+      ],
+      "stump_or_old_tree": [
+        "fungus",
+        "moss",
+        "insects"
+      ]
+    },
+    "wildlifeFields": [
+      "species",
+      "habitat",
+      "food",
+      "water_proximity",
+      "cover",
+      "temperature",
+      "season",
+      "territory",
+      "activity_period"
+    ],
+    "regrowth": "local semantic reconciliation may regrow forage/vegetation without rerunning macro world generation"
+  },
+  "settlements": {
+    "planBeforeDecoration": true,
+    "commonPlanFields": [
+      "settlement_id",
+      "type",
+      "world_anchor",
+      "required_footprint",
+      "terrain_suitability",
+      "district_graph",
+      "road_entrances",
+      "waterfront",
+      "landmark_reservations",
+      "building_plots",
+      "public_spaces",
+      "expansion_zones"
+    ],
+    "generationOrder": [
+      "settlement_anchor",
+      "district_graph",
+      "street_graph",
+      "public_spaces",
+      "plots",
+      "building_recipes",
+      "props_and_details",
+      "supporting_ecology"
+    ],
+    "districtTypes": [
+      "civic",
+      "market",
+      "residential",
+      "craft",
+      "harbor",
+      "tavern_commercial",
+      "warehouse",
+      "farm_outskirts",
+      "temple_or_memorial"
+    ],
+    "willowmere": {
+      "alwaysPresent": true,
+      "generateFirst": true,
+      "authoredCoreInvariant": true,
+      "seedMayVary": [
+        "surrounding_terrain",
+        "approaches",
+        "outskirts",
+        "minor_plots",
+        "decorations",
+        "supporting_generated_population",
+        "farmland_edges"
+      ],
+      "seedMayNotReplace": [
+        "identity",
+        "civic_layout",
+        "required_districts",
+        "major_buildings",
+        "authored_core_npcs"
+      ]
+    }
+  },
+  "reservationsBeforeEcology": [
+    "settlements",
+    "roads",
+    "bridges",
+    "rivers",
+    "waterfalls",
+    "cave_entrances",
+    "landmarks",
+    "structural_connectors"
+  ],
+  "multiCellFeatureContract": [
+    "logical_host",
+    "visual_footprint",
+    "collision_footprint",
+    "interaction_footprint",
+    "generation_clearance",
+    "anchor",
+    "layer_order",
+    "feature_id"
+  ],
+  "persistenceLayers": [
+    "deterministic_seed_base",
+    "authored_overrides",
+    "player_persistent_modifications",
+    "dynamic_simulation",
+    "season_weather_presentation"
+  ],
+  "generationVersionFields": [
+    "worldgen_version",
+    "terrain_recipe_version",
+    "hydrology_version",
+    "cave_version",
+    "ecology_version",
+    "provider_version"
+  ],
+  "mapAuthority": "world map and minimap consume discovered canonical semantic/recipe output; neither reconstructs terrain independently",
+  "navigationFields": [
+    "walkable",
+    "movement_cost",
+    "swimmable",
+    "blocked_edges",
+    "connector",
+    "road_bonus",
+    "shallow_water_penalty"
+  ],
+  "generationOrder": [
+    "derive_domain_seeds",
+    "macro_geography",
+    "geology",
+    "climate_and_biomes",
+    "structural_levels",
+    "watersheds_and_drainage",
+    "water_bodies_and_required_waterfalls",
+    "landmark_and_settlement_reservations",
+    "willowmere_authored_capital_fit",
+    "procedural_settlement_graphs",
+    "regional_and_local_routes",
+    "underground_cave_graphs",
+    "surface_cave_entrance_binding",
+    "surface_materials_shores_cliffs_rims_connectors",
+    "ecology_regions_and_tree_stands",
+    "forage_rocks_resources",
+    "terrain_water_cliff_cave_details",
+    "on_demand_chunk_materialization",
+    "seasonal_visual_provider_resolution",
+    "publish_to_render_collision_navigation_maps_editor"
+  ],
+  "caches": [
+    "world_plan_cache",
+    "region_plan_cache",
+    "feature_spatial_index",
+    "chunk_semantic_cache",
+    "terrain_recipe_cache",
+    "visual_chunk_cache"
+  ],
+  "debugOverlays": [
+    "biome",
+    "climate",
+    "soil",
+    "geology",
+    "structural_level",
+    "watershed",
+    "flow_direction",
+    "cliff_recipe",
+    "shore_recipe",
+    "road_reservation",
+    "cave_graph",
+    "ecology_community",
+    "tree_stand",
+    "forage_profile",
+    "navigation",
+    "generation_owner"
+  ],
+  "validationFailures": [
+    "freshwater_without_outlet",
+    "uphill_flow",
+    "structural_drop_without_recipe",
+    "required_waterfall_missing",
+    "waterfall_without_downstream_water",
+    "surface_cave_without_graph_node",
+    "graph_entrance_without_surface_binding",
+    "road_accidental_termination",
+    "bridge_without_two_valid_banks",
+    "ecology_object_inside_reserved_connector",
+    "forage_outside_habitat",
+    "incompatible_multi_cell_overlap",
+    "mandatory_provider_role_missing",
+    "season_geometry_mismatch"
+  ],
+  "visualProviders": {
+    "sourceRegistry": "content/assets/oga_lpc/manifests/oga_lpc_prototype_source_registry_v0_1.json",
+    "roleRegistry": "content/assets/oga_lpc/manifests/oga_lpc_prototype_role_registry_v0_1.json",
+    "seasonRule": "provider swap only invalidates visual caches unless a gameplay semantic explicitly changes"
+  },
+  "landformFeatureGraphExtension": {
+    "authority": "content/worldgen/world_plan_landform_constraint_authority_v0_1.json",
+    "rustContract": "crates/haven_world/src/landform_feature_graph.rs",
+    "featureKinds": [
+      "mountain_massif",
+      "highland",
+      "plateau",
+      "valley",
+      "basin",
+      "canyon",
+      "coastal_cliff",
+      "island",
+      "wetland"
+    ],
+    "mainlandInvariant": "one primary mainland with western harbor capital, mountain city, southern sandy city, scheduled trade triangle, and at least one cave-bearing massif",
+    "chunkRule": "chunks materialize intersecting portions of stable WorldFeatureIds rather than inventing chunk-local macro landforms"
+  },
+  "constraintSynthesisExtension": {
+    "authority": "content/worldgen/world_plan_landform_constraint_authority_v0_1.json",
+    "rustContract": "crates/haven_world/src/terrain_constraint_solver.rs",
+    "scope": "local constrained synthesis after semantic and topological resolution",
+    "supports": [
+      "matching_directional_sockets",
+      "explicit_non_wang_adjacency",
+      "hard_cell_constraints",
+      "deterministic_weighted_observation",
+      "contradiction_reporting"
+    ],
+    "runtimeRule": "solve during generation or dirty-region rebuild and cache the resulting recipe; never solve complex terrain per render frame"
+  },
+  "coastalCliffExtension": {
+    "firstClassCoastType": true,
+    "stack": [
+      "upland_surface",
+      "rim",
+      "wall",
+      "optional_toe",
+      "shore_interaction",
+      "shallows_or_direct_deep_water",
+      "ocean"
+    ],
+    "toeMaterials": [
+      "none",
+      "sand",
+      "wet_sand",
+      "pebble",
+      "talus",
+      "wet_rock",
+      "mud"
+    ],
+    "zeroWidthToeAllowed": true,
+    "rule": "geology, erosion and wave exposure decide whether a cliff has a beach/talus toe or drops directly into water"
+  },
+  "mainlandGameplayExtension": {
+    "cities": [
+      "western_harbor_capital",
+      "mountain_city",
+      "southern_sandy_city"
+    ],
+    "trade": "each primary city pair has at least one direct scheduled route; distant NPC travel uses abstract schedule simulation until materialized near the player",
+    "expeditions": "western harbor is the mandatory gateway to mission-based outer-island extraction travel and optional one-day stowaway trips with recoverable missed pickup"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.selection_transform_gizmo.w61c.v1",
+  "pass": "W61C",
+  "handles": [
+    "move",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "top_left",
+    "top_right",
+    "bottom_left",
+    "bottom_right",
+    "rotate_top_left",
+    "rotate_top_right",
+    "rotate_bottom_left",
+    "rotate_bottom_right",
+    "pivot"
+  ],
+  "pixelPolicy": {
+    "nearestNeighbor": true,
+    "integerSnapDefault": true,
+    "arbitraryRotation": true,
+    "movablePivot": true,
+    "selectionOwnedPivotFollowsMoveScaleMirror": true,
+    "rotationKeepsExplicitPivotRegistered": true
+  },
+  "selectionOperations": [
+    "copy",
+    "cut",
+    "paste",
+    "duplicate",
+    "mirror_horizontal",
+    "mirror_vertical",
+    "promote_to_asset"
+  ],
+  "promotionProduct": "new metadata-backed Pixel Studio asset with provenance"
+}

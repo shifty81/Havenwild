@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z16",
+  "title": "Rustfmt Architecture Baseline Repair",
+  "date": "2026-08-02",
+  "cumulativePatchBaseline": "Pass 167Z10 Development Normalization",
+  "result": "Pass 167Z16 Rustfmt Architecture Baseline Repair",
+  "problem": "Build all ran architecture validation before cargo fmt, so formatter-only line expansion caused the next identical build to fail three frozen pre-format file ceilings.",
+  "correction": "Rustfmt normalization now runs before architecture validation, late duplicate formatting was removed, three temporary ceilings use the observed canonical Windows rustfmt counts, and portability validation protects the build order.",
+  "cumulativeIncludedPasses": [
+    "167Z11",
+    "167Z12",
+    "167Z13",
+    "167Z14",
+    "167Z15",
+    "167Z16"
+  ],
+  "validation": [
+    "source validation profile passed all 19 active gates",
+    "all 17 content-integrity checks passed",
+    "Build.sh syntax passed",
+    "Python syntax passed",
+    "Windows rustfmt line ceilings 981, 850, and 1100 fit the canonical architecture allowances",
+    "complete source rollup intentionally not produced"
+  ]
+}

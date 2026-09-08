@@ -1,0 +1,14 @@
+{
+  "schema": "havenwild.terrain_reference_provenance.v1",
+  "version": 1,
+  "sourceCreditsFile": "assets/reference/terrain/havenwild_terrain_standard_v1/source/CREDITS-terrain-reference.txt",
+  "aggregateStatus": "reference_only_mixed_license",
+  "shippingRule": "No region may enter production until its exact source and compatible license are verified.",
+  "licenseClassesObserved": [
+    "CC-BY-3.0",
+    "CC-BY-SA-3.0",
+    "GPL-3.0"
+  ],
+  "productionAllowedByDefault": false,
+  "requiredNextStep": "region_level_atlas_inventory_and_replacement_matrix"
+}

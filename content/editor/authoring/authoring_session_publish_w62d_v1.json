@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.authoring_session_publish.w62d.v1",
+  "lifecycle": ["capture", "edit", "analyze", "preview", "validate", "publish_transaction", "commit"],
+  "sourceKinds": ["asset", "scene_selection", "world_selection", "building_composite", "animation", "character", "foreground", "sound", "logic"],
+  "publishTargets": ["apply_here", "variation", "asset", "stamp_motif", "template", "presentation_set", "pcg_exemplar", "pcg_motifs"],
+  "presets": ["here_only", "reusable", "pcg", "publish_everywhere"],
+  "provenanceRequired": true,
+  "revisionIdentityRequired": true,
+  "firstVerticalSlice": {
+    "metadataTransaction": true,
+    "applyHerePersistsWorldForWorldBackedSources": true,
+    "worldSelectionCanCreateExistingSemanticPcgExemplar": true,
+    "remainingDomainPromotionAdapters": "metadata-first; runtime baking follows behind stable revision IDs"
+  }
+}

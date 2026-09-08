@@ -1,0 +1,163 @@
+{
+  "schema": "havenwild.world_paint_brush_contract.v0_1",
+  "updated": "2026-07-09",
+  "purpose": "Defines the shared editor/runtime world-paint backend for canonical 32x32 tiles with nested 16x16, 8x8, and 4x4 paint masks.",
+  "canonicalTileSize": [
+    32,
+    32
+  ],
+  "simulationAuthority": "server_or_local_host_stores_material_and_tile_ids; clients derive visual overlays deterministically",
+  "supportedSubcellModes": [
+    {
+      "id": "tile_32",
+      "label": "32x32",
+      "grid": [
+        1,
+        1
+      ],
+      "cellSize": [
+        32,
+        32
+      ],
+      "runtimeMeaning": "whole canonical tile paint"
+    },
+    {
+      "id": "cell_16",
+      "label": "16x16",
+      "grid": [
+        2,
+        2
+      ],
+      "cellSize": [
+        16,
+        16
+      ],
+      "runtimeMeaning": "quarter-tile material weight mask"
+    },
+    {
+      "id": "cell_8",
+      "label": "8x8",
+      "grid": [
+        4,
+        4
+      ],
+      "cellSize": [
+        8,
+        8
+      ],
+      "runtimeMeaning": "fine shoreline/variation weight mask"
+    },
+    {
+      "id": "cell_4",
+      "label": "4x4",
+      "grid": [
+        8,
+        8
+      ],
+      "cellSize": [
+        4,
+        4
+      ],
+      "runtimeMeaning": "micro detail/debris/foam mask"
+    }
+  ],
+  "materialFamilies": [
+    {
+      "id": "sand",
+      "defaultLayer": "ground_base",
+      "defaultTileKind": "Sand",
+      "subcellPaint": true,
+      "autotileRefresh": true
+    },
+    {
+      "id": "water",
+      "defaultLayer": "water_base",
+      "defaultTileKind": "ShallowWater",
+      "subcellPaint": true,
+      "autotileRefresh": true
+    },
+    {
+      "id": "cave",
+      "defaultLayer": "cave_base",
+      "defaultTileKind": "CaveFloor",
+      "subcellPaint": true,
+      "autotileRefresh": false
+    },
+    {
+      "id": "paved_brick",
+      "defaultLayer": "town_surface",
+      "defaultTileKind": "BrickFloor",
+      "subcellPaint": true,
+      "autotileRefresh": false
+    },
+    {
+      "id": "wood_plank",
+      "defaultLayer": "indoor_floor",
+      "defaultTileKind": "PlankFloor",
+      "subcellPaint": true,
+      "autotileRefresh": false
+    }
+  ],
+  "paintLayers": [
+    "ground_base",
+    "water_base",
+    "cave_base",
+    "town_surface",
+    "indoor_floor",
+    "ground_transition_fringe",
+    "water_surface_fx",
+    "debris_overlay",
+    "collision_footprint",
+    "dev_overlay"
+  ],
+  "brushModes": [
+    "paint_family",
+    "paint_weight",
+    "paint_debris",
+    "variation_bias",
+    "force_autotile_refresh"
+  ],
+  "editorIntegration": {
+    "fullEditor": true,
+    "inGameDevOverlay": true,
+    "usesSameBackend": true,
+    "undoRedoRequired": true,
+    "validationRequired": true,
+    "mirrorModeRequired": true
+  },
+  "networkRules": {
+    "authoritativeState": [
+      "scene_id",
+      "tile_material_id",
+      "resolved_tile_kind",
+      "subcell_weight_delta",
+      "collision_flags",
+      "edit_sequence",
+      "mirror_flags",
+      "mirror_centers"
+    ],
+    "clientDerivedState": [
+      "shoreline_overlay",
+      "foam_overlay",
+      "variation_choice",
+      "debris_visuals"
+    ],
+    "rawPixelsReplicated": false
+  },
+  "mirrorModes": [
+    {
+      "id": "mirror_horizontal",
+      "label": "Horizontal Mirror",
+      "axis": "scene_x",
+      "enabledByDefault": false,
+      "hotkey": "H"
+    },
+    {
+      "id": "mirror_vertical",
+      "label": "Vertical Mirror",
+      "axis": "scene_y",
+      "enabledByDefault": false,
+      "hotkey": "V"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.editor.canvas_chrome_alignment.w72d.v1",
+  "pass": "167Z109W72D",
+  "authority": "Havenwild Native Editor",
+  "lockedGeometry": {
+    "toolRail": "dedicated left sibling column outside authored canvas",
+    "layers": "dedicated sibling panel immediately right of Tool Rail",
+    "canvas": "begins immediately after Tool Rail + Layers + canonical gaps",
+    "rightDock": "dedicated shell panel",
+    "verticalAlignment": "Tool Rail, Layers, Canvas and Right Dock use the same workspace body top/bottom bounds",
+    "zoom": "only inside upper-right of actual authored canvas"
+  },
+  "spacing": {
+    "siblingGapToken": "editor_theme::metrics::PANEL_GAP",
+    "panelPaddingToken": "editor_theme::metrics::PANEL_PAD",
+    "noWorkspaceSpecificRailOffsets": true
+  },
+  "toolRail": {
+    "showAllApplicableToolsDirectly": true,
+    "groupSeparators": ["Selection", "Paint", "Shapes", "Transform", "Content", "Gameplay", "Animation"],
+    "toolSpecificOptionsBottomAnchored": true,
+    "pixelBrushKinds": ["Square", "Circle", "Diamond", "Line", "Dither", "Spray"],
+    "pixelBrushSizes": [1, 2, 3, 4, 5, 8, 12, 16, 24, 32]
+  },
+  "legacy": {
+    "fullWidthCanvasToolbarRendered": false,
+    "toolsOrLayersInsideCanvas": false,
+    "zoomOutsideCanvas": false
+  }
+}

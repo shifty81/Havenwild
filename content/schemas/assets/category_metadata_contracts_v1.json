@@ -1,0 +1,46 @@
+{
+  "schema": "havenwild.asset_category_contract_registry.v1",
+  "metadata_schema": "havenwild.asset_category_metadata.v1",
+  "categories": {
+    "terrain": {
+      "required": ["terrain_set", "terrain_id", "match_mode", "peers"],
+      "optional": ["movement_cost", "collision", "footstep_material", "seasonal_variants", "pcg_tags"]
+    },
+    "tile_object": {
+      "required": ["footprint"],
+      "optional": ["anchor", "collision_shapes", "interaction_sockets", "states", "placement_tags"]
+    },
+    "building": {
+      "required": ["footprint"],
+      "optional": ["interior_scene", "entrances", "upgrade_stages", "collision_shapes"]
+    },
+    "character": {
+      "required": ["frame_size"],
+      "optional": ["directions", "animation_clips", "layer_slots", "equipment_sockets", "foot_anchor"]
+    },
+    "animation": {
+      "required": ["clips"],
+      "optional": ["default_clip"]
+    },
+    "item": {
+      "required": [],
+      "optional": ["stack_limit", "icon", "world_asset", "tags", "properties"]
+    },
+    "audio": {
+      "required": ["event"],
+      "optional": ["looping", "spatial", "volume", "variation_weight", "material_tags"]
+    },
+    "ui": {
+      "required": ["role"],
+      "optional": ["nine_slice", "states", "theme_tokens"]
+    }
+  },
+  "tiled_normalization": {
+    "wang_sets": "terrain category metadata and peering bits",
+    "properties": "typed key/value metadata",
+    "animation": "animation clips with tile IDs and frame durations",
+    "probability": "weighted alternative selection metadata",
+    "object_groups": "collision-shape metadata",
+    "class_or_type": "semantic asset identity hint"
+  }
+}

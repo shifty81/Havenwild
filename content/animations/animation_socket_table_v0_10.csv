@@ -1,0 +1,10 @@
+socket,purpose,bound_layers,tolerance
+root_anchor,Y-sort/root stability,all layers,0px production
+head_anchor,head/hair/face/helmet binding,"hair, face, helmet",1px warning / 2px error
+torso_anchor,torso/chest binding,"shirt, armor",1px warning / 2px error
+shoulder_left/right,arm/shoulder binding,"sleeves, armor",1px warning / 2px error
+hand_left/right,glove/tool binding,"gloves, held items",1px warning / 2px error
+hip_left/right,pants/leg binding,"pants, leg armor",1px warning / 2px error
+foot_left/right,shoe/boot binding,boots,1px warning / 2px error
+held_item_anchor,tools/items,"tools, mugs, plates",1px warning / 3px error
+shadow_anchor,ground shadow,shadow layer,1px warning / 2px error

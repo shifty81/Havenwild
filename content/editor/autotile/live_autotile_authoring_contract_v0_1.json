@@ -1,0 +1,58 @@
+{
+  "schema": "havenwild.editor.live_autotile_authoring.v0.1",
+  "pass": "51",
+  "status": "active",
+  "scope": {
+    "groups": [
+      "road",
+      "wood_floor",
+      "stone_floor",
+      "water",
+      "wall",
+      "cliff",
+      "cave_wall"
+    ],
+    "terrainTransitions": true,
+    "shorelines": true,
+    "manualOverrides": true
+  },
+  "resolution": {
+    "neighborModel": "8-way-valid-diagonal",
+    "dirtyExpansionRadius": 1,
+    "fullSceneRebuildOnFirstUse": true,
+    "recalculateOnlyDirtyNeighborhoodsAfterward": true,
+    "derivedStateStoredInCache": true,
+    "sourceTilesRemainCanonical": true
+  },
+  "editor": {
+    "previewToggle": true,
+    "dirtyOverlayToggle": true,
+    "manualPresetCount": 16,
+    "setOverrideAtCursor": true,
+    "returnCellToAutomatic": true,
+    "cursorAndGridShareCanvasTransform": true,
+    "keyboardShortcuts": {
+      "preview": "P",
+      "cyclePreset": "M",
+      "setOverride": "O",
+      "clearOverride": "Shift+O"
+    }
+  },
+  "transactions": {
+    "typedOperation": "SetAutotileOverride",
+    "undoRedo": true,
+    "coalesceRepeatedCellEdits": true,
+    "snapshotHistoryForbidden": true
+  },
+  "persistence": {
+    "lineRecord": "autotile_override <x> <y> <group> <mask>",
+    "legacySavesWithoutOverridesRemainReadable": true,
+    "unknownOrInvalidGroupsAreRejected": true
+  },
+  "validation": {
+    "duplicateCellOverridesRejected": true,
+    "outOfBoundsOverridesRejected": true,
+    "groupMismatchReported": true,
+    "invalidDiagonalMasksReported": true
+  }
+}

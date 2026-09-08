@@ -1,0 +1,5637 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_sheet_role_catalog.v0_1",
+  "version": 2,
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "grid": {
+    "tileSize": [
+      32,
+      32
+    ],
+    "columns": 16,
+    "rows": 14,
+    "cellCount": 224,
+    "independentCellPlacementAllowed": false,
+    "purpose": "source addressing and inspection only; a 32x32 cell is not automatically a complete cliff asset"
+  },
+  "seasonalSheets": [
+    {
+      "season": "spring",
+      "sourcePath": "Terrain/cliff_spring.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "f39b288da35fe38d62bb11f0f8a5ab803daf1a23f081cea15c18fc54f0b65ad4",
+      "alphaMaskSha256": "5bb1e51c96ab008b99bd2fd71e7c1a175c39c5eec403f601b07345cf18e82b53"
+    },
+    {
+      "season": "summer",
+      "sourcePath": "Terrain/cliff_summer.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "94bd2ddb2c51677498453486092ef28e57e0c1880f4334359189229590298147",
+      "alphaMaskSha256": "5bb1e51c96ab008b99bd2fd71e7c1a175c39c5eec403f601b07345cf18e82b53"
+    },
+    {
+      "season": "autumn",
+      "sourcePath": "Terrain/cliff_autumn.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "9535548bd6bee63155f0fa508a7249c3baf87f7bfc4ed0b75b69ed3df7fda3ed",
+      "alphaMaskSha256": "5bb1e51c96ab008b99bd2fd71e7c1a175c39c5eec403f601b07345cf18e82b53"
+    },
+    {
+      "season": "winter",
+      "sourcePath": "Terrain/cliff_winter.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "5eb9c10ba5dff5952e84efc24362336e68c4a57c7d4f6b3c6c33cbb8b738ac01",
+      "alphaMaskSha256": "5bb1e51c96ab008b99bd2fd71e7c1a175c39c5eec403f601b07345cf18e82b53"
+    },
+    {
+      "season": "winter_ice",
+      "sourcePath": "Terrain/cliff_winter_ice.png",
+      "dimensions": [
+        512,
+        448
+      ],
+      "sha256": "81a0dd8f5e641c98a0bfb078a7097ac7974ba38a6431724b647bcd2ea34557ea",
+      "alphaMaskSha256": "5bb1e51c96ab008b99bd2fd71e7c1a175c39c5eec403f601b07345cf18e82b53"
+    }
+  ],
+  "geometryAudit": {
+    "identicalAlphaGeometryAcrossSeasons": true,
+    "sharedAlphaMaskSha256": "5bb1e51c96ab008b99bd2fd71e7c1a175c39c5eec403f601b07345cf18e82b53",
+    "occupiedCellCount": 164,
+    "emptyCellCount": 60
+  },
+  "reviewRegions": [
+    {
+      "id": "bare_rounded_plateau",
+      "cellBounds": {
+        "x": 0,
+        "y": 0,
+        "w": 5,
+        "h": 5
+      },
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "assemblyPolicy": "authored_connected_region_or_reviewed_recipe",
+      "runtimeRecipe": false,
+      "note": "coarse source-review window only; use normalizedAssemblyWindows and future certified recipe metadata for placement"
+    },
+    {
+      "id": "bare_square_plateau",
+      "cellBounds": {
+        "x": 5,
+        "y": 0,
+        "w": 3,
+        "h": 5
+      },
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "assemblyPolicy": "authored_connected_region_or_reviewed_recipe",
+      "runtimeRecipe": false,
+      "note": "coarse source-review window only; use normalizedAssemblyWindows and future certified recipe metadata for placement"
+    },
+    {
+      "id": "diagonal_faces_and_ramps",
+      "cellBounds": {
+        "x": 8,
+        "y": 0,
+        "w": 1,
+        "h": 9
+      },
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "assemblyPolicy": "authored_connected_region_or_reviewed_recipe",
+      "runtimeRecipe": false,
+      "note": "coarse source-review window only; use normalizedAssemblyWindows and future certified recipe metadata for placement"
+    },
+    {
+      "id": "water_faces_and_bridge_spans",
+      "cellBounds": {
+        "x": 9,
+        "y": 0,
+        "w": 7,
+        "h": 8
+      },
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "assemblyPolicy": "authored_connected_region_or_reviewed_recipe",
+      "runtimeRecipe": false,
+      "note": "coarse source-review window only; use normalizedAssemblyWindows and future certified recipe metadata for placement"
+    },
+    {
+      "id": "grass_rounded_plateau",
+      "cellBounds": {
+        "x": 0,
+        "y": 5,
+        "w": 5,
+        "h": 4
+      },
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "assemblyPolicy": "authored_connected_region_or_reviewed_recipe",
+      "runtimeRecipe": false,
+      "note": "coarse source-review window only; use normalizedAssemblyWindows and future certified recipe metadata for placement"
+    },
+    {
+      "id": "grass_square_plateau",
+      "cellBounds": {
+        "x": 5,
+        "y": 5,
+        "w": 3,
+        "h": 4
+      },
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "assemblyPolicy": "authored_connected_region_or_reviewed_recipe",
+      "runtimeRecipe": false,
+      "note": "coarse source-review window only; use normalizedAssemblyWindows and future certified recipe metadata for placement"
+    },
+    {
+      "id": "face_features",
+      "cellBounds": {
+        "x": 0,
+        "y": 9,
+        "w": 15,
+        "h": 4
+      },
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "assemblyPolicy": "authored_connected_region_or_reviewed_recipe",
+      "runtimeRecipe": false,
+      "note": "coarse source-review window only; use normalizedAssemblyWindows and future certified recipe metadata for placement"
+    }
+  ],
+  "cells": [
+    {
+      "cell": [
+        0,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        0
+      ],
+      "alphaCoverage": 0.583008,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        0
+      ],
+      "alphaCoverage": 0.980469,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        0
+      ],
+      "alphaCoverage": 0.652344,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "diagonal_faces_and_ramps",
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "complex_transition_strip"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        0
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        11,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        12,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        0
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        14,
+        0
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        15,
+        0
+      ],
+      "alphaCoverage": 0.737305,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "right_side_terminal"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        0,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        1
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        3,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        1
+      ],
+      "alphaCoverage": 0.976562,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        1
+      ],
+      "alphaCoverage": 0.977539,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "diagonal_faces_and_ramps",
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "complex_transition_strip"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        12,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        1
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        15,
+        1
+      ],
+      "alphaCoverage": 0.71875,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "right_side_terminal"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        0,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "diagonal_faces_and_ramps",
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "complex_transition_strip"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        12,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        2
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_valley_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        15,
+        2
+      ],
+      "alphaCoverage": 0.735352,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "right_side_terminal"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        0,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "diagonal_faces_and_ramps",
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "complex_transition_strip"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        3
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        12,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        3
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        3
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        3
+      ],
+      "alphaCoverage": 0.552734,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "right_side_terminal"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        0,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_rounded_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "bare_square_plateau",
+      "semanticRoleCandidates": [
+        "bare_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "bare_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "diagonal_faces_and_ramps",
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "complex_transition_strip"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        4
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        12,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        4
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        4
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        4
+      ],
+      "alphaCoverage": 0.552734,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "right_side_terminal"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        0,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        5
+      ],
+      "alphaCoverage": 0.586914,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        5
+      ],
+      "alphaCoverage": 0.980469,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        5
+      ],
+      "alphaCoverage": 0.652344,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "diagonal_faces_and_ramps",
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "complex_transition_strip"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        5
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        12,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        5
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        5
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        5
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        0,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        6
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        3,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        6
+      ],
+      "alphaCoverage": 0.976562,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        6
+      ],
+      "alphaCoverage": 0.977539,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "diagonal_faces_and_ramps",
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "complex_transition_strip"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        6
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        12,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        6
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "water_faces_and_bridge_spans",
+      "semanticRoleCandidates": [
+        "water_facing_cliff",
+        "shore_lip",
+        "bridge_span",
+        "water_gap",
+        "bank_face"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "water_bridge_bay_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        6
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        6
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        0,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        7
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "diagonal_faces_and_ramps",
+      "semanticRoleCandidates": [
+        "diagonal_face",
+        "grass_ramp",
+        "bare_ramp",
+        "inside_diagonal",
+        "outside_diagonal"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "complex_transition_strip"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        7
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        10,
+        7
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        11,
+        7
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        12,
+        7
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        13,
+        7
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        14,
+        7
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        7
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        0,
+        8
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        8
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        8
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        8
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        8
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_rounded_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "rounded_outer_face",
+        "rounded_outer_corner",
+        "vertical_face_repeat",
+        "exposed_base"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_rounded_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        8
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        8
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "grass_square_plateau",
+      "semanticRoleCandidates": [
+        "grass_top_cap",
+        "straight_face",
+        "square_outer_corner",
+        "square_inner_corner",
+        "vertical_face_repeat"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "grass_square_plateau_template"
+      ],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        8,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        9,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        10,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        11,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        12,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        13,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        14,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        8
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        0,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "narrow_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "face_column_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "ladder_column_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        12,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "face_column_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        9
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "ladder_column_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        9
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        9
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        0,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "narrow_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "face_column_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "ladder_column_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        12,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "face_column_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        10
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "ladder_column_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        10
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        10
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        0,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "narrow_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        7,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        8,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        9,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "wide_cave_host"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        10,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "face_column_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        11,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "ladder_column_a"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        12,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "face_column_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        13,
+        11
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "ladder_column_b"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        14,
+        11
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        11
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        0,
+        12
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        12
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        12
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        3,
+        12
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        4,
+        12
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        5,
+        12
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "face_features",
+      "semanticRoleCandidates": [
+        "face_repeat",
+        "vine_face",
+        "cave_opening",
+        "wide_cave_opening",
+        "ladder_face",
+        "bridge_or_walkway_face",
+        "grass_lip"
+      ],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_center"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        6,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        7,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        8,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        9,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        10,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        11,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        12,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        13,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        14,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        12
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        0,
+        13
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "unassigned_or_empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        1,
+        13
+      ],
+      "alphaCoverage": 1.0,
+      "occupied": true,
+      "reviewRegion": "unassigned_or_empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "mapped_assembly_component"
+    },
+    {
+      "cell": [
+        2,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [
+        "vine_feature_window_left"
+      ],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        3,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        4,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        5,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        6,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        7,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        8,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        9,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        10,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        11,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        12,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        13,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        14,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    },
+    {
+      "cell": [
+        15,
+        13
+      ],
+      "alphaCoverage": 0.0,
+      "occupied": false,
+      "reviewRegion": "empty",
+      "semanticRoleCandidates": [],
+      "promotionStatus": "source_cell_address_only_multi_cell_recipe_required",
+      "independentRuntimePlacementAllowed": false,
+      "assemblyMembership": [],
+      "worldgenMappingStatus": "empty_source_cell"
+    }
+  ],
+  "capabilityConclusion": {
+    "supportsStructuralCliffs": true,
+    "supportsFlatGroundBrush": false,
+    "supportsSeasonalGeometryParity": true,
+    "requiresConnectedComponentRecipes": true,
+    "semanticSheetMappingComplete": true,
+    "all15StructuralMasksMapped": true,
+    "collisionSemanticsMapped": true,
+    "runtimePromotionComplete": false,
+    "remainingWork": [
+      "replace square construction-template compatibility cells with complete connected contour recipes",
+      "certify exact side-entry ramp assembly; c8 remains rejected as a standalone crop",
+      "freeze cliff grammar only after multi-height acceptance world matches upstream test/demo scenes"
+    ]
+  },
+  "license": {
+    "artists": [
+      "Eliza Wyatt (DeathsDarling)",
+      "Lanea Zimmerman (Sharm)"
+    ],
+    "license": "OGA-BY 3.0",
+    "creditsPath": "Terrain/Credits.txt"
+  },
+  "revision": "167Z109W6-connected-recipe-source-safety-v1",
+  "measurementAuthority": "content/worldgen/cliff_asset_footprint_recipe_normalization_v0_1.json",
+  "reviewRegionPolicy": {
+    "regionsAreRuntimeRecipes": false,
+    "regionsMayContainMultipleAssemblies": true,
+    "overlapOrCoarseGroupingAllowedForInspection": true,
+    "runtimePromotionRequiresNormalizedAssemblyRecipe": true
+  },
+  "normalizedAssemblyWindows": [
+    {
+      "id": "bare_rounded_plateau_template",
+      "sourceGridSpan": [
+        0,
+        0,
+        5,
+        5
+      ],
+      "sourceRectPx": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "classification": "construction_template",
+      "promotionStatus": "platform_and_face_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "bare_square_plateau_template",
+      "sourceGridSpan": [
+        5,
+        0,
+        3,
+        5
+      ],
+      "sourceRectPx": [
+        160,
+        0,
+        96,
+        160
+      ],
+      "classification": "construction_template",
+      "promotionStatus": "platform_and_face_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "grass_rounded_plateau_template",
+      "sourceGridSpan": [
+        0,
+        5,
+        5,
+        4
+      ],
+      "sourceRectPx": [
+        0,
+        160,
+        160,
+        128
+      ],
+      "classification": "construction_template",
+      "promotionStatus": "platform_and_face_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "grass_square_plateau_template",
+      "sourceGridSpan": [
+        5,
+        5,
+        3,
+        4
+      ],
+      "sourceRectPx": [
+        160,
+        160,
+        96,
+        128
+      ],
+      "classification": "construction_template",
+      "promotionStatus": "platform_and_face_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "water_valley_a",
+      "sourceGridSpan": [
+        9,
+        0,
+        3,
+        3
+      ],
+      "sourceRectPx": [
+        288,
+        0,
+        96,
+        96
+      ],
+      "classification": "water_facing_multi_cell_window",
+      "promotionStatus": "water_cliff_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "water_valley_b",
+      "sourceGridSpan": [
+        12,
+        0,
+        3,
+        3
+      ],
+      "sourceRectPx": [
+        384,
+        0,
+        96,
+        96
+      ],
+      "classification": "water_facing_multi_cell_window",
+      "promotionStatus": "water_cliff_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "right_side_terminal",
+      "sourceGridSpan": [
+        15,
+        0,
+        1,
+        5
+      ],
+      "sourceRectPx": [
+        480,
+        0,
+        32,
+        160
+      ],
+      "classification": "vertical_side_terminal_window",
+      "promotionStatus": "side_face_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "water_bridge_bay_a",
+      "sourceGridSpan": [
+        9,
+        3,
+        2,
+        4
+      ],
+      "sourceRectPx": [
+        288,
+        96,
+        64,
+        128
+      ],
+      "classification": "water_bridge_multi_cell_window",
+      "promotionStatus": "bridge_water_cliff_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "water_bridge_bay_b",
+      "sourceGridSpan": [
+        12,
+        3,
+        2,
+        4
+      ],
+      "sourceRectPx": [
+        384,
+        96,
+        64,
+        128
+      ],
+      "classification": "water_bridge_multi_cell_window",
+      "promotionStatus": "bridge_water_cliff_reference",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "complex_transition_strip",
+      "sourceGridSpan": [
+        8,
+        0,
+        1,
+        8
+      ],
+      "sourceRectPx": [
+        256,
+        0,
+        32,
+        256
+      ],
+      "classification": "source_construction_strip",
+      "promotionStatus": "not_a_runtime_1x8_stamp",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "vine_feature_window_left",
+      "sourceGridSpan": [
+        0,
+        9,
+        3,
+        5
+      ],
+      "sourceRectPx": [
+        0,
+        288,
+        96,
+        160
+      ],
+      "classification": "climbable_face_feature_window",
+      "promotionStatus": "source_review_only",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "vine_feature_window_center",
+      "sourceGridSpan": [
+        3,
+        9,
+        3,
+        4
+      ],
+      "sourceRectPx": [
+        96,
+        288,
+        96,
+        128
+      ],
+      "classification": "climbable_face_feature_window",
+      "promotionStatus": "source_review_only",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "narrow_cave_host",
+      "sourceGridSpan": [
+        6,
+        9,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        192,
+        288,
+        32,
+        96
+      ],
+      "classification": "cave_host_assembly",
+      "promotionStatus": "source_recipe_candidate",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "wide_cave_host",
+      "sourceGridSpan": [
+        7,
+        9,
+        3,
+        3
+      ],
+      "sourceRectPx": [
+        224,
+        288,
+        96,
+        96
+      ],
+      "classification": "cave_host_assembly",
+      "promotionStatus": "source_recipe_candidate",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "face_column_a",
+      "sourceGridSpan": [
+        10,
+        9,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        320,
+        288,
+        32,
+        96
+      ],
+      "classification": "three_cell_face_column",
+      "promotionStatus": "repeatability_not_yet_certified",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "ladder_column_a",
+      "sourceGridSpan": [
+        11,
+        9,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        352,
+        288,
+        32,
+        96
+      ],
+      "classification": "three_cell_ladder_connector",
+      "promotionStatus": "connector_candidate",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "face_column_b",
+      "sourceGridSpan": [
+        12,
+        9,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        384,
+        288,
+        32,
+        96
+      ],
+      "classification": "three_cell_face_column",
+      "promotionStatus": "repeatability_not_yet_certified",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "ladder_column_b",
+      "sourceGridSpan": [
+        13,
+        9,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        416,
+        288,
+        32,
+        96
+      ],
+      "classification": "three_cell_ladder_connector",
+      "promotionStatus": "connector_candidate",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    }
+  ],
+  "z105TopologyCertification": "content/worldgen/elizawy_cliff_topology_certification_v0_1.json",
+  "z105AcceptanceScene": "content/worldgen/cliff_topology_acceptance_scene_v0_1.json",
+  "runtimeRecipeStatus": "full_semantic_mapping_complete_base_15_shape_composition_complete_special_assembly_promotion_gated",
+  "mappingPass": "167Z109F",
+  "shapeGrammar": "content/worldgen/terrain_shape_grammar_v0_1.json#cardinalEdge15",
+  "structuralShapeRecipes": [
+    {
+      "mask": 1,
+      "shape": "north",
+      "exposedEdges": [
+        "north"
+      ],
+      "baseComponents": [
+        "north_lip"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 2,
+      "shape": "east",
+      "exposedEdges": [
+        "east"
+      ],
+      "baseComponents": [
+        "east_side"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "east"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 3,
+      "shape": "north_east",
+      "exposedEdges": [
+        "north",
+        "east"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "east_side"
+      ],
+      "cornerJoinPolicy": [
+        "north_east_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "east"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 4,
+      "shape": "south",
+      "exposedEdges": [
+        "south"
+      ],
+      "baseComponents": [
+        "south_lip",
+        "south_vertical_face"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "south"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 5,
+      "shape": "north_south",
+      "exposedEdges": [
+        "north",
+        "south"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "south_lip",
+        "south_vertical_face"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "south"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 6,
+      "shape": "east_south",
+      "exposedEdges": [
+        "east",
+        "south"
+      ],
+      "baseComponents": [
+        "east_side",
+        "south_lip",
+        "south_vertical_face"
+      ],
+      "cornerJoinPolicy": [
+        "south_east_orthogonal_join_or_contextual_diagonal"
+      ],
+      "visualVariants": [
+        {
+          "id": "south_east_diagonal_chain",
+          "gate": "mask==6 && faceSegments==1 && (NE.mask==6 || SW.mask==6)",
+          "sourceAssembly": "grass_rounded_plateau_template/c3-r6-r8 transparent projection"
+        }
+      ],
+      "collision": {
+        "blockedCardinalEdges": [
+          "east",
+          "south"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 7,
+      "shape": "north_east_south",
+      "exposedEdges": [
+        "north",
+        "east",
+        "south"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "south_vertical_face"
+      ],
+      "cornerJoinPolicy": [
+        "north_east_orthogonal_join",
+        "south_east_orthogonal_join_or_contextual_diagonal"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "east",
+          "south"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 8,
+      "shape": "west",
+      "exposedEdges": [
+        "west"
+      ],
+      "baseComponents": [
+        "west_side"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "west"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 9,
+      "shape": "north_west",
+      "exposedEdges": [
+        "north",
+        "west"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "north_west_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 10,
+      "shape": "east_west",
+      "exposedEdges": [
+        "east",
+        "west"
+      ],
+      "baseComponents": [
+        "east_side",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "east",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 11,
+      "shape": "north_east_west",
+      "exposedEdges": [
+        "north",
+        "east",
+        "west"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "east_side",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "north_east_orthogonal_join",
+        "north_west_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "east",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 12,
+      "shape": "south_west",
+      "exposedEdges": [
+        "south",
+        "west"
+      ],
+      "baseComponents": [
+        "south_lip",
+        "south_vertical_face",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "south_west_orthogonal_join_or_contextual_diagonal"
+      ],
+      "visualVariants": [
+        {
+          "id": "south_west_diagonal_chain",
+          "gate": "mask==12 && faceSegments==1 && (NW.mask==12 || SE.mask==12)",
+          "sourceAssembly": "grass_rounded_plateau_template/c1-r6-r8 transparent projection"
+        }
+      ],
+      "collision": {
+        "blockedCardinalEdges": [
+          "south",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 13,
+      "shape": "north_south_west",
+      "exposedEdges": [
+        "north",
+        "south",
+        "west"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "south_lip",
+        "south_vertical_face",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "south_west_orthogonal_join_or_contextual_diagonal",
+        "north_west_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "south",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 14,
+      "shape": "east_south_west",
+      "exposedEdges": [
+        "east",
+        "south",
+        "west"
+      ],
+      "baseComponents": [
+        "east_side",
+        "south_lip",
+        "south_vertical_face",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "south_east_orthogonal_join_or_contextual_diagonal",
+        "south_west_orthogonal_join_or_contextual_diagonal"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "east",
+          "south",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 15,
+      "shape": "isolated",
+      "exposedEdges": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "south_vertical_face",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "north_east_orthogonal_join",
+        "south_east_orthogonal_join_or_contextual_diagonal",
+        "south_west_orthogonal_join_or_contextual_diagonal",
+        "north_west_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    }
+  ],
+  "specialAssemblyWorldgenMap": {
+    "southStraight": {
+      "source": "c10 r9-r11",
+      "role": "south_vertical_face",
+      "host": "any structural shape exposing south unless superseded by a special connector/host",
+      "collision": "projected face footprint blocked"
+    },
+    "southWestDiagonal": {
+      "source": "c1 r6-r8 via generated transparent runtime projection",
+      "role": "contextual_diagonal_south_west",
+      "host": "mask12 real diagonal chain only",
+      "collision": "south face footprint + west edge block"
+    },
+    "southEastDiagonal": {
+      "source": "c3 r6-r8 via generated transparent runtime projection",
+      "role": "contextual_diagonal_south_east",
+      "host": "mask6 real diagonal chain only",
+      "collision": "south face footprint + east edge block"
+    },
+    "complexTransitionStrip": {
+      "source": "c8 r0-r8",
+      "role": "connected diagonal/ramp construction evidence",
+      "host": "never a standalone 1xN runtime tile; resolve only as a complete certified connector assembly",
+      "collision": "connector-owned when promoted"
+    },
+    "narrowCave": {
+      "source": "c6 r9-r11",
+      "role": "cave_host_narrow",
+      "host": "south cliff + CaveEntrance origin",
+      "collision": "face remains blocked; cave entry is interaction/scene transition"
+    },
+    "wideCave": {
+      "source": "c7-r9 through c9-r11",
+      "role": "cave_host_wide",
+      "host": "multi-cell south cliff + CaveEntrance origin",
+      "collision": "face remains blocked; cave entry is interaction/scene transition"
+    },
+    "ladderA": {
+      "source": "c11 r9-r11",
+      "role": "ladder_connector",
+      "host": "explicit Ladder/Stairs object connector",
+      "collision": "open only connector corridor"
+    },
+    "ladderB": {
+      "source": "c13 r9-r11",
+      "role": "ladder_connector_alternate",
+      "host": "explicit Ladder/Stairs object connector",
+      "collision": "open only connector corridor"
+    },
+    "climbableVines": {
+      "source": "c0-c5 r9-r13 windows",
+      "role": "climb_connector_visual",
+      "host": "future explicit Climb connector only",
+      "collision": "blocked until climb state is active"
+    },
+    "waterValleyA": {
+      "source": "c9-c11 r0-r2",
+      "role": "water_facing_cliff_socket",
+      "host": "three-cell south-facing water edge",
+      "collision": "cliff remains blocking; water semantics separate"
+    },
+    "waterValleyB": {
+      "source": "c12-c14 r0-r2",
+      "role": "water_facing_cliff_socket_alternate",
+      "host": "three-cell south-facing water edge",
+      "collision": "cliff remains blocking; water semantics separate"
+    },
+    "waterBridgeBayA": {
+      "source": "c9-c10 r3-r6",
+      "role": "bridge_water_socket",
+      "host": "explicit Bridge connector",
+      "collision": "crossing opens only on bridge corridor"
+    },
+    "waterBridgeBayB": {
+      "source": "c12-c13 r3-r6",
+      "role": "bridge_water_socket_alternate",
+      "host": "explicit Bridge connector",
+      "collision": "crossing opens only on bridge corridor"
+    },
+    "rightSideTerminal": {
+      "source": "c15 r0-r4",
+      "role": "right/east terminal face reference",
+      "host": "east-facing terminal/corner assembly; not standalone until recipe-certified",
+      "collision": "east structural edge remains blocking"
+    },
+    "waterfall": {
+      "source": "Terrain/Waterfall.png",
+      "role": "south/west/east waterfall connector animation",
+      "host": "hydrologically valid structural drop",
+      "collision": "blocking cliff face; waterfall never grants player traversal"
+    }
+  },
+  "collisionAuthority": {
+    "structuralSource": "TavernMap.structural_levels + haven_world::CliffShape15",
+    "artNeverOwnsCollision": true,
+    "edgeRule": "Every exposed structural edge is blocked in both directions unless the exact edge has an explicit traversal connector.",
+    "southFaceRule": "Visible south cliff projection blocks 3 destination rows for faceSegments=1 and +1 row for each additional segment.",
+    "specialHosts": {
+      "cave": "blocking interaction host",
+      "waterfall": "blocking",
+      "ramp": "connector corridor open",
+      "stairs": "connector corridor open",
+      "ladder": "connector corridor open",
+      "bridge": "connector corridor open",
+      "climbVines": "blocking until dedicated climb connector/state is promoted"
+    },
+    "missingVisualProvider": "fail open to avoid invisible walls"
+  },
+  "cellMappingSummary": {
+    "totalCells": 224,
+    "occupiedCells": 164,
+    "emptyCells": 60,
+    "occupiedMappedToAssembly": 164,
+    "occupiedUnmapped": 0,
+    "allCellsAccountedFor": true,
+    "seasonalCoordinateMapReusable": true
+  }
+}

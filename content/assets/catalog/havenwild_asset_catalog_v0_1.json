@@ -1,0 +1,112 @@
+{
+  "schema": "havenwild.asset_catalog.v0_1",
+  "version": "0.1.0",
+  "pass": "167Z106N5",
+  "purpose": "Bootstrap project-wide asset index. Full domain records are generated from the pinned ElizaWy/LPC repository during Build all.",
+  "primaryAuthority": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
+  "primarySource": "elizawy_lpc",
+  "indexes": [
+    {
+      "id": "elizawy_project_authority",
+      "kind": "project_asset_authority",
+      "path": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
+      "editorUse": "project_asset_root"
+    },
+    {
+      "id": "elizawy_project_routes",
+      "kind": "project_asset_routes",
+      "path": "content/assets/lpc/lpc_project_asset_routes_v0_1.json",
+      "editorUse": "domain_routing"
+    },
+    {
+      "id": "elizawy_editor_library",
+      "kind": "editor_asset_library",
+      "path": "content/editor/elizawy_project_asset_library_v0_1.json",
+      "editorUse": "asset_library_root"
+    },
+    {
+      "id": "elizawy_repository_audit",
+      "kind": "source_audit_summary",
+      "path": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38_summary.json",
+      "editorUse": "source_coverage_status"
+    },
+    {
+      "id": "elizawy_terrain",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/terrain.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_nature",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/nature.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_objects",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/objects.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_structure",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/structure.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_characters",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/characters.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_fx",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/fx.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_palette",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/palette.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_reference_scenes",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/reference_scenes.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_repository_support",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/repository_support.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "elizawy_legal_and_documentation",
+      "kind": "elizawy_domain_catalog",
+      "path": "WORKSPACE/generated/lpc/catalogs/legal_and_documentation.json",
+      "editorUse": "domain_asset_browser"
+    },
+    {
+      "id": "victorian_building_source_family",
+      "kind": "licensed_multi_cell_building_source",
+      "path": "content/assets/lpc/victorian_building_source_family_v0_1.json",
+      "editorUse": "building_source_browser"
+    },
+    {
+      "id": "victorian_building_asset_pack",
+      "kind": "asset_pack_manifest",
+      "path": "content/asset_packs/lpc_victorian_buildings/pack.json",
+      "editorUse": "source_only_provider"
+    }
+  ],
+  "editorContracts": {
+    "rootCollection": "ElizaWy / LPC Revised",
+    "runtimeAndEditorShareCatalogs": true,
+    "rawSourceTreeRemainsImmutable": true,
+    "promotionRequiresSemanticRoleFootprintCollisionAndCreditContext": true
+  }
+}

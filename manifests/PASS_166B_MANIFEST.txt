@@ -1,0 +1,25 @@
+PASS 166B — NORMALIZED PROGRESSION AUTHORITY
+Base lineage: Havenwild Complete Source Rollup Pass 165ZB
+Packaging: overwrite-capable incremental patch; no complete source rollup
+
+ADD crates/haven_core/src/progression.rs
+OVERWRITE crates/haven_core/src/lib.rs
+ADD crates/haven_save/src/character_progression.rs
+OVERWRITE crates/haven_save/src/lib.rs
+OVERWRITE crates/haven_save/src/character_profiles.rs
+ADD content/progression/havenwild_progression_catalog_v0_1.json
+ADD crates/haven_game/src/progression_catalog.rs
+OVERWRITE crates/haven_game/src/main.rs
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE tools/automation/validation/validate_content_integrity.py
+ADD docs/patch/PASS_166B_NORMALIZED_PROGRESSION_AUTHORITY.md
+ADD manifests/PASS_166B_MANIFEST.txt
+
+Certification performed in packaging environment:
+- ZIP integrity
+- JSON parse validation
+- Python validator syntax validation
+- active content-integrity suite including progression catalog: PASS
+
+Local certification required:
+tools/build/Build.cmd all

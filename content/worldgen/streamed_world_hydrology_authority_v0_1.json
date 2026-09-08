@@ -1,0 +1,76 @@
+{
+  "schema": "havenwild.streamed_world_hydrology_authority.v0_1",
+  "pass": "Pass167Z109",
+  "purpose": "Lock finite and endless Havenwild surfaces to one deterministic geographic sampler and require generated freshwater to own complete downhill drainage paths with waterfall connectors at every structural drop.",
+  "world_extent": {
+    "finite_presets_tiles": {
+      "compact": [
+        4096,
+        4096
+      ],
+      "standard": [
+        8192,
+        8192
+      ],
+      "large": [
+        16384,
+        16384
+      ],
+      "huge": [
+        24576,
+        24576
+      ],
+      "massive": [
+        32768,
+        32768
+      ],
+      "enormous": [
+        65536,
+        65536
+      ]
+    },
+    "endless_supported": true,
+    "geographic_region_size_tiles": 2048,
+    "storage_chunk_size_tiles": 64,
+    "rule": "Storage chunks partition persistence and streaming only. They never create geographic boundaries."
+  },
+  "difficulty": {
+    "curated_presets": [
+      "story",
+      "peaceful",
+      "relaxed",
+      "standard",
+      "adventurous",
+      "rugged",
+      "harsh",
+      "wild"
+    ],
+    "custom_supported": true,
+    "geography_is_independent_from_difficulty": true
+  },
+  "hydrology": {
+    "source_to_sink_required": true,
+    "elevated_source_requires_outflow": true,
+    "structural_drop_requires_waterfall": true,
+    "valid_sinks": [
+      "pond",
+      "lake",
+      "joined_watercourse",
+      "ocean"
+    ],
+    "forbid_uphill_reentry_after_descent": true,
+    "forbid_arbitrary_land_termination": true,
+    "waterfall_art_is_presentation_not_topology": true,
+    "freshwater_retains_underlying_structural_level": true,
+    "notes": "Waterfall density may influence how commonly waterfall-producing upland drainage features occur, but may never suppress a waterfall where generated freshwater actually crosses a structural level drop.",
+    "generated_waterfall_drop_step_levels": 1,
+    "direct_level_2_to_0_generated_waterfall_forbidden": true
+  },
+  "runtime": {
+    "pcg_mainland_missing_chunks_use_open_ocean_fallback": false,
+    "pcg_mainland_and_streamed_extensions_share_sampler": true,
+    "generated_partitions_are_cached": true,
+    "distant_streamed_partitions_are_evictable": true,
+    "authored_starter_partitions_remain_pinned": true
+  }
+}

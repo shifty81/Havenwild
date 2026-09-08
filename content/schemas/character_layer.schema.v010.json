@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.character_layer.v010",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "layer_kind",
+    "binds_to",
+    "animation_sheet"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string"
+    },
+    "layer_kind": {
+      "enum": [
+        "base_body",
+        "hair",
+        "face",
+        "beard",
+        "shirt",
+        "pants",
+        "boots",
+        "gloves",
+        "chest_armor",
+        "arm_armor",
+        "leg_armor",
+        "helmet",
+        "held_item",
+        "back_accessory"
+      ]
+    },
+    "binds_to": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "animation_sheet": {
+      "type": "string"
+    },
+    "draw_order_rule": {
+      "type": "string"
+    },
+    "socket_tolerance_px": {
+      "type": "number"
+    },
+    "validation_state": {
+      "type": "string"
+    }
+  }
+}

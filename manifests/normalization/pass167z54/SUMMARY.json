@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z54",
+  "date": "2026-08-03",
+  "title": "Active HUD and Creator Surface Integration",
+  "status": "ready_for_windows_build",
+  "changes": [
+    "Consume all three optional HUD frame textures from the active runtime HUD",
+    "Render the layered Universal LPC character portrait in the player vitals panel",
+    "Display persistent stamina beside the active character portrait",
+    "Construct eyebrow and headwear choices from active character-creator metadata",
+    "Resolve strict Clippy findings through feature integration rather than lint suppression"
+  ],
+  "localValidation": {
+    "focusedSourceValidator": true,
+    "pythonCompile": true,
+    "bashSyntax": true,
+    "jsonParse": true,
+    "rustDelimiterScan": true,
+    "cargo": false,
+    "reasonCargoNotRun": "Rust toolchain is unavailable in the artifact environment"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.cave_material_profiles.v1",
+  "pass": "167Z109W49",
+  "tileSize": 32,
+  "profiles": [
+    {
+      "id": "cave.mudstone_brown",
+      "tileKind": "cave_floor",
+      "semanticId": "terrain.cave.floor",
+      "sourceTileId": 796,
+      "sourceRect": [
+        896,
+        768,
+        32,
+        32
+      ],
+      "walkable": true,
+      "role": "floor"
+    },
+    {
+      "id": "cave.rock_black_occupancy",
+      "tileKind": "cave_wall",
+      "semanticId": "terrain.cave.wall",
+      "sourceTileId": 115,
+      "sourceRect": [
+        608,
+        96,
+        32,
+        32
+      ],
+      "walkable": false,
+      "role": "wall_occupancy",
+      "verticalFaceStatus": "deferred_exact_source"
+    }
+  ]
+}

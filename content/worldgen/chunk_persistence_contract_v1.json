@@ -1,0 +1,118 @@
+{
+  "schema": "havenwild.chunk_persistence_contract.v1",
+  "version": 1,
+  "policy": {
+    "canonicalChunkKeys": true,
+    "eastWestKeysWrap": true,
+    "northSouthKeysBounded": true,
+    "deterministicBaselineStoredByReference": true,
+    "authoredOverridesStoredSeparately": true,
+    "playerDeltasStoredSeparately": true,
+    "runtimeTransientNeverSaved": true,
+    "replicationStateNeverAuthoritativeOnDisk": true,
+    "atomicWritesRequired": true,
+    "recoveryCopyRequired": true,
+    "futureSchemaRule": "Chunk schema changes require a version increment and an explicit migration entry."
+  },
+  "chunkKey": {
+    "format": "x_{canonical_x}_y_{canonical_y}",
+    "coordinates": "signed_i32",
+    "canonicalizer": "WorldTopologyConfig::canonical_chunk_coord",
+    "directory": "world/chunks/{chunk_key}"
+  },
+  "partitions": [
+    {
+      "id": "baseline_reference",
+      "ownership": "generator",
+      "persistence": "required",
+      "file": "baseline_ref.json",
+      "contains": [
+        "world_seed",
+        "generator_version",
+        "pipeline_version",
+        "terrain_registry_version",
+        "baseline_hash"
+      ]
+    },
+    {
+      "id": "authored_overrides",
+      "ownership": "designer_or_world_builder",
+      "persistence": "when_nonempty",
+      "file": "authored_overrides.json",
+      "contains": [
+        "terrain_overrides",
+        "anchor_overrides",
+        "structure_overrides",
+        "scene_portals"
+      ]
+    },
+    {
+      "id": "player_deltas",
+      "ownership": "authoritative_host",
+      "persistence": "when_nonempty",
+      "file": "player_deltas.json",
+      "contains": [
+        "terrain_deltas",
+        "placed_objects",
+        "removed_objects",
+        "harvest_state",
+        "ownership_state"
+      ]
+    },
+    {
+      "id": "persistent_simulation",
+      "ownership": "authoritative_host",
+      "persistence": "when_nonempty",
+      "file": "persistent_simulation.json",
+      "contains": [
+        "npc_state",
+        "crop_state",
+        "machine_state",
+        "timers"
+      ]
+    },
+    {
+      "id": "runtime_transient",
+      "ownership": "runtime",
+      "persistence": "never",
+      "file": null,
+      "contains": [
+        "render_cache",
+        "selection",
+        "preview",
+        "particles",
+        "path_cache"
+      ]
+    },
+    {
+      "id": "replication_state",
+      "ownership": "network_session",
+      "persistence": "never",
+      "file": null,
+      "contains": [
+        "acknowledgements",
+        "interest_sets",
+        "packet_sequence",
+        "prediction_state"
+      ]
+    }
+  ],
+  "saveLayout": {
+    "manifest": "world/chunk_manifest.json",
+    "migrationJournal": "world/migrations.json",
+    "recoveryDirectory": "recovery",
+    "compatibilityWorldSnapshot": "world.tworld"
+  },
+  "migrationPolicy": {
+    "currentClientGenerationVersion": 7,
+    "supportedFromVersions": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "version4To5": "Create chunk manifest and baseline references while retaining world.tworld as compatibility snapshot.",
+    "version5To6": "Normalize wrapped-world topology metadata and preserve legacy world snapshots during slot migration.",
+    "version6To7": "Promote current client-slot metadata and character/profile layout while retaining recovery-compatible generation metadata."
+  }
+}

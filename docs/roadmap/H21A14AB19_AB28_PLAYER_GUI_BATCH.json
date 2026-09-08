@@ -1,0 +1,18 @@
+{
+  "schema": "havenwild.pass_batch.v1",
+  "batch": "H21A14AB19-AB28",
+  "title": "Player-Facing GUI Production Closure",
+  "preserve": ["current main-menu visual direction"],
+  "passes": [
+    {"pass":"H21A14AB19","title":"Shared runtime UI theme","outcome":"one wood/brass/parchment runtime vocabulary for post-main-menu screens"},
+    {"pass":"H21A14AB20","title":"Gameplay HUD hierarchy","outcome":"portrait, stamina, equipped item, icon-first tool belt and minimap normalized"},
+    {"pass":"H21A14AB21","title":"Duplicate HUD retirement","outcome":"legacy always-visible developer HUD removed from player mode; dev telemetry becomes compact overlay"},
+    {"pass":"H21A14AB22","title":"Equipment and backpack","outcome":"equipment/backpack panels use bounded labels, clear selection and cohesive slot styling"},
+    {"pass":"H21A14AB23","title":"Crafting and station queue","outcome":"station readiness, inputs, recipes, queue and progress become readable production UI"},
+    {"pass":"H21A14AB24","title":"Map and Estate minimap","outcome":"map adopts shared chrome and bounded Home Estate minimap bypasses continuous-surface manifest creation"},
+    {"pass":"H21A14AB25","title":"Pause and controls","outcome":"pause/settings/control-binding panels share runtime visual language without changing behavior"},
+    {"pass":"H21A14AB26","title":"Status and notifications","outcome":"interaction/crafting feedback uses compact transient presentation instead of instruction walls"},
+    {"pass":"H21A14AB27","title":"Responsive text and input hints","outcome":"long labels elide, hotbar compacts, key prompts remain bounded"},
+    {"pass":"H21A14AB28","title":"GUI authority validation","outcome":"player UI contract and Full Quality Gate validator prevent regression to duplicate/prototype UI"}
+  ]
+}

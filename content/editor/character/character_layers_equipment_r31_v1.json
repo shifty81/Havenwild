@@ -1,0 +1,52 @@
+{
+  "schema": "havenwild.editor.character_layers_equipment.r31.v1",
+  "pass": "167Z109W81R31",
+  "modes": [
+    "composition",
+    "equipment_slots"
+  ],
+  "compositionGroups": [
+    "foundation",
+    "appearance",
+    "wardrobe",
+    "equipment",
+    "held",
+    "effects"
+  ],
+  "selectionSync": [
+    "wardrobe_browser",
+    "character_layers",
+    "character_preview",
+    "properties"
+  ],
+  "visibility": "Preview visibility overrides do not unequip recipe selections.",
+  "orderPolicy": "ULPC definition zPos and dependency order are authoritative; normal users cannot arbitrarily reorder definition-driven render layers.",
+  "equipmentSlots": [
+    "head",
+    "face",
+    "neck",
+    "shoulders",
+    "torso",
+    "torso_outer",
+    "arms",
+    "hands",
+    "waist",
+    "legs",
+    "feet",
+    "back",
+    "accessory_1",
+    "accessory_2",
+    "main_hand",
+    "off_hand",
+    "utility",
+    "mobility"
+  ],
+  "occlusionExamples": [
+    "helmet_hair",
+    "hood_hair",
+    "mask_facial_hair",
+    "boots_pants",
+    "cape_backpack",
+    "two_handed_off_hand"
+  ]
+}

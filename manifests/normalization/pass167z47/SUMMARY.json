@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z47",
+  "title": "Frontend Runtime Rust Type Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Confirmed Pass 167Z46 advanced Cargo checking to three compile-only haven_game type errors.",
+    "Changed generated HeadwearKind nested constants from Self::Variant to explicit HeadwearKind::Variant paths.",
+    "Added in-place repair for already-generated invalid headwear cycle helpers.",
+    "Declared LPC portrait crop_height as f32 before floating-point min dispatch.",
+    "Extended cumulative overwrite lineage through Pass 167Z47."
+  ],
+  "validation": {
+    "windowsFailureDiagnosis": "confirmed from uploaded build log",
+    "focusedFrontendRuntimeValidator": "passed",
+    "explicitEnumFixture": "passed",
+    "migrationIdempotence": "passed",
+    "pythonCompilation": "passed",
+    "projectJsonParsing": "passed",
+    "checksumVerification": "passed",
+    "zipIntegrity": "passed",
+    "cargoCheck": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

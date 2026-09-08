@@ -1,0 +1,94 @@
+{
+  "schema": "havenwild.worldgen.cliff_terminal_band_authority.v0_1",
+  "revision": "167Z109W2-continuous-south-band-double-terminal-v1",
+  "status": "superseded",
+  "purpose": "Complete the perspective-visible south cliff band by resolving straight spans, one-sided terminals, and mask14/mask15 double terminals from one structural topology grammar while preserving V7 plateau and receiver-terrain ownership.",
+  "structuralAuthority": {
+    "source": "TavernMap.structural_levels -> StructuralCellV2.exposed_edges -> CliffShape15",
+    "changedByThisPass": false,
+    "sourcePixelsNeverCreateTopology": true,
+    "collisionDerivedFromSameVisualFootprint": true
+  },
+  "southBandGrammar": {
+    "allSouthMasks": [
+      4,
+      5,
+      6,
+      7,
+      12,
+      13,
+      14,
+      15
+    ],
+    "straightMasks": [
+      4,
+      5
+    ],
+    "eastTerminalMasks": [
+      6,
+      7
+    ],
+    "westTerminalMasks": [
+      12,
+      13
+    ],
+    "doubleTerminalMasks": [
+      14,
+      15
+    ],
+    "rule": "west/east exposed-side topology selects straight, west terminal, east terminal, or double terminal; north exposure is independent back-rim ownership"
+  },
+  "doubleTerminalRecipe": {
+    "leftHalfSourceFamily": "ElizaWy southwest rounded cells c1/r6,c1/r7,c1/r3,c1/r8",
+    "rightHalfSourceFamily": "ElizaWy southeast rounded cells c3/r6,c3/r7,c3/r3,c3/r8",
+    "destination": "compose left 16px + right 16px into one 32px world-cell cap for each projected row",
+    "mask14": "double terminal without north/back rim",
+    "mask15": "double terminal plus independent narrow north/back rim",
+    "overlappingFullWidthCornersForbidden": true
+  },
+  "projectionAndCollision": {
+    "straightRowsOneLevel": 2,
+    "diagonalChainRowsOneLevel": 2,
+    "isolatedOneSidedTerminalRowsOneLevel": 3,
+    "doubleTerminalRowsOneLevel": 3,
+    "extraRowsPerAdditionalFaceSegment": 2,
+    "rendererCollisionParityRequired": true
+  },
+  "toeOwnership": {
+    "cliffRendererOwns": "rim + wall + rock foot projection only",
+    "receiverSemanticTerrainOwnsToeMaterial": true,
+    "validReceiverExamples": [
+      "grass",
+      "dirt",
+      "sand",
+      "wet_sand",
+      "pebble_shore",
+      "mud_bank",
+      "rock_ground",
+      "shallow_water",
+      "deep_water",
+      "ocean"
+    ],
+    "directWaterContactAllowed": true,
+    "generatedCliffOverlayLowReceiverPixelsTransparent": true,
+    "rule": "W2 does not paint a synthetic grass/beach apron below cliffs. Existing lower semantic terrain remains visible through the transparent receiver portion of the ElizaWy foot. Shoreline/water completion chooses and animates the actual toe/shore material next."
+  },
+  "deliberatelyUnchanged": [
+    "world seeds",
+    "structural Level 0/1/2 generation",
+    "V7 plateau fill",
+    "hydrology topology",
+    "waterfall eligibility",
+    "cave placement",
+    "save schemas",
+    "character and animal systems"
+  ],
+  "nextTerrainWork": [
+    "shoreline/toe material resolution and animated water",
+    "waterfalls and mountain hydrology",
+    "cave entrances bound to graph nodes",
+    "graph-first cave PCG"
+  ],
+  "supersededBy": "Pass167Z109W3 unified source-authored terrain/cliff provider authority",
+  "supersessionReason": "W2 half-tile double-terminal composition was not source-authored; W3 forbids crops/composites and restores whole source cells/natural-scale stamps."
+}

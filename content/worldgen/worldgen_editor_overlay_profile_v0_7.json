@@ -1,0 +1,72 @@
+{
+  "id": "worldgen_editor_overlay_profile_v0_7",
+  "version": "0.7.0",
+  "purpose": "Runtime/editor overlay contract for visualizing generated worldgen footprints, blocked cells, interaction zones, transitions, and placement previews.",
+  "hotkeys": [
+    {
+      "key": "H",
+      "mode": "dev/build",
+      "action": "toggle visual footprint outlines"
+    },
+    {
+      "key": "C",
+      "mode": "dev/build",
+      "action": "toggle collision and blocked-tile overlay"
+    },
+    {
+      "key": "I",
+      "mode": "dev/build",
+      "action": "toggle interaction and transition overlay"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "visual_footprint",
+      "color": "blue",
+      "meaning": "full sprite/visual bounds, including multi-tile trees, facades, tables, bars, cave entrances, and greenhouse markers"
+    },
+    {
+      "id": "collision_footprint",
+      "color": "red",
+      "meaning": "tiles that block actor movement or object placement"
+    },
+    {
+      "id": "blocked_tile",
+      "color": "red-fill",
+      "meaning": "walkability result after tile collision and object collision are combined"
+    },
+    {
+      "id": "interaction_footprint",
+      "color": "yellow",
+      "meaning": "tiles that respond to interact/use actions"
+    },
+    {
+      "id": "transition_footprint",
+      "color": "cyan",
+      "meaning": "scene transition trigger rectangles"
+    },
+    {
+      "id": "placement_preview_valid",
+      "color": "green",
+      "meaning": "selected object can be committed at cursor"
+    },
+    {
+      "id": "placement_preview_blocked",
+      "color": "red",
+      "meaning": "selected object has placement issues at cursor"
+    }
+  ],
+  "placementRules": [
+    "Object anchor must be inside the 96x64 scene.",
+    "Visual footprint must remain inside the scene for editor placement.",
+    "Blocking collision footprint must be inside the scene.",
+    "Blocking collision footprint must not sit on non-walkable terrain.",
+    "Interaction footprint must remain inside the scene.",
+    "Object footprints may not overlap existing object visual/collision/interaction rectangles during editor placement."
+  ],
+  "sourceHooks": {
+    "core": "crates/haven_core/src/lib.rs::TavernMap::placement_issues_for_object",
+    "game": "crates/haven_game/src/main.rs::draw_editor_footprint_overlays",
+    "preview": "crates/haven_game/src/main.rs::draw_object_footprint_preview"
+  }
+}

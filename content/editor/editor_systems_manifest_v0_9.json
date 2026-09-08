@@ -1,0 +1,50 @@
+{
+  "schema": "havenwild.editor_systems.v009",
+  "name": "V009 Editor Systems + Pixel Art Editor + Runtime Needs",
+  "priority": "foundation",
+  "modules": [
+    "main_rust_editor",
+    "in_game_overlay",
+    "web_editors",
+    "pixel_art_editor",
+    "shared_command_bus",
+    "asset_metadata_registry",
+    "runtime_editor_bridge",
+    "validation_registry"
+  ],
+  "previews": {
+    "architecture": "previews/v009_editor_architecture_diagram.png"
+  },
+  "specs": [
+    "V009_EDITOR_SYSTEMS_MASTER_SPEC.md",
+    "PIXEL_ART_EDITOR_FULL_SPEC.md",
+    "MAIN_RUST_EDITOR_ARCHITECTURE_SPEC.md",
+    "IN_GAME_OVERLAY_EDITOR_SPEC.md",
+    "WEB_EDITOR_SPLIT_SPEC.md",
+    "RUNTIME_IMPLEMENTATION_REQUIREMENTS.md",
+    "SHARED_COMMAND_UNDO_REDO_SPEC.md",
+    "ASSET_METADATA_AND_IMPORT_PIPELINE_SPEC.md",
+    "EDITOR_BOOTSTRAP_ROADMAP.md"
+  ],
+  "schemas": [
+    "editor_command.schema.v009.json",
+    "pixel_asset.schema.v009.json",
+    "project_file.schema.v009.json",
+    "tile_atlas.schema.v009.json"
+  ],
+  "rust_pseudocode": [
+    "editor_command_bus_v009.rs",
+    "pixel_editor_core_v009.rs",
+    "runtime_editor_bridge_v009.rs"
+  ],
+  "implementation_order": [
+    "Project shell",
+    "Pixel editor vertical slice",
+    "Terrain compositor preview",
+    "In-game overlay shell",
+    "Shared command bus",
+    "Object/build placement",
+    "Parcel and scene expansion",
+    "Starting area implementation"
+  ]
+}

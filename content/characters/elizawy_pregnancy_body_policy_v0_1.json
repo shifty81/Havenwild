@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.elizawy_pregnancy_body_policy.v0_1",
+  "id": "havenwild.character.body_state.pregnancy.v0_1",
+  "sourceAuthority": "assets/source/licensed/lpc_revised",
+  "assetRole": "elizawy_lpc.character.body.pregnancy",
+  "policy": {
+    "useOnlyAssetsConfirmedByFullElizaWyAudit": true,
+    "preserveLocalCreditsAndLicenseMetadata": true,
+    "bindAsRuntimeBodyStateNotCharacterCreatorBodyType": true,
+    "adultCharactersOnly": true,
+    "optionalPerWorld": true,
+    "optionalPerHousehold": true,
+    "supportsNpcAndPlayerCharacters": true,
+    "clothingCompatibilityMustBeValidated": true,
+    "fallbackWhenNoCompatibleLayer": "retain_last_compatible_body_and_report_diagnostic",
+    "neverUseGenericProceduralReplacement": true
+  },
+  "visualStages": [
+    { "id": 0, "meaning": "base_or_not_visibly_pregnant" },
+    { "id": 1, "meaning": "early_visible_state" },
+    { "id": 2, "meaning": "mid_visible_state" },
+    { "id": 3, "meaning": "late_visible_state" }
+  ],
+  "runtimeIntegrationTargets": [
+    "character_runtime_compositor",
+    "character_world_runtime",
+    "dialogue_portraits",
+    "npc_schedule_simulation",
+    "save_social_world_state"
+  ],
+  "status": "data_and_save_role_active_asset_binding_pending_full_repository_filename_audit"
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.elizawy_cliff.projection_acceptance.v0_1",
+  "pass": "167Z106N5S",
+  "revision": "square-plateau-edge-strip-projection-v1",
+  "reportedRegression": "Long N/S cliff corridors rendered diagonal green/brown zebra stripes because full rounded-plateau sample cells were repeated as west/east side segments.",
+  "visualAuthority": {
+    "source": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+    "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "comparisonReference": "OpenGameArt LPC Revised top-down tiling cliffs / configured Terrain Sets",
+    "projection": "north/east/west narrow rim strips; south rim plus full rock face",
+    "rounded5x4RuntimeUse": "reference_only",
+    "square3x4RuntimeUse": "edge-strip source context"
+  },
+  "acceptance": [
+    "A long west/east boundary has one continuous narrow rim and no diagonal green/brown bands.",
+    "South cliff walls contain one upper lip, continuous rock body, and one lower grass foot.",
+    "Corners are formed by intersecting orthogonal rim strips rather than repeated rounded-sample cells.",
+    "The walkable top terrain remains visible and is not replaced by source-example grass cells.",
+    "Ramps, stairs, ladders, cave mouths, bridges, waterfalls, and N5R collision semantics remain unchanged.",
+    "Missing cliff source still fails structural collision open."
+  ],
+  "supersededBy": "content/worldgen/structural_cliff_autotile_authority_v0_1.json",
+  "supersededByPass": "167Z107"
+}

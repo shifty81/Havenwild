@@ -1,0 +1,143 @@
+{
+  "schema": "haven.scene_identity_migration.v0_1",
+  "purpose": "Track the completed migration from enum-backed scene maps to project-owned scene identifiers and the remaining editor UI gate for arbitrary scene creation/deletion.",
+  "currentStage": "scene_registry_foundation_normalization",
+  "legacyEnumBacked": false,
+  "supportsArbitrarySceneCreation": false,
+  "supportsArbitrarySceneDeletion": false,
+  "targetSceneIdType": "ProjectSceneId",
+  "rules": {
+    "sceneIds": "lowercase_snake_case_project_owned_strings",
+    "overworldScenes": "Exterior scenes may be placed as rectangles on the large editable overworld canvas.",
+    "bankScenes": "Interior, cave, dungeon, and special scenes live in a reserved off-world scene bank and connect through transitions.",
+    "createDeleteGate": "SceneMap identity and registry storage are migrated. Create/Delete buttons remain disabled until editor selection, reference repair UI, and typed undo transactions are complete."
+  },
+  "targetSizes": {
+    "currentPrototypeSceneTiles": [
+      48,
+      32
+    ],
+    "targetLargeSceneTiles": [
+      96,
+      64
+    ],
+    "firstIslandCanvasTiles": [
+      384,
+      256
+    ],
+    "canonicalTilePixels": [
+      32,
+      32
+    ]
+  },
+  "seedRecords": [
+    {
+      "id": "farmstead",
+      "legacySceneCode": "farmstead",
+      "role": "overworld_surface",
+      "canvasRectTiles": [
+        144,
+        112,
+        96,
+        64
+      ],
+      "protected": true
+    },
+    {
+      "id": "north_road",
+      "legacySceneCode": "north_road",
+      "role": "overworld_surface",
+      "canvasRectTiles": [
+        96,
+        96,
+        96,
+        48
+      ],
+      "protected": true
+    },
+    {
+      "id": "south_field",
+      "legacySceneCode": "south_field",
+      "role": "overworld_surface",
+      "canvasRectTiles": [
+        144,
+        176,
+        96,
+        64
+      ],
+      "protected": true
+    },
+    {
+      "id": "east_woods",
+      "legacySceneCode": "east_woods",
+      "role": "overworld_surface",
+      "canvasRectTiles": [
+        240,
+        112,
+        96,
+        96
+      ],
+      "protected": true
+    },
+    {
+      "id": "cave_mouth",
+      "legacySceneCode": "cave_mouth",
+      "role": "cave_bank",
+      "bankSlot": [
+        416,
+        32
+      ],
+      "protected": true
+    },
+    {
+      "id": "cave_depths",
+      "legacySceneCode": "cave_depths",
+      "role": "cave_bank",
+      "bankSlot": [
+        416,
+        104
+      ],
+      "protected": true
+    },
+    {
+      "id": "tavern_interior",
+      "legacySceneCode": "tavern_interior",
+      "role": "interior_bank",
+      "bankSlot": [
+        416,
+        192
+      ],
+      "protected": true
+    },
+    {
+      "id": "cellar",
+      "legacySceneCode": "cellar",
+      "role": "interior_bank",
+      "bankSlot": [
+        416,
+        264
+      ],
+      "protected": true
+    },
+    {
+      "id": "guest_floor",
+      "legacySceneCode": "guest_floor",
+      "role": "interior_bank",
+      "bankSlot": [
+        416,
+        336
+      ],
+      "protected": true
+    }
+  ],
+  "bridgeReferenceType": "SceneReference",
+  "transitionTargetsMigrated": true,
+  "activeSceneReferenceMigrated": true,
+  "sceneMapIdentityMigrated": true,
+  "runtimePolicy": {
+    "legacySeedResolution": "legacy SceneId is restricted to seed-template generation and compatibility helpers",
+    "unresolvedReferenceRetention": "preserve normalized project-owned IDs during import and line-save loading",
+    "unresolvedNavigation": "block activation and report references that are not registered",
+    "authoringGate": "registry insert/remove/rename APIs exist; editor Create/Delete UI remains gated until selection and repair workflows migrate"
+  }
+}

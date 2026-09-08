@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z40",
+  "title": "Complete LPC Project Foundation and Character Action Integration",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Established the complete pinned ElizaWy/LPC repository as Havenwild's project-wide world, terrain, nature, structure, object, interior, effect, palette, and baseline-character authority.",
+    "Established the complete pinned Universal LPC Character Generator repository as the compatibility-gated extension for bodies, heads, hair, clothing, armor, equipment, tools, weapons, shields, accessories, palettes, and animation layers.",
+    "Added complete repository index generation for 88,235 spritesheets, 768 sheet definitions, 13,818 credit records, equipment definitions, tools, weapons, and shields.",
+    "Added six body-family and seventeen animation-family compatibility contracts, including pregnant, teen, child, muscular, tool-use, and action animation support.",
+    "Added body-specific generated component lookup so non-male bodies do not silently receive male-only clothing, hair, face, or headwear caches.",
+    "Restored authored tool animation routing for axe, pickaxe, hoe, watering can, hammer, fishing rod, scythe, and hand interaction while preserving stamina costs and gameplay behavior.",
+    "Added shared editor, Character Studio, NPC authoring, wardrobe, credits, and runtime catalog authority with stable source references and explicit compatibility reasons.",
+    "Preserved the curated initial creator while exposing all compatible repository content through advanced authoring and gameplay acquisition systems.",
+    "Carried the Pass 167Z39 world creation, housing, reputation, relationships, marriage, pregnancy, adoption, and children foundations forward in the same cumulative overwrite patch.",
+    "Repaired the shared atomic automation helper and validator package routing needed by the new source/index build flow."
+  ],
+  "validation": {
+    "lpcFoundationContract": "passed",
+    "worldCreationHousingFamilyContract": "passed",
+    "contentIntegrity": "core six-check profile passed; expanded reconstructed-source profile blocked by absent pre-existing farm-animal catalog",
+    "architecture": "passed after stale size-exception cleanup and exact no-growth baselines",
+    "pythonCompilation": "passed",
+    "bashSyntax": "passed",
+    "webJavaScriptSyntax": "passed",
+    "universalIndexFixture": "passed",
+    "characterCacheGeometryFixture": "passed",
+    "jsonParse": "passed",
+    "rustStaticDelimiterAndCallSiteScan": "passed",
+    "sourceProfile": "blocked in reconstructed container source by pre-existing Pass167Z10 development-layout migration gaps; not attributed to Z40",
+    "cargoFmtCheckClippyTests": "pending Windows workstation run",
+    "strictFullSourceAudit": "pending workstation with both complete raw pinned repositories mounted",
+    "liveRuntimeAndCharacterVisualAcceptance": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

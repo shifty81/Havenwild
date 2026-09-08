@@ -1,0 +1,66 @@
+{
+  "schema": "havenwild.home_estate_design_contract.v2",
+  "pass": "H21A14AB8",
+  "displayName": "Home Estate",
+  "legacySceneCompatibilityId": "farmstead",
+  "runtimeAuthority": {
+    "standalonePersistentScene": true,
+    "boundedExteriorInstance": true,
+    "continuousSurfaceStreaming": false,
+    "overworldResidencyWorkers": false,
+    "localRetainedTerrainSurface": true,
+    "localStructuralCache": true,
+    "implicitChunkEdgeTraversal": false,
+    "explicitGatewayTraversalOnly": true
+  },
+  "worldPlacement": {
+    "mainCityRelation": "northeast",
+    "maximumDistanceFromMainCityBorderChunks": 1,
+    "overworldAnchorIsGeographicOnly": true,
+    "estateInteriorConsumesOverworldStorageChunk": false,
+    "cityFacingAccessRouteRequired": true
+  },
+  "perimeter": {
+    "cliffFacesOnAllSides": true,
+    "ordinaryPerimeterTraversal": "impassable",
+    "denseFoliageDressing": true,
+    "northCliffCaveEntranceRequired": true,
+    "invisibleWallAsPrimaryBoundaryForbidden": true
+  },
+  "sizeAndExpansion": {
+    "largeInitialEstate": true,
+    "normalPlayShouldNotRequireExpansion": true,
+    "expansionUseCases": [
+      "very_large_farms",
+      "large_orchards",
+      "large_ranches",
+      "large_production_or_decorative_estates"
+    ],
+    "townHallAdjacentParcelDeeds": true,
+    "existingEstateCoordinatesRemainStable": true,
+    "overworldGeographyNeverShiftsOnDeedPurchase": true,
+    "perimeterMovesOutwardAfterParcelAcquisition": true
+  },
+  "cave": {
+    "entranceHost": "north_cliff_face",
+    "separateProceduralCaveInstance": true,
+    "persistentExploration": true,
+    "enteredThroughAuthoredEstateTransition": true
+  },
+  "terrainImprovements": {
+    "purchasablePonds": true,
+    "pondsModifySemanticTerrain": true,
+    "pondsAreFishable": true,
+    "pondsUseCanonicalShorelineAndWaterDepthRules": true
+  },
+  "agriculture": {
+    "allGrowableGameContentSupported": true,
+    "growthStillRequiresDeclaredEnvironment": true,
+    "supportsFieldsOrchardsGreenhousesSpecialtyBedsAndAquaticGrowing": true
+  },
+  "residences": {
+    "estateIsOnlyResidenceOption": false,
+    "cityInnRentalSupported": true,
+    "cityApartmentRentalOrOwnershipSupported": true
+  }
+}

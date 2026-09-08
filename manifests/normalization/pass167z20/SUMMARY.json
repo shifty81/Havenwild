@@ -1,0 +1,13 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z20",
+  "title": "Windows Read-Only Staging Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Read-only and stale Git pack deletion no longer aborts workspace preflight.",
+    "Generated Build cleanup is best-effort and non-blocking.",
+    "Bash and PowerShell application staging share a filtered Python implementation.",
+    "Future bundles exclude dependency repository internals and invalid test fixtures."
+  ],
+  "completeSourceCreated": false
+}

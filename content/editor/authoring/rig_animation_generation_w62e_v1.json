@@ -1,0 +1,14 @@
+{
+  "schema": "havenwild.rig_animation_generation.w62e.v1",
+  "sharedAuthorities": ["Transform2D", "TransformConstraint2D", "TransformNode2D", "Anchor2D", "Socket2D"],
+  "trackTypes": ["sprite_frame", "transform", "socket", "hitbox", "hurtbox", "event"],
+  "generatedTransformPresets": ["hinge", "sway", "bob", "pulse", "recoil"],
+  "rigModel": "hierarchical TransformNode2D graph",
+  "hybridPixelRigging": true,
+  "pixelRules": ["nearest_neighbor", "integer_snap_by_default", "bake_then_hand_cleanup_supported"],
+  "examples": {
+    "door": "hinge pivot + constrained transform track",
+    "tree": "root/trunk/canopy hierarchy + constrained sway",
+    "character": "shared skeleton profile + layered pixel parts + sockets"
+  }
+}

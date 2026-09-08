@@ -1,0 +1,86 @@
+{
+  "schema": "havenwild.world_paint_layer_composition_contract.v0.1",
+  "version": 1,
+  "purpose": "Defines client/editor-side composition of multiple derived atlas tile bindings for one canonical 32x32 world cell.",
+  "authoritativeState": [
+    "world_paint_delta",
+    "world_paint_material_state"
+  ],
+  "derivedState": [
+    "world_paint_render_cache",
+    "world_paint_render_bindings"
+  ],
+  "canonicalTileSize": [
+    32,
+    32
+  ],
+  "cacheDocument": "WORKSPACE/generated/world_paint/world_paint_render_cache_v0_1.json",
+  "compositionPolicy": {
+    "oneCellMayHaveMultipleLayers": true,
+    "dedupeKey": [
+      "scene_id",
+      "x",
+      "y",
+      "layer",
+      "tile_id"
+    ],
+    "cellLookup": "BTreeMap<(x,y), Vec<WorldPaintTransitionTileResolution>>",
+    "drawFunction": "draw_world_paint_atlas_layers_if_bound",
+    "fallback": "if no atlas-bound layer exists, draw legacy TileKind base/detail/transition overlays"
+  },
+  "layerRenderOrder": [
+    {
+      "layer": "ground_base",
+      "order": 10
+    },
+    {
+      "layer": "ground_variation",
+      "order": 20
+    },
+    {
+      "layer": "ground_transition_fringe",
+      "order": 30
+    },
+    {
+      "layer": "water_base",
+      "order": 40
+    },
+    {
+      "layer": "water_surface_fx",
+      "order": 50
+    },
+    {
+      "layer": "cave_base",
+      "order": 60
+    },
+    {
+      "layer": "cave_wall_face",
+      "order": 70
+    },
+    {
+      "layer": "town_surface",
+      "order": 80
+    },
+    {
+      "layer": "indoor_floor",
+      "order": 90
+    },
+    {
+      "layer": "debris_overlay",
+      "order": 100
+    },
+    {
+      "layer": "collision_footprint",
+      "order": 900
+    },
+    {
+      "layer": "occlusion_fade_mask",
+      "order": 910
+    },
+    {
+      "layer": "dev_overlay",
+      "order": 920
+    }
+  ],
+  "multiplayerPolicy": "Host/server synchronizes material/delta state; clients may rebuild or load derived layer composition cache deterministically."
+}

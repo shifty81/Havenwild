@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z53",
+  "date": "2026-08-03",
+  "title": "Authored Rock Variant Selection Repair",
+  "status": "ready_for_windows_build",
+  "changes": [
+    "Replace hard required rock silhouette classes with authored preference slots",
+    "Fill missing preference slots from remaining distinct source components",
+    "Alias real authored rocks only when fewer than four components exist",
+    "Derive visual and collision footprints from each chosen source rectangle",
+    "Remove the Pillow getdata deprecation from grid-cell occupancy counting"
+  ],
+  "localValidation": {
+    "missingTallSilhouetteFixture": true,
+    "smallSourceAliasFixture": true,
+    "z52VisualBaselineValidator": true,
+    "pythonCompile": true,
+    "bashSyntax": true,
+    "jsonParse": true,
+    "cargo": false,
+    "reasonCargoNotRun": "Rust toolchain and the complete mounted LPC dependency are unavailable in the artifact environment"
+  }
+}

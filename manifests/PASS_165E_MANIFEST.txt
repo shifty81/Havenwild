@@ -1,0 +1,18 @@
+PASS 165E — TITLE BUTTON INTERACTION STATES
+
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE crates/haven_game/src/client_character_frontend_draw.rs
+ADD content/ui/title_menu/button_continue_hover.png
+ADD content/ui/title_menu/button_continue_pressed.png
+ADD content/ui/title_menu/button_new_game_hover.png
+ADD content/ui/title_menu/button_new_game_pressed.png
+ADD content/ui/title_menu/button_load_hover.png
+ADD content/ui/title_menu/button_load_pressed.png
+ADD content/ui/title_menu/button_settings_hover.png
+ADD content/ui/title_menu/button_settings_pressed.png
+ADD content/ui/title_menu/button_multiplayer_hover.png
+ADD content/ui/title_menu/button_multiplayer_pressed.png
+ADD content/ui/title_menu/button_quit_hover.png
+ADD content/ui/title_menu/button_quit_pressed.png
+ADD docs/patch/PASS_165E_TITLE_BUTTON_INTERACTION_STATES.md
+ADD manifests/PASS_165E_MANIFEST.txt

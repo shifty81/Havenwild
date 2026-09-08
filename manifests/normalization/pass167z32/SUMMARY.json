@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z32",
+  "title": "Authored LPC Terrain and Nature Authority",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Reconnected runtime and editor terrain selection to exact authored terrain-map-v7 four-corner tuple entries.",
+    "Removed the manual quadrant compositor from the compiled runtime terrain path.",
+    "Aligned freshwater and ocean semantic material chains with exact authored LPC transition pairs.",
+    "Registered the complete pinned ElizaWy Terrain folder as the source authority for terrain, cliffs, ramps, rocks, trees, plants, mushrooms, flowers, wildflowers, tilled soil, waterfalls, and ice shallows.",
+    "Changed outdoor object promotion to extract exact connected alpha components and retain source rectangles.",
+    "Generated an open-world test region with natural Terrain-folder objects and no mandatory farmstead or fixed player business.",
+    "Rebuilt the exact mapped terrain atlas and produced a zero-unsupported-tuple authored preview."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "jsonParsing": "493 files passed",
+    "pythonCompilation": "345 files passed",
+    "bashSyntax": "passed",
+    "cargo": "pending Windows workstation rerun",
+    "liveAcceptance": "authored terrain corners, Terrain-folder objects, retained-surface FPS"
+  },
+  "completeSourceCreated": false
+}

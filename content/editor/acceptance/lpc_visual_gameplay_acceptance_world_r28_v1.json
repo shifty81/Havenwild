@@ -1,0 +1,18 @@
+{
+  "schema":"havenwild.editor.acceptance.lpc_visual_gameplay_acceptance_world.r28.v1",
+  "pass":"W81R28",
+  "scene":"LPC Ecosystem Visual + Gameplay Acceptance World",
+  "boards":[
+    {"id":"terrain","checks":["all semantic materials","supported transitions","shorelines","multi-height cliffs","ramps","stairs","cave mouths","waterfalls","snow_ice","water_lava"]},
+    {"id":"nature_farming","checks":["trees","fruit trees","growth stages","crops","flowers","bushes","rocks","livestock","farm structures"]},
+    {"id":"professions","checks":["mine","forge","blacksmith","woodshop","tailor","sawmill","alchemy"]},
+    {"id":"tavern_interiors","checks":["bar","kitchen","brewery","dining","guest room","lighting","storage","decor"]},
+    {"id":"characters","checks":["body families","hair","headwear","clothing","armor","wings_tails","equipment","4-way alignment","animation families"]},
+    {"id":"resource_interaction","checks":["axe in hand","tree shake","tree fall","wood audio","pickaxe in hand","node hit","crack","break","drops"]},
+    {"id":"water_travel","checks":["shore collision","F Swim","swim entry_exit","fish","dock","rowboat","ship"]},
+    {"id":"combat_creatures","checks":["melee","ranged","magic","shield","monster","wildlife","impact FX","death state"]}
+  ],
+  "editorRoundTrip":["World","Scene","Pixel","Animation","Character"],
+  "runtimeEntry":"Use the existing selected-Scene Play flow; do not replace it with a new launch path.",
+  "acceptance":"Every displayed source card reports license/readiness; every production-ready visual resolves identically in editor and client."
+}

@@ -1,0 +1,8 @@
+{
+  "schema":"havenwild.ui_document.v1","id":"crafting","display_name":"Crafting","kind":"crafting","reference_size":[1920,1080],"snap_px":8,"safe_area":[48,48,48,48],
+  "widgets":[
+    {"id":"recipe_list","kind":"list","rect":{"x":232.0,"y":144.0,"width":520.0,"height":792.0},"label":"Recipes","data_bindings":[{"property":"items","source":"crafting.available_recipes"},{"property":"selection","source":"crafting.selected_recipe"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"recipe_detail","kind":"panel","rect":{"x":792.0,"y":144.0,"width":896.0,"height":664.0},"label":"Recipe Detail","data_bindings":[{"property":"recipe","source":"crafting.selected_recipe"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"craft_button","kind":"button","rect":{"x":1328.0,"y":840.0,"width":360.0,"height":72.0},"label":"Craft","data_bindings":[{"property":"enabled","source":"crafting.can_craft_selected"}],"behavior_bindings":[{"event":"on_click","action":"crafting.craft_selected","arguments":{}}],"locked":false,"visible":true}
+  ],"metadata":{"acceptance":"Tab -> Crafting -> select recipe -> craft"}
+}

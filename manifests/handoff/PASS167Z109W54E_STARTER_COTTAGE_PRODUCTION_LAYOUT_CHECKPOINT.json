@@ -1,0 +1,71 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W54E",
+  "date": "2026-08-16",
+  "title": "Starter Cottage Production Layout",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B",
+    "167Z109W45C1",
+    "167Z109W45C2",
+    "167Z109W45C3A",
+    "167Z109W45D1",
+    "167Z109W45D1A",
+    "167Z109W45C3B",
+    "167Z109W45D2",
+    "167Z109W46A",
+    "167Z109W46B",
+    "167Z109W46C",
+    "167Z109W47",
+    "167Z109W48",
+    "167Z109W49",
+    "167Z109W50",
+    "167Z109W51",
+    "167Z109W52",
+    "167Z109W53",
+    "167Z109W53A",
+    "167Z109W53B",
+    "167Z109W53C",
+    "167Z109W53D",
+    "167Z109W53E",
+    "167Z109W54A",
+    "167Z109W54B",
+    "167Z109W54C",
+    "167Z109W54D1",
+    "167Z109W54D2",
+    "167Z109W54E"
+  ],
+  "triggerEvidence": "W54D2 Estate screenshots showed a too-small one-room cottage, bare floor after cutaway, incomplete wall presentation and a flat panel roof.",
+  "completed": {
+    "W54E": "8x6 two-room starter cottage, exact cream frontage, visible interior wall bands, twin authored hipped-roof modules, multi-module roof schema support."
+  },
+  "runtimeSafety": {
+    "sameWorldBuildingInstance": true,
+    "frontDoorWorldTile": [
+      59,
+      34
+    ],
+    "unsupportedSideBackFacingsRemainFailClosed": true,
+    "frontWallOnlyCameraCutaway": true,
+    "normalSavesUnaffectedByOption54": true
+  },
+  "validation": {
+    "w54eStarterCottage": "PASS",
+    "w46ThroughW54ForwardAuthority": "PASS",
+    "jsonParse": "PASS",
+    "pythonAst": "PASS",
+    "bashSyntax": "PASS",
+    "mainBuildingRecipeModuleLines": 724,
+    "cargoWindowsBuild": "PENDING_W54E_USER_LOCAL_GATE"
+  },
+  "next": "Apply W54D2\u2192W54E, run 2. Build all, 61. Validate starter cottage production layout, 58. Validate integrated visual checkpoint, then 54. Run integrated Estate visual test."
+}

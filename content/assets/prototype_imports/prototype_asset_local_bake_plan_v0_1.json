@@ -1,0 +1,58 @@
+{
+  "schema": "havenwild.prototype_asset_local_bake_plan.v0_1",
+  "updated": "2026-07-09",
+  "purpose": "Disabled-by-default dry-run plan for checking locally supplied/quarantined donor sources before any prototype asset bake is allowed.",
+  "enabledByDefault": false,
+  "dryRunOnly": true,
+  "copyRawAssets": false,
+  "generateRuntimeAssets": false,
+  "reportPath": "WORKSPACE/generated/prototype_imports/prototype_asset_bake_dry_run_report_v0_1.json",
+  "sourceLookupRoots": [
+    "assets/reference_quarantine/third_party",
+    "WORKSPACE/imports",
+    "WORKSPACE/imports/third_party/<source-slug>",
+    "WORKSPACE/imports/third_party"
+  ],
+  "blockedPolicyTokens": [
+    "blocked",
+    "non_commercial_only",
+    "license_chain_restored",
+    "unverified"
+  ],
+  "entries": [
+    {
+      "id": "bakecheck.pipoya_world_tileset_32.v0_1",
+      "adapterId": "adapter.pipoya_world_tileset_32.v0_1",
+      "mode": "dry_run_source_availability_only",
+      "expectedSourceState": "user_supplied_or_quarantine_required",
+      "allowedOutputMode": "report_only_no_runtime_assets"
+    },
+    {
+      "id": "bakecheck.free_pixel_food_icons_32.v0_1",
+      "adapterId": "adapter.free_pixel_food_icons_32.v0_1",
+      "mode": "dry_run_source_availability_only",
+      "expectedSourceState": "user_supplied_or_quarantine_required",
+      "allowedOutputMode": "report_only_no_runtime_assets"
+    },
+    {
+      "id": "bakecheck.pixel_mart_icons_32.v0_1",
+      "adapterId": "adapter.pixel_mart_icons_32.v0_1",
+      "mode": "dry_run_source_availability_only",
+      "expectedSourceState": "user_supplied_or_quarantine_required",
+      "allowedOutputMode": "report_only_no_runtime_assets"
+    }
+  ],
+  "blockedSourceProbePolicy": {
+    "checkBlockedQueueEntries": true,
+    "result": "refuse_and_report_only",
+    "notes": [
+      "Blocked/non-commercial/unverified sources may stay visible as donor/reference catalog records, but the bake path must refuse them.",
+      "This pass intentionally does not process image pixels or generate processed atlases."
+    ]
+  },
+  "safetyNotes": [
+    "The dry-run command may read manifests and check for locally supplied archives/sheets, but it must not copy raw third-party assets into repo runtime paths.",
+    "The bake report is safe to commit because it records availability/status only, not asset pixels.",
+    "A later real bake pass must still require explicit source approval, attribution metadata, and no-standalone-export release gates."
+  ]
+}

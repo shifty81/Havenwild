@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.cliff_height_runtime_contract.v1",
+  "pass": "167Z109W53D",
+  "authority": "discrete_structural_levels",
+  "levelRange": [0, 4],
+  "rules": {
+    "oneStructuralLevelEqualsOneReceiverFaceRow": true,
+    "crestLivesOnUpperHostRow": true,
+    "bodyRows": "max(drop_levels - 1, 0)",
+    "footRows": 1,
+    "uniformAcrossStraightDiagonalTerminal": true,
+    "edgeSpecificDropWinsOverHostMaximum": true,
+    "rawCliffTerrainIsNotElevationAuthority": true,
+    "collisionUsesStructuralLevelsNotRenderedPixels": true
+  },
+  "caveMouth": {
+    "widthTiles": 1,
+    "apertureHeightLevels": 2,
+    "sourceEnvelopeTiles": [1, 3],
+    "thresholdRows": 1,
+    "hostLevel": 2,
+    "thresholdLevel": 0,
+    "widenForHeight": false
+  },
+  "waterfalls": {
+    "requiredAtRealDrainageDrop": true,
+    "heightFollowsStructuralDrop": true,
+    "mayNotSuppressRequiredDrop": true
+  },
+  "acceptance": {
+    "sceneId": "cliff_height_w53d_acceptance",
+    "requiredDrops": [1, 2, 3, 4],
+    "requiredMixedEdgeCase": "level_2_host_with_level_1_and_level_0_receivers",
+    "requiredShapes": ["straight_south", "south_west_diagonal", "south_east_diagonal", "terminal"]
+  }
+}

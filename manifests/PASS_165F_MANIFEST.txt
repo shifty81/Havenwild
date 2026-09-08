@@ -1,0 +1,11 @@
+PASS 165F — MULTIPLAYER FRONTEND FOUNDATION
+
+OVERWRITE
+crates/haven_game/src/client_frontend.rs
+
+ADD
+docs/patch/PASS_165F_MULTIPLAYER_FRONTEND_FOUNDATION.md
+manifests/PASS_165F_MANIFEST.txt
+
+BASELINE
+Apply after Havenwild Pass 165E.

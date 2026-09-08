@@ -1,0 +1,7 @@
+PASS 165I — Inventory Persistence, Drag/Drop, and Station Definitions
+
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+OVERWRITE crates/haven_game/src/game_bootstrap.rs
+OVERWRITE crates/haven_game/src/runtime_persistence.rs
+ADD docs/patch/PASS_165I_INVENTORY_PERSISTENCE_DRAG_DROP_STATION_DEFINITIONS.md
+ADD manifests/PASS_165I_MANIFEST.txt

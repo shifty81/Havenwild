@@ -1,0 +1,91 @@
+{
+  "schema": "havenwild.worldgen.island_region_graph.v1",
+  "version": 1,
+  "id": "starter_island_region",
+  "display_name": "Starter Island Region",
+  "role": "Island-scale landmass and scene placement graph. Scene nodes point to local 96x64 playable SceneMaps.",
+  "preview": {
+    "landmass": {
+      "center": [0.5, 0.52],
+      "radius": [0.39, 0.32],
+      "shore_noise": 0.12
+    },
+    "style_notes": [
+      "Use raised terraces, path loops, stairs, walls, and landmark nodes as visual inspiration.",
+      "Buildings and farm patches are icons or labels at island scale, not full tile footprints.",
+      "Playable detail belongs inside the linked SceneMap preview."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "north_road",
+      "label": "Road/Town",
+      "scene_id": "north_road",
+      "kind": "connector",
+      "biome": "highlands",
+      "position": [0.18, 0.51]
+    },
+    {
+      "id": "farmstead",
+      "label": "Estate",
+      "scene_id": "farmstead",
+      "kind": "hub",
+      "biome": "temperate",
+      "position": [0.48, 0.5]
+    },
+    {
+      "id": "south_field",
+      "label": "Fields",
+      "scene_id": "south_field",
+      "kind": "farm",
+      "biome": "farm",
+      "position": [0.4, 0.75]
+    },
+    {
+      "id": "east_woods",
+      "label": "Woods",
+      "scene_id": "east_woods",
+      "kind": "forage",
+      "biome": "temperate",
+      "position": [0.77, 0.52]
+    },
+    {
+      "id": "cave_mouth",
+      "label": "Cave",
+      "scene_id": "cave_mouth",
+      "kind": "cave_entrance",
+      "biome": "mountain",
+      "position": [0.76, 0.36]
+    },
+    {
+      "id": "cave_depths",
+      "label": "Depths",
+      "scene_id": "cave_depths",
+      "kind": "cave",
+      "biome": "cave",
+      "position": [0.86, 0.29]
+    },
+    {
+      "id": "future_harbor",
+      "label": "Future Harbor",
+      "scene_id": null,
+      "kind": "future_harbor",
+      "biome": "coastal",
+      "position": [0.56, 0.86]
+    }
+  ],
+  "links": [
+    { "from": "north_road", "to": "farmstead", "kind": "road" },
+    { "from": "farmstead", "to": "south_field", "kind": "field_path" },
+    { "from": "farmstead", "to": "east_woods", "kind": "road" },
+    { "from": "east_woods", "to": "cave_mouth", "kind": "trail" },
+    { "from": "cave_mouth", "to": "cave_depths", "kind": "cave_route" },
+    { "from": "farmstead", "to": "future_harbor", "kind": "future_route" }
+  ],
+  "scale_rules": [
+    "Nodes represent scenes or future scene groups.",
+    "Node positions are normalized island-preview coordinates.",
+    "A node's linked SceneMap owns tile-scale gameplay details.",
+    "Island graph paths are coarse travel/readability routes, not tile roads."
+  ]
+}

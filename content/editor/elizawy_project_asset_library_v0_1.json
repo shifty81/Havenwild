@@ -1,0 +1,120 @@
+{
+  "schema": "havenwild.elizawy_project_asset_library.v0_1",
+  "version": "0.1.0",
+  "pass": "167Z38",
+  "authority": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
+  "routes": "content/assets/lpc/lpc_project_asset_routes_v0_1.json",
+  "auditSummary": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38_summary.json",
+  "rootLabel": "ElizaWy / LPC Revised",
+  "defaultView": "Nature & Biomes",
+  "collections": [
+    {
+      "id": "terrain",
+      "label": "Terrain Library",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/terrain.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": true,
+      "stableIdRequired": true
+    },
+    {
+      "id": "nature",
+      "label": "Nature & Biomes",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/nature.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": true,
+      "stableIdRequired": true
+    },
+    {
+      "id": "objects",
+      "label": "Objects & Placeables",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/objects.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": true,
+      "stableIdRequired": true
+    },
+    {
+      "id": "structure",
+      "label": "Buildings & Structures",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/structure.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": true,
+      "stableIdRequired": true
+    },
+    {
+      "id": "characters",
+      "label": "Characters & Animation",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/characters.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": true,
+      "stableIdRequired": true
+    },
+    {
+      "id": "fx",
+      "label": "Effects",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/fx.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": true,
+      "stableIdRequired": true
+    },
+    {
+      "id": "palette",
+      "label": "LPC Palette",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/palette.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": true,
+      "stableIdRequired": true
+    },
+    {
+      "id": "reference_scenes",
+      "label": "Reference Scenes",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/reference_scenes.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true
+    },
+    {
+      "id": "repository_support",
+      "label": "Source Reference",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/repository_support.json",
+      "allowSourceSheetBrowse": true,
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true
+    },
+    {
+      "id": "legal_and_documentation",
+      "label": "Credits & Licenses",
+      "catalog": "WORKSPACE/generated/lpc/catalogs/legal_and_documentation.json",
+      "allowSourceSheetBrowse": false,
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true
+    }
+  ],
+  "treeAuthoring": {
+    "collection": "nature",
+    "sourceSheet": "Terrain/trees_summer.png",
+    "seasonalSheets": [
+      "Terrain/trees_spring.png",
+      "Terrain/trees_summer.png",
+      "Terrain/trees_autumn.png",
+      "Terrain/trees_winter.png"
+    ],
+    "visualFootprintTiles": [
+      3,
+      4
+    ],
+    "trunkCollisionTiles": [
+      1,
+      1
+    ],
+    "canopyFadePreview": true,
+    "chopInteractionPreview": true
+  },
+  "rules": {
+    "showRawSourcePath": true,
+    "showNearestCredits": true,
+    "showSourceRect": true,
+    "showRuntimeReadiness": true,
+    "hideUncataloguedFromRuntimePalette": true,
+    "sameCatalogsAsRuntime": true
+  }
+}

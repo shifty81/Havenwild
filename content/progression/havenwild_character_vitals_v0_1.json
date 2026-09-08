@@ -1,0 +1,18 @@
+{
+  "schema": "havenwild.character_vitals_catalog.v0_1",
+  "base_health": 100.0,
+  "base_stamina": 100.0,
+  "hunger_max": 100.0,
+  "thirst_max": 100.0,
+  "standing_stamina_regen_per_second": 5.0,
+  "sheltered_stamina_regen_per_second": 9.0,
+  "rested_capacity_recovery_per_second": 0.08,
+  "sprint_stamina_cost_per_second": 12.0,
+  "hunger_drain_per_minute": 0.22,
+  "thirst_drain_per_minute": 0.34,
+  "exhaustion_threshold_ratio": 0.25,
+  "extended_action_capacity_loss_ratio": 0.001,
+  "minimum_stamina_capacity_ratio": 0.70,
+  "maximum_rested_seconds": 900.0,
+  "maximum_comfort_bonus_ratio": 0.25
+}

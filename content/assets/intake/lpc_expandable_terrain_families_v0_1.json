@@ -1,0 +1,439 @@
+{
+  "schema": "havenwild.lpc_expandable_terrain_families.v0_1",
+  "sourceLock": "content/assets/intake/lpc_source_lock_v0_1.json",
+  "source": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+  "cellSize": 32,
+  "grid": [
+    16,
+    26
+  ],
+  "coordinateConvention": "zero-based [column,row,width,height] in 32x32 cells",
+  "license": "OGA-BY 3.0",
+  "attribution": [
+    "Lanea Zimmerman (Sharm)",
+    "Eliza Wyatt (DeathsDarling)"
+  ],
+  "layoutModel": "Each expandable family is an authored 3x3 outer block plus a 2x2 inner-corner block. The 3x3 block supplies outer corners, cardinal edges, and the repeatable center. The 2x2 block supplies concave inner corners for later freeform/blob resolution.",
+  "families": [
+    {
+      "id": "lpc_pond_grass_bank_a",
+      "label": "LPC Grass-Bank Pond A",
+      "surface": "grass",
+      "water": "shallow_water",
+      "composition": "composited",
+      "outerBlock": [
+        0,
+        10,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        0,
+        13,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        1,
+        11
+      ]
+    },
+    {
+      "id": "lpc_pond_grass_bank_a_overlay",
+      "label": "LPC Grass-Bank Pond A Overlay",
+      "surface": "grass",
+      "water": "transparent_base_required",
+      "composition": "overlay",
+      "outerBlock": [
+        3,
+        10,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        3,
+        13,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_dirt_bank_a",
+      "label": "LPC Dirt-Bank Pond A",
+      "surface": "dirt",
+      "water": "shallow_water",
+      "composition": "composited",
+      "outerBlock": [
+        6,
+        10,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        6,
+        13,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_dirt_bank_a_overlay",
+      "label": "LPC Dirt-Bank Pond A Overlay",
+      "surface": "dirt",
+      "water": "transparent_base_required",
+      "composition": "overlay",
+      "outerBlock": [
+        9,
+        10,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        9,
+        13,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_grass_bank_b",
+      "label": "LPC Grass-Bank Pond B",
+      "surface": "grass",
+      "water": "shallow_water",
+      "composition": "composited",
+      "outerBlock": [
+        0,
+        15,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        0,
+        18,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_grass_bank_b_overlay",
+      "label": "LPC Grass-Bank Pond B Overlay",
+      "surface": "grass",
+      "water": "transparent_base_required",
+      "composition": "overlay",
+      "outerBlock": [
+        3,
+        15,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        3,
+        18,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_dirt_bank_b",
+      "label": "LPC Dirt-Bank Pond B",
+      "surface": "dirt",
+      "water": "shallow_water",
+      "composition": "composited",
+      "outerBlock": [
+        6,
+        15,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        6,
+        18,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_dirt_bank_b_overlay",
+      "label": "LPC Dirt-Bank Pond B Overlay",
+      "surface": "dirt",
+      "water": "transparent_base_required",
+      "composition": "overlay",
+      "outerBlock": [
+        9,
+        15,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        9,
+        18,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_sand_bank",
+      "label": "LPC Sand-Bank Pond",
+      "surface": "sand",
+      "water": "shallow_water",
+      "composition": "composited",
+      "outerBlock": [
+        0,
+        20,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        3,
+        20,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        1,
+        21
+      ]
+    },
+    {
+      "id": "lpc_pond_foam_overlay",
+      "label": "LPC Pond Foam Overlay",
+      "surface": "sand_foam",
+      "water": "transparent_base_required",
+      "composition": "overlay",
+      "outerBlock": [
+        5,
+        20,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        8,
+        20,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_pale_shore_overlay",
+      "label": "LPC Pale-Shore Pond Overlay",
+      "surface": "pale_shore",
+      "water": "transparent_base_required",
+      "composition": "overlay",
+      "outerBlock": [
+        10,
+        20,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        13,
+        20,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        12,
+        16
+      ]
+    },
+    {
+      "id": "lpc_pond_deep_basin",
+      "label": "LPC Deep-Water Basin",
+      "surface": "deep_water",
+      "water": "ocean_deep",
+      "composition": "composited",
+      "outerBlock": [
+        0,
+        23,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        3,
+        23,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        1,
+        24
+      ]
+    },
+    {
+      "id": "lpc_pond_depth_ring_overlay_a",
+      "label": "LPC Depth-Ring Overlay A",
+      "surface": "depth_ring",
+      "water": "transparent_base_required",
+      "composition": "overlay",
+      "outerBlock": [
+        5,
+        23,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        8,
+        23,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        1,
+        24
+      ]
+    },
+    {
+      "id": "lpc_pond_depth_ring_overlay_b",
+      "label": "LPC Depth-Ring Overlay B",
+      "surface": "depth_ring",
+      "water": "transparent_base_required",
+      "composition": "overlay",
+      "outerBlock": [
+        10,
+        23,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        13,
+        23,
+        2,
+        2
+      ],
+      "minimumSize": [
+        3,
+        3
+      ],
+      "supportsRectangle": true,
+      "supportsFreeform": true,
+      "exposeAsStamp": true,
+      "baseFillCell": [
+        1,
+        24
+      ]
+    }
+  ]
+}

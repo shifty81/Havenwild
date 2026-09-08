@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z30",
+  "title": "Multi-Family LPC Contours and Surface Maintenance Throttle",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Composed exact LPC transition families per 16x16 quadrant so one cell can preserve shoreline, depth-rim, and inner-corner roles together.",
+    "Included diagonal land contacts in the first shallow-water boundary ring to complete single-cell grass and sand island corners.",
+    "Replaced the axis-aligned lake dilation profile with one rotated signed-distance contour for deep, shallow, and mud-bank bands.",
+    "Throttled generated-surface maintenance to four checks per second and reconciled hydrology only when stable residency changes.",
+    "Added Pass 167Z30 retained-surface telemetry for active state, rebuild count, and draw count."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "pythonCompilation": "passed",
+    "bashSyntax": "passed",
+    "rustStructuralChecks": "passed",
+    "cargo": "pending Windows workstation rerun",
+    "liveAcceptance": "verify grass/sand inner corners, pond/coast compound cells, scene-surface telemetry, and FPS"
+  },
+  "completeSourceCreated": false
+}

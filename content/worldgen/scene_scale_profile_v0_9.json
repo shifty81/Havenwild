@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.scene_scale_profile.v0_9",
+  "runtimeSceneTiles": [96, 64],
+  "legacySceneTiles": [48, 32],
+  "largeSceneTargetTiles": [144, 96],
+  "cityDistrictTargetTiles": [192, 128],
+  "tileSizePixels": [32, 32],
+  "policy": {
+    "currentRuntimeProfile": "expanded_standard",
+    "legacyLoadMode": "center_and_promote",
+    "saveOnNextWrite": "rewrite_as_96x64",
+    "generatedIslandScenes": "generate_directly_at_runtimeSceneTiles",
+    "futureLargeScenes": "requires_per_scene_dynamic_dimensions_before activation"
+  },
+  "migrationCoverage": [
+    "terrain",
+    "height",
+    "zones",
+    "objects",
+    "stamps",
+    "scene_spawn",
+    "autotile_overrides",
+    "transition_rectangles",
+    "transition_target_spawns"
+  ],
+  "performance": {
+    "runtimeTerrainDrawing": "camera-culled",
+    "cullingPaddingTiles": 2,
+    "sceneTileCount": 6144,
+    "legacyTileCount": 1536
+  },
+  "notes": [
+    "The 96x64 runtime profile doubles each legacy dimension and provides four times the local playable area.",
+    "The 144x96 profile is retained as the next large-scene target, but is not activated until SceneMap dimensions become per-scene rather than global.",
+    "Existing 48x32 saves remain loadable and are promoted non-destructively when saved again."
+  ]
+}

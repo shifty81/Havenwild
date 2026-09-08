@@ -1,0 +1,63 @@
+{
+  "schema": "havenwild.characters.npc_generation_profiles.r43.v1",
+  "pass": "167Z109W81R43",
+  "identityKinds": [
+    "profile",
+    "preset",
+    "instance"
+  ],
+  "profileInheritance": true,
+  "stableIdentity": [
+    "character_id",
+    "generation_seed",
+    "profile_id",
+    "profile_version",
+    "original_recipe",
+    "current_recipe"
+  ],
+  "profiles": [
+    "villager",
+    "farmer",
+    "rancher",
+    "fisher",
+    "miner",
+    "blacksmith",
+    "carpenter",
+    "tailor",
+    "cook",
+    "brewer",
+    "innkeeper",
+    "merchant",
+    "shopkeeper",
+    "guard",
+    "bandit",
+    "traveler",
+    "sailor",
+    "dockworker",
+    "scholar",
+    "healer",
+    "hunter",
+    "forester",
+    "skinner",
+    "alchemist",
+    "mage",
+    "noble",
+    "child",
+    "elder"
+  ],
+  "randomizeScopes": [
+    "everything",
+    "appearance",
+    "outfit",
+    "equipment",
+    "colors"
+  ],
+  "locks": [
+    "species",
+    "body",
+    "hair",
+    "wardrobe_slot",
+    "equipment_slot",
+    "color"
+  ]
+}

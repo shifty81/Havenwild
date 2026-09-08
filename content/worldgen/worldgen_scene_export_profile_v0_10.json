@@ -1,0 +1,36 @@
+{
+  "id": "worldgen_scene_export_profile_v0_10",
+  "version": "0.10.0",
+  "kind": "editor_runtime_export_profile",
+  "sourcePack": "content/worldgen/packs/worldgen_home_island_v0_10.json",
+  "exportPack": "content/worldgen/packs/worldgen_home_island_runtime_export_v0_10.json",
+  "exportSceneDirectory": "content/worldgen/exports/home_island_v0_10",
+  "backupDirectory": "workspace/worldgen_backups",
+  "runtimeExporter": "crates/haven_core/src/worldgen_exporter.rs",
+  "runtimeMethod": "GameWorld::export_worldgen_pack_path",
+  "uiEntryPoints": [
+    "F11 in dev mode",
+    "World tab Export button"
+  ],
+  "roundTripFields": [
+    "terrain layer",
+    "zones layer",
+    "objects[].visualRect",
+    "objects[].collisionRect",
+    "objects[].interactions[].rect",
+    "objects[].blocksMovement",
+    "objects[].occludesPlayer",
+    "objects[].fadeWhenPlayerBehind",
+    "transitions[].rect",
+    "transitions[].toScene",
+    "transitions[].toSpawn",
+    "spawns[].tile"
+  ],
+  "validationRules": [
+    "exporter source exists",
+    "game references v0.10 pack",
+    "game exposes F11 export",
+    "loader reads blocksMovement and occludesPlayer",
+    "pack declares sceneExportProfile"
+  ]
+}

@@ -1,0 +1,9 @@
+PASS 165T — DATA-DRIVEN CRAFTING CATALOG
+
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+ADD       content/crafting/havenwild_crafting_catalog_v0_1.json
+ADD       docs/patch/PASS_165T_DATA_DRIVEN_CRAFTING_CATALOG.md
+ADD       manifests/PASS_165T_MANIFEST.txt
+
+DELETE    none
+BASE      Havenwild Pass 165S lineage

@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z51",
+  "date": "2026-08-03",
+  "title": "Structural Character Preview Repair",
+  "status": "ready_for_windows_build",
+  "changes": [
+    "Replace brittle preview geometry matching with Rust function-boundary replacement",
+    "Install the canonical 64x96 layered LPC creator preview",
+    "Preserve Z49 title, collision, nature-grid, and water identity repairs",
+    "Route Bash and PowerShell builds to the Z51 migration"
+  ],
+  "localValidation": {
+    "pythonCompile": true,
+    "migrationFixture": true,
+    "idempotence": true,
+    "validateOnly": true,
+    "cargo": false,
+    "reasonCargoNotRun": "Rust toolchain is unavailable in the artifact environment"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z46",
+  "title": "Frontend and Runtime Surface Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Confirmed Pass 167Z45 restored the save module surface and advanced Cargo checking through all workspace crates into haven_game.",
+    "Added an idempotent pre-Cargo migration for baseline-owned frontend, creator-model, and HUD files so only missing API surfaces are repaired.",
+    "Restored canonical main-menu hit rectangles, explicit HeadwearKind labels/cycling, and source-compatible frontend music lifecycle hooks.",
+    "Updated legacy HUD character-frame calls to the action-aware five-argument API and restored layered LPC head-and-shoulders portrait drawing.",
+    "Restored per-world character-links storage and compatibility loading for persisted character vitals.",
+    "Extended the cumulative overwrite lineage through Pass 167Z46."
+  ],
+  "validation": {
+    "windowsFailureDiagnosis": "confirmed from build log",
+    "focusedFrontendRuntimeValidator": "passed",
+    "legacyMigrationFixture": "passed",
+    "migrationIdempotence": "passed",
+    "pythonCompilation": "passed",
+    "bashSyntax": "passed",
+    "projectJsonParsing": "passed",
+    "rustStructuralChecks": "passed",
+    "titleMusicPlayback": "not claimed; lifecycle hooks are silent until a licensed runtime track is bound",
+    "rustFormatting": "pending Windows workstation run; rustfmt unavailable in packaging environment",
+    "completeBuildAll": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

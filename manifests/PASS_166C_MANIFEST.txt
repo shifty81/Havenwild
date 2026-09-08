@@ -1,0 +1,35 @@
+PASS 166C — CLASSES, VITALS, AND HOTBAR ACTION AUTHORITY
+Base lineage: Pass 166B Normalized Progression Authority
+Packaging: overwrite-capable incremental patch; no complete source rollup
+
+ADD content/progression/havenwild_character_vitals_v0_1.json
+OVERWRITE content/progression/havenwild_progression_catalog_v0_1.json
+ADD crates/haven_core/src/character_vitals.rs
+OVERWRITE crates/haven_core/src/lib.rs
+OVERWRITE crates/haven_core/src/progression.rs
+ADD crates/haven_save/src/character_vitals.rs
+OVERWRITE crates/haven_save/src/lib.rs
+OVERWRITE crates/haven_save/src/character_profiles.rs
+ADD crates/haven_game/src/character_vitals_runtime.rs
+OVERWRITE crates/haven_game/src/main.rs
+OVERWRITE crates/haven_game/src/game_bootstrap.rs
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE crates/haven_game/src/client_pause_menu.rs
+OVERWRITE crates/haven_game/src/gameplay_hotbar.rs
+OVERWRITE crates/haven_game/src/runtime_hud.rs
+OVERWRITE crates/haven_game/src/runtime_input.rs
+OVERWRITE crates/haven_game/src/runtime_persistence.rs
+OVERWRITE crates/haven_game/src/runtime_scene_navigation.rs
+OVERWRITE crates/haven_game/src/character_world_sync.rs
+OVERWRITE tools/automation/validation/validate_content_integrity.py
+ADD docs/patch/PASS_166C_CLASSES_VITALS_HOTBAR_AUTHORITY.md
+ADD manifests/PASS_166C_MANIFEST.txt
+
+Certification performed in packaging environment:
+- ZIP integrity
+- progression and vitals JSON validation
+- Python validator syntax validation
+- active content-integrity suite: PASS
+
+Local certification required:
+tools/build/Build.cmd all

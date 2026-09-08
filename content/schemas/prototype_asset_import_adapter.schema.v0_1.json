@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.prototype_asset_import_adapter.schema.v0_1",
+  "title": "Havenwild Prototype Asset Import Adapter v0.1",
+  "type": "object",
+  "required": ["schema", "id", "externalSourceId", "sourceMode", "copyMode", "licenseGate", "sourceInputs", "outputPlan", "releaseGate"],
+  "properties": {
+    "schema": { "const": "havenwild.prototype_asset_import_adapter.v0_1" },
+    "id": { "type": "string", "minLength": 1 },
+    "displayName": { "type": "string" },
+    "externalSourceId": { "type": "string", "minLength": 1 },
+    "sourceMode": { "enum": ["user_supplied_or_quarantine", "reference_quarantine_only"] },
+    "copyMode": { "enum": ["no_raw_copy", "metadata_stub_only"] },
+    "licenseGate": { "type": "object" },
+    "sourceInputs": { "type": "array", "items": { "type": "object" }, "minItems": 1 },
+    "processing": { "type": "object" },
+    "outputPlan": { "type": "object" },
+    "releaseGate": { "type": "object" },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}

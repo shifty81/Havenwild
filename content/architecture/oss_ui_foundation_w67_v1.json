@@ -1,0 +1,34 @@
+{
+  "schema": "havenwild.architecture.oss_ui_foundation.w67.v1",
+  "pass": "167Z109W67",
+  "authority": "Havenwild-owned adapters",
+  "activatedForCertification": [
+    {
+      "crate": "taffy",
+      "version": "0.13",
+      "role": "layout engine behind Havenwild UI boundary"
+    },
+    {
+      "crate": "cosmic-text",
+      "version": "0.19",
+      "role": "future editor text shaping/cache authority behind Havenwild boundary"
+    },
+    {
+      "crate": "accesskit",
+      "version": "0.24.1",
+      "role": "accessibility semantics for custom UI"
+    },
+    {
+      "crate": "rfd",
+      "version": "0.17.2",
+      "role": "native dialogs"
+    },
+    {
+      "crate": "arboard",
+      "version": "3.6.1",
+      "role": "system clipboard"
+    }
+  ],
+  "boundaryCrate": "crates/haven_ui",
+  "rule": "Third-party types do not enter game saves, asset schemas, editor documents, or public IPC/contracts."
+}

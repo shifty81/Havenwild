@@ -1,0 +1,39 @@
+{
+  "schema": "havenwild.global_surface_grid_authority.v0_1",
+  "revision": "167Z79-global-surface-grid-cross-partition-f3-v1",
+  "status": "terrain-runtime-authority",
+  "coordinateContract": {
+    "worldOrigin": "top-left of global surface grid",
+    "positiveX": "east/right",
+    "positiveY": "south/down",
+    "yAxisInverted": false,
+    "partitionAddressing": "Euclidean global-tile division by MAP_W/MAP_H",
+    "negativeCoordinates": "div_euclid/rem_euclid preserve valid local cells"
+  },
+  "runtimeTerrain": {
+    "playerFacingSceneTransitions": false,
+    "storagePartitions": true,
+    "visibleTerrainSource": "one global tile window across loaded PCG partitions",
+    "activeSceneTerrainOverlay": false,
+    "crossPartitionTupleSampling": true,
+    "missingLoadedNeighborPolicy": "skip until preload integration; never duplicate active map",
+    "authoredStyle": "V7 source-pure tuple atlas"
+  },
+  "f3TerrainAuthoring": {
+    "screenPickSpace": "global surface coordinates",
+    "brushClippingAtPartitionBoundary": false,
+    "multiPartitionStroke": true,
+    "undoScope": "whole stroke across every touched partition",
+    "exactMode": "changes only selected global cells",
+    "coastHydrologyMode": "applies explicit per-partition repair after global writes",
+    "crossPartitionObjects": "deferred",
+    "crossPartitionZones": "deferred",
+    "crossPartitionElevation": "deferred"
+  },
+  "remainingOpenWorldWork": [
+    "Route objects, stamps, NPCs, effects, collision previews, zones, elevation and World Paint through the same global cell address.",
+    "Replace the active-partition minimap with a global streamed map model.",
+    "Add M-key full map with pan, zoom, layers, discovered fog, markers and waypoints after surface terrain certification.",
+    "Move save deltas from active-scene assumptions to partition-addressed global edit records."
+  ]
+}

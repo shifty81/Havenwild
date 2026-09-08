@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.universal_lpc_character_conformance_lab.v1",
+  "seed": 1671097510,
+  "purpose": "Generated developer character/gameplay world used to certify one Universal LPC recipe/resolver across editor, player, NPC and gameplay paths.",
+  "districts": [
+    {"id":"body_lineup","tests":["male","female","teen","child","muscular","pregnant"]},
+    {"id":"clothing_gallery","tests":["legs","pants","leggings","skirts","feet","boots","shoes","torso","headwear","armor"]},
+    {"id":"animation_lanes","tests":["idle","walk","run","jump","sit","emote","climb","hurt"]},
+    {"id":"combat_yard","tests":["spellcast","thrust","slash","shoot","combat","1h_slash","1h_backslash","1h_halfslash","shield_block"]},
+    {"id":"forestry_plot","tests":["axe_chop"]},
+    {"id":"mining_wall","tests":["pickaxe_mine"]},
+    {"id":"farm_plot","tests":["hoe_till","watering_can_water","scythe_cut"]},
+    {"id":"construction_bay","tests":["hammer_build"]},
+    {"id":"shore_fishing","tests":["rod_fish"]},
+    {"id":"dig_plot","tests":["shovel_dig"]},
+    {"id":"weapon_range","tests":["whip","melee","ranged","magic","shield"]},
+    {"id":"npc_square","tests":["deterministic_population","outfit_profiles","same_recipe_resolver"]},
+    {"id":"portrait_wall","tests":["player_portrait","npc_portrait","runtime_parity"]}
+  ],
+  "requiredChecks": [
+    "definition_schema",
+    "body_path_compatibility",
+    "animation_file_presence",
+    "animation_dimensions",
+    "z_order",
+    "foreground_background_order",
+    "standard_frame_bottom_alignment",
+    "custom_animation_geometry",
+    "pants_boots_overlap",
+    "recipe_roundtrip",
+    "npc_recipe_determinism",
+    "tool_weapon_binding",
+    "gameplay_contact_timing",
+    "license_provenance"
+  ]
+}

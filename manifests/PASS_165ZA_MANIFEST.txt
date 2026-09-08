@@ -1,0 +1,3 @@
+crates/haven_game/src/client_frontend.rs
+docs/patch/PASS_165ZA_FRONTEND_CLIPPY_REGRESSION_REPAIR.md
+manifests/PASS_165ZA_MANIFEST.txt

@@ -1,0 +1,82 @@
+{
+  "schema": "havenwild.source_rollup_policy.v1",
+  "policyId": "H21A14AB29-lean-reproducible-source",
+  "purpose": "Keep normal Complete Source Rollups small while preserving everything that cannot be reconstructed from pinned dependencies, authored contracts, or the build/bootstrap pipeline.",
+  "normalRollup": {
+    "sourceAuthority": "code + manifests + schemas + current project metadata + Havenwild-owned source art",
+    "excludePrefixes": [
+      "assets/generated/",
+      "assets/source/licensed/",
+      "WORKSPACE/generated/",
+      "WORKSPACE/dev_bridge/",
+      "WORKSPACE/test-output/",
+      "WORKSPACE/saves/",
+      "WORKSPACE/recovery/",
+      "WORKSPACE/profiles/",
+      "docs/archive/",
+      "docs/legacy_project_docs/",
+      "docs/handoffs/",
+      "docs/patch/",
+      "manifests/handoffs/",
+      "manifests/packages/",
+      "manifests/patches/",
+      "manifests/recovery/",
+      "manifests/rollups/",
+      "docs/audits/generated/",
+      "docs/audits/reference/",
+      "docs/assets/previews/"
+    ],
+    "excludeExactPaths": [
+      "content/audio/music/frontend/Harp.wav",
+      "content/audio/music/frontend/Harp.ogg",
+      "content/assets/lpc/universal_lpc_complete_repository_index_v0_1.json.gz",
+      "content/assets/lpc/universal_lpc_equipment_action_catalog_v0_1.json",
+      "content/assets/lpc/universal_lpc_gameplay_item_seed_catalog_v0_1.json",
+      "content/assets/lpc/universal_lpc_complete_repository_summary_v0_1.json",
+      "content/assets/lpc/universal_lpc_normalized_character_catalog_v1.json.gz",
+      "content/assets/lpc/universal_lpc_normalized_character_catalog_summary_v1.json",
+      "content/assets/lpc/lpc_slice_catalog_v0_1.json",
+      "content/assets/lpc/lpc_slice_catalog_v0_1.json.gz",
+      "content/assets/lpc/lpc_asset_library_bundle_v0_1.json.gz",
+      "content/assets/lpc/lpc_character_sheet_catalog_v0_1.json",
+      "content/assets/lpc/lpc_character_animation_catalog_v0_1.json",
+      "content/assets/lpc/lpc_character_repository_inventory_v0_1.json",
+      "content/assets/lpc/lpc_character_production_catalog_v0_1.json",
+      "content/assets/intake/external_pack_indexes/elizawy_lpc_main.json",
+      "content/assets/intake/external_sprite_library_catalog_v0_1.json"
+    ],
+    "excludeNamePatterns": [
+      "cumulative_patch_manifest_pass*.json",
+      "cumulative_patch_checksums_pass*.sha256"
+    ],
+    "alwaysRetainPrefixes": [
+      "assets/source/original/",
+      "content/ui/",
+      "content/assets/lpc/licenses/",
+      "content/assets/oga_lpc/licenses/",
+      "content/legal/"
+    ]
+  },
+  "bootstrapAuthority": {
+    "frontendMusic": "tools/automation/audio/Ensure-FrontendMusicV167Z56.py",
+    "pinnedLpc": "tools/automation/dependencies/Ensure-LpcDependency.py",
+    "universalLpc": "tools/automation/characters/Ensure-UniversalLpcGenerator.py",
+    "universalLpcIndexes": "tools/automation/characters/Build-UniversalLpcCompleteRepositoryIndexV167Z7.py",
+    "runtimeCaches": [
+      "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py",
+      "tools/automation/assets/Promote-LpcRuntimeAssets.py"
+    ],
+    "curatedOgaLpc": "tools/automation/assets/Acquire-OgaLpcGameplayBatchV167S.py",
+    "elizawyDerivedCatalogs": "tools/automation/characters/Build-LpcLegacyCharacterCatalogsV1.py",
+    "elizawySliceCatalog": "tools/automation/assets/Promote-LpcRuntimeAssets.py",
+    "elizawyExternalPackIndex": "tools/automation/assets/Build-ElizaWyExternalPackIndexV1.py",
+    "externalSpriteLibraryCatalog": "optional/editor-review cache; regenerate with tools/automation/assets/Catalog-ExternalSpriteLibrary.py when machine-local external roots are configured"
+  },
+  "important": [
+    "Downloaded third-party archives and generated runtime caches are not normal source-rollup authority.",
+    "Havenwild-owned original/source artwork is retained until a separately recoverable project-owned content store exists.",
+    "Normal incremental patches still carry changed authoritative files; this policy only changes complete source rollups.",
+    "Use a recovery/offline package when a self-contained no-network snapshot is required.",
+    "Large external-pack/sprite-library inventories are generated metadata caches, not normal source-rollup authority; pinned source/provider manifests remain authoritative."
+  ]
+}

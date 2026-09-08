@@ -1,0 +1,61 @@
+{
+  "schema": "havenwild.player_facing_ui_contract.v1",
+  "revision": "H21A14AB28",
+  "mainMenu": {
+    "authority": "existing_title_menu_art_and_frontend_layout",
+    "preserveCurrentVisualDirection": true,
+    "batchMutationAllowed": false
+  },
+  "visualLanguage": {
+    "theme": "cozy_dark_wood_brass_parchment",
+    "sharedRuntimeTheme": "crates/haven_game/src/runtime_ui_theme.rs",
+    "rules": [
+      "one shared runtime palette and panel vocabulary after entering gameplay",
+      "icon-first hotbar with text as secondary identification",
+      "long labels clip or elide instead of overlapping neighboring controls",
+      "keyboard/controller hints are compact badges rather than permanent instruction walls",
+      "player mode never renders developer diagnostics as a second HUD",
+      "development diagnostics stay compact and visibly separate from player HUD"
+    ]
+  },
+  "surfaces": {
+    "gameplayHud": {
+      "authority": "runtime_hud",
+      "owns": ["portrait", "scene", "equipped_main_hand", "stamina", "tool_belt", "minimap"],
+      "itemAuthority": "equipped main-hand item drives gameplay action; tool-belt selection alone cannot conjure a tool"
+    },
+    "inventoryEquipment": {
+      "authority": "player_inventory_ui",
+      "owns": ["equipment_slots", "backpack", "selection", "drag_drop", "stack_split", "equip_unequip"]
+    },
+    "crafting": {
+      "authority": "player_inventory_ui",
+      "owns": ["station", "input_grid", "recipes", "queue", "fuel", "output", "progress", "batch"]
+    },
+    "map": {
+      "authority": "runtime_world_map",
+      "owns": ["world_map", "exploration", "pan", "zoom", "player_center", "minimap"],
+      "boundedExteriorRule": "Home Estate minimap uses its local scene and never rebuilds a continuous-surface manifest per HUD frame"
+    },
+    "pauseSettings": {
+      "authority": "client_pause_menu",
+      "owns": ["resume", "save", "settings", "controls", "controller", "return_to_menu", "quit"]
+    },
+    "statusAndNotifications": {
+      "authority": "runtime player UI",
+      "owns": ["context_feedback", "crafting_completion", "errors", "save_feedback"],
+      "presentation": "compact transient cards/toasts"
+    }
+  },
+  "input": {
+    "mouse": true,
+    "keyboard": true,
+    "controller": true,
+    "focusRule": "one active UI surface owns action input at a time"
+  },
+  "responsive": {
+    "elideLongLabels": true,
+    "compactHotbarBelowWideDesktop": true,
+    "doNotOverlapMinimapOrVitals": true
+  }
+}

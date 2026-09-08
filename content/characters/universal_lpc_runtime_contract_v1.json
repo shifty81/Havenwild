@@ -1,0 +1,48 @@
+{
+  "schema": "havenwild.universal_lpc_runtime_contract.v1",
+  "authority": "Universal LPC metadata is visual-composition authority; Havenwild character recipes and gameplay items are semantic authority.",
+  "sourceFrameCell": [64, 64],
+  "runtimeFrameCell": [64, 96],
+  "directionOrder": ["north", "west", "south", "east"],
+  "bodyTypes": ["male", "female", "teen", "child", "muscular", "pregnant"],
+  "legacyContracts": [
+    {
+      "path": "content/animations/character_animation_contract_v0_10.json",
+      "status": "compatibility_only",
+      "rule": "Must not define Universal LPC source geometry, body compatibility, equipment layer order, or frame cycles."
+    }
+  ],
+  "animations": [
+    {"id":"spellcast","sourceRow":0,"directionRows":4,"cycle":[0,1,2,3,4,5,6],"contactCycleIndex":4},
+    {"id":"thrust","sourceRow":4,"directionRows":4,"cycle":[0,1,2,3,4,5,6,7],"contactCycleIndex":5},
+    {"id":"walk","sourceRow":8,"directionRows":4,"cycle":[1,2,3,4,5,6,7,8]},
+    {"id":"slash","sourceRow":12,"directionRows":4,"cycle":[0,1,2,3,4,5],"contactCycleIndex":3},
+    {"id":"shoot","sourceRow":16,"directionRows":4,"cycle":[0,1,2,3,4,5,6,7,8,9,10,11,12],"contactCycleIndex":7},
+    {"id":"hurt","sourceRow":20,"directionRows":1,"cycle":[0,1,2,3,4,5]},
+    {"id":"climb","sourceRow":21,"directionRows":1,"cycle":[0,1,2,3,4,5]},
+    {"id":"idle","sourceRow":22,"directionRows":4,"cycle":[0,0,1]},
+    {"id":"jump","sourceRow":26,"directionRows":4,"cycle":[0,1,2,3,4,1]},
+    {"id":"sit","sourceRow":30,"directionRows":4,"cycle":[0,0,0,0,0,1,1,1,1,1,2,2,2,2,2]},
+    {"id":"emote","sourceRow":34,"directionRows":4,"cycle":[0,0,0,0,0,1,1,1,1,1,2,2,2,2,2]},
+    {"id":"run","sourceRow":38,"directionRows":4,"cycle":[0,1,2,3,4,5,6,7]},
+    {"id":"watering","sourceRow":4,"directionRows":4,"cycle":[0,1,4,4,4,4,5],"contactCycleIndex":3},
+    {"id":"combat","sourceRow":42,"directionRows":4,"cycle":[0,0,1]},
+    {"id":"1h_slash","sourceRow":46,"directionRows":4,"cycle":[0,1,2,3,4,5,6],"contactCycleIndex":4},
+    {"id":"1h_backslash","sourceRow":46,"directionRows":4,"cycle":[0,1,2,3,4,5,7,8,9,10,11,12],"contactCycleIndex":5},
+    {"id":"1h_halfslash","sourceRow":50,"directionRows":4,"cycle":[0,1,2,3,4,5],"contactCycleIndex":3}
+  ],
+  "customAnimationGeometry": {
+    "supportedFrameSizes": [64, 128, 192],
+    "mustPreserveSourceGeometry": true,
+    "mustPreserveForegroundBackgroundLayers": true,
+    "mustPreserveZPos": true
+  },
+  "runtimeRules": {
+    "standardFramesBottomAlignIntoRuntimeCell": true,
+    "equipmentMayExtendOutsideRuntimeCell": true,
+    "sourceAtlasesAreImmutable": true,
+    "derivedEditsRetainProvenance": true,
+    "playerNpcAndEditorUseSameResolver": true,
+    "gameplayContactUsesAnimationCycle": true
+  }
+}

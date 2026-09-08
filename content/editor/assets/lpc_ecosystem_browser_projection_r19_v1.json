@@ -1,0 +1,173 @@
+{
+  "schema": "havenwild.asset_browser.lpc_ecosystem_projection.r19.v1",
+  "baseline": "W81R17",
+  "browserAuthority": "content/editor/assets/universal_asset_browser_v2_r19_v1.json",
+  "snapshot": "content/assets/lpc/lpc_ecosystem_intake_snapshot_r18_r28_v1.json",
+  "presentation": {
+    "primaryNavigation": "semantic_category_tree_plus_virtualized_thumbnail_grid",
+    "pagination": "not_primary",
+    "search": true,
+    "statusBadges": true,
+    "licenseBadges": true,
+    "sourceVisibleBeforeRuntimeBinding": true
+  },
+  "categoryProjection": {
+    "Characters/Accessories": {
+      "catalogCount": 41,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Characters/Armor": {
+      "catalogCount": 198,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Characters/Bases": {
+      "catalogCount": 14306,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Characters/Hair": {
+      "catalogCount": 2622,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Characters/Head & Face": {
+      "catalogCount": 2210,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Characters/Headwear": {
+      "catalogCount": 22001,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Characters/Other Layers": {
+      "catalogCount": 28987,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Characters/Special Anatomy": {
+      "catalogCount": 6400,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Characters/Wardrobe": {
+      "catalogCount": 12909,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Items/Shields": {
+      "catalogCount": 1351,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Items/Tools": {
+      "catalogCount": 190,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "Items/Weapons": {
+      "catalogCount": 1933,
+      "source": "Universal LPC",
+      "state": "catalogued"
+    },
+    "OpenGameArt Discovery/Characters": {
+      "catalogCount": 4,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Creatures": {
+      "catalogCount": 1,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Equipment": {
+      "catalogCount": 2,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Farming": {
+      "catalogCount": 3,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Fishing": {
+      "catalogCount": 1,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Food": {
+      "catalogCount": 2,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Forestry": {
+      "catalogCount": 1,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Interiors": {
+      "catalogCount": 2,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Mining": {
+      "catalogCount": 2,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Optional Theme": {
+      "catalogCount": 1,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Professions": {
+      "catalogCount": 5,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Structures": {
+      "catalogCount": 1,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Tavern": {
+      "catalogCount": 1,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Terrain": {
+      "catalogCount": 2,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    },
+    "OpenGameArt Discovery/Travel": {
+      "catalogCount": 1,
+      "source": "OpenGameArt discovery packs",
+      "state": "discovered_requires_exact_file_provenance"
+    }
+  },
+  "requiredBadges": [
+    "Production Ready",
+    "Needs Setup",
+    "ShareAlike",
+    "Reference Only",
+    "Blocked"
+  ],
+  "requiredFilters": [
+    "domain",
+    "category",
+    "subcategory",
+    "provider",
+    "license_tier",
+    "production_state",
+    "runtime_readiness",
+    "animated",
+    "interactive",
+    "biome",
+    "season",
+    "body_family",
+    "animation_family"
+  ]
+}

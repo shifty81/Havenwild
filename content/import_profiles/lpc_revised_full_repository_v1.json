@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.import_profile.v1",
+  "id": "lpc_revised.full_repository.v1",
+  "provider": "lpc_revised_repository_inventory",
+  "source_root": "assets/source/licensed/lpc_revised",
+  "recursive": true,
+  "recognized_extensions": [
+    ".png", ".gif", ".jpg", ".jpeg", ".webp", ".tsx", ".tmx", ".json",
+    ".xml", ".ron", ".txt", ".md", ".license", ".ogg", ".wav", ".mp3"
+  ],
+  "image_profiles": [
+    {"id": "world_tile_32", "cell": [32, 32]},
+    {"id": "character_64x64", "cell": [64, 64]},
+    {"id": "havenwild_character_64x96", "cell": [64, 96]}
+  ],
+  "character_animation_tokens": [
+    "walkcycle", "idle", "slash", "thrust", "spellcast", "shoot", "hurt", "death"
+  ],
+  "license_file_tokens": [
+    "license", "licence", "copying", "authors", "credits", "attribution", "readme"
+  ],
+  "output": "WORKSPACE/generated/lpc_revised_inventory_v1.json"
+}

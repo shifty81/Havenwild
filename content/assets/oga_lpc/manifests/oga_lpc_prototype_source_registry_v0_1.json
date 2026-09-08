@@ -1,0 +1,692 @@
+{
+  "schema": "havenwild.oga_lpc_prototype_source_registry.v0_1",
+  "revision": "H21A14AB18",
+  "purpose": "Curated LPC/OpenGameArt authoring dependencies for Havenwild terrain, hydrology, ecology, farming, settlements, tools, workshops, taverns, creature combat, magic effects, and UI reference. Raw source remains governed and never silently becomes gameplay authority.",
+  "policy": {
+    "rawSourceLocation": "assets/source/licensed/oga_lpc_prototypes",
+    "rawSourcesPackagedInRollups": false,
+    "runtimePromotionAutomatic": false,
+    "sourcePixelsDefineGameplay": false,
+    "licensePerSource": true,
+    "shareAlikeDerivativesStayInTaggedProviderLane": true,
+    "creditsMustTravelWithPromotedDerivatives": true,
+    "preferredPrototypeLicenses": [
+      "CC0-1.0",
+      "CC-BY-4.0",
+      "CC-BY-3.0",
+      "OGA-BY-3.0"
+    ],
+    "conditionalPrototypeLicenses": [
+      "CC-BY-SA-4.0",
+      "CC-BY-SA-3.0"
+    ]
+  },
+  "sources": [
+    {
+      "id": "elizawy.4_season_terrain",
+      "title": "[LPC Revised] 4-Season Terrain",
+      "sourcePage": "https://opengameart.org/content/lpc-revised-4-season-terrain",
+      "acquisition": "existing_pinned_elizawy_repository",
+      "selectedLicense": "OGA-BY-3.0",
+      "authors": [
+        "Eliza Wyatt (DeathsDarling)",
+        "Lanea Zimmerman (Sharm)",
+        "Hyptosis",
+        "Stephen Challener (Redshrike)",
+        "Demetrius"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "terrain.seasonal_surface",
+        "terrain.detail",
+        "structural.cliff",
+        "structural.rim",
+        "structural.ramp",
+        "structural.vine",
+        "structural.ladder",
+        "hydrology.animated_water",
+        "hydrology.waterfall",
+        "hydrology.frozen_waterfall",
+        "ecology.trees",
+        "ecology.bushes",
+        "ecology.flowers",
+        "geology.rocks"
+      ],
+      "localSourceRoot": "assets/source/licensed/lpc_revised",
+      "runtimePolicy": "primary_existing_provider; exact semantic role promotion required"
+    },
+    {
+      "id": "oga.lpc.caves",
+      "title": "LPC Caves",
+      "sourcePage": "https://opengameart.org/content/lpc-caves",
+      "directUrl": "https://opengameart.org/sites/default/files/caves.png",
+      "fileName": "caves.png",
+      "selectedLicense": "CC0-1.0",
+      "authors": [
+        "Lanea Zimmerman (Sharm)"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "cave.entrance",
+        "cave.wall",
+        "cave.corner",
+        "cave.front_ridge",
+        "cave.floor"
+      ]
+    },
+    {
+      "id": "oga.lpc.cave_openings",
+      "title": "LPC Additional Mountain and Cave Opening Tiles",
+      "sourcePage": "https://opengameart.org/content/lpc-additional-mountain-and-cave-opening-tiles",
+      "directUrl": "https://opengameart.org/sites/default/files/cave-opening.png",
+      "fileName": "cave-opening.png",
+      "selectedLicense": "CC0-1.0",
+      "authors": [
+        "Lanea Zimmerman (Sharm)"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "cave.entrance_large",
+        "cave.entrance_tileable",
+        "cave.corner_extra",
+        "cave.front_ridge_variant"
+      ]
+    },
+    {
+      "id": "oga.lpc.mine",
+      "title": "[LPC] Mine",
+      "sourcePage": "https://opengameart.org/content/lpc-mine",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-mine.zip",
+      "fileName": "lpc-mine.zip",
+      "selectedLicense": "CC-BY-4.0",
+      "authors": [
+        "bluecarrot16",
+        "Lanea Zimmerman (Sharm)",
+        "Ivan Voirol"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "cave.mine_entrance",
+        "cave.mineshaft",
+        "resource.ore_pile",
+        "resource.mining_tools",
+        "settlement.mine_worksite",
+        "animation.crane"
+      ]
+    },
+    {
+      "id": "oga.lpc.farm",
+      "title": "[LPC] Farm",
+      "sourcePage": "https://opengameart.org/content/lpc-farm",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-farm.zip",
+      "fileName": "lpc-farm.zip",
+      "selectedLicense": "CC-BY-4.0",
+      "authors": [
+        "bluecarrot16",
+        "Wolthera van H\u00f6vell tot Westerflier (TheraHedwig)",
+        "Ivan Voirol"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "settlement.farm_barn",
+        "settlement.farm_silo",
+        "settlement.farm_granary",
+        "settlement.farm_coop",
+        "settlement.farm_apiary",
+        "settlement.farm_stable",
+        "route.fence",
+        "machine.windmill",
+        "machine.water_wheel",
+        "machine.food_processing"
+      ]
+    },
+    {
+      "id": "oga.lpc.animated_water",
+      "title": "LPC Animated Water and waterfalls",
+      "sourcePage": "https://opengameart.org/content/lpc-animated-water-and-waterfalls",
+      "directUrl": "https://opengameart.org/sites/default/files/wateranimate2.png",
+      "fileName": "wateranimate2.png",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "ZaPaper",
+        "Original LPC contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "hydrology.water_surface_animation",
+        "hydrology.water_glint",
+        "hydrology.waterfall_animation",
+        "shore.ripple_overlay"
+      ]
+    },
+    {
+      "id": "oga.lpc.cavern_ruins",
+      "title": "[LPC] Cavern and ruin tiles",
+      "sourcePage": "https://opengameart.org/content/lpc-cavern-and-ruin-tiles",
+      "directUrl": "https://opengameart.org/sites/default/files/LPC_cavern_ruins.zip",
+      "fileName": "LPC_cavern_ruins.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "Reemax",
+        "Sharm",
+        "Hyptosis",
+        "Johann C",
+        "HughSpectrum",
+        "Redshrike",
+        "William Thompson",
+        "wulax"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "cave.interior",
+        "cave.ruin",
+        "cave.track",
+        "cave.crystal",
+        "hydrology.underground_water",
+        "hazard.lava"
+      ]
+    },
+    {
+      "id": "oga.lpc.basalt_caverns",
+      "title": "[LPC] Basalt Column Caverns",
+      "sourcePage": "https://opengameart.org/content/lpc-basalt-column-caverns",
+      "directUrl": "https://opengameart.org/sites/default/files/BasaltColumns.png",
+      "fileName": "BasaltColumns.png",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "Eliza Wyatt"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "cave.biome_basalt",
+        "geology.basalt_cliff",
+        "cave.deep_wall"
+      ]
+    },
+    {
+      "id": "oga.lpc.trees",
+      "title": "[LPC] Trees",
+      "sourcePage": "https://opengameart.org/content/lpc-trees",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-trees.zip",
+      "fileName": "lpc-trees.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "ecology.tree_deciduous",
+        "ecology.tree_seasonal",
+        "ecology.tree_stump",
+        "ecology.tree_fallen"
+      ]
+    },
+    {
+      "id": "oga.lpc.conifers",
+      "title": "[LPC] Conifers",
+      "sourcePage": "https://opengameart.org/content/lpc-conifers",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-conifers.zip",
+      "fileName": "lpc-conifers.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "ecology.tree_conifer",
+        "ecology.tree_snow",
+        "ecology.cold_forest"
+      ]
+    },
+    {
+      "id": "oga.lpc.plants",
+      "title": "[LPC] Flowers / Plants / Fungi / Wood",
+      "sourcePage": "https://opengameart.org/content/lpc-flowers-plants-fungi-wood",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-flowers-plants-fungi-wood.zip",
+      "fileName": "lpc-flowers-plants-fungi-wood.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "ecology.flower",
+        "ecology.bush",
+        "ecology.mushroom",
+        "ecology.forage",
+        "ecology.stump",
+        "ecology.fallen_log",
+        "terrain.detail_forest_floor"
+      ]
+    },
+    {
+      "id": "oga.lpc.rocks",
+      "title": "[LPC] Rocks",
+      "sourcePage": "https://opengameart.org/content/lpc-rocks",
+      "directUrl": "https://opengameart.org/sites/default/files/rocks.zip",
+      "fileName": "rocks.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "geology.rock",
+        "geology.boulder",
+        "terrain.detail_pebble",
+        "geology.snow_overlay"
+      ]
+    },
+    {
+      "id": "oga.lpc.crops",
+      "title": "[LPC] Crops",
+      "sourcePage": "https://opengameart.org/content/lpc-crops",
+      "directUrl": "https://opengameart.org/sites/default/files/crops-v2.1.zip",
+      "fileName": "crops-v2.1.zip",
+      "selectedLicense": "CC-BY-SA-4.0",
+      "authors": [
+        "bluecarrot16",
+        "Daniel Eddeland (daneeklu)",
+        "Joshua Taylor",
+        "Richard Kettering (Jetrel)"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "farming.crop_growth",
+        "farming.harvest_visual",
+        "farming.seasonal_crop"
+      ]
+    },
+    {
+      "id": "oga.lpc.fruit_trees",
+      "title": "[LPC] Fruit Trees",
+      "sourcePage": "https://opengameart.org/content/lpc-fruit-trees",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-fruit-trees.zip",
+      "fileName": "lpc-fruit-trees.zip",
+      "selectedLicense": "CC-BY-SA-4.0",
+      "authors": [
+        "bluecarrot16",
+        "Joshua Taylor",
+        "cynicmusic"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "farming.orchard_growth",
+        "farming.fruiting_tree",
+        "farming.harvest_tree"
+      ]
+    },
+    {
+      "id": "oga.lpc.city_outside",
+      "title": "[LPC] City outside",
+      "sourcePage": "https://opengameart.org/content/lpc-city-outside",
+      "directUrl": "https://opengameart.org/sites/default/files/LPC_city_outside.zip",
+      "fileName": "LPC_city_outside.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "Reemax",
+        "Sharm",
+        "daneeklu",
+        "Hyptosis",
+        "Johann C",
+        "William Thompson",
+        "wulax"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "settlement.city_wall",
+        "settlement.city_roof",
+        "settlement.market",
+        "settlement.statue",
+        "settlement.well",
+        "settlement.civic_detail"
+      ]
+    },
+    {
+      "id": "oga.lpc.medieval_decor",
+      "title": "[LPC] Medieval Village Decorations",
+      "sourcePage": "https://opengameart.org/content/lpc-medieval-village-decorations",
+      "directUrl": "https://opengameart.org/sites/default/files/decoration_medieval.zip",
+      "fileName": "decoration_medieval.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "bluecarrot16 and credited contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "settlement.market_stall",
+        "settlement.sign",
+        "settlement.lamp",
+        "settlement.banner",
+        "settlement.fence",
+        "settlement.town_square",
+        "settlement.graveyard",
+        "settlement.camp"
+      ]
+    },
+    {
+      "id": "oga.lpc.wood_bridge",
+      "title": "LPC Wooden Bridge Rework",
+      "sourcePage": "https://opengameart.org/node/81762",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc_wooden_bridge_rework-1.0.zip",
+      "fileName": "lpc_wooden_bridge_rework-1.0.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "Xenodora",
+        "AntumDeluge modifications"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "route.bridge_wood",
+        "hydrology.crossing"
+      ]
+    },
+    {
+      "id": "oga.lpc.dock",
+      "title": "Dock tileset",
+      "sourcePage": "https://opengameart.org/content/dock-tileset",
+      "directUrl": "https://opengameart.org/sites/default/files/Artis_dock.png",
+      "fileName": "Artis_dock.png",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "Reid"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "settlement.harbor_dock",
+        "settlement.pier",
+        "route.boardwalk",
+        "hydrology.harbor_edge"
+      ]
+    },
+    {
+      "id": "oga.lpc.hand_tools",
+      "title": "[LPC] Hand Tools",
+      "sourcePage": "https://opengameart.org/content/lpc-hand-tools",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-hand-tools.zip",
+      "fileName": "lpc-hand-tools.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "bluecarrot16 and credited LPC contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 1,
+      "roles": [
+        "tool.axe",
+        "tool.pickaxe",
+        "tool.hammer",
+        "tool.shovel",
+        "tool.hoe",
+        "tool.watering_can",
+        "tool.fishing_rod",
+        "animation.tool_thrust",
+        "animation.tool_smash",
+        "animation.fishing"
+      ]
+    },
+    {
+      "id": "oga.lpc.tavern",
+      "title": "[LPC] Tavern",
+      "sourcePage": "https://opengameart.org/content/lpc-tavern",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-tavern.zip",
+      "fileName": "lpc-tavern.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "bluecarrot16 and credited LPC contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 1,
+      "roles": [
+        "settlement.tavern",
+        "settlement.inn",
+        "workstation.kitchen",
+        "workstation.brewery",
+        "furniture.tavern",
+        "prop.food_service",
+        "animation.instrument_lute",
+        "animation.instrument_flute",
+        "animation.instrument_drum"
+      ]
+    },
+    {
+      "id": "oga.lpc.farming_magic_ui",
+      "title": "[LPC] Farming tilesets, magic animations and UI elements",
+      "sourcePage": "https://opengameart.org/content/lpc-farming-tilesets-magic-animations-and-ui-elements",
+      "directUrl": "https://opengameart.org/sites/default/files/submission_daneeklu.zip",
+      "fileName": "submission_daneeklu.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "Daniel Eddeland (daneeklu) and credited LPC contributors"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "farming.crop_extra",
+        "farming.food",
+        "farming.fence",
+        "settlement.market_prop",
+        "workstation.smithing_prop",
+        "effect.magic",
+        "ui.reference_wood",
+        "ui.reference_scroll",
+        "animation.grab",
+        "animation.sword"
+      ]
+    },
+    {
+      "id": "oga.lpc.extended_magic",
+      "title": "Extended LPC Magic pack",
+      "sourcePage": "https://opengameart.org/content/extended-lpc-magic-pack",
+      "directUrl": "https://opengameart.org/sites/default/files/magic_pack.zip",
+      "fileName": "magic_pack.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "Daniel Eddeland (daneeklu)"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "effect.magic_tornado",
+        "effect.magic_fire",
+        "effect.magic_water",
+        "effect.magic_ice",
+        "effect.magic_lightning",
+        "effect.magic_shield",
+        "ui.magic_icon_reference"
+      ]
+    },
+    {
+      "id": "oga.lpc.monsters",
+      "title": "[LPC] Monsters",
+      "sourcePage": "https://opengameart.org/content/lpc-monsters",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-monsters.zip",
+      "fileName": "lpc-monsters.zip",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "Charles Sanchez (CharlesGabriel)",
+        "bagzie",
+        "bluecarrot16"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 2,
+      "roles": [
+        "creature.monster",
+        "animation.monster_idle",
+        "animation.monster_attack",
+        "effect.projectile_reference"
+      ]
+    },
+    {
+      "id": "oga.lpc.blacksmith",
+      "title": "[LPC] Blacksmith",
+      "sourcePage": "https://opengameart.org/content/lpc-blacksmith",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-blacksmith.zip",
+      "fileName": "lpc-blacksmith.zip",
+      "selectedLicense": "OGA-BY-3.0",
+      "authors": [
+        "bluecarrot16"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "workshop.blacksmith",
+        "workstation.forge",
+        "workstation.smelter",
+        "workstation.anvil",
+        "workstation.grindstone",
+        "prop.smithing_tools",
+        "animation.anvil"
+      ]
+    },
+    {
+      "id": "oga.lpc.woodshop",
+      "title": "[LPC] Woodshop",
+      "sourcePage": "https://opengameart.org/content/lpc-woodshop",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-woodshop.zip",
+      "fileName": "lpc-woodshop.zip",
+      "selectedLicense": "OGA-BY-3.0",
+      "authors": [
+        "bluecarrot16"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "workshop.carpentry",
+        "workstation.workbench",
+        "workstation.grindstone",
+        "furniture.workbench",
+        "prop.carpentry_tools"
+      ]
+    },
+    {
+      "id": "oga.lpc.tailor",
+      "title": "[LPC] Tailor",
+      "sourcePage": "https://opengameart.org/content/lpc-tailor",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-tailor.zip",
+      "fileName": "lpc-tailor.zip",
+      "selectedLicense": "OGA-BY-3.0",
+      "authors": [
+        "bluecarrot16",
+        "Stephen Challener (Redshrike)"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "workshop.tailor",
+        "workstation.loom",
+        "workstation.spinning_wheel",
+        "furniture.mannequin",
+        "prop.textile",
+        "animation.loom",
+        "animation.spinning_wheel"
+      ]
+    },
+    {
+      "id": "oga.lpc.sawmill",
+      "title": "[LPC] Sawmill",
+      "sourcePage": "https://opengameart.org/content/lpc-sawmill",
+      "directUrl": "https://opengameart.org/sites/default/files/lpc-sawmill.zip",
+      "fileName": "lpc-sawmill.zip",
+      "selectedLicense": "CC-BY-4.0",
+      "authors": [
+        "bluecarrot16",
+        "Lanea Zimmerman (Sharm)",
+        "Ivan Voirol",
+        "Sander Franken"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 1,
+      "roles": [
+        "workshop.sawmill",
+        "machine.sawmill",
+        "machine.water_wheel",
+        "prop.lumber",
+        "animation.sawmill"
+      ]
+    },
+    {
+      "id": "oga.lpc.terrain_extension",
+      "title": "LPC terrain extension",
+      "sourcePage": "https://opengameart.org/content/lpc-terrain-extension",
+      "directUrl": "https://lpc.opengameart.org/sites/default/files/lpc_terrain.tar",
+      "fileName": "lpc_terrain.tar",
+      "selectedLicense": "CC-BY-SA-3.0",
+      "authors": [
+        "caeles / Mark Weyer and credited LPC source artists"
+      ],
+      "commercialUse": true,
+      "shareAlike": true,
+      "prototypePriority": 1,
+      "roles": [
+        "terrain.transition.twosided",
+        "terrain.transition.threesided",
+        "terrain.edge_contacts",
+        "terrain.multi_material_junction_reference"
+      ]
+    },
+    {
+      "id": "oga.lpc.revised_workshops_reference",
+      "title": "[LPC Revised] Workshop Tilesets",
+      "sourcePage": "https://opengameart.org/content/lpc-revised-workshop-tilesets",
+      "acquisition": "reference_only",
+      "selectedLicense": "MIXED-PER-COMPONENT",
+      "authors": [
+        "JaidynReiman and credited source artists"
+      ],
+      "commercialUse": true,
+      "shareAlike": false,
+      "prototypePriority": 3,
+      "referenceOnly": true,
+      "roles": [
+        "reference.workshop_tiled_animation",
+        "reference.lpc_revised_workshop_reconciliation"
+      ],
+      "runtimePolicy": "reference-only reconciliation lane; use original governed provider records for promotion"
+    }
+  ]
+}

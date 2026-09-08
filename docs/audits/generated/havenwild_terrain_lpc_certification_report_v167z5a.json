@@ -1,0 +1,255 @@
+{
+  "schema": "havenwild.terrain_lpc_certification_report.v167z27",
+  "version": 3,
+  "renderContract": "exact_v7_presentation_authority_w77",
+  "materialBindings": "content/assets/terrain_material_bindings_v0_2.json",
+  "transitionAtlas": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+  "transitionManifest": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+  "aggregateCounts": {
+    "dedicated_renderer_cells": 93,
+    "exact_transition_cells": 1873,
+    "rendered_cells": 16131,
+    "transition_cells": 1873,
+    "unresolved_transition_cells": 873
+  },
+  "missingBindings": {},
+  "scenes": [
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "exact_transition_cells": 130,
+        "rendered_cells": 1120,
+        "transition_cells": 130,
+        "unresolved_transition_cells": 44
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "coastline",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "exact_transition_cells": 54,
+        "rendered_cells": 1120,
+        "transition_cells": 54,
+        "unresolved_transition_cells": 104
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "river",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "exact_transition_cells": 142,
+        "rendered_cells": 1120,
+        "transition_cells": 142,
+        "unresolved_transition_cells": 58
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "pond_bridge",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "exact_transition_cells": 232,
+        "rendered_cells": 1120,
+        "transition_cells": 232,
+        "unresolved_transition_cells": 260
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "farm_soil",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "dedicated_renderer_cells": 63,
+        "exact_transition_cells": 68,
+        "rendered_cells": 1057,
+        "transition_cells": 68,
+        "unresolved_transition_cells": 20
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "mountain",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "exact_transition_cells": 100,
+        "rendered_cells": 1120,
+        "transition_cells": 100,
+        "unresolved_transition_cells": 26
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "junctions",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "exact_transition_cells": 117,
+        "rendered_cells": 1120,
+        "transition_cells": 117,
+        "unresolved_transition_cells": 78
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "snow_ice",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "exact_transition_cells": 134,
+        "rendered_cells": 1120,
+        "transition_cells": 134,
+        "unresolved_transition_cells": 70
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "wrapped_world_seam",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        40,
+        28
+      ],
+      "sizePixels": [
+        1280,
+        896
+      ],
+      "counts": {
+        "dedicated_renderer_cells": 30,
+        "exact_transition_cells": 72,
+        "rendered_cells": 1090,
+        "transition_cells": 72,
+        "unresolved_transition_cells": 113
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "terrain_gallery",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_semantic_vs_lpc.png"
+    },
+    {
+      "sizeCells": [
+        96,
+        64
+      ],
+      "sizePixels": [
+        3072,
+        2048
+      ],
+      "counts": {
+        "exact_transition_cells": 824,
+        "rendered_cells": 6144,
+        "transition_cells": 824,
+        "unresolved_transition_cells": 100
+      },
+      "missingBindings": {},
+      "renderContract": "exact_v7_presentation_authority_w77",
+      "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+      "sceneId": "client_test_world",
+      "semanticTopology": "docs/audits/generated/terrain_lpc_certification_v167z5a/client_test_world_semantic_topology.png",
+      "lpcMappedRender": "docs/audits/generated/terrain_lpc_certification_v167z5a/client_test_world_lpc_mapped.png",
+      "comparison": "docs/audits/generated/terrain_lpc_certification_v167z5a/client_test_world_semantic_vs_lpc.png"
+    }
+  ],
+  "certificationRules": {
+    "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+    "workbenchRequiredForUnresolvedContacts": true,
+    "liveClientScreenshotsRemainFinalAuthority": true
+  }
+}

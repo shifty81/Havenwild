@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z37",
+  "title": "Semantic Paint Ownership and Gameplay Runtime Restoration",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Restricted machine-local World Paint atlas ownership to the dedicated Paint tab so semantic Tiles/Map edits cannot be visually overridden by stale water bindings.",
+    "Restored the character-vitals runtime module registration lost during the cumulative terrain lane.",
+    "Restored authoritative left-click hotbar use with stamina costs and basic hoe, watering, scythe, fishing, tool, and hand actions.",
+    "Restored Shift sprint speed/drain, standing and interior recovery, rested recovery, fatigue-capacity loss and repair, and stationary interior rest.",
+    "Connected sprint speed to the existing modular LPC walk-cycle cadence while preserving authored idle/walk layers.",
+    "Forced regeneration of the reviewed LPC nature atlas, corrected the berry-bush atlas slot, and promoted wildflower/flower source candidates for the wild-plant runtime slot."
+  ],
+  "validation": {
+    "pythonCompilation": "passed for changed Python-free payload",
+    "targetedStaticContract": "passed",
+    "cargo": "pending Windows workstation rerun",
+    "liveVisual": "pending Windows workstation rerun"
+  },
+  "completeSourceCreated": false
+}

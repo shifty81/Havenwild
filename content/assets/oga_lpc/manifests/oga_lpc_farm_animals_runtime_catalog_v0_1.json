@@ -1,0 +1,3670 @@
+{
+  "schema": "havenwild.oga_lpc_farm_animals_runtime_catalog.v0_1",
+  "tile_size": 32,
+  "direction_row_order": [
+    "north",
+    "west",
+    "south",
+    "east"
+  ],
+  "rules": {
+    "bottom_center_foot_anchor": true,
+    "nearest_neighbor_filtering": true,
+    "alpha_does_not_define_collision": true,
+    "art_does_not_define_gameplay_values": true,
+    "missing_animation_falls_back_to_idle": true
+  },
+  "species": [
+    {
+      "species_id": "chicken",
+      "source_submission": "oga.lpc.farm_animals",
+      "selected_license": "CC-BY-3.0",
+      "author": "Daniel Eddeland (daneeklu)",
+      "direction_row_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "world_footprint_tiles": [
+        1,
+        1
+      ],
+      "render_canvas_tiles": [
+        1,
+        1
+      ],
+      "collision_policy": "metadata_owned_not_alpha_owned",
+      "animations": {
+        "walk": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/chicken_walk.png",
+          "sha256": "9f2e5b54f283a6e9b4a0e0439a548844b6ce1a20f34e719ae944206e4e206ebe",
+          "sheet_size": [
+            128,
+            128
+          ],
+          "cell_size": [
+            32,
+            32
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 180,
+          "playback": "loop",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                27
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                32,
+                0,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                1,
+                26,
+                29
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                64,
+                0,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                27
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                96,
+                0,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                1,
+                26,
+                29
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                32,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                1,
+                4,
+                31,
+                29
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                32,
+                32,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                5,
+                31,
+                29
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                64,
+                32,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                1,
+                4,
+                31,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                96,
+                32,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                5,
+                31,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                64,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                28
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                32,
+                64,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                31
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                64,
+                64,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                28
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                96,
+                64,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                31
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                96,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                1,
+                4,
+                31,
+                29
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                32,
+                96,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                1,
+                5,
+                32,
+                29
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                64,
+                96,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                1,
+                4,
+                31,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                96,
+                96,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                1,
+                5,
+                32,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            }
+          ]
+        },
+        "eat": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/chicken_eat.png",
+          "sha256": "c02621f1096d46dba0f11b6358e4ee8901e76b4ea57f58c6e2cd8cd514e63b06",
+          "sheet_size": [
+            128,
+            128
+          ],
+          "cell_size": [
+            32,
+            32
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 240,
+          "playback": "forward_hold_reverse",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                1,
+                26,
+                26
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                32,
+                0,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                26
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                64,
+                0,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                5,
+                26,
+                26
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                96,
+                0,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                26
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                32,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                2,
+                3,
+                32,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                32,
+                32,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                7,
+                32,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                64,
+                32,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                6,
+                32,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                96,
+                32,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                7,
+                32,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                64,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                3,
+                26,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                32,
+                64,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                3,
+                26,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                64,
+                64,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                2,
+                26,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                96,
+                64,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                6,
+                3,
+                26,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                96,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                3,
+                30,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                32,
+                96,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                7,
+                32,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                64,
+                96,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                6,
+                32,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                96,
+                96,
+                32,
+                32
+              ],
+              "alpha_bbox": [
+                0,
+                7,
+                32,
+                30
+              ],
+              "foot_anchor": [
+                16,
+                31
+              ]
+            }
+          ]
+        }
+      },
+      "shadow": {
+        "source": "content/assets/oga_lpc/source/animals/farm_animals/chicken_shadow.png",
+        "sha256": "ee82440b67e53a7e7b31ddf6b5350c5c539c694cb65feed195e93c361ab57bcb",
+        "sheet_size": [
+          32,
+          128
+        ],
+        "cell_size": [
+          32,
+          32
+        ],
+        "direction_rows": [
+          "north",
+          "west",
+          "south",
+          "east"
+        ],
+        "foot_anchor": [
+          16,
+          31
+        ]
+      },
+      "runtime_aliases": {
+        "idle": "chicken.walk.south.frame0",
+        "move": "chicken.walk",
+        "graze": "chicken.eat"
+      },
+      "production_state": "reviewed_source_geometry"
+    },
+    {
+      "species_id": "cow",
+      "source_submission": "oga.lpc.farm_animals",
+      "selected_license": "CC-BY-3.0",
+      "author": "Daniel Eddeland (daneeklu)",
+      "direction_row_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "world_footprint_tiles": [
+        2,
+        1
+      ],
+      "render_canvas_tiles": [
+        4,
+        4
+      ],
+      "collision_policy": "metadata_owned_not_alpha_owned",
+      "animations": {
+        "walk": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/cow_walk.png",
+          "sha256": "f338ac144fcafdbbdb5c67ce674365b919b87c2a6ef757af60ec7e4abf23796b",
+          "sheet_size": [
+            512,
+            512
+          ],
+          "cell_size": [
+            128,
+            128
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 180,
+          "playback": "loop",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                41,
+                78,
+                112
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                128,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                40,
+                78,
+                110
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                256,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                41,
+                78,
+                112
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                384,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                40,
+                78,
+                110
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                20,
+                45,
+                91,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                128,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                20,
+                44,
+                91,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                256,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                20,
+                45,
+                91,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                384,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                20,
+                44,
+                91,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                46,
+                78,
+                104
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                128,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                45,
+                78,
+                102
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                256,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                46,
+                78,
+                104
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                384,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                45,
+                78,
+                102
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                36,
+                45,
+                107,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                128,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                36,
+                44,
+                107,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                256,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                36,
+                45,
+                107,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                384,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                36,
+                44,
+                107,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            }
+          ]
+        },
+        "eat": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/cow_eat.png",
+          "sha256": "61bf45f6a448a9bda98d5f92e4263d821f2f8860e1a6438e70c745708275145f",
+          "sheet_size": [
+            512,
+            512
+          ],
+          "cell_size": [
+            128,
+            128
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 240,
+          "playback": "forward_hold_reverse",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                40,
+                78,
+                110
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                128,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                45,
+                78,
+                110
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                256,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                51,
+                78,
+                110
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                384,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                52,
+                78,
+                110
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                21,
+                44,
+                92,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                128,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                21,
+                46,
+                92,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                256,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                24,
+                46,
+                92,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                384,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                24,
+                46,
+                92,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                45,
+                78,
+                102
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                128,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                45,
+                78,
+                102
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                256,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                45,
+                78,
+                104
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                384,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                51,
+                45,
+                78,
+                104
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                36,
+                44,
+                107,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                128,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                36,
+                46,
+                107,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                256,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                36,
+                46,
+                104,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                384,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                36,
+                46,
+                104,
+                88
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            }
+          ]
+        }
+      },
+      "shadow": {
+        "source": "content/assets/oga_lpc/source/animals/farm_animals/cow_shadow.png",
+        "sha256": "f3892de66dd8ea994dc6614e50d5ca889ed80a18b75cbd793f7b991c4e86a41b",
+        "sheet_size": [
+          128,
+          512
+        ],
+        "cell_size": [
+          128,
+          128
+        ],
+        "direction_rows": [
+          "north",
+          "west",
+          "south",
+          "east"
+        ],
+        "foot_anchor": [
+          64,
+          127
+        ]
+      },
+      "runtime_aliases": {
+        "idle": "cow.walk.south.frame0",
+        "move": "cow.walk",
+        "graze": "cow.eat"
+      },
+      "production_state": "reviewed_source_geometry"
+    },
+    {
+      "species_id": "llama",
+      "source_submission": "oga.lpc.farm_animals",
+      "selected_license": "CC-BY-3.0",
+      "author": "Daniel Eddeland (daneeklu)",
+      "direction_row_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "world_footprint_tiles": [
+        1,
+        1
+      ],
+      "render_canvas_tiles": [
+        4,
+        4
+      ],
+      "collision_policy": "metadata_owned_not_alpha_owned",
+      "animations": {
+        "walk": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/llama_walk.png",
+          "sha256": "6e1db9838e9d17238a483f1cf1cf2058f51699955d9147af8e13170113016a61",
+          "sheet_size": [
+            512,
+            512
+          ],
+          "cell_size": [
+            128,
+            128
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 180,
+          "playback": "loop",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                25,
+                77,
+                94
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                128,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                24,
+                77,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                256,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                25,
+                77,
+                94
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                384,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                24,
+                77,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                29,
+                88,
+                92
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                128,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                28,
+                88,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                256,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                29,
+                88,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                384,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                28,
+                88,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                30,
+                77,
+                93
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                128,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                29,
+                77,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                256,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                30,
+                77,
+                93
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                384,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                29,
+                77,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                40,
+                29,
+                89,
+                92
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                128,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                40,
+                28,
+                89,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                256,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                40,
+                29,
+                89,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                384,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                40,
+                28,
+                89,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            }
+          ]
+        },
+        "eat": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/llama_eat.png",
+          "sha256": "94d9c87db65f67ff7071c548859fecd48464a66d0f0754a974e0893c577c74f5",
+          "sheet_size": [
+            512,
+            512
+          ],
+          "cell_size": [
+            128,
+            128
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 240,
+          "playback": "forward_hold_reverse",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                24,
+                77,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                128,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                32,
+                77,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                256,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                39,
+                77,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                384,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                39,
+                77,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                29,
+                88,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                128,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                23,
+                57,
+                88,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                256,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                26,
+                57,
+                88,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                384,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                26,
+                57,
+                88,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                29,
+                77,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                128,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                43,
+                77,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                256,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                43,
+                77,
+                95
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                384,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                43,
+                77,
+                95
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                40,
+                29,
+                89,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                128,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                40,
+                56,
+                105,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                256,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                40,
+                56,
+                102,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                384,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                40,
+                56,
+                102,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            }
+          ]
+        }
+      },
+      "shadow": {
+        "source": "content/assets/oga_lpc/source/animals/farm_animals/llama_shadow.png",
+        "sha256": "241962d4f334cc4f082d5c304227e5285c8b16b1bdb372c4ad9b49ecbb370dca",
+        "sheet_size": [
+          128,
+          512
+        ],
+        "cell_size": [
+          128,
+          128
+        ],
+        "direction_rows": [
+          "north",
+          "west",
+          "south",
+          "east"
+        ],
+        "foot_anchor": [
+          64,
+          127
+        ]
+      },
+      "runtime_aliases": {
+        "idle": "llama.walk.south.frame0",
+        "move": "llama.walk",
+        "graze": "llama.eat"
+      },
+      "production_state": "reviewed_source_geometry"
+    },
+    {
+      "species_id": "pig",
+      "source_submission": "oga.lpc.farm_animals",
+      "selected_license": "CC-BY-3.0",
+      "author": "Daniel Eddeland (daneeklu)",
+      "direction_row_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "world_footprint_tiles": [
+        2,
+        1
+      ],
+      "render_canvas_tiles": [
+        4,
+        4
+      ],
+      "collision_policy": "metadata_owned_not_alpha_owned",
+      "animations": {
+        "walk": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/pig_walk.png",
+          "sha256": "ff0caf9e03dc2d90997714ff7db222bd3782191a0c6b1ab28ee78b12695b0395",
+          "sheet_size": [
+            512,
+            512
+          ],
+          "cell_size": [
+            128,
+            128
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 180,
+          "playback": "loop",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                44,
+                75,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                128,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                43,
+                75,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                256,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                44,
+                75,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                384,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                43,
+                75,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                34,
+                54,
+                89,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                128,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                34,
+                53,
+                89,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                256,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                34,
+                54,
+                89,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                384,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                34,
+                53,
+                89,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                47,
+                75,
+                92
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                128,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                46,
+                75,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                256,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                47,
+                75,
+                92
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                384,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                46,
+                75,
+                90
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                54,
+                94,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                128,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                53,
+                94,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                256,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                54,
+                94,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                384,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                53,
+                94,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            }
+          ]
+        },
+        "eat": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/pig_eat.png",
+          "sha256": "09366c2632fe9635f0e34c81f9bce5f8ea854e4e672c27b576c276a5a4ebf3a4",
+          "sheet_size": [
+            512,
+            512
+          ],
+          "cell_size": [
+            128,
+            128
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 240,
+          "playback": "forward_hold_reverse",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                43,
+                75,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                128,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                47,
+                75,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                256,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                49,
+                75,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                384,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                48,
+                75,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                34,
+                54,
+                89,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                128,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                33,
+                54,
+                89,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                256,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                32,
+                54,
+                89,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                384,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                32,
+                54,
+                89,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                47,
+                75,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                128,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                47,
+                75,
+                91
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                256,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                47,
+                75,
+                93
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                384,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                54,
+                47,
+                75,
+                94
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                54,
+                94,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                128,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                54,
+                95,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                256,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                54,
+                96,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                384,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                39,
+                54,
+                96,
+                84
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            }
+          ]
+        }
+      },
+      "shadow": {
+        "source_alias": "llama.shadow",
+        "policy": "temporary_reviewed_alias",
+        "note": "Original pack recommends the llama shadow as the closest supplied base."
+      },
+      "runtime_aliases": {
+        "idle": "pig.walk.south.frame0",
+        "move": "pig.walk",
+        "graze": "pig.eat"
+      },
+      "production_state": "reviewed_source_geometry"
+    },
+    {
+      "species_id": "sheep",
+      "source_submission": "oga.lpc.farm_animals",
+      "selected_license": "CC-BY-3.0",
+      "author": "Daniel Eddeland (daneeklu)",
+      "direction_row_order": [
+        "north",
+        "west",
+        "south",
+        "east"
+      ],
+      "world_footprint_tiles": [
+        2,
+        1
+      ],
+      "render_canvas_tiles": [
+        4,
+        4
+      ],
+      "collision_policy": "metadata_owned_not_alpha_owned",
+      "animations": {
+        "walk": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/sheep_walk.png",
+          "sha256": "2ccaecd23d4dba308974a72415e660a6afa64135253d7061827fb62b67f9d29e",
+          "sheet_size": [
+            512,
+            512
+          ],
+          "cell_size": [
+            128,
+            128
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 180,
+          "playback": "loop",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                40,
+                77,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                128,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                39,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                256,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                40,
+                77,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                384,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                39,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                37,
+                44,
+                86,
+                82
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                128,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                37,
+                43,
+                86,
+                82
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                256,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                37,
+                44,
+                86,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                384,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                37,
+                43,
+                86,
+                82
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                48,
+                77,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                128,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                47,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                256,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                48,
+                77,
+                89
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                384,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                47,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                42,
+                44,
+                91,
+                82
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                128,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                42,
+                43,
+                91,
+                82
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                256,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                42,
+                44,
+                91,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                384,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                42,
+                43,
+                91,
+                82
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            }
+          ]
+        },
+        "eat": {
+          "source": "content/assets/oga_lpc/source/animals/farm_animals/sheep_eat.png",
+          "sha256": "20fcc7218839747e20ff5895d315c947a9637d6b1adf03308b19b5bbcd5d2c9c",
+          "sheet_size": [
+            512,
+            512
+          ],
+          "cell_size": [
+            128,
+            128
+          ],
+          "directions": [
+            "north",
+            "west",
+            "south",
+            "east"
+          ],
+          "frames_per_direction": 4,
+          "frame_duration_ms": 240,
+          "playback": "forward_hold_reverse",
+          "frames": [
+            {
+              "direction": "north",
+              "frame": 0,
+              "rect": [
+                0,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                40,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 1,
+              "rect": [
+                128,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                42,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 2,
+              "rect": [
+                256,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                45,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "north",
+              "frame": 3,
+              "rect": [
+                384,
+                0,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                44,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 0,
+              "rect": [
+                0,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                37,
+                44,
+                86,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 1,
+              "rect": [
+                128,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                35,
+                49,
+                86,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 2,
+              "rect": [
+                256,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                33,
+                51,
+                86,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "west",
+              "frame": 3,
+              "rect": [
+                384,
+                128,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                33,
+                51,
+                86,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 0,
+              "rect": [
+                0,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                48,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 1,
+              "rect": [
+                128,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                48,
+                77,
+                87
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 2,
+              "rect": [
+                256,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                48,
+                77,
+                92
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "south",
+              "frame": 3,
+              "rect": [
+                384,
+                256,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                50,
+                48,
+                77,
+                92
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 0,
+              "rect": [
+                0,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                42,
+                44,
+                91,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 1,
+              "rect": [
+                128,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                42,
+                49,
+                93,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 2,
+              "rect": [
+                256,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                42,
+                51,
+                95,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            },
+            {
+              "direction": "east",
+              "frame": 3,
+              "rect": [
+                384,
+                384,
+                128,
+                128
+              ],
+              "alpha_bbox": [
+                42,
+                51,
+                95,
+                83
+              ],
+              "foot_anchor": [
+                64,
+                127
+              ]
+            }
+          ]
+        }
+      },
+      "shadow": {
+        "source_alias": "llama.shadow",
+        "policy": "temporary_reviewed_alias",
+        "note": "Original pack recommends the llama shadow as the closest supplied base."
+      },
+      "runtime_aliases": {
+        "idle": "sheep.walk.south.frame0",
+        "move": "sheep.walk",
+        "graze": "sheep.eat"
+      },
+      "production_state": "reviewed_source_geometry"
+    }
+  ]
+}

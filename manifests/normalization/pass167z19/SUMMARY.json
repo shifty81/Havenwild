@@ -1,0 +1,16 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z19",
+  "title": "Content Validator Routing Repair",
+  "baseline": "Pass167Z10",
+  "cumulativeThrough": "Pass167Z19",
+  "changes": [
+    "Add a uniquely named canonical Havenwild-owned JSON validator.",
+    "Route the active validation registry directly to the new canonical entrypoint.",
+    "Retain the historical validate_content.py filename as compatibility-only.",
+    "Add visible validator revision output and registry-routing regression coverage.",
+    "Exclude Build, dependency, import, cache, archive, log, and licensed-source trees through explicit case-insensitive ownership rules."
+  ],
+  "sourceRollupCreated": false,
+  "delivery": "cumulative overwrite patch only"
+}

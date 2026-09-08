@@ -1,0 +1,8 @@
+{
+  "schema":"havenwild.ui_document.v1","id":"settings","display_name":"Settings / Controls","kind":"settings","reference_size":[1920,1080],"snap_px":8,"safe_area":[48,48,48,48],
+  "widgets":[
+    {"id":"settings_panel","kind":"nine_slice","rect":{"x":336.0,"y":96.0,"width":1248.0,"height":888.0},"label":"Settings","data_bindings":[{"property":"page","source":"settings.active_page"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"controls","kind":"list","rect":{"x":440.0,"y":224.0,"width":1040.0,"height":608.0},"label":"Settings / Controls","parent":"settings_panel","data_bindings":[{"property":"items","source":"settings.visible_rows"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"back","kind":"button","rect":{"x":440.0,"y":864.0,"width":240.0,"height":64.0},"label":"Back","parent":"settings_panel","data_bindings":[],"behavior_bindings":[{"event":"on_click","action":"ui.settings.back","arguments":{}}],"locked":false,"visible":true}
+  ],"metadata":{"runtime_context":"pause_menu_page.settings_controls_controller"}
+}

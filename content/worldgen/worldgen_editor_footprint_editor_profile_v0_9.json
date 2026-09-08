@@ -1,0 +1,137 @@
+{
+  "id": "worldgen_editor_footprint_editor_profile_v0_9",
+  "version": "0.9.0",
+  "title": "Selected Object Footprint Editing Profile",
+  "scope": "Defines the editor-side controls and validation contract for directly resizing selected object footprints.",
+  "editorTab": "Objects",
+  "targets": [
+    {
+      "id": "visual",
+      "label": "Visual",
+      "fields": [
+        "visual_offset_x",
+        "visual_offset_y",
+        "visual_w",
+        "visual_h"
+      ],
+      "minimumSize": [
+        1,
+        1
+      ],
+      "purpose": "sprite/render footprint and selected-object visual overlay"
+    },
+    {
+      "id": "collision",
+      "label": "Collision",
+      "fields": [
+        "collision_offset_x",
+        "collision_offset_y",
+        "collision_w",
+        "collision_h"
+      ],
+      "minimumSize": [
+        0,
+        0
+      ],
+      "purpose": "movement-blocking footprint when blocks_movement is enabled"
+    },
+    {
+      "id": "interaction",
+      "label": "Interaction",
+      "fields": [
+        "interaction_offset_x",
+        "interaction_offset_y",
+        "interaction_w",
+        "interaction_h"
+      ],
+      "minimumSize": [
+        0,
+        0
+      ],
+      "purpose": "use/inspect/transition interaction footprint"
+    }
+  ],
+  "buttons": [
+    {
+      "id": "x_minus",
+      "label": "X-",
+      "effect": "move active target rectangle one tile left"
+    },
+    {
+      "id": "x_plus",
+      "label": "X+",
+      "effect": "move active target rectangle one tile right"
+    },
+    {
+      "id": "y_minus",
+      "label": "Y-",
+      "effect": "move active target rectangle one tile up"
+    },
+    {
+      "id": "y_plus",
+      "label": "Y+",
+      "effect": "move active target rectangle one tile down"
+    },
+    {
+      "id": "w_minus",
+      "label": "W-",
+      "effect": "shrink active target width by one tile"
+    },
+    {
+      "id": "w_plus",
+      "label": "W+",
+      "effect": "grow active target width by one tile"
+    },
+    {
+      "id": "h_minus",
+      "label": "H-",
+      "effect": "shrink active target height by one tile"
+    },
+    {
+      "id": "h_plus",
+      "label": "H+",
+      "effect": "grow active target height by one tile"
+    },
+    {
+      "id": "block",
+      "label": "Block",
+      "effect": "toggle movement blocking for collision footprint"
+    },
+    {
+      "id": "occl",
+      "label": "Occl",
+      "effect": "toggle player occlusion"
+    },
+    {
+      "id": "fade",
+      "label": "Fade",
+      "effect": "toggle fade when player is behind object"
+    },
+    {
+      "id": "reset",
+      "label": "Reset",
+      "effect": "restore active target rectangle from ObjectKind default footprint"
+    },
+    {
+      "id": "default",
+      "label": "Default",
+      "effect": "restore entire footprint from ObjectKind default footprint"
+    }
+  ],
+  "validationBeforeCommit": [
+    "anchor must remain in scene bounds",
+    "visual footprint must have at least one tile and stay within scene bounds",
+    "collision footprint may be zero-sized, but cannot be negative",
+    "blocking collision tiles cannot land outside the scene",
+    "blocking collision tiles cannot land on blocked terrain",
+    "interaction footprint may be zero-sized, but cannot be negative",
+    "interaction footprint must stay inside scene bounds when it has area",
+    "collision footprints cannot overlap other objects unless the selected object is ignored for self-editing"
+  ],
+  "relatedRuntimeTypes": [
+    "ObjectFootprint",
+    "PlacedObject",
+    "TavernMap::placement_issues_for_object_excluding"
+  ],
+  "status": "ready_for_local_cargo_check"
+}

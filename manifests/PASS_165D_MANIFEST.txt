@@ -1,0 +1,14 @@
+PASS 165D — MODULAR TITLE ASSET INTEGRATION
+
+ADD content/ui/title_menu/background.png
+ADD content/ui/title_menu/banner.png
+ADD content/ui/title_menu/button_continue.png
+ADD content/ui/title_menu/button_new_game.png
+ADD content/ui/title_menu/button_load.png
+ADD content/ui/title_menu/button_settings.png
+ADD content/ui/title_menu/button_multiplayer.png
+ADD content/ui/title_menu/button_quit.png
+OVERWRITE crates/haven_game/src/client_character_frontend_draw.rs
+OVERWRITE crates/haven_game/src/client_frontend.rs
+ADD docs/patch/PASS_165D_MODULAR_TITLE_ASSET_INTEGRATION.md
+ADD manifests/PASS_165D_MANIFEST.txt

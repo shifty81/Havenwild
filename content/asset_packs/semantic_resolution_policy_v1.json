@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.semantic_asset_resolution_policy.v1",
+  "production_only_by_default": true,
+  "selection_order": [
+    "explicit_pack",
+    "biome_preference",
+    "season_compatibility",
+    "project_pack_priority",
+    "required_tags",
+    "stable_tie_break"
+  ],
+  "consumers": [
+    "pcg",
+    "f3_editor",
+    "runtime_renderer",
+    "object_placement",
+    "character_animation",
+    "audio_events",
+    "ui_skinning",
+    "inventory_items"
+  ],
+  "reference_only_requires_explicit_opt_in": true,
+  "preserve_stable_pack_source_identity": true
+}

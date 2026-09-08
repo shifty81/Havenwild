@@ -1,0 +1,148 @@
+{
+  "schema": "havenwild.lpc_gameplay_action_binding.v1",
+  "revision": "H21A14AB18",
+  "authority": "Havenwild gameplay semantics + Universal LPC animation providers",
+  "actions": [
+    {
+      "tool": "axe",
+      "itemId": "item.ulpc.tools_tool_axe",
+      "action": "chop",
+      "ulpcAnimation": "1h_backslash",
+      "targets": [
+        "Tree",
+        "Stump",
+        "Log"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "resource_damage",
+        "harvest_on_final_hit"
+      ]
+    },
+    {
+      "tool": "pickaxe",
+      "itemId": "item.ulpc.tools_tool_pickaxe",
+      "action": "mine",
+      "ulpcAnimation": "1h_halfslash",
+      "targets": [
+        "Boulder",
+        "OreNode"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "resource_damage",
+        "harvest_on_final_hit"
+      ]
+    },
+    {
+      "tool": "hoe",
+      "itemId": "item.ulpc.tools_tool_hoe",
+      "action": "till",
+      "ulpcAnimation": "1h_slash",
+      "targets": [
+        "Grass",
+        "Dirt",
+        "TallGrass"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "tilled_soil"
+      ]
+    },
+    {
+      "tool": "watering_can",
+      "itemId": "item.ulpc.tools_tool_watering_can",
+      "action": "water",
+      "ulpcAnimation": "watering",
+      "targets": [
+        "TilledSoil",
+        "FreshWater"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "watered_soil",
+        "refill"
+      ]
+    },
+    {
+      "tool": "hammer",
+      "itemId": "item.ulpc.tools_tool_hammer",
+      "action": "build",
+      "ulpcAnimation": "1h_halfslash",
+      "targets": [
+        "ConstructionTarget"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "construction_interaction"
+      ]
+    },
+    {
+      "tool": "fishing_rod",
+      "itemId": "item.ulpc.tools_tool_rod",
+      "action": "fish",
+      "ulpcAnimation": "thrust",
+      "targets": [
+        "FishableWater"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "fishing_cast"
+      ]
+    },
+    {
+      "tool": "shovel",
+      "itemId": "item.ulpc.tools_tool_shovel",
+      "action": "dig",
+      "ulpcAnimation": "1h_halfslash",
+      "targets": [
+        "Grass",
+        "TallGrass",
+        "TilledSoil",
+        "WateredSoil"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "clear_topsoil"
+      ]
+    },
+    {
+      "tool": "scythe",
+      "itemId": "item.ulpc.weapons_polearm_weapon_polearm_scythe",
+      "action": "slash",
+      "ulpcAnimation": "slash",
+      "targets": [
+        "TallGrass",
+        "CombatTarget"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "fiber_harvest",
+        "melee_attack"
+      ]
+    },
+    {
+      "tool": "whip",
+      "itemId": "item.ulpc.tools_tool_whip",
+      "action": "slash",
+      "ulpcAnimation": "slash",
+      "targets": [
+        "CombatTarget",
+        "ContextTarget"
+      ],
+      "contact": "ulpc_declared_contact_frame",
+      "effects": [
+        "melee_attack"
+      ]
+    }
+  ],
+  "futureExplicitBindings": [
+    "projectile flight/damage",
+    "spell gameplay effects",
+    "resource quality/yield scaling",
+    "tool durability",
+    "audio events",
+    "impact particles"
+  ],
+  "rule": "No source artwork may define gameplay stats, damage, yield, collision, or progression."
+}

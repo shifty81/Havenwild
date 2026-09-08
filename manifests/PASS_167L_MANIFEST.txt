@@ -1,0 +1,12 @@
+PASS 167L — TERRAIN JUNCTION AND COASTLINE RESOLUTION
+
+Modified:
+- crates/haven_assets/src/lpc_mapped_terrain.rs
+- crates/haven_game/src/base_terrain_cache.rs
+- crates/haven_game/src/runtime_terrain_pass.rs
+- crates/haven_world/src/terrain_standard.rs
+
+Added:
+- docs/patch/PASS_167L_TERRAIN_JUNCTION_AND_COASTLINE_RESOLUTION.md
+- README_CUMULATIVE_167L.md
+- manifests/PASS_167L_MANIFEST.txt

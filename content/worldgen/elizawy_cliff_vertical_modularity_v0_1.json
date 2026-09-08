@@ -1,0 +1,136 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_vertical_modularity.v0_1",
+  "pass": "167Z109W5",
+  "revision": "167Z109W5-authored-vertical-cliff-modularity-v1",
+  "status": "active",
+  "source": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "path": "Terrain/cliff_summer.png",
+    "cellPx": 32
+  },
+  "structuralContract": {
+    "faceSegmentsMeaning": "Discrete structural-tier delta already resolved by haven_world; it is not a pixel-height multiplier.",
+    "baseFaceSegments": 1,
+    "extraMiddleRowsPerAdditionalTier": 1,
+    "formula": "body_rows = max(face_segments, 1)",
+    "structuralLevelsChangedByThisPass": false
+  },
+  "certifiedRepeatFamilies": {
+    "straightSouth": {
+      "top": [
+        10,
+        9
+      ],
+      "repeatBody": [
+        10,
+        10
+      ],
+      "foot": [
+        10,
+        11
+      ]
+    },
+    "roundedSouthWest": {
+      "lip": [
+        1,
+        6
+      ],
+      "shoulder": [
+        1,
+        7
+      ],
+      "repeatBody": [
+        1,
+        3
+      ],
+      "foot": [
+        1,
+        8
+      ]
+    },
+    "roundedSouthEast": {
+      "lip": [
+        3,
+        6
+      ],
+      "shoulder": [
+        3,
+        7
+      ],
+      "repeatBody": [
+        3,
+        3
+      ],
+      "foot": [
+        3,
+        8
+      ]
+    },
+    "roundedSouthTerminal": {
+      "repeatBodyRow": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "naturalWidthCells": 3
+    },
+    "ladderA": {
+      "top": [
+        11,
+        9
+      ],
+      "repeatBody": [
+        11,
+        10
+      ],
+      "foot": [
+        11,
+        11
+      ]
+    },
+    "ladderB": {
+      "top": [
+        13,
+        9
+      ],
+      "repeatBody": [
+        13,
+        10
+      ],
+      "foot": [
+        13,
+        11
+      ]
+    }
+  },
+  "featureHeightPolicy": {
+    "ramp": "One structural tier only; use the authored ramp/diagonal connector family without vertical stretching.",
+    "cave": "Cave mouth is a fixed authored terminal feature. Taller host cliffs add certified rock continuation above the mouth; the opening itself must not be stretched or repeated.",
+    "waterfall": "Waterfall is a fixed animated connector family. Taller drops repeat/extend only its certified flow-middle modules once waterfall-specific certification is completed.",
+    "vines": "Decorative/climbable vine coverage must use authored vine continuation cells/windows and may not substitute generic rock by visual guess."
+  },
+  "rules": [
+    "Never stretch a cliff source cell to create height.",
+    "Never multiply structural elevation units into arbitrary pixel rows after face_segments has been resolved.",
+    "Insert complete 32x32 authored repeat-body modules between fixed authored top/rim and foot/base modules.",
+    "Repeat multi-column terminal body rows as complete natural-scale rows.",
+    "Collision projection depth grows by the same one world row per additional authored middle module.",
+    "Special features remain anchored and use their own certified continuation family rather than stretching the feature."
+  ],
+  "supersedes": {
+    "runtimeAssumption": "additional structural levels repeat two rock-body rows",
+    "replacement": "one complete authored middle module per additional structural tier"
+  },
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_vertical_modularity_pass167z109w5.png",
+  "next": "finish exact concave/terminal/ramp placement certification, then freeze cliffs and move to authored shoreline/water"
+}

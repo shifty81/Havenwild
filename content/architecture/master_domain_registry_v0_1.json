@@ -1,0 +1,144 @@
+{
+  "schema": "havenwild.master_domain_registry.v0_1",
+  "revision": "167Z109V-normalization-f-persistence-version-cache-ownership-v1",
+  "policy": {
+    "goal": "reduce parallel authority; Z109V separates durable gameplay identity from runtime ECS handles, introduces typed compatibility versions/deltas, retires duplicate save ownership, and inventories retained caches without changing save schemas or visuals",
+    "domainCount": 7,
+    "noFeatureSpecificFrameworks": true,
+    "editorAndF3ConsumeSharedDomainContracts": true,
+    "presentationNeverReinterpretsCanonicalWorldState": true
+  },
+  "domains": [
+    {
+      "id": "world",
+      "owns": [
+        "world_seed",
+        "realm_identity",
+        "world_plan",
+        "landforms",
+        "hydrology_graph",
+        "cave_graph",
+        "settlement_plan",
+        "ecology_plan"
+      ],
+      "dependsOn": [],
+      "authoring": "world/pcg/cave/settlement documents",
+      "persistence": "seed plus authored/player overrides and domain versions"
+    },
+    {
+      "id": "terrain",
+      "owns": [
+        "semantic_terrain_cells",
+        "structural_tiers",
+        "terrain_topology",
+        "terrain_recipes",
+        "cliff_contours",
+        "shoreline_recipes"
+      ],
+      "dependsOn": [
+        "world",
+        "assets"
+      ],
+      "authoring": "terrain/hydrology/structural overlays on the shared canvas",
+      "persistence": "authoritative edits and generated-domain version; derived visual recipes are rebuildable"
+    },
+    {
+      "id": "runtime",
+      "owns": [
+        "players",
+        "npcs",
+        "animals",
+        "interactables",
+        "runtime_entity_state",
+        "ecs_world",
+        "character_runtime_state",
+        "runtime_entity_identity"
+      ],
+      "dependsOn": [
+        "world",
+        "terrain",
+        "simulation",
+        "assets"
+      ],
+      "authoring": "entity/character/population inspection; ECS reflection/editor integration remains later work",
+      "persistence": "stable gameplay identities use haven_core::PersistentEntityId at the runtime boundary; haven_ecs::EntityId remains process-local and is never serialized"
+    },
+    {
+      "id": "assets",
+      "owns": [
+        "asset_registry",
+        "visual_providers",
+        "seasonal_families",
+        "provenance",
+        "runtime_asset_handles"
+      ],
+      "dependsOn": [],
+      "authoring": "provider/asset/character visual documents",
+      "persistence": "checked-in metadata plus explicitly rebuildable/runtime-transient caches; raw third-party sources remain read-only"
+    },
+    {
+      "id": "simulation",
+      "owns": [
+        "calendar",
+        "weather",
+        "npc_schedules",
+        "economy",
+        "ecology_runtime",
+        "missions_and_events"
+      ],
+      "dependsOn": [
+        "world",
+        "runtime"
+      ],
+      "authoring": "simulation/population/trade views",
+      "persistence": "domain snapshots/events at coarse simulation cadence"
+    },
+    {
+      "id": "authoring",
+      "owns": [
+        "editor_documents",
+        "canvas_host",
+        "canvas_coordinate_transform",
+        "visible_region_queries",
+        "selection",
+        "commands",
+        "undo_redo",
+        "inspection",
+        "validation_ui",
+        "f3_adapter"
+      ],
+      "dependsOn": [
+        "world",
+        "terrain",
+        "runtime",
+        "assets",
+        "simulation",
+        "persistence"
+      ],
+      "authoring": "native editor shared canvas/selection/command authority plus lightweight F3 adapter",
+      "persistence": "editor workspace state is separate from game saves"
+    },
+    {
+      "id": "persistence",
+      "owns": [
+        "save_schema",
+        "migrations",
+        "realm_persistence_policy",
+        "network_authority_metadata",
+        "generation_versions",
+        "persistent_entity_identity_boundary",
+        "typed_domain_deltas",
+        "cache_persistence_policy"
+      ],
+      "dependsOn": [
+        "world",
+        "terrain",
+        "runtime",
+        "simulation"
+      ],
+      "authoring": "save/version diagnostics",
+      "persistence": "canonical save/migration authority; current v1 metadata keeps legacy generation_version on disk while exposing typed per-domain compatibility versions"
+    }
+  ],
+  "dependencyRule": "domains consume public contracts; they do not reach into another domain's implementation or independently infer its semantics"
+}

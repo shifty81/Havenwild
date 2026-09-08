@@ -1,0 +1,160 @@
+{
+  "schema": "havenwild.editor.character_builder_production_closure.w81r7r16.v1",
+  "passRange": "167Z109W81R7-R16",
+  "baseline": "167Z109W81R5",
+  "purpose": "Converge Character Studio, player creation, NPC generation, persistence and runtime presentation onto the same Universal LPC sheet-definition authority.",
+  "passes": [
+    {
+      "id": "W81R7",
+      "name": "Exact Definition and zPos Authority",
+      "requirements": [
+        "sheet_definitions are the item authority",
+        "stable definition IDs",
+        "exact multi-layer zPos ordering"
+      ]
+    },
+    {
+      "id": "W81R8",
+      "name": "Definition-Level Builder Catalog",
+      "requirements": [
+        "raw animation PNGs are not wardrobe choices",
+        "categories and precise selection groups remain distinct",
+        "variants remain attached to items"
+      ]
+    },
+    {
+      "id": "W81R9",
+      "name": "Identity Foundation Closure",
+      "requirements": [
+        "body and head mandatory",
+        "headwear cannot replace head",
+        "Child Teen Adult Elder resolve real foundations"
+      ]
+    },
+    {
+      "id": "W81R10",
+      "name": "Preview Animation Closure",
+      "requirements": [
+        "four cardinal directions drive source rows",
+        "standard actions use authored cycles",
+        "custom 128/192 actions retain frame size"
+      ]
+    },
+    {
+      "id": "W81R11",
+      "name": "Character Creator UX",
+      "requirements": [
+        "direct category menu",
+        "definition-level option list",
+        "locks and scoped randomization",
+        "advanced source diagnostics remain secondary"
+      ]
+    },
+    {
+      "id": "W81R12",
+      "name": "Game Creator Convergence",
+      "requirements": [
+        "game creator persists typed Universal LPC recipe",
+        "same category catalog",
+        "same definition-level builder options"
+      ]
+    },
+    {
+      "id": "W81R13",
+      "name": "NPC Convergence",
+      "requirements": [
+        "NPC generation uses the same typed recipe",
+        "deterministic optional selection uses shared builder"
+      ]
+    },
+    {
+      "id": "W81R14",
+      "name": "Equipment and Custom Actions",
+      "requirements": [
+        "weapon off-hand and tools use typed equipment recipe",
+        "custom foreground/background layers never leak into normal actions",
+        "custom actions have standard whole-character companion motion"
+      ]
+    },
+    {
+      "id": "W81R15",
+      "name": "Persistence and Provenance",
+      "requirements": [
+        "source commit retained",
+        "definition source retained",
+        "licenses and source URLs retained",
+        "ShareAlike requirement retained"
+      ]
+    },
+    {
+      "id": "W81R16",
+      "name": "Production Certification",
+      "requirements": [
+        "editor/game/NPC share authority",
+        "typed runtime recipes render through exact resolver",
+        "historical character validators remain converged"
+      ]
+    }
+  ],
+  "foundation": {
+    "requiredGroups": [
+      "body",
+      "head"
+    ],
+    "bodyItem": "body_body",
+    "headItems": [
+      "head_heads_human_heads_human_child",
+      "head_heads_human_heads_human_male",
+      "head_heads_human_heads_human_female",
+      "head_heads_human_heads_human_male_elderly",
+      "head_heads_human_heads_human_female_elderly"
+    ]
+  },
+  "customAnimationPolicy": {
+    "standardFrame": 64,
+    "supportedCustomFrameSizes": [
+      128,
+      192
+    ],
+    "customLayerIsolation": true,
+    "wholeCharacterCompanionMotion": true
+  },
+  "sharedConsumers": [
+    "apps/haven_editor_native Character Studio",
+    "crates/haven_game CharacterSelectionUiModel",
+    "crates/haven_assets UniversalLpcNpcGenerationCatalog",
+    "crates/haven_game RuntimeCharacterAppearance"
+  ],
+  "compatibility": {
+    "legacyAppearanceProfilesRemainLoadable": true,
+    "typedRecipePreferredWhenPresent": true,
+    "failClosedOnMissingTypedFoundation": true
+  },
+  "creatorCategories": [
+    "body",
+    "head",
+    "hair",
+    "eyebrows",
+    "eyes",
+    "nose",
+    "ears",
+    "beards",
+    "expression",
+    "torso",
+    "arms",
+    "hands",
+    "legs",
+    "feet",
+    "hat",
+    "neck",
+    "back",
+    "accessory",
+    "weapon",
+    "shield",
+    "tools",
+    "wings",
+    "tail",
+    "mobility",
+    "effects"
+  ]
+}

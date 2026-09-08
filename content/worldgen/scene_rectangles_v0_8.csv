@@ -1,0 +1,67 @@
+scene_id,landmass_id,landmass_name,kind,grid_x,grid_y,tile_w,tile_h,preview_x,preview_y,preview_w,preview_h
+S000,0,Alderreach,mainland_region,0,0,96,64,548,385,88,86
+S001,0,Alderreach,mainland_region,1,0,96,64,636,385,88,86
+S002,0,Alderreach,mainland_region,2,0,96,64,724,385,88,86
+S003,0,Alderreach,mainland_region,3,0,96,64,812,385,88,86
+S004,0,Alderreach,mainland_region,4,0,96,64,900,385,88,86
+S005,0,Alderreach,mainland_region,0,1,96,64,548,471,88,86
+S006,0,Alderreach,mainland_region,1,1,96,64,636,471,88,86
+S007,0,Alderreach,mainland_region,2,1,96,64,724,471,88,86
+S008,0,Alderreach,mainland_region,3,1,96,64,812,471,88,86
+S009,0,Alderreach,mainland_region,4,1,96,64,900,471,88,86
+S010,0,Alderreach,mainland_region,0,2,96,64,548,557,88,86
+S011,0,Alderreach,mainland_region,1,2,96,64,636,557,88,86
+S012,0,Alderreach,mainland_region,2,2,96,64,724,557,88,86
+S013,0,Alderreach,mainland_region,3,2,96,64,812,557,88,86
+S014,0,Alderreach,mainland_region,4,2,96,64,900,557,88,86
+S015,0,Alderreach,mainland_region,0,3,96,64,548,643,88,86
+S016,0,Alderreach,mainland_region,1,3,96,64,636,643,88,86
+S017,0,Alderreach,mainland_region,2,3,96,64,724,643,88,86
+S018,0,Alderreach,mainland_region,3,3,96,64,812,643,88,86
+S019,0,Alderreach,mainland_region,4,3,96,64,900,643,88,86
+S043,0,Alderreach,mainland_region,5,0,96,64,988,385,88,86
+S044,0,Alderreach,mainland_region,6,0,96,64,1076,385,88,86
+S045,0,Alderreach,mainland_region,7,0,96,64,1164,385,88,86
+S046,0,Alderreach,mainland_region,5,1,96,64,988,471,88,86
+S047,0,Alderreach,mainland_region,6,1,96,64,1076,471,88,86
+S048,0,Alderreach,mainland_region,7,1,96,64,1164,471,88,86
+S049,0,Alderreach,mainland_region,5,2,96,64,988,557,88,86
+S050,0,Alderreach,mainland_region,6,2,96,64,1076,557,88,86
+S051,0,Alderreach,mainland_region,7,2,96,64,1164,557,88,86
+S052,0,Alderreach,mainland_region,5,3,96,64,988,643,88,86
+S053,0,Alderreach,mainland_region,6,3,96,64,1076,643,88,86
+S054,0,Alderreach,mainland_region,7,3,96,64,1164,643,88,86
+S055,0,Alderreach,mainland_region,0,4,96,64,548,729,88,86
+S056,0,Alderreach,mainland_region,1,4,96,64,636,729,88,86
+S057,0,Alderreach,mainland_region,2,4,96,64,724,729,88,86
+S058,0,Alderreach,mainland_region,3,4,96,64,812,729,88,86
+S059,0,Alderreach,mainland_region,4,4,96,64,900,729,88,86
+S060,0,Alderreach,mainland_region,5,4,96,64,988,729,88,86
+S061,0,Alderreach,mainland_region,6,4,96,64,1076,729,88,86
+S062,0,Alderreach,mainland_region,7,4,96,64,1164,729,88,86
+S020,1,Northwatch Isle,island_region,0,0,96,64,1373,510,95,82
+S021,1,Northwatch Isle,island_region,1,0,96,64,1468,510,95,82
+S022,2,Gullmere,island_region,0,0,96,64,228,596,95,82
+S023,2,Gullmere,island_region,1,0,96,64,323,596,95,82
+S024,2,Gullmere,island_region,0,1,96,64,228,678,95,82
+S025,2,Gullmere,island_region,1,1,96,64,323,678,95,82
+S026,3,Sunbreak Key,island_region,0,0,96,64,695,155,95,82
+S027,3,Sunbreak Key,island_region,1,0,96,64,790,155,95,82
+S028,4,Amber Shoal,island_region,0,0,96,64,231,294,95,82
+S029,4,Amber Shoal,island_region,1,0,96,64,326,294,95,82
+S030,4,Amber Shoal,island_region,0,1,96,64,231,376,95,82
+S031,4,Amber Shoal,island_region,1,1,96,64,326,376,95,82
+S032,5,Southfen Isle,island_region,0,0,96,64,816,973,95,82
+S033,5,Southfen Isle,island_region,1,0,96,64,911,973,95,82
+S034,6,Lowmire Cay,island_region,0,0,96,64,1029,170,95,82
+S035,6,Lowmire Cay,island_region,1,0,96,64,1124,170,95,82
+S036,7,Stonewake,island_region,0,0,96,64,1380,727,95,82
+S037,7,Stonewake,island_region,1,0,96,64,1475,727,95,82
+S038,7,Stonewake,island_region,0,1,96,64,1380,809,95,82
+S039,7,Stonewake,island_region,1,1,96,64,1475,809,95,82
+S040,8,Mistbarrow,island_region,0,0,96,64,502,954,95,82
+S041,8,Mistbarrow,island_region,1,0,96,64,597,954,95,82
+S042,9,Brineglass,island_region,0,0,96,64,1389,302,95,82
+SP_HOME_TAVERN_ISLAND,0,Alderreach,home_tavern_mountain_base_region,,,160,144,462,376,128,112
+SP_MAIN_CITY,0,Alderreach,main_city_multi_rect_region,,,192,160,575,312,174,126
+SP_MAIN_HARBOR,0,Alderreach,harbor_travel_region,,,160,96,610,515,120,80

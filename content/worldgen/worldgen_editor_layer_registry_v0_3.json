@@ -1,0 +1,79 @@
+{
+  "id": "worldgen_editor_layer_registry_v0_3",
+  "version": "0.3.0",
+  "kind": "editor_layer_registry",
+  "layers": [
+    {
+      "id": "terrain",
+      "order": 0,
+      "editable": true,
+      "source": "scene.layers.terrain",
+      "description": "Base TileKind grid; 96x64 by default."
+    },
+    {
+      "id": "autotile_preview",
+      "order": 10,
+      "editable": false,
+      "source": "derived",
+      "description": "Preview result from autotile rules."
+    },
+    {
+      "id": "zones",
+      "order": 20,
+      "editable": true,
+      "source": "scene.layers.zones",
+      "description": "Room, field, cave, kitchen, staff-only, and service zones."
+    },
+    {
+      "id": "objects",
+      "order": 30,
+      "editable": true,
+      "source": "scene.objects.visualRect",
+      "description": "Multi-tile objects, trees, structures, bars, furniture, cave entries."
+    },
+    {
+      "id": "collision",
+      "order": 40,
+      "editable": true,
+      "source": "tile.walkable + scene.objects.collisionRect",
+      "description": "Blocking map; separate from visuals."
+    },
+    {
+      "id": "interactions",
+      "order": 50,
+      "editable": true,
+      "source": "object.interactions + transitions",
+      "description": "Use prompts, seats, crafting stations, doors, harvesting, foraging."
+    },
+    {
+      "id": "occlusion_fade",
+      "order": 60,
+      "editable": true,
+      "source": "object.fadeWhenPlayerBehind",
+      "description": "Wall/tree/mountain fade masks around player."
+    },
+    {
+      "id": "scene_edges",
+      "order": 70,
+      "editable": true,
+      "source": "scene.edgePolicy",
+      "description": "Border fillers that stop the camera from seeing void."
+    },
+    {
+      "id": "validation",
+      "order": 80,
+      "editable": false,
+      "source": "validator",
+      "description": "Warnings and errors from the worldgen asset validator."
+    }
+  ],
+  "recommendedEditorPanels": [
+    "Scene Outliner",
+    "Layer Stack",
+    "Tile/Autotile Palette",
+    "Object Footprint Inspector",
+    "Collision/Interaction Overlay",
+    "Scene Edge Resolver",
+    "Validation Console"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "havenwild_tiled_corner_terrain_ingest_contract_v0_1",
+  "version": "0.1.0",
+  "purpose": "Define the reusable intake shape for Tiled-compatible terrain tilesets whose tiles declare four terrain-corner labels.",
+  "sourceRequirements": {
+    "tsx": "A Tiled .tsx tileset with tilewidth, tileheight, image, terraintypes, and tile terrain attributes. The columns may be derived from the image width when the TSX omits a columns attribute.",
+    "png": "The image referenced by the TSX, using the same tile grid as the TSX.",
+    "tileTerrainAttribute": "Each usable tile declares terrain=\"topLeft,topRight,bottomLeft,bottomRight\" using terraintype indexes. Blank corner indexes are preserved as the manifest emptyTerrainName."
+  },
+  "generatedManifest": {
+    "id": "caller-provided stable catalog id",
+    "kind": "tiled_corner_terrain_catalog",
+    "tileSize": ["tilewidth", "tileheight"],
+    "emptyTerrainName": "__empty__",
+    "terrainTypes": "ordered list of all Tiled terrain names",
+    "tileKindTerrainMap": "optional Havenwild TileKind/editor material aliases to Tiled terrain names",
+    "editorMaterials": "one native Havenwild generic terrain material record for every Tiled terrain name",
+    "entries": [
+      {
+        "tileId": "source tile id",
+        "corners": {
+          "topLeft": "Tiled terrain name",
+          "topRight": "Tiled terrain name",
+          "bottomLeft": "Tiled terrain name",
+          "bottomRight": "Tiled terrain name"
+        },
+        "rect": ["x", "y", "w", "h"]
+      }
+    ]
+  },
+  "runtimeRules": [
+    "One terrain boundary renderer owns a cell at a time.",
+    "A complete Tiled corner tuple replaces the full 32x32 cell; it is not composited over another transition renderer.",
+    "Pure fills may be cataloged before they become paintable.",
+    "All source terrain names are ingested as native editor catalog materials.",
+    "Paintability is controlled by Havenwild runtime storage support and semantic material mappings, not by raw source terrain names.",
+    "Unsupported terrain names remain cataloged and visible in planning reports until promoted."
+  ],
+  "promotionChecklist": [
+    "Confirm credits/license are included beside the source TSX/PNG.",
+    "Generate the full tuple catalog.",
+    "Verify every terrain type has at least one pure fill tuple or mark it derived-only.",
+    "Map desired terrain names to Havenwild TileKind/editor material IDs.",
+    "Add renderer ownership tests so no legacy terrain system draws on mapped boundary cells.",
+    "Generate a numbered preview or report for user confirmation before exposing new brushes."
+  ]
+}

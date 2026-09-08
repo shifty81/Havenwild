@@ -1,0 +1,115 @@
+{
+  "schema": "havenwild.oga_lpc_audit_queue.v0_1",
+  "revision": "167Z109M",
+  "note": "Only explicitly approved source records may be downloaded into the authoring dependency mount. Downloading does not equal runtime promotion.",
+  "queue": [
+    {
+      "title": "[LPC Revised] 4-Season Terrain",
+      "id": "elizawy.4_season_terrain",
+      "state": "PINNED_PROVIDER",
+      "license": "OGA-BY-3.0"
+    },
+    {
+      "title": "LPC Caves",
+      "id": "oga.lpc.caves",
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "license": "CC0-1.0"
+    },
+    {
+      "title": "LPC Additional Mountain and Cave Opening Tiles",
+      "id": "oga.lpc.cave_openings",
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "license": "CC0-1.0"
+    },
+    {
+      "title": "[LPC] Mine",
+      "id": "oga.lpc.mine",
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "title": "[LPC] Farm",
+      "id": "oga.lpc.farm",
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "title": "LPC Animated Water and waterfalls",
+      "id": "oga.lpc.animated_water",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "[LPC] Cavern and ruin tiles",
+      "id": "oga.lpc.cavern_ruins",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "[LPC] Basalt Column Caverns",
+      "id": "oga.lpc.basalt_caverns",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "[LPC] Trees",
+      "id": "oga.lpc.trees",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "[LPC] Conifers",
+      "id": "oga.lpc.conifers",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "[LPC] Flowers / Plants / Fungi / Wood",
+      "id": "oga.lpc.plants",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "[LPC] Rocks",
+      "id": "oga.lpc.rocks",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "[LPC] Crops",
+      "id": "oga.lpc.crops",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-4.0"
+    },
+    {
+      "title": "[LPC] Fruit Trees",
+      "id": "oga.lpc.fruit_trees",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-4.0"
+    },
+    {
+      "title": "[LPC] City outside",
+      "id": "oga.lpc.city_outside",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "[LPC] Medieval Village Decorations",
+      "id": "oga.lpc.medieval_decor",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "LPC Wooden Bridge Rework",
+      "id": "oga.lpc.wood_bridge",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    },
+    {
+      "title": "Dock tileset",
+      "id": "oga.lpc.dock",
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "license": "CC-BY-SA-3.0"
+    }
+  ]
+}

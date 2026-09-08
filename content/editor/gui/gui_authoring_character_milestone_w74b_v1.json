@@ -1,0 +1,169 @@
+{
+  "schema": "havenwild.editor.gui_authoring_character_milestone.w74b.v1",
+  "pass": "167Z109W74B",
+  "baseline": "167Z109W72D2+ (includes W72D3 validator compatibility)",
+  "milestone": "GUI authority, direct visual authoring, unified assets, and Character Studio production pass",
+  "lockedGeometry": {
+    "toolRail": "dedicated left sibling column outside canvas",
+    "layers": "dedicated sibling column immediately right of Tool Rail outside canvas",
+    "canvas": "authoring surface between Layers and right dock",
+    "rightDock": [
+      "Properties",
+      "Assets",
+      "Outliner",
+      "Validation"
+    ],
+    "canvasEmbedded": [
+      "zoom/view controls",
+      "hideable contextual palette only"
+    ]
+  },
+  "passes": [
+    {
+      "id": "W73A",
+      "name": "GUI Authority Registry"
+    },
+    {
+      "id": "W73B",
+      "name": "Duplicate Workflow Validation"
+    },
+    {
+      "id": "W73C",
+      "name": "Legacy Left Panel Decommission"
+    },
+    {
+      "id": "W73D",
+      "name": "Canonical Command Registry"
+    },
+    {
+      "id": "W73E",
+      "name": "Nine-Menu Reorganization"
+    },
+    {
+      "id": "W73F",
+      "name": "Panel Geometry Authority"
+    },
+    {
+      "id": "W73G",
+      "name": "Canvas Zoom Finalization"
+    },
+    {
+      "id": "W73H",
+      "name": "Tool Rail Grouping"
+    },
+    {
+      "id": "W73I",
+      "name": "Bottom Tool Options Authority"
+    },
+    {
+      "id": "W73J",
+      "name": "Expanded Brush and Tool Inventory"
+    },
+    {
+      "id": "W73K",
+      "name": "Shared Hideable Palette"
+    },
+    {
+      "id": "W73L",
+      "name": "Direct Scene Pixel Editing"
+    },
+    {
+      "id": "W73M",
+      "name": "Direct World Pixel Editing"
+    },
+    {
+      "id": "W73N",
+      "name": "Unified Asset Browser Authority"
+    },
+    {
+      "id": "W73O",
+      "name": "Legacy GUI Reachability Cleanup"
+    },
+    {
+      "id": "W74A",
+      "name": "Character Studio Visual Recipe Workspace"
+    },
+    {
+      "id": "W74B",
+      "name": "Character Layer, Preview, Palette, and Publish Controls"
+    }
+  ],
+  "workflowAuthority": {
+    "toolSelection": "canvas.tool_rail",
+    "toolOptions": "canvas.tool_rail.bottom_options",
+    "layerManagement": "canvas.layers",
+    "zoom": "canvas.view_controls",
+    "palette": "canvas.shared_palette",
+    "assets": "right_dock.assets",
+    "properties": "right_dock.properties",
+    "outliner": "right_dock.outliner",
+    "validation": "right_dock.validation",
+    "commands": "editor.command_registry"
+  },
+  "palette": {
+    "sharedHideShowState": true,
+    "pixelUsesDocumentPalette": true,
+    "sceneWorldUseSharedProjectPalette": true,
+    "colorPopupShared": true,
+    "toolOptionsDuplicatedInPalette": false
+  },
+  "directVisualAuthoring": {
+    "workspaces": [
+      "Scene",
+      "World"
+    ],
+    "layer": "AuthoredPixels",
+    "tools": [
+      "Paint",
+      "Erase",
+      "Pick"
+    ],
+    "semanticTerrainMutation": false,
+    "collisionMutation": false,
+    "persistence": "SceneVisualOverride + project-owned PNG",
+    "sceneLogicalDimensionsHonored": true
+  },
+  "assetBrowser": {
+    "canonicalOwner": "right_dock.assets",
+    "scopes": [
+      "All Project",
+      "Workspace"
+    ],
+    "workspaceSpecificBrowsersAreFiltersNotAuthorities": true
+  },
+  "characterStudio": {
+    "templates": [
+      "Player",
+      "NPC"
+    ],
+    "componentAssignment": true,
+    "layerOrdering": true,
+    "directionIntent": [
+      "South",
+      "West",
+      "East",
+      "North"
+    ],
+    "actionIntent": [
+      "Idle",
+      "Walk",
+      "Run",
+      "Action"
+    ],
+    "paletteVariants": 8,
+    "assembledStaticPreview": true,
+    "draftSaveLoad": true,
+    "projectPresetPublish": true,
+    "doesNotFakeUnsupportedAnimationRows": true
+  },
+  "retiredVisibleAuthorities": [
+    "legacy_left_workspace_panel",
+    "asset_shelf",
+    "standalone_asset_library",
+    "standalone_asset_intake",
+    "scene_dock",
+    "scene_toolrail",
+    "legacy_canvas_toolbar",
+    "duplicate_pixel_tool_options_in_palette"
+  ]
+}

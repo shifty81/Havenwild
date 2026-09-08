@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.chatgpt_source_rollup_policy.v0_1",
+  "purpose": "Create compact code-and-metadata handoffs without copying machine-local raw asset packs, save data, caches, build outputs, or quarantined binaries.",
+  "excludePrefixes": [
+    ".git/",
+    ".local/",
+    "target/",
+    "Build/",
+    "logs/",
+    "WORKSPACE/saves/",
+    "WORKSPACE/recovery/",
+    "assets/reference_quarantine/",
+    "assets/external/",
+    "assets/source/external/",
+    "WORKSPACE/generated/",
+    "WORKSPACE/test-output/"
+  ],
+  "excludeNames": [
+    ".DS_Store",
+    "Thumbs.db"
+  ],
+  "includeMetadataIndexes": true,
+  "includeRuntimeGeneratedAssets": true,
+  "note": "Reviewed runtime outputs under assets/generated remain packageable. WORKSPACE/generated and WORKSPACE/test-output are reproducible machine-local development outputs and are regenerated from checked-in contracts plus pinned dependencies."
+}

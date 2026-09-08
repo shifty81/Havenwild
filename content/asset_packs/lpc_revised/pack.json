@@ -1,0 +1,113 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "lpc_revised",
+  "display_name": "LPC Revised",
+  "version": "project-foundation-v167z40",
+  "license": {
+    "license_id": "per_source_record",
+    "attribution": [
+      "Root and nearest source-local Credits.txt/CREDITS.csv records"
+    ],
+    "commercial_use": false,
+    "redistribution": false,
+    "production_approved": false
+  },
+  "dependencies": [],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "external_root",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "inventory_contract",
+      "kind": "sidecar",
+      "path": "content/asset_packs/lpc_revised/lpc_revised_inventory_contract_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "full_repository_import_profile",
+      "kind": "sidecar",
+      "path": "content/import_profiles/lpc_revised_full_repository_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "mapping_queue_contract",
+      "kind": "sidecar",
+      "path": "content/asset_packs/lpc_revised/lpc_mapping_queue_contract_v1.json",
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "assets": [
+    {
+      "id": "repository_inventory_contract",
+      "category": "editor_template",
+      "semantic_id": "lpc.repository.inventory.contract",
+      "source_id": "inventory_contract",
+      "tags": [
+        "lpc",
+        "repository",
+        "inventory",
+        "all_categories"
+      ],
+      "metadata": {
+        "scope": "entire_repository",
+        "production_state": "catalog_authority_with_per_record_promotion"
+      }
+    },
+    {
+      "id": "repository_import_profile",
+      "category": "editor_template",
+      "semantic_id": "lpc.repository.import.profile",
+      "source_id": "full_repository_import_profile",
+      "tags": [
+        "lpc",
+        "import",
+        "recursive",
+        "all_categories"
+      ],
+      "metadata": {
+        "provider": "lpc_revised_repository_inventory"
+      }
+    },
+    {
+      "id": "external_repository_root",
+      "category": "other",
+      "semantic_id": "lpc.repository.external.root",
+      "source_id": "external_root",
+      "tags": [
+        "lpc",
+        "external_dependency",
+        "audited_source"
+      ],
+      "metadata": {
+        "inventory_output": "WORKSPACE/generated/lpc_revised_inventory_v1.json"
+      }
+    },
+    {
+      "id": "repository_mapping_queues",
+      "category": "editor_template",
+      "semantic_id": "lpc.repository.mapping.queues",
+      "source_id": "mapping_queue_contract",
+      "tags": [
+        "lpc",
+        "mapping",
+        "queues",
+        "content_library"
+      ],
+      "metadata": {
+        "generated_output": "WORKSPACE/generated/lpc_revised_mapping_queues_v1.json",
+        "production_state": "catalog_authority_with_per_record_promotion"
+      }
+    }
+  ],
+  "production_enabled": false,
+  "authority": "content/assets/lpc/lpc_project_foundation_authority_v0_1.json",
+  "compatibility": "content/characters/lpc_character_compatibility_matrix_v0_1.json"
+}

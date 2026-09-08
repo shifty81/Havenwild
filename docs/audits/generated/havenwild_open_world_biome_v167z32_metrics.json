@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.open_world_biome_metrics.v167z32",
+  "scene": "content/worldgen/scenes/open_world/willowmere_outskirts_region_v0_1.json",
+  "generation_seed": 167260826,
+  "visual_family": "lpc_authored_terrain_map_v7_plus_summer_wet_sand_v1",
+  "terrain_counts": {
+    "DeepWater": 103,
+    "Grass": 3395,
+    "MudBank": 202,
+    "OceanDeep": 836,
+    "OceanShallow": 192,
+    "Road": 381,
+    "Sand": 256,
+    "ShallowWater": 202,
+    "TallGrass": 41,
+    "Water": 408,
+    "WetSand": 128
+  },
+  "forbidden_static_terrain_count": 0,
+  "natural_object_count": 70,
+  "natural_object_assets": [
+    "berry_bush",
+    "boulder",
+    "forage_mushroom",
+    "oak_tree",
+    "wild_herb"
+  ],
+  "outdoor_transition_portal_count": 0,
+  "transition_band_violations": 0,
+  "reachable_walkable_cells": 4403
+}

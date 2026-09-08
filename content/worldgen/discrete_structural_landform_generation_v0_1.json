@@ -1,0 +1,44 @@
+{
+  "schema": "havenwild.structural_landform_generation.v0_1",
+  "revision": "167Z109W81R30R44H7-H20-two-tier-inland-cliffs-coastal-ladders-v1",
+  "authority": "fresh_world_pcg_structural_levels",
+  "purpose": "Guarantee that newly generated Havenwild surfaces contain deterministic discrete Level 0/1/2 landforms that can resolve into the certified structural cliff renderer and collision system.",
+  "rules": {
+    "geologicalHeightRole": "hydrology_material_and_biome_input_only",
+    "structuralLevelRole": "Level 2 is the default inland raised-platform authority; Level 1 is reserved for coastal cliff bands and carved directional-ramp middle cells.",
+    "allowedLevels": [
+      0,
+      1,
+      2
+    ],
+    "continuousNumericElevationPainting": false,
+    "storagePartitionsAreGenerationBoundaries": false,
+    "freshWorldsMayRemainCliffFree": false,
+    "fallbackGuarantee": "If the normal deterministic landform classifier yields zero structural boundaries on a landmass with eligible land, stamp one bounded deterministic plateau around the strongest available land anchor.",
+    "roadAndSettlementProtection": "Roads, constructed paths, bridges and reserved settlement/path zones receive a two-cell structural safety buffer so fresh PCG cliffs do not cut directly through authored civic/transport surfaces.",
+    "connectorGuarantee": "Inland raised components terminate as direct Level-2 to Level-0 faces. Deterministic south-facing gateways carve complete six-cell Level-2 -> Level-1 -> Level-0 MountainPath corridors for the authored 3x4 LPC ramps. Coastal one-level south faces use authored ladder connectors instead of the large ramp.",
+    "rawCliffTilesGenerated": false,
+    "inlandCliffHeight": "two_levels",
+    "coastalCliffHeight": "one_level_allowed_with_ladder"
+  },
+  "generationOrder": [
+    "coastline_and_semantic_surface",
+    "global_highland_materials",
+    "mainland_roads_and_reserved_sites",
+    "discrete_structural_landforms",
+    "natural_object_population"
+  ],
+  "acceptance": {
+    "mainlandRequiresLevelOneCells": true,
+    "mainlandRequiresStructuralBoundaries": true,
+    "mainlandRequiresGeneratedRamp": true,
+    "lowReliefSeedRequiresGuaranteedPlateau": true,
+    "explicitStructuralLevelsPersistInSceneMap": true,
+    "cliffsRemainDerivedVisualStructure": true,
+    "eachReachableRaisedComponentRequiresGateway": true,
+    "rampGatewaysPreferExistingRouteProximity": true,
+    "inlandRaisedTerrainDefaultsToLevelTwo": true,
+    "levelOneInlandReservedForRampCorridors": true,
+    "coastalLevelOneUsesLadderConnector": true
+  }
+}

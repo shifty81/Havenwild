@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.animation_sheet.v010",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "image",
+    "cell_size",
+    "directions",
+    "frames_per_direction",
+    "frame_rigs"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "cell_size": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "directions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "frames_per_direction": {
+      "type": "integer"
+    },
+    "grid_alignment": {
+      "type": "object"
+    },
+    "frame_rigs": {
+      "type": "array",
+      "items": {
+        "$ref": "havenwild.frame_rig.v010"
+      }
+    },
+    "layer_kind": {
+      "type": "string"
+    },
+    "conforms_to_template": {
+      "type": "string"
+    },
+    "validation_state": {
+      "type": "string"
+    }
+  }
+}

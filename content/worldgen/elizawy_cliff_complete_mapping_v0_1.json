@@ -1,0 +1,4178 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_complete_mapping.v0_1",
+  "pass": "167Z109W8",
+  "sourceRepository": "https://github.com/ElizaWy/LPC",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourcePath": "Terrain/cliff_summer.png",
+  "grid": {
+    "tileSizePx": [
+      32,
+      32
+    ],
+    "columns": 16,
+    "rows": 14,
+    "occupiedCells": 164,
+    "rule": "32x32 is source addressing only; connected artwork is mapped as assemblies, never blindly as standalone world tiles"
+  },
+  "architecture": {
+    "worldgen": "discrete structural levels -> cardinal exposed-edge mask -> CliffShape15",
+    "visual": "CliffShape15 + official ElizaWy demo-grounded component/assembly recipes projected over V7 owner terrain; receiver-side grass is transparent",
+    "perspective": "W14 ordinary south walls use exact demo-grounded crest/body/foot families: straight c2r7/c2r3/c2r8, SW c1r7/c1r3/c1r8, SE c3r7/c3r3/c3r8. Crest is host-row presentation; receiver-facing depth equals structural tier delta.",
+    "collision": "structural levels + exact runtime recipe footprint are authority; projected collision grows by exactly one row per additional authored middle module; source alpha/color never decide collision",
+    "directWalkConnectors": [
+      "ramp",
+      "bridge"
+    ],
+    "interactionOrClimbConnectors": [
+      "stairs",
+      "ladder"
+    ],
+    "blockedAttachments": [
+      "cave_mouth",
+      "waterfall"
+    ],
+    "generatedContourGrammar": "fresh PCG is frozen to masks 1,2,3,4,5,6,8,9,10,12 after normalization removes one-cell three/four-edge caps; no fake cap art is generated",
+    "ordinaryCave": "one-tile-wide authored c6 r9-r11 mouth independent of cliff height; wide c7-c9 portal is explicit tunnel-only"
+  },
+  "worldgenShapeBindings": {
+    "mask0": "interior plateau; no cliff overlay",
+    "mask1": "north lip",
+    "mask2": "east side seam",
+    "mask3": "north+east orthogonal corner",
+    "mask4": "south: c2r7 host/lip + c2r3 body + c2r8 receiver-transparent foot",
+    "mask5": "north lip + south lip/face",
+    "mask6": "east+south: authored SE rounded assembly c3r6,c3r7,c3r3,c3r8",
+    "mask7": "north+east+south cap",
+    "mask8": "west side seam",
+    "mask9": "north+west orthogonal corner",
+    "mask10": "east+west narrow ridge",
+    "mask11": "north+east+west cap",
+    "mask12": "south+west: authored SW rounded assembly c1r6,c1r7,c1r3,c1r8",
+    "mask13": "north+south+west cap",
+    "mask14": "east+south+west cap",
+    "mask15": "isolated one-cell plateau; all four boundaries; south face projects below"
+  },
+  "attachments": {
+    "ramp": {
+      "placement": "explicit semantic MountainPath one-level south connector",
+      "visual": "exact complete directional 3x4 ramp stamp from companion LPC grass-top cliff sheet; no transforms or c8 partial crop",
+      "sourceAuthority": "content/worldgen/lpc_directional_cliff_ramp_authority_v0_1.json",
+      "riseRightSourceGridSpan": [
+        3,
+        5,
+        3,
+        4
+      ],
+      "riseLeftSourceGridSpan": [
+        6,
+        5,
+        3,
+        4
+      ],
+      "collision": "only the center structural edge is opened; six MountainPath approach/departure cells align traversal to the authored diagonal corridor; flanks remain structural-collision owned"
+    },
+    "stairs": {
+      "placement": "Stairs object on supported south face",
+      "collision": "not ordinary walk-through; interaction/transition owns traversal"
+    },
+    "ladder": {
+      "placement": "ladder state or multi-level stairs attachment",
+      "collision": "solid for ordinary walking until climb state drives traversal"
+    },
+    "cave": {
+      "placement": "CaveEntrance on eligible south host",
+      "collision": "mouth wall stays solid; interaction triggers scene transition"
+    },
+    "waterfall": {
+      "placement": "hydrology-valid downhill water drop",
+      "collision": "solid cliff/water boundary; never a walking connector"
+    },
+    "bridge": {
+      "placement": "Bridge semantic tile/object",
+      "collision": "walkable crossing corridor only where bridge geometry exists"
+    },
+    "vines": {
+      "placement": "climb attachment only",
+      "collision": "solid until climb gameplay state is active"
+    }
+  },
+  "assemblies": [
+    {
+      "id": "bare_rounded_plateau_reference",
+      "span": [
+        0,
+        0,
+        5,
+        5
+      ],
+      "role": "connected_rounded_plateau_reference",
+      "runtime": "reference_only",
+      "collision": "none_from_pixels",
+      "bindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ]
+    },
+    {
+      "id": "bare_square_plateau_reference",
+      "span": [
+        5,
+        0,
+        3,
+        5
+      ],
+      "role": "connected_square_plateau_reference",
+      "runtime": "reference_only",
+      "collision": "none_from_pixels",
+      "bindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ]
+    },
+    {
+      "id": "bare_diagonal_slope_family",
+      "span": [
+        8,
+        0,
+        1,
+        3
+      ],
+      "role": "connected_bare_diagonal_slope_components",
+      "runtime": "specialist_reference",
+      "collision": "structural_connector_only",
+      "bindings": [
+        "slope_reference",
+        "diagonal_join_reference"
+      ]
+    },
+    {
+      "id": "water_cliff_family",
+      "span": [
+        9,
+        0,
+        7,
+        8
+      ],
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtime": "special_attachments_only",
+      "collision": "structural_cliff_plus_water",
+      "bindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ]
+    },
+    {
+      "id": "grass_diagonal_ramp_upper",
+      "span": [
+        8,
+        3,
+        1,
+        3
+      ],
+      "role": "grass_diagonal_slope_or_valley_component",
+      "runtime": "reference_only_not_standalone",
+      "collision": "structural_connector_only",
+      "bindings": [
+        "ramp_reference",
+        "diagonal_join_reference"
+      ]
+    },
+    {
+      "id": "grass_diagonal_ramp_lower",
+      "span": [
+        8,
+        6,
+        1,
+        3
+      ],
+      "role": "grass_diagonal_slope_or_valley_component",
+      "runtime": "reference_only_not_standalone",
+      "collision": "structural_connector_only",
+      "bindings": [
+        "ramp_reference",
+        "diagonal_join_reference"
+      ]
+    },
+    {
+      "id": "grass_rounded_plateau_reference",
+      "span": [
+        0,
+        5,
+        5,
+        4
+      ],
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtime": "component_source",
+      "collision": "structural_shape_only",
+      "bindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ]
+    },
+    {
+      "id": "grass_square_plateau_reference",
+      "span": [
+        5,
+        5,
+        3,
+        4
+      ],
+      "role": "connected_grass_square_plateau_reference",
+      "runtime": "component_source",
+      "collision": "structural_shape_only",
+      "bindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ]
+    },
+    {
+      "id": "climbable_vines_left",
+      "span": [
+        0,
+        9,
+        3,
+        5
+      ],
+      "role": "climb_surface_vines",
+      "runtime": "attachment_pending_climb_state",
+      "collision": "solid_wall_until_climb_state",
+      "bindings": [
+        "climb_attachment"
+      ]
+    },
+    {
+      "id": "climbable_vines_right",
+      "span": [
+        3,
+        9,
+        3,
+        4
+      ],
+      "role": "climb_surface_vines",
+      "runtime": "attachment_pending_climb_state",
+      "collision": "solid_wall_until_climb_state",
+      "bindings": [
+        "climb_attachment"
+      ]
+    },
+    {
+      "id": "cave_narrow",
+      "span": [
+        6,
+        9,
+        1,
+        3
+      ],
+      "role": "narrow_cave_mouth",
+      "runtime": "enabled_attachment",
+      "collision": "solid_wall_interaction_transition",
+      "bindings": [
+        "cave_attachment"
+      ]
+    },
+    {
+      "id": "cave_wide",
+      "span": [
+        7,
+        9,
+        3,
+        3
+      ],
+      "role": "wide_cave_mouth",
+      "runtime": "enabled_attachment",
+      "collision": "solid_wall_interaction_transition",
+      "bindings": [
+        "cave_attachment"
+      ]
+    },
+    {
+      "id": "south_wall_variant_a",
+      "span": [
+        10,
+        9,
+        1,
+        3
+      ],
+      "role": "south_vertical_face_top_body_foot",
+      "runtime": "enabled_primary",
+      "collision": "solid_projected_face",
+      "bindings": [
+        "south_face"
+      ]
+    },
+    {
+      "id": "ladder_variant_a",
+      "span": [
+        11,
+        9,
+        1,
+        3
+      ],
+      "role": "ladder_over_south_face",
+      "runtime": "enabled_attachment",
+      "collision": "solid_wall_interaction_or_climb_only",
+      "bindings": [
+        "ladder_attachment"
+      ]
+    },
+    {
+      "id": "south_wall_variant_b",
+      "span": [
+        12,
+        9,
+        1,
+        3
+      ],
+      "role": "south_vertical_face_alternate",
+      "runtime": "variation_ready",
+      "collision": "solid_projected_face",
+      "bindings": [
+        "south_face_variation"
+      ]
+    },
+    {
+      "id": "ladder_variant_b",
+      "span": [
+        13,
+        9,
+        1,
+        3
+      ],
+      "role": "ladder_over_south_face_alternate",
+      "runtime": "variation_ready",
+      "collision": "solid_wall_interaction_or_climb_only",
+      "bindings": [
+        "ladder_attachment"
+      ]
+    },
+    {
+      "id": "official_demo_south_straight",
+      "span": [
+        2,
+        3,
+        1,
+        6
+      ],
+      "role": "demo_grounded_south_vertical_recipe",
+      "runtime": "active",
+      "collision": "literal N receiver rows for N structural tiers",
+      "bindings": [
+        "mask4",
+        "south portions of composite masks"
+      ],
+      "sourceCells": [
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "id": "official_demo_south_west_rounded",
+      "span": [
+        1,
+        3,
+        1,
+        6
+      ],
+      "role": "demo_grounded_sw_rounded_recipe",
+      "runtime": "active",
+      "collision": "literal N receiver rows for N structural tiers; visibility checks west low-side receiver",
+      "bindings": [
+        "mask12"
+      ],
+      "sourceCells": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "id": "official_demo_south_east_rounded",
+      "span": [
+        3,
+        3,
+        1,
+        6
+      ],
+      "role": "demo_grounded_se_rounded_recipe",
+      "runtime": "active",
+      "collision": "literal N receiver rows for N structural tiers; visibility checks east low-side receiver",
+      "bindings": [
+        "mask6"
+      ],
+      "sourceCells": [
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          8
+        ]
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "cell": [
+        0,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.583008,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.980469,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.652344,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_diagonal_slope_family",
+      "role": "connected_bare_diagonal_slope_components",
+      "runtimeStatus": "specialist_reference",
+      "collisionClass": "structural_connector_only",
+      "worldgenBindings": [
+        "slope_reference",
+        "diagonal_join_reference"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        0
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        0
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        0
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.737305,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        1
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.976562,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.977539,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_diagonal_slope_family",
+      "role": "connected_bare_diagonal_slope_components",
+      "runtimeStatus": "specialist_reference",
+      "collisionClass": "structural_connector_only",
+      "worldgenBindings": [
+        "slope_reference",
+        "diagonal_join_reference"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        1
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.71875,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_diagonal_slope_family",
+      "role": "connected_bare_diagonal_slope_components",
+      "runtimeStatus": "specialist_reference",
+      "collisionClass": "structural_connector_only",
+      "worldgenBindings": [
+        "slope_reference",
+        "diagonal_join_reference"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        2
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.735352,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_diagonal_ramp_upper",
+      "role": "grass_diagonal_slope_or_valley_component",
+      "runtimeStatus": "reference_only_not_standalone",
+      "collisionClass": "structural_connector_only",
+      "worldgenBindings": [
+        "ramp_reference",
+        "diagonal_join_reference"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        3
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        3
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        3
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.552734,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_rounded_plateau_reference",
+      "role": "connected_rounded_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "rounded_corner_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "bare_square_plateau_reference",
+      "role": "connected_square_plateau_reference",
+      "runtimeStatus": "reference_only",
+      "collisionClass": "none_from_pixels",
+      "worldgenBindings": [
+        "authoring_reference",
+        "orthogonal_edge_source"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_diagonal_ramp_upper",
+      "role": "grass_diagonal_slope_or_valley_component",
+      "runtimeStatus": "reference_only_not_standalone",
+      "collisionClass": "structural_connector_only",
+      "worldgenBindings": [
+        "ramp_reference",
+        "diagonal_join_reference"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        4
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        4
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        4
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.552734,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.586914,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.980469,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.652344,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_diagonal_ramp_upper",
+      "role": "grass_diagonal_slope_or_valley_component",
+      "runtimeStatus": "reference_only_not_standalone",
+      "collisionClass": "structural_connector_only",
+      "worldgenBindings": [
+        "ramp_reference",
+        "diagonal_join_reference"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        5
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        5
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        5
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        5
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        6
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.976562,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 0.977539,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_diagonal_ramp_lower",
+      "role": "grass_diagonal_slope_or_valley_component",
+      "runtimeStatus": "reference_only_not_standalone",
+      "collisionClass": "structural_connector_only",
+      "worldgenBindings": [
+        "ramp_reference",
+        "diagonal_join_reference"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        6
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        6
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "water_cliff_family",
+      "role": "water_facing_cliff_bays_valleys_bridges_and_terminals",
+      "runtimeStatus": "special_attachments_only",
+      "collisionClass": "structural_cliff_plus_water",
+      "worldgenBindings": [
+        "water_facing_cliff",
+        "water_valley",
+        "shore_socket",
+        "bridge_socket"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        6
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        6
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        7
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_diagonal_ramp_lower",
+      "role": "grass_diagonal_slope_or_valley_component",
+      "runtimeStatus": "reference_only_not_standalone",
+      "collisionClass": "structural_connector_only",
+      "worldgenBindings": [
+        "ramp_reference",
+        "diagonal_join_reference"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        7
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        7
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        7
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        7
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        7
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        7
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        7
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        8
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        8
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        8
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        8
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        8
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_rounded_plateau_reference",
+      "role": "connected_grass_rounded_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "rounded_outer_corner",
+        "diagonal_face",
+        "rounded_lip"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        8
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        8
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "grass_square_plateau_reference",
+      "role": "connected_grass_square_plateau_reference",
+      "runtimeStatus": "component_source",
+      "collisionClass": "structural_shape_only",
+      "worldgenBindings": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "west_side",
+        "orthogonal_corner"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        8
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_narrow",
+      "role": "narrow_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "south_wall_variant_a",
+      "role": "south_vertical_face_top_body_foot",
+      "runtimeStatus": "enabled_primary",
+      "collisionClass": "solid_projected_face",
+      "worldgenBindings": [
+        "south_face"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "ladder_variant_a",
+      "role": "ladder_over_south_face",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_or_climb_only",
+      "worldgenBindings": [
+        "ladder_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "south_wall_variant_b",
+      "role": "south_vertical_face_alternate",
+      "runtimeStatus": "variation_ready",
+      "collisionClass": "solid_projected_face",
+      "worldgenBindings": [
+        "south_face_variation"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        9
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "ladder_variant_b",
+      "role": "ladder_over_south_face_alternate",
+      "runtimeStatus": "variation_ready",
+      "collisionClass": "solid_wall_interaction_or_climb_only",
+      "worldgenBindings": [
+        "ladder_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        9
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        9
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_narrow",
+      "role": "narrow_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "south_wall_variant_a",
+      "role": "south_vertical_face_top_body_foot",
+      "runtimeStatus": "enabled_primary",
+      "collisionClass": "solid_projected_face",
+      "worldgenBindings": [
+        "south_face"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "ladder_variant_a",
+      "role": "ladder_over_south_face",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_or_climb_only",
+      "worldgenBindings": [
+        "ladder_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "south_wall_variant_b",
+      "role": "south_vertical_face_alternate",
+      "runtimeStatus": "variation_ready",
+      "collisionClass": "solid_projected_face",
+      "worldgenBindings": [
+        "south_face_variation"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        10
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "ladder_variant_b",
+      "role": "ladder_over_south_face_alternate",
+      "runtimeStatus": "variation_ready",
+      "collisionClass": "solid_wall_interaction_or_climb_only",
+      "worldgenBindings": [
+        "ladder_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        10
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        10
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_narrow",
+      "role": "narrow_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "cave_wide",
+      "role": "wide_cave_mouth",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_transition",
+      "worldgenBindings": [
+        "cave_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "south_wall_variant_a",
+      "role": "south_vertical_face_top_body_foot",
+      "runtimeStatus": "enabled_primary",
+      "collisionClass": "solid_projected_face",
+      "worldgenBindings": [
+        "south_face"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "ladder_variant_a",
+      "role": "ladder_over_south_face",
+      "runtimeStatus": "enabled_attachment",
+      "collisionClass": "solid_wall_interaction_or_climb_only",
+      "worldgenBindings": [
+        "ladder_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "south_wall_variant_b",
+      "role": "south_vertical_face_alternate",
+      "runtimeStatus": "variation_ready",
+      "collisionClass": "solid_projected_face",
+      "worldgenBindings": [
+        "south_face_variation"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        11
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "ladder_variant_b",
+      "role": "ladder_over_south_face_alternate",
+      "runtimeStatus": "variation_ready",
+      "collisionClass": "solid_wall_interaction_or_climb_only",
+      "worldgenBindings": [
+        "ladder_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        11
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        11
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        12
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        12
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        12
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        12
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        12
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        12
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_right",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        12
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        0,
+        13
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        1,
+        13
+      ],
+      "occupied": true,
+      "alphaCoverage": 1.0,
+      "assembly": "climbable_vines_left",
+      "role": "climb_surface_vines",
+      "runtimeStatus": "attachment_pending_climb_state",
+      "collisionClass": "solid_wall_until_climb_state",
+      "worldgenBindings": [
+        "climb_attachment"
+      ],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        2,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        3,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        4,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        5,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        6,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        7,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        8,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        9,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        10,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        11,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        12,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        13,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        14,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    },
+    {
+      "cell": [
+        15,
+        13
+      ],
+      "occupied": false,
+      "alphaCoverage": 0.0,
+      "assembly": "empty",
+      "role": "empty",
+      "runtimeStatus": "empty",
+      "collisionClass": "none",
+      "worldgenBindings": [],
+      "independentPlacementAllowed": false
+    }
+  ],
+  "externalResearch": [
+    {
+      "source": "LPC Style Guide asset list",
+      "finding": "base LPC outdoor assets explicitly include mountains, cliffs, walls, and slopes; cliff art is perspective structure rather than flat terrain paint"
+    },
+    {
+      "source": "[LPC] Mountains / OpenGameArt",
+      "finding": "recommended workflow is terrain/top outline first, then AutoMap the walls; matches Havenwild two-stage structural-mask then wall-projection architecture"
+    },
+    {
+      "source": "OpenGameArt procedural generation forum",
+      "finding": "LPC cliffs are asymmetric and extend two extra tiles southward; multi-level generation creates difficult corner cases; south-facing waterfalls are the safest presentation"
+    },
+    {
+      "source": "OpenGameArt Tiled terrain/automap forum",
+      "finding": "rule-driven automapping should also create collision; supports one recipe authority for visuals and gameplay footprints"
+    },
+    {
+      "source": "JaidynReiman configured LPC Revised tilesets",
+      "finding": "useful cross-check for ElizaWy asset grouping, but its author explicitly notes collision was configured without confidence, so Havenwild does not treat it as collision authority"
+    },
+    {
+      "source": "ElizaWy/LPC _ Test Scenes/DemoGame - 2 - Summer.png",
+      "finding": "direct source-template matches prove ordinary south cliffs use c2r7->c2r3->c2r8 and rounded corners use c1/c3 r6->r7->r3->r8; this overrides prior c10/default and three-cell diagonal assumptions"
+    }
+  ],
+  "w8GeneratedContourAuthority": "content/worldgen/elizawy_cliff_generated_contour_authority_v0_1.json",
+  "w8CaveMouthPolicy": "content/worldgen/cliff_cave_mouth_policy_v0_1.json",
+  "currentVisualSourceRoleAuthority": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json"
+}

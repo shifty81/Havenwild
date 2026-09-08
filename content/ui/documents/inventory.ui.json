@@ -1,0 +1,9 @@
+{
+  "schema":"havenwild.ui_document.v1","id":"inventory","display_name":"Character Inventory","kind":"inventory","reference_size":[1920,1080],"snap_px":8,"safe_area":[48,48,48,48],
+  "widgets":[
+    {"id":"inventory_panel","kind":"nine_slice","rect":{"x":216.0,"y":96.0,"width":1488.0,"height":888.0},"label":"Inventory Window","data_bindings":[],"behavior_bindings":[],"presentation_resource":"content/ui/gui/reference/havenwild_inventory_screen_reference_v1.png","locked":false,"visible":true},
+    {"id":"equipment","kind":"panel","rect":{"x":264.0,"y":176.0,"width":432.0,"height":704.0},"label":"Equipment","parent":"inventory_panel","data_bindings":[{"property":"slots","source":"player.equipment"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"inventory_grid","kind":"list","rect":{"x":984.0,"y":176.0,"width":624.0,"height":704.0},"label":"Inventory Grid","parent":"inventory_panel","data_bindings":[{"property":"items","source":"player.inventory.items"}],"behavior_bindings":[],"locked":false,"visible":true},
+    {"id":"close","kind":"button","rect":{"x":1600.0,"y":112.0,"width":64.0,"height":48.0},"label":"Close","parent":"inventory_panel","data_bindings":[],"behavior_bindings":[{"event":"on_click","action":"ui.close_current","arguments":{}}],"locked":false,"visible":true}
+  ],"metadata":{"authority":"Game Canvas UI document"}
+}

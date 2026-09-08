@@ -1,0 +1,462 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W54E publishes only exact source regions already reviewed from the pinned LPC source.",
+    "Cream Siding, Plain records are south-frontage-only and may not be rotated or mirrored for side/back facings.",
+    "The brown hipped roof is preserved as an authored 5x5 source-envelope module; W54E composes two modules at BuildingRecipe level rather than slicing ambiguous hip/valley cells."
+  ],
+  "entries": [
+    {
+      "id": "wall_siding_plain_cream_front_left",
+      "semantic_id": "structure.wall.siding_plain.cream.front_left",
+      "label": "Cream Siding \u2014 Front Left",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.siding_plain.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -2
+        ],
+        "visual_size": [
+          1,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "siding",
+        "exterior",
+        "frontage",
+        "south"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              32,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cream Siding \u2014 Front Left exact south-frontage structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          96
+        ],
+        "source_mode": "exact_vertical_wall_strip",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "W54E runtime publication of the exact W54D1 human-reviewed cream frontage strip; south-facing only. No side/back rotation or mirroring is permitted."
+      },
+      "structure": {
+        "connection_family": "wall.siding_plain.cream",
+        "topology_role": "south_frontage_left",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.siding_plain.cream",
+        "visibility_role": "wall_occluder",
+        "occlusion_group": "building.wall_shell",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_siding_plain_cream_front_repeat",
+      "semantic_id": "structure.wall.siding_plain.cream.front_repeat",
+      "label": "Cream Siding \u2014 Front Repeat",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.siding_plain.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -2
+        ],
+        "visual_size": [
+          1,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "siding",
+        "exterior",
+        "frontage",
+        "south"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              64,
+              0,
+              32,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cream Siding \u2014 Front Repeat exact south-frontage structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+        "source_rect": [
+          64,
+          0,
+          32,
+          96
+        ],
+        "source_mode": "exact_vertical_wall_strip",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "W54E runtime publication of the exact W54D1 human-reviewed cream frontage strip; south-facing only. No side/back rotation or mirroring is permitted."
+      },
+      "structure": {
+        "connection_family": "wall.siding_plain.cream",
+        "topology_role": "south_frontage_repeat",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.siding_plain.cream",
+        "visibility_role": "wall_occluder",
+        "occlusion_group": "building.wall_shell",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_siding_plain_cream_front_right",
+      "semantic_id": "structure.wall.siding_plain.cream.front_right",
+      "label": "Cream Siding \u2014 Front Right",
+      "category": "wall",
+      "source_semantic_id": "structure.wall.siding_plain.source",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -2
+        ],
+        "visual_size": [
+          1,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "siding",
+        "exterior",
+        "frontage",
+        "south"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              128,
+              0,
+              32,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cream Siding \u2014 Front Right exact south-frontage structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+        "source_rect": [
+          128,
+          0,
+          32,
+          96
+        ],
+        "source_mode": "exact_vertical_wall_strip",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "W54E runtime publication of the exact W54D1 human-reviewed cream frontage strip; south-facing only. No side/back rotation or mirroring is permitted."
+      },
+      "structure": {
+        "connection_family": "wall.siding_plain.cream",
+        "topology_role": "south_frontage_right",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.siding_plain.cream",
+        "visibility_role": "wall_occluder",
+        "occlusion_group": "building.wall_shell",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "roof_hipped_shingle_brown_square_module",
+      "semantic_id": "structure.roof.hipped_shingle_a.brown.square_module",
+      "label": "Hipped Shingle Brown \u2014 Square Authored Module",
+      "category": "building",
+      "source_semantic_id": "structure.roof.hipped_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          -2,
+          -4
+        ],
+        "visual_size": [
+          5,
+          5
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "hipped",
+        "authored_module",
+        "multi_cell",
+        "square"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80.0,
+          160.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              480,
+              0,
+              160,
+              160
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Hipped Shingle Brown \u2014 exact 5\u00d75 source-envelope roof module candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Hipped Shingle Roof A.png",
+        "source_rect": [
+          480,
+          0,
+          160,
+          160
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W54E exact brown square hipped-roof authored module from the pinned LPC source. The 5\u00d75 envelope includes intentional transparent padding and is used without scaling, rotation, mirroring, or cell slicing."
+      },
+      "structure": {
+        "connection_family": "roof.hipped_shingle_a.brown",
+        "topology_role": "authored_hipped_square_module",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.hipped_shingle_a.brown.square",
+        "sockets": []
+      }
+    }
+  ]
+}

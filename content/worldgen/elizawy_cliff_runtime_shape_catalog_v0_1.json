@@ -1,0 +1,500 @@
+{
+  "schema": "havenwild.elizawy_cliff.runtime_shape_catalog.v0_1",
+  "pass": "167Z109W8",
+  "revision": "167Z109W8-generated-cliff-grammar-freeze-v1",
+  "source": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+  "sourceRepository": "https://github.com/ElizaWy/LPC",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourceGridCellPx": [
+    32,
+    32
+  ],
+  "sourceDimensionsPx": [
+    512,
+    448
+  ],
+  "evidence": {
+    "topologyBoard": "docs/assets/previews/elizawy_cliff_topology_certification_pass167z105.png",
+    "n5qAssemblyBoard": "docs/assets/previews/elizawy_cliff_shape_assembly_pass167z106n5q.png",
+    "roundedReference": {
+      "sourceGridSpan": [
+        0,
+        5,
+        5,
+        4
+      ],
+      "sourceRectPx": [
+        0,
+        160,
+        160,
+        128
+      ]
+    },
+    "squareReference": {
+      "sourceGridSpan": [
+        5,
+        5,
+        3,
+        4
+      ],
+      "sourceRectPx": [
+        160,
+        160,
+        96,
+        128
+      ]
+    },
+    "straightSouthReference": {
+      "sourceGridSpan": [
+        10,
+        9,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        320,
+        288,
+        32,
+        96
+      ]
+    },
+    "generatedContourBoard": "docs/assets/previews/elizawy_cliff_generated_contours_pass167z109w8.png"
+  },
+  "coreRules": [
+    "V7 owns the walkable plateau/base terrain; ElizaWy/LPC cliff art is connected boundary presentation and may not replace semantic terrain authority.",
+    "CliffShape15 remains structural/collision topology authority; fresh PCG normalizes one-cell three/four-edge caps before bake rather than inventing pixels for them.",
+    "Fresh PCG runtime cliff masks are frozen to 1,2,3,4,5,6,8,9,10,12. Explicit authored thin caps may exist structurally but have no generic visual fallback.",
+    "North/east/west straight edges and north convex corners use exact whole authored ElizaWy cells; E+W narrow ridges use the exact companion LPC c8-c10/r2 three-cell row.",
+    "South straight faces use the dedicated ElizaWy c10/r9-r11 top/body/foot column; each extra structural tier inserts one complete authored middle module before the fixed foot.",
+    "Southwest/southeast faces use exact rounded authored families. Directional ramps use the W7 exact natural-scale 3x4 authored stamps and remain one-tier connectors.",
+    "Ordinary generated cave mouths use the exact one-tile-wide c6/r9-r11 recipe regardless of cliff height. Taller cliffs add ordinary rock continuation above; the 3x3 portal is explicit tunnel-only.",
+    "No half-tile synthesis, stretching, arbitrary mirror/rotation, or generic visual fallback is permitted inside a certified connected recipe.",
+    "Water-facing and waterfall eligibility remain semantic attachments and are not inferred from cliff pixels.",
+    "Structural collision and traversal are independent of source alpha/color and seasonal texture selection."
+  ],
+  "sourceComponents": {
+    "southStraight": {
+      "officialDemoSequence": [
+        [
+          10,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "hostLip": [
+        10,
+        9,
+        1,
+        1
+      ],
+      "body": [
+        10,
+        10,
+        1,
+        1
+      ],
+      "foot": [
+        10,
+        11,
+        1,
+        1
+      ],
+      "projectedRowsBelowHost": 3,
+      "tallExtension": "repeat c10r10 exactly once per additional structural tier; emit c10r11 foot once",
+      "receiverPolicy": "receiver terrain remains V7 semantic authority; cliff overlay does not paint a substitute shoreline/ground material"
+    },
+    "southRampReviewedColumn": {
+      "sourceGridSpan": [
+        8,
+        3,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        256,
+        96,
+        32,
+        96
+      ],
+      "worldVisualFootprintTiles": [
+        1,
+        3
+      ],
+      "hostRule": "source evidence only; W7 exact authored directional 3x4 ramp stamps are runtime authority",
+      "certification": "rejected by N5X3 live screenshot/source review because the 1x3 crop is only one column of a larger composed diagonal valley",
+      "runtimeStatus": "retired_invalid_partial_composed_valley"
+    },
+    "ladderA": {
+      "sourceGridSpan": [
+        11,
+        9,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        352,
+        288,
+        32,
+        96
+      ],
+      "worldVisualFootprintTiles": [
+        1,
+        3
+      ],
+      "hostRule": "Stairs object state ladder or multi-level Stairs connector"
+    },
+    "caveNarrow": {
+      "sourceGridSpan": [
+        6,
+        9,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        192,
+        288,
+        32,
+        96
+      ],
+      "worldVisualFootprintTiles": [
+        1,
+        3
+      ],
+      "hostRule": "default ordinary generated cave mouth; fixed one-tile width independent of cliff height; extra rock continuation is above"
+    },
+    "caveWide": {
+      "sourceGridSpan": [
+        7,
+        9,
+        3,
+        3
+      ],
+      "sourceRectPx": [
+        224,
+        288,
+        96,
+        96
+      ],
+      "worldVisualFootprintTiles": [
+        3,
+        3
+      ],
+      "hostRule": "reserved explicit road/cart/major mountain tunnel only; never selected from face_segments or cave depth",
+      "runtimeStatus": "reserved_explicit_tunnel_only"
+    },
+    "waterCliffValley": {
+      "sourceGridSpan": [
+        9,
+        0,
+        3,
+        3
+      ],
+      "sourceRectPx": [
+        288,
+        0,
+        96,
+        96
+      ],
+      "worldVisualFootprintTiles": [
+        3,
+        3
+      ],
+      "hostRule": "three-cell south-facing water-edge run; grouped socket overlay, not a generic 1x1 water tile"
+    },
+    "bridgeWaterBayA": {
+      "sourceGridSpan": [
+        9,
+        3,
+        2,
+        4
+      ],
+      "sourceRectPx": [
+        288,
+        96,
+        64,
+        128
+      ],
+      "worldVisualFootprintTiles": [
+        2,
+        4
+      ],
+      "hostRule": "reference socket geometry; existing Wood Bridge A renderer remains bridge artwork authority"
+    },
+    "waterfall": {
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/Waterfall.png",
+      "catalog": "content/assets/lpc/elizawy_waterfall_connector_catalog_v0_1.json",
+      "directions": [
+        "south",
+        "west",
+        "east"
+      ],
+      "northFrameSetAvailable": false
+    },
+    "orthographicPlateauProjection": {
+      "sourceContext": "authored square grass plateau straight-edge family c5-c7 r6 plus demo-grounded c2r7 south lip",
+      "northLipStripPx": [
+        192,
+        192,
+        32,
+        12
+      ],
+      "southLipStripPx": [
+        64,
+        244,
+        32,
+        12
+      ],
+      "westSideStripPx": [
+        160,
+        192,
+        12,
+        32
+      ],
+      "eastSideStripPx": [
+        244,
+        192,
+        12,
+        32
+      ],
+      "rule": "V7 owns plateau fill; straight N/W/E rims use the square-plateau edge family while south/front stays on the demo-grounded c2r7 family. Rounded c1/c3 cells remain corner-only.",
+      "eastSideTransform": "none; east uses authored c7r6 source geometry",
+      "runtimeStatus": "enabled_authored_non_owning_rim_projection"
+    },
+    "roundedOuterCornerProjection": {
+      "rule": "Exact mask12/mask6 always use their authored rounded source family. Isolated corners use full depth; repeated diagonal-chain members use compact depth.",
+      "southWestFaceCells": [
+        [
+          1,
+          6,
+          1,
+          1
+        ],
+        [
+          1,
+          7,
+          1,
+          1
+        ],
+        [
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          1,
+          8,
+          1,
+          1
+        ]
+      ],
+      "southEastFaceCells": [
+        [
+          3,
+          6,
+          1,
+          1
+        ],
+        [
+          3,
+          7,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          8,
+          1,
+          1
+        ]
+      ],
+      "isolatedProjectedRowsBelowHost": 3,
+      "chainProjectedRowsBelowHost": 2,
+      "chainRoles": [
+        "start",
+        "middle",
+        "end"
+      ],
+      "chainSearchRadiusTiles": 4,
+      "compactSequence": "lip + body + foot; shoulder omitted only for repeated generated chain ownership",
+      "collisionParity": true
+    },
+    "climbableVines": {
+      "sourceGridSpans": [
+        [
+          0,
+          9,
+          3,
+          5
+        ],
+        [
+          3,
+          9,
+          3,
+          4
+        ]
+      ],
+      "sourceRectPx": [
+        [
+          0,
+          288,
+          96,
+          160
+        ],
+        [
+          96,
+          288,
+          96,
+          128
+        ]
+      ],
+      "role": "climb_surface_visual",
+      "runtimeStatus": "catalogued_not_traversable_until_character_climb_state_is_enabled",
+      "rule": "Do not scatter vines as decoration while they would visually imply climbability. Bind them to a climb connector when the LPC climb animation/gameplay state is promoted."
+    },
+    "directionalRampReference": {
+      "sourcePath": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "leftSourceGridSpan": [
+        3,
+        5,
+        3,
+        4
+      ],
+      "leftSourceRectPx": [
+        96,
+        160,
+        96,
+        128
+      ],
+      "rightSourceGridSpan": [
+        6,
+        5,
+        3,
+        4
+      ],
+      "rightSourceRectPx": [
+        192,
+        160,
+        96,
+        128
+      ],
+      "role": "directional_traversal_runtime_provider",
+      "runtimeStatus": "runtime_certified_exact_3x4_stamps",
+      "note": "Complete left/right diagonal ramp assemblies are active at natural 3x4 scale. Fresh worldgen paints the matching six-cell MountainPath corridor; no c8 one-column crop, mirror, rotation, stretch, or fabricated rounded-corner composition is permitted."
+    }
+  },
+  "cardinalMaskShapes": {
+    "1": "north",
+    "2": "east",
+    "3": "outer_ne",
+    "4": "south",
+    "5": "ridge_ns",
+    "6": "outer_se",
+    "7": "cap_nes",
+    "8": "west",
+    "9": "outer_nw",
+    "10": "ridge_ew",
+    "11": "cap_wne",
+    "12": "outer_sw",
+    "13": "cap_swn",
+    "14": "cap_esw",
+    "15": "isolated"
+  },
+  "innerCornerComposition": {
+    "runtimeVisualRule": "orthogonal_strip_intersection",
+    "note": "N5X promotes only reviewed outer corners. Inferred concave joins remain orthogonal strip composition until a distinct inner-corner source recipe is certified."
+  },
+  "runtimeGate": {
+    "visualCardinalShapes": "enabled",
+    "longSouthRuns": "enabled",
+    "outerCorners": "enabled_exact_south_diagonal_step_recipes_plus_conservative_remaining_joins",
+    "innerCornerComposition": "fresh_pcg_inverse_one_cell_notches_normalized_out; remaining turns emerge from adjacent certified contour hosts without synthesized receiver pixels",
+    "narrowRidgesAndMultiEdgeCaps": "fresh_pcg_east_west_ridge_uses_exact_3x1_companion_stamp; three/four-edge thin caps normalized out before bake and receive no fake art",
+    "multiLevelSouthBodyExtension": "enabled_body_only_single_foot",
+    "waterFacingCliffs": "enabled_grouped_reviewed_valley_socket_plus_cardinal_faces",
+    "ramps": "enabled_exact_authored_directional_3x4_stamps_with_six_cell_mountain_path_corridor_and_structural_edge_collision_authority",
+    "stairs": "enabled_reviewed_south_host_object_attachment",
+    "ladders": "enabled_reviewed_south_host_stairs_state_or_multilevel_upgrade",
+    "caves": "default_1_tile_authored_narrow_cave_fixed_width; 3x3 portal reserved_explicit_tunnel_only",
+    "bridges": "enabled_bridge_tile_traversal_existing_wood_bridge_renderer",
+    "waterfalls": "enabled_south_west_east_certified_frame_envelopes",
+    "collisionAndTraversal": "authoritative_visible_edges_with_explicit_connector_overrides_and_fail_open_if_visual_provider_missing",
+    "footReceivingTerrain": "enabled_authored_v7_semantic_tuple_projection",
+    "performance": "single_manifest_per_cliff_frame_plus_four_diagonal_cell_reads_per_visible_cliff_host",
+    "climbableVines": "catalogued_pending_character_climb_state",
+    "cliffs": "enabled_w8_generated_contour_freeze_plus_w7_ramps_plus_w5_modular_height",
+    "generatedContourGrammar": "frozen_10_mask_fresh_pcg_set_1_2_3_4_5_6_8_9_10_12_with_thin_caps_normalized_out"
+  },
+  "supersededBy": "content/worldgen/structural_cliff_autotile_authority_v0_1.json",
+  "supersededByPass": "167Z109D",
+  "runtimeProjectionSha256": "25b7a65f892b897d7664e8d68091661a159a41715617a18bccd185f173d9608d",
+  "officialDemoEvidence": {
+    "repositoryPath": "_ Test Scenes/DemoGame - 2 - Summer.png",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "verifiedSequences": {
+      "southStraight": [
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "southWestDiagonal": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "southEastDiagonal": [
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          8
+        ]
+      ]
+    }
+  }
+}

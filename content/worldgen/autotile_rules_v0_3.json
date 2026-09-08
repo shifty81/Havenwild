@@ -1,0 +1,63 @@
+{
+  "id": "worldgen_autotile_rules_v0_3",
+  "version": "0.3.0",
+  "kind": "autotile_rules",
+  "systems": [
+    {
+      "id": "blob_47",
+      "purpose": "terrain, shoreline, cave wall, cliff, tilled soil clusters",
+      "neighborMask": "8-way NESW diagonals with corner suppression",
+      "outputAtlas": "terrain_autotile_47_32"
+    },
+    {
+      "id": "edge_16",
+      "purpose": "roads, simple trim, interior floor edges",
+      "neighborMask": "4-way NESW",
+      "outputAtlas": "terrain_autotile_47_32"
+    },
+    {
+      "id": "water_family",
+      "purpose": "ocean/freshwater/river animation and edge blending",
+      "neighborMask": "water-family-aware 8-way",
+      "outputAtlas": "water_families_animated_32"
+    }
+  ],
+  "terrainGroups": {
+    "road": [
+      "Road",
+      "StonePath",
+      "MountainPath",
+      "Bridge"
+    ],
+    "water": [
+      "Water",
+      "ShallowWater",
+      "DeepWater"
+    ],
+    "walls": [
+      "Wall",
+      "Cliff",
+      "MountainRock",
+      "CaveWall"
+    ],
+    "farm": [
+      "TilledSoil",
+      "Crop",
+      "GreenhouseZone"
+    ]
+  },
+  "resolutionOrder": [
+    "explicit_transition_overrides",
+    "object_blocked_tiles",
+    "water_family_edges",
+    "blob_47_groups",
+    "edge_16_groups",
+    "raw_tile_fallback"
+  ],
+  "editorPreview": {
+    "show3x3Preview": true,
+    "showAnimatedWaterPreview": true,
+    "showCollisionOverlay": true,
+    "showSeamWarnings": true
+  }
+}

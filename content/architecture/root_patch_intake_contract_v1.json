@@ -1,0 +1,42 @@
+{
+  "schema": "havenwild.root_patch_intake_contract.v1",
+  "version": 1,
+  "updated": "2026-08-23",
+  "authority": "tools/control/InvokeRootPatchIntake.ps1",
+  "qualityGateHook": "tools/control/HavenwildTools.ps1",
+  "normalWorkflow": [
+    "drop an unextracted Havenwild_IncrementalPatch_*.zip into the repository root",
+    "run HavenwildTools.cmd",
+    "choose Build & Verify -> Full quality gate",
+    "the full quality gate invokes root patch intake before root cleanliness validation",
+    "patch intake transactionally backs up and applies controlled overwrite/removal data",
+    "payload hashes and post-apply state are verified",
+    "successful patch transport is archived outside the repository root",
+    "root cleanliness audit runs only after consumed patch transports have left the root",
+    "the full quality gate continues into build, tests, validation, and debug bundle handling"
+  ],
+  "safety": {
+    "manifest": "PATCH_MANIFEST.json with schema havenwild.root_patch.v1",
+    "allowedApplyMode": "overwrite",
+    "rejects": [
+      "absolute paths",
+      "drive-qualified paths",
+      "path traversal",
+      "unmanifested payload files",
+      "duplicate manifest paths",
+      "payload hash mismatches",
+      "payload size mismatches",
+      "project mismatch",
+      "unsupported schemas",
+      "directory removals"
+    ],
+    "backupRoot": ".havenwild/updates/backups",
+    "stagingRoot": ".havenwild/updates/staging",
+    "appliedArchiveRoot": "artifacts/updates/applied",
+    "failedArchiveRoot": "artifacts/updates/failed",
+    "logRoot": "logs/updates",
+    "rollbackOnFailure": true,
+    "executesPatchScripts": false
+  },
+  "rootPolicy": "Consumed patch ZIPs are archived before the normal root cleanliness assertion. Patch transport never becomes repository-root source authority."
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "havenwild.native_editor_canvas_ux.w60c.v1",
+  "pass": "167Z109W60C",
+  "authority": "Centralized canvas tool rail, compact opaque layer pane, thumbnail asset browsers, popup color controls, and in-app help",
+  "layerPane": {
+    "opaque": true,
+    "fields": ["visibility", "title", "lock"],
+    "detailTextVisible": false,
+    "overlapsCanvas": false,
+    "selectionArmsModifyingTool": false
+  },
+  "toolRail": {
+    "centralized": true,
+    "fullCanvasHeight": true,
+    "duplicateTopToolSelectorsAllowed": false,
+    "groupedPopupMenus": true,
+    "groups": ["Pointer", "Brushes", "Shapes", "Content", "Gameplay"],
+    "unavailableToolBehavior": "disabled_grey",
+    "icons": "project-owned familiar vector metaphors"
+  },
+  "assetBrowsers": {
+    "sharedThumbnailCards": true,
+    "pixelStudio": "thumbnail_grid",
+    "animationStudio": "thumbnail_grid",
+    "sceneAssetPalette": "thumbnail_grid",
+    "contentLibrary": "thumbnail_grid",
+    "lazyVisibleThumbnailLoading": true,
+    "selectionDoesNotArmPlacement": true
+  },
+  "color": {
+    "compactPaletteDock": true,
+    "floatingColorWheel": true,
+    "foregroundBackgroundSeparation": true,
+    "colorSelectionDoesNotChangeTool": true
+  },
+  "help": {
+    "inApplication": true,
+    "toggle": "F1",
+    "pages": [
+      "Help Center",
+      "Keyboard Shortcuts",
+      "Canvas & Layers",
+      "Asset Browsers",
+      "Pixel / Junction Authoring",
+      "Color & Palette"
+    ],
+    "toolShortcutSource": "shared ToolRegistry"
+  },
+  "references": {
+    "aseprite": ["single tool bar", "separate color bar", "shortcut reference"],
+    "krita": ["dockers", "grouped brush presets", "popup palette"],
+    "ldtk": ["layer instance sidebar", "context palette", "shortcut cheat sheet"],
+    "godot": ["thumbnail-oriented file browser", "separate inspector responsibilities"]
+  },
+  "rules": [
+    "The canvas never defaults to a modifying tool merely because a resource or layer is selected",
+    "The left tool rail is the canonical tool selector for canvas operations",
+    "Top workspace bars may contain view, transport, document, or mode commands but may not duplicate canvas tool selection",
+    "Unavailable tools remain visible for spatial consistency but are grey and non-clickable",
+    "Layer chrome shows only visibility, layer title, and lock state",
+    "Asset browsers prefer thumbnails and bounded lazy loading over text-only lists",
+    "Color controls may pop out without permanently shrinking the authoring canvas",
+    "Help and active key bindings are discoverable inside the application"
+  ]
+}

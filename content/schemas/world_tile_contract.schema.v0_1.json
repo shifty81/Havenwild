@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.world_tile_contract.schema.v0_1",
+  "title": "Havenwild World Tile Contract v0.1",
+  "type": "object",
+  "required": ["schema", "canonicalTileSize", "subcellMasks", "environmentFamiliesV1", "layerStackV1"],
+  "properties": {
+    "schema": { "const": "havenwild.world_tile_contract.v0_1" },
+    "canonicalTileSize": { "const": [32, 32] },
+    "runtimeCanonicalBakeSize": { "const": [32, 32] },
+    "supportedDonorGridSizes": { "type": "array" },
+    "subcellMasks": { "type": "array" },
+    "environmentFamiliesV1": { "type": "array", "items": { "type": "string" } },
+    "layerStackV1": { "type": "array" },
+    "brushModesV1": { "type": "array" },
+    "namingRules": { "type": "object" },
+    "multiplayerRules": { "type": "object" }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z106N5",
+  "title": "Repository, Content, Documentation & Victorian Asset Normalization",
+  "baseline": "Pass167Z59",
+  "canonicalPaths": {
+    "animations": "content/animations",
+    "worldgenPacks": "content/worldgen/packs",
+    "currentDocs": "docs/current",
+    "passHistory": "docs/archive/pass_history",
+    "packageableGenerated": "assets/generated",
+    "reproducibleGenerated": "WORKSPACE/generated"
+  },
+  "retiredAuthority": [
+    "content/animation",
+    "content/packs",
+    "web/editor",
+    "archive/source/legacy_cpp_shell",
+    "tools/automation/archive/foreign_open2d_menu"
+  ],
+  "victorianSourceFamily": "content/assets/lpc/victorian_building_source_family_v0_1.json",
+  "validator": "tools/automation/validation/checks/architecture/Validate-RepositoryContentNormalizationPass167Z106N5.py",
+  "windowsBuildRequired": true,
+  "reason": "N4 moved Rust modules and N5 changes canonical content paths/package layout; certify the grouped normalization milestone before new feature work.",
+  "intentionalRemovalManifest": "manifests/removals/PASS167Z106N5_REPOSITORY_NORMALIZATION_REMOVALS.txt",
+  "intentionalRemovalPathCount": 177,
+  "patchRemovalTransport": {
+    "transportManifest": "manifests/removals/PATCH_REMOVALS.txt",
+    "automaticOnHavenwildToolsLaunch": true,
+    "transportManifestRemovedAfterApply": true,
+    "rootPatchHelpersRemovedAfterApply": true
+  }
+}

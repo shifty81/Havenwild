@@ -1,0 +1,9 @@
+PASS 165A3 FRONTEND MUSIC LOOP
+
+ADD content/audio/music/frontend/Harp.ogg
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE crates/haven_game/src/client_entry.rs
+ADD docs/patch/PASS_165A3_FRONTEND_MUSIC_LOOP.md
+ADD manifests/PASS_165A3_MANIFEST.txt
+
+Cumulative lineage: Pass 164A -> 164B1..164H2 -> 165A -> 165A1 -> 165A2 -> 165A3

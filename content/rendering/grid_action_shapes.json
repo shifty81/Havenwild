@@ -1,0 +1,133 @@
+{
+  "tile_size_px": 32,
+  "tools": {
+    "hoe": {
+      "tier_1": "single",
+      "tier_2": "line_3_forward",
+      "tier_3": "line_5_forward",
+      "tier_4": "square_3x3"
+    },
+    "watering_can": {
+      "tier_1": "single",
+      "tier_2": "line_3_forward",
+      "tier_3": "line_5_forward",
+      "tier_4": "square_3x3"
+    },
+    "shovel": {
+      "tier_1": "single",
+      "tier_2": "cross_5",
+      "tier_3": "square_3x3"
+    },
+    "plant_seed": {
+      "tier_1": "single_prepared_soil"
+    },
+    "build_mode": {
+      "default": "rectangular_footprint",
+      "placement": "validates walkability, zone, object collision, room boundary"
+    }
+  },
+  "shapes": {
+    "single": [
+      [
+        0,
+        0
+      ]
+    ],
+    "line_3_forward": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        -2
+      ]
+    ],
+    "line_5_forward": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        0,
+        -3
+      ],
+      [
+        0,
+        -4
+      ]
+    ],
+    "square_3x3": [
+      [
+        -1,
+        -1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "cross_5": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  }
+}

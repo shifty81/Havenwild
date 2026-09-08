@@ -1,0 +1,40 @@
+{
+  "schema": "havenwild.golden_authoring_acceptance.v1",
+  "id": "w57_house_interior_cave_character",
+  "version": "1.0.0-w57i",
+  "buildingRecipeId": "havenwild.estate.starter_cottage",
+  "requirements": {
+    "exterior": [
+      "single building origin",
+      "socket-aligned twin gable roof",
+      "continuous south facade around authored openings",
+      "exterior collision derived from recipe walls/openings"
+    ],
+    "door": [
+      "timed seven-source-position swing family",
+      "collision changes during animation",
+      "terminal state persists after animation"
+    ],
+    "interior": [
+      "linked EnclosedScene",
+      "void-backed unused area",
+      "one-cell structural wall boundary",
+      "walkable threshold and return transition"
+    ],
+    "cave": [
+      "same wall topology resolver as interiors",
+      "cave wall/floor skin remains presentation-specific"
+    ],
+    "character": [
+      "horizontal-dominant diagonal facing",
+      "64px frame-grid alignment diagnostics"
+    ],
+    "editor": [
+      "building inspector can create/open interior",
+      "interior/cave inspector paints semantic floor/wall",
+      "door placement uses published door_basic",
+      "collision overlay and Play Here available"
+    ]
+  },
+  "debugAfterW57J": true
+}

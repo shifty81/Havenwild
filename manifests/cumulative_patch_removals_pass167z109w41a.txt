@@ -1,0 +1,3 @@
+PATCH_MANIFEST.txt
+SHA256SUMS.txt
+crates/haven_core/src/foundation/placeable_object_catalog.rs

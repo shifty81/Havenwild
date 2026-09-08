@@ -1,0 +1,11 @@
+Havenwild Pass 166Z - Canonical Hydrology Resolver V2
+Date: 2026-08-01
+Base: Pass 166Y
+
+Files:
+- crates/haven_world/src/hydrology_v2.rs
+- crates/haven_world/src/lib.rs
+
+Adds connected water-body resolution, automatic shallow/deep classification,
+east/west seam connectivity, river flow vectors, freeze state, navigation-depth
+queries, fishing-habitat queries, reports, and unit tests.

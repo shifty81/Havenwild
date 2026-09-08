@@ -1,0 +1,63 @@
+[workspace]
+resolver = "2"
+members = [
+  "apps/haven_editor_native",
+  "crates/haven_core",
+  "crates/haven_world",
+  "crates/haven_assets",
+  "crates/haven_render",
+  "crates/haven_ecs",
+  "crates/haven_sim",
+  "crates/haven_net",
+  "crates/haven_pixel",
+  "crates/haven_save",
+  "crates/haven_authoring",
+  "crates/haven_editor",
+  "crates/haven_game",
+  "crates/haven_tools",
+  "crates/haven_identity",
+  "crates/haven_diagnostics",
+  "crates/haven_schema",
+  "crates/haven_jobs",
+  "crates/haven_spatial",
+  "crates/haven_audio",
+  "crates/haven_logic",
+  "crates/haven_ui"
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Shifty"]
+
+[workspace.dependencies]
+macroquad = { version = "0.4", features = ["audio"] }
+image = "0.24"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rayon = "1.12"
+hound = "3.5"
+taffy = "0.13"
+cosmic-text = "0.19"
+accesskit = "0.24.1"
+rfd = "0.17.2"
+arboard = "3.6.1"
+
+[workspace.metadata.havenwild.mature_oss]
+policy = "Havenwild-owned adapters; third-party types never enter saves/public schemas"
+tracing = "0.1.44"
+tracing-subscriber = "0.3.23"
+notify = "8.2"
+puffin = "0.20"
+uuid = "1.24"
+slotmap = "1.1"
+schemars = "1.2"
+serde-path-to-error = "0.1.20"
+blake3 = "1"
+rstar = "0.13"
+petgraph = "0.8"
+parry2d = "0.25"
+rusqlite = "staged-after-msrv-check"
+sysinfo = "staged-after-msrv-check"
+kira = "staged-sound-runtime"
+fundsp = "staged-sound-dsp"

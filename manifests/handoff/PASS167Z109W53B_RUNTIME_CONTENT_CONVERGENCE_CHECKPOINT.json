@@ -1,0 +1,62 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W53B",
+  "date": "2026-08-15",
+  "title": "Runtime Scene/Content Convergence Repair",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B",
+    "167Z109W45C1",
+    "167Z109W45C2",
+    "167Z109W45C3A",
+    "167Z109W45D1",
+    "167Z109W45D1A",
+    "167Z109W45C3B",
+    "167Z109W45D2",
+    "167Z109W46A",
+    "167Z109W46B",
+    "167Z109W46C",
+    "167Z109W47",
+    "167Z109W48",
+    "167Z109W49",
+    "167Z109W50",
+    "167Z109W51",
+    "167Z109W52",
+    "167Z109W53",
+    "167Z109W53A",
+    "167Z109W53B"
+  ],
+  "runtimeFailure": {
+    "observed": "Multiple legacy scene identities rendered the same stale saved grass/sand/water SceneMap substrate with only newer object/building overlays changing.",
+    "proof": "Current W53 Estate source has no ocean/sand substrate and explicitly contains 18 trees, 4 boulders, and 10 shrubs/forage/flora entries, all absent from the live screenshot."
+  },
+  "repairs": [
+    "One-time W53B content revision rebases retained legacy gameplay SceneMaps from current authored source with pre-rebase backups.",
+    "Legacy scene paint deltas are filtered only for rebased/retired scene IDs; modern/generated scene edits are preserved.",
+    "Standalone Tavern Interior/Cellar/Guest Floor scenes are retired in favor of same-world BuildingInstance levels.",
+    "Characters stored on rebased/retired legacy scenes relocate to current authored spawn.",
+    "Authored scene reset reloads current source; obsolete starter regeneration and missing dev scene jumps fail closed.",
+    "Option 54 launches an isolated current-content Estate visual test without normal gameplay saves.",
+    "Production full-width diagnostics are F3/dev-only.",
+    "Estate cottage is compact 5x5 using exact brown LPC gable module."
+  ],
+  "validation": {
+    "w46aThroughW53BDirectAuthorityChain": "PASS",
+    "w43aHistoricalForwardCompatibility": "PASS",
+    "w43dRegeneratedAcceptance": "PASS",
+    "jsonParse": "PASS",
+    "pythonParse": "PASS",
+    "bashSyntax": "PASS",
+    "cargoWindowsBuild": "PENDING_USER_LOCAL_W53B"
+  },
+  "next": "Apply W53A\u2192W53B, run 2. Build all, then 54. Run integrated Estate visual test before normal option 6."
+}

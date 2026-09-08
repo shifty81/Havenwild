@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Havenwild World Paint Delta Contract v0.1",
+  "type": "object",
+  "required": ["schema", "version", "canonicalTileSize", "supportedSubcellModes", "authoritativeState", "clientDerivedState", "deltaPath", "rules"],
+  "properties": {
+    "schema": { "const": "havenwild.world_paint_delta_contract.v0.1" },
+    "version": { "type": "integer", "minimum": 1 },
+    "purpose": { "type": "string" },
+    "canonicalTileSize": {
+      "type": "array",
+      "prefixItems": [{ "const": 32 }, { "const": 32 }],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "supportedSubcellModes": {
+      "type": "array",
+      "items": { "enum": ["32x32", "16x16", "8x8", "4x4"] },
+      "minItems": 4
+    },
+    "authoritativeState": { "type": "array", "items": { "type": "string" } },
+    "clientDerivedState": { "type": "array", "items": { "type": "string" } },
+    "deltaPath": { "type": "string" },
+    "rules": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "havenwild.editor.semantic_layer_authority.r34.v1",
+  "pass": "167Z109W81R34",
+  "rule": "Selected layer defines the primary editable authority for the active canvas.",
+  "fields": [
+    "layer_id",
+    "semantic_type",
+    "owner",
+    "editable",
+    "generated",
+    "locked",
+    "visible",
+    "opacity",
+    "blend_mode",
+    "selection_policy",
+    "allowed_tools",
+    "asset_filter",
+    "inspector_context",
+    "logic_channel",
+    "dependencies"
+  ],
+  "worldLayers": [
+    "world_structure",
+    "terrain_materials",
+    "derived_transitions",
+    "water",
+    "roads_paths",
+    "vegetation",
+    "resources",
+    "structures",
+    "props",
+    "npc_spawn",
+    "interactions",
+    "collision",
+    "lighting_fx",
+    "logic_regions"
+  ],
+  "sceneLayers": [
+    "world_surface",
+    "terrain",
+    "derived_transitions",
+    "buildings",
+    "interior_structure",
+    "furniture",
+    "props",
+    "characters_npcs",
+    "triggers",
+    "interactions",
+    "collision",
+    "lighting",
+    "sound_emitters",
+    "fx",
+    "logic"
+  ],
+  "generatedProtection": [
+    "derived_transitions",
+    "generated_cliffs",
+    "generated_shoreline",
+    "generated_navigation"
+  ]
+}

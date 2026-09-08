@@ -1,0 +1,341 @@
+{
+  "schema": "havenwild.external_asset_pack_index.v0_1",
+  "generatedUtc": "2026-07-12T02:51:46.650320+00:00",
+  "pack": {
+    "id": "lpc_farm_animals_daniel_eddeland",
+    "displayName": "LPC Farm Animals",
+    "archiveName": "animals.zip",
+    "archiveSha256": "75b43a67f2a3106c86aac43489b829f92049d38080e3f18715bc768b3b08b01d",
+    "externalRawRoot": "external://lpc_farm_animals_daniel_eddeland",
+    "licenseStatus": "allowed_with_attribution",
+    "attribution": "Daniel Eddeland; CC-BY 3.0; link to the OpenGameArt submission.",
+    "sourceUrl": "https://opengameart.org/content/lpc-style-farm-animals",
+    "rawFilesCommitted": false,
+    "rawFilesPackaged": false
+  },
+  "summary": {
+    "files": 14,
+    "images": 13,
+    "unreadableImages": 0,
+    "categoryCounts": {
+      "animation.eat": 5,
+      "animation.shadow": 3,
+      "animation.walk": 5,
+      "character.animal": 8
+    }
+  },
+  "records": [
+    {
+      "relativePath": "attrib.txt",
+      "extension": ".txt",
+      "sizeBytes": 54,
+      "sha256": "29f3f68f11ee8ca5195cad7d5d2af57b0e002302555c4594d7d60d82e73e2214",
+      "promotionState": "cataloged_source_only"
+    },
+    {
+      "relativePath": "chicken_eat.png",
+      "extension": ".png",
+      "sizeBytes": 4434,
+      "sha256": "c02621f1096d46dba0f11b6358e4ee8901e76b4ea57f58c6e2cd8cd514e63b06",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "character.animal",
+        "animation.eat"
+      ],
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "chicken_shadow.png",
+      "extension": ".png",
+      "sizeBytes": 271,
+      "sha256": "ee82440b67e53a7e7b31ddf6b5350c5c539c694cb65feed195e93c361ab57bcb",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "character.animal",
+        "animation.shadow"
+      ],
+      "width": 32,
+      "height": 128,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "chicken_walk.png",
+      "extension": ".png",
+      "sizeBytes": 4126,
+      "sha256": "9f2e5b54f283a6e9b4a0e0439a548844b6ce1a20f34e719ae944206e4e206ebe",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "character.animal",
+        "animation.walk"
+      ],
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "cow_eat.png",
+      "extension": ".png",
+      "sizeBytes": 11579,
+      "sha256": "61bf45f6a448a9bda98d5f92e4263d821f2f8860e1a6438e70c745708275145f",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "animation.eat"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "cow_shadow.png",
+      "extension": ".png",
+      "sizeBytes": 745,
+      "sha256": "f3892de66dd8ea994dc6614e50d5ca889ed80a18b75cbd793f7b991c4e86a41b",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "animation.shadow"
+      ],
+      "width": 128,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "cow_walk.png",
+      "extension": ".png",
+      "sizeBytes": 10379,
+      "sha256": "f338ac144fcafdbbdb5c67ce674365b919b87c2a6ef757af60ec7e4abf23796b",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "animation.walk"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "llama_eat.png",
+      "extension": ".png",
+      "sizeBytes": 11051,
+      "sha256": "94d9c87db65f67ff7071c548859fecd48464a66d0f0754a974e0893c577c74f5",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "character.animal",
+        "animation.eat"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "llama_shadow.png",
+      "extension": ".png",
+      "sizeBytes": 747,
+      "sha256": "241962d4f334cc4f082d5c304227e5285c8b16b1bdb372c4ad9b49ecbb370dca",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "character.animal",
+        "animation.shadow"
+      ],
+      "width": 128,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "llama_walk.png",
+      "extension": ".png",
+      "sizeBytes": 11280,
+      "sha256": "6e1db9838e9d17238a483f1cf1cf2058f51699955d9147af8e13170113016a61",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "character.animal",
+        "animation.walk"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "pig_eat.png",
+      "extension": ".png",
+      "sizeBytes": 6071,
+      "sha256": "09366c2632fe9635f0e34c81f9bce5f8ea854e4e672c27b576c276a5a4ebf3a4",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "character.animal",
+        "animation.eat"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "pig_walk.png",
+      "extension": ".png",
+      "sizeBytes": 5480,
+      "sha256": "ff0caf9e03dc2d90997714ff7db222bd3782191a0c6b1ab28ee78b12695b0395",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "character.animal",
+        "animation.walk"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "sheep_eat.png",
+      "extension": ".png",
+      "sizeBytes": 8800,
+      "sha256": "20fcc7218839747e20ff5895d315c947a9637d6b1adf03308b19b5bbcd5d2c9c",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "animation.eat"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "sheep_walk.png",
+      "extension": ".png",
+      "sizeBytes": 8222,
+      "sha256": "2ccaecd23d4dba308974a72415e660a6afa64135253d7061827fb62b67f9d29e",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "animation.walk"
+      ],
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    }
+  ]
+}

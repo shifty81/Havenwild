@@ -1,0 +1,16 @@
+{
+  "schema": "havenwild.building_instance.v1",
+  "id": "havenwild.estate.dev.starter_cottage",
+  "recipeId": "havenwild.estate.starter_cottage",
+  "sceneId": "farmstead",
+  "anchorTile": [
+    55,
+    28
+  ],
+  "initialLevel": 0,
+  "diagnosticOnly": false,
+  "origin": "authored",
+  "placementSpace": "scene_local",
+  "surfaceRegionId": null,
+  "globalAnchorTile": null
+}

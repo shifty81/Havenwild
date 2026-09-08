@@ -1,0 +1,67 @@
+{
+  "schema": "havenwild.lpc.environment_topology_policy.v0_1",
+  "id": "lpc_environment_topology_policy_v0_1",
+  "version": "0.1.0",
+  "neighborModel": "eight_neighbor",
+  "purpose": "Classify every environment TileKind by the topology behavior it should use as Havenwild moves to LPC-authored terrain, caves, interiors, paths, and modular structures.",
+  "rules": {
+    "semantic_boundary_replacement": {
+      "description": "Neighboring material relationships. These use owner/neighbor LPC replacement roles. A cell must draw one complete replacement role at a time unless an authored mixed-role family exists.",
+      "families": [
+        "grass",
+        "dirt",
+        "sand",
+        "wet_sand",
+        "pebble_shore",
+        "water",
+        "shallow_water",
+        "deep_water",
+        "ocean_deep",
+        "ocean_shallow",
+        "river_water",
+        "mud_bank"
+      ]
+    },
+    "same_family_assembly": {
+      "description": "Tileable structures that assemble against their own family: roads, paths, bridges, caves, floors, walls, cliffs, and modular building shells.",
+      "families": [
+        "road",
+        "stone_path",
+        "mountain_path",
+        "bridge",
+        "wood_floor",
+        "plank_floor",
+        "stone_floor",
+        "brick_floor",
+        "wall",
+        "cliff",
+        "mountain_rock",
+        "cave_floor",
+        "cave_wall"
+      ]
+    },
+    "derived_overlay_or_state": {
+      "description": "Generated from neighboring terrain, farm state, or simulation state; these should not be primary paint buttons in the production terrain palette.",
+      "families": [
+        "tilled_soil",
+        "watered_soil",
+        "crop",
+        "greenhouse_zone",
+        "river_mouth_blend",
+        "shore_foam"
+      ]
+    },
+    "non_tileable_object_or_stamp": {
+      "description": "Vegetation dressing and props belong to object/stamp placement rather than terrain autotile cells.",
+      "families": [
+        "tall_grass"
+      ]
+    }
+  },
+  "promotionPlan": [
+    "Keep Pass104 single-replacement-role rendering stable.",
+    "Promote roads and paths next using authored same-family LPC/Wang roles.",
+    "Then promote cave floor/wall, interior floors/walls, cliffs, bridges, and modular building exteriors.",
+    "Only add mixed edge+diagonal visual roles after the source family has authored cells for that exact topology."
+  ]
+}

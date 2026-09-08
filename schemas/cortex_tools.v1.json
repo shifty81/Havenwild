@@ -1,0 +1,71 @@
+{
+  "schema_version": 2,
+  "authority": "crates/open2d_cortex_tools::definitions",
+  "tool_groups": {
+    "project": [
+      "project.status"
+    ],
+    "source_read": [
+      "source.list",
+      "source.read",
+      "source.search",
+      "source.transaction_status",
+      "source.transaction_files"
+    ],
+    "source_write": [
+      "source.checkpoint",
+      "source.begin_transaction",
+      "source.write_text",
+      "source.replace_text",
+      "source.commit",
+      "source.rollback"
+    ],
+    "build": [
+      "build.cargo_fmt_check",
+      "build.cargo_check",
+      "build.cargo_test",
+      "build.cargo_test_run",
+      "build.clippy",
+      "build.certify"
+    ],
+    "runtime": [
+      "runtime.launch_foundry",
+      "runtime.launch_ember",
+      "runtime.status",
+      "runtime.stop"
+    ],
+    "capture": [
+      "capture.window",
+      "vision.inspect"
+    ],
+    "image": [
+      "image.generate",
+      "image.promote",
+      "image.reject",
+      "image.archive"
+    ],
+    "memory": [
+      "memory.rebuild",
+      "memory.search"
+    ],
+    "vscode": [
+      "vscode.workspace_info",
+      "vscode.open_file",
+      "vscode.get_diagnostics",
+      "vscode.apply_workspace_edit",
+      "vscode.save_all"
+    ]
+  },
+  "default_policy": {
+    "workspace_escape": "deny",
+    "network": "deny_except_configured_loopback_providers",
+    "system_modification": "deny",
+    "software_installation": "deny",
+    "process_control": "owned_processes_only",
+    "writes": "durable_transaction_required",
+    "agent_read_only_modes": ["inspect", "plan"],
+    "agent_mutating_modes": ["apply", "repair"],
+    "mutating_agent_commit": "human_review_required",
+    "grounded_first_project_turn": "required"
+  }
+}

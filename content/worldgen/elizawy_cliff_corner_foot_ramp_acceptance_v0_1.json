@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.elizawy_cliff.corner_foot_ramp_acceptance.v0_1",
+  "pass": "167Z106N5X",
+  "revision": "outer-corner-foot-apron-component-ramp-v1",
+  "reportedEvidence": "Fresh-world screenshot after N5S/N5T showed abrupt stair-step outer corners, hard cliff-foot termination into beach/ground, rigid side-to-south joins, and no obvious traversal gateway near the visible raised landforms.",
+  "visualAuthority": {
+    "source": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+    "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "straightProjection": "square 3x4 narrow rim strips plus certified c10 r9-r11 south face",
+    "outerCornerProjection": "rounded 5x4 reference used only as one-shot NW/NE lip and SW/SE face recipes",
+    "footReceiver": "bottom eight grass pixels of the final foot only, destination height 16 px on dry projected receiving terrain"
+  },
+  "worldgenAuthority": {
+    "gatewayDirection": "south",
+    "connectorTiles": "MountainPath pair across one structural level",
+    "selection": "one gateway per connected raised exact-level component when a supported south candidate exists, plus spatially separated extras",
+    "routeBias": "prefer candidate edges nearer protected road/civic path surfaces without entering the protected buffer",
+    "maximumGeneratedGateways": 32
+  },
+  "acceptance": [
+    "Straight east/west cliff runs remain narrow continuous rims and never regain N5R diagonal zebra repetition.",
+    "A south-west or south-east outer corner uses the reviewed connected corner column once and reads as a corner rather than a blunt strip intersection.",
+    "North-west and north-east outer turns use one-shot rounded lip crops rather than two uncapped straight strips.",
+    "Dry south cliff feet extend the existing grass fringe into a half-tile receiving apron without repeating any rock body.",
+    "Water-facing faces and explicit road/path/bridge/ramp lanes never receive the dry grass apron.",
+    "Every connected generated raised component with a valid supported south boundary receives at least one MountainPath ramp gateway before optional extra gateways are chosen.",
+    "Generated ramp gateways remain real collision openings through the existing edge-exact connector authority.",
+    "Caves, waterfalls, stairs, ladders, bridges, and fail-open-on-missing-cliff-source behavior remain unchanged."
+  ],
+  "supersededBy": "content/worldgen/structural_cliff_autotile_authority_v0_1.json",
+  "supersededByPass": "167Z107"
+}

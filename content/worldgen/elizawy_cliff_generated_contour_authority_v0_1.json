@@ -1,0 +1,207 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_generated_contour_authority.v0_1",
+  "pass": "167Z109W8",
+  "revision": "167Z109W8-generated-cliff-grammar-freeze-v1",
+  "status": "active",
+  "purpose": "Freeze the exact source-authored contour vocabulary required by fresh procedural structural landforms before shoreline/water work begins.",
+  "topologyAuthority": {
+    "resolver": "haven_world::CliffShape15",
+    "structuralLevels": [
+      0,
+      1,
+      2
+    ],
+    "generatedContourNormalization": "crates/haven_world/src/structural_landform_masks.rs::normalize_structural_contours",
+    "freshPcgRule": "raised generated hosts with zero/one same-tier cardinal support are removed before cliff topology bake",
+    "freshPcgCertifiedMasks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      12
+    ],
+    "freshPcgRejectedThinMasks": [
+      7,
+      11,
+      13,
+      14,
+      15
+    ],
+    "authoredWorldRule": "editor/player-authored thin caps remain structurally valid but may not receive invented art; explicit repair/feature recipes own them"
+  },
+  "elizawySeasonalProvider": {
+    "source": "Terrain/cliff_summer.png",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "runtimeOverlay": "assets/generated/worldgen_v0_1/terrain/elizawy_cliff_runtime_overlay_summer.png",
+    "cellPx": 32,
+    "exactGeneratedRoles": {
+      "mask1North": {
+        "sourceCell": [
+          6,
+          5
+        ],
+        "role": "ContourNorthStraight"
+      },
+      "mask2East": {
+        "sourceCell": [
+          7,
+          6
+        ],
+        "role": "ContourEastStraight"
+      },
+      "mask3NorthEast": {
+        "sourceCell": [
+          7,
+          5
+        ],
+        "role": "ContourNorthEastConvex"
+      },
+      "mask4South": {
+        "lipCell": [
+          6,
+          7
+        ],
+        "faceColumn": [
+          10,
+          9,
+          1,
+          3
+        ],
+        "role": "StraightSouthFace"
+      },
+      "mask5NorthSouth": {
+        "northCell": [
+          6,
+          5
+        ],
+        "southLipCell": [
+          6,
+          7
+        ],
+        "faceColumn": [
+          10,
+          9,
+          1,
+          3
+        ],
+        "role": "NorthSouthRidge"
+      },
+      "mask6EastSouth": {
+        "sourceCells": [
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "role": "RoundedSouthEastFace"
+      },
+      "mask8West": {
+        "sourceCell": [
+          5,
+          6
+        ],
+        "role": "ContourWestStraight"
+      },
+      "mask9NorthWest": {
+        "sourceCell": [
+          5,
+          5
+        ],
+        "role": "ContourNorthWestConvex"
+      },
+      "mask12SouthWest": {
+        "sourceCells": [
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            8
+          ]
+        ],
+        "role": "RoundedSouthWestFace"
+      }
+    },
+    "adjacentCornerRule": "N+E and N+W use their dedicated authored corner cells; do not stack separate straight-edge cells to fabricate a corner",
+    "opposedNorthSouthRule": "N and S are whole authored modules with disjoint alpha footprints and may compose on the same logical host while the south vertical face remains a connected recipe"
+  },
+  "lpcCompanionProvider": {
+    "source": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+    "cellPx": 32,
+    "exactGeneratedRoles": {
+      "mask10EastWest": {
+        "sourceGridSpan": [
+          8,
+          2,
+          3,
+          1
+        ],
+        "worldVisualFootprintTiles": [
+          3,
+          1
+        ],
+        "hostAnchorOffsetTiles": [
+          -1,
+          0
+        ],
+        "role": "VerticalRidgeMiddle",
+        "reason": "dedicated complete authored narrow-ridge row avoids overlapping incompatible ElizaWy east/west template cells"
+      }
+    },
+    "transformPolicy": {
+      "mirrorAllowed": false,
+      "rotationAllowed": false,
+      "stretchAllowed": false,
+      "cropIntoInventedTileAllowed": false
+    }
+  },
+  "southCompositeBackRim": {
+    "rule": "when a south-facing structural mask also exposes north, retain the exact authored north/back rim without replacing the south face/diagonal/terminal recipe",
+    "sourceCell": [
+      6,
+      5
+    ]
+  },
+  "concavePolicy": {
+    "macroWorldgen": "one-cell inverse notches with three/four surrounding supports are filled by contour normalization",
+    "twoSupportConcaveTurns": "emerge from adjacent certified contour hosts; no receiver-cell pixels are synthesized",
+    "complexC8Strip": "remains source-reference only until a specific connected receiver-host recipe is proven; it is not a ramp and is not a generic concave autotile"
+  },
+  "sourceSafety": {
+    "halfTileSynthesis": false,
+    "textureStretching": false,
+    "arbitraryMirrorOrRotation": false,
+    "adjacentStraightEdgeStackingForCorners": false,
+    "genericFallbackInsideCertifiedRecipe": false
+  },
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_generated_contours_pass167z109w8.png",
+  "next": "Freeze generated cliffs after local visual verification, then move directly to authored shoreline/water grammar.",
+  "visualSourceRoleAuthority": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json",
+  "visualSourceRoleOverride": "W14 supersedes the W8 per-mask south source-cell snapshot while keeping the W8 certified mask topology."
+}

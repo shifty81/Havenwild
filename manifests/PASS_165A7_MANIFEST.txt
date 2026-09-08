@@ -1,0 +1,3 @@
+OVERWRITE crates/haven_game/src/client_frontend.rs
+OVERWRITE crates/haven_game/src/client_entry.rs
+ADD docs/patch/PASS_165A7_FRONTEND_AUDIO_STARTUP_REPAIR.md

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.frame_rig.v010",
+  "type": "object",
+  "required": [
+    "animation",
+    "direction",
+    "frame",
+    "root_anchor",
+    "sockets"
+  ],
+  "properties": {
+    "animation": {
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ]
+    },
+    "frame": {
+      "type": "integer"
+    },
+    "cell": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "root_anchor": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "sockets": {
+      "type": "object"
+    },
+    "depth_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

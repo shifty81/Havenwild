@@ -1,0 +1,45 @@
+{
+  "schema": "havenwild.prototype_asset_import_adapter.v0_1",
+  "id": "adapter.pixel_mart_icons_32.v0_1",
+  "displayName": "Pixel Mart 32px prototype shop icon adapter",
+  "externalSourceId": "third_party.ghostpixxells.pixel_mart_cc0",
+  "sourceMode": "user_supplied_or_quarantine",
+  "copyMode": "no_raw_copy",
+  "licenseGate": {
+    "commercialPolicyRequired": "allowed_with_metadata_cc0",
+    "rawRedistributionAllowed": true,
+    "attributionRequiredInMetadata": false,
+    "releaseBuildRequiresExplicitApproval": false
+  },
+  "sourceInputs": [
+    {
+      "archiveName": "Pixel_Mart.zip",
+      "preferredSheetHints": ["32", "items", "icons"],
+      "gridSize": [32, 32],
+      "role": "shop_inventory_icon_source"
+    }
+  ],
+  "processing": {
+    "adapterKind": "curated_32px_icon_cells",
+    "scalePolicy": "direct_32_to_32",
+    "atlasCellSize": [32, 32],
+    "families": ["icon.item", "icon.shop", "icon.inventory", "icon.food"],
+    "curationPolicy": "exclude modern mart-only items from final fantasy tavern runtime unless intentionally recontextualized"
+  },
+  "outputPlan": {
+    "processedAtlas": "assets/processed/prototype_icons/pixel_mart/pixel_mart_icons_32.png",
+    "metadata": "content/assets/prototype_icons/pixel_mart/pixel_mart_icons_32.hhasset.json",
+    "generatedManifest": "WORKSPACE/generated/prototype_imports/pixel_mart_import_report_v0_1.json"
+  },
+  "releaseGate": {
+    "runtimeDefault": false,
+    "publicRepoRawAssetCopy": false,
+    "requiresAttribution": false,
+    "requiresNoStandaloneAssetExport": true,
+    "allowedBuildProfiles": ["local_dev", "prototype_internal", "commercial_runtime_candidate"]
+  },
+  "notes": [
+    "Strong for shop/inventory prototype icons.",
+    "Curate for Havenwild setting fit before using in a final tavern/fantasy UI."
+  ]
+}

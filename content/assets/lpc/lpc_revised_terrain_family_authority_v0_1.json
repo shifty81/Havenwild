@@ -1,0 +1,205 @@
+{
+  "schema": "havenwild.lpc_revised_terrain_family_authority.v0_1",
+  "version": "0.3.0",
+  "sourceRepository": "https://github.com/ElizaWy/LPC",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourceRoot": "assets/source/licensed/lpc_revised/Terrain",
+  "credits": "assets/source/licensed/lpc_revised/Terrain/Credits.txt",
+  "tileSize": 32,
+  "runtimePolicy": {
+    "authoredSheetsAreSourceOfTruth": true,
+    "selectExactCellsOrSpriteComponents": true,
+    "proceduralReplacementOfExistingArt": false,
+    "unsupportedCombinationPolicy": "use every exact authored tuple present in terrain-map-v7, including authored multi-material junctions; only absent signatures fall back to a clean semantic fill and diagnostic",
+    "seasonPolicy": "use the matching seasonal sheet family for an entire biome/scene layer; do not mix seasonal palettes cell-by-cell",
+    "cliffFootprintAuthority": "content/worldgen/cliff_asset_footprint_recipe_normalization_v0_1.json",
+    "sourceGridCellIsIndependentAsset": false
+  },
+  "terrainTupleAuthority": {
+    "sourceImage": "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png",
+    "sourceTileset": "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.tsx",
+    "runtimeAtlas": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+    "runtimeManifest": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+    "roles": [
+      "fills",
+      "straight_edges",
+      "outer_corners",
+      "inner_corners",
+      "isolated_islands",
+      "two_material_junctions",
+      "authored_multi_material_junctions",
+      "grass_dirt",
+      "grass_sand",
+      "dirt_sand",
+      "sand_shallows",
+      "dirt_shallows",
+      "shallows_water",
+      "water_deep",
+      "roads_paths",
+      "farm_soil",
+      "rock_ground"
+    ],
+    "scope": "legacy_mixed_mainland_adapter_only",
+    "notValidForPureElizaWyCertification": true
+  },
+  "families": [
+    {
+      "id": "seasonal_ground_water",
+      "sources": [
+        "Terrain/terrain_spring.png",
+        "Terrain/terrain_summer.png",
+        "Terrain/terrain_autumn.png",
+        "Terrain/terrain_winter.png",
+        "Terrain/terrain_winter_ice.png"
+      ],
+      "roles": [
+        "ground_fills",
+        "wet_sand",
+        "banks",
+        "water",
+        "shallows",
+        "depth_rims",
+        "seasonal_variants"
+      ],
+      "runtimeUse": "supplement terrain-map-v7 only for authored roles that are not distinct terrain-map materials"
+    },
+    {
+      "id": "structural_cliffs",
+      "sources": [
+        "Terrain/cliff_spring.png",
+        "Terrain/cliff_summer.png",
+        "Terrain/cliff_autumn.png",
+        "Terrain/cliff_winter.png",
+        "Terrain/cliff_winter_ice.png"
+      ],
+      "roles": [
+        "platform_boundary_faces",
+        "inside_corners",
+        "outside_corners",
+        "side_faces",
+        "climbable_face_variants",
+        "cave_hosts",
+        "water_facing_faces"
+      ],
+      "runtimeUse": "normalized multi-cell structural recipes only; never raw 32x32 cell placement",
+      "independentSourceCellPlacementAllowed": false
+    },
+    {
+      "id": "rocks",
+      "sources": [
+        "Terrain/Rocks, Grasslands.png",
+        "Terrain/Rocks, Cliffs.png"
+      ],
+      "roles": [
+        "boulders",
+        "rock_clusters",
+        "grassland_rocks",
+        "cliff_debris",
+        "resource_nodes"
+      ],
+      "runtimeUse": "connected natural-object components with explicit visual/collision footprints; never structural platform-boundary authority",
+      "structuralCliffProvider": false
+    },
+    {
+      "id": "trees",
+      "sources": [
+        "Terrain/trees_spring.png",
+        "Terrain/trees_summer.png",
+        "Terrain/trees_autumn.png",
+        "Terrain/trees_winter.png"
+      ],
+      "roles": [
+        "mature_trees",
+        "leafless_trees",
+        "trunks",
+        "stumps",
+        "seasonal_foliage"
+      ],
+      "runtimeUse": "worldgen vegetation stamps and placeable/choppable objects"
+    },
+    {
+      "id": "plants_and_foraging",
+      "sources": [
+        "Terrain/plants_spring.png",
+        "Terrain/plants_summer.png",
+        "Terrain/plants_autumn.png",
+        "Terrain/plants_winter.png",
+        "Terrain/flowers.png",
+        "Terrain/mushrooms.png",
+        "Terrain/wildflowers_spring.png",
+        "Terrain/wildflowers_summer.png",
+        "Terrain/wildflowers_autumn.png",
+        "Terrain/wildflowers_winter.png"
+      ],
+      "roles": [
+        "shrubs",
+        "bushes",
+        "tall_grass",
+        "flowers",
+        "wildflowers",
+        "mushrooms",
+        "herbs",
+        "forageables"
+      ],
+      "runtimeUse": "biome clutter, forage spawns, editor vegetation palette, seasonal variants"
+    },
+    {
+      "id": "farm_ground",
+      "sources": [
+        "Terrain/tilled_soil.png"
+      ],
+      "roles": [
+        "tilled_soil",
+        "watered_soil",
+        "farm_edges",
+        "farm_corners",
+        "crop_beds"
+      ],
+      "runtimeUse": "player-authored farming plots; never a mandatory generated farmstead"
+    },
+    {
+      "id": "water_features",
+      "sources": [
+        "Terrain/Waterfall.png",
+        "Terrain/ice-shallows.png"
+      ],
+      "roles": [
+        "waterfalls",
+        "fall_edges",
+        "foam",
+        "ice_shallows",
+        "cold_biome_water_features"
+      ],
+      "runtimeUse": "Waterfall.png is an animated multi-cell structural water connector requiring host masks and animation recipes; ice-shallows remains terrain",
+      "independentSourceCellPlacementAllowed": false
+    }
+  ],
+  "openWorldUse": {
+    "biomeGeneration": "select a coherent ground/water/cliff/vegetation family by biome and season",
+    "naturalObjects": [
+      "tree",
+      "bush",
+      "boulder",
+      "mushroom",
+      "herb",
+      "flower",
+      "wildflower"
+    ],
+    "cityProtection": "natural placement respects civic roads, buildings, protected parcels, and authored Willowmere anchors",
+    "structuralLevelsAndCliffs": [
+      "cliff_face",
+      "cliff_corner",
+      "ledge",
+      "ramp_up",
+      "ramp_down"
+    ]
+  },
+  "pureStylePackPolicy": {
+    "stylePackLane": "elizawy_mainland",
+    "isolationContract": "content/worldgen/elizawy_tile_lane_isolation_contract_v0_1.json",
+    "crossFamilyFallbackAllowed": false,
+    "v7TupleAuthorityAllowed": false,
+    "groundAuthority": "ElizaWy seasonal terrain sheets after exact cell-role promotion",
+    "cliffAuthority": "ElizaWy seasonal cliff sheets after normalized multi-cell recipe certification; Rocks, Cliffs.png is object-only"
+  }
+}

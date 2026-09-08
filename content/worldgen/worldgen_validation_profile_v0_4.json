@@ -1,0 +1,32 @@
+{
+  "id": "worldgen_validation_profile_v0_4",
+  "version": "0.4.0",
+  "kind": "worldgen_validation_profile",
+  "requiredChecks": [
+    "All TileKind variants mapped to atlas assets",
+    "All scene terrain grids match sceneSize",
+    "All object visual/collision/interaction rectangles stay in bounds",
+    "Return transitions exist when returnRequired=true",
+    "No edge resolves to raw void",
+    "Scene-only placeholder objects are reported but not fatal",
+    "All load-order required files exist"
+  ],
+  "warningChecks": [
+    "Spawns on non-walkable terrain",
+    "Object asset IDs missing atlas art",
+    "Border rules using fallback edge type",
+    "Scene has no interaction rectangles",
+    "Camera-safe border lower than recommended 5 tiles"
+  ],
+  "blockingForEditorImport": [
+    "missing required JSON/PNG",
+    "unknown TileKind",
+    "invalid scene dimensions",
+    "invalid return transition"
+  ],
+  "blockingForGameplayRuntime": [
+    "missing runtime TileKind lookup",
+    "missing scene file",
+    "out-of-bounds collision rectangle"
+  ]
+}

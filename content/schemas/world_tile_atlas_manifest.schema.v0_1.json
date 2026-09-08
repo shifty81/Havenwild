@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.world_tile_atlas_manifest.schema.v0_1",
+  "title": "Havenwild World Tile Atlas Manifest v0.1",
+  "type": "object",
+  "required": ["schema", "id", "canonicalTileSize", "sourceAtlas", "sourceImageSize", "columns", "rows", "records"],
+  "properties": {
+    "schema": { "const": "havenwild.world_tile_atlas_manifest.v0_1" },
+    "id": { "type": "string" },
+    "canonicalTileSize": { "const": [32, 32] },
+    "sourceAtlas": { "type": "string" },
+    "sourceImageSize": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+    "columns": { "type": "integer", "minimum": 1 },
+    "rows": { "type": "integer", "minimum": 1 },
+    "runtimeDefault": { "type": "boolean" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "sourceAtlas", "atlasRect", "gridSize", "family", "layer"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+_32x32$" },
+          "sourceAtlas": { "type": "string" },
+          "atlasRect": { "type": "array", "items": { "type": "integer" }, "minItems": 4, "maxItems": 4 },
+          "gridSize": { "const": [32, 32] },
+          "family": { "type": "string" },
+          "layer": { "type": "string" },
+          "autotileRole": { "type": "string" },
+          "supportsSubcellPaint": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

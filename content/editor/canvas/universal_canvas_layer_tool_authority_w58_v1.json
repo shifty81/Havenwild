@@ -1,0 +1,75 @@
+{
+  "schema": "havenwild.universal_canvas_layer_tool_authority.v1",
+  "pass": "167Z109W58",
+  "authority": "CanvasDocument + CanvasLayerStack + ToolRegistry",
+  "principles": {
+    "canvasIsDocumentSurfaceNotPaintSurface": true,
+    "defaultToolIsInspect": true,
+    "layerSelectionNeverImplicitlyMutates": true,
+    "resourceSelectionNeverImplicitlySelectsPaintOrPlace": true,
+    "toolDefinesWhatClickMeans": true,
+    "layerDefinesWhatDataToolTargets": true,
+    "sharedToolVocabularyAcrossWorkspaces": true,
+    "specializedWorkspaceAdaptersRemainAllowed": true
+  },
+  "canvasLayerRail": {
+    "placement": "upper_left_inside_canvas_beside_ruler_origin",
+    "availableAcross": [
+      "world_routes",
+      "world_editor",
+      "scene_bank",
+      "scene_editor",
+      "pixel_studio",
+      "animation_studio",
+      "character_studio"
+    ],
+    "capabilities": [
+      "visibility",
+      "lock",
+      "active_edit_layer",
+      "dirty_state",
+      "type_and_resolution_detail",
+      "source_reference_protection",
+      "nested_semantic_groups_target"
+    ]
+  },
+  "toolRack": {
+    "placement": "narrow_shared_rail_left_of_layer_rail",
+    "tools": [
+      "inspect",
+      "select",
+      "pan",
+      "paint",
+      "erase",
+      "fill",
+      "pick",
+      "rectangle",
+      "place",
+      "move",
+      "link",
+      "collision",
+      "pixel_edit",
+      "socket",
+      "event"
+    ],
+    "escapeReturnsTo": "inspect_non_destructive"
+  },
+  "canonicalLayers": [
+    "terrain",
+    "terrain_transitions",
+    "buildings",
+    "objects",
+    "authored_pixel_override",
+    "collision",
+    "navigation",
+    "zones",
+    "links",
+    "shelter",
+    "structural_levels",
+    "source_reference",
+    "animation_frames",
+    "animation_sockets",
+    "animation_hitboxes",
+    "character_parts"
+  ]
+}

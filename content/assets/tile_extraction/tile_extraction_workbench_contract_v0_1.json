@@ -1,0 +1,26 @@
+{
+  "schema": "haven.tile_extraction_workbench.v0_1",
+  "id": "tile_extraction_workbench_v0_1",
+  "purpose": "Contract for importing, realigning, documenting, and promoting source tile sheets into Havenwild project assets.",
+  "canonicalTilePixels": [32, 32],
+  "workbenchModes": [
+    "grid_realignment",
+    "tile_record_authoring",
+    "license_gate",
+    "promote_to_project_asset"
+  ],
+  "blockedActions": [
+    "promote_without_license_record",
+    "overwrite_project_asset_without_catalog_entry",
+    "mix_reference_only_pixels_into_runtime_assets"
+  ],
+  "outputs": [
+    "source_sheet_record",
+    "tile_rect_records",
+    "promotion_plan",
+    "project_asset_catalog_entry"
+  ],
+  "notes": [
+    "Restored for V55/V111 source validation. Runtime LPC terrain rendering does not consume this file directly."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "worldgen_runtime_loader_contract_v0_5",
+  "version": "0.5.0",
+  "kind": "runtime_loader_contract",
+  "sourcePack": "content/worldgen/packs/worldgen_home_island_v0_4.json",
+  "loaderModule": "crates/haven_core/src/worldgen_loader.rs",
+  "startupBehavior": [
+    "Try workspace/saves/world.tworld first.",
+    "If no save can be loaded, try content/worldgen/packs/worldgen_home_island_v0_4.json.",
+    "If the worldgen pack cannot load, fall back to procedural GameWorld::starter()."
+  ],
+  "manualReload": {
+    "hotkey": "F10",
+    "requiresDevMode": true
+  },
+  "supportedSceneSize": [
+    96,
+    64
+  ],
+  "supportedTileSize": [
+    32,
+    32
+  ],
+  "sourceJson": {
+    "sceneFiles": "content/worldgen/packs/worldgen_home_island_v0_4.json.sceneFiles",
+    "terrainLayer": "layers.terrain",
+    "zoneLayer": "layers.zones",
+    "objects": "objects[].collisionRect -> PlacedObject x/y",
+    "transitions": "transitions[].rect/toScene/toSpawn",
+    "spawn": "spawns[id=player_default].tile"
+  },
+  "knownLimitations": [
+    "PlacedObject is still single-anchor only; multi-tile collision footprints remain data-side until the next runtime collision patch.",
+    "Object art is still rendered by existing runtime primitives unless atlas rendering is wired later."
+  ],
+  "legacySceneSizesAccepted": [
+    [
+      48,
+      32
+    ]
+  ],
+  "migrationBehavior": [
+    "Legacy 48x32 scene maps are centered into the 96x64 runtime scene.",
+    "Tiles, heights, zones, objects, stamps, spawns, autotile overrides, and transitions receive the same deterministic offset.",
+    "Re-saving writes the promoted 96x64 format."
+  ]
+}

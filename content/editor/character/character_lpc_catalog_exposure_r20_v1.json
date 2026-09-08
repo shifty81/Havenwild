@@ -1,0 +1,12 @@
+{
+  "schema":"havenwild.editor.character_lpc_catalog_exposure.r20.v1",
+  "pass":"W81R20",
+  "createCategories":["species_base","age","body","skin","head","face","eyes","brows","nose","ears","hair","facial_hair","expression","special_anatomy","tails","wings"],
+  "wardrobeGearCategories":["headwear","neck","torso","arms_shoulders","hands","legs","feet","back","accessories","main_hand","off_hand","tools"],
+  "sharedAuthority":"CharacterEquipmentAuthority",
+  "mirroredSurfaces":["Character Studio Wardrobe & Gear","game Character/Inventory Equipment view","player runtime compositor","NPC runtime compositor"],
+  "equipmentSlots":["headwear","neck","torso","hands","legs","feet","back","accessory","main_hand","off_hand","tool"],
+  "toolBeltSlots":["axe","pickaxe","hoe","watering_can","shovel","hammer","fishing_rod","scythe","skinning_knife"],
+  "requiredResolution":["definition_level_zpos","body_compatibility","animation_compatibility","foreground_background_layers","hair_headwear_occlusion","clothing_equipment_conflicts","icon_recipe","world_drop_recipe","upgrade_presentation"],
+  "normalUserRule":"Never require browsing raw ULPC paths or technical definition IDs for routine character creation/equipment."
+}

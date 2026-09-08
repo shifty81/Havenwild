@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.pixel_viewport_contract.w60e15.v1",
+  "checkerboard": {
+    "origin": "image_origin",
+    "cellSize": "integer_image_pixels",
+    "mustAlignWithPixelGrid": true
+  },
+  "chrome": {
+    "controls": [
+      "selection_mode",
+      "zoom_out",
+      "zoom_percent",
+      "zoom_in",
+      "one_to_one",
+      "fit",
+      "frame_grid",
+      "pixel_grid"
+    ],
+    "brushControlsAllowed": false,
+    "symmetryControlsAllowed": false,
+    "gridControls": "compact_in_canvas"
+  },
+  "zoom": {
+    "oneToOne": true,
+    "fit": true,
+    "nearestNeighbor": true
+  }
+}

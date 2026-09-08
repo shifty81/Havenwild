@@ -1,0 +1,90 @@
+{
+  "schema": "havenwild.egui_pixel_editor_host_panel.v0.1",
+  "version": 1,
+  "purpose": "Specification for an egui-hosted Lite Pixel Editor panel that edits Havenwild 32x32 world tiles and references donor catalogs without turning runtime/editor code into monoliths.",
+  "uiBackend": "egui",
+  "hostSurfaces": [
+    "standalone_editor_panel",
+    "in_game_dev_overlay_panel"
+  ],
+  "monolithBoundary": {
+    "haven_game": "panel wiring and runtime preview only",
+    "haven_editor": "commands, undo/redo, inspectors, validation, tool models",
+    "haven_assets": "tile records, atlases, donor catalog, import/bake metadata",
+    "haven_world": "paint/autotile/subcell deterministic logic",
+    "haven_render": "preview composition and grid rendering helpers"
+  },
+  "canonicalTileSize": [32, 32],
+  "supportedSubcellModes": [
+    { "label": "32x32", "grid": [1, 1], "cellSize": [32, 32] },
+    { "label": "16x16", "grid": [2, 2], "cellSize": [16, 16] },
+    { "label": "8x8", "grid": [4, 4], "cellSize": [8, 8] },
+    { "label": "4x4", "grid": [8, 8], "cellSize": [4, 4] }
+  ],
+  "firstMaterialFamilies": [
+    "sand",
+    "water",
+    "cave",
+    "paved_brick",
+    "wood_plank"
+  ],
+  "toolsMvp": [
+    "pencil",
+    "eraser",
+    "fill",
+    "line",
+    "rectangle",
+    "selection",
+    "eyedropper",
+    "mirror_horizontal",
+    "mirror_vertical",
+    "grid_realign_preview"
+  ],
+  "panels": [
+    "canvas_32x32_tile",
+    "subcell_mask_view",
+    "layer_stack",
+    "tile_record_metadata",
+    "palette_swatches",
+    "donor_reference_browser",
+    "autotile_preview_3x3",
+    "validation_messages"
+  ],
+  "layerStack": [
+    "ground_base",
+    "ground_variation",
+    "ground_transition_fringe",
+    "water_base",
+    "water_surface_fx",
+    "cave_base",
+    "cave_wall_face",
+    "town_surface",
+    "indoor_floor",
+    "debris_overlay",
+    "collision_footprint",
+    "occlusion_fade_mask",
+    "dev_overlay"
+  ],
+  "assetOutputs": [
+    "individual_tile_png",
+    "tile_record_json",
+    "optional_baked_atlas_png",
+    "optional_atlas_manifest_json",
+    "autotile_rule_draft_json"
+  ],
+  "donorReferencePolicy": {
+    "allowed": "visible as reference and, when licensed, prototype bake source",
+    "blocked": "visible as reference-only catalog entries; cannot be baked into runtime",
+    "rawRedistribution": false
+  },
+  "validation": [
+    "strict_32x32_bounds",
+    "transparent_background_allowed",
+    "no_text_inside_tile_art",
+    "naming_convention_enforced",
+    "layer_assignment_required",
+    "license_policy_respected",
+    "autotile_role_required_for_transition_tiles",
+    "mirror_edit_records_are_deterministic"
+  ]
+}

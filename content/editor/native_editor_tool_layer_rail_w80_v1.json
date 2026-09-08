@@ -1,0 +1,62 @@
+{
+  "schema": "havenwild.editor.tool_layer_rail.w80.v1",
+  "pass": "H21A14Y",
+  "baseline": "H21A14X",
+  "purpose": "Keep the canonical Tool Rail and Layer Rail as direct, scrollable production authoring surfaces without hidden core-tool overflow or duplicate GUI authorities.",
+  "toolRail": {
+    "authority": "apps/haven_editor_native/src/app/canvas_tool_rack.rs",
+    "registry": "apps/haven_editor_native/src/app/tool_registry.rs",
+    "primaryToolsStayVisible": true,
+    "secondaryToolsUseAnchoredOverflow": false,
+    "brushAndSymmetryFlyoutsAnchorToTheirControl": true,
+    "mouseWheelScroll": true,
+    "duplicatePermanentToolSurfacesForbidden": true,
+    "allApplicableToolsUseDirectScrollableRail": true,
+    "brushModesUseDirectContextButtons": true,
+    "genericMoreToolsButtonForbidden": true
+  },
+  "layerRail": {
+    "authority": "apps/haven_editor_native/src/app/canvas_layers.rs",
+    "pixelActions": "apps/haven_editor_native/src/app/pixel_layer_rail.rs",
+    "semanticBadges": true,
+    "visibilityAndLock": true,
+    "dragReorder": true,
+    "lockedLayersAreReorderBoundaries": true,
+    "scroll": true,
+    "compactPermanentActions": [
+      "add",
+      "duplicate",
+      "delete",
+      "more"
+    ],
+    "contextActions": [
+      "move_up",
+      "move_down",
+      "merge_down",
+      "rename",
+      "duplicate",
+      "delete"
+    ],
+    "continuousOpacitySlider": true,
+    "blendModes": [
+      "normal",
+      "multiply",
+      "screen",
+      "add",
+      "erase"
+    ],
+    "rightClickContextMenu": true
+  },
+  "pixelDocumentAuthority": {
+    "exactLayerMovePreservesInterveningOrder": true,
+    "exactOpacitySetter": true,
+    "exactBlendSetter": true,
+    "undoableDocumentOperations": true
+  },
+  "validation": {
+    "windowsCargoGateAuthoritative": true,
+    "w79RunsInFullGate": true,
+    "w80RunsInFullGate": true
+  },
+  "next": "A14Y runtime/editor acceptance"
+}

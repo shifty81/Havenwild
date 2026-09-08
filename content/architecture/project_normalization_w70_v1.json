@@ -1,0 +1,42 @@
+{
+  "schema": "havenwild.architecture.project_normalization.w70.v1",
+  "pass": "167Z109W70",
+  "priorityOrder": [
+    "GUI usability",
+    "single editor authority paths",
+    "asset/document authority",
+    "infinite canvas scale",
+    "diagnostics/schema/identity",
+    "gameplay expansion"
+  ],
+  "standaloneBoundary": "This repository remains Havenwild + Havenwild Native Editor. Ember/Cortex are external projects and are not extracted or renamed here.",
+  "keep": [
+    "CanvasWorkspace",
+    "Havenwild Native Editor",
+    "UnifiedAssetBrowserRuntime",
+    "HavenId boundaries",
+    "AuthoringSession",
+    "dedicated Sound/Logic studios",
+    "root-drop Project Control Center workflow"
+  ],
+  "migrate": [
+    "left project/library navigation -> right Outliner/Assets",
+    "Scene Assets/Intake/Library tabs -> canonical right Assets/Properties",
+    "floating Asset Shelf -> right Assets focus command",
+    "manual layout math -> haven_ui/Taffy adapter over bounded passes",
+    "Macroquad editor text ownership -> haven_ui/cosmic-text adapter over bounded passes"
+  ],
+  "deleteAfterGreen": [
+    "obsolete left-panel draw/input routes",
+    "retired Asset Shelf geometry/rendering",
+    "duplicate Scene asset dock tabs",
+    "unused legacy Scene/Pixel tool/layer panel code after reference audit"
+  ],
+  "nonGoals": [
+    "no egui migration",
+    "no Bevy migration",
+    "no Slint/Floem GUI takeover",
+    "no LDtk/Tiled storage takeover",
+    "no Ember/Cortex extraction in this repository"
+  ]
+}

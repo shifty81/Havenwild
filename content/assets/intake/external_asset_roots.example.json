@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.external_asset_roots.local.v0_2",
+  "roots": [
+    {
+      "id": "asset_pack",
+      "displayName": "Asset Pack",
+      "path": "C:/Users/Shifty/HavenwildAssetLibrary/packs/asset_pack/raw",
+      "enabled": true,
+      "licenseStatus": "unknown_requires_review",
+      "attribution": "",
+      "sourceUrl": "",
+      "notes": "Machine-local raw source library. Promote reviewed items through Pixel Studio; do not package this directory."
+    }
+  ]
+}

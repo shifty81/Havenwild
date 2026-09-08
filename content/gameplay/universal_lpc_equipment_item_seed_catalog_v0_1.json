@@ -1,0 +1,1792 @@
+{
+  "schema": "havenwild.universal_lpc_equipment_item_seed_catalog.v0_1",
+  "sourceCatalog": "content/assets/lpc/universal_lpc_equipment_action_catalog_v0_1.json",
+  "itemCount": 105,
+  "items": [
+    {
+      "itemId": "item.ulpc.tools_tool_axe",
+      "displayName": "Axe",
+      "equipmentSourceId": "ulpc.tools_tool_axe",
+      "category": "tool",
+      "subcategory": "tool_axe.json",
+      "gameplayAction": "chop",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.tools_tool_hammer",
+      "displayName": "Hammer",
+      "equipmentSourceId": "ulpc.tools_tool_hammer",
+      "category": "tool",
+      "subcategory": "tool_hammer.json",
+      "gameplayAction": "build",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.tools_tool_hoe",
+      "displayName": "Hoe",
+      "equipmentSourceId": "ulpc.tools_tool_hoe",
+      "category": "tool",
+      "subcategory": "tool_hoe.json",
+      "gameplayAction": "till",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.tools_tool_pickaxe",
+      "displayName": "Pickaxe",
+      "equipmentSourceId": "ulpc.tools_tool_pickaxe",
+      "category": "tool",
+      "subcategory": "tool_pickaxe.json",
+      "gameplayAction": "mine",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.tools_tool_rod",
+      "displayName": "Fishing Rod",
+      "equipmentSourceId": "ulpc.tools_tool_rod",
+      "category": "tool",
+      "subcategory": "tool_rod.json",
+      "gameplayAction": "fish",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.tools_tool_shovel",
+      "displayName": "Shovel",
+      "equipmentSourceId": "ulpc.tools_tool_shovel",
+      "category": "tool",
+      "subcategory": "tool_shovel.json",
+      "gameplayAction": "dig",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.tools_tool_watering_can",
+      "displayName": "Watering Can",
+      "equipmentSourceId": "ulpc.tools_tool_watering_can",
+      "category": "tool",
+      "subcategory": "tool_watering_can.json",
+      "gameplayAction": "water",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.tools_tool_whip",
+      "displayName": "Whip",
+      "equipmentSourceId": "ulpc.tools_tool_whip",
+      "category": "tool",
+      "subcategory": "tool_whip.json",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_blunt_weapon_blunt_club",
+      "displayName": "Club",
+      "equipmentSourceId": "ulpc.weapons_blunt_weapon_blunt_club",
+      "category": "weapon",
+      "subcategory": "blunt",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_blunt_weapon_blunt_flail",
+      "displayName": "Flail",
+      "equipmentSourceId": "ulpc.weapons_blunt_weapon_blunt_flail",
+      "category": "weapon",
+      "subcategory": "blunt",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_blunt_weapon_blunt_mace",
+      "displayName": "Mace",
+      "equipmentSourceId": "ulpc.weapons_blunt_weapon_blunt_mace",
+      "category": "weapon",
+      "subcategory": "blunt",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_blunt_weapon_blunt_waraxe",
+      "displayName": "Waraxe",
+      "equipmentSourceId": "ulpc.weapons_blunt_weapon_blunt_waraxe",
+      "category": "weapon",
+      "subcategory": "blunt",
+      "gameplayAction": "chop",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_magic_weapon_magic_crystal",
+      "displayName": "Crystal",
+      "equipmentSourceId": "ulpc.weapons_magic_weapon_magic_crystal",
+      "category": "weapon",
+      "subcategory": "magic",
+      "gameplayAction": "equip",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_magic_weapon_magic_diamond",
+      "displayName": "Diamond staff",
+      "equipmentSourceId": "ulpc.weapons_magic_weapon_magic_diamond",
+      "category": "weapon",
+      "subcategory": "magic",
+      "gameplayAction": "spellcast",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_magic_weapon_magic_gnarled",
+      "displayName": "Gnarled staff",
+      "equipmentSourceId": "ulpc.weapons_magic_weapon_magic_gnarled",
+      "category": "weapon",
+      "subcategory": "magic",
+      "gameplayAction": "spellcast",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_magic_weapon_magic_loop",
+      "displayName": "Loop staff",
+      "equipmentSourceId": "ulpc.weapons_magic_weapon_magic_loop",
+      "category": "weapon",
+      "subcategory": "magic",
+      "gameplayAction": "spellcast",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_magic_weapon_magic_s",
+      "displayName": "S staff",
+      "equipmentSourceId": "ulpc.weapons_magic_weapon_magic_s",
+      "category": "weapon",
+      "subcategory": "magic",
+      "gameplayAction": "spellcast",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_magic_weapon_magic_simple",
+      "displayName": "Simple staff",
+      "equipmentSourceId": "ulpc.weapons_magic_weapon_magic_simple",
+      "category": "weapon",
+      "subcategory": "magic",
+      "gameplayAction": "spellcast",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_magic_weapon_magic_wand",
+      "displayName": "Wand",
+      "equipmentSourceId": "ulpc.weapons_magic_weapon_magic_wand",
+      "category": "weapon",
+      "subcategory": "magic",
+      "gameplayAction": "spellcast",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_polearm_weapon_polearm_cane",
+      "displayName": "Cane",
+      "equipmentSourceId": "ulpc.weapons_polearm_weapon_polearm_cane",
+      "category": "weapon",
+      "subcategory": "polearm",
+      "gameplayAction": "thrust",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_polearm_weapon_polearm_dragonspear",
+      "displayName": "Dragon spear",
+      "equipmentSourceId": "ulpc.weapons_polearm_weapon_polearm_dragonspear",
+      "category": "weapon",
+      "subcategory": "polearm",
+      "gameplayAction": "thrust",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_polearm_weapon_polearm_halberd",
+      "displayName": "Halberd",
+      "equipmentSourceId": "ulpc.weapons_polearm_weapon_polearm_halberd",
+      "category": "weapon",
+      "subcategory": "polearm",
+      "gameplayAction": "equip",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_polearm_weapon_polearm_longspear",
+      "displayName": "Long spear",
+      "equipmentSourceId": "ulpc.weapons_polearm_weapon_polearm_longspear",
+      "category": "weapon",
+      "subcategory": "polearm",
+      "gameplayAction": "thrust",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_polearm_weapon_polearm_scythe",
+      "displayName": "Scythe",
+      "equipmentSourceId": "ulpc.weapons_polearm_weapon_polearm_scythe",
+      "category": "weapon",
+      "subcategory": "polearm",
+      "gameplayAction": "equip",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_polearm_weapon_polearm_spear",
+      "displayName": "Spear",
+      "equipmentSourceId": "ulpc.weapons_polearm_weapon_polearm_spear",
+      "category": "weapon",
+      "subcategory": "polearm",
+      "gameplayAction": "thrust",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_polearm_weapon_polearm_trident",
+      "displayName": "Trident",
+      "equipmentSourceId": "ulpc.weapons_polearm_weapon_polearm_trident",
+      "category": "weapon",
+      "subcategory": "polearm",
+      "gameplayAction": "equip",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_ranged_bow_weapon_ranged_bow_arrow",
+      "displayName": "Ammo",
+      "equipmentSourceId": "ulpc.weapons_ranged_bow_weapon_ranged_bow_arrow",
+      "category": "weapon",
+      "subcategory": "ranged",
+      "gameplayAction": "shoot",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_ranged_bow_weapon_ranged_bow_great",
+      "displayName": "Great",
+      "equipmentSourceId": "ulpc.weapons_ranged_bow_weapon_ranged_bow_great",
+      "category": "weapon",
+      "subcategory": "ranged",
+      "gameplayAction": "shoot",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_ranged_bow_weapon_ranged_bow_normal",
+      "displayName": "Normal",
+      "equipmentSourceId": "ulpc.weapons_ranged_bow_weapon_ranged_bow_normal",
+      "category": "weapon",
+      "subcategory": "ranged",
+      "gameplayAction": "shoot",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_ranged_bow_weapon_ranged_bow_recurve",
+      "displayName": "Recurve",
+      "equipmentSourceId": "ulpc.weapons_ranged_bow_weapon_ranged_bow_recurve",
+      "category": "weapon",
+      "subcategory": "ranged",
+      "gameplayAction": "shoot",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_ranged_weapon_ranged_boomerang",
+      "displayName": "Boomerang",
+      "equipmentSourceId": "ulpc.weapons_ranged_weapon_ranged_boomerang",
+      "category": "weapon",
+      "subcategory": "ranged",
+      "gameplayAction": "equip",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_ranged_weapon_ranged_crossbow",
+      "displayName": "Crossbow",
+      "equipmentSourceId": "ulpc.weapons_ranged_weapon_ranged_crossbow",
+      "category": "weapon",
+      "subcategory": "ranged",
+      "gameplayAction": "shoot",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_ranged_weapon_ranged_slingshot",
+      "displayName": "Slingshot",
+      "equipmentSourceId": "ulpc.weapons_ranged_weapon_ranged_slingshot",
+      "category": "weapon",
+      "subcategory": "ranged",
+      "gameplayAction": "shoot",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_engrailed_shield_crusader",
+      "displayName": "Crusader shield",
+      "equipmentSourceId": "ulpc.weapons_shields_engrailed_shield_crusader",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_engrailed_shield_plus",
+      "displayName": "Plus shield",
+      "equipmentSourceId": "ulpc.weapons_shields_engrailed_shield_plus",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_engrailed_shield_two_engrailed",
+      "displayName": "Two engrailed shield",
+      "equipmentSourceId": "ulpc.weapons_shields_engrailed_shield_two_engrailed",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_engrailed_shield_two_engrailed_trim",
+      "displayName": "Two engrailed shield trim",
+      "equipmentSourceId": "ulpc.weapons_shields_engrailed_shield_two_engrailed_trim",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_barry",
+      "displayName": "barry",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_barry",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bend",
+      "displayName": "bend",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bend",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bend_sinister",
+      "displayName": "bend_sinister",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bend_sinister",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bendy",
+      "displayName": "bendy",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bendy",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bendy_sinister",
+      "displayName": "bendy_sinister",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bendy_sinister",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bordure",
+      "displayName": "bordure",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_bordure",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_chevron",
+      "displayName": "chevron",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_chevron",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_chevron_inverted",
+      "displayName": "chevron_inverted",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_chevron_inverted",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_chief",
+      "displayName": "chief",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_chief",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_cross",
+      "displayName": "cross",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_cross",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_fess",
+      "displayName": "fess",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_fess",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_lozengy",
+      "displayName": "lozengy",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_lozengy",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_pale",
+      "displayName": "pale",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_pale",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_pall",
+      "displayName": "pall",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_pall",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_paly",
+      "displayName": "paly",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_paly",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_bend",
+      "displayName": "per_bend",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_bend",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_bend_sinister",
+      "displayName": "per_bend_sinister",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_bend_sinister",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_chevron",
+      "displayName": "per_chevron",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_chevron",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_chevron_inverted",
+      "displayName": "per_chevron_inverted",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_chevron_inverted",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_fess",
+      "displayName": "per_fess",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_fess",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_pale",
+      "displayName": "per_pale",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_pale",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_saltire",
+      "displayName": "per_saltire",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_per_saltire",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_quarterly",
+      "displayName": "quarterly",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_quarterly",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_pattern_shield_heater_pattern_saltire",
+      "displayName": "saltire",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_pattern_shield_heater_pattern_saltire",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_barry",
+      "displayName": "revised_barry",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_barry",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bend",
+      "displayName": "revised_bend",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bend",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bend_sinister",
+      "displayName": "revised_bend_sinister",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bend_sinister",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bendy",
+      "displayName": "revised_bendy",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bendy",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bendy_sinister",
+      "displayName": "revised_bendy_sinister",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bendy_sinister",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bordure",
+      "displayName": "revised_bordure",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_bordure",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_chevron",
+      "displayName": "revised_chevron",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_chevron",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_chevron_inverted",
+      "displayName": "revised_chevron_inverted",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_chevron_inverted",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_chief",
+      "displayName": "revised_chief",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_chief",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_cross",
+      "displayName": "revised_cross",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_cross",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_fess",
+      "displayName": "revised_fess",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_fess",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_lozengy",
+      "displayName": "revised_lozengy",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_lozengy",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_pale",
+      "displayName": "revised_pale",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_pale",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_pall",
+      "displayName": "revised_pall",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_pall",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_paly",
+      "displayName": "revised_paly",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_paly",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_bend",
+      "displayName": "revised_per_bend",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_bend",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_bend_sinister",
+      "displayName": "revised_per_bend_sinister",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_bend_sinister",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_chevron",
+      "displayName": "revised_per_chevron",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_chevron",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_chevron_inverted",
+      "displayName": "revised_per_chevron_inverted",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_chevron_inverted",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_fess",
+      "displayName": "revised_per_fess",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_fess",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_pale",
+      "displayName": "revised_per_pale",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_pale",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_saltire",
+      "displayName": "revised_per_saltire",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_per_saltire",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_quarterly",
+      "displayName": "revised_quarterly",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_quarterly",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_saltire",
+      "displayName": "revised_saltire",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_revised_pattern_shield_heater_revised_pattern_saltire",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_shield_heater_paint",
+      "displayName": "Heater Shield Paint",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_shield_heater_paint",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_shield_heater_revised_paint",
+      "displayName": "Revised Heater Shield Paint",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_shield_heater_revised_paint",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_shield_heater_revised_trim",
+      "displayName": "Revised Heater Shield Trim",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_shield_heater_revised_trim",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_shield_heater_revised_wood",
+      "displayName": "Revised Heater Shield Base",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_shield_heater_revised_wood",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_shield_heater_trim",
+      "displayName": "Heater Shield Trim",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_shield_heater_trim",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_heater_shield_heater_wood",
+      "displayName": "Heater Shield Base",
+      "equipmentSourceId": "ulpc.weapons_shields_heater_shield_heater_wood",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_scutum_shield_scutum",
+      "displayName": "Scutum shield",
+      "equipmentSourceId": "ulpc.weapons_shields_scutum_shield_scutum",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_scutum_shield_scutum_trim",
+      "displayName": "Scutum shield trim",
+      "equipmentSourceId": "ulpc.weapons_shields_scutum_shield_scutum_trim",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_shield_kite",
+      "displayName": "Kite",
+      "equipmentSourceId": "ulpc.weapons_shields_shield_kite",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_shield_round",
+      "displayName": "Round Shield",
+      "equipmentSourceId": "ulpc.weapons_shields_shield_round",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_shields_shield_spartan",
+      "displayName": "Spartan Shield",
+      "equipmentSourceId": "ulpc.weapons_shields_shield_spartan",
+      "category": "weapon",
+      "subcategory": "shields",
+      "gameplayAction": "block",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_arming",
+      "displayName": "Arming Sword",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_arming",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_dagger",
+      "displayName": "Dagger",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_dagger",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_glowsword",
+      "displayName": "Glowsword",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_glowsword",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_katana",
+      "displayName": "Katana",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_katana",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_longsword",
+      "displayName": "Longsword",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_longsword",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_longsword_alt",
+      "displayName": "Longsword alt",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_longsword_alt",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_rapier",
+      "displayName": "Rapier",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_rapier",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_saber",
+      "displayName": "Saber",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_saber",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    },
+    {
+      "itemId": "item.ulpc.weapons_sword_weapon_sword_scimitar",
+      "displayName": "Scimitar",
+      "equipmentSourceId": "ulpc.weapons_sword_weapon_sword_scimitar",
+      "category": "weapon",
+      "subcategory": "sword",
+      "gameplayAction": "slash",
+      "stackLimit": 1,
+      "starterGranted": false,
+      "acquisition": [
+        "crafting",
+        "shops",
+        "loot",
+        "quests",
+        "professions"
+      ]
+    }
+  ]
+}

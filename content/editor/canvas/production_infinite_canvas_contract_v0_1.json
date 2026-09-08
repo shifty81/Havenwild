@@ -1,0 +1,82 @@
+{
+  "schema": "havenwild.production_infinite_canvas_contract.v0_1",
+  "pass": "49",
+  "owner": "haven_editor_native",
+  "canvas": {
+    "permanentViewport": true,
+    "clippedFromDockedUi": true,
+    "cursorCenteredZoom": true,
+    "middleMousePan": true,
+    "spaceDragPan": true,
+    "explicitPanTool": true,
+    "perSceneCameraState": true,
+    "frameScene": "F",
+    "frameSelection": "Shift+F",
+    "minorGridTiles": 1,
+    "majorGridTiles": 8
+  },
+  "tools": [
+    "Select",
+    "Paint",
+    "Rectangle",
+    "Fill",
+    "Replace",
+    "Eyedropper",
+    "Place",
+    "Erase",
+    "Pan"
+  ],
+  "selection": {
+    "stableIds": true,
+    "marquee": true,
+    "additiveModifier": "Shift",
+    "dragMove": true,
+    "gridSnapped": true,
+    "visualBounds": true
+  },
+  "clipboard": {
+    "copy": "Ctrl+C",
+    "cut": "Ctrl+X",
+    "paste": "Ctrl+V",
+    "duplicate": "Ctrl+D",
+    "delete": [
+      "Delete",
+      "Backspace"
+    ],
+    "relativeCoordinates": true,
+    "newStableIdsOnPaste": true
+  },
+  "bulkEdits": {
+    "rectangleTerrainAndZones": true,
+    "floodFillTerrainAndZones": true,
+    "replaceTerrainAndZones": true,
+    "eyedropperAllLayers": true,
+    "oneTypedUndoEntryPerAction": true,
+    "atomicFailureRecovery": true
+  },
+  "layers": {
+    "names": [
+      "Terrain",
+      "Objects",
+      "Zones",
+      "Transitions"
+    ],
+    "visibility": true,
+    "locking": true,
+    "opacity": true,
+    "hiddenLayersDoNotRender": true,
+    "lockedLayersRejectEdits": true
+  },
+  "transitionPalette": {
+    "usesProjectSceneRegistry": true,
+    "legacyEnumOnlyPaletteForbidden": true
+  },
+  "architecture": {
+    "headlessBulkEditModule": "crates/haven_editor/src/bulk_edit.rs",
+    "headlessClipboardModule": "crates/haven_editor/src/scene_clipboard.rs",
+    "nativeControllerModule": "apps/haven_editor_native/src/app/production_tools.rs",
+    "nativeToolrailModule": "apps/haven_editor_native/src/app/canvas_tool_rack.rs",
+    "moduleLineCeiling": 750
+  },
+  "nextPass": "Pass 50 object outliner, property inspector, and authored scene lifecycle"
+}

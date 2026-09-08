@@ -1,0 +1,411 @@
+{
+  "id": "home_island_transition_registry_v0_4",
+  "version": "0.4.0",
+  "kind": "transition_registry",
+  "transitionCount": 16,
+  "sceneCount": 9,
+  "transitions": [
+    {
+      "id": "farmstead:to_tavern_interior",
+      "sceneId": "farmstead",
+      "transitionId": "to_tavern_interior",
+      "rect": [
+        23,
+        10,
+        2,
+        1
+      ],
+      "toScene": "tavern_interior",
+      "toSpawn": [
+        24,
+        28
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_farmstead",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "farmstead:to_north_road",
+      "sceneId": "farmstead",
+      "transitionId": "to_north_road",
+      "rect": [
+        23,
+        0,
+        3,
+        1
+      ],
+      "toScene": "north_road",
+      "toSpawn": [
+        24,
+        30
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_farmstead",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "farmstead:to_south_field",
+      "sceneId": "farmstead",
+      "transitionId": "to_south_field",
+      "rect": [
+        23,
+        31,
+        3,
+        1
+      ],
+      "toScene": "south_field",
+      "toSpawn": [
+        24,
+        1
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_farmstead",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "farmstead:to_east_woods",
+      "sceneId": "farmstead",
+      "transitionId": "to_east_woods",
+      "rect": [
+        47,
+        20,
+        1,
+        5
+      ],
+      "toScene": "east_woods",
+      "toSpawn": [
+        1,
+        16
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_farmstead",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "farmstead:to_cave_mouth",
+      "sceneId": "farmstead",
+      "transitionId": "to_cave_mouth",
+      "rect": [
+        23,
+        5,
+        3,
+        1
+      ],
+      "toScene": "cave_mouth",
+      "toSpawn": [
+        24,
+        28
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_farmstead",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "north_road:to_farmstead",
+      "sceneId": "north_road",
+      "transitionId": "to_farmstead",
+      "rect": [
+        23,
+        31,
+        3,
+        1
+      ],
+      "toScene": "farmstead",
+      "toSpawn": [
+        24,
+        1
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_north_road",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "south_field:to_farmstead",
+      "sceneId": "south_field",
+      "transitionId": "to_farmstead",
+      "rect": [
+        23,
+        0,
+        3,
+        1
+      ],
+      "toScene": "farmstead",
+      "toSpawn": [
+        24,
+        30
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_south_field",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "east_woods:to_farmstead",
+      "sceneId": "east_woods",
+      "transitionId": "to_farmstead",
+      "rect": [
+        0,
+        14,
+        1,
+        5
+      ],
+      "toScene": "farmstead",
+      "toSpawn": [
+        46,
+        22
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_east_woods",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "cave_mouth:to_farmstead",
+      "sceneId": "cave_mouth",
+      "transitionId": "to_farmstead",
+      "rect": [
+        23,
+        31,
+        3,
+        1
+      ],
+      "toScene": "farmstead",
+      "toSpawn": [
+        24,
+        8
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_cave_mouth",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "highlands"
+    },
+    {
+      "id": "cave_mouth:to_cave_depths",
+      "sceneId": "cave_mouth",
+      "transitionId": "to_cave_depths",
+      "rect": [
+        22,
+        12,
+        4,
+        2
+      ],
+      "toScene": "cave_depths",
+      "toSpawn": [
+        24,
+        27
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_cave_mouth",
+      "sourceSceneKind": "exterior",
+      "sourceBiome": "highlands"
+    },
+    {
+      "id": "tavern_interior:to_farmstead",
+      "sceneId": "tavern_interior",
+      "transitionId": "to_farmstead",
+      "rect": [
+        22,
+        29,
+        4,
+        3
+      ],
+      "toScene": "farmstead",
+      "toSpawn": [
+        24,
+        12
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_tavern_interior",
+      "sourceSceneKind": "interior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "tavern_interior:to_cellar",
+      "sceneId": "tavern_interior",
+      "transitionId": "to_cellar",
+      "rect": [
+        8,
+        20,
+        3,
+        2
+      ],
+      "toScene": "cellar",
+      "toSpawn": [
+        24,
+        5
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_tavern_interior",
+      "sourceSceneKind": "interior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "tavern_interior:to_guest_floor",
+      "sceneId": "tavern_interior",
+      "transitionId": "to_guest_floor",
+      "rect": [
+        36,
+        6,
+        3,
+        2
+      ],
+      "toScene": "guest_floor",
+      "toSpawn": [
+        24,
+        27
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_tavern_interior",
+      "sourceSceneKind": "interior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "cellar:to_tavern_interior",
+      "sceneId": "cellar",
+      "transitionId": "to_tavern_interior",
+      "rect": [
+        21,
+        3,
+        6,
+        3
+      ],
+      "toScene": "tavern_interior",
+      "toSpawn": [
+        9,
+        19
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_cellar",
+      "sourceSceneKind": "cave",
+      "sourceBiome": "cave"
+    },
+    {
+      "id": "guest_floor:to_tavern_interior",
+      "sceneId": "guest_floor",
+      "transitionId": "to_tavern_interior",
+      "rect": [
+        22,
+        29,
+        4,
+        3
+      ],
+      "toScene": "tavern_interior",
+      "toSpawn": [
+        37,
+        8
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_guest_floor",
+      "sourceSceneKind": "interior",
+      "sourceBiome": "temperate"
+    },
+    {
+      "id": "cave_depths:to_cave_mouth",
+      "sceneId": "cave_depths",
+      "transitionId": "to_cave_mouth",
+      "rect": [
+        22,
+        29,
+        5,
+        3
+      ],
+      "toScene": "cave_mouth",
+      "toSpawn": [
+        24,
+        14
+      ],
+      "returnRequired": true,
+      "returnTransitionId": "to_cave_depths",
+      "sourceSceneKind": "cave",
+      "sourceBiome": "cave"
+    }
+  ],
+  "returnValidation": [
+    {
+      "transition": "farmstead:to_tavern_interior",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "farmstead:to_north_road",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "farmstead:to_south_field",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "farmstead:to_east_woods",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "farmstead:to_cave_mouth",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "north_road:to_farmstead",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "south_field:to_farmstead",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "east_woods:to_farmstead",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "cave_mouth:to_farmstead",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "cave_mouth:to_cave_depths",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "tavern_interior:to_farmstead",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "tavern_interior:to_cellar",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "tavern_interior:to_guest_floor",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "cellar:to_tavern_interior",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "guest_floor:to_tavern_interior",
+      "ok": true,
+      "detail": "return found"
+    },
+    {
+      "transition": "cave_depths:to_cave_mouth",
+      "ok": true,
+      "detail": "return found"
+    }
+  ]
+}

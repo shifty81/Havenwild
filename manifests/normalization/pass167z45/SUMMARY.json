@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z45",
+  "title": "Save Module Surface and Re-export Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Confirmed Pass 167Z44 repaired the haven_world unresolved hydrology and elevation symbols and advanced Cargo checking into haven_save.",
+    "Restored the character_progression and character_vitals module declarations and public exports required by character_profiles.",
+    "Preserved all existing character profile schemas, progression state, vitals state, stamina/fatigue behavior, and serialization.",
+    "Replaced the archipelago_skeleton glob re-export with explicit unique exports so world_foundation_v2 remains the single crate-root AuthoredAnchorReservation authority.",
+    "Extended the cumulative overwrite lineage through Pass 167Z45."
+  ],
+  "validation": {
+    "windowsFailureDiagnosis": "confirmed from build log",
+    "saveModuleSurface": "restored",
+    "ambiguousWorldReexport": "repaired proactively for Clippy -D warnings",
+    "saveSchemaChanges": "none",
+    "runtimeBehaviorChanges": "none",
+    "rustFormatting": "pending Windows workstation run; rustfmt unavailable in packaging environment",
+    "archiveIntegrity": "passed",
+    "payloadChecksums": "passed",
+    "completeBuildAll": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

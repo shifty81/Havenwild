@@ -1,0 +1,27 @@
+{
+  "schema": "havenwild.world_asset_edit_bindings.v0_1",
+  "rules": {
+    "generated_outputs_are_read_only": true,
+    "third_party_sources_require_project_override_for_destructive_normalization": true,
+    "save_updates_open_viewport": true,
+    "large_rebuilds_use_background_jobs": true
+  },
+  "bindings": [
+    {
+      "semantic_id": "terrain.cliff.grass_top.source",
+      "tile_kinds": ["Cliff", "MountainRock"],
+      "source_path": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "source_rect": [0, 0, 32, 32],
+      "edit_policy": "source_or_override",
+      "affected_systems": ["cliff_visual_binding", "terrain_viewport"]
+    },
+    {
+      "semantic_id": "terrain.cliff.grass_top.ramp_source",
+      "tile_kinds": ["MountainPath"],
+      "source_path": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "source_rect": [32, 0, 32, 32],
+      "edit_policy": "source_or_override",
+      "affected_systems": ["cliff_visual_binding", "terrain_viewport", "structural_ramp_preview"]
+    }
+  ]
+}

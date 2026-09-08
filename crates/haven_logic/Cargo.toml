@@ -1,0 +1,10 @@
+[package]
+name = "haven_logic"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+haven_identity = { path = "../haven_identity" }
+serde.workspace = true
+serde_json.workspace = true

@@ -1,0 +1,34 @@
+{
+  "schema": "havenwild.native_widget_state_palette.w60e24.v1",
+  "pass": "W60E24",
+  "widgetTones": [
+    "standard",
+    "primary",
+    "quiet",
+    "destructive",
+    "disabled"
+  ],
+  "pixelColor": {
+    "canonicalPalette": "bottom_dock",
+    "foregroundBackgroundSwatches": true,
+    "temporaryColorWheel": true,
+    "permanentInspectorColorPanel": false,
+    "leftMouse": "foreground",
+    "rightMouse": "background"
+  },
+  "pixelBrushes": [
+    "square",
+    "circle",
+    "diamond",
+    "line",
+    "dither",
+    "spray"
+  ],
+  "brushOptions": [
+    "size",
+    "opacity",
+    "density_when_supported",
+    "angle_when_supported"
+  ],
+  "deterministicDitherAndSpray": true
+}

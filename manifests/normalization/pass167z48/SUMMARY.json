@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z48",
+  "title": "Haven Game Clippy Surface Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Confirmed workspace-wide cargo check passes after Pass 167Z47.",
+    "Removed unused Game scratch and diagnostics fields plus their constructors.",
+    "Removed the unused character creator ordinal helper and corrected generated item ordering before tests.",
+    "Removed superseded title-art helpers without active callers.",
+    "Modernized Option fallback and WorldCreationSettings initialization patterns required by Clippy.",
+    "Added narrow dead-code annotations only for intentionally staged equipment, crafting, notification, and station UI hooks.",
+    "Added an idempotent pre-Cargo repair to Bash and PowerShell build paths."
+  ],
+  "validation": {
+    "windowsFailureDiagnosis": "confirmed from supplied build log",
+    "focusedMigrationFixture": "passed (10 affected source files)",
+    "migrationIdempotence": "passed",
+    "pythonCompilation": "passed",
+    "bashSyntax": "passed",
+    "projectJsonParsing": "passed (141 files before final manifest)",
+    "checksumVerification": "passed during package finalization",
+    "zipIntegrity": "passed during package finalization",
+    "cargoCheck": "passed on user workstation before Z48",
+    "cargoClippy": "pending user workstation run"
+  },
+  "completeSourceCreated": false
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W45C3A",
+  "date": "2026-08-14",
+  "title": "Exact Roof Review Evidence",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A", "167Z109W42", "167Z109W43A", "167Z109W43B",
+    "167Z109W43C", "167Z109W43D", "167Z109W44A", "167Z109W45A",
+    "167Z109W45A1", "167Z109W45B", "167Z109W45C1", "167Z109W45C2",
+    "167Z109W45C3A"
+  ],
+  "authority": "PublishedWorldAssetRegistry + exact human-reviewed LPC roof evidence",
+  "structureSourceSheets": 98,
+  "reviewedStructureSourceSheets": 11,
+  "publishedRoofVisualCandidates": 0,
+  "candidateOnly": true,
+  "roofTopologyContract": "content/buildings/roof_topology_contract_v1.json",
+  "roofReviewContract": "content/buildings/roof_exact_region_review_contract_v1.json",
+  "machineLocalEvidenceBundle": "WORKSPACE/generated/structure_review/Havenwild_W45C3A_ExactRoofEvidence.zip",
+  "interiorPolicy": "same_world_building_instance",
+  "roofPromotion": "DEFERRED_UNTIL_W45C3B_VISUAL_REVIEW",
+  "validation": {
+    "w45a": "PASS",
+    "w45c2": "PASS",
+    "w45c3aSourceAuthority": "PASS",
+    "architecture": "PASS",
+    "contentIntegrity": "18/18 PASS",
+    "windowsEvidenceGeneration": "PENDING_LOCAL_PINNED_LPC_MOUNT",
+    "windowsRustBuild": "NO_RUST_RUNTIME_CHANGE"
+  },
+  "next": "Run command 41 locally and review/upload the generated exact-roof evidence ZIP; W45C3B publishes only visually accepted exact regions, then W45D bridge/platform/pillar/misc support"
+}

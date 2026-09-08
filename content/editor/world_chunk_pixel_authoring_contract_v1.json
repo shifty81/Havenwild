@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.world_chunk_pixel_authoring.v1",
+  "pass": "167Z109W57K9",
+  "authority": "Native Scene Editor -> Pixel Studio -> project-owned SceneVisualOverride",
+  "tilePixels": 32,
+  "sceneChunkPolicy": {
+    "openAction": "Scene Editor context menu: Edit entire scene chunk in Pixel Studio",
+    "documentDimensions": "active exterior SceneMap logical dimensions * 32px",
+    "generatedSnapshotLayer": {
+      "name": "Generated World Snapshot",
+      "locked": true
+    },
+    "editableLayer": {
+      "name": "Authored Visual Override",
+      "transparent": true,
+      "projectOwned": true
+    },
+    "semanticTerrainPreserved": true,
+    "collisionPreserved": true,
+    "objectsPreserved": true,
+    "zonesPreserved": true,
+    "transitionsPreserved": true,
+    "structuralLevelsPreserved": true,
+    "save": "Ctrl+S applies visual override; Ctrl+Enter applies and returns to originating editor surface"
+  },
+  "starterInteriorRepair": {
+    "linkedInteriorPlayableSize": [
+      7,
+      9
+    ],
+    "exteriorEnvelopeRemains": [
+      9,
+      9
+    ],
+    "frontExteriorDoorWorldTile": [
+      59,
+      36
+    ],
+    "linkedSouthDoorMapsToGeneratedThreshold": true,
+    "workTableAnchor": [
+      2,
+      5
+    ]
+  },
+  "futureHouseAuthoring": {
+    "interiorAndExteriorDimensionsIndependent": true,
+    "playerEditableInteriorsPlanned": true,
+    "playerExteriorExpansionUsesModularStructureTiles": true,
+    "multiFloorLinkedInterior": "next certified house-typology pass"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "shifty.havenwild.starter",
+  "name": "Havenwild Starter Pack",
+  "version": "0.1.0",
+  "items": [
+    {
+      "id": "rustic_table",
+      "cloneFrom": "object.table",
+      "displayName": "Rustic Table",
+      "category": "furniture",
+      "icon": "",
+      "stackSize": 99,
+      "priceMultiplier": 1,
+      "slotCount": 0,
+      "parentItem": "",
+      "blueprintUnlockFromParent": false,
+      "description": "Starter tavern seating surface.",
+      "notes": "Maps to the current ObjectKind::Table prototype until the asset registry owns object definitions."
+    },
+    {
+      "id": "basic_keg",
+      "cloneFrom": "object.keg",
+      "displayName": "Basic Keg",
+      "category": "production",
+      "icon": "",
+      "stackSize": 99,
+      "priceMultiplier": 1,
+      "slotCount": 1,
+      "parentItem": "",
+      "blueprintUnlockFromParent": false,
+      "description": "Starter production/storage object for tavern drink systems.",
+      "notes": "Maps to the current ObjectKind::Keg prototype until station/inventory data lands."
+    },
+    {
+      "id": "greenhouse_marker",
+      "cloneFrom": "object.greenhouse_marker",
+      "displayName": "Greenhouse Marker",
+      "category": "zone-tool",
+      "icon": "",
+      "stackSize": 99,
+      "priceMultiplier": 1,
+      "slotCount": 0,
+      "parentItem": "",
+      "blueprintUnlockFromParent": false,
+      "description": "Editor-facing marker for year-round crop zones.",
+      "notes": "Maps to the current GreenhouseZone/ZoneKind::Greenhouse prototype."
+    }
+  ],
+  "rooms": [
+    {
+      "id": "greenhouse",
+      "cloneFrom": "zone.greenhouse",
+      "displayName": "Greenhouse",
+      "editorActionParent": "RoomZone",
+      "allowedFloors": ["FirstFloor", "SecondFloor"],
+      "tags": ["greenhouse"],
+      "lighting": {
+        "profile": "greenhouse_daylight",
+        "intensityMultiplier": 1.15
+      },
+      "cropRules": {
+        "ignoreOutdoorSeasons": true
+      },
+      "notes": "Standalone game room/zone candidate for year-round crops and tilled floors."
+    }
+  ]
+}

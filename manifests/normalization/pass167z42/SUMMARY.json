@@ -1,0 +1,29 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z42",
+  "title": "Universal LPC Partial Action Geometry Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Reproduced the Windows Build all failure where the required body_child cache was aborted by an optional Universal LPC action strip with 384x64 one-row geometry.",
+    "Separated mandatory four-direction walk generation from independently compatible optional action generation.",
+    "Kept authored walk mandatory, added authored-idle validation with first-walk-frame fallback, and omitted only actions that lack four LPC direction rows.",
+    "Recorded per-component animation availability, exact source provenance, and partial-action omissions in the generated runtime-cache manifest without fabricating missing direction artwork.",
+    "Updated Bash and PowerShell cache revisions so existing Z40 caches rebuild through the Z42 compatibility policy.",
+    "Added a focused synthetic validator proving that a valid child walk survives an invalid 384x64 optional strip while an invalid required walk still fails.",
+    "Updated validator registries, current documentation, cumulative lineage, and apply instructions through Pass 167Z42."
+  ],
+  "validation": {
+    "focusedPartialActionGeometryContract": "passed",
+    "validWalkWithPartialOptionalActionFixture": "passed",
+    "idleWalkFrameFallbackFixture": "passed",
+    "invalidRequiredWalkFixture": "correctly rejected",
+    "pythonCompilation": "passed",
+    "bashSyntax": "passed",
+    "jsonValidation": "passed",
+    "registryUniqueness": "passed",
+    "cargoFmtCheckClippyTests": "pending Windows workstation run",
+    "completeUniversalLpcRuntimeCacheBuild": "pending Windows workstation run with mounted Universal LPC source",
+    "completeBuildAll": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

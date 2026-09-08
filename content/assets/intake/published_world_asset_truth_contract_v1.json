@@ -1,0 +1,88 @@
+{
+  "schema": "havenwild.published_world_asset_truth_contract.v1",
+  "milestone": "Pass167Z109W41A",
+  "purpose": "Normalize the evidence and vocabulary for every world-visible asset before a PublishedWorldAsset registry becomes runtime/editor authority.",
+  "existingAuthorityToKeep": {
+    "gameplayPlaceables": "crates/haven_assets/src/placeable_asset_registry.rs::PlaceableAssetRegistry",
+    "objectGameplayType": "haven_core::ObjectKind",
+    "rule": "W42 must evolve/adapt the existing placeable registry; it must not create a parallel second placeable gameplay authority."
+  },
+  "authorityOrderTarget": [
+    "source_library",
+    "audited_source_record",
+    "published_world_asset",
+    "generated_runtime_cache"
+  ],
+  "statusVocabulary": {
+    "CERTIFIED": "Production-approved source, identity, provenance, geometry, runtime/editor behavior, and visual acceptance.",
+    "CANDIDATE": "Real source candidate exists but production certification is incomplete.",
+    "PROVISIONAL": "Temporary mapping/structural lane that may remain usable during migration but is not final production authority.",
+    "PLACEHOLDER": "Explicit development placeholder; forbidden in certified production scenes.",
+    "MISSING": "Referenced identity or required artwork has no usable authoritative source.",
+    "LEGACY_ALIAS": "Retained only to migrate old scenes/saves/IDs into the canonical asset identity.",
+    "REJECTED": "Known semantically incorrect or unsuitable visual substitution."
+  },
+  "currentExplicitPolicies": {
+    "well": {
+      "status": "REJECTED",
+      "reason": "The previous well_pump source is Objects/Furniture/Water Cooler.png. It must remain quarantined until real well/fountain art is promoted.",
+      "runtimeObjectBinding": "none",
+      "assetPalette": "hidden",
+      "sharedAuthoringPalette": "hidden"
+    },
+    "greenhouse_marker": {
+      "status": "PLACEHOLDER",
+      "reason": "The current construction_tape visual is development-only. Production greenhouse content should become a BuildingRecipe.",
+      "runtimeObjectBinding": "construction_tape",
+      "assetPalette": "development-visible",
+      "sharedAuthoringPalette": "hidden"
+    },
+    "cave_entrance": {
+      "status": "PROVISIONAL",
+      "reason": "Cave entrances require structural connector/stamp authority rather than a single object-atlas slot.",
+      "runtimeObjectBinding": "none",
+      "assetPalette": "development-visible",
+      "sharedAuthoringPalette": "development-visible"
+    }
+  },
+  "knownRejectedVisualSubstitutions": [
+    {
+      "assetId": "stairs_up",
+      "wrongSourceContains": "Ladder",
+      "targetMeaning": "stairs"
+    },
+    {
+      "assetId": "bench",
+      "wrongSourceContains": "Ottoman",
+      "targetMeaning": "bench"
+    },
+    {
+      "assetId": "signboard",
+      "wrongSourceContains": "Standing Screen",
+      "targetMeaning": "sign"
+    },
+    {
+      "assetId": "well_pump",
+      "wrongSourceContains": "Water Cooler",
+      "targetMeaning": "well"
+    }
+  ],
+  "rules": [
+    "W41A is diagnostic and must not change terrain, renderer, editor, F3, scene persistence, or runtime asset selection.",
+    "Rendering successfully never implies production certification.",
+    "ObjectKind remains gameplay/save compatibility metadata; it must not be future visual identity authority.",
+    "Generated atlas coordinates are cache coordinates, not stable asset identity.",
+    "Authored scene asset IDs remain intact through W41 and migrate through aliases in W42/W43.",
+    "Intentional quarantines must be represented as policy, not repaired by exposing incorrect art.",
+    "Historical unregistered validators are reference only and must not override later quarantine decisions.",
+    "No new production world content may depend on scene_placeholder, needsAtlasArt, construction_tape-as-greenhouse, or a newly invented ObjectKind-to-atlas identity."
+  ],
+  "requiredGeneratedOutputs": [
+    "WORKSPACE/generated/world_assets/world_asset_inventory_v1.json",
+    "WORKSPACE/generated/world_assets/world_asset_reference_graph_v1.json",
+    "WORKSPACE/generated/world_assets/world_asset_conflicts_v1.json",
+    "WORKSPACE/generated/world_assets/world_asset_missing_art_v1.json",
+    "WORKSPACE/generated/world_assets/world_asset_migration_queue_v1.json"
+  ],
+  "nextMilestone": "Pass167Z109W42 PublishedWorldAsset registry + compatibility adapters"
+}

@@ -1,0 +1,243 @@
+{
+  "schema": "havenwild.terrain_acceptance_scene_manifest.v1",
+  "version": 5,
+  "diagnosticOnly": true,
+  "productionRegistration": false,
+  "compatibilityOnlyTerrain": [
+    "ShoreFoam"
+  ],
+  "mappedTerrainSemantics": [
+    "Grass",
+    "TallGrass",
+    "Sand",
+    "WetSand",
+    "PebbleShore",
+    "Road",
+    "StonePath",
+    "MountainPath",
+    "Bridge",
+    "Cliff",
+    "MountainRock",
+    "Dirt",
+    "CaveFloor",
+    "TilledSoil",
+    "WateredSoil",
+    "Water",
+    "ShallowWater",
+    "DeepWater",
+    "OceanDeep",
+    "OceanShallow",
+    "RiverWater",
+    "RiverMouthBlend",
+    "ShoreFoam",
+    "MudBank"
+  ],
+  "excludedPresentationSemantics": [
+    "WoodFloor",
+    "PlankFloor",
+    "StoneFloor",
+    "BrickFloor",
+    "Wall",
+    "CaveWall",
+    "Crop",
+    "GreenhouseZone"
+  ],
+  "semanticTopologyOnly": true,
+  "scenes": [
+    {
+      "id": "coastline",
+      "sceneId": "terrain_acceptance_coastline",
+      "path": "content/worldgen/scenes/terrain_acceptance/coastline_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": false,
+      "visualAssertions": [
+        "continuous authored shoreline curves",
+        "deep/water/shallow/shore bands remain ordered"
+      ],
+      "gameplayAssertions": [
+        "DeepWater never touches land",
+        "Sand and WetSand remain walkable"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/coastline_semantic_vs_lpc.png"
+    },
+    {
+      "id": "river",
+      "sceneId": "terrain_acceptance_river",
+      "path": "content/worldgen/scenes/terrain_acceptance/river_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": false,
+      "visualAssertions": [
+        "connected narrow/wide turns",
+        "mud bank remains subordinate to the channel"
+      ],
+      "gameplayAssertions": [
+        "RiverWater uses shallow traversal",
+        "MudBank remains tillable ground"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/river_semantic_vs_lpc.png"
+    },
+    {
+      "id": "pond_bridge",
+      "sceneId": "terrain_acceptance_pond_bridge",
+      "path": "content/worldgen/scenes/terrain_acceptance/pond_bridge_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": false,
+      "visualAssertions": [
+        "organic pond rings",
+        "bridge replaces route cells only across water/bank"
+      ],
+      "gameplayAssertions": [
+        "pond has no direct deep-water edge",
+        "route remains connected"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/pond_bridge_semantic_vs_lpc.png"
+    },
+    {
+      "id": "farm_soil",
+      "sceneId": "terrain_acceptance_farm_soil",
+      "path": "content/worldgen/scenes/terrain_acceptance/farm_soil_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": false,
+      "visualAssertions": [
+        "clean Grass/Dirt/Soil boundary",
+        "watered and dry cultivated cells remain readable"
+      ],
+      "gameplayAssertions": [
+        "TilledSoil and WateredSoil remain buildable",
+        "farming classes remain distinct"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/farm_soil_semantic_vs_lpc.png"
+    },
+    {
+      "id": "mountain",
+      "sceneId": "terrain_acceptance_mountain",
+      "path": "content/worldgen/scenes/terrain_acceptance/mountain_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": false,
+      "visualAssertions": [
+        "connected cliff face and walkable plateau",
+        "mountain path cuts through without broken corners"
+      ],
+      "gameplayAssertions": [
+        "Cliff remains blocking",
+        "MountainRock and MountainPath remain walkable"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/mountain_semantic_vs_lpc.png"
+    },
+    {
+      "id": "junctions",
+      "sceneId": "terrain_acceptance_junctions",
+      "path": "content/worldgen/scenes/terrain_acceptance/junctions_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": false,
+      "visualAssertions": [
+        "three/four-material junctions retain one visual owner",
+        "road and stone path stay continuous"
+      ],
+      "gameplayAssertions": [
+        "junction visuals do not alter semantic collision"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/junctions_semantic_vs_lpc.png"
+    },
+    {
+      "id": "snow_ice",
+      "sceneId": "terrain_acceptance_snow_ice",
+      "path": "content/worldgen/scenes/terrain_acceptance/snow_ice_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": false,
+      "visualAssertions": [
+        "continuous cold-biome bands",
+        "water/shore/stone/grass boundaries resolve"
+      ],
+      "gameplayAssertions": [
+        "DeepWater, Water, and ShallowWater remain distinct"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/snow_ice_semantic_vs_lpc.png"
+    },
+    {
+      "id": "wrapped_world_seam",
+      "sceneId": "terrain_acceptance_wrapped_world_seam",
+      "path": "content/worldgen/scenes/terrain_acceptance/wrapped_world_seam_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": true,
+      "visualAssertions": [
+        "left/right tuple parity",
+        "no horizontal seam discontinuity"
+      ],
+      "gameplayAssertions": [
+        "edge collision uses wrapped semantic neighbors"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/wrapped_world_seam_semantic_vs_lpc.png"
+    },
+    {
+      "id": "terrain_gallery",
+      "sceneId": "terrain_acceptance_terrain_gallery",
+      "path": "content/worldgen/scenes/terrain_acceptance/terrain_gallery_scene_v1.json",
+      "size": [
+        40,
+        28
+      ],
+      "wrapX": false,
+      "visualAssertions": [
+        "all mapped terrain semantics have a deterministic atlas-backed display cell",
+        "non-terrain presentation roles remain outside mapped terrain certification"
+      ],
+      "gameplayAssertions": [
+        "gallery is diagnostic-only and certifies mapped terrain only"
+      ],
+      "semanticTopologyPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_semantic_topology.png",
+      "lpcMappedPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_lpc_mapped.png",
+      "comparisonPreview": "docs/audits/generated/terrain_lpc_certification_v167z5a/acceptance/terrain_gallery_semantic_vs_lpc.png"
+    }
+  ],
+  "evidencePolicy": {
+    "semanticTopologyIsGameArt": false,
+    "lpcMappedEvidenceUsesAtlasPixelsOnly": true,
+    "renderContract": "exact_v7_presentation_authority_w77",
+    "materialBindings": "content/assets/terrain_material_bindings_v0_2.json",
+    "transitionAtlas": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+    "transitionManifest": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+    "unresolvedTransitionCellsAreWorkbenchCandidates": true,
+    "workbench": "content/editor/terrain_transition_workbench/terrain_transition_workbench_v1.json"
+  }
+}

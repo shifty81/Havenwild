@@ -1,0 +1,2993 @@
+{
+  "schema": "havenwild.structure_source_inventory.v1",
+  "pass": "167Z109W45D2",
+  "sourceAuthority": "content/assets/lpc/lpc_slice_catalog_v0_1.json",
+  "sourceRoot": "assets/source/licensed/lpc_revised",
+  "policy": {
+    "sourceSheetsAreNotPublishedComponents": true,
+    "publishedComponentsUsePublishedWorldAssetRegistry": true,
+    "generatedAtlasesAreCacheOnly": true,
+    "requireExactSourceRectBeforePromotion": true,
+    "badObjectKindSubstitutionsRemainForbidden": true,
+    "buildingReferenceSheetsAreReferenceOnlyUntilDecomposed": true
+  },
+  "summary": {
+    "totalSourceSheets": 98,
+    "roleCounts": {
+      "bridge": 5,
+      "building_reference": 3,
+      "door": 13,
+      "fence": 3,
+      "floor": 16,
+      "misc": 5,
+      "pillar": 2,
+      "platform": 2,
+      "roof": 7,
+      "sign": 2,
+      "stairs": 6,
+      "wall": 20,
+      "wall_border": 7,
+      "window": 7
+    },
+    "expectedRoleCounts": {
+      "bridge": 5,
+      "door": 13,
+      "fence": 3,
+      "floor": 16,
+      "misc": 5,
+      "pillar": 2,
+      "platform": 2,
+      "roof": 7,
+      "sign": 2,
+      "stairs": 6,
+      "building_reference": 3,
+      "wall_border": 7,
+      "wall": 20,
+      "window": 7
+    },
+    "unclassified": 0,
+    "reviewedComponentSourceSheets": 18
+  },
+  "entries": [
+    {
+      "id": "lpc/structure/bridges/drawbridge_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Drawbridge A.png",
+      "displayName": "Structure/Bridges/Drawbridge A",
+      "sourceFamily": "Bridges",
+      "role": "bridge",
+      "imageSize": [
+        128,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        6
+      ],
+      "sliceCount": 24,
+      "nonEmptySliceCount": 24,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/bridges/rope_bridge_a_-_no_rails",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Rope Bridge A - No Rails.png",
+      "displayName": "Structure/Bridges/Rope Bridge A - No Rails",
+      "sourceFamily": "Bridges",
+      "role": "bridge",
+      "imageSize": [
+        128,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        6
+      ],
+      "sliceCount": 24,
+      "nonEmptySliceCount": 24,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/bridges/rope_bridge_a_-_rails",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Rope Bridge A - Rails.png",
+      "displayName": "Structure/Bridges/Rope Bridge A - Rails",
+      "sourceFamily": "Bridges",
+      "role": "bridge",
+      "imageSize": [
+        160,
+        288
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        5,
+        9
+      ],
+      "sliceCount": 45,
+      "nonEmptySliceCount": 45,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/bridges/wood_bridge_a_-_no_rails",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - No Rails.png",
+      "displayName": "Structure/Bridges/Wood Bridge A - No Rails",
+      "sourceFamily": "Bridges",
+      "role": "bridge",
+      "imageSize": [
+        320,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        10,
+        12
+      ],
+      "sliceCount": 120,
+      "nonEmptySliceCount": 104,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/bridges/wood_bridge_a_-_rails",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - Rails.png",
+      "displayName": "Structure/Bridges/Wood Bridge A - Rails",
+      "sourceFamily": "Bridges",
+      "role": "bridge",
+      "imageSize": [
+        320,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        10,
+        12
+      ],
+      "sliceCount": 120,
+      "nonEmptySliceCount": 116,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/structures/brick_house_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Structures/Brick House A.png",
+      "displayName": "Structure/Structures/Brick House A",
+      "sourceFamily": "Structures",
+      "role": "building_reference",
+      "imageSize": [
+        256,
+        224
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        8,
+        7
+      ],
+      "sliceCount": 56,
+      "nonEmptySliceCount": 40,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/structures/brick_house_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Structures/Brick House B.png",
+      "displayName": "Structure/Structures/Brick House B",
+      "sourceFamily": "Structures",
+      "role": "building_reference",
+      "imageSize": [
+        192,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "sliceCount": 36,
+      "nonEmptySliceCount": 28,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/structures/paneled_house_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Structures/Paneled House A.png",
+      "displayName": "Structure/Structures/Paneled House A",
+      "sourceFamily": "Structures",
+      "role": "building_reference",
+      "imageSize": [
+        160,
+        160
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        5,
+        5
+      ],
+      "sliceCount": 25,
+      "nonEmptySliceCount": 25,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x48px_doors/12_panel_door_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/12 Panel Door A.png",
+      "displayName": "Structure/Doors/32x48px Doors/12 Panel Door A",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        896,
+        768
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        28,
+        24
+      ],
+      "sliceCount": 672,
+      "nonEmptySliceCount": 512,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x48px_doors/12_panel_door_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/12 Panel Door B.png",
+      "displayName": "Structure/Doors/32x48px Doors/12 Panel Door B",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        896,
+        768
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        28,
+        24
+      ],
+      "sliceCount": 672,
+      "nonEmptySliceCount": 512,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x48px_doors/barred_prison_door_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/Barred Prison Door A.png",
+      "displayName": "Structure/Doors/32x48px Doors/Barred Prison Door A",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        448,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        14,
+        3
+      ],
+      "sliceCount": 42,
+      "nonEmptySliceCount": 32,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x48px_doors/doorframe_a_shadows",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/Doorframe A Shadows.png",
+      "displayName": "Structure/Doors/32x48px Doors/Doorframe A Shadows",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        64,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        2,
+        4
+      ],
+      "sliceCount": 8,
+      "nonEmptySliceCount": 8,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x48px_doors/doorframe_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/Doorframe A.png",
+      "displayName": "Structure/Doors/32x48px Doors/Doorframe A",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        384,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        12,
+        6
+      ],
+      "sliceCount": 72,
+      "nonEmptySliceCount": 60,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x48px_doors/doorframe_b_shadows",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/DoorFrame B Shadows.png",
+      "displayName": "Structure/Doors/32x48px Doors/DoorFrame B Shadows",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        64,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        2,
+        4
+      ],
+      "sliceCount": 8,
+      "nonEmptySliceCount": 8,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x48px_doors/doorframe_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x48px Doors/Doorframe B.png",
+      "displayName": "Structure/Doors/32x48px Doors/Doorframe B",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        64,
+        64
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        2,
+        2
+      ],
+      "sliceCount": 4,
+      "nonEmptySliceCount": 4,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x64px_doors/15_panel_door_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x64px Doors/15 Panel Door A.png",
+      "displayName": "Structure/Doors/32x64px Doors/15 Panel Door A",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        896,
+        1024
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        28,
+        32
+      ],
+      "sliceCount": 896,
+      "nonEmptySliceCount": 576,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x64px_doors/doorframe_a_shadows",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x64px Doors/Doorframe A Shadows.png",
+      "displayName": "Structure/Doors/32x64px Doors/Doorframe A Shadows",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        64,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        2,
+        4
+      ],
+      "sliceCount": 8,
+      "nonEmptySliceCount": 8,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/32x64px_doors/doorframe_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/32x64px Doors/Doorframe A.png",
+      "displayName": "Structure/Doors/32x64px Doors/Doorframe A",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        384,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        12,
+        6
+      ],
+      "sliceCount": 72,
+      "nonEmptySliceCount": 60,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/64x64px_arched_doors/arched_doorway_a_shadows",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/64x64px Arched Doors/Arched Doorway A Shadows.png",
+      "displayName": "Structure/Doors/64x64px Arched Doors/Arched Doorway A Shadows",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        128,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "sliceCount": 16,
+      "nonEmptySliceCount": 16,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/64x64px_arched_doors/arched_doorway_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/64x64px Arched Doors/Arched Doorway A.png",
+      "displayName": "Structure/Doors/64x64px Arched Doors/Arched Doorway A",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        160,
+        288
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        5,
+        9
+      ],
+      "sliceCount": 45,
+      "nonEmptySliceCount": 27,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/doors/64x64px_arched_doors/arched_double_doors_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Doors/64x64px Arched Doors/Arched Double Doors A.png",
+      "displayName": "Structure/Doors/64x64px Arched Doors/Arched Double Doors A",
+      "sourceFamily": "Doors",
+      "role": "door",
+      "imageSize": [
+        256,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        8,
+        12
+      ],
+      "sliceCount": 96,
+      "nonEmptySliceCount": 88,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/fences/ornamental_fence_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Fences/Ornamental Fence A.png",
+      "displayName": "Structure/Fences/Ornamental Fence A",
+      "sourceFamily": "Fences",
+      "role": "fence",
+      "imageSize": [
+        128,
+        256
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        8
+      ],
+      "sliceCount": 32,
+      "nonEmptySliceCount": 30,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/fences/ornamental_fence_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Fences/Ornamental Fence B.png",
+      "displayName": "Structure/Fences/Ornamental Fence B",
+      "sourceFamily": "Fences",
+      "role": "fence",
+      "imageSize": [
+        128,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "sliceCount": 16,
+      "nonEmptySliceCount": 16,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/fences/plain_fence_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Fences/Plain Fence A.png",
+      "displayName": "Structure/Fences/Plain Fence A",
+      "sourceFamily": "Fences",
+      "role": "fence",
+      "imageSize": [
+        160,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        5,
+        4
+      ],
+      "sliceCount": 20,
+      "nonEmptySliceCount": 18,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/diamond_tile_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Diamond Tile A.png",
+      "displayName": "Structure/Floor/Diamond Tile A",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        256,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        8,
+        4
+      ],
+      "sliceCount": 32,
+      "nonEmptySliceCount": 32,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/diamond_tile_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Diamond Tile B.png",
+      "displayName": "Structure/Floor/Diamond Tile B",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        288,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        9,
+        4
+      ],
+      "sliceCount": 36,
+      "nonEmptySliceCount": 36,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/diamond_tile_c",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Diamond Tile C.png",
+      "displayName": "Structure/Floor/Diamond Tile C",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        128,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "sliceCount": 16,
+      "nonEmptySliceCount": 16,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/floral_carpet_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Floral Carpet A.png",
+      "displayName": "Structure/Floor/Floral Carpet A",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        1120,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        35,
+        12
+      ],
+      "sliceCount": 420,
+      "nonEmptySliceCount": 400,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/floral_carpet_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Floral Carpet B.png",
+      "displayName": "Structure/Floor/Floral Carpet B",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        1120,
+        512
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        35,
+        16
+      ],
+      "sliceCount": 560,
+      "nonEmptySliceCount": 536,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/geometric_carpet_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Geometric Carpet A.png",
+      "displayName": "Structure/Floor/Geometric Carpet A",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        2016,
+        672
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        63,
+        21
+      ],
+      "sliceCount": 1323,
+      "nonEmptySliceCount": 1260,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/geometric_carpet_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Geometric Carpet B.png",
+      "displayName": "Structure/Floor/Geometric Carpet B",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        2016,
+        672
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        63,
+        21
+      ],
+      "sliceCount": 1323,
+      "nonEmptySliceCount": 1260,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/geometric_carpet_c",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Geometric Carpet C.png",
+      "displayName": "Structure/Floor/Geometric Carpet C",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        288,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        9,
+        4
+      ],
+      "sliceCount": 36,
+      "nonEmptySliceCount": 36,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/gritty_dirt",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Gritty Dirt.png",
+      "displayName": "Structure/Floor/Gritty Dirt",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        64,
+        64
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        2,
+        2
+      ],
+      "sliceCount": 4,
+      "nonEmptySliceCount": 4,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/herringbone_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Herringbone A.png",
+      "displayName": "Structure/Floor/Herringbone A",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        96,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        3
+      ],
+      "sliceCount": 9,
+      "nonEmptySliceCount": 9,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/subfloor",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Subfloor.png",
+      "displayName": "Structure/Floor/Subfloor",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        96,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        3
+      ],
+      "sliceCount": 9,
+      "nonEmptySliceCount": 9,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/tile_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Tile A.png",
+      "displayName": "Structure/Floor/Tile A",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        96,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        4
+      ],
+      "sliceCount": 12,
+      "nonEmptySliceCount": 12,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/tile_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Tile B.png",
+      "displayName": "Structure/Floor/Tile B",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        128,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "sliceCount": 16,
+      "nonEmptySliceCount": 16,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/tile_c",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Tile C.png",
+      "displayName": "Structure/Floor/Tile C",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        128,
+        256
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        8
+      ],
+      "sliceCount": 32,
+      "nonEmptySliceCount": 32,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/wood_floor_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Wood Floor A.png",
+      "displayName": "Structure/Floor/Wood Floor A",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        160,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        5,
+        6
+      ],
+      "sliceCount": 30,
+      "nonEmptySliceCount": 27,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/floor/wood_floor_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Floor/Wood Floor B.png",
+      "displayName": "Structure/Floor/Wood Floor B",
+      "sourceFamily": "Floor",
+      "role": "floor",
+      "imageSize": [
+        64,
+        32
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        2,
+        1
+      ],
+      "sliceCount": 2,
+      "nonEmptySliceCount": 2,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/misc/drain_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Drain A.png",
+      "displayName": "Structure/Misc/Drain A",
+      "sourceFamily": "Misc",
+      "role": "misc",
+      "imageSize": [
+        32,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        1,
+        4
+      ],
+      "sliceCount": 4,
+      "nonEmptySliceCount": 4,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/misc/fountain_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Fountain A.png",
+      "displayName": "Structure/Misc/Fountain A",
+      "sourceFamily": "Misc",
+      "role": "misc",
+      "imageSize": [
+        64,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "sliceCount": 6,
+      "nonEmptySliceCount": 6,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/misc/pool_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Pool A.png",
+      "displayName": "Structure/Misc/Pool A",
+      "sourceFamily": "Misc",
+      "role": "misc",
+      "imageSize": [
+        96,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        3
+      ],
+      "sliceCount": 9,
+      "nonEmptySliceCount": 9,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/misc/prison_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Prison A.png",
+      "displayName": "Structure/Misc/Prison A",
+      "sourceFamily": "Misc",
+      "role": "misc",
+      "imageSize": [
+        192,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        4
+      ],
+      "sliceCount": 24,
+      "nonEmptySliceCount": 21,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/misc/trellis_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Misc/Trellis A.png",
+      "displayName": "Structure/Misc/Trellis A",
+      "sourceFamily": "Misc",
+      "role": "misc",
+      "imageSize": [
+        384,
+        256
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        12,
+        8
+      ],
+      "sliceCount": 96,
+      "nonEmptySliceCount": 92,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/pillars/floral_pillar_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Pillars/Floral Pillar A.png",
+      "displayName": "Structure/Pillars/Floral Pillar A",
+      "sourceFamily": "Pillars",
+      "role": "pillar",
+      "imageSize": [
+        320,
+        512
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        10,
+        16
+      ],
+      "sliceCount": 160,
+      "nonEmptySliceCount": 160,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/pillars/stone_pillar_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Pillars/Stone Pillar A.png",
+      "displayName": "Structure/Pillars/Stone Pillar A",
+      "sourceFamily": "Pillars",
+      "role": "pillar",
+      "imageSize": [
+        288,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        9,
+        12
+      ],
+      "sliceCount": 108,
+      "nonEmptySliceCount": 108,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/platforms/cement_platform_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Platforms/Cement Platform A.png",
+      "displayName": "Structure/Platforms/Cement Platform A",
+      "sourceFamily": "Platforms",
+      "role": "platform",
+      "imageSize": [
+        96,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        6
+      ],
+      "sliceCount": 18,
+      "nonEmptySliceCount": 18,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/platforms/dias_with_steps_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Platforms/Dias with Steps A.png",
+      "displayName": "Structure/Platforms/Dias with Steps A",
+      "sourceFamily": "Platforms",
+      "role": "platform",
+      "imageSize": [
+        96,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        3
+      ],
+      "sliceCount": 9,
+      "nonEmptySliceCount": 9,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/roofing/adobe_brick_roof",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Adobe Brick Roof.png",
+      "displayName": "Structure/Roofing/Adobe Brick Roof",
+      "sourceFamily": "Roofing",
+      "role": "roof",
+      "imageSize": [
+        384,
+        256
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        12,
+        8
+      ],
+      "sliceCount": 96,
+      "nonEmptySliceCount": 94,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/roofing/adobe_stucco_roof",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Adobe Stucco Roof.png",
+      "displayName": "Structure/Roofing/Adobe Stucco Roof",
+      "sourceFamily": "Roofing",
+      "role": "roof",
+      "imageSize": [
+        416,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        13,
+        4
+      ],
+      "sliceCount": 52,
+      "nonEmptySliceCount": 51,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/roofing/brick_chimney_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Brick Chimney A.png",
+      "displayName": "Structure/Roofing/Brick Chimney A",
+      "sourceFamily": "Roofing",
+      "role": "roof",
+      "imageSize": [
+        192,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "sliceCount": 36,
+      "nonEmptySliceCount": 36,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/roofing/flat_shingle_roof_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+      "displayName": "Structure/Roofing/Flat Shingle Roof A",
+      "sourceFamily": "Roofing",
+      "role": "roof",
+      "imageSize": [
+        768,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        24,
+        12
+      ],
+      "sliceCount": 288,
+      "nonEmptySliceCount": 282,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/roofing/gable_shingle_roof_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+      "displayName": "Structure/Roofing/Gable Shingle Roof A",
+      "sourceFamily": "Roofing",
+      "role": "roof",
+      "imageSize": [
+        768,
+        480
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        24,
+        15
+      ],
+      "sliceCount": 360,
+      "nonEmptySliceCount": 210,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/roofing/hipped_shingle_roof_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Hipped Shingle Roof A.png",
+      "displayName": "Structure/Roofing/Hipped Shingle Roof A",
+      "sourceFamily": "Roofing",
+      "role": "roof",
+      "imageSize": [
+        960,
+        480
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        30,
+        15
+      ],
+      "sliceCount": 450,
+      "nonEmptySliceCount": 426,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/roofing/roof_trim",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Roofing/Roof Trim.png",
+      "displayName": "Structure/Roofing/Roof Trim",
+      "sourceFamily": "Roofing",
+      "role": "roof",
+      "imageSize": [
+        1536,
+        288
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        48,
+        9
+      ],
+      "sliceCount": 432,
+      "nonEmptySliceCount": 324,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/signs/sign_backgrounds_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Backgrounds A.png",
+      "displayName": "Structure/Signs/Sign Backgrounds A",
+      "sourceFamily": "Signs",
+      "role": "sign",
+      "imageSize": [
+        64,
+        64
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        2,
+        2
+      ],
+      "sliceCount": 4,
+      "nonEmptySliceCount": 4,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/signs/sign_icons_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Signs/Sign Icons A.png",
+      "displayName": "Structure/Signs/Sign Icons A",
+      "sourceFamily": "Signs",
+      "role": "sign",
+      "imageSize": [
+        160,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        5,
+        3
+      ],
+      "sliceCount": 15,
+      "nonEmptySliceCount": 15,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/stairs/cement_stairs_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Cement Stairs A.png",
+      "displayName": "Structure/Stairs/Cement Stairs A",
+      "sourceFamily": "Stairs",
+      "role": "stairs",
+      "imageSize": [
+        160,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        5,
+        4
+      ],
+      "sliceCount": 20,
+      "nonEmptySliceCount": 18,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/stairs/formal_interior_stairs_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Formal Interior Stairs A.png",
+      "displayName": "Structure/Stairs/Formal Interior Stairs A",
+      "sourceFamily": "Stairs",
+      "role": "stairs",
+      "imageSize": [
+        256,
+        352
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        8,
+        11
+      ],
+      "sliceCount": 88,
+      "nonEmptySliceCount": 86,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/stairs/short_steps_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Short Steps A.png",
+      "displayName": "Structure/Stairs/Short Steps A",
+      "sourceFamily": "Stairs",
+      "role": "stairs",
+      "imageSize": [
+        224,
+        160
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        7,
+        5
+      ],
+      "sliceCount": 35,
+      "nonEmptySliceCount": 35,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/stairs/wood_interior_stairs_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Wood Interior Stairs A.png",
+      "displayName": "Structure/Stairs/Wood Interior Stairs A",
+      "sourceFamily": "Stairs",
+      "role": "stairs",
+      "imageSize": [
+        256,
+        352
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        8,
+        11
+      ],
+      "sliceCount": 88,
+      "nonEmptySliceCount": 78,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/stairs/wood_interior_stairs_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Wood Interior Stairs B.png",
+      "displayName": "Structure/Stairs/Wood Interior Stairs B",
+      "sourceFamily": "Stairs",
+      "role": "stairs",
+      "imageSize": [
+        256,
+        352
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        8,
+        11
+      ],
+      "sliceCount": 88,
+      "nonEmptySliceCount": 79,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/stairs/wood_interior_stairs_wall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Stairs/Wood Interior Stairs Wall.png",
+      "displayName": "Structure/Stairs/Wood Interior Stairs Wall",
+      "sourceFamily": "Stairs",
+      "role": "stairs",
+      "imageSize": [
+        254,
+        251
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        7,
+        7
+      ],
+      "sliceCount": 49,
+      "nonEmptySliceCount": 30,
+      "likelyTileable": false,
+      "modularUse": "sprite_layer_or_reference",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/adobe_brick_wall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Adobe Brick Wall.png",
+      "displayName": "Structure/Walls/Adobe Brick Wall",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        128,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        6
+      ],
+      "sliceCount": 24,
+      "nonEmptySliceCount": 24,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/adobe_stucco_wall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Adobe Stucco Wall.png",
+      "displayName": "Structure/Walls/Adobe Stucco Wall",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        256,
+        160
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        8,
+        5
+      ],
+      "sliceCount": 40,
+      "nonEmptySliceCount": 32,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/brick_wall_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Brick Wall A.png",
+      "displayName": "Structure/Walls/Brick Wall A",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        192,
+        288
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "sliceCount": 54,
+      "nonEmptySliceCount": 54,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/brick_wall_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Brick Wall B.png",
+      "displayName": "Structure/Walls/Brick Wall B",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        384,
+        288
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        12,
+        9
+      ],
+      "sliceCount": 108,
+      "nonEmptySliceCount": 108,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/brick_wall_block_edging",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Brick Wall Block Edging.png",
+      "displayName": "Structure/Walls/Brick Wall Block Edging",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        192,
+        288
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "sliceCount": 54,
+      "nonEmptySliceCount": 54,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/cutawayoverlay",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/CutawayOverlay.png",
+      "displayName": "Structure/Walls/CutawayOverlay",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        96,
+        64
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "sliceCount": 6,
+      "nonEmptySliceCount": 4,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/diamond_wallpaper",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Diamond Wallpaper.png",
+      "displayName": "Structure/Walls/Diamond Wallpaper",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        1152,
+        1280
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        36,
+        40
+      ],
+      "sliceCount": 1440,
+      "nonEmptySliceCount": 1440,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/drywall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Drywall.png",
+      "displayName": "Structure/Walls/Drywall",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        224,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        7,
+        3
+      ],
+      "sliceCount": 21,
+      "nonEmptySliceCount": 21,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/floral_wallpaper_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Floral Wallpaper A.png",
+      "displayName": "Structure/Walls/Floral Wallpaper A",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        960,
+        512
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        30,
+        16
+      ],
+      "sliceCount": 480,
+      "nonEmptySliceCount": 480,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/floral_wallpaper_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Floral Wallpaper B.png",
+      "displayName": "Structure/Walls/Floral Wallpaper B",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        192,
+        512
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        16
+      ],
+      "sliceCount": 96,
+      "nonEmptySliceCount": 96,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/grainy_plain_wall",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Grainy Plain Wall.png",
+      "displayName": "Structure/Walls/Grainy Plain Wall",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        576,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        18,
+        12
+      ],
+      "sliceCount": 216,
+      "nonEmptySliceCount": 216,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/half-wall_paneling_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Half-Wall Paneling A.png",
+      "displayName": "Structure/Walls/Half-Wall Paneling A",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        288,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        9,
+        3
+      ],
+      "sliceCount": 27,
+      "nonEmptySliceCount": 27,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/jagged_stone_walls",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Jagged Stone Walls.png",
+      "displayName": "Structure/Walls/Jagged Stone Walls",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        192,
+        288
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "sliceCount": 54,
+      "nonEmptySliceCount": 54,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/molding",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Molding.png",
+      "displayName": "Structure/Walls/Molding",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        192,
+        288
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "sliceCount": 54,
+      "nonEmptySliceCount": 54,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/painted_walls",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Painted Walls.png",
+      "displayName": "Structure/Walls/Painted Walls",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        1536,
+        512
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        48,
+        16
+      ],
+      "sliceCount": 768,
+      "nonEmptySliceCount": 768,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/panels_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Panels A.png",
+      "displayName": "Structure/Walls/Panels A",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        96,
+        64
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "sliceCount": 6,
+      "nonEmptySliceCount": 6,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/siding,_plain",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "displayName": "Structure/Walls/Siding, Plain",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        1600,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        50,
+        12
+      ],
+      "sliceCount": 600,
+      "nonEmptySliceCount": 600,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/striped_wallpaper_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Striped Wallpaper A.png",
+      "displayName": "Structure/Walls/Striped Wallpaper A",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        1056,
+        512
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        33,
+        16
+      ],
+      "sliceCount": 528,
+      "nonEmptySliceCount": 516,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/striped_wallpaper_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Striped Wallpaper B.png",
+      "displayName": "Structure/Walls/Striped Wallpaper B",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        1056,
+        512
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        33,
+        16
+      ],
+      "sliceCount": 528,
+      "nonEmptySliceCount": 528,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/walls/striped_wallpaper_c",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Walls/Striped Wallpaper C.png",
+      "displayName": "Structure/Walls/Striped Wallpaper C",
+      "sourceFamily": "Walls",
+      "role": "wall",
+      "imageSize": [
+        1152,
+        512
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        36,
+        16
+      ],
+      "sliceCount": 576,
+      "nonEmptySliceCount": 576,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/wall_borders/decorative_border_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Decorative Border A.png",
+      "displayName": "Structure/Wall Borders/Decorative Border A",
+      "sourceFamily": "Wall Borders",
+      "role": "wall_border",
+      "imageSize": [
+        384,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        12,
+        4
+      ],
+      "sliceCount": 48,
+      "nonEmptySliceCount": 46,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/wall_borders/formal_crown_molding",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Formal Crown Molding.png",
+      "displayName": "Structure/Wall Borders/Formal Crown Molding",
+      "sourceFamily": "Wall Borders",
+      "role": "wall_border",
+      "imageSize": [
+        192,
+        96
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "sliceCount": 18,
+      "nonEmptySliceCount": 17,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/wall_borders/pillar_crown_molding",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Pillar Crown Molding.png",
+      "displayName": "Structure/Wall Borders/Pillar Crown Molding",
+      "sourceFamily": "Wall Borders",
+      "role": "wall_border",
+      "imageSize": [
+        160,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        5,
+        6
+      ],
+      "sliceCount": 30,
+      "nonEmptySliceCount": 24,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/wall_borders/plain_edged_border_-_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Plain Edged Border - A.png",
+      "displayName": "Structure/Wall Borders/Plain Edged Border - A",
+      "sourceFamily": "Wall Borders",
+      "role": "wall_border",
+      "imageSize": [
+        384,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        12,
+        4
+      ],
+      "sliceCount": 48,
+      "nonEmptySliceCount": 46,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/wall_borders/plain_edged_border",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Plain Edged Border.png",
+      "displayName": "Structure/Wall Borders/Plain Edged Border",
+      "sourceFamily": "Wall Borders",
+      "role": "wall_border",
+      "imageSize": [
+        768,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        24,
+        12
+      ],
+      "sliceCount": 288,
+      "nonEmptySliceCount": 276,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/wall_borders/plain_smooth_border",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Plain Smooth Border.png",
+      "displayName": "Structure/Wall Borders/Plain Smooth Border",
+      "sourceFamily": "Wall Borders",
+      "role": "wall_border",
+      "imageSize": [
+        768,
+        384
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        24,
+        12
+      ],
+      "sliceCount": 288,
+      "nonEmptySliceCount": 276,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/wall_borders/textured_wood_border",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Wall Borders/Textured Wood Border.png",
+      "displayName": "Structure/Wall Borders/Textured Wood Border",
+      "sourceFamily": "Wall Borders",
+      "role": "wall_border",
+      "imageSize": [
+        768,
+        256
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        24,
+        8
+      ],
+      "sliceCount": 192,
+      "nonEmptySliceCount": 184,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/windows/ornamental_windows_a_-_emission",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows A - Emission.png",
+      "displayName": "Structure/Windows/Ornamental Windows A - Emission",
+      "sourceFamily": "Windows",
+      "role": "window",
+      "imageSize": [
+        96,
+        160
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "sliceCount": 15,
+      "nonEmptySliceCount": 15,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/windows/ornamental_windows_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows A.png",
+      "displayName": "Structure/Windows/Ornamental Windows A",
+      "sourceFamily": "Windows",
+      "role": "window",
+      "imageSize": [
+        96,
+        160
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "sliceCount": 15,
+      "nonEmptySliceCount": 15,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/windows/ornamental_windows_b_-_emission",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows B - Emission.png",
+      "displayName": "Structure/Windows/Ornamental Windows B - Emission",
+      "sourceFamily": "Windows",
+      "role": "window",
+      "imageSize": [
+        96,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        4
+      ],
+      "sliceCount": 12,
+      "nonEmptySliceCount": 12,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/windows/ornamental_windows_b",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows B.png",
+      "displayName": "Structure/Windows/Ornamental Windows B",
+      "sourceFamily": "Windows",
+      "role": "window",
+      "imageSize": [
+        96,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        4
+      ],
+      "sliceCount": 12,
+      "nonEmptySliceCount": 12,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "COMPONENT_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": true,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/windows/stone_windows_a_-_emission",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Stone Windows A - Emission.png",
+      "displayName": "Structure/Windows/Stone Windows A - Emission",
+      "sourceFamily": "Windows",
+      "role": "window",
+      "imageSize": [
+        96,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        4
+      ],
+      "sliceCount": 12,
+      "nonEmptySliceCount": 12,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/windows/stone_windows_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Stone Windows A.png",
+      "displayName": "Structure/Windows/Stone Windows A",
+      "sourceFamily": "Windows",
+      "role": "window",
+      "imageSize": [
+        96,
+        128
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        3,
+        4
+      ],
+      "sliceCount": 12,
+      "nonEmptySliceCount": 12,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    },
+    {
+      "id": "lpc/structure/windows/window_awnings_a",
+      "sourcePath": "assets/source/licensed/lpc_revised/Structure/Windows/Window Awnings A.png",
+      "displayName": "Structure/Windows/Window Awnings A",
+      "sourceFamily": "Windows",
+      "role": "window",
+      "imageSize": [
+        288,
+        192
+      ],
+      "sliceSize": [
+        32,
+        32
+      ],
+      "grid": [
+        9,
+        6
+      ],
+      "sliceCount": 54,
+      "nonEmptySliceCount": 48,
+      "likelyTileable": true,
+      "modularUse": "tileable_or_modular",
+      "status": "SOURCE_CANDIDATE",
+      "certification": {
+        "sourceCatalogued": true,
+        "componentRectsReviewed": false,
+        "runtimeCertified": false,
+        "editorCertified": false
+      }
+    }
+  ]
+}

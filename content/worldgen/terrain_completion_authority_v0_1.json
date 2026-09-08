@@ -1,0 +1,44 @@
+{
+  "schema": "havenwild.terrain_completion_authority.v0_1",
+  "shared_editor_runtime_resolver": true,
+  "block_capital_generation_until_certified": true,
+  "water": {
+    "semantic_freshwater_brush": true,
+    "derive_shallow_rim": true,
+    "derive_deep_interior": true,
+    "recompute_after_edits": true,
+    "narrow_channels_may_remain_shallow": true,
+    "support_water_against_cliffs": true,
+    "support_waterfalls": true,
+    "required_neighbor_families": ["grass", "sand", "wet_sand", "dirt", "cliff"]
+  },
+  "cliffs": {
+    "explicit_elevation_metadata": true,
+    "derive_topology_from_neighbors": true,
+    "support_multilevel_faces": true,
+    "support_inside_outside_corners": true,
+    "support_ramps_and_mountain_paths": true,
+    "support_water_bases": true,
+    "required_topologies": ["north_face", "south_face", "east_face", "west_face", "inside_corner", "outside_corner", "vertical_stack", "exposed_base", "plateau_edge", "ramp_connection"]
+  },
+  "cave_entrances": {
+    "first_class_mountain_feature": true,
+    "require_valid_host_face": true,
+    "require_traversable_approach": true,
+    "require_destination_binding": true,
+    "open_collision_at_threshold": true,
+    "require_editor_validation": true,
+    "supported_facings": ["south", "east", "west"],
+    "supported_types": ["natural_cave", "mine", "ruined_tunnel", "sealed_entrance", "dungeon_entrance", "monster_den"]
+  },
+  "certification_scenarios": [
+    "irregular_freshwater_lake",
+    "narrow_shallow_river",
+    "water_against_cliff",
+    "multilevel_cliff",
+    "mountain_path_ramp",
+    "south_facing_natural_cave",
+    "cave_scene_transition",
+    "repaired_farmstead"
+  ]
+}

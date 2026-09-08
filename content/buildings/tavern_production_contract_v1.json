@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.tavern_production_contract.v1",
+  "pass": "167Z109W52",
+  "recipeId": "havenwild.tavern.standard_three_level",
+  "acceptanceInstanceId": "havenwild.acceptance.standard_tavern",
+  "acceptanceSceneId": "tavern_building_acceptance",
+  "authority": "BuildingRecipeRegistry",
+  "instanceAuthority": "BuildingInstanceRegistry",
+  "visualAuthority": "PublishedWorldAssetRegistry",
+  "levels": {
+    "-1": "cellar storage",
+    "0": "taproom + kitchen + service",
+    "1": "guest floor"
+  },
+  "requirements": {
+    "sameWorldBuildingInstance": true,
+    "separateInteriorScene": false,
+    "cameraLocalRoofAndWallCutaway": true,
+    "stairsConnectMinusOneZeroPlusOne": true,
+    "persistentDoorState": true,
+    "persistentFurnishingState": true,
+    "publishedFurnitureOnly": true,
+    "deferredExactSourceAllowedForUnresolvedFixtures": false
+  },
+  "knownDeferredVisuals": [],
+  "w52VisualClosure": {
+    "allTavernFurnishingsPublished": true,
+    "barCounter": "furniture_bar_counter_wood_4",
+    "keg": "container_keg_wood_01",
+    "hearth": "fixture_fireplace_cast_iron_01"
+  }
+}

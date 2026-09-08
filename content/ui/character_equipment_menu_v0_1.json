@@ -1,0 +1,57 @@
+{
+  "schema": "havenwild.ui.character_equipment_menu.v0_1",
+  "revision": "167Z43-complete-lpc-slot-authority-v1",
+  "title": "Character",
+  "tabs": [
+    {
+      "id": "equipment",
+      "label": "Equipment",
+      "owns": ["armor", "weapons", "hands", "back", "rings", "accessories", "mobility"]
+    },
+    {
+      "id": "wardrobe",
+      "label": "Wardrobe",
+      "owns": ["ordinary_clothing", "cosmetic_overrides", "outfit_presets", "dyes", "visibility_toggles"]
+    },
+    {
+      "id": "appearance",
+      "label": "Appearance",
+      "owns": ["body", "head", "skin", "eyes", "hair", "facial_hair", "age_compatible_features", "portrait"]
+    },
+    {
+      "id": "loadouts",
+      "label": "Loadouts",
+      "owns": ["hotbar", "weapons", "tools", "fishing", "combat_sets", "work_sets", "saved_outfits"]
+    }
+  ],
+  "layout": {
+    "left": "slot_groups_and_filters",
+    "center": "live_character_paper_doll",
+    "right": "searchable_inventory_and_item_details",
+    "supportsDragDrop": true,
+    "supportsControllerNavigation": true,
+    "supportsKeyboardNavigation": true
+  },
+  "slotGroups": [
+    {"id":"head_and_face","slots":["head","face","neck","shoulders"]},
+    {"id":"body","slots":["torso","torso_outer","arms","hands","waist","legs","feet"]},
+    {"id":"carried","slots":["back","main_hand","off_hand","utility"]},
+    {"id":"accessories","slots":["accessory_1","accessory_2","ring_1","ring_2"]},
+    {"id":"conditional","slots":["mobility"],"collapsedByDefault":true}
+  ],
+  "visibilityToggles": [
+    "hide_headwear",
+    "hide_face_item",
+    "hide_back_item",
+    "show_cosmetic_overrides",
+    "show_conditional_slots"
+  ],
+  "conflictFlow": {
+    "previewBeforeEquip": true,
+    "showOccupiedSlots": true,
+    "confirmDisplacedItems": true,
+    "returnDisplacedItemsToInventory": true
+  },
+  "implementationState": "data_and_validation_foundation",
+  "runtimeScreenWiring": "follow_on"
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "havenwild.editor.native_animation_studio.v0_1",
+  "workspace": "Animation Studio",
+  "purpose": "Author publishable frame animation metadata from Pixel Studio and CC0 source sheets without destructively modifying source pixels.",
+  "sourceLibrary": {
+    "sharedWithPixelStudio": true,
+    "explicitRuntimePromotion": true,
+    "supportedCategories": [
+      "character",
+      "animal",
+      "equipment",
+      "shadow",
+      "effect"
+    ]
+  },
+  "timeline": {
+    "clipList": true,
+    "frameThumbnails": true,
+    "playPause": true,
+    "previousNextFrame": true,
+    "duplicateDeleteReorder": true,
+    "perFrameDurationMilliseconds": true,
+    "loopModes": [
+      "loop",
+      "once",
+      "ping_pong"
+    ],
+    "onionSkin": true
+  },
+  "directionSupport": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW",
+    "None"
+  ],
+  "frameMetadata": {
+    "pivot": "per-frame local pixel coordinate",
+    "shadowOffset": "per-frame local pixel offset",
+    "sockets": [
+      "main_hand",
+      "off_hand",
+      "tool",
+      "head",
+      "back",
+      "mouth",
+      "ground",
+      "interaction"
+    ],
+    "events": [
+      "footstep",
+      "sound",
+      "impact",
+      "eat",
+      "interaction",
+      "spawn_effect",
+      "custom"
+    ]
+  },
+  "sheetAuthoring": {
+    "clickGridCellToSelect": true,
+    "addSelectedCellToClip": true,
+    "autoSliceSelectedRow": true,
+    "recommendedFourDirectionProfiles": true,
+    "recommendedHorseEightRowProfile": true,
+    "sourcePixelsRemainUnchanged": true
+  },
+  "publishing": {
+    "workingMetadataRoot": "assets/source/original/animation_studio",
+    "runtimeMetadataRoot": "content/animations",
+    "generatedImageRoot": "assets/generated/animations",
+    "catalog": "content/animations/animation_catalog_v0_1.json",
+    "validationRequired": true,
+    "copiesPromotedImage": true
+  },
+  "keyboard": {
+    "Space": "play or pause",
+    "LeftRight": "previous or next frame",
+    "ShiftLeftRight": "previous or next clip",
+    "A": "add selected source cell",
+    "P": "place pivot",
+    "K": "place selected socket",
+    "Delete": "delete selected frame",
+    "Escape": "stop playback and cancel point placement",
+    "H": "place shadow anchor"
+  },
+  "deferred": [
+    "bone hierarchy editing",
+    "IK dragging",
+    "weighted pixel deformation",
+    "layer compositor",
+    "runtime state-machine binding"
+  ]
+}

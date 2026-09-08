@@ -1,0 +1,10 @@
+[package]
+name = "haven_jobs"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+haven_identity = { path = "../haven_identity" }
+rayon.workspace = true
+serde.workspace = true

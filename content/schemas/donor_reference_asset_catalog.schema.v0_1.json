@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.donor_reference_asset_catalog.v0_1",
+  "type": "object",
+  "required": [
+    "schema",
+    "updated",
+    "records"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.donor_reference_asset_catalog.v0_1"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "object"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "externalSourceId",
+          "displayName",
+          "tileGridProfiles",
+          "referenceUsePolicy",
+          "prototypeIngestPolicy",
+          "editorVisibility"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "externalSourceId": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "tileGridProfiles": {
+            "type": "array"
+          },
+          "scaleAdapterModes": {
+            "type": "array"
+          },
+          "families": {
+            "type": "array"
+          },
+          "referenceUsePolicy": {
+            "type": "string"
+          },
+          "prototypeIngestPolicy": {
+            "type": "string"
+          },
+          "editorVisibility": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

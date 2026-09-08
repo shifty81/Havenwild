@@ -1,0 +1,11 @@
+Havenwild Pass 166X - Capital-First Worldgen and Terrain Completion Authority
+
+- Promotes Willowmere from replaceable starter town to permanent capital.
+- Requires capital generation before player-spawn selection.
+- Requires protected authored core and a hand-authoring refinement pass.
+- Defines seed-variable versus fixed capital domains.
+- Adds one terrain-completion gate shared by editor and runtime.
+- Locks freshwater, cliff/elevation, waterfall, mountain path, and cave-entrance completion requirements.
+- Blocks capital generation certification until all required terrain evidence scenarios pass.
+
+Apply as an overwrite patch over Pass 166W / current cumulative project source.

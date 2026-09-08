@@ -1,0 +1,49 @@
+{
+  "schema": "havenwild.world_visual_certification.v1",
+  "pass": "167Z109W52",
+  "status": "CERTIFIED_WITH_EXPLICIT_QUARANTINES",
+  "visualAuthority": "PublishedWorldAssetRegistry",
+  "terrainAuthority": "AuthoredTerrainProviderRegistry",
+  "scope": [
+    "W53 Estate regeneration profile",
+    "standard three-level Tavern",
+    "W50 cave baseline",
+    "published structural/building components"
+  ],
+  "certifiedRules": {
+    "noPlaceholderVisualInProductionProfile": true,
+    "noRejectedVisualInProductionProfile": true,
+    "noMissingAssetGeneratedByEstateProfile": true,
+    "allTavernFurnishingsPublished": true,
+    "exactCaveMouthAndIronOre": true,
+    "typedStructuralDoorFenceStairsSignsPreferred": true,
+    "diagnosticScenesExcluded": true
+  },
+  "quarantinedOptionalLegacyKinds": [
+    {
+      "objectKind": "well",
+      "reason": "Water Cooler substitution rejected; omitted from W53 profile until exact well source is promoted."
+    },
+    {
+      "objectKind": "scarecrow",
+      "reason": "Dress Form substitution rejected; omitted from W53 profile until exact scarecrow source is promoted."
+    },
+    {
+      "objectKind": "bench",
+      "reason": "Ottoman substitution rejected; omitted from W53 profile until exact bench source is promoted."
+    },
+    {
+      "objectKind": "log",
+      "reason": "Lumber is not a fallen trunk; omitted from W53 profile until exact fallen-log source is promoted."
+    },
+    {
+      "objectKind": "greenhouse_marker",
+      "reason": "Legacy marker retired; greenhouse must be structural/building content."
+    },
+    {
+      "objectKind": "sign",
+      "reason": "Generic standing sign remains fail-closed; typed W45 wall signs are allowed."
+    }
+  ],
+  "policy": "Quarantine means the role may not be generated or silently substituted. It does not authorize a fake visual. Adding one of these roles to a production profile reopens W52 until an exact source is published."
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "havenwild.surface_partition_identity_authority.v0_1",
+  "revision": "167Z78-sign-safe-surface-partition-identity-v1",
+  "purpose": "Recognize PCG and generated exterior storage partitions before the target scene is loaded so outdoor traversal never falls back to player-facing scene transfers.",
+  "pcgPattern": "pcg_{region}_{signed_x}_{signed_y}",
+  "generatedPattern": "surface_x_{signed_x}_y_{signed_y}",
+  "coordinateTokens": {
+    "negative": "n{magnitude}",
+    "positiveCanonical": "p{magnitude}",
+    "nonNegativeLegacy": "{magnitude}",
+    "zeroCanonical": "p0",
+    "zeroLegacy": "0"
+  },
+  "examples": [
+    {
+      "id": "pcg_havenwild_mainland_n2_7",
+      "x": -2,
+      "y": 7,
+      "kind": "pcg"
+    },
+    {
+      "id": "surface_x_n1_y_4",
+      "x": -1,
+      "y": 4,
+      "kind": "generated_legacy_positive"
+    },
+    {
+      "id": "surface_x_p3_y_n2",
+      "x": 3,
+      "y": -2,
+      "kind": "generated_canonical"
+    }
+  ],
+  "rules": {
+    "pcgAndGeneratedParsersShareCoordinateTokenAuthority": true,
+    "unsignedPositiveGeneratedIdsRemainLoadable": true,
+    "negativeCoordinatesRemainLossless": true,
+    "interiorIdsAreNeverSurfacePartitions": true,
+    "unloadedSurfaceTargetsNeverTriggerPlayerFacingSceneTransfer": true
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.pixel_multidocument_clipboard.w60e19.v1",
+  "pass": "W60E19",
+  "documentHost": {
+    "multipleOpen": true,
+    "focusExistingSource": true,
+    "saveAll": true,
+    "dirtyTabs": true,
+    "crossDocumentPixelClipboard": true
+  },
+  "selectionClipboard": {
+    "copy": "Ctrl+C",
+    "copyMerged": "Ctrl+Shift+C",
+    "cut": "Ctrl+X",
+    "paste": "Ctrl+V",
+    "duplicate": "Ctrl+D",
+    "pasteSelectionRemainsSelected": true
+  },
+  "promotion": {
+    "command": "Ctrl+Shift+P",
+    "wizard": true,
+    "capturesMergedVisibleSelection": true,
+    "preservesLicenseAndProvenance": true,
+    "defaultNonDestructiveSource": true
+  },
+  "contextualRouting": [
+    "pixel",
+    "scene",
+    "world"
+  ]
+}

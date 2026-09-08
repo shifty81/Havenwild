@@ -1,0 +1,48 @@
+{
+  "schema": "havenwild.terrain_presentation_authority.w77.v1",
+  "version": "1.0.0",
+  "purpose": "Prevent coarse gameplay/topology terrain families from collapsing exact visual material identity.",
+  "presentationAuthority": {
+    "materialBindings": "content/assets/terrain_material_bindings_v0_2.json",
+    "tupleAtlas": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+    "tupleInspector": "crates/haven_world/src/terrain_editor_bridge.rs",
+    "exactSourceEditBinding": "crates/haven_assets/src/terrain_material_bindings.rs::reviewed_v7_pure_fill_semantic_id",
+    "worldPixelBridge": "apps/haven_editor_native/src/app/world_asset_pixel_bridge.rs",
+    "topologyContract": "content/worldgen/terrain_topology_contract_v0_2.json"
+  },
+  "identityLocks": {
+    "StonePath": "Stone_Tan",
+    "PebbleShore": "Gravel_1",
+    "Road": "Dirt_Tan",
+    "MountainPath": "Dirt_Roots",
+    "Dirt": "Dirt_Brown",
+    "WetSand": "Sand",
+    "MudBank": "Mud_Brown",
+    "MountainRock": "Rock_Dark",
+    "ShallowWater": "Water_Shallows_Dirt",
+    "OceanShallow": "Water_Shallows_Sand"
+  },
+  "legalCoarseGroupingUses": [
+    "collision",
+    "farming",
+    "water_land_topology",
+    "connectivity",
+    "footsteps",
+    "minimap_grouping",
+    "generic_shader_characteristics",
+    "asset_browser_category"
+  ],
+  "forbiddenCoarseGroupingUses": [
+    "exact_material_name",
+    "tuple_ordinal",
+    "atlas_source_cell",
+    "terrain_tuple_inspector_identity",
+    "authored_transition_selection",
+    "world_to_pixel_exact_source"
+  ],
+  "unsupportedTransitionPolicy": {
+    "workbench": "content/editor/terrain_transition_workbench/terrain_transition_workbench_v1.json",
+    "labScene": "content/worldgen/scenes/terrain_acceptance/terrain_transition_authoring_lab_w77.json",
+    "promotion": "candidate_only_then_explicit_visual_certification"
+  }
+}

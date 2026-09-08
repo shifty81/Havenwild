@@ -1,0 +1,142 @@
+{
+  "id": "worldgen_home_island_v0_10",
+  "name": "Worldgen Home Island v0.10 Scene JSON Export Runtime Pack",
+  "version": "0.10.0",
+  "kind": "worldgen_asset_pack",
+  "masterManifest": "assets/generated/worldgen_v0_1/worldgen_asset_manifest_v0_1.json",
+  "runtimeBindings": "assets/generated/worldgen_v0_1/runtime_bindings/rust_tilekind_mapping_v0_1.json",
+  "biomeManifest": "assets/generated/worldgen_v0_1/home_island/home_island_biome_v0_1.json",
+  "sceneContracts": [
+    "content/worldgen/home_island_scene_contract_v0_1.json"
+  ],
+  "sceneFiles": [
+    "content/worldgen/scenes/home_island/farmstead_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/north_road_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/south_field_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/east_woods_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_mouth_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/tavern_interior_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cellar_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/guest_floor_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_depths_scene_v0_3.json"
+  ],
+  "worldSurface": "content/worldgen/home_island_world_surface_v0_3.json",
+  "placementRules": "content/worldgen/home_island_placement_rules_v0_3.json",
+  "autotileRules": "content/worldgen/autotile_rules_v0_3.json",
+  "editorLayerRegistry": "content/worldgen/worldgen_editor_layer_registry_v0_3.json",
+  "biomePalette": "content/worldgen/home_island_biome_palette_v0_3.json",
+  "edgeBorderResolution": "content/worldgen/world_edge_border_resolution_v0_3.json",
+  "islandTemplates": "content/worldgen/ten_island_style_templates_v0_3.json",
+  "smokeTests": [
+    "assets/generated/worldgen_v0_1/home_island/home_island_worldgen_smoke_test_v0_1.json",
+    "content/worldgen/scenes/home_island/farmstead_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/north_road_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/south_field_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/east_woods_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_mouth_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/tavern_interior_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cellar_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/guest_floor_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_depths_scene_v0_3.json"
+  ],
+  "previews": [
+    "assets/generated/worldgen_v0_1/home_island/previews/home_island_scene_contact_sheet_v0_3.png",
+    "assets/generated/worldgen_v0_1/home_island/previews/home_island_navigation_graph_v0_4.png",
+    "assets/generated/worldgen_v0_1/home_island/previews/home_island_runtime_index_preview_v0_4.png"
+  ],
+  "editor": {
+    "defaultScene": "farmstead",
+    "defaultPreview": "assets/generated/worldgen_v0_1/home_island/previews/home_island_scene_contact_sheet_v0_3.png",
+    "requiredPanels": [
+      "Layer Stack",
+      "Scene Outliner",
+      "Footprint Inspector",
+      "Validation Console",
+      "Scene Edge Resolver"
+    ],
+    "runtimeIndex": "assets/generated/worldgen_v0_1/runtime_bindings/worldgen_runtime_index_v0_4.json",
+    "importQueue": "content/worldgen/worldgen_editor_import_queue_v0_4.json",
+    "requiredEditorPanels": [
+      "Content Packs",
+      "Tile/Autotile Palette",
+      "Object Footprint Inspector",
+      "Collision/Interaction Overlay",
+      "World Graph",
+      "Validation Console",
+      "Placement Preview Diagnostics",
+      "Scene Object Outliner",
+      "Selected Object Footprint Editor",
+      "Object Move/Delete Controls",
+      "Direct Footprint Rect Editor",
+      "Validated Footprint Resize Controls",
+      "Footprint Flag Toggles",
+      "Scene JSON Export",
+      "Export Backup Status"
+    ],
+    "overlayProfile": "content/worldgen/worldgen_editor_overlay_profile_v0_7.json",
+    "objectOutlinerProfile": "content/worldgen/worldgen_editor_object_outliner_profile_v0_8.json",
+    "objectFootprintEditorProfile": "content/worldgen/worldgen_editor_footprint_editor_profile_v0_9.json",
+    "sceneExportProfile": "content/worldgen/worldgen_scene_export_profile_v0_10.json"
+  },
+  "runtimeIndex": "assets/generated/worldgen_v0_1/runtime_bindings/worldgen_runtime_index_v0_4.json",
+  "runtimeLoadOrder": "content/worldgen/worldgen_runtime_load_order_v0_4.json",
+  "assetLookup": "content/worldgen/worldgen_asset_lookup_v0_4.json",
+  "objectFootprintRegistry": "content/worldgen/worldgen_object_footprint_registry_v0_4.json",
+  "transitionRegistry": "content/worldgen/home_island_transition_registry_v0_4.json",
+  "navigationGraph": "content/worldgen/home_island_navigation_graph_v0_4.json",
+  "collisionInteractionOverlay": "content/worldgen/worldgen_collision_interaction_overlay_v0_4.json",
+  "cameraCompositionProfile": "content/worldgen/worldgen_camera_composition_profile_v0_4.json",
+  "validationProfile": "content/worldgen/worldgen_validation_profile_v0_4.json",
+  "previousPack": "content/worldgen/packs/worldgen_home_island_v0_9.json",
+  "runtimeSourceLoader": "crates/haven_core/src/worldgen_loader.rs",
+  "runtimeEntryPoint": "GameWorld::load_worldgen_pack_path",
+  "editorHotkey": "F10 while dev mode is enabled reloads the v0.10 scene JSON pack into the active runtime world.",
+  "objectFootprintRuntime": "content/worldgen/worldgen_object_footprint_runtime_v0_6.json",
+  "v06RuntimeFeatures": [
+    "ObjectFootprint stored per PlacedObject",
+    "Visual/collision/interaction rectangles parsed from scene JSON",
+    "Movement collision checks blocking object footprints",
+    "Inspector reports visual/collision/interaction footprint bounds",
+    "Render sorting uses collision footprint bottom edge",
+    "Save/load preserves custom object footprint metadata"
+  ],
+  "editorOverlayProfile": "content/worldgen/worldgen_editor_overlay_profile_v0_7.json",
+  "v07EditorOverlayFeatures": [
+    "H toggles visual footprint outlines",
+    "C toggles collision and blocked-tile overlay",
+    "I toggles interaction and transition overlay",
+    "Object placement previews show valid/blocked state before committing",
+    "Object placement diagnostics report first blocking issue in the status line",
+    "Build-mode object placement rejects invalid multi-tile placement instead of silently overlapping footprints"
+  ],
+  "editorObjectOutlinerProfile": "content/worldgen/worldgen_editor_object_outliner_profile_v0_8.json",
+  "v08ObjectOutlinerFeatures": [
+    "Objects tab now has a scene-object outliner alongside object placement tools",
+    "Placed objects can be selected from the outliner or picked from the cursor cell",
+    "Selected object visual/collision footprints are highlighted in the scene overlay",
+    "Selected objects can be nudged by arrow keys or moved to the cursor anchor",
+    "Move operations validate against multi-tile collision/interaction footprint rules before committing",
+    "Selected objects can be deleted with the Delete button, Delete key, or Backspace key"
+  ],
+  "editorFootprintEditorProfile": "content/worldgen/worldgen_editor_footprint_editor_profile_v0_9.json",
+  "v09FootprintEditorFeatures": [
+    "Objects tab exposes Visual, Collision, and Interaction footprint edit targets.",
+    "Selected-object X/Y offsets and W/H dimensions can be adjusted directly from the editor panel.",
+    "Collision blocking, player occlusion, and player-behind fade flags can be toggled per selected object.",
+    "Reset restores only the active footprint rectangle; Default restores the full object-kind footprint preset.",
+    "Every edit is validated against scene bounds, terrain blocking, and other object collisions before commit.",
+    "Undo snapshots are created only when a validated footprint edit successfully commits."
+  ],
+  "runtimeSourceExporter": "crates/haven_core/src/worldgen_exporter.rs",
+  "editorExportHotkey": "F11 while dev mode is enabled exports the active runtime world to content/worldgen/packs/worldgen_home_island_runtime_export_v0_10.json and content/worldgen/exports/home_island_v0_10/.",
+  "sceneExportProfile": "content/worldgen/worldgen_scene_export_profile_v0_10.json",
+  "v10SceneJsonExportFeatures": [
+    "GameWorld can export the current runtime/editor world back into worldgen scene JSON files.",
+    "The export writes a new pack at content/worldgen/packs/worldgen_home_island_runtime_export_v0_10.json.",
+    "Scene JSON files are written to content/worldgen/exports/home_island_v0_10/.",
+    "Existing exported pack/files are backed up under workspace/worldgen_backups before overwrite.",
+    "Exported objects preserve visualRect, collisionRect, interaction rect, blocksMovement, occludesPlayer, and fadeWhenPlayerBehind flags.",
+    "The loader now reads exported blocksMovement and occludesPlayer flags for better round-trip behavior.",
+    "F11 and the World tab Export button trigger scene JSON export."
+  ]
+}

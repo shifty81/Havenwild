@@ -1,0 +1,9 @@
+{
+  "schema":"havenwild.transition_resource.v1",
+  "id":"default_scene_transition",
+  "destination_scene_id":"destination_scene",
+  "spawn_id":"entry",
+  "loading_ui_document_id":"loading_default",
+  "loading_sound_event_id":null,
+  "metadata":{"note":"Template transition resource. Author concrete destination/spawn resources per portal."}
+}

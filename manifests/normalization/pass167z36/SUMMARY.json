@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z36",
+  "title": "Rounded LPC Water Depth Contour Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Isolated the remaining Z35 visual regression to exact mapped mixed shallow/deep water tuple cells.",
+    "Changed the retained terrain cache to use a pure owner-water fill for mixed depth tuples while preserving exact mapped tuples for land, banks, shorelines, and junctions.",
+    "Re-registered the authored LPC transition module and limited its runtime overlay to the rounded shallow_rim_over_deep family.",
+    "Kept the exact-pair transition atlas as the no-direct-source compatibility fallback.",
+    "Added unit and content-integrity protection against reintroducing hard rectangular mapped water-depth bands."
+  ],
+  "validation": {
+    "pythonCompilation": "passed",
+    "targetedStaticContract": "passed",
+    "cargo": "pending Windows workstation rerun",
+    "liveVisual": "pending Windows workstation rerun"
+  },
+  "completeSourceCreated": false
+}

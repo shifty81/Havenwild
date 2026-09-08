@@ -1,0 +1,45 @@
+{
+  "version": "0.4.0",
+  "generated": "2026-05-25",
+  "status": "generated",
+  "addedFiles": [
+    "content/packs/worldgen_home_island_v0_4.json",
+    "content/worldgen/worldgen_asset_lookup_v0_4.json",
+    "content/worldgen/worldgen_object_footprint_registry_v0_4.json",
+    "content/worldgen/home_island_transition_registry_v0_4.json",
+    "content/worldgen/home_island_navigation_graph_v0_4.json",
+    "content/worldgen/worldgen_runtime_load_order_v0_4.json",
+    "content/worldgen/worldgen_editor_import_queue_v0_4.json",
+    "content/worldgen/worldgen_collision_interaction_overlay_v0_4.json",
+    "content/worldgen/worldgen_camera_composition_profile_v0_4.json",
+    "content/worldgen/worldgen_validation_profile_v0_4.json",
+    "assets/generated/worldgen_v0_1/runtime_bindings/worldgen_runtime_index_v0_4.json",
+    "content/schemas/worldgen-asset-pack.schema.json",
+    "content/schemas/worldgen-scene.schema.v0_4.json",
+    "scripts/Build-WorldgenRuntimeIndex.py",
+    "scripts/Validate-WorldgenRuntimeIndex.py",
+    "tools/automation/worldgen/Build-WorldgenRuntimeIndex.ps1",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenRuntimeIndex.ps1",
+    "scripts/Validate-WorldgenAssets.py",
+    "assets/generated/worldgen_v0_1/home_island/previews/home_island_navigation_graph_v0_4.png",
+    "assets/generated/worldgen_v0_1/home_island/previews/home_island_runtime_index_preview_v0_4.png",
+    "docs/engineering/worldgen_runtime_loader_contract_v0_4.md",
+    "docs/engineering/worldgen_v0_4_next_runtime_patch_plan.md",
+    "WORLDGEN_V0_4_APPLY_NOTES.md",
+    "assets/generated/worldgen_v0_1/README.md"
+  ],
+  "counts": {
+    "sceneCount": 9,
+    "transitionCount": 16,
+    "atlasCount": 7,
+    "runtimeTileKindCount": 25,
+    "objectAssetCount": 78,
+    "scenePlaceholderObjectCount": 14
+  },
+  "notes": [
+    "No Rust source files modified.",
+    "Run both worldgen validators after applying.",
+    "Scene-only placeholders are indexed for editor warnings, not fatal errors.",
+    "Runtime lookup aliases Crop -> crop_seedling and Water -> animated freshwater."
+  ]
+}

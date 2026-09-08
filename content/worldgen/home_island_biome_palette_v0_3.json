@@ -1,0 +1,118 @@
+{
+  "id": "home_island_biome_palette_v0_3",
+  "version": "0.3.0",
+  "kind": "biome_palette",
+  "islandId": "home_island_temperate_mountain_tavern",
+  "terrainWeights": {
+    "farmstead": {
+      "Grass": 45,
+      "TallGrass": 10,
+      "Road": 8,
+      "Dirt": 5,
+      "MountainRock": 15,
+      "PebbleShore": 5,
+      "ShallowWater": 6,
+      "Water": 6
+    },
+    "north_road": {
+      "Grass": 45,
+      "Road": 14,
+      "StonePath": 16,
+      "TallGrass": 20,
+      "Dirt": 5
+    },
+    "south_field": {
+      "Grass": 35,
+      "TilledSoil": 30,
+      "Crop": 15,
+      "Road": 8,
+      "Dirt": 5,
+      "Water": 4,
+      "ShallowWater": 3
+    },
+    "east_woods": {
+      "TallGrass": 45,
+      "Grass": 30,
+      "Dirt": 8,
+      "Water": 8,
+      "ShallowWater": 9
+    },
+    "cave_mouth": {
+      "MountainRock": 40,
+      "Grass": 20,
+      "MountainPath": 15,
+      "Cliff": 10,
+      "TallGrass": 10,
+      "CaveFloor": 5
+    },
+    "tavern_interior": {
+      "WoodFloor": 50,
+      "PlankFloor": 20,
+      "StoneFloor": 12,
+      "BrickFloor": 8,
+      "Wall": 10
+    },
+    "cellar": {
+      "CaveFloor": 50,
+      "StoneFloor": 25,
+      "CaveWall": 25
+    },
+    "guest_floor": {
+      "PlankFloor": 70,
+      "Wall": 20,
+      "WoodFloor": 10
+    },
+    "cave_depths": {
+      "CaveFloor": 65,
+      "CaveWall": 25,
+      "ShallowWater": 6,
+      "Water": 4
+    }
+  },
+  "objectSpawnRules": {
+    "trees": {
+      "minSpacingTiles": 3,
+      "avoidRoadBufferTiles": 2,
+      "normalTreeWeight": 90,
+      "specialTreeWeight": 10
+    },
+    "groundClutter": {
+      "densityByScene": {
+        "farmstead": 0.06,
+        "east_woods": 0.16,
+        "south_field": 0.04,
+        "cave_mouth": 0.08
+      },
+      "avoidCollisionRects": true
+    },
+    "forage": {
+      "seasonal": true,
+      "maxPerScene": 12,
+      "requiresInteractionRect": true
+    },
+    "structures": {
+      "mustUsePlacementRules": true,
+      "blockCriticalPaths": false
+    }
+  },
+  "nativeTrees": [
+    {
+      "id": "oak",
+      "woodDrop": "oak_log"
+    },
+    {
+      "id": "birch",
+      "woodDrop": "birch_log"
+    }
+  ],
+  "fruitTrees": [
+    {
+      "id": "apple",
+      "fruitDrop": "apple"
+    },
+    {
+      "id": "pear",
+      "fruitDrop": "pear"
+    }
+  ]
+}

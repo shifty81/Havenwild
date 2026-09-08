@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z35",
+  "title": "Authored LPC Runtime Atlas Activation",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Corrected the Z32 runtime-loader contradiction that disabled the authored terrain-map-v7 tuple atlas whenever licensed LPC source sheets were mounted.",
+    "Made the exact authored tuple atlas mandatory in both direct-source and compatibility configurations.",
+    "Kept the generated same-family autotile lane disabled when licensed LPC sources are available without disabling the authored tuple atlas.",
+    "Added the mapped tuple atlas JSON and PNG to normal-build required runtime assets and rebuilds them from the pinned source when absent.",
+    "Updated startup diagnostics and content-integrity checks to detect any future tuple-atlas bypass."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "bashSyntax": "passed",
+    "pythonCompilation": "passed",
+    "cargo": "pending Windows workstation rerun",
+    "expectedWindowsLog": "Loaded authored LPC terrain-map-v7 tuple atlas"
+  },
+  "completeSourceCreated": false
+}

@@ -1,0 +1,56 @@
+{
+  "id": "worldgen_editor_object_outliner_profile_v0_8",
+  "version": "0.8.0",
+  "purpose": "Defines the v0.8 editor object outliner and selected-object footprint editing workflow.",
+  "panel": {
+    "tab": "Objects",
+    "leftColumn": "Object placement tools",
+    "rightColumn": "Scene object outliner",
+    "selectedObjectSection": "Move, anchor, delete, and footprint summary controls"
+  },
+  "selectionRules": [
+    "Selecting an object sets selected_object_index and moves the cursor to the object anchor.",
+    "Pick selects the topmost object containing the cursor tile across visual, collision, or interaction bounds.",
+    "Selected object highlight draws a white visual outline and gold collision outline."
+  ],
+  "editOperations": [
+    {
+      "id": "nudge_up",
+      "input": "Objects tab + Up",
+      "validation": "placement_issues_for_object_excluding"
+    },
+    {
+      "id": "nudge_down",
+      "input": "Objects tab + Down",
+      "validation": "placement_issues_for_object_excluding"
+    },
+    {
+      "id": "nudge_left",
+      "input": "Objects tab + Left",
+      "validation": "placement_issues_for_object_excluding"
+    },
+    {
+      "id": "nudge_right",
+      "input": "Objects tab + Right",
+      "validation": "placement_issues_for_object_excluding"
+    },
+    {
+      "id": "anchor_to_cursor",
+      "input": "Anchor button",
+      "validation": "placement_issues_for_object_excluding"
+    },
+    {
+      "id": "delete_selected",
+      "input": "Delete button, Delete key, or Backspace",
+      "validation": "selected object index exists"
+    }
+  ],
+  "runtimeHooks": [
+    "TavernMap::placement_issues_for_object_excluding",
+    "TavernMap::move_object_to",
+    "TavernMap::remove_object_index",
+    "Game::draw_objects_editor_tab",
+    "Game::handle_objects_tab_click",
+    "Game::handle_selected_object_hotkeys"
+  ]
+}

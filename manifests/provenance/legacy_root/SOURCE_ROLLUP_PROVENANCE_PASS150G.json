@@ -1,0 +1,10 @@
+{
+  "rollup": "Havenwild_CompleteSourceRollup_Pass150G_20260723",
+  "base": "Pass150F",
+  "fixes": [
+    "deterministic base terrain bootstrap before LPC promotion",
+    "Windows Git core.longpaths enabled before LPC checkout"
+  ],
+  "clean_extract_build_required": true,
+  "packaging_environment_rust_build_run": false
+}

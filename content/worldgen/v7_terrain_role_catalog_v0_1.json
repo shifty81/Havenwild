@@ -1,0 +1,559 @@
+{
+  "schema": "havenwild.worldgen.v7_terrain_role_catalog.v0_1",
+  "version": 1,
+  "stylePackLane": "lpc_terrain_v7",
+  "sourceTileset": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.tsx",
+  "sourceImage": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+  "tileSize": [
+    32,
+    32
+  ],
+  "materialCount": 34,
+  "auditConclusion": {
+    "supportsMultipleBiomeRoles": true,
+    "supportsFlatRockAndMudstoneHighlands": true,
+    "containsStructuralVerticalCliffFaces": false,
+    "cliffFinding": "Rock, stone, mudstone, cracked-earth, hole, snow, ice, lava, and water families are 32x32 corner-terrain surfaces. They can style plateau tops, cave floors, highlands, pits, hazards, and shore/water systems, but they are not 2.5D vertical cliff-face sheets.",
+    "requiredCliffProvider": "A separately audited style-coherent structural cliff sheet or generated face system must provide vertical faces, corners, ramps, cave hosts, and waterfalls."
+  },
+  "recommendedBiomeRoles": [
+    {
+      "id": "temperate",
+      "materials": [
+        "Grass",
+        "Grass_Light",
+        "Dirt_Tan",
+        "Dirt_Brown",
+        "Gravel_1",
+        "Water",
+        "Water_Shallows_Dirt"
+      ]
+    },
+    {
+      "id": "dark_forest",
+      "materials": [
+        "Grass_Dark",
+        "Dirt_Dark",
+        "Dirt_Roots",
+        "Mud_Brown",
+        "Water_Green"
+      ]
+    },
+    {
+      "id": "drylands",
+      "materials": [
+        "Grass_Dead",
+        "Earth_Cracked",
+        "Sand",
+        "Dirt_Tan",
+        "Water_Shallows_Sand"
+      ]
+    },
+    {
+      "id": "rocky_highlands",
+      "materials": [
+        "Rock_White",
+        "Rock_Gray",
+        "Rock_Dark",
+        "Rock_Black",
+        "Stone_White",
+        "Stone_Tan",
+        "Mudstone_Gray",
+        "Mudstone_Brown"
+      ]
+    },
+    {
+      "id": "winter",
+      "materials": [
+        "Snow_1",
+        "Snow_2",
+        "Ice",
+        "Ice_Melting",
+        "Water_Deep"
+      ]
+    },
+    {
+      "id": "volcanic_or_hazard",
+      "materials": [
+        "Rock_Black",
+        "Earth_Cracked",
+        "Lava",
+        "Hole_Black"
+      ]
+    },
+    {
+      "id": "cave_and_subterranean",
+      "materials": [
+        "Dirt_Dark",
+        "Mudstone_Gray",
+        "Mudstone_Brown",
+        "Rock_Dark",
+        "Rock_Black",
+        "Hole_Brown",
+        "Hole_Black",
+        "Water_Purple"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "terrainIndex": 0,
+      "materialId": "Dirt_Tan",
+      "sourceTileId": 97,
+      "sourceCell": [
+        1,
+        3
+      ],
+      "category": "ground",
+      "recommendedRole": "dirt",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 1,
+      "materialId": "Dirt_Brown",
+      "sourceTileId": 100,
+      "sourceCell": [
+        4,
+        3
+      ],
+      "category": "ground",
+      "recommendedRole": "dirt",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 2,
+      "materialId": "Dirt_Dark",
+      "sourceTileId": 103,
+      "sourceCell": [
+        7,
+        3
+      ],
+      "category": "ground",
+      "recommendedRole": "dirt",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 3,
+      "materialId": "Rock_White",
+      "sourceTileId": 106,
+      "sourceCell": [
+        10,
+        3
+      ],
+      "category": "ground",
+      "recommendedRole": "rock_surface",
+      "movementIntent": "walkable_or_foundation_required",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 4,
+      "materialId": "Rock_Gray",
+      "sourceTileId": 109,
+      "sourceCell": [
+        13,
+        3
+      ],
+      "category": "ground",
+      "recommendedRole": "rock_surface",
+      "movementIntent": "walkable_or_foundation_required",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 5,
+      "materialId": "Rock_Dark",
+      "sourceTileId": 112,
+      "sourceCell": [
+        16,
+        3
+      ],
+      "category": "ground",
+      "recommendedRole": "rock_surface",
+      "movementIntent": "walkable_or_foundation_required",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 6,
+      "materialId": "Rock_Black",
+      "sourceTileId": 115,
+      "sourceCell": [
+        19,
+        3
+      ],
+      "category": "ground",
+      "recommendedRole": "rock_surface",
+      "movementIntent": "walkable_or_foundation_required",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 7,
+      "materialId": "Hole_Brown",
+      "sourceTileId": 118,
+      "sourceCell": [
+        22,
+        3
+      ],
+      "category": "feature",
+      "recommendedRole": "depression_or_pit",
+      "movementIntent": "collision_from_feature_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 8,
+      "materialId": "Hole_Black",
+      "sourceTileId": 121,
+      "sourceCell": [
+        25,
+        3
+      ],
+      "category": "feature",
+      "recommendedRole": "depression_or_pit",
+      "movementIntent": "collision_from_feature_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 9,
+      "materialId": "Mud_Brown",
+      "sourceTileId": 124,
+      "sourceCell": [
+        28,
+        3
+      ],
+      "category": "ground",
+      "recommendedRole": "mud",
+      "movementIntent": "walkable_slow",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 10,
+      "materialId": "Grass",
+      "sourceTileId": 321,
+      "sourceCell": [
+        1,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "grass",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 11,
+      "materialId": "Grass_Light",
+      "sourceTileId": 324,
+      "sourceCell": [
+        4,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "grass_variant",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 12,
+      "materialId": "Grass_Dark",
+      "sourceTileId": 327,
+      "sourceCell": [
+        7,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "grass_variant",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 13,
+      "materialId": "Grass_Dead",
+      "sourceTileId": 330,
+      "sourceCell": [
+        10,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "grass_variant",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 14,
+      "materialId": "Soil",
+      "sourceTileId": 333,
+      "sourceCell": [
+        13,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "farm_soil",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 15,
+      "materialId": "Sand",
+      "sourceTileId": 336,
+      "sourceCell": [
+        16,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "sand",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 16,
+      "materialId": "Snow_1",
+      "sourceTileId": 339,
+      "sourceCell": [
+        19,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "snow",
+      "movementIntent": "walkable_slow",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 17,
+      "materialId": "Snow_2",
+      "sourceTileId": 342,
+      "sourceCell": [
+        22,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "snow",
+      "movementIntent": "walkable_slow",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 18,
+      "materialId": "Gravel_1",
+      "sourceTileId": 345,
+      "sourceCell": [
+        25,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "gravel",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 19,
+      "materialId": "Dirt_Roots",
+      "sourceTileId": 348,
+      "sourceCell": [
+        28,
+        10
+      ],
+      "category": "ground",
+      "recommendedRole": "path_or_forest_floor",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 20,
+      "materialId": "Water_Shallows_Dirt",
+      "sourceTileId": 545,
+      "sourceCell": [
+        1,
+        17
+      ],
+      "category": "water",
+      "recommendedRole": "shallow_water",
+      "movementIntent": "water_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 21,
+      "materialId": "Water",
+      "sourceTileId": 548,
+      "sourceCell": [
+        4,
+        17
+      ],
+      "category": "water",
+      "recommendedRole": "water",
+      "movementIntent": "water_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 22,
+      "materialId": "Water_Deep",
+      "sourceTileId": 551,
+      "sourceCell": [
+        7,
+        17
+      ],
+      "category": "water",
+      "recommendedRole": "deep_water",
+      "movementIntent": "water_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 23,
+      "materialId": "Water_Purple",
+      "sourceTileId": 554,
+      "sourceCell": [
+        10,
+        17
+      ],
+      "category": "water",
+      "recommendedRole": "special_water",
+      "movementIntent": "water_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 24,
+      "materialId": "Water_Green",
+      "sourceTileId": 557,
+      "sourceCell": [
+        13,
+        17
+      ],
+      "category": "water",
+      "recommendedRole": "special_water",
+      "movementIntent": "water_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 25,
+      "materialId": "Lava",
+      "sourceTileId": 560,
+      "sourceCell": [
+        16,
+        17
+      ],
+      "category": "hazard",
+      "recommendedRole": "lava",
+      "movementIntent": "hazard_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 26,
+      "materialId": "Water_Shallows_Sand",
+      "sourceTileId": 837,
+      "sourceCell": [
+        5,
+        26
+      ],
+      "category": "water",
+      "recommendedRole": "shallow_water",
+      "movementIntent": "water_policy",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 27,
+      "materialId": "Ice",
+      "sourceTileId": 838,
+      "sourceCell": [
+        6,
+        26
+      ],
+      "category": "ground",
+      "recommendedRole": "ice",
+      "movementIntent": "walkable_slippery",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 28,
+      "materialId": "Ice_Melting",
+      "sourceTileId": 841,
+      "sourceCell": [
+        9,
+        26
+      ],
+      "category": "ground",
+      "recommendedRole": "melting_ice",
+      "movementIntent": "conditional_walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 29,
+      "materialId": "Earth_Cracked",
+      "sourceTileId": 784,
+      "sourceCell": [
+        16,
+        24
+      ],
+      "category": "ground",
+      "recommendedRole": "cracked_earth",
+      "movementIntent": "walkable",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 30,
+      "materialId": "Stone_White",
+      "sourceTileId": 787,
+      "sourceCell": [
+        19,
+        24
+      ],
+      "category": "ground",
+      "recommendedRole": "stone_surface",
+      "movementIntent": "walkable_or_foundation_required",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 31,
+      "materialId": "Stone_Tan",
+      "sourceTileId": 790,
+      "sourceCell": [
+        22,
+        24
+      ],
+      "category": "ground",
+      "recommendedRole": "stone_surface",
+      "movementIntent": "walkable_or_foundation_required",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 32,
+      "materialId": "Mudstone_Gray",
+      "sourceTileId": 793,
+      "sourceCell": [
+        25,
+        24
+      ],
+      "category": "ground",
+      "recommendedRole": "mudstone_surface",
+      "movementIntent": "walkable_or_foundation_required",
+      "structuralCliffFace": false
+    },
+    {
+      "terrainIndex": 33,
+      "materialId": "Mudstone_Brown",
+      "sourceTileId": 796,
+      "sourceCell": [
+        28,
+        24
+      ],
+      "category": "ground",
+      "recommendedRole": "mudstone_surface",
+      "movementIntent": "walkable_or_foundation_required",
+      "structuralCliffFace": false
+    }
+  ],
+  "rules": [
+    "V7 material cells are flat/corner terrain unless a separate structural provider explicitly promotes them.",
+    "Never bind TileKind::Cliff directly to a V7 Rock or Mudstone fill.",
+    "Mountain/rock ground may use V7 Rock, Stone, or Mudstone materials as plateau-top surface art.",
+    "Pit and hole materials require feature collision and depth policy; they are not generic walkable fills.",
+    "Special water and lava require explicit gameplay/hazard profiles before production palette exposure."
+  ],
+  "revision": "167Z109F-full-corner-shape-mapping-v1",
+  "shapeGrammar": "content/worldgen/terrain_shape_grammar_v0_1.json#cornerOccupancy15",
+  "fullShapeCatalog": "content/worldgen/v7_terrain_full_shape_catalog_v0_1.json",
+  "mappingStatus": {
+    "all34TerrainTypesCataloged": true,
+    "all2048RawCellsAccountedFor": true,
+    "generatedTupleMetadataAccountedFor": true,
+    "semanticShapeMappingComplete": true,
+    "note": "Some materials intentionally lack art for some corner occupancy masks or material-pair combinations; absence is now explicit rather than silently proxied."
+  }
+}

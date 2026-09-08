@@ -1,0 +1,11 @@
+{
+  "schema": "havenwild.logic_studio.w62g.v1",
+  "firstClassWorkspace": true,
+  "usesCanvasWorkspace": true,
+  "toolVocabulary": ["select", "place", "move", "link"],
+  "families": ["event", "condition", "action", "logic"],
+  "starterNodes": ["on_interact", "on_enter", "flag_condition", "has_item", "set_flag", "give_item", "play_sound", "play_animation", "branch", "sequence"],
+  "runtimeModel": "authoring graph compiles to deterministic Havenwild instructions",
+  "arbitrarySecondScriptingRuntime": false,
+  "contractOwner": "haven_logic"
+}

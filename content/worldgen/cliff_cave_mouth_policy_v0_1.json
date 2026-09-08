@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.worldgen.cliff_cave_mouth_policy.v0_1",
+  "pass": "167Z109W8",
+  "revision": "167Z109W8-default-one-tile-cave-mouth-v1",
+  "status": "active",
+  "defaultCave": {
+    "role": "ordinary generated/adventure cave entrance",
+    "sourceGridSpan": [6, 9, 1, 3],
+    "visualWidthTiles": 1,
+    "visualHeightTiles": 3,
+    "openingIntent": "doorway/pass-through scale inside the authored 1x3 cliff-face recipe",
+    "widthDependsOnCliffHeight": false,
+    "verticalPlacement": "anchor the fixed 1x3 mouth to the bottom of the projected cliff face; extra structural tiers remain ordinary authored rock continuation above it",
+    "interaction": "solid cliff face until CaveEntrance interaction transitions into the cave"
+  },
+  "largeTunnel": {
+    "sourceGridSpan": [7, 9, 3, 3],
+    "visualWidthTiles": 3,
+    "status": "reserved_explicit_semantic_only",
+    "allowedFor": ["road tunnel", "cart tunnel", "major authored mountain tunnel", "special landmark"],
+    "automaticSelectionFromFaceSegments": false,
+    "automaticSelectionFromCaveDepth": false
+  },
+  "rule": "ordinary cave generation never widens the entrance merely because the containing cliff is taller"
+}

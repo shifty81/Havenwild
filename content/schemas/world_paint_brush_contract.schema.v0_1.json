@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Havenwild World Paint Brush Contract v0.1",
+  "type": "object",
+  "required": ["schema", "canonicalTileSize", "supportedSubcellModes", "materialFamilies", "paintLayers", "networkRules"],
+  "properties": {
+    "schema": { "const": "havenwild.world_paint_brush_contract.v0_1" },
+    "canonicalTileSize": {
+      "type": "array",
+      "prefixItems": [{ "const": 32 }, { "const": 32 }],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "supportedSubcellModes": { "type": "array", "minItems": 4 },
+    "materialFamilies": { "type": "array", "minItems": 5 },
+    "paintLayers": { "type": "array", "items": { "type": "string" } },
+    "networkRules": { "type": "object" }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "havenwild.world_paint_delta_contract.v0.1",
+  "version": 1,
+  "purpose": "Defines how in-game/editor world paint operations are persisted as deterministic operation records for save, replay, migration, and multiplayer synchronization.",
+  "canonicalTileSize": [
+    32,
+    32
+  ],
+  "supportedSubcellModes": [
+    "32x32",
+    "16x16",
+    "8x8",
+    "4x4"
+  ],
+  "authoritativeState": [
+    "sequence",
+    "scene_id",
+    "center",
+    "bounds",
+    "family",
+    "layer",
+    "subcell_mode",
+    "subcell_grid",
+    "strength",
+    "radius_tiles",
+    "resolved_tile_kind",
+    "autotile_refresh_requested",
+    "mirror_horizontal",
+    "mirror_vertical",
+    "mirror_centers"
+  ],
+  "clientDerivedState": [
+    "shoreline_overlay",
+    "foam_overlay",
+    "variation_choice",
+    "debris_visuals",
+    "transition_atlas_cells"
+  ],
+  "deltaPath": "WORKSPACE/generated/world_paint/world_paint_deltas_v0_1.json",
+  "rules": [
+    "World paint operations are logged as operation deltas, not raw rendered pixels.",
+    "The host/server owns authoritative paint operations in multiplayer.",
+    "Clients derive visual overlays deterministically from tile/material IDs and manifests.",
+    "Subcell masks are detail/paint/blend data inside a 32x32 gameplay tile, not separate gameplay tiles by default.",
+    "Generated/autotile visual refresh can be replayed after the authoritative material delta is applied."
+  ],
+  "mirrorRules": {
+    "horizontal": "mirror across canonical scene X axis: mirrored_x = scene_width - 1 - x",
+    "vertical": "mirror across canonical scene Y axis: mirrored_y = scene_height - 1 - y",
+    "both": "four-way mirrored paint strokes are deduplicated when centers overlap",
+    "authority": "host/server stores mirror flags and resolved center list with the paint delta operation"
+  }
+}

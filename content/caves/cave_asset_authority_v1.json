@@ -1,0 +1,140 @@
+{
+  "schema": "havenwild.cave_asset_authority.v1",
+  "pass": "167Z109W49",
+  "authority": "PublishedWorldAssetRegistry",
+  "terrainAuthority": "AuthoredTerrainProviderRegistry",
+  "purpose": "Bind cave-visible terrain, entrances and mining props to exact evidence-backed LPC sources while keeping unproven cave faces/material variants fail-closed.",
+  "materials": {
+    "caveFloor": {
+      "semanticId": "terrain.cave.floor",
+      "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceTileId": 796,
+      "sourceCell": [
+        28,
+        24
+      ],
+      "sourceRect": [
+        896,
+        768,
+        32,
+        32
+      ],
+      "label": "Mudstone Brown",
+      "status": "exact_existing_runtime_authority"
+    },
+    "caveWallOccupancy": {
+      "semanticId": "terrain.cave.wall",
+      "source": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceTileId": 115,
+      "sourceCell": [
+        19,
+        3
+      ],
+      "sourceRect": [
+        608,
+        96,
+        32,
+        32
+      ],
+      "label": "Rock Black",
+      "status": "exact_existing_runtime_authority",
+      "scope": "solid/occupancy/fill only; not proof of a vertical front-face grammar"
+    },
+    "verticalCaveFace": {
+      "status": "deferred_exact_source",
+      "rule": "Do not stretch/rotate Rock Black fill and call it a vertical cave wall face."
+    },
+    "water": {
+      "status": "reuse_existing_terrain_authority"
+    },
+    "lava": {
+      "status": "deferred_exact_source",
+      "rule": "A family/catalog mention alone is not enough to publish an exact tile."
+    }
+  },
+  "entrances": {
+    "ordinaryNarrowMouth": {
+      "publishedAssetId": "cave_entrance_default",
+      "source": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceGrid": [
+        6,
+        9,
+        1,
+        3
+      ],
+      "sourceRect": [
+        192,
+        288,
+        32,
+        96
+      ],
+      "visualTiles": [
+        1,
+        3
+      ],
+      "policy": "ordinary generated cave mouth; aperture is exactly 1 tile wide x 2 tiles tall; third source row is threshold/receiver; width never scales with cliff height",
+      "status": "exact_candidate",
+      "visualEnvelopeTiles": [
+        1,
+        3
+      ],
+      "apertureTiles": [
+        1,
+        2
+      ],
+      "thresholdTiles": [
+        1,
+        1
+      ]
+    },
+    "wideMouth": {
+      "sourceGrid": [
+        7,
+        9,
+        3,
+        3
+      ],
+      "status": "reserved_explicit_only",
+      "policy": "major road/cart/landmark tunnels only; never automatic replacement for ordinary entrances"
+    }
+  },
+  "resources": {
+    "ironOre": {
+      "publishedAssetId": "resource_ore_iron_01",
+      "source": "assets/source/licensed/lpc_revised/Objects/Small Items/Ores & Ingots/Ore, Iron.png",
+      "sourceRect": [
+        3,
+        35,
+        28,
+        28
+      ],
+      "runtimeCacheRect": [
+        800,
+        0,
+        160,
+        192
+      ],
+      "status": "exact_candidate"
+    },
+    "otherOreMaterials": {
+      "status": "deferred_exact_source",
+      "rule": "Copper/other material identities require independent evidence; never recolor iron implicitly."
+    }
+  },
+  "rules": {
+    "noInventedCaveFaces": true,
+    "noMaterialSubstitution": true,
+    "caveMouthWidthIndependentOfCliffHeight": true,
+    "oreMustBeWallAdjacentInPCG": true,
+    "resourcesUsePublishedWorldAssetRegistry": true,
+    "diagnosticAcceptanceExcludedFromProductionCounts": true,
+    "ordinaryCaveApertureTiles": [
+      1,
+      2
+    ],
+    "ordinaryCaveSourceEnvelopeTiles": [
+      1,
+      3
+    ]
+  }
+}

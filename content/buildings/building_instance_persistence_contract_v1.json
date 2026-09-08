@@ -1,0 +1,85 @@
+{
+  "schema": "havenwild.building_instance_persistence_contract.v1",
+  "pass": "167Z109W46C",
+  "authority": "BuildingInstanceRegistry",
+  "purpose": "Converge authored, PCG/worldgen, runtime save, and multiplayer BuildingInstance placement/state without duplicating BuildingRecipe or PublishedWorldAsset authority.",
+  "placement": {
+    "sceneLocal": {
+      "authority": "sceneId + anchorTile",
+      "useFor": [
+        "special scenes",
+        "non-surface authored instances"
+      ]
+    },
+    "continuousSurface": {
+      "authority": "surfaceRegionId + globalAnchorTile",
+      "sceneId": "lineage/source partition only",
+      "runtime": "resolve global footprint into active storage partition local coordinates"
+    }
+  },
+  "saveDelta": {
+    "schema": "havenwild.building_instance_world_state.v1",
+    "contains": [
+      "upserts",
+      "removedInstanceIds",
+      "instanceStates"
+    ],
+    "instanceStateContains": [
+      "instanceId",
+      "revision",
+      "openingStates"
+    ],
+    "forbidden": [
+      "inside",
+      "activeLevel",
+      "roof visibility",
+      "wall cutaway visibility",
+      "camera state"
+    ]
+  },
+  "editor": {
+    "placeMoveDelete": "BuildingInstanceRegistry authored authority",
+    "persistence": "immediate source write after successful mutation",
+    "commandBus": "existing SceneMutation lane; no parallel BuildingInstance command authority",
+    "stableIdPreservedOnMove": true
+  },
+  "worldgen": {
+    "sceneField": "buildingInstances",
+    "origin": "worldgen",
+    "stableId": "explicit id or deterministic FNV-1a identity from pack/scene/recipe/anchor",
+    "sameRegistryAsAuthored": true
+  },
+  "runtime": {
+    "openingState": "persistent override layered over BuildingRecipe default",
+    "collisionReadsEffectiveOpeningState": true,
+    "renderReadsEffectiveOpeningState": true,
+    "interactionMutatesPersistentOpeningState": true
+  },
+  "multiplayer": {
+    "hostAuthoritative": true,
+    "replicated": [
+      "sequence",
+      "worldId",
+      "instanceId",
+      "revision",
+      "recipeId",
+      "sceneId",
+      "initialLevel",
+      "origin",
+      "placementSpace",
+      "authoritativeAnchorTile",
+      "surfaceRegionId",
+      "removed",
+      "openingStates"
+    ],
+    "cameraLocalNotReplicated": [
+      "inside",
+      "activeLevel",
+      "roof cutaway",
+      "front-wall cutaway"
+    ],
+    "globalSequenceSeparateFromInstanceRevision": true,
+    "replicaApplyUsesBuildingInstanceRegistry": true,
+    "transportBoundary": "W46C owns transport-neutral host snapshot/replica apply semantics; listen-server transport delegates to this contract later"
+  }
+}

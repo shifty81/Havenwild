@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.world_paint_transition_tile_resolver.v0.1",
+  "title": "Havenwild World Paint Transition Tile Resolver Contract",
+  "type": "object",
+  "required": ["schema", "canonical_tile_size", "source_state", "source_atlas_manifest", "supported_transition_kinds", "resolver_outputs"],
+  "properties": {
+    "schema": {"const": "havenwild.world_paint_transition_tile_resolver.v0.1"},
+    "version": {"type": "integer"},
+    "purpose": {"type": "string"},
+    "canonical_tile_size": {"const": [32, 32]},
+    "source_state": {"type": "string"},
+    "source_atlas_manifest": {"type": "string"},
+    "supported_transition_kinds": {"type": "array", "items": {"type": "string"}},
+    "resolver_outputs": {"type": "array", "items": {"type": "string"}},
+    "ui_controls": {"type": "object"},
+    "multiplayer_policy": {"type": "string"}
+  }
+}

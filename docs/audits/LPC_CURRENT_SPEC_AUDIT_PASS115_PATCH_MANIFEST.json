@@ -1,0 +1,33 @@
+{
+  "id": "havenwild_lpc_current_spec_audit_pass115",
+  "date": "2026-07-14",
+  "baseline": "Pass114 terrain detail/editor window rollup",
+  "purpose": "Fix the next validation failure and audit the patched terrain/editor/runtime stack against the current game direction.",
+  "buildFailureAddressed": {
+    "logStep": "Validate-AssetPaletteAtlasBindingV65.py",
+    "cause": "stale/hard-coded asset palette atlas contract expectations and missing contract/root manifest in the Pass114 rollup",
+    "fix": [
+      "Generate-LiveAutotileAtlas now refreshes the V65 editor contract",
+      "Generate-LiveAutotileAtlas now refreshes the root worldgen asset manifest",
+      "Validate-AssetPaletteAtlasBindingV65 derives group and binding expectations from the generated manifest"
+    ]
+  },
+  "changedFiles": [
+    "tools/automation/terrain/Generate-LiveAutotileAtlas.py",
+    "tools/automation/validation/checks/assets/Validate-AssetPaletteAtlasBindingV65.py",
+    "content/editor/assets/asset_palette_atlas_binding_contract_v0_1.json",
+    "assets/generated/worldgen_v0_1/worldgen_asset_manifest_v0_1.json",
+    "docs/PASS115_CURRENT_SPEC_AUDIT_20260714.md",
+    "LPC_CURRENT_SPEC_AUDIT_PASS115_PATCH_MANIFEST.json"
+  ],
+  "localValidation": [
+    "python -m py_compile tools/automation/terrain/Generate-LiveAutotileAtlas.py tools/automation/validation/checks/assets/Validate-AssetPaletteAtlasBindingV65.py tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainReplacementV122.py tools/automation/validation/checks/terrain/Validate-LpcTerrainDetailEditorWindowV123.py",
+    "python tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainReplacementV122.py",
+    "python tools/automation/validation/checks/terrain/Validate-LpcTerrainDetailEditorWindowV123.py"
+  ],
+  "deferredValidation": [
+    "Full V65 validation requires the build-generated live_autotile_16_32 manifest/PNG created earlier in tools/build/Build.sh all.",
+    "Cargo validation is deferred to the user's Windows build environment."
+  ],
+  "auditRecommendation": "Do one focused normalization pass before more UI/HUD work: map wet sand and the next terrain family, remove/quarantine hidden Blend and minimized editor state, and guard all exposed production terrain brushes against the mapped LPC atlas."
+}

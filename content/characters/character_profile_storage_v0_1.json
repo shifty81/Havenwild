@@ -1,0 +1,13 @@
+{
+  "schema": "havenwild.character_profile_storage.v0.1",
+  "maximum_profiles_per_account": 5,
+  "profile_root": "save_root/characters/profiles",
+  "profile_index": "save_root/characters/profiles.json",
+  "world_save_reference_field": "selected_character_profile_id",
+  "separation_rule": "Character identity, appearance, progression and permitted personal inventory persist independently from world save slots and multiplayer servers. Worlds reference a selected profile ID and retain only world-owned state.",
+  "world_owned_state": ["position", "world_spawn", "world_relationship_state", "world_quests", "world_property_and_business_state"],
+  "profile_owned_state": ["identity", "appearance", "appearance_colors", "skills", "permitted_equipment", "portable_progression"],
+  "creation_steps": ["identity", "body", "face", "hair", "colors", "starter_clothing", "review"],
+  "preview_directions": ["down", "up", "left", "right"],
+  "preview_animation_rule": "Creation preview uses neutral idle aliases. Side previews must not reuse walk frames with a planted forward foot."
+}

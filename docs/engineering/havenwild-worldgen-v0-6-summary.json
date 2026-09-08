@@ -1,0 +1,32 @@
+{
+  "id": "havenwild-worldgen-v0-6-summary",
+  "version": "0.6.0",
+  "sourceBase": "havenwild-clean-source-with-worldgen-v0-5.zip",
+  "focus": "multi-tile object footprint runtime/editor integration",
+  "modifiedRustFiles": [
+    "crates/haven_core/src/lib.rs",
+    "crates/haven_core/src/worldgen_loader.rs",
+    "crates/haven_editor/src/lib.rs",
+    "crates/haven_game/src/main.rs"
+  ],
+  "newFiles": [
+    "content/packs/worldgen_home_island_v0_6.json",
+    "content/worldgen/worldgen_object_footprint_runtime_v0_6.json",
+    "scripts/Validate-WorldgenFootprintsV06.py",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV06.ps1",
+    "docs/engineering/worldgen_multitile_footprints_v0_6.md",
+    "WORLDGEN_V0_6_APPLY_NOTES.md"
+  ],
+  "validation": {
+    "worldgenAssets": "pass",
+    "worldgenRuntimeIndex": "pass with existing placeholder art warning",
+    "worldgenFootprintsV06": "pass",
+    "sceneCount": 9,
+    "objectCount": 17,
+    "customFootprintCount": 17
+  },
+  "notRun": [
+    "cargo check --workspace because cargo/rustc is not installed in this container"
+  ],
+  "nextRecommendedPatch": "v0.7 collision/interaction overlay visualization and footprint placement preview in the editor"
+}

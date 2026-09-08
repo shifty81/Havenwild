@@ -1,0 +1,81 @@
+{
+  "schema": "havenwild.character.starter_creator_policy.v0_1",
+  "purpose": "Initial creation offers broad appearance controls and a curated generic wardrobe. Most clothing progression remains in gameplay.",
+  "appearanceChannels": [
+    "body",
+    "head_base",
+    "face_overlay",
+    "eyebrows",
+    "scalp_hair",
+    "facial_hair"
+  ],
+  "starterClothing": {
+    "clothing_torso": [
+      "starter_tshirt",
+      "starter_vneck_tshirt",
+      "starter_scoop_tshirt",
+      "starter_buttoned_tshirt",
+      "starter_long_shirt",
+      "starter_vneck_long_shirt",
+      "starter_scoop_long_shirt",
+      "starter_buttoned_long_shirt",
+      "starter_polo",
+      "starter_tunic",
+      "starter_vest",
+      "starter_apron"
+    ],
+    "clothing_legs": [
+      "starter_pants",
+      "starter_hose",
+      "starter_leggings",
+      "starter_cuffed_pants",
+      "starter_overalls",
+      "starter_shorts",
+      "starter_short_shorts",
+      "starter_skirt",
+      "starter_long_skirt"
+    ],
+    "clothing_feet": [
+      "starter_boots",
+      "starter_shoes",
+      "starter_ankle_socks",
+      "starter_high_socks",
+      "starter_sandals",
+      "none"
+    ]
+  },
+  "excludedAtCreation": [
+    "headwear",
+    "armor",
+    "weapon",
+    "shield",
+    "rare_outfit",
+    "profession_uniform",
+    "faction_clothing",
+    "magic_equipment",
+    "outerwear",
+    "advanced_accessory"
+  ],
+  "acquisition": [
+    "craft",
+    "loot",
+    "purchase",
+    "discover",
+    "quest",
+    "profession",
+    "faction",
+    "reward",
+    "equip"
+  ],
+  "clothingEligibility": {
+    "sexRestricted": false,
+    "bodyGeometryResolvedBySourceCatalog": true,
+    "exception": {
+      "channel": "facial_hair",
+      "allowedSex": [
+        "Male"
+      ]
+    }
+  },
+  "sourceBindings": "content/characters/starter_clothing_source_bindings_v0_1.json"
+}

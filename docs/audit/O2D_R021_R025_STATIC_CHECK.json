@@ -1,0 +1,20 @@
+{
+  "r021_doctor_quick": true,
+  "r021_doctor_full_tool_smoke": true,
+  "r021_doctor_json": true,
+  "r022_model_roles": true,
+  "r022_project_role_files": true,
+  "r023_tools_cli": true,
+  "r023_mutation_guard": true,
+  "r024_tx_cli": true,
+  "r024_tx_resume": true,
+  "r024_multiple_active_fail_closed": true,
+  "r024_open2d_internal_ignored": true,
+  "r025_agent_evidence": true,
+  "r025_evidence_file": true,
+  "h6_prompt_string_fix_preserved": true,
+  "h13_chat_lane_preserved": true,
+  "h13_grounding_rejection_preserved": true,
+  "checkpoint_label_r025": true,
+  "main_menu_still_8_primary_options": true
+}

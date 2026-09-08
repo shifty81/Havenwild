@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.prototype_asset.v0_1",
+  "assetId": "prototype.pixel_mart.icons_32",
+  "assetKind": "icon_atlas",
+  "externalSourceId": "third_party.ghostpixxells.pixel_mart_cc0",
+  "adapterId": "adapter.pixel_mart_icons_32.v0_1",
+  "image": "assets/processed/prototype_icons/pixel_mart/pixel_mart_icons_32.png",
+  "sourceMode": "user_supplied_or_quarantine",
+  "copyMode": "no_raw_copy_until_bake",
+  "cellSize": [32, 32],
+  "families": ["icon.item", "icon.shop", "icon.inventory", "icon.food"],
+  "runtimeDefault": false,
+  "releaseRestriction": "metadata_gated_cc0_prototype_or_commercial_candidate_with_setting_curation",
+  "attribution": {
+    "author": "ghostpixxells",
+    "source": "Pixel Mart",
+    "licenseStatus": "CC0"
+  },
+  "validation": {
+    "requiresProcessedImageBeforeRuntimeUse": true,
+    "requiresNoStandaloneAssetExport": true,
+    "requiresSettingFitCurationBeforeFinalRuntime": true
+  },
+  "notes": [
+    "Metadata stub only. Pixel_Mart.zip is not copied into runtime folders by this pass.",
+    "Curate modern shop items before using them in final Havenwild fantasy/cozy UI."
+  ]
+}

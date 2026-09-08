@@ -1,0 +1,15 @@
+Havenwild Pass 166W - Starter Town Authority
+
+Purpose:
+- Guarantee the first main town within two to six chunks of world spawn.
+- Define terrain/accessibility scoring and repair fallback.
+- Establish Willowmere's required civic, commerce, crafting, health, farming, travel, and social services.
+- Define ten persistent authored residents with Male/Female and Child/Teen/Adult/Elder classifications.
+- Define supporting generated population and first-arrival tutorial hooks.
+
+Files:
+- crates/haven_world/src/starter_town_authority.rs
+- crates/haven_world/src/lib.rs
+- content/worldgen/starter_town_authority_v0_1.json
+- content/characters/willowmere_authored_character_templates_v0_1.json
+- manifests/PASS_166W_MANIFEST.txt

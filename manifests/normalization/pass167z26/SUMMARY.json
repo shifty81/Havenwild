@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z26",
+  "title": "Open-World Biome and LPC Intake Normalization",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Replaced the static farmstead client default with a generated Willowmere-outskirts open-world biome region.",
+    "Removed baked farm, tavern, field, greenhouse, bridge, placeholder-object, and outdoor-portal assumptions from the default exterior scene.",
+    "Added explicit city, rural-business, and open-world player-building placement policy.",
+    "Made pack-defined default scenes authoritative and allowed open-world packs to opt out of legacy farmstead scene requirements.",
+    "Restricted the active exterior biome to one reviewed LPC summer terrain family and isolated terrain-v7 farm/highland art as diagnostic-only pending family audits.",
+    "Added an audited intake queue for additional OpenGameArt LPC terrain, mountain, water, bridge, farm, and city-street candidates.",
+    "Pixel-snapped the runtime terrain origin and normalized direct source-cell submission to exact logical tile dimensions.",
+    "Updated terrain certification, materialization, topology, and client-pack contracts for the open-world foundation."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "terrainTopology": "passed",
+    "directLpcEvidence": "16224 cells, 1959 transition cells, 0 unresolved transitions",
+    "cargo": "pending Windows workstation rerun"
+  },
+  "completeSourceCreated": false
+}

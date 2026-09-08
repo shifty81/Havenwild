@@ -1,0 +1,98 @@
+{
+  "schema": "havenwild.character.clothing_acquisition_policy.v0_1",
+  "designRule": "Character creation exposes only generic torso, legs, and footwear. The broader Universal LPC wardrobe is gameplay content.",
+  "creator": {
+    "allowedSlots": [
+      "clothing_torso",
+      "clothing_legs",
+      "clothing_feet"
+    ],
+    "headwearAllowed": false,
+    "sexRestrictedClothing": false,
+    "genericOnly": true,
+    "maximumVisibleChoices": 32,
+    "curatedChoiceCount": 27,
+    "bodySpecificGeometryRequired": true
+  },
+  "gameplayOnlyPools": [
+    {
+      "id": "headwear",
+      "sources": [
+        "craft",
+        "loot",
+        "shops",
+        "quests"
+      ]
+    },
+    {
+      "id": "armor",
+      "sources": [
+        "craft",
+        "loot",
+        "shops",
+        "quests",
+        "dungeons"
+      ]
+    },
+    {
+      "id": "profession_uniforms",
+      "sources": [
+        "profession",
+        "craft",
+        "shops"
+      ]
+    },
+    {
+      "id": "faction_clothing",
+      "sources": [
+        "faction",
+        "quest",
+        "loot"
+      ]
+    },
+    {
+      "id": "rare_and_cultural_outfits",
+      "sources": [
+        "exploration",
+        "islands",
+        "festivals",
+        "quests",
+        "loot"
+      ]
+    },
+    {
+      "id": "outerwear_and_weather_gear",
+      "sources": [
+        "craft",
+        "shops",
+        "survival_rewards"
+      ]
+    },
+    {
+      "id": "accessories",
+      "sources": [
+        "craft",
+        "loot",
+        "shops",
+        "quests"
+      ]
+    }
+  ],
+  "inventoryRules": {
+    "craftedItemsBecomeInventoryItems": true,
+    "lootedItemsBecomeInventoryItems": true,
+    "appearanceChangesOnlyWhenEquipped": true,
+    "sourceRecipeAndLicenseRemainTraceable": true
+  },
+  "identityException": {
+    "channel": "facial_hair",
+    "allowedSex": [
+      "Male"
+    ],
+    "appliesTo": [
+      "player_creation",
+      "saved_profiles",
+      "npc_generation"
+    ]
+  }
+}

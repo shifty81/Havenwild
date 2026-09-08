@@ -1,0 +1,1140 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W45C publishes exact interior floor/wall/cutaway/window components through the existing PublishedWorldAssetRegistry.",
+    "These records remain CANDIDATE pending native-editor/client visual acceptance; generated atlas coordinates are cache-only.",
+    "Roof source families remain in the W45A queue until an exact roof surface/corner grammar is reviewed; W45C does not invent roof cells.",
+    "Cutaway components implement camera-local presentation metadata for the W46 BuildingInstance multi-level interior model."
+  ],
+  "entries": [
+    {
+      "id": "floor_wood_herringbone_light",
+      "semantic_id": "structure.floor.wood_herringbone.light",
+      "label": "Light Herringbone Wood Floor",
+      "category": "floor",
+      "source_semantic_id": "structure.floor.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "floor",
+        "interior",
+        "active_level"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              0,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Light Herringbone Wood Floor structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Floor/Wood Floor B.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Floor/Credits.txt",
+        "note": "Exact Wood Floor B 32x32 cell; interior/building floor authority only."
+      },
+      "structure": {
+        "connection_family": "floor.wood_herringbone",
+        "topology_role": "floor_surface",
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "active_level_surface",
+        "occlusion_group": "building.level_surface",
+        "camera_local_occlusion": false,
+        "sockets": []
+      }
+    },
+    {
+      "id": "floor_wood_herringbone_dark",
+      "semantic_id": "structure.floor.wood_herringbone.dark",
+      "label": "Dark Herringbone Wood Floor",
+      "category": "floor",
+      "source_semantic_id": "structure.floor.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "floor",
+        "interior",
+        "active_level"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              32,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Dark Herringbone Wood Floor structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Floor/Wood Floor B.png",
+        "source_rect": [
+          32,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Floor/Credits.txt",
+        "note": "Exact Wood Floor B 32x32 cell; interior/building floor authority only."
+      },
+      "structure": {
+        "connection_family": "floor.wood_herringbone",
+        "topology_role": "floor_surface",
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "active_level_surface",
+        "occlusion_group": "building.level_surface",
+        "camera_local_occlusion": false,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_drywall_simple",
+      "semantic_id": "structure.wall.drywall.simple",
+      "label": "Simple Drywall Wall",
+      "category": "wall",
+      "source_semantic_id": "structure.wall_surface.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -2
+        ],
+        "visual_size": [
+          1,
+          3
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": true,
+        "occludes_player": true,
+        "fade_when_player_behind": true
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "floor",
+        "building_floor"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "interior",
+        "cutaway_candidate"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          96.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              64,
+              0,
+              32,
+              96
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Simple Drywall Wall structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Drywall.png",
+        "source_rect": [
+          192,
+          0,
+          32,
+          96
+        ],
+        "source_mode": "exact_vertical_wall_strip",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "Exact plain Drywall 1x3 wall-face strip anchored to the occupied base tile."
+      },
+      "structure": {
+        "connection_family": "wall.drywall",
+        "topology_role": "wall_face",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.drywall",
+        "visibility_role": "wall_occluder",
+        "occlusion_group": "building.wall_shell",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_panel_ornate_gold",
+      "semantic_id": "structure.wall.panel.ornate_gold",
+      "label": "Ornate Gold Wall Panel",
+      "category": "wall",
+      "source_semantic_id": "structure.wall_surface.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          1,
+          2
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "trim",
+        "panel",
+        "interior"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          64.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              96,
+              0,
+              32,
+              64
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Ornate Gold Wall Panel structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Panels A.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          64
+        ],
+        "source_mode": "exact_wall_overlay",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "Exact two-cell decorative wall panel overlay; attaches to an underlying compatible wall."
+      },
+      "structure": {
+        "connection_family": "wall.finish.ornate_panel",
+        "topology_role": "wall_finish",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.any",
+        "attachment_surface": "wall",
+        "visibility_role": "wall_finish",
+        "occlusion_group": "building.wall_finish",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_panel_ornate_blue",
+      "semantic_id": "structure.wall.panel.ornate_blue",
+      "label": "Ornate Blue Wall Panel",
+      "category": "wall",
+      "source_semantic_id": "structure.wall_surface.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          1,
+          2
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "trim",
+        "panel",
+        "interior"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          64.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              128,
+              0,
+              32,
+              64
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Ornate Blue Wall Panel structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/Panels A.png",
+        "source_rect": [
+          32,
+          0,
+          32,
+          64
+        ],
+        "source_mode": "exact_wall_overlay",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "Exact two-cell decorative wall panel overlay; attaches to an underlying compatible wall."
+      },
+      "structure": {
+        "connection_family": "wall.finish.ornate_panel",
+        "topology_role": "wall_finish",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.any",
+        "attachment_surface": "wall",
+        "visibility_role": "wall_finish",
+        "occlusion_group": "building.wall_finish",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_cutaway_cap_left",
+      "semantic_id": "structure.wall.cutaway_cap.left",
+      "label": "Cutaway Wall Cap Left",
+      "category": "wall",
+      "source_semantic_id": "structure.cutaway.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          0,
+          0
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "cutaway",
+        "presentation"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              160,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cutaway Wall Cap Left structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/CutawayOverlay.png",
+        "source_rect": [
+          0,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cutaway_overlay_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "Exact LPC cutaway overlay cell retained as camera-local wall cutaway presentation component."
+      },
+      "structure": {
+        "connection_family": "wall.cutaway_cap",
+        "topology_role": "west_end",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.any",
+        "attachment_surface": "wall",
+        "visibility_role": "cutaway_overlay",
+        "occlusion_group": "building.wall_cutaway",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_cutaway_cap_center",
+      "semantic_id": "structure.wall.cutaway_cap.center",
+      "label": "Cutaway Wall Cap Center",
+      "category": "wall",
+      "source_semantic_id": "structure.cutaway.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          0,
+          0
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "cutaway",
+        "presentation"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              192,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cutaway Wall Cap Center structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/CutawayOverlay.png",
+        "source_rect": [
+          32,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cutaway_overlay_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "Exact LPC cutaway overlay cell retained as camera-local wall cutaway presentation component."
+      },
+      "structure": {
+        "connection_family": "wall.cutaway_cap",
+        "topology_role": "straight",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.any",
+        "attachment_surface": "wall",
+        "visibility_role": "cutaway_overlay",
+        "occlusion_group": "building.wall_cutaway",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_cutaway_cap_right",
+      "semantic_id": "structure.wall.cutaway_cap.right",
+      "label": "Cutaway Wall Cap Right",
+      "category": "wall",
+      "source_semantic_id": "structure.cutaway.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          0,
+          0
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "cutaway",
+        "presentation"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              224,
+              0,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cutaway Wall Cap Right structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/CutawayOverlay.png",
+        "source_rect": [
+          64,
+          0,
+          32,
+          32
+        ],
+        "source_mode": "exact_cutaway_overlay_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "Exact LPC cutaway overlay cell retained as camera-local wall cutaway presentation component."
+      },
+      "structure": {
+        "connection_family": "wall.cutaway_cap",
+        "topology_role": "east_end",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.any",
+        "attachment_surface": "wall",
+        "visibility_role": "cutaway_overlay",
+        "occlusion_group": "building.wall_cutaway",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "wall_cutaway_cap_south",
+      "semantic_id": "structure.wall.cutaway_cap.south",
+      "label": "Cutaway Wall Cap South",
+      "category": "wall",
+      "source_semantic_id": "structure.cutaway.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          0
+        ],
+        "visual_size": [
+          1,
+          1
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          0,
+          0
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "wall",
+        "cutaway",
+        "presentation"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          32.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              160,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Cutaway Wall Cap South structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Walls/CutawayOverlay.png",
+        "source_rect": [
+          0,
+          32,
+          32,
+          32
+        ],
+        "source_mode": "exact_cutaway_overlay_cell",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Walls/Credits.txt",
+        "note": "Exact LPC cutaway overlay cell retained as camera-local wall cutaway presentation component."
+      },
+      "structure": {
+        "connection_family": "wall.cutaway_cap",
+        "topology_role": "south_face",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.any",
+        "attachment_surface": "wall",
+        "visibility_role": "cutaway_overlay",
+        "occlusion_group": "building.wall_cutaway",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    },
+    {
+      "id": "window_ornamental_tall",
+      "semantic_id": "structure.window.ornamental_b.tall",
+      "label": "Tall Ornamental Window",
+      "category": "wall",
+      "source_semantic_id": "structure.window.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -1
+        ],
+        "visual_size": [
+          1,
+          2
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "wall"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "window",
+        "wall_opening",
+        "interior",
+        "stateful"
+      ],
+      "states": [
+        "unlit",
+        "day",
+        "lit"
+      ],
+      "visual": {
+        "foot_anchor": [
+          16.0,
+          64.0
+        ],
+        "frames": [
+          {
+            "state": "unlit",
+            "source_rect": [
+              0,
+              128,
+              32,
+              64
+            ]
+          },
+          {
+            "state": "day",
+            "source_rect": [
+              32,
+              128,
+              32,
+              64
+            ]
+          },
+          {
+            "state": "lit",
+            "source_rect": [
+              64,
+              128,
+              32,
+              64
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Tall Ornamental Window structural surface candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Windows/Ornamental Windows B.png",
+        "source_rect": [
+          0,
+          64,
+          96,
+          64
+        ],
+        "source_mode": "exact_state_columns",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Windows/Credits.txt",
+        "note": "Exact tall Ornamental Windows B three-column visual states: unlit, pale/day, warm/lit."
+      },
+      "structure": {
+        "connection_family": "window.ornamental_b",
+        "topology_role": "wall_opening_overlay",
+        "facing": "south",
+        "level_delta": 0,
+        "reversible": false,
+        "wall_family": "wall.any",
+        "attachment_surface": "wall",
+        "visibility_role": "wall_opening",
+        "occlusion_group": "building.wall_opening",
+        "camera_local_occlusion": true,
+        "sockets": []
+      }
+    }
+  ]
+}

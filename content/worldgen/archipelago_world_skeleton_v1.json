@@ -1,0 +1,33 @@
+{
+  "schema": "havenwild.archipelago_skeleton.v1",
+  "seed": 140,
+  "world_width_tiles": 2048,
+  "world_height_tiles": 2048,
+  "shore_band_tiles": 2,
+  "shallow_band_tiles": 8,
+  "shelf_band_tiles": 24,
+  "requirements": {
+    "mainland_count": 1,
+    "minimum_major_island_count": 10,
+    "minor_islands_buildable": true,
+    "east_west_wrapped": true,
+    "north_south_bounded": true
+  },
+  "major_biomes": [
+    "coastal_meadow",
+    "ancient_forest",
+    "highland",
+    "marsh",
+    "amber_desert",
+    "frost",
+    "volcanic",
+    "tropical",
+    "autumn_woodland",
+    "storm_coast"
+  ],
+  "authored_anchor_policy": {
+    "mainland": "capital/civic district, starter region, harbor and road network",
+    "major_islands": "settlement, harbor, road and landmark reserve",
+    "minor_islands": "optional player building; no required settlement"
+  }
+}

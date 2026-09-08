@@ -1,0 +1,85 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_exact_visual_height_authority.v0_1",
+  "pass": "167Z109W11",
+  "revision": "167Z109W11-exact-visual-height-endpoint-accounting-v1",
+  "status": "active",
+  "scope": "terrain-cliff-visual-height-and-collision-correction",
+  "runtimeEvidence": {
+    "source": "local W10 fresh-world screenshot",
+    "observed": [
+      "bottom diagonal joins were corrected by W10",
+      "flat Level-2 south faces still read approximately three tiles tall even though the structural drop is two tiers",
+      "the W10 straight stack expanded a two-tier edge as top plus two repeat bodies plus foot"
+    ]
+  },
+  "heightContract": {
+    "authority": "exact structural edge tier delta",
+    "visualRowsEqualStructuralTierDelta": true,
+    "examples": {
+      "1_to_0": 1,
+      "2_to_1": 1,
+      "2_to_0": 2
+    },
+    "growthDirection": "downward from the fixed plateau boundary",
+    "endpointAccounting": {
+      "height1": "foot/end cell only on the receiver row",
+      "height2": "top/shoulder + foot",
+      "height3": "top/shoulder + one repeatable body + foot",
+      "heightN": "top/shoulder + body x (N-2) + foot"
+    },
+    "capRule": "host-row diagonal/terminal lip is a plateau-boundary cap and does not add receiver-facing height"
+  },
+  "straightSouthRecipe": {
+    "height1": [
+      "StraightSouthFoot"
+    ],
+    "height2": [
+      "StraightSouthTop",
+      "StraightSouthFoot"
+    ],
+    "height3": [
+      "StraightSouthTop",
+      "StraightSouthBody",
+      "StraightSouthFoot"
+    ],
+    "repeatable": "StraightSouthBody only for height > 2"
+  },
+  "roundedDiagonalRecipe": {
+    "hostRow": "authored rounded lip",
+    "height1": [
+      "RoundedFoot"
+    ],
+    "height2": [
+      "RoundedShoulder",
+      "RoundedFoot"
+    ],
+    "height3": [
+      "RoundedShoulder",
+      "RoundedBody",
+      "RoundedFoot"
+    ],
+    "repeatable": "RoundedBody only for height > 2"
+  },
+  "terminalRecipe": {
+    "hostRow": "authored three-cell lip row",
+    "receiverRows": "same exact endpoint accounting as rounded diagonals",
+    "width": "natural authored three-cell width"
+  },
+  "collision": "south-face receiver collision depth equals the exact rendered receiver-row count",
+  "unchanged": [
+    "Level 0/1/2 topology and edge deltas",
+    "W7 authored ramp stamps and traversal",
+    "W8 one-tile normal cave-mouth width",
+    "V7 surface/plateau terrain authority",
+    "source-sheet coordinates",
+    "save/network schemas"
+  ],
+  "forbidden": [
+    "top + face_segments repeat bodies + foot",
+    "counting a plateau-boundary lip as an additional structural wall row",
+    "stretching source cells",
+    "changing structural elevation to compensate for visual height"
+  ],
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_exact_visual_height_pass167z109w11.png",
+  "next": "local visual certification of Level-2 flat/diagonal faces, then repair remaining vertical-side source family if still visible"
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.character_sprite_registry.v0.1",
+  "frame_width": 64,
+  "frame_height": 64,
+  "preview_scale": 4,
+  "direction_rows": {"down": 0, "left": 1, "right": 2, "up": 3},
+  "animation_columns": {"idle": 0, "walk": 1},
+  "layers": [
+    {"option_id":"body_base_a","asset_role":"character.body.base_a","texture_path":"assets/generated/characters/body_base_a_64.png","z_order":0,"palette_channel":"skin_tone"},
+    {"option_id":"body_base_b","asset_role":"character.body.base_b","texture_path":"assets/generated/characters/body_base_b_64.png","z_order":0,"palette_channel":"skin_tone"},
+    {"option_id":"head_base_01","asset_role":"character.head.base_01","texture_path":"assets/generated/characters/head_base_01_64.png","z_order":10,"palette_channel":"skin_tone"},
+    {"option_id":"head_base_02","asset_role":"character.head.base_02","texture_path":"assets/generated/characters/head_base_02_64.png","z_order":10,"palette_channel":"skin_tone"},
+    {"option_id":"eyes_base_01","asset_role":"character.eyes.base_01","texture_path":"assets/generated/characters/eyes_base_01_64.png","z_order":20,"palette_channel":"eye_color"},
+    {"option_id":"eyebrows_thin_01","asset_role":"character.eyebrows.thin_01","texture_path":"assets/generated/characters/eyebrows_thin_01_64.png","z_order":30,"palette_channel":"hair_color"},
+    {"option_id":"eyebrows_thick_02","asset_role":"character.eyebrows.thick_02","texture_path":"assets/generated/characters/eyebrows_thick_02_64.png","z_order":30,"palette_channel":"hair_color"},
+    {"option_id":"facial_hair_none","asset_role":"character.facial_hair.none","texture_path":"assets/generated/characters/transparent_64.png","z_order":40,"transparent":true},
+    {"option_id":"facial_hair_walrus_01","asset_role":"character.facial_hair.walrus_01","texture_path":"assets/generated/characters/facial_hair_walrus_01_64.png","z_order":40,"palette_channel":"hair_color"},
+    {"option_id":"facial_hair_chevron_02","asset_role":"character.facial_hair.chevron_02","texture_path":"assets/generated/characters/facial_hair_chevron_02_64.png","z_order":40,"palette_channel":"hair_color"},
+    {"option_id":"facial_hair_handlebar_03","asset_role":"character.facial_hair.handlebar_03","texture_path":"assets/generated/characters/facial_hair_handlebar_03_64.png","z_order":40,"palette_channel":"hair_color"},
+    {"option_id":"facial_hair_lampshade_04","asset_role":"character.facial_hair.lampshade_04","texture_path":"assets/generated/characters/facial_hair_lampshade_04_64.png","z_order":40,"palette_channel":"hair_color"},
+    {"option_id":"hair_none","asset_role":"character.hair.none","texture_path":"assets/generated/characters/transparent_64.png","z_order":50,"transparent":true},
+    {"option_id":"hair_short_01","asset_role":"character.hair.short_01","texture_path":"assets/generated/characters/hair_short_01_64.png","z_order":50,"palette_channel":"hair_color"},
+    {"option_id":"hair_long_01","asset_role":"character.hair.long_01","texture_path":"assets/generated/characters/hair_long_01_64.png","z_order":50,"palette_channel":"hair_color"},
+    {"option_id":"starter_bottom_trousers_01","asset_role":"character.clothing.bottom.trousers_01","texture_path":"assets/generated/characters/starter_bottom_trousers_01_64.png","z_order":60,"palette_channel":"starter_bottom_color"},
+    {"option_id":"starter_bottom_skirt_01","asset_role":"character.clothing.bottom.skirt_01","texture_path":"assets/generated/characters/starter_bottom_skirt_01_64.png","z_order":60,"palette_channel":"starter_bottom_color"},
+    {"option_id":"starter_shoes_01","asset_role":"character.clothing.feet.simple_01","texture_path":"assets/generated/characters/starter_shoes_01_64.png","z_order":70},
+    {"option_id":"starter_top_plain_01","asset_role":"character.clothing.top.plain_01","texture_path":"assets/generated/characters/starter_top_plain_01_64.png","z_order":80,"palette_channel":"starter_top_color"},
+    {"option_id":"starter_top_tunic_01","asset_role":"character.clothing.top.tunic_01","texture_path":"assets/generated/characters/starter_top_tunic_01_64.png","z_order":80,"palette_channel":"starter_top_color"}
+  ]
+}

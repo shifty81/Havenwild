@@ -1,0 +1,58 @@
+{
+  "schema": "havenwild.building_recipe_authority.v1",
+  "pass": "167Z109W46A",
+  "authority": "BuildingRecipeRegistry",
+  "visualIdentityAuthority": "PublishedWorldAssetRegistry",
+  "purpose": "Define one authoritative building assembly model consumed by editor, PCG and runtime while preserving exact PublishedWorldAsset component identity and same-world multi-level interiors.",
+  "rules": {
+    "recipeOwns": [
+      "building footprint",
+      "structural levels",
+      "logical wall runs and collision",
+      "openings",
+      "rooms/zones",
+      "level connectors",
+      "roof assembly",
+      "cutaway groups",
+      "persistence policy"
+    ],
+    "publishedWorldAssetRegistryOwns": [
+      "component visual identity",
+      "source provenance",
+      "exact source rectangle",
+      "component topology metadata",
+      "component certification state"
+    ],
+    "generatedAtlasIsCacheOnly": true,
+    "ordinaryInteriorPolicy": "same_world_building_instance",
+    "ordinaryUpperFloorsRemainSameInstance": true,
+    "ordinaryBasementsRemainSameInstance": true,
+    "cutawayIsCameraLocalPresentation": true,
+    "allStructuralLevelsRemainAuthoritative": true,
+    "logicalGeometryMayExistBeforeFacingSpecificArt": true,
+    "missingVisualMustFailClosed": true,
+    "deferredVisualStatus": "deferred_exact_facing"
+  },
+  "requiredLevelSemantics": {
+    "ground": 0,
+    "upper": "positive integers",
+    "basement": "negative integers",
+    "connectors": "explicit BuildingLevelConnector records; never implicit scene transitions"
+  },
+  "separateSceneExceptions": [
+    "deep cave or mine network after an explicit connector boundary",
+    "large streamed dungeon",
+    "magical/spatially nonlocal interior",
+    "special content with a genuine streaming or instancing requirement"
+  ],
+  "forbiddenPatterns": [
+    "one scene per ordinary house interior",
+    "one scene per ordinary upstairs floor",
+    "one scene per ordinary cellar or basement",
+    "BuildingRecipe duplicating PublishedWorldAsset source rectangles",
+    "ObjectKind used as building visual identity",
+    "wrong-facing wall sprite substituted for an unresolved facing",
+    "generated atlas coordinates treated as semantic identity",
+    "camera cutaway changing collision, simulation, persistence, or multiplayer state"
+  ]
+}

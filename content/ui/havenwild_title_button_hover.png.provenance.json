@@ -1,0 +1,16 @@
+{
+  "schema": "havenwild.ui.generated_asset_provenance.v0_1",
+  "assetId": "havenwild_title_button_hover",
+  "source": "content/ui/havenwild_title_screen.png",
+  "sourceRegions": [
+    {"id":"continue","x":140,"y":310,"width":390,"height":115},
+    {"id":"new_game","x":140,"y":405,"width":390,"height":120},
+    {"id":"load","x":140,"y":500,"width":390,"height":115},
+    {"id":"settings","x":140,"y":595,"width":390,"height":115},
+    {"id":"multiplayer","x":140,"y":690,"width":390,"height":115},
+    {"id":"quit","x":140,"y":785,"width":390,"height":115}
+  ],
+  "derivation": "alpha-isolated organic button silhouettes with brightness and gold halo enhancement",
+  "purpose": "hover and pressed states without rectangular overlays",
+  "pass": "167Z56"
+}

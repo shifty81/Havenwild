@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.editor.world_pixel_workflow.r39.v1",
+  "pass": "167Z109W81R39",
+  "core": "RasterAuthoringCore",
+  "consumers": [
+    "pixel_studio",
+    "animation_studio",
+    "world_pixel_mode",
+    "scene_pixel_mode"
+  ],
+  "tools": [
+    "pencil",
+    "eraser",
+    "fill",
+    "picker",
+    "line",
+    "rectangle",
+    "ellipse",
+    "selection",
+    "move",
+    "transform",
+    "palette",
+    "symmetry",
+    "clipboard",
+    "undo_redo"
+  ],
+  "scopeRule": "World/Scene pixel editing operates on selected authored region/chunk/asset in context; the finite world is never flattened into one bitmap."
+}

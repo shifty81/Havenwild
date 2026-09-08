@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.terrain_sets.v2",
+  "status": "prototype",
+  "terrainSets": [
+    {
+      "id": "natural_ground",
+      "matchMode": "corners_and_sides",
+      "terrains": [
+        {"id": "grass", "placementMode": "connect", "waterPlacement": "forbidden"},
+        {"id": "sand", "placementMode": "connect", "waterPlacement": "forbidden"}
+      ]
+    },
+    {
+      "id": "path",
+      "matchMode": "sides_only",
+      "terrains": [
+        {"id": "road", "placementMode": "path", "waterPlacement": "forbidden"},
+        {"id": "stone_path", "placementMode": "path", "waterPlacement": "forbidden"}
+      ]
+    },
+    {
+      "id": "water",
+      "matchMode": "corners_and_sides",
+      "terrains": [
+        {"id": "shallow_water", "placementMode": "connect", "waterPlacement": "allowed"},
+        {"id": "deep_water", "placementMode": "connect", "waterPlacement": "allowed"}
+      ]
+    }
+  ],
+  "compatibility": [
+    {"from": "road", "connectsTo": ["road"]},
+    {"from": "stone_path", "connectsTo": ["stone_path"]},
+    {"from": "grass", "connectsTo": ["grass"]},
+    {"from": "sand", "connectsTo": ["sand"]},
+    {"from": "shallow_water", "connectsTo": ["shallow_water"]},
+    {"from": "deep_water", "connectsTo": ["deep_water"]}
+  ]
+}

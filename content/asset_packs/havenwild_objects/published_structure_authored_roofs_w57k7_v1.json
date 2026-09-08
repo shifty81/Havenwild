@@ -1,0 +1,123 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W57K7 publishes one additional source-authored roof assembly without mutating the historical W45D2 exact-module catalog.",
+    "The 7x4 shallow brown gable is an isolated connected assembly visible on the pinned Gable Shingle Roof A source and is used intact/unscaled.",
+    "Complete gable assemblies are atomic roof silhouettes; they may not be concatenated to synthesize arbitrary house width."
+  ],
+  "entries": [
+    {
+      "id": "roof_gable_shingle_brown_shallow_7x4_module",
+      "semantic_id": "structure.roof.gable_shingle_a.brown.shallow_7x4.authored_module",
+      "label": "Gable Shingle Brown — Shallow 7x4 Authored Module",
+      "category": "building",
+      "source_semantic_id": "structure.roof.gable_shingle_a.source",
+      "footprint": {
+        "visual_offset": [
+          -3,
+          -3
+        ],
+        "visual_size": [
+          7,
+          4
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          0,
+          0
+        ],
+        "interaction_offset": [
+          0,
+          0
+        ],
+        "interaction_size": [
+          1,
+          1
+        ],
+        "blocks_movement": false,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "building",
+        "roof"
+      ],
+      "forbidden_surfaces": [
+        "water"
+      ],
+      "placement_tags": [
+        "structure",
+        "roof",
+        "gable",
+        "authored_module",
+        "multi_cell",
+        "source_authored_assembly"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          112.0,
+          128.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              544,
+              0,
+              224,
+              128
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Gable Shingle Brown — Shallow 7x4 exact structural candidate."
+      },
+      "behavior": {
+        "interaction_trigger": "interact"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "structure_component",
+      "certification": "candidate",
+      "aliases": [],
+      "provenance": {
+        "authority": "lpc_revised_exact_structure_component",
+        "source_path": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+        "source_rect": [
+          544,
+          0,
+          224,
+          128
+        ],
+        "source_mode": "exact_connected_assembly",
+        "license_authority": "assets/source/licensed/lpc_revised/Structure/Roofing/Credits.txt",
+        "note": "W57K7 exact 7x4 bounding rectangle of the visually isolated shallow brown gable assembly on the pinned source sheet. The compact starter cottage consumes it once, intact and unscaled."
+      },
+      "structure": {
+        "connection_family": "roof.gable_shingle_a.brown.shallow_7x4",
+        "topology_role": "authored_gable_module",
+        "facing": null,
+        "level_delta": 0,
+        "reversible": false,
+        "visibility_role": "roof",
+        "occlusion_group": "building.roof",
+        "camera_local_occlusion": true,
+        "assembly_family": "roof.gable_shingle_a.brown.shallow_7x4",
+        "sockets": []
+      }
+    }
+  ]
+}

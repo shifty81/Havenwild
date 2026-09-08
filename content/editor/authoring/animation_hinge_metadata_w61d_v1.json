@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.animation_hinge_metadata.w61d.v1",
+  "pass": "W61D",
+  "doorAcceptanceFixture": {
+    "leftHinge": "bottom-left physical hinge/base point",
+    "pivotLockedAcrossFrames": true,
+    "hingeSocket": "hinge",
+    "handleSocket": "handle",
+    "noFrameCenteringDrift": true
+  },
+  "environmentProfiles": {
+    "swingDoorDegrees": [
+      0,
+      90
+    ],
+    "treeSwaySupportedByTransformConstraints": true
+  },
+  "animationStudio": [
+    "place_pivot",
+    "place_hinge_pivot",
+    "place_foot_anchor",
+    "place_shadow",
+    "place_socket",
+    "hitbox",
+    "hurtbox",
+    "events"
+  ],
+  "futureTrackNormalization": [
+    "sprite_frame",
+    "transform",
+    "socket",
+    "hitbox",
+    "hurtbox",
+    "event"
+  ]
+}

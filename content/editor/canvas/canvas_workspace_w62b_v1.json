@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.canvas_workspace.w62b.v1",
+  "majorStudios": ["world", "scene", "pixel", "animation", "character", "logic", "sound"],
+  "shell": {
+    "toolRail": {"integrated": true, "opaque": true, "collapsible": true},
+    "layerRail": {"integrated": true, "opaque": true, "collapsible": true, "resizable": true},
+    "assetShelf": {"overlay": true, "contextual": true, "doesNotShrinkCanvas": true},
+    "inspector": {"contextual": true, "sharedWidgetTreatment": true},
+    "bottomDock": {"shared": true, "collapsible": true},
+    "canvasFirstDefault": true
+  },
+  "workspaceTabsArePrimary": true,
+  "legacySecondaryViews": ["world_routes", "scene_bank"],
+  "toolBehaviorRule": "workspace + active layer + universal tool = adapter behavior"
+}

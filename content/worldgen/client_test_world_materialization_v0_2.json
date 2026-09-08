@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.worldgen.client_test_world_materialization.v0_2",
+  "enabledByDefault": true,
+  "runtimePack": "content/worldgen/packs/worldgen_home_island_test_v0_11.json",
+  "defaultScene": "farmstead",
+  "materializer": "tools/automation/worldgen/Build-ClientWorldgenTestSceneV167Z.py",
+  "generatedScene": "content/worldgen/scenes/home_island/farmstead_scene_v0_3.json",
+  "profile": "direct_lpc_contour_repair_v167z25",
+  "seed": 167260801,
+  "requirements": [
+    "Irregular walkable mountain-rock plateau separated from blocking cliff faces",
+    "Meandering travel paths narrow to one-cell bridge/boardwalk crossings and do not overwrite shore bands",
+    "Smoothed east coastline with one LPC family chain: grass/sand/wet-sand/ocean-shallow/ocean-deep",
+    "Freshwater pond with mud-bank, shallow-water, and deep-water contours from compatible LPC families",
+    "Compound transition masks use authored LPC quadrant composition instead of opaque square fills",
+    "One coherent dry tilled-soil field; watering is gameplay state rather than test noise",
+    "No generated ShoreFoam, RiverMouthBlend, ordinary-coast PebbleShore, or placeholder sample objects",
+    "Generated scene, metrics, and terrain acceptance fixtures validate before Rust compilation"
+  ],
+  "diagnosticPolicy": "The old rectangular QA-board layout is no longer the client default. Focused asset galleries remain editor diagnostics.",
+  "metrics": "docs/audits/generated/havenwild_client_test_world_v167z5_metrics.json",
+  "topologyContract": "content/worldgen/terrain_topology_contract_v0_2.json",
+  "acceptanceManifest": "content/worldgen/scenes/terrain_acceptance/terrain_acceptance_scene_manifest_v1.json",
+  "semanticTopologyPreview": "docs/audits/generated/havenwild_client_test_world_semantic_map_v167z5a.png",
+  "lpcMappedPreview": "docs/audits/generated/havenwild_client_test_world_lpc_mapped_v167z5a.png",
+  "comparisonPreview": "docs/audits/generated/havenwild_client_test_world_semantic_vs_lpc_v167z5a.png",
+  "previewPolicy": "Semantic topology previews are diagnostic colors only. LPC mapped previews must be generated from the production atlas; live-client screenshots remain final visual authority."
+}

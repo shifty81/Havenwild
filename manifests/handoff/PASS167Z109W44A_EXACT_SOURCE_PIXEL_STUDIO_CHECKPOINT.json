@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W44A",
+  "date": "2026-08-14",
+  "title": "Exact-Source Pixel Studio Authority",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A"
+  ],
+  "authority": "PublishedWorldAssetRegistry + PixelDocument exact source-region provenance",
+  "editorBehavior": {
+    "objectRightClickHitTest": true,
+    "exactSourceCrop": true,
+    "immutableUpstream": true,
+    "derivedWorkingCopy": true,
+    "resetToSource": true,
+    "publishRemainsExplicit": true,
+    "unpublishedRuntimeHotReload": false
+  },
+  "validation": {
+    "sourceProfile": "PASS",
+    "w44a": "PASS",
+    "windowsRustBuild": "PENDING_LOCAL_TOOLCHAIN"
+  },
+  "next": "167Z109W45 structural component certification"
+}

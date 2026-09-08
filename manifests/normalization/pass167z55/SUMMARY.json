@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z55",
+  "date": "2026-08-03",
+  "title": "Minimum Coherent Water Depth Core Repair",
+  "status": "ready_for_windows_build",
+  "changes": [
+    "Require a minimum coherent 3x3 deep-water candidate core before retaining deep water",
+    "Keep small marine and freshwater bodies entirely shallow",
+    "Preserve the existing two-cell shallow rim for large lakes and oceans",
+    "Keep marine, inland, and river water components separate",
+    "Add 5x5 marine, 6x6 pond, and 7x7 minimum-core regression coverage"
+  ],
+  "localValidation": {
+    "pythonDepthSimulation": true,
+    "jsonParse": true,
+    "rustDelimiterScan": true,
+    "cargo": false,
+    "reasonCargoNotRun": "Rust toolchain is unavailable in the artifact environment"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "havenwild.worldgen.cliff_asset_footprint_recipe_normalization.v0_1",
+  "pass": "167Z106N5R",
+  "revision": "167Z106N5R-cliff-asset-footprint-runtime-activation-v1",
+  "purpose": "Separate 32x32 source addressing from multi-cell authored visual assemblies and gameplay structural footprints before cliff rendering/collision is reactivated.",
+  "measurementModel": {
+    "sourceGridCellPx": [
+      32,
+      32
+    ],
+    "sourceGridSpan": "[column,row,widthCells,heightCells] is only the aligned source-sheet envelope used to address artwork.",
+    "sourceRectPx": "[x,y,width,height] derived from sourceGridSpan; it is not a gameplay footprint.",
+    "tightVisualRectPx": "opaque-pixel bounds inside the source sheet where audited; transparent overhang/padding is preserved by the aligned sourceRectPx.",
+    "worldVisualFootprintTiles": "must be authored per normalized recipe and may differ from sourceGridSpan.",
+    "structuralHostMask": "must be authored independently from the visual footprint.",
+    "collisionEdgeMask": "must match a visible certified cliff boundary; never inferred from image dimensions.",
+    "traversalEdgeMask": "exists only for explicit certified ramps, stairs, ladders, bridges, caves, and similar connectors.",
+    "criticalRule": "32x32 source cells are addresses, not automatically independent 1x1 world assets."
+  },
+  "runtimeGate": {
+    "cliffDrawingEnabled": true,
+    "structuralCliffCollision": "authoritative_visible_edges_fail_open_if_visual_source_missing",
+    "individualSourceCellPromotionAllowed": false,
+    "normalizedRecipeRequired": true,
+    "worldFootprintRequired": true,
+    "structuralHostMaskRequired": true,
+    "acceptanceSceneRequired": true,
+    "explicitConnectorOverrides": [
+      "ramp",
+      "stairs",
+      "ladder",
+      "bridge"
+    ]
+  },
+  "providers": {
+    "ogaLpcGrassTop": {
+      "source": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "sourceDimensionsPx": [
+        384,
+        288
+      ],
+      "sourceGrid": [
+        12,
+        9
+      ],
+      "classification": "specialist multi-cell stamp/reference kit; not a complete arbitrary cliff autotile family",
+      "catalog": "content/assets/oga_lpc/manifests/oga_lpc_cliff_recipe_catalog_v0_2.json",
+      "runtimeStatus": "quarantined"
+    },
+    "elizawySeasonalCliffs": {
+      "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+      "sheetDimensionsPx": [
+        512,
+        448
+      ],
+      "sourceGrid": [
+        16,
+        14
+      ],
+      "seasonalGeometryIdentical": true,
+      "classification": "primary structural cliff art family after exact recipe certification",
+      "catalog": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+      "runtimeStatus": "active_primary_structural_provider_n5r"
+    },
+    "elizawyRocksCliffs": {
+      "source": "Terrain/Rocks, Cliffs.png",
+      "sourceDimensionsPx": [
+        192,
+        128
+      ],
+      "classification": "object/boulder/cliff-debris sheet; never structural platform-boundary authority",
+      "catalog": "content/assets/lpc/elizawy_rocks_cliffs_object_catalog_v0_1.json",
+      "structuralCliffProvider": false
+    },
+    "elizawyWaterfall": {
+      "source": "Terrain/Waterfall.png",
+      "sourceDimensionsPx": [
+        512,
+        608
+      ],
+      "classification": "animated multi-cell structural water connector; not a 1x1 terrain tile",
+      "catalog": "content/assets/lpc/elizawy_waterfall_connector_catalog_v0_1.json",
+      "runtimeStatus": "active_south_west_east_connector_n5r"
+    }
+  },
+  "acceptanceTarget": {
+    "referenceSceneShape": "large walkable plateau bounded by continuous authored cliff faces rather than small piles of standalone cliff blocks",
+    "requiredCases": [
+      "long_straight_face",
+      "outer_corner",
+      "inner_corner",
+      "narrow_ridge",
+      "two_level_stack",
+      "left_and_right_traversal",
+      "ladder_or_stair",
+      "narrow_cave",
+      "wide_cave",
+      "bridge_socket",
+      "water_facing_cliff",
+      "waterfall",
+      "cross_partition_seam",
+      "season_swap_geometry_parity"
+    ],
+    "renderingRule": "the resolver composes reviewed recipes and explicit connectors; certified visible structural edges block traversal, explicit Ramp/Stairs/Ladder/Bridge edges open, and missing visual authority fails open."
+  },
+  "authoringAuthority": {
+    "pixelStudioWorkflow": "content/editor/pixel_studio_cliff_workflow_v0_2.json",
+    "elizawyRoleCatalog": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+    "ogaRecipeCatalog": "content/assets/oga_lpc/manifests/oga_lpc_cliff_recipe_catalog_v0_2.json",
+    "structuralCollisionAuthority": "content/worldgen/structural_collision_cliff_assembly_authority_v0_1.json",
+    "waterfallCatalog": "content/assets/lpc/elizawy_waterfall_connector_catalog_v0_1.json",
+    "rockObjectCatalog": "content/assets/lpc/elizawy_rocks_cliffs_object_catalog_v0_1.json"
+  },
+  "z105TopologyCertification": "content/worldgen/elizawy_cliff_topology_certification_v0_1.json",
+  "z105AcceptanceScene": "content/worldgen/cliff_topology_acceptance_scene_v0_1.json",
+  "supersededBy": "content/worldgen/structural_cliff_autotile_authority_v0_1.json",
+  "supersededByPass": "167Z107"
+}

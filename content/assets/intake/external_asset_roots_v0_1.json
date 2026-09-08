@@ -1,0 +1,11 @@
+{
+  "schema": "havenwild.external_asset_roots.v0_1",
+  "roots": [
+    {
+      "id": "local_25d_asset_library",
+      "path": "H:/25D assets examples",
+      "policy": "reference_and_reviewed_intake",
+      "automaticPromotion": false
+    }
+  ]
+}

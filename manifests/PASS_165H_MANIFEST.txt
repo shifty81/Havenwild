@@ -1,0 +1,10 @@
+PASS 165H — PLAYER INVENTORY AND HAND-CRAFTING FOUNDATION
+
+ADD crates/haven_game/src/player_inventory_ui.rs
+OVERWRITE crates/haven_game/src/main.rs
+OVERWRITE crates/haven_game/src/game_bootstrap.rs
+OVERWRITE crates/haven_game/src/client_pause_menu.rs
+OVERWRITE crates/haven_game/src/runtime_input.rs
+OVERWRITE crates/haven_game/src/runtime_draw.rs
+ADD docs/patch/PASS_165H_PLAYER_INVENTORY_HAND_CRAFTING_FOUNDATION.md
+ADD manifests/PASS_165H_MANIFEST.txt

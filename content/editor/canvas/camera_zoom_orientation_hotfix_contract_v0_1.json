@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.camera_zoom_orientation_hotfix.v0_1",
+  "title": "Editor and runtime camera zoom/orientation regression guard",
+  "requirements": {
+    "fractionalWheelInput": true,
+    "boundedEditorZoom": true,
+    "smoothedEditorZoom": true,
+    "runtimeYDownOrientation": true,
+    "editorRuntimeOrientationParity": true,
+    "fixedRuntimeZoom": true,
+    "runtimeSceneEdgeClamp": true
+  },
+  "editorZoomRange": [
+    0.25,
+    3.0
+  ],
+  "runtimeDefaultZoom": 1.15,
+  "notes": [
+    "Editor wheel residuals must not be promoted to full notches with signum().",
+    "The native editor and runtime use the same positive-Y camera orientation.",
+    "Runtime zoom is fixed at 115%; scene-edge clamping keeps active-scene borders on screen.",
+    "F frames or resets the active native-editor canvas without affecting runtime framing."
+  ]
+}

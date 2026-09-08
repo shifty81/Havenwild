@@ -1,0 +1,893 @@
+{
+  "schema": "havenwild.validation.manifest.v1",
+  "version": 109,
+  "policy": {
+    "authoritativeRegistry": "content/build/validator_registry_v3.json",
+    "historicalManifest": "manifests/validation/legacy/validation_manifest_pass167z9.json",
+    "generatorsAreNeverImplicitValidationGates": true,
+    "futurePassRule": "Keep normal build gates at two. Add subsystem checks as certification-only unless they protect repository readability or owned content parsing.",
+    "nativeDomainSubchecks": [
+      "validate-archipelagoworldskeletonv140",
+      "validate-chunkpersistencenormalizationv144",
+      "validate-editorcommandundonormalizationv145",
+      "validate-shorewaterlifecyclev138",
+      "validate-terrainworldsemanticregistryv142",
+      "validate-worldgenerationpipelineownershipv143",
+      "validate-wrappedworldcoordinatefoundationv139"
+    ],
+    "normalBuildProfile": "build",
+    "normalBuildValidatorCount": 2,
+    "sourceValidationValidatorCount": 10
+  },
+  "profiles": {
+    "quick": {
+      "domains": [
+        "architecture",
+        "content"
+      ],
+      "includeKinds": [
+        "validator"
+      ],
+      "lifecycles": [
+        "build-gate"
+      ],
+      "description": "Alias of the normal build-gate profile."
+    },
+    "source": {
+      "domains": [
+        "architecture",
+        "content"
+      ],
+      "includeKinds": [
+        "validator"
+      ],
+      "lifecycles": [
+        "build-gate",
+        "source-audit"
+      ],
+      "description": "Ten current-authority checks. Historical pass validators remain explicit full/certification evidence rather than chaining through normal source validation."
+    },
+    "legacy": {
+      "domains": [
+        "architecture",
+        "content",
+        "world",
+        "editor"
+      ],
+      "includeKinds": [
+        "validator",
+        "generator"
+      ],
+      "lifecycles": [
+        "legacy-reference"
+      ]
+    },
+    "full": {
+      "domains": [
+        "architecture",
+        "content",
+        "world",
+        "editor"
+      ],
+      "includeKinds": [
+        "validator"
+      ],
+      "lifecycles": [
+        "build-gate",
+        "source-audit",
+        "certification-only",
+        "framework-audit"
+      ],
+      "cargo": [
+        "fmt-check",
+        "check",
+        "clippy",
+        "test"
+      ],
+      "description": "Explicit release/certification profile; never run implicitly by Build all."
+    },
+    "generation": {
+      "domains": [
+        "architecture",
+        "content",
+        "world",
+        "editor"
+      ],
+      "includeKinds": [
+        "generator"
+      ],
+      "lifecycles": [
+        "active"
+      ]
+    },
+    "build": {
+      "domains": [
+        "architecture",
+        "content"
+      ],
+      "includeKinds": [
+        "validator"
+      ],
+      "lifecycles": [
+        "build-gate"
+      ],
+      "description": "Two lightweight pre-Cargo checks used by normal builds; Rust compile/build remains owned by the build scripts."
+    },
+    "framework": {
+      "domains": [
+        "architecture"
+      ],
+      "includeKinds": [
+        "validator"
+      ],
+      "lifecycles": [
+        "framework-audit"
+      ],
+      "description": "Validation framework self-tests and quality checks only."
+    }
+  },
+  "tasks": [
+    {
+      "id": "validate-development-layout",
+      "name": "validate_development_layout",
+      "domain": "architecture",
+      "phase": "foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_development_layout.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 0,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-development-layout-equipment-slots-v167z43",
+      "name": "Development Layout and Equipment Slots V167Z43",
+      "domain": "architecture",
+      "phase": "foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/architecture/Validate-DevelopmentLayoutEquipmentSlotsPass167Z43.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 5,
+      "lifecycle": "certification-only"
+    },
+    {
+      "id": "validate-architecture",
+      "name": "validate_architecture",
+      "domain": "architecture",
+      "phase": "foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_architecture.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 10,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-content",
+      "name": "validate_content",
+      "domain": "content",
+      "phase": "foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_content.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 20,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-content-integrity",
+      "name": "Current Content Integrity Contract",
+      "domain": "content",
+      "phase": "integrity",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_content_integrity.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 30,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-windowsbuildportabilityv146",
+      "name": "Validate-WindowsBuildPortabilityV146",
+      "domain": "architecture",
+      "phase": "build-portability",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-WindowsBuildPortabilityV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 50,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-savemigrationcompatibilityv146",
+      "name": "Validate-SaveMigrationCompatibilityV146",
+      "domain": "architecture",
+      "phase": "persistence",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/persistence/Validate-SaveMigrationCompatibilityV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 60,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-rustworkspacecontractv146",
+      "name": "Validate-RustWorkspaceContractV146",
+      "domain": "architecture",
+      "phase": "compile-contract",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-RustWorkspaceContractV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 70,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-validationframeworkselftestsv146b",
+      "name": "Validate-ValidationFrameworkSelfTestsV146B",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidationFrameworkSelfTestsV146B.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 80,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-shorewaterlifecyclev138",
+      "name": "Validate-ShoreWaterLifecycleV138",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleV138.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 87,
+      "lifecycle": "active",
+      "ownership": "native-domain-subcheck"
+    },
+    {
+      "id": "validate-wrappedworldcoordinatefoundationv139",
+      "name": "Validate-WrappedWorldCoordinateFoundationV139",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-WrappedWorldCoordinateFoundationV139.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 88,
+      "lifecycle": "active",
+      "ownership": "native-domain-subcheck"
+    },
+    {
+      "id": "validate-archipelagoworldskeletonv140",
+      "name": "Validate-ArchipelagoWorldSkeletonV140",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldSkeletonV140.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 89,
+      "lifecycle": "active",
+      "ownership": "native-domain-subcheck"
+    },
+    {
+      "id": "validate-terrainworldsemanticregistryv142",
+      "name": "Validate-TerrainWorldSemanticRegistryV142",
+      "domain": "world",
+      "phase": "terrain-semantics",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-TerrainWorldSemanticRegistryV142.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 91,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/worldgen/terrain_world_semantic_registry_v1.json",
+        "content/assets/terrain_material_registry_v0_1.json",
+        "crates/haven_core/src/foundation/tile_object_catalog.rs"
+      ],
+      "ownership": "native-domain-subcheck"
+    },
+    {
+      "id": "validate-worldgenerationpipelineownershipv143",
+      "name": "Validate-WorldGenerationPipelineOwnershipV143",
+      "domain": "world",
+      "phase": "world-pipeline",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-WorldGenerationPipelineOwnershipV143.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 92,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/worldgen/world_generation_pipeline_v1.json",
+        "crates/haven_world/src/world_generation_pipeline.rs",
+        "content/validation/validation_manifest_v1.json"
+      ],
+      "ownership": "native-domain-subcheck"
+    },
+    {
+      "id": "validate-chunkpersistencenormalizationv144",
+      "name": "Validate-ChunkPersistenceNormalizationV144",
+      "domain": "world",
+      "phase": "persistence",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ChunkPersistenceNormalizationV144.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 93,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/worldgen/chunk_persistence_contract_v1.json",
+        "crates/haven_save/src/chunk_persistence.rs",
+        "crates/haven_save/src/lib.rs"
+      ],
+      "ownership": "native-domain-subcheck"
+    },
+    {
+      "id": "validate-editorcommandundonormalizationv145",
+      "name": "Validate-EditorCommandUndoNormalizationV145",
+      "domain": "editor",
+      "phase": "command-history",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-EditorCommandUndoNormalizationV145.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 94,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/editor/commands/editor_command_contract_v1.json",
+        "crates/haven_authoring/src/command_bus.rs",
+        "content/validation/validation_manifest_v1.json"
+      ],
+      "ownership": "native-domain-subcheck"
+    },
+    {
+      "id": "validate-validatorqualityv146",
+      "name": "Validate-ValidatorQualityV146",
+      "domain": "architecture",
+      "phase": "validation-quality",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidatorQualityV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 100,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-stable-placeable-runtime-dispatch-v148o",
+      "name": "Character world autosave and synchronization V148W",
+      "domain": "world",
+      "phase": "character-persistence",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-CharacterWorldSyncV148W.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 240,
+      "lifecycle": "active"
+    },
+    {
+      "id": "characters.production-catalog-v149j28",
+      "name": "Universal LPC Complete Character and Equipment Catalog V167Z7",
+      "domain": "content",
+      "phase": "character-promotion",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-LpcCharacterProductionCatalogV149J28.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 250,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpc-project-foundation-v167z40",
+      "name": "Complete LPC Project Foundation V167Z40",
+      "domain": "content",
+      "phase": "asset-foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-LpcProjectFoundationPass167Z40.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 255,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-ulpc-partial-action-geometry-v167z42",
+      "name": "Universal LPC Partial Action Geometry V167Z42",
+      "domain": "content",
+      "phase": "character-promotion",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-UlpcPartialActionGeometryPass167Z42.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 257,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-direct-visual-baseline-v167z52",
+      "name": "Direct Visual Baseline V167Z52",
+      "domain": "content",
+      "phase": "asset-runtime-binding",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-DirectVisualBaselinePass167Z52.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 258,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-authored-rock-variant-selection-v167z53",
+      "name": "Authored Rock Variant Selection V167Z53",
+      "domain": "content",
+      "phase": "asset-runtime-binding",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-AuthoredRockVariantSelectionPass167Z53.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 259,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-production-lpc-runtime-binding-v149j",
+      "name": "Production LPC Runtime Binding Contract",
+      "domain": "content",
+      "phase": "asset-runtime-binding",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-ProductionLpcRuntimeBindingV149J.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 260,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-active-hud-creator-surface-v167z54",
+      "name": "Active HUD and Creator Surface V167Z54",
+      "domain": "content",
+      "phase": "runtime-ui",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/ui/Validate-ActiveHudCreatorSurfacePass167Z54.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 261,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-v7-tile-lane-isolation-v167z60",
+      "name": "V7 Tile Lane Isolation V167Z60",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-V7TileLaneIsolationPass167Z60.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 262,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-terrain-style-cliff-f3-v167z61",
+      "name": "Terrain Style, Cliff, and F3 Authority V167Z61",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-TerrainStyleCliffF3Pass167Z61.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 263,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-authored-water-path-footprints-v167z64",
+      "name": "Authored Water, Path, and Prop Footprint Authority V167Z64",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-AuthoredWaterPathFootprintsPass167Z64.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 264,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-terrain-tuple-brush-alignment-v167z65",
+      "name": "Terrain Tuple Brush Alignment and Water Test Repair V167Z65",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-TerrainTupleBrushAlignmentPass167Z65.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 265,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-authored-depth-topology-candidate-dedup-v167z66",
+      "name": "Authored Depth Topology Candidate Deduplication V167Z66",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-AuthoredDepthTopologyCandidateDedupPass167Z66.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 266,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-v7-unified-source-pure-lane-v167z67",
+      "name": "V7 Unified Source-Pure Terrain Lane V167Z67",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-V7UnifiedTerrainLanePass167Z67.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 267,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-v7-water-tier-presentation-v167z69",
+      "name": "V7 Water Tier Presentation Authority V167Z69",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-V7WaterTierPresentationPass167Z69.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 268,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-exact-terrain-paint-mode-v167z70",
+      "name": "Exact Terrain Paint Mode V167Z70",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ExactTerrainPaintModePass167Z70.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 269,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-terrain-contact-import-surface-v167z71",
+      "name": "Terrain Contact Import Surface Repair V167Z71",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-TerrainContactImportSurfacePass167Z71.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 270,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-native-terrain-transaction-clippy-v167z72",
+      "name": "Native Terrain Transaction Clippy Repair V167Z72",
+      "domain": "editor",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-NativeTerrainTransactionClippyPass167Z72.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 271,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-v7-animated-medium-water-test-v167z73",
+      "name": "V7 Animated Medium-Water Test Contract V167Z73",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-V7AnimatedMediumWaterTestPass167Z73.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 272,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-exact-grass-water-coastline-v167z74",
+      "name": "Exact Grass/Water and Generated Coastline Authority V167Z74",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ExactGrassWaterCoastlineAuthorityPass167Z74.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 273,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-v7-grass-water-continuous-surface-v167z75",
+      "name": "V7 Grass/Water and Continuous Surface Authority V167Z75",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-V7GrassWaterContinuousSurfacePass167Z75.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 274,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-sign-safe-pcg-coordinates-v167z76",
+      "name": "Sign-Safe PCG Partition Coordinates V167Z76",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-SignSafePcgCoordinatesPass167Z76.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 275,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-seamless-pcg-surface-marine-water-v167z77",
+      "name": "Seamless PCG Surface and Marine Water Authority V167Z77",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-SeamlessPcgSurfaceAndMarineWaterPass167Z77.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 276,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-sign-safe-surface-partition-identity-v167z78",
+      "name": "Sign-Safe Surface Partition Identity V167Z78",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-SignSafeSurfacePartitionIdentityPass167Z78.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 277,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-global-surface-grid-cross-partition-f3-v167z79",
+      "name": "Global Surface Grid and Cross-Partition F3 Authority V167Z79",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-GlobalSurfaceGridCrossPartitionF3Pass167Z79.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 278,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-global-surface-clippy-cleanup-v167z80",
+      "name": "Global Surface Clippy Cleanup V167Z80",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-GlobalSurfaceClippyCleanupPass167Z80.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 279,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-v7-ground-material-closeout-v167z81",
+      "name": "V7 Ground Material Closeout V167Z81",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-V7GroundMaterialCloseoutPass167Z81.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 280,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-global-map-minimap-flora-v167z82",
+      "name": "Global Map, Minimap, and Authored Flora V167Z82",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-GlobalMapMinimapFloraPass167Z82.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 281,
+      "lifecycle": "source-audit"
+    },
+    {
+      "id": "validate-terrain-topology-v167z5",
+      "name": "Terrain Topology and LPC Evidence Certification",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_terrain_topology_v167z5.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 282,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-runtime-asset-integrity-cliff-quarantine-v167z96",
+      "name": "Runtime Asset Integrity and Cliff Source Quarantine V167Z96",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-RuntimeAssetIntegrityCliffQuarantinePass167Z96.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 296,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-runtime-quarantine-dead-reference-cleanup-v167z97",
+      "name": "Runtime Quarantine Dead-Reference Cleanup V167Z97",
+      "domain": "world",
+      "phase": "terrain-certification",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-RuntimeQuarantineDeadReferenceCleanupPass167Z97.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 297,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-continuous-alderreach-world-editor-v167z98",
+      "name": "Continuous Alderreach World Editor Foundation V167Z98",
+      "domain": "editor",
+      "phase": "editor-foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-ContinuousAlderreachWorldEditorPass167Z98.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 298,
+      "lifecycle": "active"
+    }
+  ]
+}

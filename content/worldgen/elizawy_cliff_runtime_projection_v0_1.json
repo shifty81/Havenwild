@@ -1,0 +1,126 @@
+{
+  "schema": "havenwild.elizawy_cliff.runtime_projection.v0_1",
+  "pass": "167Z109G",
+  "status": "active",
+  "licensedSource": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "path": "Terrain/cliff_summer.png",
+    "projectMount": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+    "sha256": "94bd2ddb2c51677498453486092ef28e57e0c1880f4334359189229590298147",
+    "dimensionsPx": [
+      512,
+      448
+    ]
+  },
+  "runtimeProjection": {
+    "path": "assets/generated/worldgen_v0_1/terrain/elizawy_cliff_runtime_overlay_summer.png",
+    "sha256": "25b7a65f892b897d7664e8d68091661a159a41715617a18bccd185f173d9608d",
+    "builder": "tools/automation/terrain/Build-ElizaWyCliffRuntimeOverlayPass167Z109D.py",
+    "sourceExactOutsideCertifiedCells": false,
+    "modifiedSourceCells": [
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "modification": "receiver-aware projection: normalize raised ElizaWy owner grass to V7 Grass; make lower receiver grass transparent in c1/c3 r6-r8 and c2 r8",
+    "reason": "official ElizaWy Summer demo shows complete cliff recipes whose high side belongs to the plateau but low grass belongs to receiver terrain; opaque receiver grass caused green foot bands and over-masking caused sand/white triangles",
+    "v7Source": {
+      "path": "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png",
+      "sha256": "adc395adc3defb182389d4ca888afdd896bdd6b672ab92609b428a5bbd79cd25",
+      "grassOwnerRgb": [
+        47,
+        129,
+        54
+      ]
+    }
+  },
+  "orthogonalProjection": {
+    "northLipPx": [
+      192,
+      192,
+      32,
+      8
+    ],
+    "southLipPx": [
+      64,
+      248,
+      32,
+      8
+    ],
+    "westSidePx": [
+      160,
+      224,
+      8,
+      32
+    ],
+    "eastSide": "horizontal mirror of westSidePx",
+    "southFaceGrid": [
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "plateauOwner": "V7 terrain",
+    "projectedRowsBelowHost": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        8
+      ]
+    ]
+  },
+  "visualResolver": {
+    "structuralAuthority": "haven_world::CliffShape15",
+    "presentationAuthority": "haven_game::runtime_structural_cliff_shapes::CliffVisualShape",
+    "southWestDiagonal": "exact mask 12 uses complete demo-grounded c1 r6,r7,r3,r8 assembly",
+    "southEastDiagonal": "exact mask 6 uses complete demo-grounded c3 r6,r7,r3,r8 assembly",
+    "isolatedMask6Or12": "authored rounded/diagonal corner assembly",
+    "multiLevelMask6Or12": "repeat diagonal r3 body by structural face depth, then one foot"
+  },
+  "acceptance": [
+    "ordinary south cliff matches official ElizaWy demo c2r7 -> c2r3 -> c2r8 sequence",
+    "SW diagonal matches c1r6 -> c1r7 -> c1r3 -> c1r8; SE mirrors through c3",
+    "raised plateau grass remains visible and normalized to V7 Grass even when lower receiver is sand/dirt",
+    "low-side receiver grass is transparent so lower V7 material reaches the cliff foot without a green band",
+    "ordinary straight face projects two rows below host; rounded diagonal projects three",
+    "collision/traversal remains structural-level and connector driven"
+  ],
+  "evidence": "docs/assets/previews/elizawy_cliff_projection_pass167z109d.png"
+}

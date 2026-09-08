@@ -1,0 +1,47 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_visual_performance_acceptance.v0_1",
+  "pass": "167Z106N5X3",
+  "purpose": "Live-screenshot correction for invalid composed corner/ramp slices plus cliff render hot-path cleanup.",
+  "visualAcceptance": {
+    "noComposedRoundedCornerColumns": true,
+    "noPartialDiagonalRampColumn": true,
+    "eastWestSeamsUseMirroredCleanStrip": true,
+    "southFacesUseCertifiedStraightTopBodyFoot": true,
+    "footUsesNormalTerrainTupleAuthority": true,
+    "grassWaterContactAllowed": true,
+    "grassSandAndGrassDirtContactsUseSameResolver": true,
+    "freshWorldRampsRemainTraversalOpenings": true
+  },
+  "performanceAcceptance": {
+    "oneContinuousSurfaceManifestPerCliffFrame": true,
+    "connectorQueriesOnlyForExposedEdges": true,
+    "manifestAwareTileAndConnectorLookups": true,
+    "unsupportedCardinalFacesRejectBeforeSceneObjectScan": true,
+    "bridgeAndMountainPathRampClassifyBeforeSceneObjectScan": true,
+    "target": "material FPS improvement in the same cliff-heavy Alderreach view; record runtime diagnostics from the workstation screenshot"
+  },
+  "sourceAuthority": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "pinnedCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "sheet": "Terrain/cliff_summer.png",
+    "sheetSizePx": [
+      512,
+      448
+    ],
+    "straightSouthFaceGrid": [
+      10,
+      9,
+      1,
+      3
+    ],
+    "rejectedRuntimeRampCropGrid": [
+      8,
+      3,
+      1,
+      3
+    ],
+    "rejectedReason": "partial column of a larger connected diagonal/valley assembly"
+  },
+  "supersededBy": "content/worldgen/structural_cliff_autotile_authority_v0_1.json",
+  "supersededByPass": "167Z107"
+}

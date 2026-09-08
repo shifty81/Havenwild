@@ -1,0 +1,43 @@
+{
+  "schema": "havenwild.building_recipe_materialization_contract.v1",
+  "pass": "167Z109W46A",
+  "authority": "BuildingRecipeDefinition.materialize_structural_pieces",
+  "purpose": "Define deterministic structural expansion of one BuildingRecipe without duplicating PublishedWorldAsset visual identity.",
+  "pieceKinds": [
+    "floor",
+    "wall",
+    "opening",
+    "connector",
+    "roof"
+  ],
+  "rules": {
+    "floorFillExpandsPerTile": true,
+    "resolvedWallRunExpandsAlongLogicalEdge": true,
+    "doorAndArchwayReplaceWallVisualAtOpeningTile": true,
+    "windowOverlaysWallVisual": true,
+    "deferredFacingWallEmitsNoWrongVisual": true,
+    "connectorEmitsAtFromLevel": true,
+    "flatNineSliceRoofUsesExactTopologyRoles": true,
+    "roofPieceOcclusionGroupComesFromRecipe": true,
+    "materializedPieceReferencesPublishedWorldAssetByCanonicalAlias": true,
+    "collisionAndRoomAuthorityRemainRecipeData": true
+  },
+  "flatNineSliceRoles": {
+    "field": "field",
+    "northEdge": "north_eave",
+    "southEdge": "south_eave",
+    "westEdge": "west_rake",
+    "eastEdge": "east_rake",
+    "northWestCorner": "outer_corner_nw",
+    "northEastCorner": "outer_corner_ne",
+    "southWestCorner": "outer_corner_sw",
+    "southEastCorner": "outer_corner_se"
+  },
+  "forbiddenPatterns": [
+    "materializer copies source rectangles from PublishedWorldAsset",
+    "deferred wall facing replaced with another facing",
+    "window removes the structural wall behind it",
+    "roof cutaway changes authoritative piece existence",
+    "connector materialization creates a separate interior scene"
+  ]
+}

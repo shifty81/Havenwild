@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Havenwild World Paint Material Adjacency Contract v0.1",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "canonical_tile_size",
+    "source_state",
+    "resolver_outputs",
+    "multiplayer_policy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.world_paint_material_adjacency.v0.1"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "canonical_tile_size": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "source_state": {
+      "type": "string"
+    },
+    "resolver_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "multiplayer_policy": {
+      "type": "string"
+    },
+    "ui_controls": {
+      "type": "object"
+    }
+  }
+}

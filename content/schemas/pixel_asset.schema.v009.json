@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.pixel_asset.v009",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "schema_version",
+    "image",
+    "cell_size",
+    "asset_kind"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "asset_kind": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "cell_size": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "grid_size": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "palette": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "animations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "autotile_rules": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "collision_masks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "interaction_sockets": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

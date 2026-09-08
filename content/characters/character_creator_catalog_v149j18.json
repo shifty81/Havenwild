@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.character_creator_catalog.v1",
+  "profile": "lpc.standard.64x96.modular",
+  "policy": {
+    "availability": "mounted-production-catalog",
+    "compatibility": "metadata-driven",
+    "legacy_profile_migration": true,
+    "creator_runtime_parity_required": true
+  },
+  "slots": [
+    {"id":"body/base","required":true,"variants":["male_neutral","female_neutral"]},
+    {"id":"face/eyes","required":true,"variants":["eyes"]},
+    {"id":"hair","required":false,"variants":["hair_parted","hair_bob","hair_ponytail","hair_long","hair_curly","hair_mohawk","hair_braid","hair_spiky"]},
+    {"id":"clothing/torso","required":false,"variants":["starter_tshirt","starter_long_shirt","starter_tunic","starter_vest","starter_apron"]},
+    {"id":"clothing/legs","required":false,"variants":["starter_pants","starter_skirt","starter_shorts","starter_long_skirt"]},
+    {"id":"clothing/feet","required":false,"variants":["starter_boots","starter_shoes","starter_sandals","none"]},
+    {"id":"headwear","required":false,"variants":["none","headwear_hat","headwear_hood"]},
+    {"id":"face/facial_hair","required":false,"variants":["none","facial_hair_beard"]}
+  ],
+  "rules": [
+    {"id":"female_no_beard","when":{"body":"female_neutral"},"disallow":{"facial_hair":"facial_hair_beard"}},
+    {"id":"male_starter_skirt_filter","when":{"body":"male_neutral"},"disallow":{"legs":["starter_skirt","starter_long_skirt"]}},
+    {"id":"hood_long_hair_filter","when":{"headwear":"headwear_hood"},"disallow":{"hair":["hair_long","hair_ponytail","hair_braid"]}}
+  ]
+}

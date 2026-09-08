@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.character_profile_policy.v0.1",
+  "profile_rule": "Character identity and base appearance are selected at creation. Ordinary starter clothing may be selected, while armor, weapons, shields, advanced outfits, and specialist gear are acquired through gameplay.",
+  "color_channels": [
+    {"id":"skin_tone","label":"Skin Tone","applies_to_categories":["body","head"],"required":true},
+    {"id":"hair_color","label":"Hair Color","applies_to_categories":["hair","eyebrows","facial_hair"],"required":false},
+    {"id":"eye_color","label":"Eye Color","applies_to_categories":["eyes"],"required":true},
+    {"id":"starter_top_color","label":"Top Color","applies_to_categories":[],"required":false},
+    {"id":"starter_bottom_color","label":"Bottom Color","applies_to_categories":[],"required":false}
+  ],
+  "equipment_categories": [
+    {"id":"ordinary_clothing","label":"Ordinary Clothing","creator_access":"starter","unlock_source":"initial creator and shops"},
+    {"id":"advanced_outfits","label":"Advanced Outfits","creator_access":"progression_only","unlock_source":"shops, crafting, professions, quests, and discoveries"},
+    {"id":"armor","label":"Armor","creator_access":"progression_only","unlock_source":"crafting, blacksmithing, merchants, quests, and loot"},
+    {"id":"weapons","label":"Weapons","creator_access":"progression_only","unlock_source":"crafting, merchants, quests, and loot"},
+    {"id":"shields","label":"Shields","creator_access":"progression_only","unlock_source":"crafting, merchants, quests, and loot"}
+  ],
+  "initial_creator_allowed_slots": ["top", "bottom", "feet"],
+  "progression_only_categories": ["armor", "weapons", "shields", "advanced_outfits"],
+  "required_neutral_idle_aliases": ["idle_down", "idle_up", "idle_left", "idle_right"]
+}

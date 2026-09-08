@@ -1,0 +1,5424 @@
+{
+  "id": "open_game_art_terrain_pack_v0_1",
+  "kind": "tiled_corner_terrain_catalog",
+  "version": "0.1.0",
+  "tileSize": [
+    32,
+    32
+  ],
+  "output": "assets/generated/worldgen_v0_1/terrain/open_game_art_terrain_pack_v0_1.png",
+  "source": "content/assets/lpc/source/open-game-art-terrain-pack-v0-1/terrain.tsx",
+  "license": "OpenGameArt terrain pack attribution is stored beside the source TSX/PNG.",
+  "runtimePolicy": "catalog all Tiled corner tuples; promote paintable materials through explicit Havenwild aliases",
+  "emptyTerrainName": "__empty__",
+  "terrainTypes": [
+    "Dark Dirt",
+    "Red Dirt",
+    "Black Dirt",
+    "Grey Dirt",
+    "Lava",
+    "Hole",
+    "Red Hole",
+    "Black Hole",
+    "Water",
+    "Full Dirt",
+    "Clean Dirt",
+    "Trans Dirt",
+    "Grass",
+    "Dark Grass",
+    "Short Grass",
+    "Long Grass",
+    "Wheat",
+    "Earth",
+    "Sand",
+    "Sand Water",
+    "Snow",
+    "Snow Water",
+    "Snow Ice",
+    "Ice",
+    "Brick Road",
+    "Sewer",
+    "Sewer Water"
+  ],
+  "editorMaterials": [
+    {
+      "id": "open-game-art-terrain-pack-v0-1-dark dirt",
+      "label": "Dark Dirt",
+      "tiledTerrain": "Dark Dirt",
+      "category": "earth",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 100,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-red dirt",
+      "label": "Red Dirt",
+      "tiledTerrain": "Red Dirt",
+      "category": "earth",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 103,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-black dirt",
+      "label": "Black Dirt",
+      "tiledTerrain": "Black Dirt",
+      "category": "earth",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 9,
+      "pureFillTileId": 106,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-grey dirt",
+      "label": "Grey Dirt",
+      "tiledTerrain": "Grey Dirt",
+      "category": "earth",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 172,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-lava",
+      "label": "Lava",
+      "tiledTerrain": "Lava",
+      "category": "hazard",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 112,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-hole",
+      "label": "Hole",
+      "tiledTerrain": "Hole",
+      "category": "void",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 115,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-red hole",
+      "label": "Red Hole",
+      "tiledTerrain": "Red Hole",
+      "category": "void",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 118,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-black hole",
+      "label": "Black Hole",
+      "tiledTerrain": "Black Hole",
+      "category": "void",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 184,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-water",
+      "label": "Water",
+      "tiledTerrain": "Water",
+      "category": "water",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 187,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-full dirt",
+      "label": "Full Dirt",
+      "tiledTerrain": "Full Dirt",
+      "category": "earth",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 160,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-clean dirt",
+      "label": "Clean Dirt",
+      "tiledTerrain": "Clean Dirt",
+      "category": "earth",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 537,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-trans dirt",
+      "label": "Trans Dirt",
+      "tiledTerrain": "Trans Dirt",
+      "category": "earth",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 97,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-grass",
+      "label": "Grass",
+      "tiledTerrain": "Grass",
+      "category": "grass",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 292,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-dark grass",
+      "label": "Dark Grass",
+      "tiledTerrain": "Dark Grass",
+      "category": "grass",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 295,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-short grass",
+      "label": "Short Grass",
+      "tiledTerrain": "Short Grass",
+      "category": "grass",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 298,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-long grass",
+      "label": "Long Grass",
+      "tiledTerrain": "Long Grass",
+      "category": "grass",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 301,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-wheat",
+      "label": "Wheat",
+      "tiledTerrain": "Wheat",
+      "category": "terrain",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 304,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-earth",
+      "label": "Earth",
+      "tiledTerrain": "Earth",
+      "category": "earth",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 676,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-sand",
+      "label": "Sand",
+      "tiledTerrain": "Sand",
+      "category": "loose_ground",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 307,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-sand water",
+      "label": "Sand Water",
+      "tiledTerrain": "Sand Water",
+      "category": "water",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 310,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-snow",
+      "label": "Snow",
+      "tiledTerrain": "Snow",
+      "category": "cold",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 499,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-snow water",
+      "label": "Snow Water",
+      "tiledTerrain": "Snow Water",
+      "category": "water",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 662,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-snow ice",
+      "label": "Snow Ice",
+      "tiledTerrain": "Snow Ice",
+      "category": "cold",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 502,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-ice",
+      "label": "Ice",
+      "tiledTerrain": "Ice",
+      "category": "cold",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 496,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-brick road",
+      "label": "Brick Road",
+      "tiledTerrain": "Brick Road",
+      "category": "terrain",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 398,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-sewer",
+      "label": "Sewer",
+      "tiledTerrain": "Sewer",
+      "category": "terrain",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 484,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    },
+    {
+      "id": "open-game-art-terrain-pack-v0-1-sewer water",
+      "label": "Sewer Water",
+      "tiledTerrain": "Sewer Water",
+      "category": "water",
+      "sourceCatalog": "open_game_art_terrain_pack_v0_1",
+      "tupleCount": 13,
+      "pureFillTileId": 544,
+      "editorCatalogStatus": "generic_terrain_material",
+      "runtimePaintSurface": "generic_material_pending_storage",
+      "paintableNow": false,
+      "tileKindAliases": []
+    }
+  ],
+  "tileKindTerrainMap": {},
+  "entries": [
+    {
+      "tileId": 1,
+      "corners": {
+        "topLeft": "Trans Dirt",
+        "topRight": "Trans Dirt",
+        "bottomLeft": "Trans Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        32,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 2,
+      "corners": {
+        "topLeft": "Trans Dirt",
+        "topRight": "Trans Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Trans Dirt"
+      },
+      "rect": [
+        64,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 4,
+      "corners": {
+        "topLeft": "Dark Dirt",
+        "topRight": "Dark Dirt",
+        "bottomLeft": "Dark Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        128,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 5,
+      "corners": {
+        "topLeft": "Dark Dirt",
+        "topRight": "Dark Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Dark Dirt"
+      },
+      "rect": [
+        160,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 7,
+      "corners": {
+        "topLeft": "Red Dirt",
+        "topRight": "Red Dirt",
+        "bottomLeft": "Red Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        224,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 8,
+      "corners": {
+        "topLeft": "Red Dirt",
+        "topRight": "Red Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Red Dirt"
+      },
+      "rect": [
+        256,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 13,
+      "corners": {
+        "topLeft": "Grey Dirt",
+        "topRight": "Grey Dirt",
+        "bottomLeft": "Grey Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        416,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 14,
+      "corners": {
+        "topLeft": "Grey Dirt",
+        "topRight": "Grey Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Grey Dirt"
+      },
+      "rect": [
+        448,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 16,
+      "corners": {
+        "topLeft": "Lava",
+        "topRight": "Lava",
+        "bottomLeft": "Lava",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        512,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 17,
+      "corners": {
+        "topLeft": "Lava",
+        "topRight": "Lava",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Lava"
+      },
+      "rect": [
+        544,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 19,
+      "corners": {
+        "topLeft": "Hole",
+        "topRight": "Hole",
+        "bottomLeft": "Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        608,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 20,
+      "corners": {
+        "topLeft": "Hole",
+        "topRight": "Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Hole"
+      },
+      "rect": [
+        640,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 22,
+      "corners": {
+        "topLeft": "Red Hole",
+        "topRight": "Red Hole",
+        "bottomLeft": "Red Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        704,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 23,
+      "corners": {
+        "topLeft": "Red Hole",
+        "topRight": "Red Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Red Hole"
+      },
+      "rect": [
+        736,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 25,
+      "corners": {
+        "topLeft": "Black Hole",
+        "topRight": "Black Hole",
+        "bottomLeft": "Black Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        800,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 26,
+      "corners": {
+        "topLeft": "Black Hole",
+        "topRight": "Black Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Black Hole"
+      },
+      "rect": [
+        832,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 28,
+      "corners": {
+        "topLeft": "Water",
+        "topRight": "Water",
+        "bottomLeft": "Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        896,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 29,
+      "corners": {
+        "topLeft": "Water",
+        "topRight": "Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Water"
+      },
+      "rect": [
+        928,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 33,
+      "corners": {
+        "topLeft": "Trans Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Trans Dirt",
+        "bottomRight": "Trans Dirt"
+      },
+      "rect": [
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 34,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Trans Dirt",
+        "bottomLeft": "Trans Dirt",
+        "bottomRight": "Trans Dirt"
+      },
+      "rect": [
+        64,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 36,
+      "corners": {
+        "topLeft": "Dark Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Dark Dirt",
+        "bottomRight": "Dark Dirt"
+      },
+      "rect": [
+        128,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 37,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Dark Dirt",
+        "bottomLeft": "Dark Dirt",
+        "bottomRight": "Dark Dirt"
+      },
+      "rect": [
+        160,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 39,
+      "corners": {
+        "topLeft": "Red Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Red Dirt",
+        "bottomRight": "Red Dirt"
+      },
+      "rect": [
+        224,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 40,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Red Dirt",
+        "bottomLeft": "Red Dirt",
+        "bottomRight": "Red Dirt"
+      },
+      "rect": [
+        256,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 45,
+      "corners": {
+        "topLeft": "Grey Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Grey Dirt",
+        "bottomRight": "Grey Dirt"
+      },
+      "rect": [
+        416,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 46,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Grey Dirt",
+        "bottomLeft": "Grey Dirt",
+        "bottomRight": "Grey Dirt"
+      },
+      "rect": [
+        448,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 48,
+      "corners": {
+        "topLeft": "Lava",
+        "topRight": "__empty__",
+        "bottomLeft": "Lava",
+        "bottomRight": "Lava"
+      },
+      "rect": [
+        512,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 49,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Lava",
+        "bottomLeft": "Lava",
+        "bottomRight": "Lava"
+      },
+      "rect": [
+        544,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 51,
+      "corners": {
+        "topLeft": "Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "Hole",
+        "bottomRight": "Hole"
+      },
+      "rect": [
+        608,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 52,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Hole",
+        "bottomLeft": "Hole",
+        "bottomRight": "Hole"
+      },
+      "rect": [
+        640,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 54,
+      "corners": {
+        "topLeft": "Red Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "Red Hole",
+        "bottomRight": "Red Hole"
+      },
+      "rect": [
+        704,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 55,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Red Hole",
+        "bottomLeft": "Red Hole",
+        "bottomRight": "Red Hole"
+      },
+      "rect": [
+        736,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 57,
+      "corners": {
+        "topLeft": "Black Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "Black Hole",
+        "bottomRight": "Black Hole"
+      },
+      "rect": [
+        800,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 58,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Black Hole",
+        "bottomLeft": "Black Hole",
+        "bottomRight": "Black Hole"
+      },
+      "rect": [
+        832,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 60,
+      "corners": {
+        "topLeft": "Water",
+        "topRight": "__empty__",
+        "bottomLeft": "Water",
+        "bottomRight": "Water"
+      },
+      "rect": [
+        896,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 61,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Water",
+        "bottomLeft": "Water",
+        "bottomRight": "Water"
+      },
+      "rect": [
+        928,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 64,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Trans Dirt"
+      },
+      "rect": [
+        0,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 65,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Trans Dirt",
+        "bottomRight": "Trans Dirt"
+      },
+      "rect": [
+        32,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 66,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Trans Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 67,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Dark Dirt"
+      },
+      "rect": [
+        96,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 68,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Dark Dirt",
+        "bottomRight": "Dark Dirt"
+      },
+      "rect": [
+        128,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 69,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Dark Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 70,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Red Dirt"
+      },
+      "rect": [
+        192,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 71,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Red Dirt",
+        "bottomRight": "Red Dirt"
+      },
+      "rect": [
+        224,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 72,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Red Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        256,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 73,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Black Dirt"
+      },
+      "rect": [
+        288,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 74,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Black Dirt",
+        "bottomRight": "Black Dirt"
+      },
+      "rect": [
+        320,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 75,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Black Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        352,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 76,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Grey Dirt"
+      },
+      "rect": [
+        384,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 77,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Grey Dirt",
+        "bottomRight": "Grey Dirt"
+      },
+      "rect": [
+        416,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 78,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Grey Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        448,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 79,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Lava"
+      },
+      "rect": [
+        480,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 80,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Lava",
+        "bottomRight": "Lava"
+      },
+      "rect": [
+        512,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 81,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Lava",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 82,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Hole"
+      },
+      "rect": [
+        576,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 83,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Hole",
+        "bottomRight": "Hole"
+      },
+      "rect": [
+        608,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 84,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 85,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Red Hole"
+      },
+      "rect": [
+        672,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 86,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Red Hole",
+        "bottomRight": "Red Hole"
+      },
+      "rect": [
+        704,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 87,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Red Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 88,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Black Hole"
+      },
+      "rect": [
+        768,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 89,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Black Hole",
+        "bottomRight": "Black Hole"
+      },
+      "rect": [
+        800,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 90,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Black Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        832,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 91,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Water"
+      },
+      "rect": [
+        864,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 92,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Water",
+        "bottomRight": "Water"
+      },
+      "rect": [
+        896,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 93,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        928,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 96,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Trans Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Trans Dirt"
+      },
+      "rect": [
+        0,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 97,
+      "corners": {
+        "topLeft": "Trans Dirt",
+        "topRight": "Trans Dirt",
+        "bottomLeft": "Trans Dirt",
+        "bottomRight": "Trans Dirt"
+      },
+      "rect": [
+        32,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 98,
+      "corners": {
+        "topLeft": "Trans Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Trans Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 99,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Dark Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Dark Dirt"
+      },
+      "rect": [
+        96,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 100,
+      "corners": {
+        "topLeft": "Dark Dirt",
+        "topRight": "Dark Dirt",
+        "bottomLeft": "Dark Dirt",
+        "bottomRight": "Dark Dirt"
+      },
+      "rect": [
+        128,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 101,
+      "corners": {
+        "topLeft": "Dark Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Dark Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 102,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Red Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Red Dirt"
+      },
+      "rect": [
+        192,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 103,
+      "corners": {
+        "topLeft": "Red Dirt",
+        "topRight": "Red Dirt",
+        "bottomLeft": "Red Dirt",
+        "bottomRight": "Red Dirt"
+      },
+      "rect": [
+        224,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 104,
+      "corners": {
+        "topLeft": "Red Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Red Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        256,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 105,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Black Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Black Dirt"
+      },
+      "rect": [
+        288,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 106,
+      "corners": {
+        "topLeft": "Black Dirt",
+        "topRight": "Black Dirt",
+        "bottomLeft": "Black Dirt",
+        "bottomRight": "Black Dirt"
+      },
+      "rect": [
+        320,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 107,
+      "corners": {
+        "topLeft": "Black Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Black Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        352,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 108,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Grey Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Grey Dirt"
+      },
+      "rect": [
+        384,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 110,
+      "corners": {
+        "topLeft": "Grey Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "Grey Dirt",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        448,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 111,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Lava",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Lava"
+      },
+      "rect": [
+        480,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 112,
+      "corners": {
+        "topLeft": "Lava",
+        "topRight": "Lava",
+        "bottomLeft": "Lava",
+        "bottomRight": "Lava"
+      },
+      "rect": [
+        512,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 113,
+      "corners": {
+        "topLeft": "Lava",
+        "topRight": "__empty__",
+        "bottomLeft": "Lava",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 114,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Hole"
+      },
+      "rect": [
+        576,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 115,
+      "corners": {
+        "topLeft": "Hole",
+        "topRight": "Hole",
+        "bottomLeft": "Hole",
+        "bottomRight": "Hole"
+      },
+      "rect": [
+        608,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 116,
+      "corners": {
+        "topLeft": "Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 117,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Red Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Red Hole"
+      },
+      "rect": [
+        672,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 118,
+      "corners": {
+        "topLeft": "Red Hole",
+        "topRight": "Red Hole",
+        "bottomLeft": "Red Hole",
+        "bottomRight": "Red Hole"
+      },
+      "rect": [
+        704,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 119,
+      "corners": {
+        "topLeft": "Red Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "Red Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 120,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Black Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Black Hole"
+      },
+      "rect": [
+        768,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 122,
+      "corners": {
+        "topLeft": "Black Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "Black Hole",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        832,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 123,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Water"
+      },
+      "rect": [
+        864,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 125,
+      "corners": {
+        "topLeft": "Water",
+        "topRight": "__empty__",
+        "bottomLeft": "Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        928,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 128,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Trans Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        0,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 129,
+      "corners": {
+        "topLeft": "Trans Dirt",
+        "topRight": "Trans Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        32,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 130,
+      "corners": {
+        "topLeft": "Trans Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 131,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Dark Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        96,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 132,
+      "corners": {
+        "topLeft": "Dark Dirt",
+        "topRight": "Dark Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        128,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 133,
+      "corners": {
+        "topLeft": "Dark Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 134,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Red Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        192,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 135,
+      "corners": {
+        "topLeft": "Red Dirt",
+        "topRight": "Red Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        224,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 136,
+      "corners": {
+        "topLeft": "Red Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        256,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 137,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Black Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        288,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 138,
+      "corners": {
+        "topLeft": "Black Dirt",
+        "topRight": "Black Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        320,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 139,
+      "corners": {
+        "topLeft": "Black Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        352,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 140,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Grey Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        384,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 141,
+      "corners": {
+        "topLeft": "Grey Dirt",
+        "topRight": "Grey Dirt",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        416,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 142,
+      "corners": {
+        "topLeft": "Grey Dirt",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        448,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 143,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Lava",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        480,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 144,
+      "corners": {
+        "topLeft": "Lava",
+        "topRight": "Lava",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        512,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 145,
+      "corners": {
+        "topLeft": "Lava",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 146,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        576,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 147,
+      "corners": {
+        "topLeft": "Hole",
+        "topRight": "Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        608,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 148,
+      "corners": {
+        "topLeft": "Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 149,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Red Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        672,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 150,
+      "corners": {
+        "topLeft": "Red Hole",
+        "topRight": "Red Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        704,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 151,
+      "corners": {
+        "topLeft": "Red Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 152,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Black Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        768,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 153,
+      "corners": {
+        "topLeft": "Black Hole",
+        "topRight": "Black Hole",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        800,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 154,
+      "corners": {
+        "topLeft": "Black Hole",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        832,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 155,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        864,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 156,
+      "corners": {
+        "topLeft": "Water",
+        "topRight": "Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        896,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 157,
+      "corners": {
+        "topLeft": "Water",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        928,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 160,
+      "corners": {
+        "topLeft": "Full Dirt",
+        "topRight": "Full Dirt",
+        "bottomLeft": "Full Dirt",
+        "bottomRight": "Full Dirt"
+      },
+      "rect": [
+        0,
+        160,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 172,
+      "corners": {
+        "topLeft": "Grey Dirt",
+        "topRight": "Grey Dirt",
+        "bottomLeft": "Grey Dirt",
+        "bottomRight": "Grey Dirt"
+      },
+      "rect": [
+        384,
+        160,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 184,
+      "corners": {
+        "topLeft": "Black Hole",
+        "topRight": "Black Hole",
+        "bottomLeft": "Black Hole",
+        "bottomRight": "Black Hole"
+      },
+      "rect": [
+        768,
+        160,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 187,
+      "corners": {
+        "topLeft": "Water",
+        "topRight": "Water",
+        "bottomLeft": "Water",
+        "bottomRight": "Water"
+      },
+      "rect": [
+        864,
+        160,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 193,
+      "corners": {
+        "topLeft": "Grass",
+        "topRight": "Grass",
+        "bottomLeft": "Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        32,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 194,
+      "corners": {
+        "topLeft": "Grass",
+        "topRight": "Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Grass"
+      },
+      "rect": [
+        64,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 199,
+      "corners": {
+        "topLeft": "Dark Grass",
+        "topRight": "Dark Grass",
+        "bottomLeft": "Dark Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        224,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 200,
+      "corners": {
+        "topLeft": "Dark Grass",
+        "topRight": "Dark Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Dark Grass"
+      },
+      "rect": [
+        256,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 202,
+      "corners": {
+        "topLeft": "Short Grass",
+        "topRight": "Short Grass",
+        "bottomLeft": "Short Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        320,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 203,
+      "corners": {
+        "topLeft": "Short Grass",
+        "topRight": "Short Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Short Grass"
+      },
+      "rect": [
+        352,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 205,
+      "corners": {
+        "topLeft": "Long Grass",
+        "topRight": "Long Grass",
+        "bottomLeft": "Long Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        416,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 206,
+      "corners": {
+        "topLeft": "Long Grass",
+        "topRight": "Long Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Long Grass"
+      },
+      "rect": [
+        448,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 208,
+      "corners": {
+        "topLeft": "Wheat",
+        "topRight": "Wheat",
+        "bottomLeft": "Wheat",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        512,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 209,
+      "corners": {
+        "topLeft": "Wheat",
+        "topRight": "Wheat",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Wheat"
+      },
+      "rect": [
+        544,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 211,
+      "corners": {
+        "topLeft": "Sand",
+        "topRight": "Sand",
+        "bottomLeft": "Sand",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        608,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 212,
+      "corners": {
+        "topLeft": "Sand",
+        "topRight": "Sand",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sand"
+      },
+      "rect": [
+        640,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 214,
+      "corners": {
+        "topLeft": "Sand Water",
+        "topRight": "Sand Water",
+        "bottomLeft": "Sand Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        704,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 215,
+      "corners": {
+        "topLeft": "Sand Water",
+        "topRight": "Sand Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sand Water"
+      },
+      "rect": [
+        736,
+        192,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 225,
+      "corners": {
+        "topLeft": "Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "Grass",
+        "bottomRight": "Grass"
+      },
+      "rect": [
+        32,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 226,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Grass",
+        "bottomLeft": "Grass",
+        "bottomRight": "Grass"
+      },
+      "rect": [
+        64,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 231,
+      "corners": {
+        "topLeft": "Dark Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "Dark Grass",
+        "bottomRight": "Dark Grass"
+      },
+      "rect": [
+        224,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 232,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Dark Grass",
+        "bottomLeft": "Dark Grass",
+        "bottomRight": "Dark Grass"
+      },
+      "rect": [
+        256,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 234,
+      "corners": {
+        "topLeft": "Short Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "Short Grass",
+        "bottomRight": "Short Grass"
+      },
+      "rect": [
+        320,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 235,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Short Grass",
+        "bottomLeft": "Short Grass",
+        "bottomRight": "Short Grass"
+      },
+      "rect": [
+        352,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 237,
+      "corners": {
+        "topLeft": "Long Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "Long Grass",
+        "bottomRight": "Long Grass"
+      },
+      "rect": [
+        416,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 238,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Long Grass",
+        "bottomLeft": "Long Grass",
+        "bottomRight": "Long Grass"
+      },
+      "rect": [
+        448,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 240,
+      "corners": {
+        "topLeft": "Wheat",
+        "topRight": "__empty__",
+        "bottomLeft": "Wheat",
+        "bottomRight": "Wheat"
+      },
+      "rect": [
+        512,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 241,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Wheat",
+        "bottomLeft": "Wheat",
+        "bottomRight": "Wheat"
+      },
+      "rect": [
+        544,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 243,
+      "corners": {
+        "topLeft": "Sand",
+        "topRight": "__empty__",
+        "bottomLeft": "Sand",
+        "bottomRight": "Sand"
+      },
+      "rect": [
+        608,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 244,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sand",
+        "bottomLeft": "Sand",
+        "bottomRight": "Sand"
+      },
+      "rect": [
+        640,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 246,
+      "corners": {
+        "topLeft": "Sand Water",
+        "topRight": "__empty__",
+        "bottomLeft": "Sand Water",
+        "bottomRight": "Sand Water"
+      },
+      "rect": [
+        704,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 247,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sand Water",
+        "bottomLeft": "Sand Water",
+        "bottomRight": "Sand Water"
+      },
+      "rect": [
+        736,
+        224,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 256,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Grass"
+      },
+      "rect": [
+        0,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 257,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Grass",
+        "bottomRight": "Grass"
+      },
+      "rect": [
+        32,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 258,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 262,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Dark Grass"
+      },
+      "rect": [
+        192,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 263,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Dark Grass",
+        "bottomRight": "Dark Grass"
+      },
+      "rect": [
+        224,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 264,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Dark Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        256,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 265,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Short Grass"
+      },
+      "rect": [
+        288,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 266,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Short Grass",
+        "bottomRight": "Short Grass"
+      },
+      "rect": [
+        320,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 267,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Short Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        352,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 268,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Long Grass"
+      },
+      "rect": [
+        384,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 269,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Long Grass",
+        "bottomRight": "Long Grass"
+      },
+      "rect": [
+        416,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 270,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Long Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        448,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 271,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Wheat"
+      },
+      "rect": [
+        480,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 272,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Wheat",
+        "bottomRight": "Wheat"
+      },
+      "rect": [
+        512,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 273,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Wheat",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 274,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sand"
+      },
+      "rect": [
+        576,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 275,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Sand",
+        "bottomRight": "Sand"
+      },
+      "rect": [
+        608,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 276,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Sand",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 277,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sand Water"
+      },
+      "rect": [
+        672,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 278,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Sand Water",
+        "bottomRight": "Sand Water"
+      },
+      "rect": [
+        704,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 279,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Sand Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        256,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 288,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Grass"
+      },
+      "rect": [
+        0,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 290,
+      "corners": {
+        "topLeft": "Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 292,
+      "corners": {
+        "topLeft": "Grass",
+        "topRight": "Grass",
+        "bottomLeft": "Grass",
+        "bottomRight": "Grass"
+      },
+      "rect": [
+        128,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 294,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Dark Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Dark Grass"
+      },
+      "rect": [
+        192,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 295,
+      "corners": {
+        "topLeft": "Dark Grass",
+        "topRight": "Dark Grass",
+        "bottomLeft": "Dark Grass",
+        "bottomRight": "Dark Grass"
+      },
+      "rect": [
+        224,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 296,
+      "corners": {
+        "topLeft": "Dark Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "Dark Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        256,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 297,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Short Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Short Grass"
+      },
+      "rect": [
+        288,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 298,
+      "corners": {
+        "topLeft": "Short Grass",
+        "topRight": "Short Grass",
+        "bottomLeft": "Short Grass",
+        "bottomRight": "Short Grass"
+      },
+      "rect": [
+        320,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 299,
+      "corners": {
+        "topLeft": "Short Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "Short Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        352,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 300,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Long Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Long Grass"
+      },
+      "rect": [
+        384,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 301,
+      "corners": {
+        "topLeft": "Long Grass",
+        "topRight": "Long Grass",
+        "bottomLeft": "Long Grass",
+        "bottomRight": "Long Grass"
+      },
+      "rect": [
+        416,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 302,
+      "corners": {
+        "topLeft": "Long Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "Long Grass",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        448,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 303,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Wheat",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Wheat"
+      },
+      "rect": [
+        480,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 304,
+      "corners": {
+        "topLeft": "Wheat",
+        "topRight": "Wheat",
+        "bottomLeft": "Wheat",
+        "bottomRight": "Wheat"
+      },
+      "rect": [
+        512,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 305,
+      "corners": {
+        "topLeft": "Wheat",
+        "topRight": "__empty__",
+        "bottomLeft": "Wheat",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 306,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sand",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sand"
+      },
+      "rect": [
+        576,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 307,
+      "corners": {
+        "topLeft": "Sand",
+        "topRight": "Sand",
+        "bottomLeft": "Sand",
+        "bottomRight": "Sand"
+      },
+      "rect": [
+        608,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 308,
+      "corners": {
+        "topLeft": "Sand",
+        "topRight": "__empty__",
+        "bottomLeft": "Sand",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 309,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sand Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sand Water"
+      },
+      "rect": [
+        672,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 310,
+      "corners": {
+        "topLeft": "Sand Water",
+        "topRight": "Sand Water",
+        "bottomLeft": "Sand Water",
+        "bottomRight": "Sand Water"
+      },
+      "rect": [
+        704,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 311,
+      "corners": {
+        "topLeft": "Sand Water",
+        "topRight": "__empty__",
+        "bottomLeft": "Sand Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        288,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 320,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        0,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 321,
+      "corners": {
+        "topLeft": "Grass",
+        "topRight": "Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        32,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 322,
+      "corners": {
+        "topLeft": "Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 326,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Dark Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        192,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 327,
+      "corners": {
+        "topLeft": "Dark Grass",
+        "topRight": "Dark Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        224,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 328,
+      "corners": {
+        "topLeft": "Dark Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        256,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 329,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Short Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        288,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 330,
+      "corners": {
+        "topLeft": "Short Grass",
+        "topRight": "Short Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        320,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 331,
+      "corners": {
+        "topLeft": "Short Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        352,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 332,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Long Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        384,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 333,
+      "corners": {
+        "topLeft": "Long Grass",
+        "topRight": "Long Grass",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        416,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 334,
+      "corners": {
+        "topLeft": "Long Grass",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        448,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 335,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Wheat",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        480,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 336,
+      "corners": {
+        "topLeft": "Wheat",
+        "topRight": "Wheat",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        512,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 337,
+      "corners": {
+        "topLeft": "Wheat",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 338,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sand",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        576,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 339,
+      "corners": {
+        "topLeft": "Sand",
+        "topRight": "Sand",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        608,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 340,
+      "corners": {
+        "topLeft": "Sand",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 341,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sand Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        672,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 342,
+      "corners": {
+        "topLeft": "Sand Water",
+        "topRight": "Sand Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        704,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 343,
+      "corners": {
+        "topLeft": "Sand Water",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        320,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 385,
+      "corners": {
+        "topLeft": "Sewer Water",
+        "topRight": "Sewer Water",
+        "bottomLeft": "Sewer Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        32,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 386,
+      "corners": {
+        "topLeft": "Sewer Water",
+        "topRight": "Sewer Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sewer Water"
+      },
+      "rect": [
+        64,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 388,
+      "corners": {
+        "topLeft": "Sewer",
+        "topRight": "Sewer",
+        "bottomLeft": "Sewer",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        128,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 389,
+      "corners": {
+        "topLeft": "Sewer",
+        "topRight": "Sewer",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sewer"
+      },
+      "rect": [
+        160,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 395,
+      "corners": {
+        "topLeft": "Brick Road",
+        "topRight": "Brick Road",
+        "bottomLeft": "Brick Road",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        352,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 396,
+      "corners": {
+        "topLeft": "Brick Road",
+        "topRight": "Brick Road",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        384,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 397,
+      "corners": {
+        "topLeft": "Brick Road",
+        "topRight": "Brick Road",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Brick Road"
+      },
+      "rect": [
+        416,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 398,
+      "corners": {
+        "topLeft": "Brick Road",
+        "topRight": "Brick Road",
+        "bottomLeft": "Brick Road",
+        "bottomRight": "Brick Road"
+      },
+      "rect": [
+        448,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 400,
+      "corners": {
+        "topLeft": "Ice",
+        "topRight": "Ice",
+        "bottomLeft": "Ice",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        512,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 401,
+      "corners": {
+        "topLeft": "Ice",
+        "topRight": "Ice",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Ice"
+      },
+      "rect": [
+        544,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 403,
+      "corners": {
+        "topLeft": "Snow",
+        "topRight": "Snow",
+        "bottomLeft": "Snow",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        608,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 404,
+      "corners": {
+        "topLeft": "Snow",
+        "topRight": "Snow",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow"
+      },
+      "rect": [
+        640,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 406,
+      "corners": {
+        "topLeft": "Snow Ice",
+        "topRight": "Snow Ice",
+        "bottomLeft": "Snow Ice",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        704,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 407,
+      "corners": {
+        "topLeft": "Snow Ice",
+        "topRight": "Snow Ice",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow Ice"
+      },
+      "rect": [
+        736,
+        384,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 417,
+      "corners": {
+        "topLeft": "Sewer Water",
+        "topRight": "__empty__",
+        "bottomLeft": "Sewer Water",
+        "bottomRight": "Sewer Water"
+      },
+      "rect": [
+        32,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 418,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sewer Water",
+        "bottomLeft": "Sewer Water",
+        "bottomRight": "Sewer Water"
+      },
+      "rect": [
+        64,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 420,
+      "corners": {
+        "topLeft": "Sewer",
+        "topRight": "__empty__",
+        "bottomLeft": "Sewer",
+        "bottomRight": "Sewer"
+      },
+      "rect": [
+        128,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 421,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sewer",
+        "bottomLeft": "Sewer",
+        "bottomRight": "Sewer"
+      },
+      "rect": [
+        160,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 427,
+      "corners": {
+        "topLeft": "Brick Road",
+        "topRight": "__empty__",
+        "bottomLeft": "Brick Road",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        352,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 429,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Brick Road",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Brick Road"
+      },
+      "rect": [
+        416,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 432,
+      "corners": {
+        "topLeft": "Ice",
+        "topRight": "__empty__",
+        "bottomLeft": "Ice",
+        "bottomRight": "Ice"
+      },
+      "rect": [
+        512,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 433,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Ice",
+        "bottomLeft": "Ice",
+        "bottomRight": "Ice"
+      },
+      "rect": [
+        544,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 435,
+      "corners": {
+        "topLeft": "Snow",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow",
+        "bottomRight": "Snow"
+      },
+      "rect": [
+        608,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 436,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow",
+        "bottomLeft": "Snow",
+        "bottomRight": "Snow"
+      },
+      "rect": [
+        640,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 438,
+      "corners": {
+        "topLeft": "Snow Ice",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow Ice",
+        "bottomRight": "Snow Ice"
+      },
+      "rect": [
+        704,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 439,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow Ice",
+        "bottomLeft": "Snow Ice",
+        "bottomRight": "Snow Ice"
+      },
+      "rect": [
+        736,
+        416,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 448,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sewer Water"
+      },
+      "rect": [
+        0,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 449,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Sewer Water",
+        "bottomRight": "Sewer Water"
+      },
+      "rect": [
+        32,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 450,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Sewer Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 451,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sewer"
+      },
+      "rect": [
+        96,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 452,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Sewer",
+        "bottomRight": "Sewer"
+      },
+      "rect": [
+        128,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 453,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Sewer",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 459,
+      "corners": {
+        "topLeft": "Brick Road",
+        "topRight": "__empty__",
+        "bottomLeft": "Brick Road",
+        "bottomRight": "Brick Road"
+      },
+      "rect": [
+        352,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 460,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Brick Road",
+        "bottomRight": "Brick Road"
+      },
+      "rect": [
+        384,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 461,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Brick Road",
+        "bottomLeft": "Brick Road",
+        "bottomRight": "Brick Road"
+      },
+      "rect": [
+        416,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 463,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Ice"
+      },
+      "rect": [
+        480,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 464,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Ice",
+        "bottomRight": "Ice"
+      },
+      "rect": [
+        512,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 465,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Ice",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 466,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow"
+      },
+      "rect": [
+        576,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 467,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow",
+        "bottomRight": "Snow"
+      },
+      "rect": [
+        608,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 468,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 469,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow Ice"
+      },
+      "rect": [
+        672,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 470,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow Ice",
+        "bottomRight": "Snow Ice"
+      },
+      "rect": [
+        704,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 471,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow Ice",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        448,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 480,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sewer Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sewer Water"
+      },
+      "rect": [
+        0,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 482,
+      "corners": {
+        "topLeft": "Sewer Water",
+        "topRight": "__empty__",
+        "bottomLeft": "Sewer Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 483,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sewer",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Sewer"
+      },
+      "rect": [
+        96,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 484,
+      "corners": {
+        "topLeft": "Sewer",
+        "topRight": "Sewer",
+        "bottomLeft": "Sewer",
+        "bottomRight": "Sewer"
+      },
+      "rect": [
+        128,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 485,
+      "corners": {
+        "topLeft": "Sewer",
+        "topRight": "__empty__",
+        "bottomLeft": "Sewer",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 495,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Ice",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Ice"
+      },
+      "rect": [
+        480,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 496,
+      "corners": {
+        "topLeft": "Ice",
+        "topRight": "Ice",
+        "bottomLeft": "Ice",
+        "bottomRight": "Ice"
+      },
+      "rect": [
+        512,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 497,
+      "corners": {
+        "topLeft": "Ice",
+        "topRight": "__empty__",
+        "bottomLeft": "Ice",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 498,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow"
+      },
+      "rect": [
+        576,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 499,
+      "corners": {
+        "topLeft": "Snow",
+        "topRight": "Snow",
+        "bottomLeft": "Snow",
+        "bottomRight": "Snow"
+      },
+      "rect": [
+        608,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 500,
+      "corners": {
+        "topLeft": "Snow",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 501,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow Ice",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow Ice"
+      },
+      "rect": [
+        672,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 502,
+      "corners": {
+        "topLeft": "Snow Ice",
+        "topRight": "Snow Ice",
+        "bottomLeft": "Snow Ice",
+        "bottomRight": "Snow Ice"
+      },
+      "rect": [
+        704,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 503,
+      "corners": {
+        "topLeft": "Snow Ice",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow Ice",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 504,
+      "corners": {
+        "topLeft": "Full Dirt",
+        "topRight": "Full Dirt",
+        "bottomLeft": "Full Dirt",
+        "bottomRight": "Clean Dirt"
+      },
+      "rect": [
+        768,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 505,
+      "corners": {
+        "topLeft": "Full Dirt",
+        "topRight": "Full Dirt",
+        "bottomLeft": "Clean Dirt",
+        "bottomRight": "Clean Dirt"
+      },
+      "rect": [
+        800,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 506,
+      "corners": {
+        "topLeft": "Full Dirt",
+        "topRight": "Full Dirt",
+        "bottomLeft": "Clean Dirt",
+        "bottomRight": "Full Dirt"
+      },
+      "rect": [
+        832,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 507,
+      "corners": {
+        "topLeft": "Clean Dirt",
+        "topRight": "Clean Dirt",
+        "bottomLeft": "Clean Dirt",
+        "bottomRight": "Full Dirt"
+      },
+      "rect": [
+        864,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 508,
+      "corners": {
+        "topLeft": "Clean Dirt",
+        "topRight": "Clean Dirt",
+        "bottomLeft": "Full Dirt",
+        "bottomRight": "Clean Dirt"
+      },
+      "rect": [
+        896,
+        480,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 512,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sewer Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        0,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 513,
+      "corners": {
+        "topLeft": "Sewer Water",
+        "topRight": "Sewer Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        32,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 514,
+      "corners": {
+        "topLeft": "Sewer Water",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        64,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 515,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Sewer",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        96,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 516,
+      "corners": {
+        "topLeft": "Sewer",
+        "topRight": "Sewer",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        128,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 517,
+      "corners": {
+        "topLeft": "Sewer",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 524,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Brick Road"
+      },
+      "rect": [
+        384,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 525,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Brick Road",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        416,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 527,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Ice",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        480,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 528,
+      "corners": {
+        "topLeft": "Ice",
+        "topRight": "Ice",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        512,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 529,
+      "corners": {
+        "topLeft": "Ice",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        544,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 530,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        576,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 531,
+      "corners": {
+        "topLeft": "Snow",
+        "topRight": "Snow",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        608,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 532,
+      "corners": {
+        "topLeft": "Snow",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        640,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 533,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow Ice",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        672,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 534,
+      "corners": {
+        "topLeft": "Snow Ice",
+        "topRight": "Snow Ice",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        704,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 535,
+      "corners": {
+        "topLeft": "Snow Ice",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 536,
+      "corners": {
+        "topLeft": "Full Dirt",
+        "topRight": "Clean Dirt",
+        "bottomLeft": "Full Dirt",
+        "bottomRight": "Clean Dirt"
+      },
+      "rect": [
+        768,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 537,
+      "corners": {
+        "topLeft": "Clean Dirt",
+        "topRight": "Clean Dirt",
+        "bottomLeft": "Clean Dirt",
+        "bottomRight": "Clean Dirt"
+      },
+      "rect": [
+        800,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 538,
+      "corners": {
+        "topLeft": "Clean Dirt",
+        "topRight": "Full Dirt",
+        "bottomLeft": "Clean Dirt",
+        "bottomRight": "Full Dirt"
+      },
+      "rect": [
+        832,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 539,
+      "corners": {
+        "topLeft": "Clean Dirt",
+        "topRight": "Full Dirt",
+        "bottomLeft": "Clean Dirt",
+        "bottomRight": "Clean Dirt"
+      },
+      "rect": [
+        864,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 540,
+      "corners": {
+        "topLeft": "Full Dirt",
+        "topRight": "Clean Dirt",
+        "bottomLeft": "Clean Dirt",
+        "bottomRight": "Clean Dirt"
+      },
+      "rect": [
+        896,
+        512,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 544,
+      "corners": {
+        "topLeft": "Sewer Water",
+        "topRight": "Sewer Water",
+        "bottomLeft": "Sewer Water",
+        "bottomRight": "Sewer Water"
+      },
+      "rect": [
+        0,
+        544,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 556,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Brick Road",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        384,
+        544,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 557,
+      "corners": {
+        "topLeft": "Brick Road",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        416,
+        544,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 566,
+      "corners": {
+        "topLeft": "Snow Water",
+        "topRight": "Snow Water",
+        "bottomLeft": "Snow Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        704,
+        544,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 567,
+      "corners": {
+        "topLeft": "Snow Water",
+        "topRight": "Snow Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow Water"
+      },
+      "rect": [
+        736,
+        544,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 568,
+      "corners": {
+        "topLeft": "Full Dirt",
+        "topRight": "Clean Dirt",
+        "bottomLeft": "Full Dirt",
+        "bottomRight": "Full Dirt"
+      },
+      "rect": [
+        768,
+        544,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 569,
+      "corners": {
+        "topLeft": "Clean Dirt",
+        "topRight": "Clean Dirt",
+        "bottomLeft": "Full Dirt",
+        "bottomRight": "Full Dirt"
+      },
+      "rect": [
+        800,
+        544,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 570,
+      "corners": {
+        "topLeft": "Clean Dirt",
+        "topRight": "Full Dirt",
+        "bottomLeft": "Full Dirt",
+        "bottomRight": "Full Dirt"
+      },
+      "rect": [
+        832,
+        544,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 580,
+      "corners": {
+        "topLeft": "Earth",
+        "topRight": "Earth",
+        "bottomLeft": "Earth",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        128,
+        576,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 581,
+      "corners": {
+        "topLeft": "Earth",
+        "topRight": "Earth",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Earth"
+      },
+      "rect": [
+        160,
+        576,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 598,
+      "corners": {
+        "topLeft": "Snow Water",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow Water",
+        "bottomRight": "Snow Water"
+      },
+      "rect": [
+        704,
+        576,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 599,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow Water",
+        "bottomLeft": "Snow Water",
+        "bottomRight": "Snow Water"
+      },
+      "rect": [
+        736,
+        576,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 612,
+      "corners": {
+        "topLeft": "Earth",
+        "topRight": "__empty__",
+        "bottomLeft": "Earth",
+        "bottomRight": "Earth"
+      },
+      "rect": [
+        128,
+        608,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 613,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Earth",
+        "bottomLeft": "Earth",
+        "bottomRight": "Earth"
+      },
+      "rect": [
+        160,
+        608,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 629,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow Water"
+      },
+      "rect": [
+        672,
+        608,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 630,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow Water",
+        "bottomRight": "Snow Water"
+      },
+      "rect": [
+        704,
+        608,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 631,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        608,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 643,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Earth"
+      },
+      "rect": [
+        96,
+        640,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 644,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Earth",
+        "bottomRight": "Earth"
+      },
+      "rect": [
+        128,
+        640,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 645,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "__empty__",
+        "bottomLeft": "Earth",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        640,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 661,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Snow Water"
+      },
+      "rect": [
+        672,
+        640,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 662,
+      "corners": {
+        "topLeft": "Snow Water",
+        "topRight": "Snow Water",
+        "bottomLeft": "Snow Water",
+        "bottomRight": "Snow Water"
+      },
+      "rect": [
+        704,
+        640,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 663,
+      "corners": {
+        "topLeft": "Snow Water",
+        "topRight": "__empty__",
+        "bottomLeft": "Snow Water",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        640,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 675,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Earth",
+        "bottomLeft": "__empty__",
+        "bottomRight": "Earth"
+      },
+      "rect": [
+        96,
+        672,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 676,
+      "corners": {
+        "topLeft": "Earth",
+        "topRight": "Earth",
+        "bottomLeft": "Earth",
+        "bottomRight": "Earth"
+      },
+      "rect": [
+        128,
+        672,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 677,
+      "corners": {
+        "topLeft": "Earth",
+        "topRight": "__empty__",
+        "bottomLeft": "Earth",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        672,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 693,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Snow Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        672,
+        672,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 694,
+      "corners": {
+        "topLeft": "Snow Water",
+        "topRight": "Snow Water",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        704,
+        672,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 695,
+      "corners": {
+        "topLeft": "Snow Water",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        736,
+        672,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 707,
+      "corners": {
+        "topLeft": "__empty__",
+        "topRight": "Earth",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        96,
+        704,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 708,
+      "corners": {
+        "topLeft": "Earth",
+        "topRight": "Earth",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        128,
+        704,
+        32,
+        32
+      ]
+    },
+    {
+      "tileId": 709,
+      "corners": {
+        "topLeft": "Earth",
+        "topRight": "__empty__",
+        "bottomLeft": "__empty__",
+        "bottomRight": "__empty__"
+      },
+      "rect": [
+        160,
+        704,
+        32,
+        32
+      ]
+    }
+  ]
+}

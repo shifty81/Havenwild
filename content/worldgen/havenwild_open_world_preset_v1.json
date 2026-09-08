@@ -1,0 +1,183 @@
+{
+  "schema": "havenworld.open_world_preset.v1",
+  "id": "havenwild.default.factorio_style_overworld.v1",
+  "game": "Havenwild",
+  "generator_version": "havenwild.worldgen.v1",
+  "default_seed": 1337,
+  "overworld": {
+    "surface_id": "havenwild_main_surface",
+    "mode": "continuous_chunked_overworld",
+    "world_size_tiles": [
+      1024,
+      1024
+    ],
+    "chunk_size_tiles": [
+      64,
+      64
+    ],
+    "tile_size_pixels": [
+      32,
+      32
+    ],
+    "outdoor_transitions_allowed": false,
+    "interior_transition_types": [
+      "interior",
+      "cave",
+      "dungeon",
+      "cellar",
+      "upper_floor",
+      "special_event"
+    ]
+  },
+  "factorio_style_generation": {
+    "rerollable_seed": true,
+    "shareable_seed": true,
+    "deterministic_chunks": true,
+    "save_base_tiles_as_deltas_only": true,
+    "varies_per_world": [
+      "landmass_shape",
+      "coastline",
+      "river_layout",
+      "mountain_regions",
+      "town_layout",
+      "road_network",
+      "starter_tavern_plot",
+      "harbor_location",
+      "cave_entrances",
+      "resource_distribution",
+      "forage_distribution",
+      "soil_fertility",
+      "npc_home_work_layout",
+      "regional_cuisine_distribution"
+    ]
+  },
+  "required_anchors": [
+    "starter_tavern_plot",
+    "town_center",
+    "city_hall",
+    "harbor",
+    "starter_cave_entrance",
+    "main_road_network",
+    "early_forest",
+    "early_forage_zone",
+    "early_fertile_soil"
+  ],
+  "generation_stages": [
+    "seed_and_settings",
+    "landmass_mask",
+    "heightmap",
+    "moisture_temperature_fertility_fields",
+    "biome_assignment",
+    "water_rivers_lakes_shore_bands",
+    "coastline_cleanup_and_transition_bake",
+    "mountain_highland_cave_region_placement",
+    "tavern_town_harbor_city_hall_anchor_placement",
+    "road_and_path_graph_solve",
+    "npc_home_work_public_marker_placement",
+    "resource_forage_crop_fish_distribution",
+    "cave_entrance_and_cave_seed_assignment",
+    "texture_material_autotile_bake",
+    "validation_pass",
+    "chunk_delta_save_initialization"
+  ],
+  "caves": {
+    "mode": "procedural_chunked_depths",
+    "effectively_infinite": true,
+    "chunk_size_tiles": [
+      64,
+      64
+    ],
+    "depth_bands": [
+      "upper",
+      "middle",
+      "deep",
+      "ancient"
+    ],
+    "destructible_tiles": true,
+    "weak_spots_enabled": true,
+    "weak_spot_types": [
+      "cracked_wall",
+      "weak_floor",
+      "collapsed_passage",
+      "suspicious_rubble",
+      "ore_pocket_plug"
+    ],
+    "reveal_types": [
+      "side_room",
+      "ore_pocket",
+      "treasure_nook",
+      "lower_shaft",
+      "biome_pocket",
+      "underground_water"
+    ],
+    "lower_shafts_require_rope_ladder": true,
+    "save_deltas": [
+      "mined_tiles",
+      "exploded_weak_spots",
+      "placed_ladders",
+      "placed_supports",
+      "collected_resources",
+      "opened_passages"
+    ]
+  },
+  "materials": {
+    "rendering_model": "texture_material_atlas_plus_overlays",
+    "pcg_outputs_material_ids": true,
+    "shader_role": "polish_only",
+    "required_overworld_families": [
+      "grass",
+      "dirt",
+      "road",
+      "stone_path",
+      "sand",
+      "shore",
+      "water",
+      "cliff",
+      "forest_floor",
+      "tilled_soil"
+    ],
+    "required_cave_families": [
+      "cave_floor",
+      "cave_wall",
+      "cracked_wall",
+      "weak_floor",
+      "ore_wall",
+      "rubble",
+      "shaft_edge",
+      "underground_water"
+    ]
+  },
+  "coastline_cleanup": {
+    "enabled": true,
+    "module": "crates/haven_world/src/autotile/shoreline_resolver.rs",
+    "runtimeHook": "Game::apply_generated_coastline_cleanup",
+    "editorDebugHotkey": "F3 then T",
+    "preserveAuthoredTiles": true,
+    "passes": [
+      "remove_isolated_water_speckles",
+      "erode_single_tile_land_spikes",
+      "rebuild_shallow_water_band",
+      "rebuild_primary_shore_band",
+      "rebuild_secondary_shore_band",
+      "leave_renderer_transition_overlays_to_transition_resolver"
+    ],
+    "protectedFamilies": [
+      "road",
+      "wood_floor",
+      "stone_floor",
+      "farm",
+      "greenhouse",
+      "rock_wall",
+      "cave"
+    ],
+    "reportFields": [
+      "removed_water_speckles",
+      "eroded_land_spikes",
+      "shallow_water_band_tiles",
+      "deep_water_tiles",
+      "primary_shore_tiles",
+      "secondary_shore_tiles",
+      "preserved_structural_tiles"
+    ]
+  }
+}

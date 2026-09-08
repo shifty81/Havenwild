@@ -1,0 +1,281 @@
+{
+  "schema": "havenwild.lpc_project_asset_routes.v0_1",
+  "version": "0.1.0",
+  "pass": "167Z38",
+  "authority": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
+  "sourceRoot": "assets/source/licensed/lpc_revised",
+  "policy": {
+    "rawSourceTreeImmutable": true,
+    "catalogBeforeRuntimePromotion": true,
+    "editorAndRuntimeUseSameStableIds": true,
+    "nonElizaWyAssetsDefaultToReferenceOnly": true,
+    "generatedOutputsMayBeDeletedAndRebuilt": true
+  },
+  "routes": [
+    {
+      "domain": "terrain",
+      "sourcePrefixes": [
+        "Terrain/"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/terrain.json",
+      "projectNamespaces": [
+        "terrain.ground",
+        "terrain.water",
+        "terrain.coast",
+        "terrain.cliff",
+        "terrain.farm",
+        "terrain.feature"
+      ],
+      "runtimeDestinations": [
+        "assets/generated/worldgen_v0_1/terrain",
+        "content/assets/terrain_material_bindings_v0_2.json"
+      ],
+      "editorCollection": "Terrain Library",
+      "systemOwners": [
+        "worldgen",
+        "runtime_terrain",
+        "world_editor",
+        "pixel_studio"
+      ],
+      "promotionPolicy": "exact_authored_cells_or_reviewed_connected_components"
+    },
+    {
+      "domain": "nature",
+      "sourcePrefixes": [
+        "Terrain/"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/nature.json",
+      "projectNamespaces": [
+        "nature.tree",
+        "nature.shrub",
+        "nature.flower",
+        "nature.mushroom",
+        "nature.herb",
+        "nature.rock",
+        "nature.reed"
+      ],
+      "runtimeDestinations": [
+        "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+        "assets/generated/havenwild_lpc_objects_160x192_v2.json",
+        "content/worldgen/scenes/open_world"
+      ],
+      "editorCollection": "Nature & Biomes",
+      "systemOwners": [
+        "biome_worldgen",
+        "runtime_objects",
+        "world_editor",
+        "foraging",
+        "forestry",
+        "mining"
+      ],
+      "promotionPolicy": "tree_first_ecology_with_native_scale_canopies_explicit_trunk_collision_and_authored_understory"
+    },
+    {
+      "domain": "objects",
+      "sourcePrefixes": [
+        "Objects/"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/objects.json",
+      "projectNamespaces": [
+        "object.furniture",
+        "object.storage",
+        "object.crafting",
+        "object.commerce",
+        "object.decor",
+        "object.item",
+        "object.tool",
+        "object.food"
+      ],
+      "runtimeDestinations": [
+        "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+        "content/placeables",
+        "content/items"
+      ],
+      "editorCollection": "Objects & Placeables",
+      "systemOwners": [
+        "placeables",
+        "interiors",
+        "inventory",
+        "crafting",
+        "shops",
+        "taverns",
+        "editor"
+      ],
+      "promotionPolicy": "explicit_semantic_binding_and_foot_anchor_required"
+    },
+    {
+      "domain": "structure",
+      "sourcePrefixes": [
+        "Structure/"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/structure.json",
+      "projectNamespaces": [
+        "structure.floor",
+        "structure.wall",
+        "structure.door",
+        "structure.window",
+        "structure.roof",
+        "structure.fence",
+        "structure.bridge",
+        "structure.stairs",
+        "structure.misc"
+      ],
+      "runtimeDestinations": [
+        "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+        "content/building",
+        "content/worldgen"
+      ],
+      "editorCollection": "Buildings & Structures",
+      "systemOwners": [
+        "building_system",
+        "city_authoring",
+        "interiors",
+        "world_editor",
+        "runtime_structures"
+      ],
+      "promotionPolicy": "authored_tile_or_multitile_stamp_with_collision_and_attachment_metadata"
+    },
+    {
+      "domain": "characters",
+      "sourcePrefixes": [
+        "Characters/"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/characters.json",
+      "projectNamespaces": [
+        "character.body",
+        "character.head",
+        "character.hair",
+        "character.clothing",
+        "character.armor",
+        "character.tool",
+        "character.weapon",
+        "character.animation"
+      ],
+      "runtimeDestinations": [
+        "assets/generated/lpc/characters",
+        "content/characters",
+        "content/equipment"
+      ],
+      "editorCollection": "Characters & Animation",
+      "systemOwners": [
+        "character_creator",
+        "npc_generation",
+        "equipment",
+        "animation_runtime",
+        "portrait_pipeline"
+      ],
+      "promotionPolicy": "layered_lpc_revised_character_contract; generator extensions must remain compatible"
+    },
+    {
+      "domain": "fx",
+      "sourcePrefixes": [
+        "FX/"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/fx.json",
+      "projectNamespaces": [
+        "fx.interaction",
+        "fx.weather",
+        "fx.magic",
+        "fx.projectile",
+        "fx.environment"
+      ],
+      "runtimeDestinations": [
+        "assets/generated/lpc/fx",
+        "content/fx"
+      ],
+      "editorCollection": "Effects",
+      "systemOwners": [
+        "runtime_fx",
+        "animation_editor",
+        "world_editor"
+      ],
+      "promotionPolicy": "explicit_frame_grid_and_playback_metadata_required"
+    },
+    {
+      "domain": "palette",
+      "sourcePrefixes": [
+        "_ Palette/"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/palette.json",
+      "projectNamespaces": [
+        "palette.lpc_revised"
+      ],
+      "runtimeDestinations": [
+        "content/assets/pixel_editor",
+        "content/editor"
+      ],
+      "editorCollection": "LPC Palette",
+      "systemOwners": [
+        "pixel_studio",
+        "character_creator",
+        "asset_validation"
+      ],
+      "promotionPolicy": "authoring_palette_and_color_harmony_reference"
+    },
+    {
+      "domain": "reference_scenes",
+      "sourcePrefixes": [
+        "_ Test Scenes/"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/reference_scenes.json",
+      "projectNamespaces": [
+        "reference.lpc_test_scene"
+      ],
+      "runtimeDestinations": [
+        "docs/audits/generated",
+        "WORKSPACE/generated/lpc/reference"
+      ],
+      "editorCollection": "Reference Scenes",
+      "systemOwners": [
+        "asset_audit",
+        "editor_reference"
+      ],
+      "promotionPolicy": "never_ship_as_gameplay_content_without_explicit_promotion"
+    },
+    {
+      "domain": "repository_support",
+      "sourcePrefixes": [
+        "GithubReadme.png",
+        "GithubCharacterDemo.gif",
+        ".gitignore"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/repository_support.json",
+      "projectNamespaces": [
+        "reference.repository_preview",
+        "source.repository_support"
+      ],
+      "runtimeDestinations": [
+        "docs/audits/generated",
+        "WORKSPACE/generated/lpc/reference"
+      ],
+      "editorCollection": "Source Reference",
+      "systemOwners": [
+        "asset_audit",
+        "editor_reference"
+      ],
+      "promotionPolicy": "reference_only_never_used_as_gameplay_asset"
+    },
+    {
+      "domain": "legal_and_documentation",
+      "sourcePrefixes": [
+        "Credits.txt",
+        "README.md"
+      ],
+      "generatedCatalog": "WORKSPACE/generated/lpc/catalogs/legal_and_documentation.json",
+      "projectNamespaces": [
+        "legal.attribution",
+        "documentation.source"
+      ],
+      "runtimeDestinations": [
+        "content/credits",
+        "Build/HavenwildClient/credits"
+      ],
+      "editorCollection": "Credits & Licenses",
+      "systemOwners": [
+        "release_credits",
+        "asset_audit"
+      ],
+      "promotionPolicy": "package_required_attribution_outputs"
+    }
+  ]
+}

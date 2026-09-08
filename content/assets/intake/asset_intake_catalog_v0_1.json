@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.asset_intake_catalog.v0_1",
+  "updated": "2026-07-10-pass53-asset-intake-atlas-authoring",
+  "atlasOutput": "assets/generated/user_imports/havenwild_intake_atlas_v0_1.png",
+  "manifestOutput": "assets/generated/user_imports/havenwild_intake_atlas_v0_1.json",
+  "recipes": [
+    {
+      "stableId": "import/cave_entrance_project_generated",
+      "displayName": "Cave Entrance",
+      "sourcePath": "assets/source/original/cave_entrance_96.png",
+      "target": {
+        "kind": "tile",
+        "code": "grass"
+      },
+      "slice": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "pivot": {
+        "x": 48,
+        "y": 80
+      },
+      "footprint": {
+        "visual": [
+          -1,
+          -2,
+          3,
+          3
+        ],
+        "collision": [
+          -1,
+          0,
+          3,
+          1
+        ],
+        "interaction": [
+          -1,
+          0,
+          3,
+          1
+        ]
+      },
+      "license": {
+        "status": "blocked",
+        "attribution": "Original Havenwild project-generated cave entrance",
+        "sourceUrl": "",
+        "accepted": false
+      },
+      "promotionState": "draft"
+    }
+  ]
+}

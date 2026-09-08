@@ -1,0 +1,35 @@
+{
+  "schema": "havenwild.world_paint_delta_replay_contract.v0.1",
+  "version": 1,
+  "purpose": "Replay persisted world paint delta records onto scene maps for save/load reconstruction, editor preview, migration, and host/client synchronization dry runs.",
+  "sourceDeltaDocument": "WORKSPACE/generated/world_paint/world_paint_deltas_v0_1.json",
+  "canonicalTileSize": [32, 32],
+  "replayScope": ["active_scene", "all_scenes"],
+  "authoritativeInputs": [
+    "sequence",
+    "scene_id",
+    "center",
+    "family",
+    "layer",
+    "subcell_mode",
+    "strength",
+    "radius_tiles",
+    "mirror_horizontal",
+    "mirror_vertical",
+    "autotile_refresh_requested"
+  ],
+  "derivedClientOutputs": [
+    "resolved shorelines",
+    "foam overlays",
+    "tile variation visuals",
+    "debris visuals",
+    "editor preview overlays"
+  ],
+  "rules": [
+    "Replay never treats raw visual overlays as authoritative state.",
+    "Unknown scenes, families, or subcell modes are skipped and reported instead of panicking.",
+    "Replay uses the same deterministic brush backend as live painting.",
+    "Scene-filtered replay can rebuild only the active scene for fast dev overlay workflows.",
+    "All-scene replay is intended for save/load, migration, and host/client synchronization testing."
+  ]
+}

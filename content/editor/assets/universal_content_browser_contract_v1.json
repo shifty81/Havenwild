@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.universal_content_browser.v1",
+  "discovery_roots": [
+    "content/asset_packs",
+    "user/asset_packs",
+    "mods/asset_packs"
+  ],
+  "filters": [
+    "query",
+    "pack",
+    "category",
+    "tag",
+    "production_enabled",
+    "license_approved",
+    "runtime_readiness"
+  ],
+  "readiness_states": [
+    "manual_only",
+    "partially_configured",
+    "runtime_ready",
+    "production_verified",
+    "reference_only"
+  ],
+  "stable_identity": [
+    "pack_id",
+    "category",
+    "asset_id",
+    "source_id",
+    "variant_id"
+  ],
+  "rules": {
+    "reference_only_visible": true,
+    "reference_only_production_resolvable": false,
+    "terrain_special_case": false,
+    "hardcoded_pack_names": false,
+    "existing_palette_replaced": false
+  }
+}

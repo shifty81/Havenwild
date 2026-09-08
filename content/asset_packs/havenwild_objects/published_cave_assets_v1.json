@@ -1,0 +1,114 @@
+{
+  "schema": "havenwild.published_world_asset_catalog.v1",
+  "notes": [
+    "W49 cave-specific catalog is discovered by the existing PublishedWorldAssetRegistry; it is not a second registry.",
+    "Only exact evidence-backed identities are published here."
+  ],
+  "entries": [
+    {
+      "id": "resource_ore_iron_01",
+      "semantic_id": "resource.ore.iron.01",
+      "label": "Iron Ore Node",
+      "category": "tile_object",
+      "source_semantic_id": "object.catalog.runtime",
+      "footprint": {
+        "visual_offset": [
+          0,
+          -5
+        ],
+        "visual_size": [
+          5,
+          6
+        ],
+        "collision_offset": [
+          0,
+          0
+        ],
+        "collision_size": [
+          1,
+          1
+        ],
+        "interaction_offset": [
+          -1,
+          -1
+        ],
+        "interaction_size": [
+          3,
+          3
+        ],
+        "blocks_movement": true,
+        "occludes_player": false,
+        "fade_when_player_behind": false
+      },
+      "anchor": [
+        0,
+        0
+      ],
+      "allowed_surfaces": [
+        "ground",
+        "cave_floor",
+        "rock"
+      ],
+      "forbidden_surfaces": [
+        "water",
+        "floor"
+      ],
+      "placement_tags": [
+        "cave",
+        "mine",
+        "resource",
+        "wall_adjacent"
+      ],
+      "states": [
+        "default"
+      ],
+      "visual": {
+        "foot_anchor": [
+          80.0,
+          192.0
+        ],
+        "frames": [
+          {
+            "state": "default",
+            "source_rect": [
+              800,
+              0,
+              160,
+              192
+            ]
+          }
+        ]
+      },
+      "interaction": {
+        "action": "inspect",
+        "message": "Iron ore node selected: mining interaction authority."
+      },
+      "behavior": {
+        "interaction_trigger": "interact",
+        "node_id": "behavior.resource.ore_iron_01"
+      },
+      "transitions": [],
+      "state_geometry": [],
+      "attachment_points": [],
+      "role": "placeable",
+      "certification": "candidate",
+      "aliases": [
+        "ore_node_iron"
+      ],
+      "provenance": {
+        "authority": "lpc_revised_exact_connected_component",
+        "source_path": "assets/source/licensed/lpc_revised/Objects/Small Items/Ores & Ingots/Ore, Iron.png",
+        "source_rect": [
+          3,
+          35,
+          28,
+          28
+        ],
+        "source_mode": "lpc_connected_component_native_scale_large_cell",
+        "note": "W49 promotes the already-audited iron source identity. Other ore materials remain separate/deferred."
+      },
+      "legacy_object_kind": "ore_node",
+      "legacy_object_kind_primary": true
+    }
+  ]
+}

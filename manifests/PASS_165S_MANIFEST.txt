@@ -1,0 +1,3 @@
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+ADD docs/patch/PASS_165S_OFFLINE_STATION_PROCESSING.md
+ADD manifests/PASS_165S_MANIFEST.txt

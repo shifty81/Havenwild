@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.import_profile.v1",
+  "id": "raw_sheet_32_v1",
+  "provider": "raw_image_sheet",
+  "tile_size": [32, 32],
+  "margin": 0,
+  "spacing": 0,
+  "properties": {
+    "initial_state": "manual_only",
+    "infer_semantics": false
+  }
+}

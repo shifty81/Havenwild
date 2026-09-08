@@ -1,0 +1,73 @@
+{
+  "schema": "havenwild.building_instance_authority.v1",
+  "pass": "167Z109W46C",
+  "authority": "BuildingInstanceRegistry",
+  "recipeAuthority": "BuildingRecipeRegistry",
+  "visualAuthority": "PublishedWorldAssetRegistry",
+  "rules": {
+    "scenePlacementReferencesRecipeById": true,
+    "instanceOwnsOnePersistentIdentityAcrossLevels": true,
+    "ordinaryFloorsRemainSameScene": true,
+    "cameraViewStateIsPerClient": true,
+    "activeLevelIsPresentationAndTraversalState": true,
+    "allLevelsRemainAuthoritative": true,
+    "stairTraversalMutatesLevelNotScene": true,
+    "roofCutawayIsCameraLocal": true,
+    "wallCutawayIsCameraLocal": true,
+    "wallCollisionUsesLogicalRecipeGeometry": true,
+    "missingFacingVisualDoesNotRemoveCollision": true,
+    "publishedWorldAssetRegistryRemainsVisualAuthority": true,
+    "authoredPlacementUsesStableInstanceId": true,
+    "editorPlaceMoveDeleteMutatesBuildingInstanceAuthority": true,
+    "continuousSurfacePlacementUsesGlobalAnchor": true,
+    "worldgenPlacementUsesBuildingInstanceRegistry": true,
+    "saveStateUsesDeltaOverlay": true,
+    "persistentDoorStateOverridesRecipeDefault": true,
+    "persistentStateNeverContainsCameraCutaway": true,
+    "multiplayerReplicatesAuthoritativeBuildingStateOnly": true,
+    "viewActiveLevelAndInsideRemainCameraLocal": true,
+    "multiplayerSequenceIsGlobalNotPerInstanceRevision": true,
+    "replicatedBuildingStateAppliesThroughBuildingInstanceRegistry": true
+  },
+  "acceptance": {
+    "instanceId": "havenwild.acceptance.three_level_house",
+    "sceneId": "building_instance_acceptance",
+    "levels": [
+      -1,
+      0,
+      1
+    ],
+    "groundEntryDoorStartsOpenForTraversalTest": true,
+    "cellarConnectorTile": [
+      2,
+      4
+    ],
+    "upstairsConnectorTile": [
+      6,
+      4
+    ]
+  },
+  "w46c": {
+    "saveSchema": "havenwild.building_instance_world_state.v1",
+    "saveRelativePath": "buildings/building_instance_deltas.json",
+    "placementSpaces": [
+      "scene_local",
+      "continuous_surface"
+    ],
+    "origins": [
+      "authored",
+      "worldgen",
+      "player_built",
+      "diagnostic"
+    ],
+    "editorControls": {
+      "place": "Ctrl+B",
+      "move": "Ctrl+Alt+Arrow",
+      "delete": "Ctrl+Shift+B",
+      "previewFloor": "PageUp/PageDown",
+      "cutaway": "Home"
+    },
+    "worldgenSceneField": "buildingInstances",
+    "replication": "host-authoritative placement/opening-state snapshot with global sequence and registry replica-apply path; no camera-local cutaway fields"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "havenwild.canvas_tool_capability_matrix.v1",
+  "pass": "167Z109W60E7",
+  "authority": "ToolRegistry + CanvasLayerStack + workspace adapter",
+  "rules": {
+    "enabledMeansExactAdapterExists": true,
+    "unsupportedToolsRemainVisibleDisabled": true,
+    "layerChangesNeverArmMutatingTools": true,
+    "lockedLayersRejectMutation": true,
+    "pixelEditMayOpenLockedReferenceLayers": true,
+    "numericShortcutsAreUniversalIntents": true,
+    "letterShortcutsAreContextualOnlyWhenUnambiguous": true,
+    "plainFIsFill": true,
+    "frameSelectionShortcut": "Shift+F",
+    "layerShortcut": "Alt+1..9"
+  },
+  "toolVocabulary": [
+    "inspect",
+    "select",
+    "pan",
+    "paint",
+    "erase",
+    "fill",
+    "replace",
+    "pick",
+    "rectangle",
+    "line",
+    "place",
+    "move",
+    "link",
+    "collision",
+    "pixel_edit",
+    "anchor",
+    "socket",
+    "event"
+  ],
+  "statusMeaning": {
+    "wired": "shared tool rail has a real adapter for the active workspace/layer",
+    "legacy": "function exists elsewhere but is not yet owned by the shared tool rail",
+    "partial": "some behavior exists but the advertised tool contract is incomplete",
+    "planned": "required capability is specced but not implemented",
+    "not_applicable": "tool has no meaningful operation for the workspace/layer"
+  },
+  "workspaces": {
+    "scene_editor": {
+      "wired": [
+        "terrain.select", "terrain.pan", "terrain.paint", "terrain.erase", "terrain.fill", "terrain.replace", "terrain.pick", "terrain.rectangle", "terrain.pixel_edit",
+        "terrain_transitions.pixel_edit", "structural_terrain.pixel_edit",
+        "buildings.pixel_edit",
+        "objects.place", "objects.pick", "objects.pixel_edit",
+        "authored_pixels.pixel_edit",
+        "collision.pixel_edit",
+        "zones.paint", "zones.erase", "zones.fill", "zones.replace", "zones.rectangle",
+        "links.place", "links.erase", "links.pick"
+      ],
+      "legacy": [
+        "building.place", "building.delete", "building.move", "building.preview_floor", "building.cutaway",
+        "selection.move", "selection.copy", "selection.paste", "selection.duplicate", "selection.delete",
+        "layer.opacity", "legacy_right_tools_tab"
+      ],
+      "planned": [
+        "buildings.select", "buildings.move", "buildings.place", "buildings.pick",
+        "collision.direct_add_subtract", "navigation.paint", "interaction.paint", "shelter.paint", "occlusion.paint",
+        "logic_bindings.inspect", "logic_bindings.link"
+      ]
+    },
+    "world_editor": {
+      "wired": [
+        "terrain.select", "terrain.pan", "terrain.paint", "terrain.erase", "terrain.fill", "terrain.replace", "terrain.pick", "terrain.rectangle", "terrain.pixel_edit",
+        "terrain_transitions.pixel_edit",
+        "objects.place", "objects.pick", "objects.pixel_edit",
+        "authored_pixels.pixel_edit", "collision.pixel_edit",
+        "zones.paint", "zones.erase", "zones.fill", "zones.replace", "zones.rectangle",
+        "structural_levels.fill", "structural_levels.pick", "structural_levels.rectangle"
+      ],
+      "legacy": [
+        "partition.move_diagnostic", "selection.copy", "selection.paste", "asset_place_preview", "paste_preview"
+      ],
+      "planned": [
+        "objects.move", "objects.rectangle", "buildings.direct_adapter", "navigation.paint", "links.author", "pcg_semantics.paint"
+      ]
+    },
+    "pixel_studio": {
+      "wired": [
+        "select.marquee", "pan", "paint.pencil_1px_default", "erase", "fill", "pick", "rectangle", "line",
+        "collision.paint_add_subtract", "symmetry.horizontal", "symmetry.vertical", "selection.flip_horizontal", "selection.flip_vertical",
+        "palette.add_color", "building_composite.publish"
+      ],
+      "partial": [
+        "selection.rectangle_only", "selection.transform_move", "frame_selection_mode"
+      ],
+      "planned": [
+        "selection.ellipse", "selection.lasso", "selection.polygon_lasso", "selection.magic_wand", "selection.by_color",
+        "selection.add_subtract_intersect", "selection.floating", "selection.rotate_90", "selection.crop",
+        "shape.ellipse", "shape.polygon", "brush.pixel_perfect_line", "brush.shading", "brush.contour", "brush.tiled_preview_x_y",
+        "transform.scale_nearest", "symmetry.draggable_axis"
+      ]
+    },
+    "animation_studio": {
+      "wired": [
+        "select", "frame.pixel_edit", "anchor.pivot", "anchor.shadow", "socket.place",
+        "frame.add", "frame.duplicate", "frame.delete", "frame.duration", "clip.cycle", "frame.cycle", "onion_skin", "playback", "publish"
+      ],
+      "legacy": ["event.toggle_from_inspector"],
+      "planned": [
+        "event.canvas_tool", "anchor.foot_ground", "anchor.clip_default_frame_override", "socket.drag_edit", "socket.delete",
+        "hitbox.author", "hurtbox.author", "motion_path", "root_motion", "attachment_preview", "timeline_multiselect", "animation_tags"
+      ]
+    },
+    "character_studio": {
+      "legacy": [
+        "lpc_catalog.search", "lpc_catalog.filter", "recipe.layer_add_remove", "recipe.draft_save_load", "source_preview"
+      ],
+      "planned": [
+        "shared_canvas_adapter", "composited_character_canvas", "body_parts.layer_stack", "equipment.layer_stack", "palette_remap",
+        "animation_preview", "pivot_socket_preview", "character_collision", "character_publish", "npc_identity", "relationship_portrait_binding", "validation"
+      ]
+    },
+    "world_routes": {
+      "legacy": ["landmass.select", "route.begin", "route.connect", "route.persist", "scene_card.select"],
+      "planned": ["shared_select_adapter", "pan", "move_scene_card", "link_route", "place_connector", "delete_route", "route_properties"]
+    },
+    "scene_bank": {
+      "legacy": ["scene_card.select", "scene_card.cycle", "scene.open"],
+      "planned": ["shared_select_adapter", "pan", "move_scene_card", "link_transition", "search_filter", "grouping"]
+    },
+    "logic_node_editor": {
+      "planned": [
+        "select", "pan", "place_node", "move_node", "link_pins", "delete", "duplicate", "box_select", "group_comment", "reroute",
+        "object_binding", "scene_binding", "runtime_trace", "breakpoint", "compile_validate", "search_palette"
+      ]
+    }
+  },
+  "canonicalLayerGroups": {
+    "visual": [
+      "terrain", "terrain_transitions", "structural_terrain", "buildings", "objects_stamps", "authored_pixels", "character_parts", "lighting_shadow"
+    ],
+    "gameplay": [
+      "physical_collision", "navigation", "interaction", "zones_triggers", "transitions_links", "shelter_interior", "occlusion", "water_swim", "spawn_population", "buildability_farming", "hitboxes_hurtboxes", "logic_bindings"
+    ],
+    "animation": [
+      "frame_artwork", "pivot_origin", "foot_ground_anchor", "shadow_anchor", "sockets", "frame_events", "motion_path_root_motion", "attachment_preview"
+    ],
+    "guides": [
+      "source_reference", "grid_tile_bounds", "symmetry_axes", "frame_bounds_safe_area", "pcg_source_exemplar", "alignment_guides"
+    ]
+  },
+  "priorityGaps": [
+    "remove legacy Scene right-side Tools authority",
+    "wire shared Move adapters instead of implicit select-drag behavior",
+    "wire RegionGraph and SceneBank to shared tool rail",
+    "finish collision/navigation/interaction semantic authoring adapters",
+    "finish Pixel selection family and transform tools",
+    "finish Animation event/hitbox/hurtbox/anchor hierarchy",
+    "build real Character Studio compositing/publishing canvas",
+    "build Logic Node Editor and deterministic compiler/runtime adapter"
+  ]
+}

@@ -1,0 +1,13 @@
+Havenwild Complete Source Rollup — Pass 165ZB
+Date: 2026-07-31
+Base: Havenwild_CompleteSourceRollup_Pass165U_20260731.zip
+Applied incremental patches:
+- Havenwild_Pass165V_NativeEditorModuleRegistrationRepair_20260731.zip
+- Havenwild_Pass165W_ClippyDeadCodeQuestionMarkRepair_20260731.zip
+- Havenwild_Pass165X_MacroquadAudioFeatureEnablement_20260731.zip
+- Havenwild_Pass165Y_FrontendMusicVolumeBalance_20260731.zip
+- Havenwild_Pass165Z_TitleMenuHoverBorderRemoval_20260731.zip
+- Havenwild_Pass165ZA_FrontendClippyRegressionRepair_20260731.zip
+- Havenwild_Pass165ZB_CharacterFrontendVisualIntegration_20260731.zip
+Excluded as wrong-project content:
+- Havenwild_Pass165L_RuntimeIntegrationSpawnCertification_20260731.zip

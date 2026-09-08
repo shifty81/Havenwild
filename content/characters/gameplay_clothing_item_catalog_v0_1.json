@@ -1,0 +1,828 @@
+{
+  "schema": "havenwild.character.gameplay_clothing_item_catalog.v0_1",
+  "sourceAuthority": "content/characters/gameplay_character_equipment_policy_v0_1.json",
+  "localUniversalAuthority": "WORKSPACE/generated/universal_lpc_character_authority_v167w.json",
+  "rules": {
+    "starterCreationUsesItems": true,
+    "inventoryItemsAreStackable": false,
+    "equippingReplacesSameSlot": true,
+    "removedEquipmentReturnsToInventory": true,
+    "runtimeReadyRequiresIdleAndWalk": true,
+    "headwearIsGameplayOnly": true,
+    "facialHairIsNotEquipment": true
+  },
+  "items": [
+    {
+      "itemId": "clothing_linen_tshirt",
+      "displayName": "Linen T-shirt",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_tshirt",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_tshirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "light",
+        "everyday"
+      ],
+      "sourceFamily": "Shirt 04 - T-shirt",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_long_work_shirt",
+      "displayName": "Long Work Shirt",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_long_shirt",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_long_shirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased",
+        "looted"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "work",
+        "everyday"
+      ],
+      "sourceFamily": "Shirt 01 - Longsleeve Shirt",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_traveler_tunic",
+      "displayName": "Traveler Tunic",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_tunic",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_tunic"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased",
+        "quest_reward",
+        "looted"
+      ],
+      "rarity": "uncommon",
+      "stackLimit": 1,
+      "tags": [
+        "travel",
+        "generic"
+      ],
+      "sourceFamily": "Universal LPC tunic family",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_plain_vest",
+      "displayName": "Plain Vest",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_vest",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_vest"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "work"
+      ],
+      "sourceFamily": "Universal LPC vest family",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_work_apron",
+      "displayName": "Work Apron",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_apron",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_apron"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased",
+        "profession_unlock"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "work",
+        "farmer",
+        "cook",
+        "tailor"
+      ],
+      "sourceFamily": "Universal LPC apron family",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_plain_trousers",
+      "displayName": "Plain Trousers",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_pants",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_pants"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "everyday"
+      ],
+      "sourceFamily": "Pants 03 - Pants",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_work_shorts",
+      "displayName": "Work Shorts",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_shorts",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_shorts"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased",
+        "looted"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "warm_weather",
+        "work"
+      ],
+      "sourceFamily": "Shorts 01 - Shorts",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_plain_skirt",
+      "displayName": "Plain Skirt",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_skirt",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_skirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "everyday"
+      ],
+      "sourceFamily": "Skirts/Plain/Thin",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_long_skirt",
+      "displayName": "Long Skirt",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_long_skirt",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_long_skirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased",
+        "festival_reward"
+      ],
+      "rarity": "uncommon",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "formal",
+        "festival"
+      ],
+      "sourceFamily": "Universal LPC long skirt family",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_simple_boots",
+      "displayName": "Simple Boots",
+      "equipmentSlot": "feet",
+      "appearanceSlot": "clothing/feet",
+      "variantId": "starter_boots",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_boots"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased",
+        "looted"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "work",
+        "travel"
+      ],
+      "sourceFamily": "Shoes 02 - Boots",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_simple_shoes",
+      "displayName": "Simple Shoes",
+      "equipmentSlot": "feet",
+      "appearanceSlot": "clothing/feet",
+      "variantId": "starter_shoes",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_shoes"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "everyday"
+      ],
+      "sourceFamily": "Shoes 01 - Shoes",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_simple_sandals",
+      "displayName": "Simple Sandals",
+      "equipmentSlot": "feet",
+      "appearanceSlot": "clothing/feet",
+      "variantId": "starter_sandals",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "starter_sandals"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased",
+        "looted"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "generic",
+        "warm_weather",
+        "coastal"
+      ],
+      "sourceFamily": "Universal LPC sandals family",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "headwear_felt_hat",
+      "displayName": "Felt Hat",
+      "equipmentSlot": "head",
+      "appearanceSlot": "headwear",
+      "variantId": "headwear_hat",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "headwear_hat"
+      },
+      "acquisitionKinds": [
+        "crafted",
+        "purchased",
+        "looted"
+      ],
+      "rarity": "uncommon",
+      "stackLimit": 1,
+      "tags": [
+        "headwear",
+        "travel",
+        "farmer"
+      ],
+      "sourceFamily": "Universal LPC hat family",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "headwear_travel_hood",
+      "displayName": "Travel Hood",
+      "equipmentSlot": "head",
+      "appearanceSlot": "headwear",
+      "variantId": "headwear_hood",
+      "assetRef": {
+        "pack_id": "havenwild_starter_character",
+        "category": "clothing",
+        "asset_id": "gameplay_clothing",
+        "source_id": "universal_lpc",
+        "variant_id": "headwear_hood"
+      },
+      "acquisitionKinds": [
+        "crafted",
+        "purchased",
+        "quest_reward",
+        "looted"
+      ],
+      "rarity": "uncommon",
+      "stackLimit": 1,
+      "tags": [
+        "headwear",
+        "travel",
+        "rain",
+        "winter"
+      ],
+      "sourceFamily": "Universal LPC hood family",
+      "runtimeReady": true,
+      "licensePool": "selected_commercial"
+    },
+    {
+      "itemId": "clothing_vneck_tshirt",
+      "displayName": "V-neck T-shirt",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_vneck_tshirt",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_torso",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_vneck_tshirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "shirt",
+        "short_sleeve"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_scoop_tshirt",
+      "displayName": "Scoop-neck T-shirt",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_scoop_tshirt",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_torso",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_scoop_tshirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "shirt",
+        "short_sleeve"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_buttoned_tshirt",
+      "displayName": "Buttoned T-shirt",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_buttoned_tshirt",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_torso",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_buttoned_tshirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "shirt",
+        "short_sleeve"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_vneck_long_shirt",
+      "displayName": "V-neck Long Shirt",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_vneck_long_shirt",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_torso",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_vneck_long_shirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "shirt",
+        "long_sleeve"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_scoop_long_shirt",
+      "displayName": "Scoop-neck Long Shirt",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_scoop_long_shirt",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_torso",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_scoop_long_shirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "shirt",
+        "long_sleeve"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_buttoned_long_shirt",
+      "displayName": "Buttoned Long Shirt",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_buttoned_long_shirt",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_torso",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_buttoned_long_shirt"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "shirt",
+        "long_sleeve"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_plain_polo",
+      "displayName": "Plain Polo",
+      "equipmentSlot": "torso",
+      "appearanceSlot": "clothing/torso",
+      "variantId": "starter_polo",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_torso",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_polo"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "shirt",
+        "polo"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_plain_hose",
+      "displayName": "Plain Hose",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_hose",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_legs",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_hose"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "pants"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_plain_leggings",
+      "displayName": "Plain Leggings",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_leggings",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_legs",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_leggings"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "pants"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_cuffed_trousers",
+      "displayName": "Cuffed Trousers",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_cuffed_pants",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_legs",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_cuffed_pants"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "pants"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_plain_overalls",
+      "displayName": "Plain Overalls",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_overalls",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_legs",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_overalls"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "pants",
+        "workwear"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_short_shorts",
+      "displayName": "Short Shorts",
+      "equipmentSlot": "legs",
+      "appearanceSlot": "clothing/legs",
+      "variantId": "starter_short_shorts",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_legs",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_short_shorts"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "shorts"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_ankle_socks",
+      "displayName": "Ankle Socks",
+      "equipmentSlot": "feet",
+      "appearanceSlot": "clothing/feet",
+      "variantId": "starter_ankle_socks",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_feet",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_ankle_socks"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "socks"
+      ],
+      "runtimeReady": true
+    },
+    {
+      "itemId": "clothing_high_socks",
+      "displayName": "High Socks",
+      "equipmentSlot": "feet",
+      "appearanceSlot": "clothing/feet",
+      "variantId": "starter_high_socks",
+      "assetRef": {
+        "category": "clothing",
+        "pack_id": "havenwild_starter_character",
+        "asset_id": "starter_feet",
+        "source_id": "lpc_revised",
+        "variant_id": "starter_high_socks"
+      },
+      "acquisitionKinds": [
+        "character_creation",
+        "crafted",
+        "purchased"
+      ],
+      "rarity": "common",
+      "stackLimit": 1,
+      "tags": [
+        "clothing",
+        "generic",
+        "starter",
+        "socks"
+      ],
+      "runtimeReady": true
+    }
+  ]
+}

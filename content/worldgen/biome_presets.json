@@ -1,0 +1,107 @@
+{
+  "schema": "havenwild.worldgen.biome_presets.v1",
+  "tile_size": 32,
+  "height_model": {
+    "min": 0,
+    "max": 100,
+    "recommended_water_level": 34,
+    "recommended_mountain_level": 72,
+    "bands": [
+      { "id": "deep_water", "range": [0, 23], "default_tile": "deep_water" },
+      { "id": "water", "range": [24, 31], "default_tile": "water" },
+      { "id": "shallow_water", "range": [32, 34], "default_tile": "shallow_water" },
+      { "id": "wet_shore", "range": [35, 38], "default_tile": "wet_sand" },
+      { "id": "shore", "range": [39, 44], "default_tile": "sand" },
+      { "id": "lowland", "range": [45, 61], "default_tile": "grass" },
+      { "id": "upland", "range": [62, 71], "default_tile": "tall_grass" },
+      { "id": "cliff", "range": [72, 82], "default_tile": "cliff" },
+      { "id": "mountain", "range": [83, 100], "default_tile": "mountain_rock" }
+    ]
+  },
+  "presets": [
+    {
+      "id": "starter_island_temperate",
+      "display_name": "Starter Island Temperate",
+      "purpose": "Default island around the first tavern, fields, woods, city road, mountain cave entrance, and fishable water.",
+      "base_tiles": ["grass", "tall_grass", "dirt", "road", "stone_path"],
+      "water_tiles": ["shallow_water", "water", "deep_water"],
+      "shore_tiles": ["wet_sand", "sand", "pebble_shore"],
+      "elevation_tiles": ["cliff", "mountain_rock", "mountain_path"],
+      "forage_stamps": ["flower_grass", "clover_patch", "herb_patch"],
+      "object_stamps": ["tree", "bush", "stone", "wild_herbs"],
+      "crop_support": true,
+      "fishable": true,
+      "notes": "Use for early game; should read green, warm, and coastal without becoming tropical."
+    },
+    {
+      "id": "coastal_harbor",
+      "display_name": "Coastal Harbor",
+      "purpose": "Harbor scenes, loading-screen travel exits, docks, couriers, captains, and boat ownership staging.",
+      "base_tiles": ["sand", "wet_sand", "pebble_shore", "road", "plank_floor", "bridge"],
+      "water_tiles": ["shallow_water", "water", "deep_water", "river_foam"],
+      "shore_tiles": ["wet_sand", "sand", "pebble_shore"],
+      "elevation_tiles": ["cliff", "cliff_top"],
+      "forage_stamps": ["reed_bank", "driftwood", "shells"],
+      "object_stamps": ["dock_post", "crate", "barrel", "net", "boat_marker"],
+      "crop_support": false,
+      "fishable": true,
+      "notes": "Use water depth bands clearly: wet sand -> shallow water -> water -> deep water."
+    },
+    {
+      "id": "mountain_cave_mouth",
+      "display_name": "Mountain Cave Mouth",
+      "purpose": "Mountain center island approach, cave entrance exterior, mining access, and transition into cave scenes.",
+      "base_tiles": ["grass", "pebble_shore", "mountain_path", "cave_floor"],
+      "water_tiles": ["shallow_water", "water"],
+      "shore_tiles": ["pebble_shore", "mud"],
+      "elevation_tiles": ["cliff", "mountain_rock", "cave_wall"],
+      "forage_stamps": ["herb_patch", "moss", "mushroom"],
+      "object_stamps": ["ore_node", "cave_entrance", "fallen_log"],
+      "crop_support": false,
+      "fishable": true,
+      "notes": "Should connect tavern island identity to the mountain/cave progression loop."
+    },
+    {
+      "id": "farm_fields",
+      "display_name": "Farm Fields",
+      "purpose": "Farm expansion, soil quality, tilled/watered crops, animal support areas, and farmer automation.",
+      "base_tiles": ["grass", "dirt", "rich_soil", "tilled_soil", "tilled_soil_watered", "crop"],
+      "water_tiles": ["shallow_water", "water"],
+      "shore_tiles": ["mud", "reed_bank"],
+      "elevation_tiles": ["grass"],
+      "forage_stamps": ["clover_patch", "flower_grass"],
+      "object_stamps": ["fence", "scarecrow", "animal_trough", "compost_bin"],
+      "crop_support": true,
+      "fishable": true,
+      "notes": "Soil quality should be a state overlay, not a separate tile for every possible crop condition."
+    },
+    {
+      "id": "cave_depths",
+      "display_name": "Cave Depths",
+      "purpose": "Mining, recipe currency, rare cave ingredients, underground fishing, and relic rewards.",
+      "base_tiles": ["cave_floor", "ore_floor", "stone_path"],
+      "water_tiles": ["cave_water", "deep_water"],
+      "shore_tiles": ["mud", "pebble_shore"],
+      "elevation_tiles": ["cave_wall", "mountain_rock", "lava_crack"],
+      "forage_stamps": ["mushroom", "glow_moss", "cave_herb"],
+      "object_stamps": ["ore_node", "gem_node", "relic_cache", "shortcut_ladder"],
+      "crop_support": false,
+      "fishable": true,
+      "notes": "Caves should feed tavern gameplay with rare recipes/decor, not only ore."
+    },
+    {
+      "id": "interior_scene_void",
+      "display_name": "Interior Scene Void",
+      "purpose": "Scene-based interiors with black/dark backdrop for tavern rooms, houses, caves, dungeons, and upstairs inn expansion.",
+      "base_tiles": ["wood_floor", "plank_floor", "stone_floor", "brick_floor", "cellar_floor"],
+      "water_tiles": [],
+      "shore_tiles": [],
+      "elevation_tiles": ["wall", "interior_void"],
+      "forage_stamps": [],
+      "object_stamps": ["door", "stairs", "room_anchor", "caution_tape"],
+      "crop_support": false,
+      "fishable": false,
+      "notes": "Use for the locked separate-interior-scene direction with black/dark void bounds."
+    }
+  ]
+}

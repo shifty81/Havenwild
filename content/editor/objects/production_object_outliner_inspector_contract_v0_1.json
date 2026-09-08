@@ -1,0 +1,75 @@
+{
+  "schema": "havenwild.production_object_outliner_inspector_contract.v0_1",
+  "pass": "50",
+  "owner": "haven_editor_native",
+  "sceneOutliner": {
+    "projectSceneRegistry": true,
+    "create": true,
+    "duplicate": true,
+    "rename": true,
+    "delete": true,
+    "deleteRequiresConfirmation": true,
+    "inlineNameEntry": true,
+    "pagedSceneList": true,
+    "typedUndoForLifecycle": true
+  },
+  "objectOutliner": {
+    "stableObjectIds": true,
+    "searchByKindOrId": true,
+    "pagedObjectList": true,
+    "selectionUsesObjectId": true,
+    "selectionOpensInspector": true,
+    "vectorIndexSelectionForbidden": true
+  },
+  "inspector": {
+    "stableIdBinding": true,
+    "assetKeyDisplay": true,
+    "provenanceDisplay": true,
+    "editableFootprints": [
+      "Visual",
+      "Collision",
+      "Interaction"
+    ],
+    "editableProperties": [
+      "OffsetX",
+      "OffsetY",
+      "Width",
+      "Height",
+      "BlocksMovement",
+      "OccludesPlayer",
+      "FadeWhenPlayerBehind"
+    ],
+    "resetTarget": true,
+    "resetAll": true,
+    "focusDuplicateDeleteActions": true,
+    "placementValidation": true,
+    "oneTypedUndoEntryPerPropertyChange": true
+  },
+  "canvas": {
+    "visualFootprintOverlay": true,
+    "collisionFootprintOverlay": true,
+    "interactionFootprintOverlay": true,
+    "overlayVisibleInInspectorMode": true
+  },
+  "transactions": {
+    "updateObject": true,
+    "insertScene": true,
+    "removeScene": true,
+    "renameScene": true,
+    "stableIdsPreserved": true,
+    "sceneOrderPreservedOnUndo": true
+  },
+  "architecture": {
+    "headlessInspectorService": "crates/haven_editor/src/object_inspector.rs",
+    "headlessSceneManagementService": "crates/haven_editor/src/scene_management.rs",
+    "nativeInspectorModule": "apps/haven_editor_native/src/app/object_inspector.rs",
+    "nativeOutlinerModule": "apps/haven_editor_native/src/app/scene_outliner.rs",
+    "moduleLineCeiling": 750
+  },
+  "deferred": [
+    "custom object metadata schema editing",
+    "asset thumbnail browser integration",
+    "multi-object shared property editing"
+  ],
+  "nextPass": "Pass 51 live autotiling and terrain transition authoring"
+}

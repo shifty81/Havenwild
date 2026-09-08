@@ -1,0 +1,127 @@
+{
+  "id": "home_island_scene_contract_v0_1",
+  "version": "0.1.0",
+  "kind": "worldgen_scene_contract",
+  "defaultSceneSize": [
+    48,
+    32
+  ],
+  "tileSize": [
+    32,
+    32
+  ],
+  "runtimeSceneIds": [
+    {
+      "sceneId": "farmstead",
+      "role": "player_owned_exterior",
+      "borderPolicy": "forest_or_coast_by_neighbor"
+    },
+    {
+      "sceneId": "north_road",
+      "role": "main_city_approach",
+      "borderPolicy": "city_or_forest_by_neighbor"
+    },
+    {
+      "sceneId": "south_field",
+      "role": "farm_expansion",
+      "borderPolicy": "field_or_forest_by_neighbor"
+    },
+    {
+      "sceneId": "east_woods",
+      "role": "woodland_foraging",
+      "borderPolicy": "forest"
+    },
+    {
+      "sceneId": "cave_mouth",
+      "role": "mountain_cave_entry",
+      "borderPolicy": "mountain"
+    },
+    {
+      "sceneId": "tavern_interior",
+      "role": "main_tavern_room",
+      "borderPolicy": "interior_black_void"
+    },
+    {
+      "sceneId": "cellar",
+      "role": "aging_cellar",
+      "borderPolicy": "cave_darkness"
+    },
+    {
+      "sceneId": "guest_floor",
+      "role": "upstairs_inn",
+      "borderPolicy": "interior_black_void"
+    },
+    {
+      "sceneId": "cave_depths",
+      "role": "dungeon_cave_depths",
+      "borderPolicy": "cave_darkness"
+    }
+  ],
+  "placementRules": {
+    "mountainBaseTavernEntrance": {
+      "objectId": "home_tavern_mountain_entrance",
+      "targetScene": "farmstead",
+      "preferredAnchor": [
+        24,
+        10
+      ],
+      "visualFootprint": [
+        6,
+        5
+      ],
+      "collisionFootprint": [
+        6,
+        1
+      ]
+    },
+    "outsideBar": {
+      "objectId": "home_outside_bar",
+      "targetScene": "farmstead",
+      "requiresExpansionStage": 1,
+      "visualFootprint": [
+        4,
+        2
+      ],
+      "collisionFootprint": [
+        4,
+        1
+      ]
+    },
+    "sceneEdges": {
+      "atlas": "scene_edge_borders_32",
+      "mustAvoidVoid": true,
+      "useAdjacentSceneKind": true
+    },
+    "trees": {
+      "atlas": "home_island_trees_32",
+      "normalVisualMax": [
+        3,
+        5
+      ],
+      "specialVisualMax": [
+        5,
+        5
+      ],
+      "trunkCollisionDefault": [
+        1,
+        1
+      ]
+    },
+    "water": {
+      "atlas": "water_families_animated_32",
+      "families": [
+        "freshwater",
+        "river",
+        "ocean",
+        "river_mouth_blend"
+      ]
+    }
+  },
+  "validationRules": [
+    "all scene spawns must remain walkable",
+    "all transition rectangles must have a return link unless marked one_way",
+    "object visualFootprint may exceed collisionFootprint",
+    "fadeWhenPlayerBehind is required for tall walls, trees, and mountain entrance objects",
+    "scene borders must resolve to a border type instead of exposed void"
+  ]
+}

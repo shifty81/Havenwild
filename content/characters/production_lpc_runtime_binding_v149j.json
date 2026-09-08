@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.production_lpc_runtime_binding.v1",
+  "pass": "149J",
+  "frame_cell": [64, 96],
+  "direction_rows": ["north", "west", "south", "east"],
+  "idle_column": 0,
+  "walk_columns": [1, 2, 3, 4, 5, 6, 7, 8],
+  "layer_order": [
+    "body/base",
+    "clothing/legs",
+    "clothing/feet",
+    "clothing/torso",
+    "armor/legs",
+    "armor/feet",
+    "armor/torso",
+    "hair",
+    "headwear",
+    "tool",
+    "weapon"
+  ],
+  "source_resolution": "stable_asset_ref",
+  "production_enabled_packs_only": true,
+  "fallback": "procedural_character_only_when_no_layer_texture_resolves",
+  "consumers": ["world_player", "portrait", "multiplayer_replica"]
+}

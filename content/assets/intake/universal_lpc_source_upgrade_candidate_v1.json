@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.universal_lpc_source_upgrade_candidate.v1",
+  "activePinnedCommit": "0f898bb675a1abe16ce430e82e3bf9daed278690",
+  "auditedCandidateCommit": "538641d9eb1b65ce3fd8b761446477a06ba07862",
+  "candidateObservedDate": "2026-08-24",
+  "commitsAheadAtAudit": 132,
+  "activationPolicy": "Do not replace the active source lock until the local candidate mount regenerates all normalized catalogs and passes full character conformance, licensing/provenance validation, build and tests.",
+  "requiredBeforePromotion": [
+    "candidate_source_available_locally",
+    "sheet_definition_catalog_regenerated",
+    "palette_catalog_regenerated",
+    "credits_regenerated",
+    "equipment_seed_catalog_regenerated",
+    "character_conformance_clean",
+    "pants_boots_matrix_clean",
+    "custom_animation_geometry_clean",
+    "license_provenance_clean",
+    "full_quality_gate_green"
+  ]
+}

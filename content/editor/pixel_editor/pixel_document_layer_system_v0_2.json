@@ -1,0 +1,61 @@
+{
+  "schema": "havenwild.editor.pixel_document_layer_system.v0_2",
+  "workspace": "Pixel Studio",
+  "documentSchema": "havenwild.pixel_document.v0_2",
+  "sourcePolicy": {
+    "editGeneratedOutputsDirectly": false,
+    "workingCopiesAreProjectOwned": true,
+    "publishedRuntimeOutputsAreSeparate": true
+  },
+  "layers": {
+    "minimumCount": 1,
+    "operations": [
+      "add",
+      "duplicate",
+      "rename",
+      "reorder",
+      "merge_down",
+      "delete",
+      "show_hide",
+      "lock_unlock",
+      "opacity",
+      "blend_mode"
+    ],
+    "blendModes": ["normal", "multiply", "screen", "add", "erase"],
+    "compositeIsNonDestructive": true
+  },
+  "documentOperations": [
+    "resize_canvas",
+    "crop_to_selection",
+    "trim_transparent_padding",
+    "flip_selection_horizontal",
+    "flip_selection_vertical"
+  ],
+  "history": {
+    "snapshotIncludesPixels": true,
+    "snapshotIncludesLayers": true,
+    "snapshotIncludesMetadata": true,
+    "undoLimit": 64
+  },
+  "persistence": {
+    "flattenedPreviewExtension": "png",
+    "metadataExtension": "hhasset.json",
+    "layerPackageExtension": "hhpixel",
+    "layerDirectory": "layers",
+    "autosaveRoot": "WORKSPACE/recovery/pixel_studio",
+    "autosaveIntervalSeconds": 10,
+    "automaticRecovery": true,
+    "recentDocumentsPath": "WORKSPACE/pixel_studio/recent_documents.json"
+  },
+  "editor": {
+    "inspectorTabs": ["Layers & Document", "Grid & Publish"],
+    "dirtyStateVisible": true,
+    "recoveryStateVisible": true,
+    "saveAllIncludesOpenPixelDocument": true
+  },
+  "migration": {
+    "readsV01Sidecars": true,
+    "migratesToSingleBaseLayer": true,
+    "writesV02Only": true
+  }
+}

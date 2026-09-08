@@ -1,0 +1,650 @@
+{
+  "schema": "havenwild.donor_reference_asset_catalog.v0_1",
+  "updated": "2026-07-09",
+  "purpose": "Tracks third-party donor/reference asset sources for learning, editor reference browsing, mixed tile-size engine adaptation, and future Havenwild-original pixel-editor reconstruction workflows. This catalog does not copy raw third-party files into runtime content.",
+  "rules": {
+    "rawAssetDefault": "quarantine_or_user_supplied_only",
+    "runtimeDefault": "not_loaded_by_default",
+    "editorReferenceMode": "local_dev_reference_browser_only_unless_source_license_and_metadata_allow_prototype_ingest",
+    "pixelEditorRule": "use as reference and reconstruction guide; do not trace/pixel-copy restricted assets into original Havenwild art",
+    "tileSizeRule": "record source grid size and adapter mode before use; processed runtime outputs must have hhasset metadata"
+  },
+  "records": [
+    {
+      "id": "donor.rowdy41.wood_garden",
+      "externalSourceId": "third_party.rowdy41.wood_garden",
+      "displayName": "rowdy41 Wood Garden donor set",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "native_grid_or_2x_reference_preview"
+      ],
+      "families": [
+        "object.fences",
+        "object.garden_boxes",
+        "object.chairs",
+        "object.chests",
+        "terrain.wooden_path",
+        "decor.flowers"
+      ],
+      "referenceUsePolicy": "allowed_as_reference_and_prototype_fixture_with_attribution",
+      "prototypeIngestPolicy": "candidate_for_metadata_backed_prototype_props",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_and_asset_catalog",
+        "inGameEditorDevMode": "visible_in_reference_browser_when_local_source_present",
+        "litePixelEditorPanel": "visible_as_reference_only_source",
+        "runtimeGameDefault": "optional_prototype_runtime_after_bake_and_approval"
+      },
+      "pixelEditorReferenceMode": "reference_and_recreation_only",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Useful for furniture/object footprint authoring, seating tests, garden/fence coverage, and final Havenwild redraw reference."
+      ]
+    },
+    {
+      "id": "donor.rowdy41.small_forest",
+      "externalSourceId": "third_party.rowdy41.small_forest",
+      "displayName": "rowdy41 Small Forest donor set",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "native_grid_or_2x_reference_preview"
+      ],
+      "families": [
+        "foliage.trees",
+        "foliage.bushes",
+        "terrain.stone_path",
+        "object.bench",
+        "object.chest"
+      ],
+      "referenceUsePolicy": "allowed_as_reference_and_prototype_fixture_with_attribution",
+      "prototypeIngestPolicy": "candidate_for_metadata_backed_prototype_foliage",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_and_asset_catalog",
+        "inGameEditorDevMode": "visible_in_reference_browser_when_local_source_present",
+        "litePixelEditorPanel": "visible_as_reference_only_source",
+        "runtimeGameDefault": "optional_prototype_runtime_after_bake_and_approval"
+      },
+      "pixelEditorReferenceMode": "reference_and_recreation_only",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Good for foliage/tree/path coverage and object occlusion/fade-mask planning."
+      ]
+    },
+    {
+      "id": "donor.pipoya.rpg_tileset_32",
+      "externalSourceId": "third_party.pipoya.free_rpg_tileset_32x32_bundle",
+      "displayName": "Pipoya RPG Tileset 32x32 donor set",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "native_32px"
+      ],
+      "families": [
+        "terrain.grass",
+        "terrain.dirt",
+        "terrain.water",
+        "terrain.waterfall",
+        "object.doors",
+        "overlay.lighting",
+        "tiled.import_fixtures"
+      ],
+      "referenceUsePolicy": "allowed_as_reference_and_prototype_fixture_with_attribution",
+      "prototypeIngestPolicy": "candidate_for_metadata_backed_prototype_terrain_water_doors",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_and_asset_catalog",
+        "inGameEditorDevMode": "visible_in_reference_browser_when_local_source_present",
+        "litePixelEditorPanel": "visible_as_reference_only_source",
+        "runtimeGameDefault": "optional_prototype_runtime_after_bake_and_approval"
+      },
+      "pixelEditorReferenceMode": "reference_and_recreation_only",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Strong fixture for current 32px Havenwild world tile size and transition/autotile testing."
+      ]
+    },
+    {
+      "id": "donor.pipoya.world_tileset_multi_grid",
+      "externalSourceId": "third_party.pipoya.free_rpg_world_tileset_32_40_48",
+      "displayName": "Pipoya World Tileset 32/40/48 donor set",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          32,
+          32
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          48,
+          48
+        ]
+      ],
+      "scaleAdapterModes": [
+        "native_32px",
+        "downsample_40_to_32_reference_preview",
+        "downsample_48_to_32_reference_preview",
+        "native_48_for_large_preview"
+      ],
+      "families": [
+        "terrain.overworld",
+        "terrain.water",
+        "terrain.cliff",
+        "terrain.road",
+        "terrain.bridge",
+        "tiled.import_fixtures"
+      ],
+      "referenceUsePolicy": "allowed_as_reference_and_prototype_fixture_with_attribution",
+      "prototypeIngestPolicy": "candidate_for_multi_grid_adapter_and_engine_tile_size_tests",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_and_asset_catalog",
+        "inGameEditorDevMode": "visible_in_reference_browser_when_local_source_present",
+        "litePixelEditorPanel": "visible_as_reference_only_source",
+        "runtimeGameDefault": "optional_prototype_runtime_after_bake_and_approval"
+      },
+      "pixelEditorReferenceMode": "reference_and_recreation_only",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Primary donor for adapting the engine/editor to tile sets of multiple sizes while keeping Havenwild runtime normalized around metadata."
+      ]
+    },
+    {
+      "id": "donor.seliel.gentle_forest",
+      "externalSourceId": "third_party.seliel.gentle_forest_3_0a_free_palettes",
+      "displayName": "Seliel Gentle Forest donor set",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          48,
+          48
+        ]
+      ],
+      "scaleAdapterModes": [
+        "native_16px",
+        "nearest_2x_16_to_32",
+        "mv_48_to_32_reference_preview"
+      ],
+      "families": [
+        "terrain.autotile",
+        "terrain.water",
+        "terrain.waterfall",
+        "terrain.cliff",
+        "terrain.tree_wall",
+        "tiled.import_fixtures"
+      ],
+      "referenceUsePolicy": "allowed_as_reference_and_prototype_fixture_with_attribution",
+      "prototypeIngestPolicy": "candidate_for_scaled_32px_autotile_fixture",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_and_asset_catalog",
+        "inGameEditorDevMode": "visible_in_reference_browser_when_local_source_present",
+        "litePixelEditorPanel": "visible_as_reference_only_source",
+        "runtimeGameDefault": "optional_prototype_runtime_after_bake_and_approval"
+      },
+      "pixelEditorReferenceMode": "reference_and_recreation_only",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Good fixture for 16px source grids, 32px adapters, waterfall tests, and forest/tree-wall authoring."
+      ]
+    },
+    {
+      "id": "donor.seliel.mana_seed_character_base",
+      "externalSourceId": "third_party.seliel.mana_seed_character_base_demo_2_0",
+      "displayName": "Mana Seed Character Base donor set",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          48,
+          48
+        ]
+      ],
+      "scaleAdapterModes": [
+        "animation_reference_only",
+        "grid_detected_by_manifest"
+      ],
+      "families": [
+        "character.paper_doll_layers",
+        "character.animation_fixture",
+        "character.compositor_reference"
+      ],
+      "referenceUsePolicy": "allowed_as_reference_and_compositor_fixture_with_attribution",
+      "prototypeIngestPolicy": "not_direct_havenwild_player_contract_unless_project_decision_promotes",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_and_asset_catalog",
+        "inGameEditorDevMode": "visible_in_reference_browser_when_local_source_present",
+        "litePixelEditorPanel": "visible_as_reference_only_source",
+        "runtimeGameDefault": "not_loaded_by_default"
+      },
+      "pixelEditorReferenceMode": "reference_and_recreation_only",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Use to study paper-doll layering and animation metadata. Final Havenwild player remains 64x96 8-direction contract."
+      ]
+    },
+    {
+      "id": "donor.henrysoftware.free_pixel_food",
+      "externalSourceId": "third_party.henrysoftware.free_pixel_food_cc0",
+      "displayName": "Free Pixel Food donor icon set",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "native_16px",
+        "nearest_2x_icon_preview"
+      ],
+      "families": [
+        "icon.food",
+        "icon.recipe",
+        "icon.inventory",
+        "ui.tavern_menu"
+      ],
+      "referenceUsePolicy": "allowed_as_reference_and_prototype_fixture_cc0",
+      "prototypeIngestPolicy": "candidate_for_16_to_32_icon_adapter",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_and_asset_catalog",
+        "inGameEditorDevMode": "visible_in_reference_browser_when_local_source_present",
+        "litePixelEditorPanel": "visible_as_reference_only_source",
+        "runtimeGameDefault": "optional_prototype_runtime_after_bake_and_approval"
+      },
+      "pixelEditorReferenceMode": "reference_recreation_or_direct_cc0_ingest_allowed_with_metadata",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Useful for recipe/menu/inventory icon coverage and pixel-editor icon reconstruction practice."
+      ]
+    },
+    {
+      "id": "donor.ghostpixxells.pixel_mart",
+      "externalSourceId": "third_party.ghostpixxells.pixel_mart_cc0",
+      "displayName": "Pixel Mart donor icon set",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "native_32px_or_16px_grid_detect"
+      ],
+      "families": [
+        "icon.item",
+        "icon.shop",
+        "icon.inventory",
+        "icon.food"
+      ],
+      "referenceUsePolicy": "allowed_as_reference_and_prototype_fixture_cc0",
+      "prototypeIngestPolicy": "candidate_for_icon_catalog_fixture",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_and_asset_catalog",
+        "inGameEditorDevMode": "visible_in_reference_browser_when_local_source_present",
+        "litePixelEditorPanel": "visible_as_reference_only_source",
+        "runtimeGameDefault": "optional_prototype_runtime_after_bake_and_approval"
+      },
+      "pixelEditorReferenceMode": "reference_recreation_or_direct_cc0_ingest_allowed_with_metadata",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Useful for shop/item icon coverage and inventory UI tests."
+      ]
+    },
+    {
+      "id": "donor.shubibubi.cozy_farm_free",
+      "externalSourceId": "third_party.shubibubi.cozy_farm_free_version",
+      "displayName": "shubibubi Cozy Farm free donor reference",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "reference_preview_only"
+      ],
+      "families": [
+        "reference.farm_coverage",
+        "reference.cozy_prop_style"
+      ],
+      "referenceUsePolicy": "reference_only_no_runtime_promotion_without_license_change",
+      "prototypeIngestPolicy": "blocked_until_license_or_attribution_gate_passes",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_quarantine_only",
+        "inGameEditorDevMode": "reference_browser_only_no_runtime_spawn",
+        "litePixelEditorPanel": "reference_only_no_trace_or_raw_export",
+        "runtimeGameDefault": "blocked"
+      },
+      "pixelEditorReferenceMode": "reference_only_no_trace_or_raw_export",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Free version is tracked for learning/reference only; do not promote into commercial runtime without a license upgrade."
+      ]
+    },
+    {
+      "id": "donor.shubibubi.cozy_interior_free",
+      "externalSourceId": "third_party.shubibubi.cozy_interior_free_version",
+      "displayName": "shubibubi Cozy Interior free donor reference",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ]
+      ],
+      "scaleAdapterModes": [
+        "reference_preview_only"
+      ],
+      "families": [
+        "reference.tavern_interior_coverage",
+        "reference.furniture_style"
+      ],
+      "referenceUsePolicy": "reference_only_no_runtime_promotion_without_license_change",
+      "prototypeIngestPolicy": "blocked_until_license_or_attribution_gate_passes",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_quarantine_only",
+        "inGameEditorDevMode": "reference_browser_only_no_runtime_spawn",
+        "litePixelEditorPanel": "reference_only_no_trace_or_raw_export",
+        "runtimeGameDefault": "blocked"
+      },
+      "pixelEditorReferenceMode": "reference_only_no_trace_or_raw_export",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Reference only for tavern/interior coverage planning unless a paid/commercial license is acquired."
+      ]
+    },
+    {
+      "id": "donor.shubibubi.cozy_town_free",
+      "externalSourceId": "third_party.shubibubi.cozy_town_free_version",
+      "displayName": "shubibubi Cozy Town free donor reference",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ]
+      ],
+      "scaleAdapterModes": [
+        "reference_preview_only"
+      ],
+      "families": [
+        "reference.town_coverage",
+        "reference.blacksmith_props",
+        "reference.city_fences"
+      ],
+      "referenceUsePolicy": "reference_only_no_runtime_promotion_without_license_change",
+      "prototypeIngestPolicy": "blocked_until_license_or_attribution_gate_passes",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_quarantine_only",
+        "inGameEditorDevMode": "reference_browser_only_no_runtime_spawn",
+        "litePixelEditorPanel": "reference_only_no_trace_or_raw_export",
+        "runtimeGameDefault": "blocked"
+      },
+      "pixelEditorReferenceMode": "reference_only_no_trace_or_raw_export",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Reference only for town/blacksmith coverage planning unless a paid/commercial license is acquired."
+      ]
+    },
+    {
+      "id": "donor.fishing_free_noncommercial",
+      "externalSourceId": "third_party.fishing_free_noncommercial",
+      "displayName": "Fishing free donor reference",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "reference_preview_only"
+      ],
+      "families": [
+        "reference.fishing_icons",
+        "reference.loot_coverage"
+      ],
+      "referenceUsePolicy": "reference_only_no_runtime_promotion_without_license_change",
+      "prototypeIngestPolicy": "blocked_until_license_or_attribution_gate_passes",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_quarantine_only",
+        "inGameEditorDevMode": "reference_browser_only_no_runtime_spawn",
+        "litePixelEditorPanel": "reference_only_no_trace_or_raw_export",
+        "runtimeGameDefault": "blocked"
+      },
+      "pixelEditorReferenceMode": "reference_only_no_trace_or_raw_export",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Non-commercial free pack; reference-only for fishing/icon coverage."
+      ]
+    },
+    {
+      "id": "donor.game_endeavor.mystic_woods_free",
+      "externalSourceId": "third_party.game_endeavor.mystic_woods_free",
+      "displayName": "Mystic Woods free donor reference",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "reference_preview_only"
+      ],
+      "families": [
+        "reference.forest_tiles",
+        "reference.water",
+        "reference.walls"
+      ],
+      "referenceUsePolicy": "reference_only_no_runtime_promotion_without_license_change",
+      "prototypeIngestPolicy": "blocked_until_license_or_attribution_gate_passes",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_quarantine_only",
+        "inGameEditorDevMode": "reference_browser_only_no_runtime_spawn",
+        "litePixelEditorPanel": "reference_only_no_trace_or_raw_export",
+        "runtimeGameDefault": "blocked"
+      },
+      "pixelEditorReferenceMode": "reference_only_no_trace_or_raw_export",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "Non-commercial free pack; reference-only for forest coverage unless commercial license acquired."
+      ]
+    },
+    {
+      "id": "donor.char_free_unverified",
+      "externalSourceId": "third_party.char_free_unverified",
+      "displayName": "char free donor reference",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "reference_preview_only"
+      ],
+      "families": [
+        "reference.character_animation",
+        "reference.character_sprite_coverage"
+      ],
+      "referenceUsePolicy": "reference_only_no_runtime_promotion_without_license_change",
+      "prototypeIngestPolicy": "blocked_until_license_or_attribution_gate_passes",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_quarantine_only",
+        "inGameEditorDevMode": "reference_browser_only_no_runtime_spawn",
+        "litePixelEditorPanel": "reference_only_no_trace_or_raw_export",
+        "runtimeGameDefault": "blocked"
+      },
+      "pixelEditorReferenceMode": "reference_only_no_trace_or_raw_export",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "License/source unverified; reference-only until attribution and license chain are restored."
+      ]
+    },
+    {
+      "id": "donor.lpc.opengameart_mixed",
+      "externalSourceId": "third_party.lpc.opengameart_mixed_loose_assets",
+      "displayName": "Mixed LPC/OpenGameArt donor reference",
+      "catalogRole": "donor_reference_and_optional_prototype_fixture",
+      "tileGridProfiles": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "scaleAdapterModes": [
+        "reference_preview_only"
+      ],
+      "families": [
+        "reference.character_walkcycles",
+        "reference.top_down_tiles",
+        "reference.water",
+        "reference.dungeon"
+      ],
+      "referenceUsePolicy": "reference_only_no_runtime_promotion_without_license_change",
+      "prototypeIngestPolicy": "blocked_until_license_or_attribution_gate_passes",
+      "editorVisibility": {
+        "standaloneEditor": "visible_in_reference_browser_quarantine_only",
+        "inGameEditorDevMode": "reference_browser_only_no_runtime_spawn",
+        "litePixelEditorPanel": "reference_only_no_trace_or_raw_export",
+        "runtimeGameDefault": "blocked"
+      },
+      "pixelEditorReferenceMode": "reference_only_no_trace_or_raw_export",
+      "runtimeRestrictions": [
+        "raw_source_assets_must_remain_quarantine_or_user_supplied",
+        "do_not_export_raw_third_party_assets_as_standalone_project_assets",
+        "release_build_requires_source_policy_and_metadata_validation"
+      ],
+      "notes": [
+        "License chain incomplete; reference-only until exact authors/licenses are restored."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "pass": "O2D-R030",
+  "baseline": "O2D-R020H13",
+  "build_status": "NOT_RUN_IN_ASSISTANT_ENVIRONMENT",
+  "checks": {
+    "tool_schema_matches_rust_authority": true,
+    "tool_count": 35,
+    "explicit_agent_actions": true,
+    "guarded_transaction_commit": true,
+    "build_certification_tool": true,
+    "json_jsonl_contract": true,
+    "session_log_navigation": true,
+    "coding_certification": true,
+    "root_patch_residue_repair": true,
+    "checkpoint_pass_r030": true,
+    "checkpoint_cortex_build_dispatch_preserved": true
+  },
+  "static_pass": true
+}

@@ -1,0 +1,52 @@
+{
+  "id": "worldgen_open_world_test_v0_12",
+  "name": "Havenwild Open World Biome and Terrain Test Pack",
+  "version": "0.12.0-test",
+  "kind": "worldgen_asset_pack",
+  "source": "seeded_continuous_open_world",
+  "defaultScene": "willowmere_outskirts_open_world",
+  "requiresLegacySceneSet": false,
+  "sceneFiles": [
+    "content/worldgen/scenes/open_world/willowmere_outskirts_region_v0_1.json",
+    "content/worldgen/scenes/terrain_acceptance/coastline_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/river_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/pond_bridge_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/farm_soil_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/mountain_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/junctions_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/snow_ice_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/wrapped_world_seam_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/terrain_gallery_scene_v1.json"
+  ],
+  "editor": {
+    "defaultScene": "willowmere_outskirts_open_world",
+    "worldModel": "continuous_chunked_overworld",
+    "permanentCapital": "Willowmere",
+    "staticFarmsteadFixture": false,
+    "placementPolicy": "content/worldgen/open_world_build_placement_policy_v0_1.json",
+    "terrainFamilyAuthority": "content/worldgen/terrain_visual_family_authority_v0_1.json"
+  },
+  "runtimeSourceLoader": "crates/haven_core/src/worldgen_loader.rs",
+  "runtimeEntryPoint": "GameWorld::load_worldgen_pack_path",
+  "previousPack": "content/worldgen/packs/worldgen_open_world_v0_1.json",
+  "migrationNote": "The home-island/farmstead pack remains legacy compatibility data; it is no longer the active open-world foundation.",
+  "smokeTests": [
+    "content/worldgen/scenes/terrain_acceptance/coastline_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/river_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/pond_bridge_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/farm_soil_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/mountain_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/junctions_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/snow_ice_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/wrapped_world_seam_scene_v1.json",
+    "content/worldgen/scenes/terrain_acceptance/terrain_gallery_scene_v1.json"
+  ],
+  "testWorld": {
+    "enabledByDefaultDuringTerrainDevelopment": true,
+    "defaultScene": "willowmere_outskirts_open_world",
+    "terrainAcceptanceManifest": "content/worldgen/scenes/terrain_acceptance/terrain_acceptance_scene_manifest_v1.json",
+    "developerNavigation": "F3 then PageUp/PageDown",
+    "productionReleasePack": "content/worldgen/packs/worldgen_open_world_v0_1.json",
+    "staticFarmsteadFixture": false
+  }
+}

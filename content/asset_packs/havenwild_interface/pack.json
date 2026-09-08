@@ -1,0 +1,169 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "havenwild_interface",
+  "display_name": "Havenwild Interface",
+  "version": "0.2.0",
+  "license": {
+    "license_id": "project-authored",
+    "attribution": [],
+    "commercial_use": true,
+    "redistribution": true,
+    "production_approved": true
+  },
+  "production_enabled": true,
+  "dependencies": [
+    {
+      "pack_id": "havenwild_core",
+      "version_requirement": null,
+      "optional": false
+    }
+  ],
+  "priority": 80,
+  "sources": [
+    {
+      "id": "ui_source",
+      "kind": "sidecar",
+      "path": "content/ui",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "ui_generated",
+      "kind": "sidecar",
+      "path": "content/ui",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "ui_generation_contract",
+      "kind": "sidecar",
+      "path": "content/ui/havenwild_gui_generation_contract_v0_1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "save_slot_contract",
+      "kind": "sidecar",
+      "path": "content/ui/client_save_slot_contract_v0_1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "hud_vitals_frame",
+      "kind": "raw_sheet",
+      "path": "content/ui/hud/vitals_frame.png",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "hud_hotbar_frame",
+      "kind": "raw_sheet",
+      "path": "content/ui/hud/hotbar_frame.png",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "hud_minimap_frame",
+      "kind": "raw_sheet",
+      "path": "content/ui/hud/minimap_frame.png",
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "assets": [
+    {
+      "id": "default_skin",
+      "category": "ui",
+      "semantic_id": "ui.skin.default",
+      "source_id": "ui_source",
+      "variants": [],
+      "tags": [
+        "ui",
+        "skin",
+        "default"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "editor_icons",
+      "category": "ui",
+      "semantic_id": "ui.icons.editor",
+      "source_id": "ui_generated",
+      "variants": [],
+      "tags": [
+        "ui",
+        "icons",
+        "editor"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "ui_generation_contract",
+      "category": "ui",
+      "semantic_id": "ui.contract.generation",
+      "source_id": "ui_generation_contract",
+      "variants": [],
+      "tags": [
+        "ui",
+        "contract",
+        "generation"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "save_slot_contract",
+      "category": "ui",
+      "semantic_id": "ui.contract.save_slots",
+      "source_id": "save_slot_contract",
+      "variants": [],
+      "tags": [
+        "ui",
+        "contract",
+        "save"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "hud_vitals_frame",
+      "category": "ui",
+      "semantic_id": "ui.hud.vitals.frame",
+      "source_id": "hud_vitals_frame",
+      "variants": [],
+      "tags": [
+        "ui",
+        "hud",
+        "vitals",
+        "frame"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "hud_hotbar_frame",
+      "category": "ui",
+      "semantic_id": "ui.hud.hotbar.frame",
+      "source_id": "hud_hotbar_frame",
+      "variants": [],
+      "tags": [
+        "ui",
+        "hud",
+        "hotbar",
+        "frame"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "hud_minimap_frame",
+      "category": "ui",
+      "semantic_id": "ui.hud.minimap.frame",
+      "source_id": "hud_minimap_frame",
+      "variants": [],
+      "tags": [
+        "ui",
+        "hud",
+        "minimap",
+        "frame"
+      ],
+      "metadata": {}
+    }
+  ]
+}

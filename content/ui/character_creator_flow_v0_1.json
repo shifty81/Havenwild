@@ -1,0 +1,75 @@
+{
+  "schema": "havenwild.character_creator_flow.v0.1",
+  "entry_order": [
+    "main_menu",
+    "new_or_load_world",
+    "character_profile_select",
+    "character_creator_when_needed",
+    "world_select_or_join"
+  ],
+  "maximum_profiles": 5,
+  "panels": [
+    "profile_list",
+    "category_tabs",
+    "option_grid",
+    "color_controls",
+    "layered_preview",
+    "validation_summary"
+  ],
+  "creator_categories": [
+    "body",
+    "head",
+    "eyes",
+    "eyebrows",
+    "facial_hair",
+    "hair",
+    "starter_clothing"
+  ],
+  "prohibited_creator_categories": [
+    "armor",
+    "weapons",
+    "shields",
+    "advanced_outfits"
+  ],
+  "preview": {
+    "directions": [
+      "down",
+      "up",
+      "left",
+      "right"
+    ],
+    "default_animation": "idle_down",
+    "layer_order": [
+      "body",
+      "head",
+      "eyes",
+      "eyebrows",
+      "facial_hair",
+      "hair",
+      "bottom",
+      "feet",
+      "top"
+    ]
+  },
+  "implementation": "crates/haven_game/src/client_character_creator_ui.rs",
+  "profile_selector_required": true,
+  "gui_contract": {
+    "name_field_max_characters": 24,
+    "category_tab_count": 10,
+    "option_cards": "catalog-driven",
+    "color_channels": [
+      "skin_tone",
+      "hair_color",
+      "eye_color",
+      "starter_top_color",
+      "starter_bottom_color"
+    ],
+    "direction_buttons": [
+      "left",
+      "down",
+      "up",
+      "right"
+    ],
+    "commit_requires_validation": true
+  }
+}

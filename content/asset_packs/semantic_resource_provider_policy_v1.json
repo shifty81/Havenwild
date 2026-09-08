@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.semantic_resource_provider_policy.v1",
+  "version": 1,
+  "rules": {
+    "categoryNeutral": true,
+    "stableReferencesRequired": true,
+    "productionProvidersOnlyByDefault": true,
+    "legacyFallbacksMustBeDiagnostic": true,
+    "saveOwnedPreviewsAreNotAssetPackResources": true,
+    "generatedDiagnosticPreviewsAreNotProductionResources": true
+  },
+  "initialResources": [
+    "stamp.catalog.ponds",
+    "stamp.sheet.ponds",
+    "animation.contract.default",
+    "audio.contract.events",
+    "music.contract.events",
+    "ui.contract.generation",
+    "ui.contract.save_slots"
+  ]
+}

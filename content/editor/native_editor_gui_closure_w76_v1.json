@@ -1,0 +1,126 @@
+{
+  "schema": "havenwild.native_editor_gui_closure.w76.v1",
+  "pass": "167Z109W76A-T",
+  "scope": "Standalone Havenwild Native Editor",
+  "authority": {
+    "horizontal": ["tool_rail", "layers", "canvas", "right_dock"],
+    "verticalCanvas": [
+      "workspace_document_tabs",
+      "context_toolbar",
+      "canvas_ruler",
+      "canvas_viewport"
+    ],
+    "rules": [
+      "Tool Rail remains outside the infinite canvas.",
+      "Layers remains immediately right of Tool Rail and outside the infinite canvas.",
+      "Canvas chrome never overlaps workspace document tabs.",
+      "World, Scene, and Pixel resolve canvas placement from one CanvasWorkspace authority.",
+      "Visual pixel authoring never replaces semantic terrain, collision, or gameplay authority."
+    ]
+  },
+  "interaction": {
+    "pointerCapture": true,
+    "slider": {
+      "trackDrag": true,
+      "continuous": true,
+      "shared": true
+    },
+    "colorPicker": {
+      "continuousDrag": true,
+      "explicitForegroundBackgroundTarget": true
+    }
+  },
+  "palette": {
+    "sharedAcross": ["pixel", "scene", "world"],
+    "hideable": true,
+    "swatchesScrollable": true,
+    "fixedRightControls": ["foreground", "background", "swap", "reset"]
+  },
+  "controls": {
+    "classes": [
+      "primary",
+      "secondary",
+      "toolbar",
+      "toggle",
+      "segmented",
+      "quiet",
+      "danger"
+    ],
+    "activeAccentPolicy": "one restrained accent",
+    "warningColorPolicy": "orange/red reserved for destructive, validation, and exceptional states"
+  },
+  "pixelStudio": {
+    "requiredTools": [
+      "pencil",
+      "eraser",
+      "fill",
+      "eyedropper",
+      "selection",
+      "magic_select",
+      "line",
+      "rectangle",
+      "ellipse",
+      "gradient",
+      "blur",
+      "smudge",
+      "lighten",
+      "darken"
+    ],
+    "transactionalUndo": true,
+    "multiDocument": true,
+    "twoEditablePanes": true
+  },
+  "documents": {
+    "protectedTabBar": true,
+    "sceneState": [
+      "camera",
+      "tool",
+      "layer",
+      "selection",
+      "grid",
+      "selected_tile",
+      "selected_object"
+    ],
+    "workspaces": [
+      "world",
+      "scene",
+      "pixel",
+      "animation",
+      "character",
+      "logic",
+      "sound"
+    ]
+  },
+  "characterStudio": {
+    "primaryWorkflow": "wardrobe_character_generator",
+    "modes": ["player", "npc"],
+    "lockableCategories": true,
+    "randomizeUnlocked": true,
+    "randomizeOutfit": true,
+    "randomizeAppearance": true,
+    "deterministicCompatibilityFiltering": true,
+    "advancedTechnicalPanel": true,
+    "advancedIncludes": [
+      "source",
+      "layer_order",
+      "action_direction_aliases",
+      "compatibility_diagnostics",
+      "license_credits_provenance"
+    ]
+  },
+  "retiredVisibleAuthorities": [
+    "asset_shelf",
+    "asset_library_panel",
+    "asset_intake_panel",
+    "scene_toolrail"
+  ],
+  "qa": [
+    "document tabs remain unobscured during resize",
+    "slider can traverse its full range in one drag",
+    "color updates continuously during drag",
+    "narrow palette scrolls swatches without moving FG/BG/Swap/Reset",
+    "pixel effects respect active selection/layer and undo history",
+    "character randomization honors locks and compatibility",
+    "document switching restores independent state"
+  ]
+}

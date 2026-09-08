@@ -1,0 +1,50 @@
+{
+  "schema": "havenwild.complete_source_rollup.v1",
+  "rollup": "Pass150F",
+  "baseline": "Pass149J18",
+  "created_utc": "2026-07-23T23:29:06.406330+00:00",
+  "file_count": 1561,
+  "integrated_passes": [
+    "150",
+    "150A",
+    "150B",
+    "150C",
+    "150D",
+    "150E",
+    "150F"
+  ],
+  "important_files": {
+    "crates/haven_assets/src/terrain_material_bindings.rs": {
+      "present": true,
+      "sha256": "861fd6b8a6aafcea6b84021149bb7ec1c8a3fb43a25a80244548dc4fc1440a63"
+    },
+    "crates/haven_assets/src/lib.rs": {
+      "present": true,
+      "sha256": "28fe641a99e7860012b6b3f0cb22da55a6dcf97441285557b7c95d0d8dd2a80f"
+    },
+    "crates/haven_assets/src/lpc_mapped_terrain.rs": {
+      "present": true,
+      "sha256": "dff353d4c70d8221747b351c93454044a0ac46af38183a436f8298f474dc6989"
+    },
+    "crates/haven_save/Cargo.toml": {
+      "present": true,
+      "sha256": "8d903bd591ad7a5f4e3ad8ba7ddedfe27bb995f595ce3d7300187fadcebd13d5"
+    },
+    "crates/haven_save/src/foundation_persistence.rs": {
+      "present": true,
+      "sha256": "3154938abae13526065d33fd1fea97ce3bfa03f4d8ad121df354e8b137e559a9"
+    },
+    "crates/haven_save/src/lib.rs": {
+      "present": true,
+      "sha256": "675d73cdad0516cff0a7bdeca1ba8e81db0b5d993b3ffed2ee0b7fb033e714df"
+    },
+    "crates/haven_tools/Cargo.toml": {
+      "present": true,
+      "sha256": "072a6427574f54534928dfd5143002ff789edc299d44bbabb8989311f30948f0"
+    },
+    "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainReplacementV122.py": {
+      "present": true,
+      "sha256": "3c2916bf99f36fdfa784a7a744b92c96b26fe691cd54d0817501197268fb7c75"
+    }
+  }
+}

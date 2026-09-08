@@ -1,0 +1,10 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z109I",
+  "baseline": "167Z59",
+  "supersedes": "167Z109H",
+  "date": "2026-08-09",
+  "description": "Cumulative overwrite-capable patch from locked Pass167Z59 baseline through Pass167Z109I generated cliff contour join normalization.",
+  "latestPatchManifest": "manifests/patches/Pass167Z109I-generated-cliff-contour-join-normalization.json",
+  "worldRegenerationRequiredForPass167Z109IContourChanges": true
+}

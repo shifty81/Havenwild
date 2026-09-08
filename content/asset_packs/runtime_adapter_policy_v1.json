@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.runtime_asset_adapter_policy.v1",
+  "consumers": [
+    "pcg",
+    "f3_editor",
+    "renderer",
+    "object_placement",
+    "character",
+    "animation",
+    "audio",
+    "ui",
+    "inventory"
+  ],
+  "rules": {
+    "shared_registry_required": true,
+    "stable_asset_ref_required": true,
+    "reference_only_default": false,
+    "legacy_lookup_policy": "explicit_fallback_only",
+    "pcg_f3_share_terrain_semantic_mapping": true,
+    "category_specific_pack_names_forbidden": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "havenwild.lpc_revised_mapping_queue_contract.v1",
+  "input": "WORKSPACE/generated/lpc_revised_inventory_v1.json",
+  "output": "WORKSPACE/generated/lpc_revised_mapping_queues_v1.json",
+  "queues": ["license_review", "characters", "terrain", "structures", "placeables", "animals", "animations", "ui", "items", "audio", "editor_templates", "review"],
+  "promotion_states": ["unreviewed", "license_blocked", "mapping", "preview_ready", "approved", "rejected"],
+  "rules": {
+    "all_inventory_entries_must_enter_exactly_one_queue": true,
+    "license_review_precedes_production_promotion": true,
+    "queue_membership_does_not_imply_license_approval": true,
+    "content_library_must_show_reference_only_entries": true,
+    "mapping_is_incremental_and_category_neutral": true
+  }
+}

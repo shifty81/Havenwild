@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.external_asset_source.schema.v0_1",
+  "title": "Havenwild External Asset Source Registry",
+  "type": "object",
+  "required": ["schema", "updated", "sources"],
+  "properties": {
+    "schema": { "const": "havenwild.external_asset_sources.v0_1" },
+    "updated": { "type": "string" },
+    "purpose": { "type": "string" },
+    "rules": { "type": "object" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "displayName",
+          "author",
+          "officialSourceUrl",
+          "uploadedArchives",
+          "licenseStatus",
+          "commercialRuntimePolicy",
+          "publicRepoPolicy",
+          "rawAssetPolicy",
+          "rawQuarantinePath",
+          "candidateFamilies",
+          "recommendedUse",
+          "prohibitedUse"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_.-]+$" },
+          "displayName": { "type": "string" },
+          "author": { "type": "string" },
+          "officialSourceUrl": { "type": "string" },
+          "uploadedArchives": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "licenseStatus": { "type": "string" },
+          "commercialRuntimePolicy": { "type": "string" },
+          "publicRepoPolicy": { "type": "string" },
+          "rawAssetPolicy": { "type": "string" },
+          "rawQuarantinePath": { "type": "string" },
+          "processedPrototypePath": { "type": ["string", "null"] },
+          "candidateFamilies": { "type": "array", "items": { "type": "string" } },
+          "recommendedUse": { "type": "string" },
+          "prohibitedUse": { "type": "string" },
+          "notes": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

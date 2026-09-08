@@ -1,0 +1,69 @@
+{
+  "schema": "havenwild.worldgen.authored_terrain_provider_authority.v0_1",
+  "revision": "167Z109W3-unified-authored-provider-v1",
+  "status": "active",
+  "purpose": "Make source-authored terrain/cliff sheets the visual grammar: semantic topology selects exact authored 32x32 cells or natural-scale multi-cell stamps; runtime never manufactures missing visual shapes.",
+  "cellContract": {
+    "worldCellPx": 32,
+    "sourceCellPx": 32,
+    "wholeCellOnly": true,
+    "naturalScaleMultiCellStamps": true
+  },
+  "surfaceProvider": {
+    "id": "V7",
+    "authority": "exact four-corner tuple lookup in lpc_mapped_terrain",
+    "baseAndTransitionResolvedTogether": true,
+    "imageSynthesis": false
+  },
+  "cliffProvider": {
+    "id": "ElizaWy LPC cliff_summer",
+    "authority": "exact whole source cells and connected authored assemblies",
+    "semanticGroundStrippedOnlyInDerivedOverlay": true,
+    "cliffGeometryAltered": false,
+    "structuralAuthority": "StructuralCellV2/CliffShape15"
+  },
+  "forbiddenVisualOperations": [
+    "half-tile composition",
+    "crop-as-new-shape",
+    "stretch",
+    "mirror when authored direction exists",
+    "rotation when authored direction exists",
+    "generic visual fallback inside a resolved authored footprint"
+  ],
+  "w2Correction": {
+    "supersedesHalfCellTerminal": true,
+    "oldRecipe": "16px southwest half + 16px southeast half",
+    "newRule": "whole 32x32 source cells at authored offsets only",
+    "terminalRows": {
+      "lip": [
+        "c1r6",
+        "c2r6",
+        "c3r6"
+      ],
+      "shoulder": [
+        "c1r7",
+        "c2r7",
+        "c3r7"
+      ],
+      "body": [
+        "c1r3",
+        "c2r3",
+        "c3r3"
+      ],
+      "foot": [
+        "c1r8",
+        "c2r8",
+        "c3r8"
+      ]
+    },
+    "destinationFootprint": "x-1,x,x+1 at natural 32px spacing",
+    "collisionSharesVisualStampWidth": true
+  },
+  "ownership": {
+    "V7": "surface/plateau/toe semantic terrain pixels",
+    "ElizaWy": "structural cliff rim/wall/rock geometry",
+    "worldgenChanged": false,
+    "seedChanged": false
+  },
+  "next": "finish literal authored cliff role/stamp catalog and acceptance scenes for corners, concave joins, back rims, ramps and coastal interfaces before shoreline/water work"
+}

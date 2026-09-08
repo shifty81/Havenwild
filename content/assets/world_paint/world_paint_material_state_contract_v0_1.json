@@ -1,0 +1,52 @@
+{
+  "schema": "havenwild.world_paint_material_state_contract.v0.1",
+  "version": 1,
+  "canonical_tile_size": [32, 32],
+  "purpose": "Stores scene-side material family/layer/subcell state derived from authoritative world paint delta records.",
+  "authority_policy": "Host/server owns material state as deterministic gameplay/edit state. Clients derive shoreline, foam, debris, and visual variation from this state and shared manifests.",
+  "runtime_document_path": "WORKSPACE/generated/world_paint/world_paint_material_state_v0_1.json",
+  "layers": [
+    "ground_base",
+    "water_base",
+    "cave_base",
+    "town_surface",
+    "indoor_floor"
+  ],
+  "families": [
+    "sand",
+    "water",
+    "cave",
+    "paved_brick",
+    "wood_plank"
+  ],
+  "subcell_modes": [
+    { "code": "32x32", "grid": [1, 1], "description": "whole canonical tile" },
+    { "code": "16x16", "grid": [2, 2], "description": "four quadrant weights inside a 32x32 tile" },
+    { "code": "8x8", "grid": [4, 4], "description": "sixteen detail weights inside a 32x32 tile" },
+    { "code": "4x4", "grid": [8, 8], "description": "sixty-four detail weights inside a 32x32 tile" }
+  ],
+  "cell_record_fields": [
+    "x",
+    "y",
+    "family",
+    "layer",
+    "subcell_mode",
+    "subcell_grid",
+    "weights_u8",
+    "resolved_tile_kind",
+    "last_sequence",
+    "edit_source"
+  ],
+  "derived_visuals_not_authoritative": [
+    "shoreline_overlay",
+    "foam_overlay",
+    "debris_visuals",
+    "variation_choice",
+    "transition_atlas_cell"
+  ],
+  "implementation_files": [
+    "crates/haven_world/src/world_paint_material_state.rs",
+    "crates/haven_game/src/world_paint_editor_panel.rs",
+    "crates/haven_game/src/runtime_config.rs"
+  ]
+}

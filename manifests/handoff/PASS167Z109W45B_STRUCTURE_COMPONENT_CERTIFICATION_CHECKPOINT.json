@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W45B",
+  "date": "2026-08-14",
+  "title": "Blocker-First Exact Structural Component Authority",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B"
+  ],
+  "authority": "PublishedWorldAssetRegistry",
+  "structureSourceSheets": 98,
+  "reviewedStructureSourceSheets": 5,
+  "publishedW45BStructureCandidates": 10,
+  "upgradedDoorRecords": 1,
+  "candidateOnly": true,
+  "acceptanceScene": "structure_component_acceptance",
+  "validation": {
+    "architecture": "PASS",
+    "w43b": "PASS",
+    "w43c": "PASS",
+    "w43d": "PASS",
+    "w44a": "PASS",
+    "w45a": "PASS",
+    "w45b": "PASS",
+    "windowsRustBuild": "PENDING_LOCAL_TOOLCHAIN"
+  },
+  "next": "167Z109W45C floors/walls/wall-border/windows/roof exact component review and publication"
+}

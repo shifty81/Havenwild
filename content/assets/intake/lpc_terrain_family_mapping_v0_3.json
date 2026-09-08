@@ -1,0 +1,570 @@
+{
+  "schema": "havenwild.lpc_terrain_family_mapping.v0_4",
+  "sourceLock": "content/assets/intake/lpc_source_lock_v0_1.json",
+  "source": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+  "cellSize": 32,
+  "grid": [
+    16,
+    26
+  ],
+  "coordinateConvention": "zero-based [column,row] and [column,row,width,height] in 32x32 source cells",
+  "license": "OGA-BY 3.0",
+  "attribution": [
+    "Lanea Zimmerman (Sharm)",
+    "Eliza Wyatt (DeathsDarling)"
+  ],
+  "baseTiles": {
+    "grass": {
+      "cells": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "tall_grass": {
+      "cells": [
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    "dirt": {
+      "cells": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    "sand": {
+      "cells": [
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    "wet_sand": {
+      "cells": [
+        [
+          9,
+          6
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          11,
+          6
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    "water": {
+      "cells": [
+        [
+          1,
+          21
+        ],
+        [
+          12,
+          16
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          14,
+          16
+        ]
+      ]
+    },
+    "river_water": {
+      "cells": [
+        [
+          12,
+          16
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          15,
+          16
+        ]
+      ]
+    },
+    "shallow_water": {
+      "cells": [
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ]
+      ],
+      "variantTransforms": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.98,
+          1.01,
+          1.02
+        ],
+        [
+          1.02,
+          1.02,
+          1.0
+        ],
+        [
+          0.96,
+          0.99,
+          1.03
+        ]
+      ]
+    },
+    "ocean_shallow": {
+      "cells": [
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ]
+      ],
+      "variantTransforms": [
+        [
+          0.96,
+          0.99,
+          1.02
+        ],
+        [
+          0.94,
+          0.98,
+          1.04
+        ],
+        [
+          0.98,
+          1.01,
+          1.03
+        ],
+        [
+          0.92,
+          0.96,
+          1.04
+        ]
+      ]
+    },
+    "deep_water": {
+      "cells": [
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          24
+        ]
+      ],
+      "variantTransforms": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.96,
+          0.99,
+          1.03
+        ],
+        [
+          1.02,
+          1.01,
+          0.98
+        ],
+        [
+          0.92,
+          0.96,
+          1.04
+        ]
+      ]
+    },
+    "ocean_deep": {
+      "cells": [
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          24
+        ]
+      ],
+      "variantTransforms": [
+        [
+          0.88,
+          0.93,
+          1.02
+        ],
+        [
+          0.84,
+          0.91,
+          1.04
+        ],
+        [
+          0.92,
+          0.96,
+          1.0
+        ],
+        [
+          0.8,
+          0.88,
+          1.05
+        ]
+      ]
+    },
+    "river_mouth_blend": {
+      "cells": [
+        [
+          1,
+          21
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          14,
+          17
+        ]
+      ]
+    },
+    "shore_foam": {
+      "cells": [
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    "mud_bank": {
+      "cells": [
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          3
+        ]
+      ]
+    }
+  },
+  "transitionFamilies": [
+    {
+      "id": "grass_over_dirt",
+      "owner": "grass",
+      "neighbor": "dirt",
+      "outerBlock": [
+        6,
+        0,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        6,
+        3,
+        2,
+        2
+      ],
+      "foregroundClassifier": "dirt",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": "active"
+    },
+    {
+      "id": "grass_over_sand",
+      "owner": "grass",
+      "neighbor": "sand",
+      "outerBlock": [
+        6,
+        5,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        6,
+        8,
+        2,
+        2
+      ],
+      "foregroundClassifier": "sand",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": "active"
+    },
+    {
+      "id": "grass_bank_over_shallow",
+      "owner": "shallow_water",
+      "neighbor": "grass",
+      "outerBlock": [
+        0,
+        10,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        0,
+        13,
+        2,
+        2
+      ],
+      "foregroundClassifier": "non_water_bank",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": "active"
+    },
+    {
+      "id": "dirt_bank_over_shallow",
+      "owner": "shallow_water",
+      "neighbor": "dirt",
+      "outerBlock": [
+        6,
+        10,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        6,
+        13,
+        2,
+        2
+      ],
+      "foregroundClassifier": "non_water_bank",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": "active"
+    },
+    {
+      "id": "sand_bank_over_shallow",
+      "owner": "shallow_water",
+      "neighbor": "sand",
+      "outerBlock": [
+        0,
+        20,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        3,
+        20,
+        2,
+        2
+      ],
+      "foregroundClassifier": "non_water_bank",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": "active"
+    },
+    {
+      "id": "shallow_rim_over_deep",
+      "owner": "deep_water",
+      "neighbor": "shallow_water",
+      "outerBlock": [
+        0,
+        23,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        3,
+        23,
+        2,
+        2
+      ],
+      "foregroundClassifier": "shallow_rim",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": "active"
+    },
+    {
+      "id": "riverbank_mud",
+      "owner": "constructed_or_wall",
+      "neighbor": "natural",
+      "outerBlock": [
+        6,
+        10,
+        3,
+        3
+      ],
+      "innerCornerBlock": [
+        6,
+        13,
+        2,
+        2
+      ],
+      "foregroundClassifier": "non_water_bank",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": "active"
+    },
+    {
+      "id": "sand_over_wet_sand",
+      "owner": "wet_sand",
+      "neighbor": "sand",
+      "outerBlock": [
+        9,
+        5,
+        3,
+        3
+      ],
+      "foregroundClassifier": "sand",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": true,
+      "innerCornerBlock": [
+        9,
+        8,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "pebble_path_over_dirt",
+      "owner": "pebble_path",
+      "neighbor": "dirt",
+      "outerBlock": [
+        9,
+        0,
+        3,
+        3
+      ],
+      "foregroundClassifier": "non_water_bank",
+      "runtimeOuterMasks": true,
+      "runtimeInnerCorners": false
+    }
+  ],
+  "ownershipRule": "The semantic center material that matches the authored ring interior owns the boundary tile. Water owns banks and depth rims; grass owns dirt and sand exterior cuts.",
+  "runtimeStatus": {
+    "baseFills": "active",
+    "orderedPairSelection": "active",
+    "outerCardinalMasks": "active_complete_source_roles",
+    "authoredInnerCornerCells": "active",
+    "freeformInnerCornerRuntime": "active"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "havenwild.world_creation_wizard.v0_1",
+  "id": "havenwild.client.world_creation_wizard.v0_1",
+  "runtimeOwner": "crates/haven_game/src/world_creation_wizard.rs",
+  "pages": [
+    {
+      "id": "identity",
+      "controls": ["world_name", "seed", "reroll_seed"]
+    },
+    {
+      "id": "land",
+      "controls": ["world_size", "landform", "land_coverage", "coastline_complexity", "mountains", "islands"]
+    },
+    {
+      "id": "water",
+      "controls": ["marine_water", "rivers", "lakes", "ponds", "wetlands", "waterfalls", "estuaries"]
+    },
+    {
+      "id": "biomes",
+      "controls": ["biome_variety", "forest_density", "special_biomes"]
+    },
+    {
+      "id": "settlements",
+      "controls": ["secondary_cities", "villages_per_city", "independent_villages", "roads", "willowmere_location", "city_homes", "village_homes", "lease_to_own"]
+    },
+    {
+      "id": "relationships_and_family",
+      "controls": ["npc_reputation", "npc_relationships", "player_partnerships", "player_marriage", "npc_marriage", "children_and_adoption", "pregnancy_body_visuals"]
+    },
+    {
+      "id": "review",
+      "controls": ["summary", "generate_world"]
+    }
+  ],
+  "navigation": {
+    "mouse": true,
+    "keyboard": true,
+    "previousNextButtons": true,
+    "pageUpPageDown": true,
+    "arrowKeyOptionCycling": true,
+    "escapeReturnsToWorldList": true
+  },
+  "persistence": "worldgen/world_creation_settings.json"
+}

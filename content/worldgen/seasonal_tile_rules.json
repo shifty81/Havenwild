@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "seasons": {
+    "spring": {
+      "grass_tint": "fresh",
+      "decor_boost": [
+        "flower_patch",
+        "clover"
+      ],
+      "weather_overlay": [
+        "rain_wetness",
+        "mud_edges"
+      ],
+      "crop_growth_modifier": 1.1
+    },
+    "summer": {
+      "grass_tint": "saturated",
+      "decor_boost": [
+        "water_ripple",
+        "reeds"
+      ],
+      "weather_overlay": [
+        "dust_on_paths"
+      ],
+      "crop_growth_modifier": 1.0
+    },
+    "autumn": {
+      "grass_tint": "golden",
+      "decor_boost": [
+        "leaf_litter",
+        "mushroom"
+      ],
+      "weather_overlay": [
+        "fallen_leaves"
+      ],
+      "crop_growth_modifier": 0.85
+    },
+    "winter": {
+      "grass_tint": "muted",
+      "decor_boost": [
+        "snow_drift"
+      ],
+      "weather_overlay": [
+        "snow",
+        "ice_edge"
+      ],
+      "crop_growth_modifier": 0.35
+    }
+  },
+  "rules": [
+    {
+      "tile": "water",
+      "winter_overlay": "ice_edge_when_shallow"
+    },
+    {
+      "tile": "tilled_soil",
+      "spring_overlay": "wet_soil_boost"
+    },
+    {
+      "tile": "road",
+      "summer_overlay": "dust",
+      "autumn_overlay": "leaf_litter",
+      "winter_overlay": "snow_track"
+    },
+    {
+      "tile": "wood_floor",
+      "interior_overlay": "warm_light_pool"
+    },
+    {
+      "tile": "cave_floor",
+      "overlay": "darkness_vignette"
+    }
+  ]
+}

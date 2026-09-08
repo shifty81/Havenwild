@@ -1,0 +1,123 @@
+{
+  "id": "worldgen_runtime_load_order_v0_4",
+  "version": "0.4.0",
+  "kind": "runtime_load_order",
+  "pack": "content/worldgen/packs/worldgen_home_island_v0_4.json",
+  "failFast": true,
+  "phases": [
+    {
+      "order": 0,
+      "id": "schema_probe",
+      "required": false,
+      "files": [
+        "content/schemas/worldgen-asset-pack.schema.json"
+      ]
+    },
+    {
+      "order": 10,
+      "id": "master_manifest",
+      "required": true,
+      "files": [
+        "assets/generated/worldgen_v0_1/worldgen_asset_manifest_v0_1.json"
+      ]
+    },
+    {
+      "order": 20,
+      "id": "atlas_manifests_and_pngs",
+      "required": true,
+      "files": [
+        "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+        "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.json",
+        "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+        "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+        "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+        "assets/generated/worldgen_v0_1/structures/home_island_structures_32.json",
+        "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json"
+      ]
+    },
+    {
+      "order": 30,
+      "id": "runtime_tile_bindings",
+      "required": true,
+      "files": [
+        "assets/generated/worldgen_v0_1/runtime_bindings/rust_tilekind_mapping_v0_1.json"
+      ]
+    },
+    {
+      "order": 40,
+      "id": "asset_lookup_and_footprints",
+      "required": true,
+      "files": [
+        "content/worldgen/worldgen_asset_lookup_v0_4.json",
+        "content/worldgen/worldgen_object_footprint_registry_v0_4.json"
+      ]
+    },
+    {
+      "order": 50,
+      "id": "worldgen_rules",
+      "required": true,
+      "files": [
+        "content/worldgen/home_island_placement_rules_v0_3.json",
+        "content/worldgen/autotile_rules_v0_3.json",
+        "content/worldgen/world_edge_border_resolution_v0_3.json",
+        "content/worldgen/worldgen_editor_layer_registry_v0_3.json"
+      ]
+    },
+    {
+      "order": 60,
+      "id": "biome_and_surface",
+      "required": true,
+      "files": [
+        "content/worldgen/home_island_biome_palette_v0_3.json",
+        "content/worldgen/home_island_world_surface_v0_3.json"
+      ]
+    },
+    {
+      "order": 70,
+      "id": "scenes",
+      "required": true,
+      "files": [
+        "content/worldgen/scenes/home_island/farmstead_scene_v0_3.json",
+        "content/worldgen/scenes/home_island/north_road_scene_v0_3.json",
+        "content/worldgen/scenes/home_island/south_field_scene_v0_3.json",
+        "content/worldgen/scenes/home_island/east_woods_scene_v0_3.json",
+        "content/worldgen/scenes/home_island/cave_mouth_scene_v0_3.json",
+        "content/worldgen/scenes/home_island/tavern_interior_scene_v0_3.json",
+        "content/worldgen/scenes/home_island/cellar_scene_v0_3.json",
+        "content/worldgen/scenes/home_island/guest_floor_scene_v0_3.json",
+        "content/worldgen/scenes/home_island/cave_depths_scene_v0_3.json"
+      ]
+    },
+    {
+      "order": 80,
+      "id": "navigation_and_transitions",
+      "required": true,
+      "files": [
+        "content/worldgen/home_island_navigation_graph_v0_4.json",
+        "content/worldgen/home_island_transition_registry_v0_4.json"
+      ]
+    },
+    {
+      "order": 90,
+      "id": "editor_overlays",
+      "required": false,
+      "files": [
+        "content/worldgen/worldgen_collision_interaction_overlay_v0_4.json",
+        "content/worldgen/worldgen_editor_import_queue_v0_4.json"
+      ]
+    },
+    {
+      "order": 100,
+      "id": "previews",
+      "required": false,
+      "files": [
+        "assets/generated/worldgen_v0_1/home_island/previews/home_island_navigation_graph_v0_4.png"
+      ]
+    }
+  ],
+  "runtimeResolutionOrder": [
+    "TileKind -> runtimeTileKindLookup -> tileAssetLookup -> atlas json/image rect",
+    "scene object assetId -> objectAssetLookup -> scene_placeholder fallback",
+    "scene edge policy -> edgeBorderResolution -> borderLookup"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z51",
+  "baseline": "167Z10",
+  "date": "2026-08-03",
+  "title": "Structural Character Preview Repair",
+  "overwriteCapable": true,
+  "changedFiles": [
+    "README.md",
+    "tools/build/Build.sh",
+    "tools/build/Build.ps1",
+    "tools/automation/project/Repair-VisualRegressionSurfaceV167Z51.py",
+    "docs/current/CURRENT_SOURCE_HANDOFF.md",
+    "docs/current/APPLY_THIS_ROLLUP.md",
+    "docs/current/APPLY_THIS_SOURCE_ROLLUP.md",
+    "docs/current/PASS167Z51_STRUCTURAL_CHARACTER_PREVIEW_REPAIR.md",
+    "docs/handoffs/PASS167Z51_STRUCTURAL_CHARACTER_PREVIEW_REPAIR.md",
+    "manifests/normalization/pass167z51/SUMMARY.json"
+  ],
+  "removedFiles": [],
+  "notes": [
+    "Pass Z49 behavior is unchanged; only the creator-preview migration strategy is replaced.",
+    "The migration now replaces draw_character_preview by stable Rust item boundaries.",
+    "The legacy Z50 migration remains in the cumulative history but is no longer invoked by either build path."
+  ]
+}

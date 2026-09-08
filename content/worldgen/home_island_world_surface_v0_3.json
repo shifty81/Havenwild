@@ -1,0 +1,135 @@
+{
+  "id": "home_island_world_surface_v0_3",
+  "version": "0.3.0",
+  "kind": "world_surface_scene_map",
+  "name": "Home Island World Surface",
+  "tileSize": [
+    32,
+    32
+  ],
+  "sceneCellSize": [
+    48,
+    32
+  ],
+  "surfaceGrid": [
+    [
+      null,
+      {
+        "sceneId": "north_road",
+        "rect": [
+          1,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "sceneId": "cave_mouth",
+        "rect": [
+          2,
+          0,
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "sceneId": "west_forest_reserved",
+        "rect": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "status": "reserved"
+      },
+      {
+        "sceneId": "farmstead",
+        "rect": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "sceneId": "east_woods",
+        "rect": [
+          2,
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "sceneId": "southwest_field_reserved",
+        "rect": [
+          0,
+          2,
+          1,
+          1
+        ],
+        "status": "reserved"
+      },
+      {
+        "sceneId": "south_field",
+        "rect": [
+          1,
+          2,
+          1,
+          1
+        ]
+      },
+      {
+        "sceneId": "coast_reserved",
+        "rect": [
+          2,
+          2,
+          1,
+          1
+        ],
+        "status": "reserved"
+      }
+    ]
+  ],
+  "multiRectangleSupport": {
+    "cityScenesMayUseMultipleRects": true,
+    "playerOwnedAreasMayUseMultipleRects": true,
+    "reservedRectsCanBecomeExpansionScenes": true
+  },
+  "adjacencyRules": [
+    {
+      "fromScene": "farmstead",
+      "edge": "north",
+      "toScene": "north_road",
+      "transition": "to_north_road"
+    },
+    {
+      "fromScene": "farmstead",
+      "edge": "south",
+      "toScene": "south_field",
+      "transition": "to_south_field"
+    },
+    {
+      "fromScene": "farmstead",
+      "edge": "east",
+      "toScene": "east_woods",
+      "transition": "to_east_woods"
+    },
+    {
+      "fromScene": "farmstead",
+      "edge": "north_mountain",
+      "toScene": "cave_mouth",
+      "transition": "to_cave_mouth"
+    }
+  ],
+  "borderResolution": {
+    "unknownNeighbor": "forest_wall",
+    "reservedNeighbor": "dense_forest_or_coast",
+    "interiorNeighbor": "black_void",
+    "caveNeighbor": "cave_darkness"
+  }
+}

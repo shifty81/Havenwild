@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.transform2d.w61a.v1",
+  "pass": "W61A",
+  "authority": "crates/haven_authoring/src/transform.rs",
+  "spaces": [
+    "asset_local",
+    "parent_local",
+    "rig_local",
+    "scene_local",
+    "world",
+    "canvas",
+    "camera"
+  ],
+  "transform": [
+    "position",
+    "rotation_degrees",
+    "scale",
+    "flip_x",
+    "flip_y",
+    "pivot",
+    "space"
+  ],
+  "constraints": [
+    "position_min_max",
+    "rotation_min_max",
+    "scale_min_max",
+    "axis_locks",
+    "rotation_lock",
+    "preserve_aspect",
+    "position_snap",
+    "rotation_snap",
+    "scale_snap",
+    "soft_limits"
+  ],
+  "preserveStructureUntilBake": true
+}

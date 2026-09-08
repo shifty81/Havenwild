@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.universal_lpc_usage_manifest.v0_1",
+  "type": "object",
+  "required": [
+    "schema",
+    "sources"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.universal_lpc_usage_manifest.v0_1"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "modified": {
+            "type": "boolean",
+            "default": false
+          },
+          "modificationNote": {
+            "type": "string"
+          },
+          "overridePath": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "generatedComposites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sourceDependencies"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sourceDependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

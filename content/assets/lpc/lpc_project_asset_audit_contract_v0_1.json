@@ -1,0 +1,45 @@
+{
+  "schema": "havenwild.lpc_project_asset_audit_contract.v0_1",
+  "version": "0.1.0",
+  "pass": "167Z38",
+  "authority": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
+  "generator": "tools/automation/assets/Build-ElizaWyProjectAssetAuditV167Z38.py",
+  "sourceLock": "content/assets/intake/lpc_source_lock_v0_1.json",
+  "sourceMount": "assets/source/licensed/lpc_revised",
+  "outputs": {
+    "fullAudit": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38.json.gz",
+    "summary": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38_summary.json",
+    "catalogRoot": "WORKSPACE/generated/lpc/catalogs",
+    "report": "docs/audits/generated/ELIZAWY_PROJECT_ASSET_AUDIT_V167Z38.md"
+  },
+  "requiredDomains": [
+    "terrain",
+    "nature",
+    "objects",
+    "structure",
+    "characters",
+    "fx",
+    "palette",
+    "reference_scenes",
+    "repository_support",
+    "legal_and_documentation"
+  ],
+  "acceptance": {
+    "everySourceFileHasOnePrimaryDomain": true,
+    "duplicateStableAssetIdsAllowed": false,
+    "unroutedFilesAllowed": false,
+    "rawSourceMovesAllowed": false,
+    "sourceLocalCreditsMustBePreserved": true,
+    "generatedCatalogsAreDisposable": true,
+    "normalBuildValidatorCountMustRemain": 2,
+    "everyRequiredDomainHasRecords": true,
+    "sourceCommitOrLockedExportProvenanceRequired": true,
+    "runtimeAndEditorCatalogParityRequired": true,
+    "naturalObjectProceduralFallbackAllowed": false,
+    "treeFirstTestWorldMinimumVariants": 4
+  },
+  "buildCommands": {
+    "normal": "Build all performs cached strict audit",
+    "force": "HavenwildTools -> lpc-audit or tools/build/Build.* lpc-audit"
+  }
+}

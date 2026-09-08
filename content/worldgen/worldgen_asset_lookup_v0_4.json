@@ -1,0 +1,5283 @@
+{
+  "id": "worldgen_asset_lookup_v0_4",
+  "version": "0.4.0",
+  "kind": "worldgen_asset_lookup",
+  "sourcePack": "content/worldgen/packs/worldgen_home_island_v0_4.json",
+  "tileSize": [
+    32,
+    32
+  ],
+  "atlasLookup": {
+    "common_base_terrain_32": {
+      "id": "common_base_terrain_32",
+      "kind": "tilesheet",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "tileSize": [
+        32,
+        32
+      ],
+      "padding": 2
+    },
+    "terrain_autotile_47_32": {
+      "id": "terrain_autotile_47_32",
+      "kind": "autotile_sheet",
+      "json": "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.png",
+      "tileSize": [
+        32,
+        32
+      ],
+      "padding": 2
+    },
+    "water_families_animated_32": {
+      "id": "water_families_animated_32",
+      "kind": "animated_tilesheet",
+      "json": "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+      "image": "assets/generated/worldgen_v0_1/water/water_families_animated_32.png",
+      "tileSize": [
+        32,
+        32
+      ],
+      "padding": 2
+    },
+    "home_island_trees_32": {
+      "id": "home_island_trees_32",
+      "kind": "object_atlas",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "tileSize": [
+        32,
+        32
+      ],
+      "padding": 2
+    },
+    "home_island_clutter_32": {
+      "id": "home_island_clutter_32",
+      "kind": "object_atlas",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "tileSize": [
+        32,
+        32
+      ],
+      "padding": 2
+    },
+    "home_island_structures_32": {
+      "id": "home_island_structures_32",
+      "kind": "object_atlas",
+      "json": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.json",
+      "image": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.png",
+      "tileSize": [
+        32,
+        32
+      ],
+      "padding": 2
+    },
+    "scene_edge_borders_32": {
+      "id": "scene_edge_borders_32",
+      "kind": "border_tilesheet",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "tileSize": [
+        32,
+        32
+      ],
+      "padding": 2
+    }
+  },
+  "runtimeTileKindLookup": {
+    "Grass": {
+      "tileKind": "Grass",
+      "tileCode": "grass",
+      "assetId": "grass",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        2,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "TallGrass": {
+      "tileKind": "TallGrass",
+      "tileCode": "tall_grass",
+      "assetId": "tall_grass",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        36,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "Sand": {
+      "tileKind": "Sand",
+      "tileCode": "sand",
+      "assetId": "sand",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        70,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "WetSand": {
+      "tileKind": "WetSand",
+      "tileCode": "wet_sand",
+      "assetId": "wet_sand",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        104,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "PebbleShore": {
+      "tileKind": "PebbleShore",
+      "tileCode": "pebble_shore",
+      "assetId": "pebble_shore",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        138,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "Road": {
+      "tileKind": "Road",
+      "tileCode": "road",
+      "assetId": "road",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        172,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "StonePath": {
+      "tileKind": "StonePath",
+      "tileCode": "stone_path",
+      "assetId": "stone_path",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        206,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "MountainPath": {
+      "tileKind": "MountainPath",
+      "tileCode": "mountain_path",
+      "assetId": "mountain_path",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        240,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "WoodFloor": {
+      "tileKind": "WoodFloor",
+      "tileCode": "wood_floor",
+      "assetId": "wood_floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        240,
+        36,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "PlankFloor": {
+      "tileKind": "PlankFloor",
+      "tileCode": "plank_floor",
+      "assetId": "plank_floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        2,
+        70,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "StoneFloor": {
+      "tileKind": "StoneFloor",
+      "tileCode": "stone_floor",
+      "assetId": "stone_floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        36,
+        70,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "BrickFloor": {
+      "tileKind": "BrickFloor",
+      "tileCode": "brick_floor",
+      "assetId": "brick_floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        70,
+        70,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "Wall": {
+      "tileKind": "Wall",
+      "tileCode": "wall",
+      "assetId": "wall",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        104,
+        70,
+        32,
+        32
+      ],
+      "walkableDefault": false
+    },
+    "Cliff": {
+      "tileKind": "Cliff",
+      "tileCode": "cliff",
+      "assetId": "cliff",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        138,
+        36,
+        32,
+        32
+      ],
+      "walkableDefault": false
+    },
+    "MountainRock": {
+      "tileKind": "MountainRock",
+      "tileCode": "mountain_rock",
+      "assetId": "mountain_rock",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        172,
+        36,
+        32,
+        32
+      ],
+      "walkableDefault": false
+    },
+    "Dirt": {
+      "tileKind": "Dirt",
+      "tileCode": "dirt",
+      "assetId": "dirt",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        104,
+        36,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "Bridge": {
+      "tileKind": "Bridge",
+      "tileCode": "bridge",
+      "assetId": "bridge",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        206,
+        36,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "CaveFloor": {
+      "tileKind": "CaveFloor",
+      "tileCode": "cave_floor",
+      "assetId": "cave_floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        138,
+        70,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "CaveWall": {
+      "tileKind": "CaveWall",
+      "tileCode": "cave_wall",
+      "assetId": "cave_wall",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        172,
+        70,
+        32,
+        32
+      ],
+      "walkableDefault": false
+    },
+    "TilledSoil": {
+      "tileKind": "TilledSoil",
+      "tileCode": "tilled_soil",
+      "assetId": "tilled_soil",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        206,
+        70,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "Crop": {
+      "tileKind": "Crop",
+      "tileCode": "crop",
+      "assetId": "crop",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        2,
+        104,
+        32,
+        32
+      ],
+      "walkableDefault": true,
+      "aliasOf": "crop_seedling"
+    },
+    "GreenhouseZone": {
+      "tileKind": "GreenhouseZone",
+      "tileCode": "greenhouse_zone",
+      "assetId": "greenhouse_zone",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        36,
+        104,
+        32,
+        32
+      ],
+      "walkableDefault": true
+    },
+    "Water": {
+      "tileKind": "Water",
+      "tileCode": "water",
+      "assetId": "freshwater",
+      "atlas": "water_families_animated_32",
+      "json": "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+      "image": "assets/generated/worldgen_v0_1/water/water_families_animated_32.png",
+      "rect": [
+        2,
+        2,
+        32,
+        32
+      ],
+      "walkableDefault": false,
+      "animationAssetId": "freshwater",
+      "frameCount": 4,
+      "animated": true
+    },
+    "ShallowWater": {
+      "tileKind": "ShallowWater",
+      "tileCode": "shallow_water",
+      "assetId": "shallow_water",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        36,
+        36,
+        32,
+        32
+      ],
+      "walkableDefault": false
+    },
+    "DeepWater": {
+      "tileKind": "DeepWater",
+      "tileCode": "deep_water",
+      "assetId": "deep_water",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        70,
+        36,
+        32,
+        32
+      ],
+      "walkableDefault": false
+    }
+  },
+  "tileAssetLookup": {
+    "grass": {
+      "assetId": "grass",
+      "tileKind": "Grass",
+      "label": "Grass",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        2,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "tall_grass": {
+      "assetId": "tall_grass",
+      "tileKind": "TallGrass",
+      "label": "Tall Grass",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        36,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "sand": {
+      "assetId": "sand",
+      "tileKind": "Sand",
+      "label": "Sand",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        70,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "wet_sand": {
+      "assetId": "wet_sand",
+      "tileKind": "WetSand",
+      "label": "Wet Sand",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        104,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "pebble_shore": {
+      "assetId": "pebble_shore",
+      "tileKind": "PebbleShore",
+      "label": "Pebble Shore",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        138,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "road": {
+      "assetId": "road",
+      "tileKind": "Road",
+      "label": "Road",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        172,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "stone_path": {
+      "assetId": "stone_path",
+      "tileKind": "StonePath",
+      "label": "Stone Path",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        206,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "mountain_path": {
+      "assetId": "mountain_path",
+      "tileKind": "MountainPath",
+      "label": "Mountain Path",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        240,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "water": {
+      "assetId": "water",
+      "tileKind": null,
+      "label": "Fresh Water",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        2,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "shallow_water": {
+      "assetId": "shallow_water",
+      "tileKind": "ShallowWater",
+      "label": "Shallow Water",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        36,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "deep_water": {
+      "assetId": "deep_water",
+      "tileKind": "DeepWater",
+      "label": "Deep Water",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        70,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "dirt": {
+      "assetId": "dirt",
+      "tileKind": "Dirt",
+      "label": "Dirt",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        104,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "cliff": {
+      "assetId": "cliff",
+      "tileKind": "Cliff",
+      "label": "Cliff",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        138,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "mountain_rock": {
+      "assetId": "mountain_rock",
+      "tileKind": "MountainRock",
+      "label": "Mountain Rock",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        172,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "bridge": {
+      "assetId": "bridge",
+      "tileKind": "Bridge",
+      "label": "Bridge",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        206,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "wood_floor": {
+      "assetId": "wood_floor",
+      "tileKind": "WoodFloor",
+      "label": "Wood Floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        240,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "plank_floor": {
+      "assetId": "plank_floor",
+      "tileKind": "PlankFloor",
+      "label": "Plank Floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        2,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "stone_floor": {
+      "assetId": "stone_floor",
+      "tileKind": "StoneFloor",
+      "label": "Stone Floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        36,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "brick_floor": {
+      "assetId": "brick_floor",
+      "tileKind": "BrickFloor",
+      "label": "Brick Floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        70,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "wall": {
+      "assetId": "wall",
+      "tileKind": "Wall",
+      "label": "Wall",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        104,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "cave_floor": {
+      "assetId": "cave_floor",
+      "tileKind": "CaveFloor",
+      "label": "Cave Floor",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        138,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "cave_wall": {
+      "assetId": "cave_wall",
+      "tileKind": "CaveWall",
+      "label": "Cave Wall",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        172,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "tilled_soil": {
+      "assetId": "tilled_soil",
+      "tileKind": "TilledSoil",
+      "label": "Tilled Soil",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        206,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "watered_soil": {
+      "assetId": "watered_soil",
+      "tileKind": null,
+      "label": "Watered Soil",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        240,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "crop_seedling": {
+      "assetId": "crop_seedling",
+      "tileKind": null,
+      "label": "Crop Seedling",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        2,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "greenhouse_zone": {
+      "assetId": "greenhouse_zone",
+      "tileKind": "GreenhouseZone",
+      "label": "Greenhouse Zone",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        36,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true
+    },
+    "ocean_deep": {
+      "assetId": "ocean_deep",
+      "tileKind": null,
+      "label": "Ocean Deep",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        70,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "ocean_shallow": {
+      "assetId": "ocean_shallow",
+      "tileKind": null,
+      "label": "Ocean Shallow",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        104,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "river_water": {
+      "assetId": "river_water",
+      "tileKind": null,
+      "label": "River Water",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        138,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "river_mouth_blend": {
+      "assetId": "river_mouth_blend",
+      "tileKind": null,
+      "label": "River Mouth Blend",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        172,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "shore_foam": {
+      "assetId": "shore_foam",
+      "tileKind": null,
+      "label": "Shore Foam",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        206,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "mud_bank": {
+      "assetId": "mud_bank",
+      "tileKind": null,
+      "label": "Mud Bank",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        240,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": false
+    },
+    "crop": {
+      "assetId": "crop",
+      "tileKind": "Crop",
+      "label": "Crop Seedling",
+      "atlas": "common_base_terrain_32",
+      "json": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.json",
+      "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "rect": [
+        2,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "autotileGroup": null,
+      "runtimeResolved": true,
+      "aliasOf": "crop_seedling"
+    },
+    "freshwater": {
+      "assetId": "freshwater",
+      "tileKind": "Water",
+      "label": "Fresh Water Animated",
+      "atlas": "water_families_animated_32",
+      "json": "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+      "image": "assets/generated/worldgen_v0_1/water/water_families_animated_32.png",
+      "rect": [
+        2,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ],
+      "animated": true,
+      "frameCount": 4,
+      "runtimeResolved": true
+    }
+  },
+  "animatedTileLookup": {
+    "freshwater": {
+      "assetId": "freshwater",
+      "label": "Fresh Water",
+      "atlas": "water_families_animated_32",
+      "json": "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+      "image": "assets/generated/worldgen_v0_1/water/water_families_animated_32.png",
+      "frameCount": 4,
+      "frames": [
+        {
+          "frame": 0,
+          "col": 0,
+          "row": 0,
+          "durationMs": 180,
+          "rect": [
+            2,
+            2,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 1,
+          "col": 1,
+          "row": 0,
+          "durationMs": 180,
+          "rect": [
+            36,
+            2,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 2,
+          "col": 2,
+          "row": 0,
+          "durationMs": 180,
+          "rect": [
+            70,
+            2,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 3,
+          "col": 3,
+          "row": 0,
+          "durationMs": 180,
+          "rect": [
+            104,
+            2,
+            32,
+            32
+          ]
+        }
+      ],
+      "family": "freshwater"
+    },
+    "ocean": {
+      "assetId": "ocean",
+      "label": "Ocean",
+      "atlas": "water_families_animated_32",
+      "json": "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+      "image": "assets/generated/worldgen_v0_1/water/water_families_animated_32.png",
+      "frameCount": 4,
+      "frames": [
+        {
+          "frame": 0,
+          "col": 0,
+          "row": 1,
+          "durationMs": 180,
+          "rect": [
+            2,
+            36,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 1,
+          "col": 1,
+          "row": 1,
+          "durationMs": 180,
+          "rect": [
+            36,
+            36,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 2,
+          "col": 2,
+          "row": 1,
+          "durationMs": 180,
+          "rect": [
+            70,
+            36,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 3,
+          "col": 3,
+          "row": 1,
+          "durationMs": 180,
+          "rect": [
+            104,
+            36,
+            32,
+            32
+          ]
+        }
+      ],
+      "family": "ocean"
+    },
+    "shallow_ocean": {
+      "assetId": "shallow_ocean",
+      "label": "Shallow Ocean",
+      "atlas": "water_families_animated_32",
+      "json": "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+      "image": "assets/generated/worldgen_v0_1/water/water_families_animated_32.png",
+      "frameCount": 4,
+      "frames": [
+        {
+          "frame": 0,
+          "col": 0,
+          "row": 2,
+          "durationMs": 180,
+          "rect": [
+            2,
+            70,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 1,
+          "col": 1,
+          "row": 2,
+          "durationMs": 180,
+          "rect": [
+            36,
+            70,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 2,
+          "col": 2,
+          "row": 2,
+          "durationMs": 180,
+          "rect": [
+            70,
+            70,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 3,
+          "col": 3,
+          "row": 2,
+          "durationMs": 180,
+          "rect": [
+            104,
+            70,
+            32,
+            32
+          ]
+        }
+      ],
+      "family": "ocean"
+    },
+    "river": {
+      "assetId": "river",
+      "label": "River",
+      "atlas": "water_families_animated_32",
+      "json": "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+      "image": "assets/generated/worldgen_v0_1/water/water_families_animated_32.png",
+      "frameCount": 4,
+      "frames": [
+        {
+          "frame": 0,
+          "col": 0,
+          "row": 3,
+          "durationMs": 180,
+          "rect": [
+            2,
+            104,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 1,
+          "col": 1,
+          "row": 3,
+          "durationMs": 180,
+          "rect": [
+            36,
+            104,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 2,
+          "col": 2,
+          "row": 3,
+          "durationMs": 180,
+          "rect": [
+            70,
+            104,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 3,
+          "col": 3,
+          "row": 3,
+          "durationMs": 180,
+          "rect": [
+            104,
+            104,
+            32,
+            32
+          ]
+        }
+      ],
+      "family": "river"
+    },
+    "shore_foam": {
+      "assetId": "shore_foam",
+      "label": "Shore Foam",
+      "atlas": "water_families_animated_32",
+      "json": "assets/generated/worldgen_v0_1/water/water_families_animated_32.json",
+      "image": "assets/generated/worldgen_v0_1/water/water_families_animated_32.png",
+      "frameCount": 4,
+      "frames": [
+        {
+          "frame": 0,
+          "col": 0,
+          "row": 4,
+          "durationMs": 180,
+          "rect": [
+            2,
+            138,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 1,
+          "col": 1,
+          "row": 4,
+          "durationMs": 180,
+          "rect": [
+            36,
+            138,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 2,
+          "col": 2,
+          "row": 4,
+          "durationMs": 180,
+          "rect": [
+            70,
+            138,
+            32,
+            32
+          ]
+        },
+        {
+          "frame": 3,
+          "col": 3,
+          "row": 4,
+          "durationMs": 180,
+          "rect": [
+            104,
+            138,
+            32,
+            32
+          ]
+        }
+      ],
+      "family": "ocean"
+    }
+  },
+  "objectAssetLookup": {
+    "home_oak_sapling_spring": {
+      "assetId": "home_oak_sapling_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        2,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_young_spring": {
+      "assetId": "home_oak_young_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        36,
+        2,
+        64,
+        64
+      ],
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_mature_spring": {
+      "assetId": "home_oak_mature_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        102,
+        2,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_tall_spring": {
+      "assetId": "home_oak_tall_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        200,
+        2,
+        96,
+        160
+      ],
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_stump_spring": {
+      "assetId": "home_oak_stump_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        298,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_fallen_spring": {
+      "assetId": "home_oak_fallen_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        332,
+        2,
+        96,
+        32
+      ],
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_sapling_summer": {
+      "assetId": "home_oak_sapling_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        430,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_young_summer": {
+      "assetId": "home_oak_young_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        464,
+        2,
+        64,
+        64
+      ],
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_mature_summer": {
+      "assetId": "home_oak_mature_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        2,
+        172,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_tall_summer": {
+      "assetId": "home_oak_tall_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        100,
+        172,
+        96,
+        160
+      ],
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_stump_summer": {
+      "assetId": "home_oak_stump_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        198,
+        172,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_fallen_summer": {
+      "assetId": "home_oak_fallen_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        232,
+        172,
+        96,
+        32
+      ],
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_sapling_autumn": {
+      "assetId": "home_oak_sapling_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        330,
+        172,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_young_autumn": {
+      "assetId": "home_oak_young_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        364,
+        172,
+        64,
+        64
+      ],
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_mature_autumn": {
+      "assetId": "home_oak_mature_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        430,
+        172,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_tall_autumn": {
+      "assetId": "home_oak_tall_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        2,
+        342,
+        96,
+        160
+      ],
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_stump_autumn": {
+      "assetId": "home_oak_stump_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        100,
+        342,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_fallen_autumn": {
+      "assetId": "home_oak_fallen_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        134,
+        342,
+        96,
+        32
+      ],
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_sapling_winter": {
+      "assetId": "home_oak_sapling_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        232,
+        342,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_young_winter": {
+      "assetId": "home_oak_young_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        266,
+        342,
+        64,
+        64
+      ],
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_mature_winter": {
+      "assetId": "home_oak_mature_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        332,
+        342,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_tall_winter": {
+      "assetId": "home_oak_tall_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        430,
+        342,
+        96,
+        160
+      ],
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_stump_winter": {
+      "assetId": "home_oak_stump_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        2,
+        512,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_oak_fallen_winter": {
+      "assetId": "home_oak_fallen_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        36,
+        512,
+        96,
+        32
+      ],
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "oak_log"
+      ]
+    },
+    "home_birch_sapling_spring": {
+      "assetId": "home_birch_sapling_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        134,
+        512,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_young_spring": {
+      "assetId": "home_birch_young_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        168,
+        512,
+        64,
+        64
+      ],
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_mature_spring": {
+      "assetId": "home_birch_mature_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        234,
+        512,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_tall_spring": {
+      "assetId": "home_birch_tall_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        332,
+        512,
+        96,
+        160
+      ],
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_stump_spring": {
+      "assetId": "home_birch_stump_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        430,
+        512,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_fallen_spring": {
+      "assetId": "home_birch_fallen_spring",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        2,
+        682,
+        96,
+        32
+      ],
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "spring",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_sapling_summer": {
+      "assetId": "home_birch_sapling_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        100,
+        682,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_young_summer": {
+      "assetId": "home_birch_young_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        134,
+        682,
+        64,
+        64
+      ],
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_mature_summer": {
+      "assetId": "home_birch_mature_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        200,
+        682,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_tall_summer": {
+      "assetId": "home_birch_tall_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        298,
+        682,
+        96,
+        160
+      ],
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_stump_summer": {
+      "assetId": "home_birch_stump_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        396,
+        682,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_fallen_summer": {
+      "assetId": "home_birch_fallen_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        430,
+        682,
+        96,
+        32
+      ],
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_sapling_autumn": {
+      "assetId": "home_birch_sapling_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        2,
+        852,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_young_autumn": {
+      "assetId": "home_birch_young_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        36,
+        852,
+        64,
+        64
+      ],
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_mature_autumn": {
+      "assetId": "home_birch_mature_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        102,
+        852,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_tall_autumn": {
+      "assetId": "home_birch_tall_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        200,
+        852,
+        96,
+        160
+      ],
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_stump_autumn": {
+      "assetId": "home_birch_stump_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        298,
+        852,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_fallen_autumn": {
+      "assetId": "home_birch_fallen_autumn",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        332,
+        852,
+        96,
+        32
+      ],
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "autumn",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_sapling_winter": {
+      "assetId": "home_birch_sapling_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        430,
+        852,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_young_winter": {
+      "assetId": "home_birch_young_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        464,
+        852,
+        64,
+        64
+      ],
+      "visualFootprint": [
+        2,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_mature_winter": {
+      "assetId": "home_birch_mature_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        2,
+        1022,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_tall_winter": {
+      "assetId": "home_birch_tall_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        100,
+        1022,
+        96,
+        160
+      ],
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        1,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_stump_winter": {
+      "assetId": "home_birch_stump_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        198,
+        1022,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_birch_fallen_winter": {
+      "assetId": "home_birch_fallen_winter",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        232,
+        1022,
+        96,
+        32
+      ],
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": "winter",
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": [
+        "birch_log"
+      ]
+    },
+    "home_ancient_oak_landmark_summer": {
+      "assetId": "home_ancient_oak_landmark_summer",
+      "source": "atlas",
+      "objectType": "tree",
+      "atlas": "home_island_trees_32",
+      "json": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.json",
+      "image": "assets/generated/worldgen_v0_1/trees/home_island_trees_32.png",
+      "rect": [
+        330,
+        1022,
+        160,
+        160
+      ],
+      "visualFootprint": [
+        5,
+        5
+      ],
+      "collisionFootprint": [
+        2,
+        2
+      ],
+      "origin": [
+        2,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": "summer",
+      "biomeTags": [
+        "home_island",
+        "temperate",
+        "landmark"
+      ],
+      "harvestDrops": [
+        "ancient_oak_log"
+      ]
+    },
+    "home_rock_small": {
+      "assetId": "home_rock_small",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        2,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_flower_blue": {
+      "assetId": "home_flower_blue",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        36,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_flower_gold": {
+      "assetId": "home_flower_gold",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        70,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_mushroom": {
+      "assetId": "home_mushroom",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        104,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_branch": {
+      "assetId": "home_branch",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        138,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_shell": {
+      "assetId": "home_shell",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        172,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_crate": {
+      "assetId": "home_crate",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        206,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_barrel": {
+      "assetId": "home_barrel",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        240,
+        2,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_lamp": {
+      "assetId": "home_lamp",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        2,
+        36,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_sign": {
+      "assetId": "home_sign",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        36,
+        36,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_reed": {
+      "assetId": "home_reed",
+      "source": "atlas",
+      "objectType": "clutter",
+      "atlas": "home_island_clutter_32",
+      "json": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.json",
+      "image": "assets/generated/worldgen_v0_1/clutter/home_island_clutter_32.png",
+      "rect": [
+        70,
+        36,
+        32,
+        32
+      ],
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        0,
+        0
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_tavern_mountain_entrance": {
+      "assetId": "home_tavern_mountain_entrance",
+      "source": "atlas",
+      "objectType": "structure",
+      "atlas": "home_island_structures_32",
+      "json": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.json",
+      "image": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.png",
+      "rect": [
+        2,
+        2,
+        192,
+        160
+      ],
+      "visualFootprint": [
+        6,
+        5
+      ],
+      "collisionFootprint": [
+        6,
+        1
+      ],
+      "origin": [
+        3,
+        4
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_outside_bar": {
+      "assetId": "home_outside_bar",
+      "source": "atlas",
+      "objectType": "structure",
+      "atlas": "home_island_structures_32",
+      "json": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.json",
+      "image": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.png",
+      "rect": [
+        196,
+        2,
+        128,
+        64
+      ],
+      "visualFootprint": [
+        4,
+        2
+      ],
+      "collisionFootprint": [
+        4,
+        1
+      ],
+      "origin": [
+        2,
+        1
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_city_house_shell": {
+      "assetId": "home_city_house_shell",
+      "source": "atlas",
+      "objectType": "structure",
+      "atlas": "home_island_structures_32",
+      "json": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.json",
+      "image": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.png",
+      "rect": [
+        2,
+        164,
+        128,
+        128
+      ],
+      "visualFootprint": [
+        4,
+        4
+      ],
+      "collisionFootprint": [
+        4,
+        1
+      ],
+      "origin": [
+        2,
+        3
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": true,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_cave_entrance": {
+      "assetId": "home_cave_entrance",
+      "source": "atlas",
+      "objectType": "structure",
+      "atlas": "home_island_structures_32",
+      "json": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.json",
+      "image": "assets/generated/worldgen_v0_1/structures/home_island_structures_32.png",
+      "rect": [
+        132,
+        164,
+        96,
+        96
+      ],
+      "visualFootprint": [
+        3,
+        3
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        1,
+        2
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "season": null,
+      "biomeTags": [
+        "home_island",
+        "temperate"
+      ],
+      "harvestDrops": []
+    },
+    "home_apple_tree_mature": {
+      "assetId": "home_apple_tree_mature",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "home_oak_tree_mature": {
+      "assetId": "home_oak_tree_mature",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "stone_signpost": {
+      "assetId": "stone_signpost",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        1,
+        2
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "greenhouse_stub": {
+      "assetId": "greenhouse_stub",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        8,
+        6
+      ],
+      "collisionFootprint": [
+        8,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "fallen_log": {
+      "assetId": "fallen_log",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        3,
+        1
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "low_object",
+      "fadeWhenPlayerBehind": false,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "home_birch_tree_mature": {
+      "assetId": "home_birch_tree_mature",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        3,
+        5
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "old_growth_landmark_tree": {
+      "assetId": "old_growth_landmark_tree",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        5,
+        5
+      ],
+      "collisionFootprint": [
+        2,
+        2
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "cave_mouth_entrance": {
+      "assetId": "cave_mouth_entrance",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        6,
+        5
+      ],
+      "collisionFootprint": [
+        4,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "tall_object",
+      "fadeWhenPlayerBehind": true,
+      "biomeTags": [
+        "highlands"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "bar_counter_stage_01": {
+      "assetId": "bar_counter_stage_01",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        12,
+        2
+      ],
+      "collisionFootprint": [
+        12,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "large_table_six_seat": {
+      "assetId": "large_table_six_seat",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        6,
+        4
+      ],
+      "collisionFootprint": [
+        6,
+        2
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "stove_oven_2x3": {
+      "assetId": "stove_oven_2x3",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        2,
+        3
+      ],
+      "collisionFootprint": [
+        2,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "aging_barrel_row": {
+      "assetId": "aging_barrel_row",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        8,
+        2
+      ],
+      "collisionFootprint": [
+        8,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "biomeTags": [
+        "cave"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "guest_bed": {
+      "assetId": "guest_bed",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        3,
+        2
+      ],
+      "collisionFootprint": [
+        3,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "object",
+      "fadeWhenPlayerBehind": false,
+      "biomeTags": [
+        "temperate"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    },
+    "ore_node_copper": {
+      "assetId": "ore_node_copper",
+      "source": "scene_placeholder",
+      "objectType": "scene_object",
+      "atlas": null,
+      "json": null,
+      "image": null,
+      "rect": null,
+      "visualFootprint": [
+        1,
+        1
+      ],
+      "collisionFootprint": [
+        1,
+        1
+      ],
+      "origin": [
+        0,
+        0
+      ],
+      "layer": "low_object",
+      "fadeWhenPlayerBehind": false,
+      "biomeTags": [
+        "cave"
+      ],
+      "harvestDrops": [],
+      "needsAtlasArt": true
+    }
+  },
+  "borderLookup": {
+    "forest:north": {
+      "assetId": "forest_north_edge",
+      "borderType": "forest",
+      "edgeRole": "north",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        2,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "forest:south": {
+      "assetId": "forest_south_edge",
+      "borderType": "forest",
+      "edgeRole": "south",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        36,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "forest:east": {
+      "assetId": "forest_east_edge",
+      "borderType": "forest",
+      "edgeRole": "east",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        70,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "forest:west": {
+      "assetId": "forest_west_edge",
+      "borderType": "forest",
+      "edgeRole": "west",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        104,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "forest:inside_corner": {
+      "assetId": "forest_inside_corner_edge",
+      "borderType": "forest",
+      "edgeRole": "inside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        138,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "forest:outside_corner": {
+      "assetId": "forest_outside_corner_edge",
+      "borderType": "forest",
+      "edgeRole": "outside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        172,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "forest:opening": {
+      "assetId": "forest_opening_edge",
+      "borderType": "forest",
+      "edgeRole": "opening",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        206,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "forest:filler": {
+      "assetId": "forest_filler_edge",
+      "borderType": "forest",
+      "edgeRole": "filler",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        240,
+        2,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cliff:north": {
+      "assetId": "cliff_north_edge",
+      "borderType": "cliff",
+      "edgeRole": "north",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        2,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cliff:south": {
+      "assetId": "cliff_south_edge",
+      "borderType": "cliff",
+      "edgeRole": "south",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        36,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cliff:east": {
+      "assetId": "cliff_east_edge",
+      "borderType": "cliff",
+      "edgeRole": "east",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        70,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cliff:west": {
+      "assetId": "cliff_west_edge",
+      "borderType": "cliff",
+      "edgeRole": "west",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        104,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cliff:inside_corner": {
+      "assetId": "cliff_inside_corner_edge",
+      "borderType": "cliff",
+      "edgeRole": "inside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        138,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cliff:outside_corner": {
+      "assetId": "cliff_outside_corner_edge",
+      "borderType": "cliff",
+      "edgeRole": "outside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        172,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cliff:opening": {
+      "assetId": "cliff_opening_edge",
+      "borderType": "cliff",
+      "edgeRole": "opening",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        206,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cliff:filler": {
+      "assetId": "cliff_filler_edge",
+      "borderType": "cliff",
+      "edgeRole": "filler",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        240,
+        36,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "ocean:north": {
+      "assetId": "ocean_north_edge",
+      "borderType": "ocean",
+      "edgeRole": "north",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        2,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "ocean:south": {
+      "assetId": "ocean_south_edge",
+      "borderType": "ocean",
+      "edgeRole": "south",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        36,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "ocean:east": {
+      "assetId": "ocean_east_edge",
+      "borderType": "ocean",
+      "edgeRole": "east",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        70,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "ocean:west": {
+      "assetId": "ocean_west_edge",
+      "borderType": "ocean",
+      "edgeRole": "west",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        104,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "ocean:inside_corner": {
+      "assetId": "ocean_inside_corner_edge",
+      "borderType": "ocean",
+      "edgeRole": "inside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        138,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "ocean:outside_corner": {
+      "assetId": "ocean_outside_corner_edge",
+      "borderType": "ocean",
+      "edgeRole": "outside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        172,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "ocean:opening": {
+      "assetId": "ocean_opening_edge",
+      "borderType": "ocean",
+      "edgeRole": "opening",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        206,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "ocean:filler": {
+      "assetId": "ocean_filler_edge",
+      "borderType": "ocean",
+      "edgeRole": "filler",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        240,
+        70,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "mountain:north": {
+      "assetId": "mountain_north_edge",
+      "borderType": "mountain",
+      "edgeRole": "north",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        2,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "mountain:south": {
+      "assetId": "mountain_south_edge",
+      "borderType": "mountain",
+      "edgeRole": "south",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        36,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "mountain:east": {
+      "assetId": "mountain_east_edge",
+      "borderType": "mountain",
+      "edgeRole": "east",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        70,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "mountain:west": {
+      "assetId": "mountain_west_edge",
+      "borderType": "mountain",
+      "edgeRole": "west",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        104,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "mountain:inside_corner": {
+      "assetId": "mountain_inside_corner_edge",
+      "borderType": "mountain",
+      "edgeRole": "inside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        138,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "mountain:outside_corner": {
+      "assetId": "mountain_outside_corner_edge",
+      "borderType": "mountain",
+      "edgeRole": "outside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        172,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "mountain:opening": {
+      "assetId": "mountain_opening_edge",
+      "borderType": "mountain",
+      "edgeRole": "opening",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        206,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "mountain:filler": {
+      "assetId": "mountain_filler_edge",
+      "borderType": "mountain",
+      "edgeRole": "filler",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        240,
+        104,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "city:north": {
+      "assetId": "city_north_edge",
+      "borderType": "city",
+      "edgeRole": "north",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        2,
+        138,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "city:south": {
+      "assetId": "city_south_edge",
+      "borderType": "city",
+      "edgeRole": "south",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        36,
+        138,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "city:east": {
+      "assetId": "city_east_edge",
+      "borderType": "city",
+      "edgeRole": "east",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        70,
+        138,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "city:west": {
+      "assetId": "city_west_edge",
+      "borderType": "city",
+      "edgeRole": "west",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        104,
+        138,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "city:inside_corner": {
+      "assetId": "city_inside_corner_edge",
+      "borderType": "city",
+      "edgeRole": "inside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        138,
+        138,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "city:outside_corner": {
+      "assetId": "city_outside_corner_edge",
+      "borderType": "city",
+      "edgeRole": "outside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        172,
+        138,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "city:opening": {
+      "assetId": "city_opening_edge",
+      "borderType": "city",
+      "edgeRole": "opening",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        206,
+        138,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "city:filler": {
+      "assetId": "city_filler_edge",
+      "borderType": "city",
+      "edgeRole": "filler",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        240,
+        138,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "farm:north": {
+      "assetId": "farm_north_edge",
+      "borderType": "farm",
+      "edgeRole": "north",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        2,
+        172,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "farm:south": {
+      "assetId": "farm_south_edge",
+      "borderType": "farm",
+      "edgeRole": "south",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        36,
+        172,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "farm:east": {
+      "assetId": "farm_east_edge",
+      "borderType": "farm",
+      "edgeRole": "east",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        70,
+        172,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "farm:west": {
+      "assetId": "farm_west_edge",
+      "borderType": "farm",
+      "edgeRole": "west",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        104,
+        172,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "farm:inside_corner": {
+      "assetId": "farm_inside_corner_edge",
+      "borderType": "farm",
+      "edgeRole": "inside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        138,
+        172,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "farm:outside_corner": {
+      "assetId": "farm_outside_corner_edge",
+      "borderType": "farm",
+      "edgeRole": "outside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        172,
+        172,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "farm:opening": {
+      "assetId": "farm_opening_edge",
+      "borderType": "farm",
+      "edgeRole": "opening",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        206,
+        172,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "farm:filler": {
+      "assetId": "farm_filler_edge",
+      "borderType": "farm",
+      "edgeRole": "filler",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        240,
+        172,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cave_dark:north": {
+      "assetId": "cave_dark_north_edge",
+      "borderType": "cave_dark",
+      "edgeRole": "north",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        2,
+        206,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cave_dark:south": {
+      "assetId": "cave_dark_south_edge",
+      "borderType": "cave_dark",
+      "edgeRole": "south",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        36,
+        206,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cave_dark:east": {
+      "assetId": "cave_dark_east_edge",
+      "borderType": "cave_dark",
+      "edgeRole": "east",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        70,
+        206,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cave_dark:west": {
+      "assetId": "cave_dark_west_edge",
+      "borderType": "cave_dark",
+      "edgeRole": "west",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        104,
+        206,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cave_dark:inside_corner": {
+      "assetId": "cave_dark_inside_corner_edge",
+      "borderType": "cave_dark",
+      "edgeRole": "inside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        138,
+        206,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cave_dark:outside_corner": {
+      "assetId": "cave_dark_outside_corner_edge",
+      "borderType": "cave_dark",
+      "edgeRole": "outside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        172,
+        206,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cave_dark:opening": {
+      "assetId": "cave_dark_opening_edge",
+      "borderType": "cave_dark",
+      "edgeRole": "opening",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        206,
+        206,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "cave_dark:filler": {
+      "assetId": "cave_dark_filler_edge",
+      "borderType": "cave_dark",
+      "edgeRole": "filler",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        240,
+        206,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "dungeon_dark:north": {
+      "assetId": "dungeon_dark_north_edge",
+      "borderType": "dungeon_dark",
+      "edgeRole": "north",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        2,
+        240,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "dungeon_dark:south": {
+      "assetId": "dungeon_dark_south_edge",
+      "borderType": "dungeon_dark",
+      "edgeRole": "south",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        36,
+        240,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "dungeon_dark:east": {
+      "assetId": "dungeon_dark_east_edge",
+      "borderType": "dungeon_dark",
+      "edgeRole": "east",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        70,
+        240,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "dungeon_dark:west": {
+      "assetId": "dungeon_dark_west_edge",
+      "borderType": "dungeon_dark",
+      "edgeRole": "west",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        104,
+        240,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "dungeon_dark:inside_corner": {
+      "assetId": "dungeon_dark_inside_corner_edge",
+      "borderType": "dungeon_dark",
+      "edgeRole": "inside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        138,
+        240,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "dungeon_dark:outside_corner": {
+      "assetId": "dungeon_dark_outside_corner_edge",
+      "borderType": "dungeon_dark",
+      "edgeRole": "outside_corner",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        172,
+        240,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "dungeon_dark:opening": {
+      "assetId": "dungeon_dark_opening_edge",
+      "borderType": "dungeon_dark",
+      "edgeRole": "opening",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        206,
+        240,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    },
+    "dungeon_dark:filler": {
+      "assetId": "dungeon_dark_filler_edge",
+      "borderType": "dungeon_dark",
+      "edgeRole": "filler",
+      "atlas": "scene_edge_borders_32",
+      "json": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.json",
+      "image": "assets/generated/worldgen_v0_1/borders/scene_edge_borders_32.png",
+      "rect": [
+        240,
+        240,
+        32,
+        32
+      ],
+      "tileSize": [
+        32,
+        32
+      ]
+    }
+  },
+  "coverage": {
+    "atlases": 7,
+    "runtimeTileKinds": 25,
+    "tileAssets": 34,
+    "animatedTiles": 5,
+    "objectAssets": 78,
+    "borderAssets": 64,
+    "scenePlaceholderObjects": 14
+  }
+}

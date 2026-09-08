@@ -1,0 +1,41 @@
+HAVENWILD H21 A14B-A14T UNIVERSAL AUTHORING NORMALIZATION CLOSURE
+
+Baseline
+--------
+Havenwild_CompleteSourceRollup_Pass167Z109W81R30R44H7-H21A14AR1_20260831(1).zip
+SHA-256: f1270b3fe0fab668e448e6fd2b4a84521e605247b1caae75791657d1afcdf721
+
+Closure validation
+------------------
+PASS 15/15 targeted validators
+PASS changed Python AST parse (9 files)
+PASS changed JSON parse (13 files)
+PASS changed Rust delimiter sanity (49 files)
+PASS contaminant scan
+
+Targeted acceptance includes:
+- Unified Game Canvas brush/environment foundation
+- H21 A9-A14 canvas ownership/palette normalization
+- A14 Universal Authoring Normalization Closure
+- discrete structural levels / Ramp / Ladder
+- F3 native GUI + Resource Context normalization
+- geographic world authority
+- live structural map/minimap synchronization
+- LPC directional cliff ramps
+- ElizaWy cliff source grammar
+- unified terrain/world lane
+- Scene Library runtime framing
+- W56 editor/runtime object parity
+- open-world runtime stabilization
+- H20V2 world foundation closure
+- H20 world completion
+
+Environment limitation
+----------------------
+cargo, rustc, and rustfmt are unavailable in this execution environment.
+This artifact therefore requires the Windows Full Quality Gate and runtime acceptance before promotion.
+
+Inherited baseline source-profile debt
+-------------------------------------
+The full source profile contains pre-existing red gates verified against the supplied H21A14AR1 baseline.
+They are recorded in manifests/incremental_patch_manifest_h21a14b_a14t_20260901.json and are not claimed closed by this patch.

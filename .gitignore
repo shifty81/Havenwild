@@ -1,0 +1,74 @@
+# Rust build output
+target/
+
+# Machine-local editor preferences and caches
+.local/
+/WORKSPACE/editor/native_workspace_layout_v0_1.json
+
+# Local build transcripts
+logs/
+
+# Packaged local applications
+Build/
+
+# Machine-local pinned third-party dependency checkouts
+.local/dependencies/
+
+# Havenwild local project tooling state
+.havenwild/
+# All Control Center outputs are local/recovery artifacts, never source authority
+/artifacts/
+
+# Generated/interpreter caches and transient source files
+__pycache__/
+*.py[cod]
+*.tmp
+
+# Governed external/source asset corpus: restored from manifests/providers, not Git
+/assets/
+/archive/
+
+# Historical handoffs, rollups, recovery payloads, and patch packages
+/docs/archive/
+/docs/handoffs/
+/docs/legacy_project_docs/
+/docs/patch/
+/manifests/packages/
+/manifests/patches/
+/manifests/rollups/
+/manifests/handoffs/
+/manifests/recovery/
+
+# Local authoring/session state; canonical schemas/configuration live outside WORKSPACE
+/WORKSPACE/
+
+# Binary/source art and audio are never committed accidentally
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.bmp
+*.tga
+*.dds
+*.wav
+*.ogg
+*.mp3
+*.flac
+*.glb
+*.gltf
+*.fbx
+*.obj
+*.blend
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.ase
+*.aseprite
+*.psd
+*.kra
+*.gz
+
+# Patch/source-rollup transport containers are never Git source
+*.zip

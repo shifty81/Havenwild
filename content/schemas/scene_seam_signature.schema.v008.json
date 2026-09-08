@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.scene_seam_signature.v008",
+  "type": "object",
+  "required": [
+    "scene_id",
+    "edge",
+    "height_samples",
+    "terrain_samples",
+    "water_samples",
+    "transition_points"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string"
+    },
+    "edge": {
+      "enum": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ]
+    },
+    "height_samples": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "terrain_samples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "water_samples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "biome_samples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "shore_profile_samples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transition_points": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "signature_hash": {
+      "type": "string"
+    }
+  }
+}

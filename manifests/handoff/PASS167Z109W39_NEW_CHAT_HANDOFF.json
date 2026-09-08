@@ -1,0 +1,14 @@
+{
+  "project": "Havenwild",
+  "source_state": "Pass167Z109W39",
+  "baseline": "Pass167Z109W15B_20260812",
+  "assembled_from": [
+    "Havenwild_CompleteSourceRollup_Pass167Z109W15B_20260812(1).zip",
+    "Havenwild_RecoveryPatch_FromPass167Z109W15B_ThroughPass167Z109W39_20260812.zip"
+  ],
+  "next_milestone": "Unified World Authority U1 \u2014 Shared Visual Authority",
+  "next_pass": "Pass167Z109W40",
+  "farmstead_role": "Canonical Home Estate template/system; development Farmstead is a test profile/instance.",
+  "important_rule": "Canonical semantic world is authority; chunks/continuous surfaces are disposable projections/streaming optimizations.",
+  "handoff_document": "docs/handoffs/HAVENWILD_W39_UNIFIED_WORLD_AUTHORITY_HANDOFF_20260812.md"
+}

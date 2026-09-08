@@ -1,0 +1,4 @@
+PASS 165R — STATION QUEUE PAUSE AND CLEAR
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+ADD docs/patch/PASS_165R_STATION_QUEUE_PAUSE_AND_CLEAR.md
+ADD manifests/PASS_165R_MANIFEST.txt

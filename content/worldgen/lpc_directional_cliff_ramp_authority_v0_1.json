@@ -1,0 +1,159 @@
+{
+  "schema": "havenwild.worldgen.lpc_directional_cliff_ramp_authority.v0_1",
+  "pass": "167Z109W7",
+  "revision": "167Z109W7-authored-directional-cliff-ramps-v1",
+  "status": "active",
+  "purpose": "Promote the complete authored left/right directional ramp assemblies from the companion LPC grass-top cliff sheet as the only normal structural ramp visuals.",
+  "sourceFamily": {
+    "family": "LPC grass-top modular cliffs",
+    "relationshipToElizaWy": "companion LPC cliff-family source already catalogued by Havenwild; it supplements the ElizaWy seasonal face provider with complete directional traversal stamps",
+    "cellPx": 32,
+    "grass": {
+      "path": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "sha256": "1a0c25904aaacf373c54311eecca9933a9b122e4c3cb2e4cfe8e19ab06feb82a",
+      "dimensionsPx": [
+        384,
+        288
+      ]
+    },
+    "materialVariants": [
+      "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_ddirt.png",
+      "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_sand.png",
+      "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_snow.png"
+    ]
+  },
+  "authoredRamps": {
+    "riseRight": {
+      "sourceGridSpan": [
+        3,
+        5,
+        3,
+        4
+      ],
+      "sourceRectPx": [
+        96,
+        160,
+        96,
+        128
+      ],
+      "worldVisualFootprintTiles": [
+        3,
+        4
+      ],
+      "hostAnchorOffsetTiles": [
+        -1,
+        -1
+      ],
+      "traversableCorridorOffsetsFromHost": [
+        [
+          1,
+          -1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "structuralTransition": "one tier only",
+      "status": "runtime_certified"
+    },
+    "riseLeft": {
+      "sourceGridSpan": [
+        6,
+        5,
+        3,
+        4
+      ],
+      "sourceRectPx": [
+        192,
+        160,
+        96,
+        128
+      ],
+      "worldVisualFootprintTiles": [
+        3,
+        4
+      ],
+      "hostAnchorOffsetTiles": [
+        -1,
+        -1
+      ],
+      "traversableCorridorOffsetsFromHost": [
+        [
+          -1,
+          -1
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "structuralTransition": "one tier only",
+      "status": "runtime_certified"
+    }
+  },
+  "placementContract": {
+    "structuralHost": "upper cell of a south-facing one-tier structural edge",
+    "semanticConnector": "StructuralConnectorKind::Ramp",
+    "terrainMarker": "TileKind::MountainPath",
+    "completeCorridorRequiredForFreshWorldgen": true,
+    "corridorCellCount": 6,
+    "visualRecipeOwnsWholeStamp": true,
+    "neighborCliffOverpaintInsideCompleteStampAllowed": false,
+    "mirrorAllowed": false,
+    "rotationAllowed": false,
+    "cropToSingleColumnAllowed": false,
+    "stretchAllowed": false,
+    "multiTierRampAllowed": false,
+    "multiTierPolicy": "chain separate one-tier authored ramps where world topology explicitly requires more than one structural level of ascent",
+    "visualAnchorPolicy": "source stamp begins one tile left and one tile above the structural owner; the 3x4 envelope exactly bounds the six-cell MountainPath corridor, and source transparency composites over the continuous base cliff",
+    "hostAnchorRule": "3x4 source envelope exactly bounds the six-cell corridor: x=-1..1, y=-1..2 from host"
+  },
+  "collisionAndNavigation": {
+    "topologyAuthority": "structural levels plus StructuralConnectorKind::Ramp",
+    "openedStructuralEdge": "only the center host-to-south-neighbor edge",
+    "approachAndDeparture": "the six MountainPath cells create a cardinal zig-zag corridor aligned with the authored diagonal green passage",
+    "nonCorridorFlanks": "remain governed by ordinary structural cliff collision; art does not create walkability",
+    "oldSaveCompatibility": "W6 saves containing only the center MountainPath pair retain semantic traversal. Runtime chooses a deterministic authored ramp direction but does not claim/suppress the wider connected-recipe footprint until the six-cell corridor exists."
+  },
+  "sourceSafety": {
+    "legacyC8StripStandaloneRampAllowed": false,
+    "fabricatedFrontFacingRampAllowed": false,
+    "unrelatedRoundedCornerCompositionAllowed": false,
+    "genericFallbackInsideCompleteRampStampAllowed": false
+  },
+  "acceptancePreview": "docs/assets/previews/lpc_directional_cliff_ramps_pass167z109w7.png",
+  "next": "Finish remaining connected cliff contour ownership and then freeze cliffs before authored shoreline/water."
+}

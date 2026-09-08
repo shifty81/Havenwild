@@ -1,0 +1,45 @@
+{
+  "schema": "havenwild.native_editor_ui_authority.w60b.v1",
+  "pass": "167Z109W60B",
+  "authority": "Readable Segoe UI typography plus docked non-overlapping canvas tool/layer chrome",
+  "font": {
+    "primary": "Windows Segoe UI",
+    "fallback": "Macroquad built-in font is allowed only on the startup bootstrap splash before Windows Segoe UI is initialized; normal editor UI remains Segoe-first.",
+    "initializeAfterStableGraphicsFrame": true,
+    "prewarmBeforeFirstVisibleText": false,
+    "reinitializeDuringWorkspaceSwitch": false,
+    "reinitializeAfterPlaySession": false,
+    "defaultTextScale": 1.15,
+    "userOverrideEnvironment": "HAVENWILD_EDITOR_TEXT_SCALE",
+    "minimumScale": 1.0,
+    "maximumScale": 1.5,
+    "bootstrapFeedbackBeforeEditorFontReady": true,
+    "prewarmBeforeFirstEditorUiText": true
+  },
+  "canvasChrome": {
+    "toolRackDocked": true,
+    "layerRailDocked": true,
+    "overlapAuthoringViewport": false,
+    "toolRackWidthPx": 36,
+    "layerRailWidthPx": 216,
+    "layerRowHeightPx": 30,
+    "visibilityHitTargetPx": 30,
+    "lockHitTargetPx": 30,
+    "canvasReflowsAroundRail": [
+      "world_routes",
+      "world_editor",
+      "scene_bank",
+      "scene_editor",
+      "pixel_studio",
+      "animation_studio",
+      "character_studio"
+    ]
+  },
+  "rules": [
+    "Segoe UI remains the intended default editor typeface",
+    "Only the bootstrap startup splash may use fallback text before Segoe UI is ready; normal editor UI never does",
+    "The layer rail may not cover rulers, toolbars, or editable canvas content",
+    "The layer rail and tool rack own explicit pointer hit areas",
+    "Selecting a layer remains non-destructive and does not arm Paint or Place"
+  ]
+}

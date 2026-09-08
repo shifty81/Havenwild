@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.handoff.v1",
+  "project": "Havenwild",
+  "source_state": "Pass167Z109W41A",
+  "input_rollup": "Havenwild_CompleteSourceRollup_Pass167Z109W40_20260813.zip",
+  "input_sha256": "1f3258e9b59d1b4908486db4087379bda27062c42daf03df2e033d01048cb72e",
+  "date": "2026-08-13",
+  "milestone": "Asset Truth Normalization Foundation",
+  "checkpoint": "Current source normalization closure + deterministic world-asset inventory/migration queue",
+  "build_status": "WINDOWS_BUILD_PENDING",
+  "static_validation": "PASS",
+  "source_profile": "PASS",
+  "w40_checkpoint": "PASS",
+  "w40h1_checkpoint": "PASS",
+  "w40h2_checkpoint": "PASS",
+  "w40h3_checkpoint": "PASS",
+  "w41a_checkpoint": "PASS",
+  "inventory": {
+    "discoveredAssetIds": 130,
+    "authoredSceneIds": 41,
+    "sceneCandidates": 29,
+    "sceneBlockers": 12,
+    "unexpectedObjectKindExposureIssues": 0
+  },
+  "farmstead_regeneration_allowed": false,
+  "next_pass": "Pass167Z109W42",
+  "next_focus": "Evolve existing PlaceableAssetRegistry into canonical PublishedWorldAsset authority + compatibility adapters",
+  "audit_document": "docs/audits/HAVENWILD_W41A_ASSET_TRUTH_NORMALIZATION_20260813.md",
+  "roadmap": "docs/current/ROADMAP.md"
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "havenwild.selection_junction_collision_authoring.v1",
+  "pass": "167Z109W58ABC",
+  "authority": "Scoped Pixel Studio round-trip over semantic world data",
+  "editScopes": [
+    "asset_source_shared",
+    "cell_or_instance_variant",
+    "selected_region",
+    "building_composite",
+    "scene_chunk"
+  ],
+  "sourcePolicy": {
+    "upstreamSourceReadOnlyByDefault": true,
+    "worldSemanticTilesRemainAuthoritative": true,
+    "visualOverridesAreDerived": true,
+    "collisionIsIndependentFromVisualPixels": true
+  },
+  "selectionRoundTrip": {
+    "cellPixels": 32,
+    "drawAcrossTileBoundaries": true,
+    "saveProducesVersionedDerivedOutput": true,
+    "multiTileSaveProducesJunctionCandidate": true,
+    "localVariantPrecedesCanonicalResolverAtThatAuthoredLocation": true
+  },
+  "junctionVariant": {
+    "registry": "content/terrain/authored_junction_variants_v1.json",
+    "initialPromotion": "local",
+    "pcgEligibleByDefault": false,
+    "promotionStates": ["local", "variant", "exemplar"],
+    "semanticSignatureIncludes": [
+      "scene",
+      "selection_rect",
+      "terrain_semantic_grid",
+      "visual_revision",
+      "collision_revision"
+    ]
+  },
+  "collisionAuthoring": {
+    "authoringResolutionPx": 1,
+    "defaultSnapPx": 8,
+    "allowedSnapPx": [32, 16, 8, 4, 2, 1],
+    "runtimeRepresentation": "compiled_merged_rectangles_or_contours",
+    "futureChannels": [
+      "physical",
+      "navigation",
+      "projectile",
+      "vision",
+      "overhead",
+      "interaction",
+      "shelter"
+    ]
+  }
+}

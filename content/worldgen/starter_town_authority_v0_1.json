@@ -1,0 +1,463 @@
+{
+  "schema": "havenwild.starter_town_authority.v0_3",
+  "town_id": "willowmere",
+  "display_name": "Willowmere",
+  "placement": {
+    "minimum_spawn_distance_chunks": 2,
+    "preferred_spawn_distance_chunks": 4,
+    "maximum_spawn_distance_chunks": 6,
+    "require_traversable_route": true,
+    "require_freshwater": true,
+    "require_farmland": true,
+    "require_woodland": true,
+    "reserve_or_repair_when_missing": true,
+    "forbidden_barriers": [
+      "open_ocean",
+      "impassable_mountain",
+      "major_hazard_field"
+    ],
+    "lot_render_policy": "District and building lots are invisible metadata until an authored structure, yard, plaza, or construction preview owns their visible tiles.",
+    "well_policy": "Do not use Objects/Furniture/Water Cooler.png as a well. The capital well/fountain remains absent until an authored period-appropriate asset is promoted."
+  },
+  "required_services": [
+    {
+      "id": "civic_hall",
+      "building_id": "willowmere_civic_hall",
+      "required": true,
+      "service_tags": [
+        "property_office",
+        "deeds",
+        "civic_projects"
+      ]
+    },
+    {
+      "id": "general_store",
+      "building_id": "willowmere_general_store",
+      "required": true,
+      "service_tags": [
+        "trade",
+        "seeds",
+        "basic_supplies"
+      ]
+    },
+    {
+      "id": "inn_tavern",
+      "building_id": "willowmere_inn",
+      "required": true,
+      "service_tags": [
+        "lodging",
+        "food",
+        "rumors"
+      ]
+    },
+    {
+      "id": "blacksmith",
+      "building_id": "willowmere_forge",
+      "required": true,
+      "service_tags": [
+        "tool_repair",
+        "smithing",
+        "upgrades"
+      ]
+    },
+    {
+      "id": "clinic",
+      "building_id": "willowmere_clinic",
+      "required": true,
+      "service_tags": [
+        "medicine",
+        "recovery",
+        "herbalism"
+      ]
+    },
+    {
+      "id": "carpenter",
+      "building_id": "willowmere_carpenter",
+      "required": true,
+      "service_tags": [
+        "construction",
+        "furniture",
+        "repairs"
+      ]
+    },
+    {
+      "id": "farm_district",
+      "building_id": "willowmere_farmstead",
+      "required": true,
+      "service_tags": [
+        "farming",
+        "livestock",
+        "seeds"
+      ]
+    },
+    {
+      "id": "ranger_post",
+      "building_id": "willowmere_ranger_post",
+      "required": true,
+      "service_tags": [
+        "navigation",
+        "hazards",
+        "exploration"
+      ]
+    },
+    {
+      "id": "town_square",
+      "building_id": "willowmere_town_square",
+      "required": true,
+      "service_tags": [
+        "market",
+        "notice_board",
+        "festivals"
+      ]
+    },
+    {
+      "id": "transit_stop",
+      "building_id": "willowmere_transit_stop",
+      "required": true,
+      "service_tags": [
+        "bus",
+        "carriage",
+        "fast_travel"
+      ]
+    }
+  ],
+  "authored_characters": [
+    {
+      "id": "elian_voss",
+      "display_name": "Elian Voss",
+      "sex": "male",
+      "age_group": "elder",
+      "role": "mayor",
+      "workplace_service_id": "civic_hall",
+      "recipe_template_id": "willowmere_elian_voss",
+      "schedule_id": "willowmere_mayor",
+      "interaction_profile_id": "civic_leader",
+      "relationship_links": [
+        "nella_voss"
+      ],
+      "tutorial_tags": [
+        "town_intro",
+        "property",
+        "deeds"
+      ]
+    },
+    {
+      "id": "mara_fenwick",
+      "display_name": "Mara Fenwick",
+      "sex": "female",
+      "age_group": "adult",
+      "role": "general_store_owner",
+      "workplace_service_id": "general_store",
+      "recipe_template_id": "willowmere_mara_fenwick",
+      "schedule_id": "willowmere_shopkeeper",
+      "interaction_profile_id": "merchant",
+      "relationship_links": [],
+      "tutorial_tags": [
+        "commerce",
+        "supplies",
+        "trade"
+      ]
+    },
+    {
+      "id": "brann_tallow",
+      "display_name": "Brann Tallow",
+      "sex": "male",
+      "age_group": "adult",
+      "role": "blacksmith",
+      "workplace_service_id": "blacksmith",
+      "recipe_template_id": "willowmere_brann_tallow",
+      "schedule_id": "willowmere_blacksmith",
+      "interaction_profile_id": "crafting_mentor",
+      "relationship_links": [],
+      "tutorial_tags": [
+        "smithing",
+        "durability",
+        "tool_upgrades"
+      ]
+    },
+    {
+      "id": "tessa_rowan",
+      "display_name": "Tessa Rowan",
+      "sex": "female",
+      "age_group": "adult",
+      "role": "carpenter",
+      "workplace_service_id": "carpenter",
+      "recipe_template_id": "willowmere_tessa_rowan",
+      "schedule_id": "willowmere_carpenter",
+      "interaction_profile_id": "building_mentor",
+      "relationship_links": [
+        "pip_rowan"
+      ],
+      "tutorial_tags": [
+        "construction",
+        "furniture",
+        "repairs"
+      ]
+    },
+    {
+      "id": "sela_mire",
+      "display_name": "Sela Mire",
+      "sex": "female",
+      "age_group": "elder",
+      "role": "physician",
+      "workplace_service_id": "clinic",
+      "recipe_template_id": "willowmere_sela_mire",
+      "schedule_id": "willowmere_physician",
+      "interaction_profile_id": "healer",
+      "relationship_links": [],
+      "tutorial_tags": [
+        "health",
+        "medicine",
+        "herbalism"
+      ]
+    },
+    {
+      "id": "orin_vale",
+      "display_name": "Orin Vale",
+      "sex": "male",
+      "age_group": "adult",
+      "role": "innkeeper",
+      "workplace_service_id": "inn_tavern",
+      "recipe_template_id": "willowmere_orin_vale",
+      "schedule_id": "willowmere_innkeeper",
+      "interaction_profile_id": "innkeeper",
+      "relationship_links": [],
+      "tutorial_tags": [
+        "rest",
+        "comfort",
+        "rumors"
+      ]
+    },
+    {
+      "id": "ilya_reed",
+      "display_name": "Ilya Reed",
+      "sex": "female",
+      "age_group": "adult",
+      "role": "farmer",
+      "workplace_service_id": "farm_district",
+      "recipe_template_id": "willowmere_ilya_reed",
+      "schedule_id": "willowmere_farmer",
+      "interaction_profile_id": "farming_mentor",
+      "relationship_links": [],
+      "tutorial_tags": [
+        "farming",
+        "soil",
+        "crops"
+      ]
+    },
+    {
+      "id": "dain_mercer",
+      "display_name": "Dain Mercer",
+      "sex": "male",
+      "age_group": "adult",
+      "role": "ranger",
+      "workplace_service_id": "ranger_post",
+      "recipe_template_id": "willowmere_dain_mercer",
+      "schedule_id": "willowmere_ranger",
+      "interaction_profile_id": "wilderness_guide",
+      "relationship_links": [],
+      "tutorial_tags": [
+        "navigation",
+        "hazards",
+        "exploration"
+      ]
+    },
+    {
+      "id": "nella_voss",
+      "display_name": "Nella Voss",
+      "sex": "female",
+      "age_group": "teen",
+      "role": "civic_apprentice",
+      "workplace_service_id": "civic_hall",
+      "recipe_template_id": "willowmere_nella_voss",
+      "schedule_id": "willowmere_apprentice",
+      "interaction_profile_id": "town_guide",
+      "relationship_links": [
+        "elian_voss"
+      ],
+      "tutorial_tags": [
+        "first_contact",
+        "town_history",
+        "maps"
+      ]
+    },
+    {
+      "id": "pip_rowan",
+      "display_name": "Pip Rowan",
+      "sex": "male",
+      "age_group": "child",
+      "role": "child_resident",
+      "workplace_service_id": "town_square",
+      "recipe_template_id": "willowmere_pip_rowan",
+      "schedule_id": "willowmere_child",
+      "interaction_profile_id": "child_resident",
+      "relationship_links": [
+        "tessa_rowan"
+      ],
+      "tutorial_tags": [
+        "family_life",
+        "safe_exploration"
+      ]
+    }
+  ],
+  "supporting_population": {
+    "generation_profile_id": "mainland_villager",
+    "minimum_residents": 21,
+    "maximum_residents": 47,
+    "minimum_visitors": 4,
+    "maximum_visitors": 10,
+    "allowed_content_tiers": [
+      "player_core",
+      "npc_common",
+      "regional_culture"
+    ],
+    "blocked_content_tiers": [
+      "ruins_and_corruption",
+      "creature_and_monster"
+    ],
+    "age_ranges": [
+      {
+        "age_group": "child",
+        "minimum": 3,
+        "maximum": 8
+      },
+      {
+        "age_group": "teen",
+        "minimum": 3,
+        "maximum": 8
+      },
+      {
+        "age_group": "adult",
+        "minimum": 12,
+        "maximum": 24
+      },
+      {
+        "age_group": "elder",
+        "minimum": 3,
+        "maximum": 7
+      }
+    ]
+  },
+  "first_arrival": {
+    "objective_id": "reach_willowmere",
+    "initial_contact_character_id": "nella_voss",
+    "civic_contact_character_id": "elian_voss",
+    "guidance_methods": [
+      "spawn_road",
+      "signpost",
+      "distant_rooftops",
+      "map_marker_after_sign",
+      "ranger_encounter"
+    ],
+    "tutorial_sequence": [
+      "reach_willowmere",
+      "meet_nella",
+      "visit_civic_hall",
+      "meet_elian",
+      "visit_general_store",
+      "learn_farming",
+      "learn_tools_and_building",
+      "learn_rest_and_rumors"
+    ]
+  },
+  "capital": {
+    "permanent_capital": true,
+    "generate_before_player_spawn": true,
+    "authored_core_required": true,
+    "require_hand_authoring_pass": true,
+    "protect_authored_cells": true,
+    "fixed_district_ids": [
+      "civic_core",
+      "market_quarter",
+      "residential_quarter",
+      "crafts_quarter",
+      "harbor_or_riverfront",
+      "farm_outskirts"
+    ],
+    "fixed_landmark_ids": [
+      "willowmere_civic_hall",
+      "willowmere_grand_square",
+      "willowmere_property_office",
+      "willowmere_main_gate"
+    ],
+    "seed_variable_domains": [
+      "surrounding_terrain",
+      "approach_roads",
+      "outer_residential_blocks",
+      "minor_plots",
+      "decorations",
+      "supporting_population",
+      "nearby_caves_and_ruins"
+    ]
+  },
+  "regional_authority": {
+    "world": "Havenwild",
+    "main_island": "Alderreach",
+    "capital": "Willowmere",
+    "southern_port": "Willowmere Harbor",
+    "persistent_region_id": "havenwild_mainland"
+  },
+  "districts": [
+    {
+      "id": "civic",
+      "zone": "civic_lot",
+      "purpose": [
+        "capital_hall",
+        "land_and_property_office",
+        "notice_board",
+        "public_square"
+      ]
+    },
+    {
+      "id": "market",
+      "zone": "market_lot",
+      "purpose": [
+        "general_store",
+        "market_stalls",
+        "inn_tavern",
+        "visitor_services"
+      ]
+    },
+    {
+      "id": "residential",
+      "zone": "residential_lot",
+      "purpose": [
+        "homes",
+        "apartments",
+        "small_yards",
+        "community_space"
+      ]
+    },
+    {
+      "id": "artisan",
+      "zone": "artisan_lot",
+      "purpose": [
+        "blacksmith",
+        "carpenter",
+        "workshops",
+        "storage"
+      ]
+    },
+    {
+      "id": "harbor",
+      "zone": "harbor_lot",
+      "purpose": [
+        "harbor_plaza",
+        "boardwalk",
+        "docks",
+        "warehouses",
+        "ferry_and_ship_anchors"
+      ]
+    },
+    {
+      "id": "agricultural_outskirts",
+      "zone": "agricultural_lot",
+      "purpose": [
+        "farm_properties",
+        "livestock",
+        "orchards",
+        "future_player_deeds"
+      ]
+    }
+  ]
+}

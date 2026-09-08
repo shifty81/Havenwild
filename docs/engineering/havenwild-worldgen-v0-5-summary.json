@@ -1,0 +1,376 @@
+{
+  "id": "worldgen_v0_5_summary",
+  "version": "0.5.0",
+  "createdAt": "2026-05-25T15:52:00.894820Z",
+  "source": "havenwild-clean-source-with-worldgen-v0-4.zip",
+  "sourceChanges": [
+    "crates/haven_core/Cargo.toml adds serde_json",
+    "crates/haven_core/src/lib.rs adds worldgen_loader module and generated zone kinds",
+    "crates/haven_core/src/worldgen_loader.rs added",
+    "crates/haven_editor/src/lib.rs adds generated zone brush entries",
+    "crates/haven_game/src/main.rs adds startup pack fallback and F10 reload"
+  ],
+  "sceneImportPreview": [
+    {
+      "sceneId": "farmstead",
+      "sceneKind": "exterior",
+      "biome": "temperate",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "Grass",
+          1021
+        ],
+        [
+          "MountainRock",
+          162
+        ],
+        [
+          "Road",
+          73
+        ],
+        [
+          "Water",
+          64
+        ],
+        [
+          "PebbleShore",
+          58
+        ],
+        [
+          "ShallowWater",
+          58
+        ]
+      ],
+      "zones": [
+        [
+          "none",
+          1343
+        ],
+        [
+          "field",
+          96
+        ],
+        [
+          "public_path",
+          52
+        ],
+        [
+          "tavern_exterior",
+          45
+        ]
+      ],
+      "objects": 4,
+      "transitions": 5,
+      "spawn": [
+        24,
+        24
+      ]
+    },
+    {
+      "sceneId": "north_road",
+      "sceneKind": "exterior",
+      "biome": "temperate",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "Grass",
+          1186
+        ],
+        [
+          "StonePath",
+          187
+        ],
+        [
+          "TallGrass",
+          88
+        ],
+        [
+          "Road",
+          75
+        ]
+      ],
+      "zones": [
+        [
+          "none",
+          1536
+        ]
+      ],
+      "objects": 1,
+      "transitions": 1,
+      "spawn": null
+    },
+    {
+      "sceneId": "south_field",
+      "sceneKind": "exterior",
+      "biome": "temperate",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "Grass",
+          1054
+        ],
+        [
+          "TilledSoil",
+          127
+        ],
+        [
+          "PebbleShore",
+          64
+        ],
+        [
+          "ShallowWater",
+          64
+        ],
+        [
+          "Water",
+          64
+        ],
+        [
+          "Crop",
+          54
+        ]
+      ],
+      "zones": [
+        [
+          "field",
+          1536
+        ]
+      ],
+      "objects": 1,
+      "transitions": 1,
+      "spawn": null
+    },
+    {
+      "sceneId": "east_woods",
+      "sceneKind": "exterior",
+      "biome": "temperate",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "TallGrass",
+          1407
+        ],
+        [
+          "Dirt",
+          77
+        ],
+        [
+          "ShallowWater",
+          26
+        ],
+        [
+          "Water",
+          26
+        ]
+      ],
+      "zones": [
+        [
+          "none",
+          1536
+        ]
+      ],
+      "objects": 3,
+      "transitions": 1,
+      "spawn": null
+    },
+    {
+      "sceneId": "cave_mouth",
+      "sceneKind": "exterior",
+      "biome": "highlands",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "Grass",
+          836
+        ],
+        [
+          "MountainRock",
+          563
+        ],
+        [
+          "TallGrass",
+          60
+        ],
+        [
+          "Cliff",
+          48
+        ],
+        [
+          "MountainPath",
+          17
+        ],
+        [
+          "CaveFloor",
+          12
+        ]
+      ],
+      "zones": [
+        [
+          "cave",
+          1536
+        ]
+      ],
+      "objects": 1,
+      "transitions": 2,
+      "spawn": null
+    },
+    {
+      "sceneId": "tavern_interior",
+      "sceneKind": "interior",
+      "biome": "temperate",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "WoodFloor",
+          891
+        ],
+        [
+          "Wall",
+          380
+        ],
+        [
+          "StoneFloor",
+          140
+        ],
+        [
+          "PlankFloor",
+          75
+        ],
+        [
+          "BrickFloor",
+          50
+        ]
+      ],
+      "zones": [
+        [
+          "tavern",
+          950
+        ],
+        [
+          "none",
+          392
+        ],
+        [
+          "kitchen",
+          104
+        ],
+        [
+          "bar",
+          90
+        ]
+      ],
+      "objects": 3,
+      "transitions": 3,
+      "spawn": null
+    },
+    {
+      "sceneId": "cellar",
+      "sceneKind": "cave",
+      "biome": "cave",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "CaveFloor",
+          684
+        ],
+        [
+          "StoneFloor",
+          442
+        ],
+        [
+          "CaveWall",
+          392
+        ],
+        [
+          "StonePath",
+          18
+        ]
+      ],
+      "zones": [
+        [
+          "cellar",
+          1144
+        ],
+        [
+          "none",
+          392
+        ]
+      ],
+      "objects": 1,
+      "transitions": 1,
+      "spawn": null
+    },
+    {
+      "sceneId": "guest_floor",
+      "sceneKind": "interior",
+      "biome": "temperate",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "PlankFloor",
+          980
+        ],
+        [
+          "Wall",
+          556
+        ]
+      ],
+      "zones": [
+        [
+          "guest_room",
+          1144
+        ],
+        [
+          "none",
+          392
+        ]
+      ],
+      "objects": 2,
+      "transitions": 1,
+      "spawn": null
+    },
+    {
+      "sceneId": "cave_depths",
+      "sceneKind": "cave",
+      "biome": "cave",
+      "terrainCells": 1536,
+      "topTiles": [
+        [
+          "CaveFloor",
+          996
+        ],
+        [
+          "CaveWall",
+          520
+        ],
+        [
+          "ShallowWater",
+          14
+        ],
+        [
+          "Water",
+          6
+        ]
+      ],
+      "zones": [
+        [
+          "cave",
+          1536
+        ]
+      ],
+      "objects": 1,
+      "transitions": 1,
+      "spawn": null
+    }
+  ],
+  "validation": {
+    "jsonSceneParse": "PASS",
+    "rustCargoCheck": "NOT_RUN_CONTAINER_HAS_NO_CARGO"
+  },
+  "knownLimitations": [
+    "PlacedObject is still single-anchor only; multi-tile collision footprints remain data-side until the next runtime collision patch.",
+    "Object art is still rendered by existing runtime primitives unless atlas rendering is wired later.",
+    "Cargo.lock was not regenerated in this container because cargo is unavailable."
+  ]
+}

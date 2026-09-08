@@ -1,0 +1,62 @@
+{
+  "schema": "havenwild.canvas_tool_taxonomy.w60e14.v1",
+  "groups": {
+    "selection": [
+      "inspect",
+      "select",
+      "pan"
+    ],
+    "paint": [
+      "paint",
+      "erase",
+      "fill",
+      "replace",
+      "pick"
+    ],
+    "shapes": [
+      "rectangle",
+      "line"
+    ],
+    "transform": [
+      "move"
+    ],
+    "content": [
+      "place",
+      "pixel_edit"
+    ],
+    "gameplay": [
+      "link",
+      "collision"
+    ],
+    "animation": [
+      "anchor",
+      "socket",
+      "event"
+    ]
+  },
+  "pixelOptions": {
+    "brushSize": {
+      "placement": "tool_rail",
+      "defaultPixels": 1,
+      "steps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8
+      ]
+    },
+    "symmetry": {
+      "placement": "dedicated_tool_rail_button",
+      "modes": [
+        "off",
+        "horizontal",
+        "vertical",
+        "horizontal_vertical"
+      ],
+      "radio": true
+    }
+  },
+  "truthRule": "enabled_tool_requires_real_active_canvas_adapter"
+}

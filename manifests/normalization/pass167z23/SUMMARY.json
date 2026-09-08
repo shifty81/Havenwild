@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z23",
+  "title": "Terrain Draw Request and Build Profile Routing Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Replaced the eight-argument draw_tile_base helper with TerrainBaseDrawRequest.",
+    "Updated all terrain base submission call sites without changing rendering behavior.",
+    "Fixed Build.sh profile routing so normal builds use the two-gate build profile.",
+    "Kept source and framework profiles available only when explicitly requested."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "bashSyntax": "passed",
+    "cargo": "pending Windows workstation"
+  },
+  "completeSourceCreated": false
+}

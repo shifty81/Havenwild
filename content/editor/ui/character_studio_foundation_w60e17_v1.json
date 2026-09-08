@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.character_studio_foundation.w60e17.v1",
+  "phase": "shared_shell_normalized",
+  "currentAuthorities": [
+    "universal_lpc_catalog",
+    "character_recipe_draft",
+    "slot_filters",
+    "license_provenance"
+  ],
+  "sharedCanvasLayers": [
+    "character_parts",
+    "attachment_sockets",
+    "source_reference"
+  ],
+  "plannedProductionLayers": [
+    "body",
+    "face",
+    "hair",
+    "clothing",
+    "armor",
+    "equipment",
+    "held_items",
+    "palette_variants",
+    "animation_preview",
+    "collision_preview"
+  ],
+  "liveCompositeCanvas": false,
+  "productionPublish": false,
+  "truthRule": "do_not_enable canvas tools until live composite adapters exist"
+}

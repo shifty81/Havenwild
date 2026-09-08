@@ -1,0 +1,35 @@
+{
+  "schema": "havenwild.terrain_authoring_contract.v1",
+  "version": "1.0.0",
+  "sourceTerrain": [
+    "Grass", "TallGrass", "Dirt", "Sand", "PebbleShore", "Road", "StonePath",
+    "MountainPath", "Cliff", "MountainRock", "CaveFloor", "TilledSoil", "WateredSoil",
+    "Water", "ShallowWater", "DeepWater", "OceanDeep", "OceanShallow", "RiverWater"
+  ],
+  "derivedTerrain": [
+    "WetSand", "RiverMouthBlend", "ShoreFoam", "MudBank"
+  ],
+  "structuralNonTerrain": [
+    "WoodFloor", "PlankFloor", "StoneFloor", "BrickFloor", "Wall", "Bridge", "CaveWall"
+  ],
+  "overlayOrGameplay": [
+    "Crop", "GreenhouseZone"
+  ],
+  "generationOrder": [
+    "elevation_and_geology",
+    "water_and_drainage",
+    "shore_and_depth_bands",
+    "terrain_tuple_resolution",
+    "roads_and_routes",
+    "structures_and_settlements",
+    "vegetation_resources_and_details"
+  ],
+  "rules": {
+    "cliffIsTerrain": true,
+    "mountainRockIsTerrain": true,
+    "elevationStoredPerTile": true,
+    "derivedBandsAreNotPrimaryBrushes": true,
+    "worldgenMustUseGlobalContinuousFields": true,
+    "legacyRectangularMaterialPatchesForbidden": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "havenwild.settlement_housing_generation.v0_1",
+  "id": "havenwild.city_village_housing.v0_1",
+  "settlementHierarchy": {
+    "capital": "willowmere",
+    "secondaryCitiesDefault": 2,
+    "villagesPerCity": { "minimum": 1, "maximum": 4 },
+    "independentVillagesDefault": 1,
+    "notes": "Regional cities may support multiple nearby villages. Villages remain smaller service and residential centers rather than miniature cities."
+  },
+  "housingAvailability": {
+    "willowmereAndCities": {
+      "targetAvailableProperties": 4,
+      "allowedRange": [2, 8],
+      "listingModes": ["rent", "purchase", "rent_or_purchase", "lease_to_own"]
+    },
+    "villages": {
+      "targetAvailableProperties": 1,
+      "allowedRange": [1, 2],
+      "secondPropertyChancePercent": 20,
+      "listingModes": ["rent", "purchase", "rent_or_purchase", "lease_to_own"]
+    }
+  },
+  "propertyRules": {
+    "propertiesArePhysicalWorldLocations": true,
+    "propertyListingRequiresGeneratedOrAuthoredHouse": true,
+    "rentDoesNotTransferOwnership": true,
+    "purchaseTransfersHouseholdOwnership": true,
+    "coOwnershipForMarriedOrPartneredPlayers": true,
+    "guestAndTenantPermissions": true,
+    "householdStoragePermissions": true,
+    "renovationPermissionDependsOnTenure": true,
+    "cityPlotsRemainProtectedFromFreeformDemolition": true
+  },
+  "generationRequirements": [
+    "place_settlement_roads_and_civic_core",
+    "reserve_residential_parcels",
+    "place_authored_elizawy_compatible_house_structures",
+    "assign_unique_property_ids",
+    "create_rent_and_purchase_listings",
+    "bind_interior_scene_and_mail_address",
+    "register_household_permissions",
+    "validate_walkable_access_and_no_overlap"
+  ],
+  "saveAuthority": "crates/haven_save/src/social_world.rs"
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.asset_reference_preview_catalog.schema.v0_1",
+  "type": "object",
+  "required": [
+    "schema",
+    "updated",
+    "records"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.asset_reference_preview_catalog.v0_1"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "object"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "externalSourceId",
+          "displayName",
+          "safePreviewPath",
+          "sourcePolicy"
+        ],
+        "properties": {
+          "externalSourceId": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "previewStatus": {
+            "type": "string"
+          },
+          "previewKind": {
+            "type": "string"
+          },
+          "safePreviewPath": {
+            "type": "string"
+          },
+          "thumbnailPath": {
+            "type": "string"
+          },
+          "contactSheetPath": {
+            "type": "string"
+          },
+          "generatedBy": {
+            "type": "string"
+          },
+          "sourcePolicy": {
+            "type": "string"
+          },
+          "editorDisplay": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

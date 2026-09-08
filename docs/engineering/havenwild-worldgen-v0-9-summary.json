@@ -1,0 +1,35 @@
+{
+  "version": "0.9.0",
+  "id": "worldgen_v0_9_footprint_editor",
+  "title": "Worldgen v0.9 Direct Footprint Editing",
+  "generatedFiles": [
+    "content/packs/worldgen_home_island_v0_9.json",
+    "content/worldgen/worldgen_editor_footprint_editor_profile_v0_9.json",
+    "docs/engineering/worldgen_editor_footprint_editor_v0_9.md",
+    "WORLDGEN_V0_9_APPLY_NOTES.md",
+    "scripts/Validate-WorldgenFootprintsV09.py",
+    "scripts/Validate-WorldgenFootprintEditorV09.py",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintsV09.ps1",
+    "tools/automation/validation/checks/worldgen/Validate-WorldgenFootprintEditorV09.ps1"
+  ],
+  "modifiedFiles": [
+    "crates/haven_game/src/main.rs"
+  ],
+  "runtimePack": "content/packs/worldgen_home_island_v0_9.json",
+  "features": [
+    "Visual/collision/interaction footprint edit target selection",
+    "X/Y offset and W/H resize controls for selected object footprint rectangles",
+    "Movement-blocking, player-occlusion, and fade-behind-player flag toggles",
+    "Reset active footprint target and reset full object-kind default footprint",
+    "Candidate validation before every committed footprint edit",
+    "Undo snapshot only after successful validation and commit"
+  ],
+  "validation": {
+    "assets": "pass",
+    "runtimeIndex": "pass with existing placeholder-art warning",
+    "footprintsV09": "pass",
+    "footprintEditorV09": "pass",
+    "cargoCheck": "not run: cargo command not found in container"
+  },
+  "nextRecommendedPatch": "v0.10 scene-object JSON export/save-back for edited footprints"
+}

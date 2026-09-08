@@ -1,0 +1,9 @@
+PASS 165P — STATION OUTPUT CAPACITY, QUEUE CANCELLATION, AND PROCESSING NOTIFICATIONS
+Base lineage: Havenwild Pass 165O
+
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+OVERWRITE crates/haven_game/src/runtime_draw.rs
+ADD docs/patch/PASS_165P_STATION_OUTPUT_CAPACITY_QUEUE_CANCELLATION_NOTIFICATIONS.md
+ADD manifests/PASS_165P_MANIFEST.txt
+
+No files deleted.

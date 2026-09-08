@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.normalization.summary.v1",
+  "pass": "167Z12",
+  "title": "Automation Import Bootstrap Repair",
+  "date": "2026-08-02",
+  "base": "Pass 167Z11 Build Bootstrap Repair",
+  "result": "Pass 167Z12 Automation Import Bootstrap Repair",
+  "problem": "Relocated automation scripts imported the retired generation.atomic_io package and failed during clean compatibility bootstrap.",
+  "canonicalSharedPackage": "tools/automation/common",
+  "changedEntrypoints": [
+    "tools/automation/terrain/Ensure-BaseTerrainBootstrapV145D.py",
+    "tools/automation/characters/Build-LpcPlayerAtlas.py",
+    "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py",
+    "tools/automation/project/Stamp-GeneratedOutputProvenanceV146D.py"
+  ],
+  "guardrail": "tools/automation/validation/validate_development_layout.py rejects active generation.* imports.",
+  "validation": [
+    "failing terrain bootstrap executed successfully from repository root",
+    "four relocated automation entrypoints passed import smoke tests",
+    "complete terrain compatibility bootstrap sequence passed with pinned LPC seasonal source mounted",
+    "source validation profile passed all 19 active gates",
+    "Python syntax passed",
+    "external Rust/Cargo execution pending local workstation toolchain"
+  ]
+}

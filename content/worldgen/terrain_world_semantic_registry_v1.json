@@ -1,0 +1,1882 @@
+{
+  "schema": "havenwild.terrain_world_semantic_registry.v1",
+  "version": 1,
+  "purpose": "Single authoritative semantic registry for terrain identity across runtime, editor, world generation, persistence, assets, transitions, and validation.",
+  "compatibility": {
+    "supersedes": [
+      "content/assets/terrain_material_registry_v0_1.json"
+    ],
+    "legacyRegistryReadOnly": true,
+    "unknownTerrainPolicy": "fail-validation"
+  },
+  "policies": {
+    "stableIds": "Terrain ids and codes are save/network compatible and may not be reused.",
+    "generatedOwnership": "Generated materials may only be persisted as authored overrides when explicitly promoted.",
+    "runtimeConsumption": "Runtime/editor/worldgen must resolve semantic behavior from this registry or generated code derived from it.",
+    "assetPromotion": "Production sources must be Havenwild-authored or verified commercially redistributable."
+  },
+  "materials": [
+    {
+      "id": "terrain.grass",
+      "code": "grass",
+      "stableOrdinal": 1,
+      "label": "Grass",
+      "tileKind": "Grass",
+      "runtimeMaterial": "Grass",
+      "category": "ground",
+      "editor": {
+        "group": "Ground",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "complete_ground_corner",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Grass",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "temperate",
+          "coastal",
+          "forest",
+          "farm",
+          "town",
+          "highlands",
+          "river_wetland"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "grass",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          2,
+          2,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "production",
+      "deprecatedAliases": [],
+      "notes": "Primary overworld base ground; supports deterministic detail variants."
+    },
+    {
+      "id": "terrain.tall_grass",
+      "code": "tall_grass",
+      "stableOrdinal": 2,
+      "label": "Tall Grass",
+      "tileKind": "TallGrass",
+      "runtimeMaterial": "Grass_Dark",
+      "category": "ground_overlay",
+      "editor": {
+        "group": "Ground",
+        "paintMode": "advanced",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "overlay_or_grass_dark_fill",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Grass_Dark",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "temperate",
+          "forest",
+          "farm",
+          "river_wetland"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "tall_grass",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          36,
+          2,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Currently maps visually through Grass_Dark; long-term should be either a ground variant or vegetation overlay."
+    },
+    {
+      "id": "terrain.dirt",
+      "code": "dirt",
+      "stableOrdinal": 3,
+      "label": "Dirt",
+      "tileKind": "Dirt",
+      "runtimeMaterial": "Dirt",
+      "category": "ground",
+      "editor": {
+        "group": "Ground",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "complete_ground_corner",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Dirt",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "temperate",
+          "forest",
+          "farm",
+          "town",
+          "highlands",
+          "river_wetland",
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "dirt",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          104,
+          36,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "production",
+      "deprecatedAliases": [
+        "rich_soil"
+      ],
+      "notes": "Primary earth material."
+    },
+    {
+      "id": "terrain.sand",
+      "code": "sand",
+      "stableOrdinal": 4,
+      "label": "Sand",
+      "tileKind": "Sand",
+      "runtimeMaterial": "Sand",
+      "category": "ground",
+      "editor": {
+        "group": "Ground",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "complete_ground_corner",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Sand",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "coastal",
+          "river_wetland",
+          "temperate"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "sand",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          70,
+          2,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "production",
+      "deprecatedAliases": [],
+      "notes": "Primary dry beach/desert material; wet-sand edge should be generated when adjacent to water."
+    },
+    {
+      "id": "terrain.wet_sand",
+      "code": "wet_sand",
+      "stableOrdinal": 5,
+      "label": "Wet Sand",
+      "tileKind": "WetSand",
+      "runtimeMaterial": "Sand",
+      "category": "shore",
+      "editor": {
+        "group": "Shore",
+        "paintMode": "generated",
+        "defaultVisible": false,
+        "badge": "Generated"
+      },
+      "ownership": {
+        "lifecycle": "generated",
+        "authoritativeSystem": "shore_water_lifecycle",
+        "regenerationPolicy": "recompute"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "shore",
+        "autotileTopology": "shore_band",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Sand",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal",
+          "river_wetland"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "wet_sand",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          104,
+          2,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Derived from sand touching cardinal water. Renders through the canonical terrain-v7 Sand source; free inland painting should normalize back to sand or be advanced/debug only."
+    },
+    {
+      "id": "terrain.pebble_shore",
+      "code": "pebble_shore",
+      "stableOrdinal": 6,
+      "label": "Pebble Shore",
+      "tileKind": "PebbleShore",
+      "runtimeMaterial": "Stone_Tan",
+      "category": "shore",
+      "editor": {
+        "group": "Shore",
+        "paintMode": "advanced",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "shore",
+        "autotileTopology": "shore_or_path_edge",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Stone_Tan",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal",
+          "highlands",
+          "river_wetland"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "pebble_shore",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          138,
+          2,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Must be split semantically from Stone Path; currently too close to Stone_Tan path material."
+    },
+    {
+      "id": "terrain.shore_foam",
+      "code": "shore_foam",
+      "stableOrdinal": 7,
+      "label": "Shore Foam",
+      "tileKind": "ShoreFoam",
+      "runtimeMaterial": "ShoreFoam",
+      "category": "shore",
+      "editor": {
+        "group": "Shore",
+        "paintMode": "generated",
+        "defaultVisible": false,
+        "badge": "Generated"
+      },
+      "ownership": {
+        "lifecycle": "generated",
+        "authoritativeSystem": "shore_water_lifecycle",
+        "regenerationPolicy": "recompute"
+      },
+      "runtime": {
+        "collisionClass": "water",
+        "walkable": true,
+        "waterDepthClass": "shallow",
+        "terrainRole": "shore",
+        "autotileTopology": "water_edge_overlay",
+        "animated": true
+      },
+      "transition": {
+        "ownsTransitions": false,
+        "family": "ShoreFoam",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal",
+          "river_wetland"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "shore_foam",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          206,
+          104,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Generated water/shore edge detail, not a normal terrain brush."
+    },
+    {
+      "id": "terrain.mud_bank",
+      "code": "mud_bank",
+      "stableOrdinal": 8,
+      "label": "Mud Bank",
+      "tileKind": "MudBank",
+      "runtimeMaterial": "Mudstone",
+      "category": "shore",
+      "editor": {
+        "group": "Shore",
+        "paintMode": "advanced",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "shore",
+        "autotileTopology": "shore_ground_corner",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Mudstone",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "river_wetland",
+          "cave",
+          "farm"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "mud_bank",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          240,
+          104,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [
+        "mud",
+        "reed_bank"
+      ],
+      "notes": "Wetland/riverbank material; can also support cave mud transitions later."
+    },
+    {
+      "id": "terrain.road",
+      "code": "road",
+      "stableOrdinal": 9,
+      "label": "Road",
+      "tileKind": "Road",
+      "runtimeMaterial": "Road",
+      "category": "path",
+      "editor": {
+        "group": "Paths",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "complete_ground_corner",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Road",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "temperate",
+          "town",
+          "farm",
+          "coastal",
+          "forest"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "road",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          172,
+          2,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "production",
+      "deprecatedAliases": [],
+      "notes": "General dirt/tan travel path."
+    },
+    {
+      "id": "terrain.stone_path",
+      "code": "stone_path",
+      "stableOrdinal": 10,
+      "label": "Stone Path",
+      "tileKind": "StonePath",
+      "runtimeMaterial": "Stone_Path",
+      "category": "path",
+      "editor": {
+        "group": "Paths",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "path_ground_corner",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Stone_Path",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "town",
+          "temperate",
+          "interior",
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "stone_path",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          206,
+          2,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Should be constructed path stone; must separate from Pebble Shore."
+    },
+    {
+      "id": "terrain.mountain_path",
+      "code": "mountain_path",
+      "stableOrdinal": 11,
+      "label": "Mountain Path",
+      "tileKind": "MountainPath",
+      "runtimeMaterial": "Dirt_Roots",
+      "category": "path",
+      "editor": {
+        "group": "Paths",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "path_ground_corner",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Dirt_Roots",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "highlands",
+          "forest",
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "mountain_path",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          240,
+          2,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Needs missing pair coverage against sand/dirt/grass."
+    },
+    {
+      "id": "terrain.bridge",
+      "code": "bridge",
+      "stableOrdinal": 12,
+      "label": "Bridge",
+      "tileKind": "Bridge",
+      "runtimeMaterial": "Bridge",
+      "category": "path_structure",
+      "editor": {
+        "group": "Paths",
+        "paintMode": "advanced",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "same_family_structure",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Bridge",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "temperate",
+          "coastal",
+          "river_wetland",
+          "town"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "bridge",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          206,
+          36,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Should eventually be object/stamp or structural path with placement rules over water."
+    },
+    {
+      "id": "terrain.water",
+      "code": "water",
+      "stableOrdinal": 13,
+      "label": "Water",
+      "tileKind": "Water",
+      "runtimeMaterial": "Water",
+      "category": "water",
+      "editor": {
+        "group": "Water",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "water",
+        "walkable": true,
+        "waterDepthClass": "surface",
+        "terrainRole": "water",
+        "autotileTopology": "water_depth_corner",
+        "animated": true
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Water",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal",
+          "river_wetland",
+          "temperate",
+          "forest",
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "water",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          2,
+          36,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Generic water; should normalize into shallow/deep bands where appropriate."
+    },
+    {
+      "id": "terrain.shallow_water",
+      "code": "shallow_water",
+      "stableOrdinal": 14,
+      "label": "Shallow Water",
+      "tileKind": "ShallowWater",
+      "runtimeMaterial": "Water",
+      "category": "water",
+      "editor": {
+        "group": "Water",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "water",
+        "walkable": true,
+        "waterDepthClass": "shallow",
+        "terrainRole": "water",
+        "autotileTopology": "water_depth_corner",
+        "animated": true
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Water",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal",
+          "river_wetland",
+          "temperate",
+          "forest"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "shallow_water",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          36,
+          36,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Required gameplay border between land/shore and deep water. Renders through terrain-v7 Water so shallow/deep uses authored Water <-> Water_Deep transitions; visual shore foam is generated separately."
+    },
+    {
+      "id": "terrain.deep_water",
+      "code": "deep_water",
+      "stableOrdinal": 15,
+      "label": "Deep Water",
+      "tileKind": "DeepWater",
+      "runtimeMaterial": "Water_Deep",
+      "category": "water",
+      "editor": {
+        "group": "Water",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "water",
+        "walkable": true,
+        "waterDepthClass": "deep",
+        "terrainRole": "water",
+        "autotileTopology": "water_depth_corner",
+        "animated": true
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Water_Deep",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal",
+          "river_wetland"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "deep_water",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          70,
+          36,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Deep water interior; must not touch land directly."
+    },
+    {
+      "id": "terrain.river_water",
+      "code": "river_water",
+      "stableOrdinal": 16,
+      "label": "River Water",
+      "tileKind": "RiverWater",
+      "runtimeMaterial": "Water",
+      "category": "water",
+      "editor": {
+        "group": "Water",
+        "paintMode": "generated",
+        "defaultVisible": false,
+        "badge": "Generated"
+      },
+      "ownership": {
+        "lifecycle": "generated",
+        "authoritativeSystem": "worldgen",
+        "regenerationPolicy": "recompute"
+      },
+      "runtime": {
+        "collisionClass": "water",
+        "walkable": true,
+        "waterDepthClass": "surface",
+        "terrainRole": "water",
+        "autotileTopology": "river_water_corner",
+        "animated": true
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Water",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "river_wetland",
+          "forest",
+          "temperate"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "river_water",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          138,
+          104,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Generated/advanced river channel material."
+    },
+    {
+      "id": "terrain.river_mouth_blend",
+      "code": "river_mouth_blend",
+      "stableOrdinal": 17,
+      "label": "River Mouth Blend",
+      "tileKind": "RiverMouthBlend",
+      "runtimeMaterial": "Water",
+      "category": "water",
+      "editor": {
+        "group": "Water",
+        "paintMode": "generated",
+        "defaultVisible": false,
+        "badge": "Generated"
+      },
+      "ownership": {
+        "lifecycle": "generated",
+        "authoritativeSystem": "shore_water_lifecycle",
+        "regenerationPolicy": "recompute"
+      },
+      "runtime": {
+        "collisionClass": "water",
+        "walkable": true,
+        "waterDepthClass": "surface",
+        "terrainRole": "water",
+        "autotileTopology": "river_ocean_transition",
+        "animated": true
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Water",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal",
+          "river_wetland"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "river_mouth_blend",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          172,
+          104,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Generated where river water meets ocean/lake/shore."
+    },
+    {
+      "id": "terrain.ocean_shallow",
+      "code": "ocean_shallow",
+      "stableOrdinal": 18,
+      "label": "Ocean Shallow",
+      "tileKind": "OceanShallow",
+      "runtimeMaterial": "Water",
+      "category": "water",
+      "editor": {
+        "group": "Water",
+        "paintMode": "generated",
+        "defaultVisible": false,
+        "badge": "Generated"
+      },
+      "ownership": {
+        "lifecycle": "generated",
+        "authoritativeSystem": "worldgen",
+        "regenerationPolicy": "recompute"
+      },
+      "runtime": {
+        "collisionClass": "water",
+        "walkable": true,
+        "waterDepthClass": "shallow",
+        "terrainRole": "water",
+        "autotileTopology": "ocean_depth_band",
+        "animated": true
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Water",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "ocean_shallow",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          104,
+          104,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Generated coastal ocean band. Renders through terrain-v7 Water so it can transition cleanly into Water_Deep."
+    },
+    {
+      "id": "terrain.ocean_deep",
+      "code": "ocean_deep",
+      "stableOrdinal": 19,
+      "label": "Ocean Deep",
+      "tileKind": "OceanDeep",
+      "runtimeMaterial": "Water_Deep",
+      "category": "water",
+      "editor": {
+        "group": "Water",
+        "paintMode": "generated",
+        "defaultVisible": false,
+        "badge": "Generated"
+      },
+      "ownership": {
+        "lifecycle": "generated",
+        "authoritativeSystem": "worldgen",
+        "regenerationPolicy": "recompute"
+      },
+      "runtime": {
+        "collisionClass": "water",
+        "walkable": true,
+        "waterDepthClass": "deep",
+        "terrainRole": "water",
+        "autotileTopology": "ocean_depth_band",
+        "animated": true
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Water_Deep",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "coastal"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "ocean_deep",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          70,
+          104,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Generated open-ocean interior."
+    },
+    {
+      "id": "terrain.cliff",
+      "code": "cliff",
+      "stableOrdinal": 20,
+      "label": "Cliff",
+      "tileKind": "Cliff",
+      "runtimeMaterial": "Cliff",
+      "category": "rock",
+      "editor": {
+        "group": "Rock",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "blocking",
+        "walkable": false,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "structural_rock",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Cliff",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "highlands",
+          "coastal",
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "cliff",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          138,
+          36,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Structural cliff topology; explicitly not ground-corner mapped."
+    },
+    {
+      "id": "terrain.mountain_rock",
+      "code": "mountain_rock",
+      "stableOrdinal": 21,
+      "label": "Mountain Rock",
+      "tileKind": "MountainRock",
+      "runtimeMaterial": "MountainRock",
+      "category": "rock",
+      "editor": {
+        "group": "Rock",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "blocking",
+        "walkable": false,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "structural_rock",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "MountainRock",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "highlands",
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "mountain_rock",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          172,
+          36,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Structural rock/cap topology; explicitly not ground-corner mapped."
+    },
+    {
+      "id": "terrain.cave_floor",
+      "code": "cave_floor",
+      "stableOrdinal": 22,
+      "label": "Cave Floor",
+      "tileKind": "CaveFloor",
+      "runtimeMaterial": "CaveFloor",
+      "category": "cave",
+      "editor": {
+        "group": "Cave",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "ground_or_cave_floor",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "CaveFloor",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "cave_floor",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          138,
+          70,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Cave ground fill; needs cave-specific variants and transitions."
+    },
+    {
+      "id": "terrain.cave_wall",
+      "code": "cave_wall",
+      "stableOrdinal": 23,
+      "label": "Cave Wall",
+      "tileKind": "CaveWall",
+      "runtimeMaterial": "CaveWall",
+      "category": "cave",
+      "editor": {
+        "group": "Cave",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "blocking",
+        "walkable": false,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "same_family_wall",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "CaveWall",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "cave_wall",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          172,
+          70,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [],
+      "notes": "Cave wall family; not part of generic ground blending."
+    },
+    {
+      "id": "terrain.wall",
+      "code": "wall",
+      "stableOrdinal": 24,
+      "label": "Wall",
+      "tileKind": "Wall",
+      "runtimeMaterial": "Wall",
+      "category": "interior",
+      "editor": {
+        "group": "Interior",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "blocking",
+        "walkable": false,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "same_family_wall",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "Wall",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "interior",
+          "town"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "wall",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          104,
+          70,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Building/interior wall family."
+    },
+    {
+      "id": "terrain.wood_floor",
+      "code": "wood_floor",
+      "stableOrdinal": 25,
+      "label": "Wood Floor",
+      "tileKind": "WoodFloor",
+      "runtimeMaterial": "WoodFloor",
+      "category": "interior",
+      "editor": {
+        "group": "Interior",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "same_family_floor",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "WoodFloor",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "interior",
+          "town"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "wood_floor",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          240,
+          36,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Interior/built floor."
+    },
+    {
+      "id": "terrain.plank_floor",
+      "code": "plank_floor",
+      "stableOrdinal": 26,
+      "label": "Plank Floor",
+      "tileKind": "PlankFloor",
+      "runtimeMaterial": "PlankFloor",
+      "category": "interior",
+      "editor": {
+        "group": "Interior",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "same_family_floor",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "PlankFloor",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "interior",
+          "town"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "plank_floor",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          2,
+          70,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Interior/built floor."
+    },
+    {
+      "id": "terrain.stone_floor",
+      "code": "stone_floor",
+      "stableOrdinal": 27,
+      "label": "Stone Floor",
+      "tileKind": "StoneFloor",
+      "runtimeMaterial": "StoneFloor",
+      "category": "interior",
+      "editor": {
+        "group": "Interior",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "same_family_floor",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "StoneFloor",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "interior",
+          "town",
+          "cave"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "stone_floor",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          36,
+          70,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [
+        "cellar_floor",
+        "ore_floor"
+      ],
+      "notes": "Interior/dungeon floor."
+    },
+    {
+      "id": "terrain.brick_floor",
+      "code": "brick_floor",
+      "stableOrdinal": 28,
+      "label": "Brick Floor",
+      "tileKind": "BrickFloor",
+      "runtimeMaterial": "BrickFloor",
+      "category": "interior",
+      "editor": {
+        "group": "Interior",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "constructed",
+        "autotileTopology": "same_family_floor",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "BrickFloor",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "interior",
+          "town"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "brick_floor",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          70,
+          70,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "preview",
+      "deprecatedAliases": [],
+      "notes": "Interior/town floor."
+    },
+    {
+      "id": "terrain.tilled_soil",
+      "code": "tilled_soil",
+      "stableOrdinal": 29,
+      "label": "Tilled Soil",
+      "tileKind": "TilledSoil",
+      "runtimeMaterial": "TilledSoil",
+      "category": "farm",
+      "editor": {
+        "group": "Farm",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "farm_soil",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "TilledSoil",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "farm",
+          "greenhouse"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "tilled_soil",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          206,
+          70,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "production",
+      "deprecatedAliases": [],
+      "notes": "Farm plot base."
+    },
+    {
+      "id": "terrain.watered_soil",
+      "code": "watered_soil",
+      "stableOrdinal": 30,
+      "label": "Watered Soil",
+      "tileKind": "WateredSoil",
+      "runtimeMaterial": "WateredSoil",
+      "category": "farm",
+      "editor": {
+        "group": "Farm",
+        "paintMode": "direct",
+        "defaultVisible": true,
+        "badge": null
+      },
+      "ownership": {
+        "lifecycle": "authored",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "farm_soil",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": true,
+        "family": "WateredSoil",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "farm",
+          "greenhouse"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "watered_soil",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          240,
+          70,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "production"
+      },
+      "status": "production",
+      "deprecatedAliases": [
+        "tilled_soil_watered"
+      ],
+      "notes": "Watered farm plot state."
+    },
+    {
+      "id": "terrain.crop_seedling",
+      "code": "crop_seedling",
+      "stableOrdinal": 31,
+      "label": "Crop Seedling",
+      "tileKind": "Crop",
+      "runtimeMaterial": "Crop",
+      "category": "farm",
+      "editor": {
+        "group": "Farm",
+        "paintMode": "generated",
+        "defaultVisible": false,
+        "badge": "Generated"
+      },
+      "ownership": {
+        "lifecycle": "generated",
+        "authoritativeSystem": "worldgen",
+        "regenerationPolicy": "recompute"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "crop_overlay",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": false,
+        "family": "Crop",
+        "normalizationRequired": true
+      },
+      "biomes": {
+        "allowed": [
+          "farm",
+          "greenhouse"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "crop_seedling",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          2,
+          104,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "incomplete",
+      "deprecatedAliases": [
+        "crop"
+      ],
+      "notes": "Gameplay crop state, not ordinary terrain painting."
+    },
+    {
+      "id": "terrain.greenhouse_zone",
+      "code": "greenhouse_zone",
+      "stableOrdinal": 32,
+      "label": "Greenhouse Zone",
+      "tileKind": "GreenhouseZone",
+      "runtimeMaterial": "GreenhouseZone",
+      "category": "deferred",
+      "editor": {
+        "group": "Deferred",
+        "paintMode": "deferred",
+        "defaultVisible": false,
+        "badge": "Deferred"
+      },
+      "ownership": {
+        "lifecycle": "deferred",
+        "authoritativeSystem": "editor_or_worldgen",
+        "regenerationPolicy": "preserve"
+      },
+      "runtime": {
+        "collisionClass": "walkable",
+        "walkable": true,
+        "waterDepthClass": null,
+        "terrainRole": "ground",
+        "autotileTopology": "interior_scene_transition_marker",
+        "animated": false
+      },
+      "transition": {
+        "ownsTransitions": false,
+        "family": "GreenhouseZone",
+        "normalizationRequired": false
+      },
+      "biomes": {
+        "allowed": [
+          "greenhouse"
+        ],
+        "seasonPolicy": "shared_topology_variant"
+      },
+      "source": {
+        "provider": "LPC",
+        "assetId": "greenhouse_zone",
+        "atlas": "common_base_terrain_32",
+        "image": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+        "rect": [
+          36,
+          104,
+          32,
+          32
+        ],
+        "licensePolicy": "verified-compatible-or-authored",
+        "productionStatus": "conditional"
+      },
+      "status": "deferred",
+      "deprecatedAliases": [],
+      "notes": "Not overworld terrain. Greenhouse stamp should transition into a greenhouse interior scene."
+    }
+  ]
+}

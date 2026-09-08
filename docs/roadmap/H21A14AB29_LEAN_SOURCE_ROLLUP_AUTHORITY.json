@@ -1,0 +1,14 @@
+{
+  "schema": "havenwild.pass_batch.v1",
+  "batch": "H21A14AB29",
+  "title": "Lean Reproducible Source Rollup Authority",
+  "outcome": [
+    "normal Complete Source Rollups stop carrying downloaded third-party mounts and generated runtime caches",
+    "pinned LPC/ULPC and frontend music are restored by bootstrap/build tooling",
+    "large ElizaWy/external sprite inventory JSONs are regenerated from the pinned source mount instead of shipped in every normal rollup",
+    "historical patch/rollup evidence is omitted from normal source handoffs",
+    "Havenwild-owned original and UI source art remains retained until an independently recoverable owned-content store exists",
+    "incremental patches and package baselines keep their existing authority"
+  ],
+  "acceptance": "Windows Full Quality Gate plus one Package lean complete source rollup smoke test"
+}

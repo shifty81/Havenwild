@@ -1,0 +1,27 @@
+{
+  "schema": "havenwild.runtime_render_bindings.v1",
+  "pass": "148J",
+  "rules": {
+    "stable_role_registry": true,
+    "semantic_transition_atlas": true,
+    "semantic_world_paint_atlas": true,
+    "source_path_deduplication": true,
+    "legacy_paths_are_explicit_fallbacks": true,
+    "renderer_compatibility_aliases_are_temporary": true
+  },
+  "migrated_roles": [
+    "base_terrain",
+    "terrain_transition",
+    "mapped_terrain",
+    "live_autotile",
+    "runtime_objects",
+    "world_paint_compatibility",
+    "player_walk"
+  ],
+  "deferred_consumers": [
+    "save_slot_preview_images",
+    "editor_generated_previews",
+    "unmapped_stamp_sheet_semantics",
+    "ui_subtextures"
+  ]
+}

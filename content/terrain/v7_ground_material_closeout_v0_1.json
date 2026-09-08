@@ -1,0 +1,87 @@
+{
+  "schema": "havenwild.v7_ground_material_closeout.v0_1",
+  "revision": "167Z81",
+  "checkpoint": "Pass167Z80",
+  "purpose": "Close the remaining normal ground-material lane before elevation-derived cliff work.",
+  "materials": [
+    {
+      "tileKind": "PebbleShore",
+      "displayLabel": "Gravel",
+      "ownerMaterial": "Gravel_1",
+      "semanticRole": "general_walkable_gravel_ground",
+      "shoreIdentity": false,
+      "directPaintAllowed": true,
+      "edgePolicy": "exact_tuple_else_owner_fill_workbench_candidate",
+      "referenceStyleHints": {
+        "Grass": "Stone_Tan",
+        "Sand": "Stone_Tan",
+        "Soil": "Dirt_Tan",
+        "Water": "Dirt_Brown",
+        "Water_Deep": "Dirt_Brown",
+        "Water_Shallows_Dirt": "Dirt_Brown",
+        "Water_Shallows_Sand": "Sand",
+        "Mudstone_Brown": "Dirt_Roots",
+        "Stone_Tan": "Dirt_Tan"
+      }
+    },
+    {
+      "tileKind": "MountainRock",
+      "displayLabel": "Rock Ground",
+      "ownerMaterial": "Rock_Dark",
+      "semanticRole": "walkable_natural_rock_floor",
+      "structuralCliff": false,
+      "directPaintAllowed": true,
+      "edgePolicy": "exact_tuple_else_owner_fill_workbench_candidate",
+      "referenceStyleHints": {
+        "Grass": "Dirt_Roots",
+        "Sand": "Dirt_Brown",
+        "Stone_Tan": "Dirt_Roots",
+        "Soil": "Dirt_Tan",
+        "Water": "Dirt_Brown",
+        "Water_Deep": "Dirt_Brown",
+        "Water_Shallows_Dirt": "Dirt_Brown",
+        "Water_Shallows_Sand": "Sand"
+      }
+    },
+    {
+      "tileKind": "MudBank",
+      "displayLabel": "Mud",
+      "ownerMaterial": "Mud_Brown",
+      "semanticRole": "general_walkable_mud_ground",
+      "shoreIdentity": false,
+      "directPaintAllowed": true,
+      "edgePolicy": "exact_tuple_else_owner_fill_workbench_candidate",
+      "referenceStyleHints": {
+        "Sand": "Dirt_Brown",
+        "Soil": "Dirt_Tan",
+        "Water": "Dirt_Brown",
+        "Water_Deep": "Dirt_Brown",
+        "Water_Shallows_Dirt": "Dirt_Brown",
+        "Water_Shallows_Sand": "Sand"
+      }
+    }
+  ],
+  "farmingState": {
+    "tileKind": "WateredSoil",
+    "displayLabel": "Watered Tilled Soil",
+    "ownerMaterial": "Mud_Brown",
+    "directPaintAllowed": false,
+    "createdOnlyBy": "watering_action_on_tilled_soil",
+    "returnsTo": "TilledSoil",
+    "generalMudBrush": "MudBank"
+  },
+  "renderingRules": [
+    "Owner fills always remain the selected semantic material.",
+    "Use an exact V7 mixed tuple whenever one exists.",
+    "If the exact mixed tuple is missing, render no substitute material overlay; keep owner fill and emit a workbench candidate.",
+    "Reference style hints are authoring examples only and never runtime transition substitutions.",
+    "Never mutate gameplay terrain to obtain an edge.",
+    "Never generate, recolor, synthesize, crop or borrow pixels from another style lane.",
+    "Three-or-more-material junctions remain diagnostic unless an exact V7 tuple exists."
+  ],
+  "nextLane": {
+    "name": "derived_elevation_cliffs",
+    "authority": "height differences plus audited cliff atlas roles",
+    "directCliffBrush": false
+  }
+}

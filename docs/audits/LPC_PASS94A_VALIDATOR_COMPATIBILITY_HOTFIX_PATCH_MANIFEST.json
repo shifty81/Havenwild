@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.patch_manifest.v0.1",
+  "pass": "94A",
+  "title": "Validator Compatibility Hotfix",
+  "date": "2026-07-12",
+  "behaviorChange": false,
+  "files": [
+    {
+      "path": "tools/automation/validation/checks/editor/Validate-LpcClientEditorStabilityV102.py",
+      "action": "modify",
+      "purpose": "Align V102 with Pass 94 restored LPC inner-corner topology and runtime_hud module extraction"
+    },
+    {
+      "path": "LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_HANDOFF_20260712.md",
+      "action": "add",
+      "purpose": "Build/apply handoff"
+    },
+    {
+      "path": "LPC_PASS94A_VALIDATOR_COMPATIBILITY_HOTFIX_PATCH_MANIFEST.json",
+      "action": "add",
+      "purpose": "Patch inventory"
+    }
+  ]
+}

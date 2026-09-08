@@ -1,0 +1,8 @@
+PASS 165K — PHYSICAL STATION PLACEMENT CONTRACT
+
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+ADD       docs/patch/PASS_165K_PHYSICAL_STATION_PLACEMENT_CONTRACT.md
+ADD       manifests/PASS_165K_MANIFEST.txt
+
+BASELINE: Havenwild Pass 165J
+REMOVALS: none

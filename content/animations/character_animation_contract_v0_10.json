@@ -1,0 +1,48 @@
+{
+  "schema": "havenwild.character_animation_contract.v010",
+  "name": "V010 Character Modular Animation Contract",
+  "locked_first_sheet": {
+    "cell_size": [
+      64,
+      96
+    ],
+    "directions": 8,
+    "frames_per_direction": 8,
+    "sheet_size": [
+      512,
+      768
+    ],
+    "root_anchor": "bottom-center foot anchor"
+  },
+  "direction_order": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "core_rule": "Base motion is source of truth; all layers conform to the same frame rig.",
+  "previews": {
+    "socket_template": "previews/v010_8dir_walk_socket_template_preview.png",
+    "architecture": "previews/v010_modular_animation_architecture.png"
+  },
+  "specs": [
+    "CHARACTER_MODULAR_ANIMATION_CONTRACT_V010.md",
+    "FRAME_RIG_SOCKET_METADATA_SPEC.md",
+    "PIXEL_EDITOR_ANIMATION_WORKFLOW_V010.md",
+    "ANIMATION_VALIDATION_RULES_V010.md",
+    "CHARACTER_LAYER_COMPOSITOR_SPEC_V010.md",
+    "CHARACTER_ANIMATION_RUNTIME_REQUIREMENTS_V010.md"
+  ],
+  "schemas": [
+    "frame_rig.schema.v010.json",
+    "animation_sheet.schema.v010.json",
+    "character_layer.schema.v010.json"
+  ],
+  "rust_pseudocode": [
+    "character_modular_animation_v010.rs"
+  ]
+}

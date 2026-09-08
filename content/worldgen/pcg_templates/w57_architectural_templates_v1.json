@@ -1,0 +1,35 @@
+{
+  "schema": "havenwild.pcg_architectural_templates.v1",
+  "version": "1.0.0-w57j",
+  "authority": "BuildingRecipeRegistry + EnclosedSceneSpec + semantic PCG exemplars",
+  "templates": [
+    {
+      "id": "estate_starter_cottage",
+      "buildingRecipeId": "havenwild.estate.starter_cottage",
+      "exteriorMapping": "content/buildings/exterior_mappings/estate_starter_cottage_exterior_v1.json",
+      "interiorSkin": "house",
+      "wallSkin": "house_interior_timber",
+      "entryOpeningId": "front_door",
+      "adaptation": {
+        "allowRotation": false,
+        "allowReflection": false,
+        "allowBiomeMaterialSubstitution": true,
+        "preserveArchitecturalSockets": true,
+        "preserveDoorConnectivity": true,
+        "generateLinkedEnclosedScene": true
+      }
+    },
+    {
+      "id": "generic_cave_enclosed_scene",
+      "sceneKind": "cave",
+      "interiorSkin": "cave",
+      "wallSkin": "cave_rock",
+      "adaptation": {
+        "allowRotation": true,
+        "allowReflection": true,
+        "preserveDoorConnectivity": true,
+        "reuseInteriorWallTopology": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "schema": "havenwild.terrain_pattern_registry.v2",
+  "status": "prototype",
+  "patterns": [
+    {
+      "id": "road.sides.00",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "any_ground",
+        "south": "any_ground",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.01",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "road",
+        "east": "any_ground",
+        "south": "any_ground",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.02",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "road",
+        "south": "any_ground",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.03",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "road",
+        "east": "road",
+        "south": "any_ground",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.04",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "any_ground",
+        "south": "road",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.05",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "road",
+        "east": "any_ground",
+        "south": "road",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.06",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "road",
+        "south": "road",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.07",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "road",
+        "east": "road",
+        "south": "road",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.08",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "any_ground",
+        "south": "any_ground",
+        "west": "road"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.09",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "road",
+        "east": "any_ground",
+        "south": "any_ground",
+        "west": "road"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.0a",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "road",
+        "south": "any_ground",
+        "west": "road"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.0b",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "road",
+        "east": "road",
+        "south": "any_ground",
+        "west": "road"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.0c",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "any_ground",
+        "south": "road",
+        "west": "road"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.0d",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "road",
+        "east": "any_ground",
+        "south": "road",
+        "west": "road"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.0e",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "road",
+        "south": "road",
+        "west": "road"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "road.sides.0f",
+      "terrainSetId": "path",
+      "terrainId": "road",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "road",
+        "east": "road",
+        "south": "road",
+        "west": "road"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.00",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "any_ground",
+        "south": "any_ground",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.01",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "stone_path",
+        "east": "any_ground",
+        "south": "any_ground",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.02",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "stone_path",
+        "south": "any_ground",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.03",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "stone_path",
+        "east": "stone_path",
+        "south": "any_ground",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.04",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "any_ground",
+        "south": "stone_path",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.05",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "stone_path",
+        "east": "any_ground",
+        "south": "stone_path",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.06",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "stone_path",
+        "south": "stone_path",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.07",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "stone_path",
+        "east": "stone_path",
+        "south": "stone_path",
+        "west": "any_ground"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.08",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "any_ground",
+        "south": "any_ground",
+        "west": "stone_path"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.09",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "stone_path",
+        "east": "any_ground",
+        "south": "any_ground",
+        "west": "stone_path"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.0a",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "stone_path",
+        "south": "any_ground",
+        "west": "stone_path"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.0b",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "stone_path",
+        "east": "stone_path",
+        "south": "any_ground",
+        "west": "stone_path"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.0c",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "any_ground",
+        "south": "stone_path",
+        "west": "stone_path"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.0d",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "stone_path",
+        "east": "any_ground",
+        "south": "stone_path",
+        "west": "stone_path"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.0e",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "any_ground",
+        "east": "stone_path",
+        "south": "stone_path",
+        "west": "stone_path"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "stone_path.sides.0f",
+      "terrainSetId": "path",
+      "terrainId": "stone_path",
+      "matchMode": "sides_only",
+      "peers": {
+        "north": "stone_path",
+        "east": "stone_path",
+        "south": "stone_path",
+        "west": "stone_path"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "grass.fill",
+      "terrainSetId": "natural_ground",
+      "terrainId": "grass",
+      "matchMode": "corners_and_sides",
+      "peers": {
+        "north": "grass",
+        "northEast": "grass",
+        "east": "grass",
+        "southEast": "grass",
+        "south": "grass",
+        "southWest": "grass",
+        "west": "grass",
+        "northWest": "grass"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "sand.fill",
+      "terrainSetId": "natural_ground",
+      "terrainId": "sand",
+      "matchMode": "corners_and_sides",
+      "peers": {
+        "north": "sand",
+        "northEast": "sand",
+        "east": "sand",
+        "southEast": "sand",
+        "south": "sand",
+        "southWest": "sand",
+        "west": "sand",
+        "northWest": "sand"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "shallow_water.fill",
+      "terrainSetId": "water",
+      "terrainId": "shallow_water",
+      "matchMode": "corners_and_sides",
+      "peers": {
+        "north": "shallow_water",
+        "northEast": "shallow_water",
+        "east": "shallow_water",
+        "southEast": "shallow_water",
+        "south": "shallow_water",
+        "southWest": "shallow_water",
+        "west": "shallow_water",
+        "northWest": "shallow_water"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    },
+    {
+      "id": "deep_water.fill",
+      "terrainSetId": "water",
+      "terrainId": "deep_water",
+      "matchMode": "corners_and_sides",
+      "peers": {
+        "north": "deep_water",
+        "northEast": "deep_water",
+        "east": "deep_water",
+        "southEast": "deep_water",
+        "south": "deep_water",
+        "southWest": "deep_water",
+        "west": "deep_water",
+        "northWest": "deep_water"
+      },
+      "atlasCandidate": null,
+      "verified": false,
+      "status": "needs_lpc_mapping"
+    }
+  ]
+}

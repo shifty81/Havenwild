@@ -1,0 +1,121 @@
+{
+  "schema": "havenwild.building_exterior_mapping.v1",
+  "id": "havenwild.estate.starter_cottage.exterior",
+  "version": "1.5.0-w57k8-gable-infill",
+  "recipeId": "havenwild.estate.starter_cottage",
+  "sourceExample": "Pinned LPC Revised Gable Shingle Roof A shallow brown front-gable roofline, used once intact and unscaled over a centered five-tile cream wall plate with a source-derived 1/3/5 triangular siding infill and one-tile side eaves.",
+  "tileSizePx": 32,
+  "buildingOrigin": "top_left_of_9x9_recipe_envelope; visible roof begins at local [1,2], wall plate spans local x=2..6",
+  "assemblyRule": "The exterior footprint is an architectural envelope, not the facade width. One exact 7x4 front-gable roofline overhangs a centered five-tile wall plate. A visual-only 1/3/5 stepped cream-siding infill occupies only the gable opening beneath the slopes; the roofline draws afterward to mask its stepped outer edge. No rectangular gable-backing plane is permitted.",
+  "components": [
+    {
+      "role": "main_gable_roof",
+      "assetId": "roof_gable_shingle_brown_shallow_7x4_roofline",
+      "socket": "roof_wall_plate",
+      "sourceSocketPx": [
+        112,
+        128
+      ],
+      "renderOriginPx": [
+        32,
+        64
+      ]
+    },
+    {
+      "role": "front_wall_left",
+      "assetId": "wall_siding_plain_cream_front_left",
+      "localTile": [
+        2,
+        8
+      ],
+      "repeat": 1
+    },
+    {
+      "role": "front_wall_field",
+      "assetId": "wall_siding_plain_cream_front_repeat",
+      "localTile": [
+        3,
+        8
+      ],
+      "repeat": 3,
+      "openingCutAtLocalX": 4
+    },
+    {
+      "role": "front_wall_right",
+      "assetId": "wall_siding_plain_cream_front_right",
+      "localTile": [
+        6,
+        8
+      ],
+      "repeat": 1
+    },
+    {
+      "role": "front_door",
+      "assetId": "door_basic",
+      "socket": "front_door_threshold",
+      "localTile": [
+        4,
+        8
+      ]
+    },
+    {
+      "role": "front_window_w",
+      "assetId": "window_ornamental_tall",
+      "socket": "front_window_w_sill",
+      "localTile": [
+        2,
+        8
+      ]
+    },
+    {
+      "role": "front_window_e",
+      "assetId": "window_ornamental_tall",
+      "socket": "front_window_e_sill",
+      "localTile": [
+        6,
+        8
+      ]
+    }
+  ],
+  "certification": {
+    "status": "runtime_repair_candidate_w57k8",
+    "requirements": [
+      "one intact 7x4 shallow brown front-gable roofline owns the visible rake/eave silhouette",
+      "a 1/3/5 cream siding infill fills only the triangular gable opening beneath the roofline",
+      "roof visual envelope is wider than the five-tile wall plate, producing one-tile side eaves",
+      "no synthetic rectangular gable-backing wall row exists behind transparent roof pixels",
+      "front wall body begins immediately beneath the gable infill and remains behind the roof draw order",
+      "front door remains on world tile [59,36] after the 9x9 architectural-envelope migration",
+      "editor and client resolve the same BuildingRecipe/BuildingInstance/PublishedWorldAsset session"
+    ]
+  },
+  "gableInfill": {
+    "assetId": "wall_siding_plain_cream_gable_fill",
+    "rows": [
+      {
+        "start": [
+          4,
+          3
+        ],
+        "length": 1
+      },
+      {
+        "start": [
+          3,
+          4
+        ],
+        "length": 3
+      },
+      {
+        "start": [
+          2,
+          5
+        ],
+        "length": 5
+      }
+    ],
+    "role": "triangular_under_roofline_wall_infill",
+    "blocksMovement": false,
+    "note": "One-tile exact cream siding cells form a 1/3/5 stepped gable behind the source-authored roofline. The roofline draws afterward and masks the stepped outer edge; the five-tile facade begins immediately below at visual local y=6."
+  }
+}

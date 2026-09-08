@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.world_paint_transition_tile_resolver.v0.1",
+  "version": 1,
+  "purpose": "Resolve material-state adjacency reports into strict 32x32 tile records from the Havenwild generated world environment atlas without storing rendered overlay pixels as authoritative state.",
+  "canonical_tile_size": [32, 32],
+  "source_state": "WORKSPACE/generated/world_paint/world_paint_material_state_v0_1.json",
+  "source_atlas_manifest": "content/assets/world_tiles/havenwild_world_environment_test_v0_1.json",
+  "supported_transition_kinds": ["shoreline", "cave_edge", "paved_brick_edge", "wood_floor_edge", "base"],
+  "resolver_outputs": ["selected_tile_id", "selected_atlas_rect", "fallback_tile_id", "neighbor_bits", "transition_kind"],
+  "ui_controls": {"selected_cell": "Tile button or O hotkey", "active_scene_summary": "SceneTile button or L hotkey"},
+  "multiplayer_policy": "Host/server stores paint/material state and edit operation sequence. Clients may derive transition tile records deterministically from shared material state, adjacency rules, and atlas manifests."
+}

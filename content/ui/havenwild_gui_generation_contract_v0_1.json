@@ -1,0 +1,47 @@
+{
+  "schema": "haven.gui_generation_contract.v0_2",
+  "purpose": "Normalize Havenwild gameplay/editor GUI around a scalable code-generated wood/brass frame grammar plus a small set of production overlay assets.",
+  "style": "cozy_dark_wood_brass_parchment_pixel_painted_hybrid",
+  "canonicalIconPixels": [32, 32],
+  "runtimeComposition": {
+    "frameAuthority": "code_generated_scalable",
+    "productionOverlayAssets": ["hud_minimap_frame"],
+    "dynamicText": true,
+    "dynamicBarFills": true,
+    "dynamicPortraits": true,
+    "dynamicMinimap": true,
+    "dynamicDayNightClock": true,
+    "hotbarAuthority": "player_authored_inventory_shortcuts",
+    "hardCodedHotbarSlotsAllowed": false
+  },
+  "requiredWidgetFamilies": [
+    "hud_player_card",
+    "hud_hotbar",
+    "hud_minimap",
+    "chat_panel",
+    "inventory_panel",
+    "equipment_panel",
+    "crafting_panel",
+    "storage_panel",
+    "asset_browser_panel",
+    "content_browser_tile_card",
+    "tool_rail_button",
+    "tab_button",
+    "scrollbar",
+    "tooltip",
+    "dialogue_box",
+    "validation_badge",
+    "generic_panel"
+  ],
+  "requiredIconFamilies": [
+    "food", "drink", "seed", "crop", "fish", "ore", "ingot", "tool", "clothing", "equipment", "furniture", "terrain", "zone", "transition", "npc", "staff", "quest"
+  ],
+  "metadataRequired": true,
+  "notes": [
+    "Hotbar slots are never assigned to fixed tools; the player drags inventory/tool-belt shortcuts into any slot.",
+    "The future radial menu is another presentation of the exact same hotbar bindings, never a second assignment system.",
+    "Player card, hotbar, chat, dialogue, inventory/equipment, crafting and generic windows share one scalable code-generated frame grammar.",
+    "Mana stays hidden until an authoritative mana system exists; player card reserves expansion space for future/sub-needs.",
+    "Minimap clock internals remain live code rather than baked pixels so game time can rotate/update continuously and season tinting can bind once season authority exists."
+  ]
+}

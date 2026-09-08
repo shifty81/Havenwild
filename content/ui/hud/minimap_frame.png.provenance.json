@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.asset_provenance.v1",
+  "assetId": "havenwild_circular_minimap_frame_ac2r3_v1",
+  "path": "content/ui/hud/minimap_frame.png",
+  "status": "accepted_project_visual_baseline",
+  "ownership": "havenwild_project_owned_generated_artwork",
+  "source": "user-approved image generated during Havenwild development and directly integrated as the runtime circular minimap overlay",
+  "externalDependency": false,
+  "licenseRouting": "project_owned",
+  "dimensions": [1254, 1254],
+  "sha256": "ed112df0c7f9535713d41dc996a9c143164f5a860bb89dab50cba287ec7bfff2",
+  "roles": [
+    "hud_minimap_frame",
+    "hud_compass_frame",
+    "hud_clock_housing"
+  ],
+  "runtimeDynamicRegions": [
+    "circular_minimap_center",
+    "day_night_clock_dial",
+    "clock_time_text"
+  ],
+  "acceptedDate": "2026-09-05"
+}

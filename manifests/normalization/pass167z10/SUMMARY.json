@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.normalization.pass167z10.v1",
+  "sourceBaseline": "Pass167Z9_RootNormalization",
+  "authoritativeBaseline": "Pass167Z10_DevelopmentNormalization",
+  "rootFiles": [
+    ".gitignore",
+    "Cargo.lock",
+    "Cargo.toml",
+    "HavenwildTools.cmd",
+    "README.md"
+  ],
+  "singleRootLauncher": "HavenwildTools.cmd",
+  "movedFiles": 519,
+  "toolFiles": 470,
+  "automationFiles": 440,
+  "historicalOrArchivedToolFiles": 341,
+  "legacyCppFilesArchived": 37,
+  "activeValidationEntrypoints": [
+    "validate_architecture.py",
+    "validate_content.py",
+    "validate_content_integrity.py",
+    "validate_development_layout.py",
+    "validate_terrain_topology_v167z5.py"
+  ],
+  "activeValidatorCount": 19,
+  "compatibilityTaskCount": 20,
+  "architectureDebtFiles": 12,
+  "transientLogsRoot": "logs/",
+  "currentValidationEntrypoint": "tools/automation/validation/validation_runner.py"
+}

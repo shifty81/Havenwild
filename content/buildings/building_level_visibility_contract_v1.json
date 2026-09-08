@@ -1,0 +1,57 @@
+{
+  "schema": "havenwild.building_level_visibility_contract.v1",
+  "pass": "167Z109W45C",
+  "authority": "BuildingInstance",
+  "purpose": "Lock Havenwild buildings to continuous same-world multi-level interiors with camera-local Sims-style roof/wall cutaway before W46 BuildingRecipe implementation.",
+  "defaultInteriorPolicy": "same_world_building_instance",
+  "levelModel": {
+    "groundLevel": 0,
+    "upperLevels": "positive integers",
+    "basementLevels": "negative integers",
+    "examples": {
+      "guestFloor": 1,
+      "groundFloor": 0,
+      "cellar": -1
+    },
+    "stairsAndLaddersUseStructuralConnectors": true,
+    "allLevelsRemainAuthoritativeAndSimulated": true
+  },
+  "cameraPresentation": {
+    "visibilityIsPerClientCamera": true,
+    "visibilityNeverMutatesWorldState": true,
+    "outside": [
+      "roof visible",
+      "exterior shell visible",
+      "interior may remain occluded"
+    ],
+    "insideActiveLevel": [
+      "roof group fades or hides",
+      "camera-blocking/front wall group cuts away",
+      "active structural level is fully readable",
+      "other levels may be hidden, dimmed, or simplified without unloading them"
+    ],
+    "multiplayer": "players may occupy different levels or exterior simultaneously; each client computes cutaway state locally"
+  },
+  "componentVisibilityRoles": [
+    "active_level_surface",
+    "wall_occluder",
+    "wall_finish",
+    "wall_opening",
+    "cutaway_overlay",
+    "roof_occluder",
+    "always_visible"
+  ],
+  "separateSceneExceptions": [
+    "large streamed dungeon",
+    "deep cave or mine network after an explicit connector boundary",
+    "magical or spatially nonlocal interior",
+    "special content that genuinely requires separate streaming or instancing"
+  ],
+  "forbiddenPatterns": [
+    "one scene per ordinary house interior",
+    "one scene per ordinary upstairs floor",
+    "one scene per ordinary cellar or basement",
+    "shared multiplayer world-state mutation for local roof visibility",
+    "roof or front-wall occlusion used as collision or simulation authority"
+  ]
+}

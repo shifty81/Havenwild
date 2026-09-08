@@ -1,0 +1,284 @@
+{
+  "schema": "havenwild.worldgen.structural_cliff_autotile_authority.v0_1",
+  "pass": "167Z109W8",
+  "status": "active",
+  "purpose": "Freeze fresh generated structural cliff topology to source-authored connected contour recipes before shoreline/water work.",
+  "worldAuthority": {
+    "structuralLevels": [
+      0,
+      1,
+      2
+    ],
+    "sourceOfTruth": "TavernMap.structural_levels",
+    "rawGeologicalHeightCreatesStructuralTiers": false,
+    "legacyFallback": {
+      "mountain_rock": 1,
+      "all_other_tiles_including_mountain_path": 0
+    },
+    "logicalHostFootprintTiles": [
+      1,
+      1
+    ],
+    "visualOverhangCreatesWorldCells": false
+  },
+  "topology": {
+    "maskBits": {
+      "north": 1,
+      "east": 2,
+      "south": 4,
+      "west": 8
+    },
+    "interiorMask": 0,
+    "boundaryMasks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "resolverType": "haven_world::CliffShape15",
+    "shapeMasks": {
+      "north": 1,
+      "east": 2,
+      "north_east": 3,
+      "south": 4,
+      "north_south": 5,
+      "east_south": 6,
+      "north_east_south": 7,
+      "west": 8,
+      "north_west": 9,
+      "east_west": 10,
+      "north_east_west": 11,
+      "south_west": 12,
+      "north_south_west": 13,
+      "east_south_west": 14,
+      "isolated": 15
+    },
+    "visualResolver": "haven_game::runtime_structural_cliff_shapes::CliffVisualShape",
+    "visualResolverNeighborhood": "CliffShape15 exact corner mask chooses authored rounded recipe; diagonal neighbors may remain available for future start/middle/end variants but are not required for correctness"
+  },
+  "visualAuthority": {
+    "provider": "ElizaWy LPC seasonal cliff sheet",
+    "runtimeSheet": "assets/generated/worldgen_v0_1/terrain/elizawy_cliff_runtime_overlay_summer.png",
+    "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "sourceSha256": "94bd2ddb2c51677498453486092ef28e57e0c1880f4334359189229590298147",
+    "sheetPixels": [
+      512,
+      448
+    ],
+    "gridPixels": [
+      32,
+      32
+    ],
+    "squarePlateauSourceGridSpan": [
+      5,
+      5,
+      3,
+      4
+    ],
+    "logicalCenterSourceCell": [
+      6,
+      6
+    ],
+    "components": {
+      "north_lip_strip": {
+        "sourceRectPx": [
+          192,
+          192,
+          32,
+          8
+        ],
+        "destination": "host north boundary"
+      },
+      "south_lip_strip": {
+        "sourceRectPx": [
+          64,
+          248,
+          32,
+          8
+        ],
+        "destination": "host south boundary; bottom 8px of official-demo c2r7 lip"
+      },
+      "west_side_strip": {
+        "sourceRectPx": [
+          160,
+          224,
+          8,
+          32
+        ],
+        "destination": "host west boundary"
+      },
+      "east_side_strip": {
+        "sourceRectPx": [
+          160,
+          224,
+          8,
+          32
+        ],
+        "destination": "host east boundary",
+        "transform": "horizontal_mirror"
+      },
+      "south_straight_face": {
+        "officialDemoSequence": [
+          [
+            2,
+            7
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            8
+          ]
+        ],
+        "projectedRowsBelowHost": 1,
+        "tallExtension": "crest c2r7 stays on host; repeat c2r3 exactly N-1 times; emit c2r8 foot once at host+N"
+      },
+      "south_west_diagonal": {
+        "structuralMask": 12,
+        "officialDemoSequence": [
+          [
+            1,
+            7
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            8
+          ]
+        ],
+        "projection": "W14 c1 crest/body/foot; W13 west low-side receiver visibility; exact source pixels stay host-aligned",
+        "projectedRowsBelowHost": 1
+      },
+      "south_east_diagonal": {
+        "structuralMask": 6,
+        "officialDemoSequence": [
+          [
+            3,
+            7
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "projection": "W14 c3 crest/body/foot; W13 east low-side receiver visibility; exact source pixels stay host-aligned",
+        "projectedRowsBelowHost": 1
+      }
+    },
+    "seasonRule": "season swaps the sheet while keeping identical topology/source coordinates",
+    "diagonalRule": "CliffShape15 remains structural authority. Mask 12/6 selects diagonal art only when a matching diagonal-neighbor mask proves an actual sampled diagonal chain; an isolated mask 12/6 remains an orthogonal corner.",
+    "licensedSourceSheet": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+    "runtimeOverlaySha256": "d0b52c40b7b6542ad56be38ce09e3032c0870218a86fdce87969baaaabe5d3ca",
+    "projectionRule": "V7 owns plateau fill. W14 ordinary south presentation uses demo-grounded crest/body/foot families c2r7/c2r3/c2r8 (straight), c1r7/c1r3/c1r8 (SW), and c3r7/c3r3/c3r8 (SE). Crest stays on the host row; receiver-facing height equals structural tier delta. W13 low-side diagonal visibility is preserved.",
+    "runtimeProjectionSha256": "25b7a65f892b897d7664e8d68091661a159a41715617a18bccd185f173d9608d",
+    "generatedContourAuthority": "content/worldgen/elizawy_cliff_generated_contour_authority_v0_1.json",
+    "sourceGrammarOverride": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json"
+  },
+  "collisionAuthority": {
+    "rule": "different structural levels block the shared cardinal edge",
+    "dependsOnArtwork": false,
+    "connectorOverrides": [
+      "ramp",
+      "stairs",
+      "ladder",
+      "bridge"
+    ],
+    "caveMouthIsFreeTraversal": false
+  },
+  "worldgenAuthority": {
+    "rawHeightThresholdsCreateTopology": false,
+    "broadLowFrequencyPlatformMasks": true,
+    "minimumNeighborhoodWindow": [
+      5,
+      5
+    ],
+    "minimumCandidateDensityPercent": 68,
+    "protectedRoadAndCivicBufferTiles": 6,
+    "level2RequiresBroadLevel1Interior": true,
+    "generatedRampsRemainComponentAware": true
+  },
+  "specialAttachments": {
+    "base15ShapeResolverOwns": "ordinary cliff edges and corners only",
+    "separateAttachments": [
+      "caves",
+      "ramps",
+      "stairs",
+      "ladders",
+      "bridges",
+      "waterfalls"
+    ],
+    "rampPresentation": "Exact left/right 3x4 authored directional ramp stamps from the companion LPC grass-top cliff sheet own ramp presentation. Fresh worldgen paints a matching six-cell MountainPath corridor; the center one-tier structural edge remains the explicit traversal opening. No transformed or fabricated ramp art is allowed.",
+    "climbableVines": "ElizaWy vine source spans are catalogued but not rendered as climbable until the character climb state is wired, preventing dishonest visual affordances.",
+    "rampAuthority": "content/worldgen/lpc_directional_cliff_ramp_authority_v0_1.json",
+    "caves": "default ordinary cave mouth is fixed authored 1-tile-wide recipe; large 3x3 portal is reserved explicit road/cart/major tunnel only"
+  },
+  "retiredComplexity": [
+    "raw-height structural tier binning",
+    "source image envelope treated as logical world footprint",
+    "art-crop certification as collision authority",
+    "runtime-local duplicate 15-shape enum",
+    "narrow lip/side-strip approximation as the base cliff renderer",
+    "opaque ElizaWy plateau-fill cells rendered over V7 ground",
+    "four-neighbor mask alone selecting diagonal visual art",
+    "full 32x32 square-plateau example cells used as generic cardinal cliff overlays"
+  ],
+  "generatedContourQuality": {
+    "authority": "crates/haven_world/src/structural_landform_masks.rs::normalize_structural_contours",
+    "scope": "fresh procedurally generated structural landforms only; explicit editor/player-authored structural levels remain untouched",
+    "passes": 2,
+    "thresholds": [
+      1,
+      2
+    ],
+    "rules": [
+      "lower a generated threshold cell when it has zero or one same-threshold cardinal neighbor",
+      "raise a generated lower cell when three or four cardinal neighbors meet the threshold",
+      "preserve cells with two or more cardinal supports so deliberate 45-degree staircase contours remain available to ElizaWy diagonal recipes",
+      "protected civic/road cells remain Level 0",
+      "Level 2 cleanup lowers thin terminals to Level 1 rather than deleting the underlying plateau"
+    ],
+    "reason": "Three-edge/isolated generated cells project as narrow rectangular cliff posts; inverse single-cell notches create repeated concave teeth. These are rasterization artifacts, not desired macro landform shapes.",
+    "freshPcgCertifiedMasks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      12
+    ],
+    "freshPcgNormalizedOutMasks": [
+      7,
+      11,
+      13,
+      14,
+      15
+    ],
+    "visualPolicy": "normalized-out thin caps/posts receive no generic fallback or invented pixels; explicit authored geometry remains structurally valid for feature-specific recipes",
+    "acceptance": "docs/assets/previews/elizawy_cliff_generated_contours_pass167z109w8.png"
+  },
+  "visualSourceRoleAuthority": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json"
+}

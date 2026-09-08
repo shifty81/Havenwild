@@ -1,0 +1,297 @@
+{
+  "schema": "havenwild.oga_lpc.cliff_recipe_catalog.v0_2",
+  "revision": "167Z104-multi-cell-source-assembly-normalization-v3",
+  "sourceSubmission": "https://opengameart.org/content/lpc-cliffsmountains-with-grass-top-and-more",
+  "selectedLicense": "CC-BY-SA-3.0",
+  "sourceSheet": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+  "tileSize": [
+    32,
+    32
+  ],
+  "providerRole": "read-only authoring reference pending Pixel Studio normalization",
+  "notAuthorityFor": [
+    "arbitrary continuous cliff outlines",
+    "semantic elevation",
+    "flat ground painting",
+    "seasonal ElizaWy face replacement"
+  ],
+  "recipes": [],
+  "styleIsolation": [
+    "A connected assembly uses one source sheet and material lane.",
+    "The OGA sheet may supply a complete ramp, ladder, cave, pillar, or bridge assembly.",
+    "ElizaWy seasonal sheets remain the primary arbitrary cliff-face provider.",
+    "V7 MountainRock remains only the horizontal highland surface."
+  ],
+  "attribution": "content/assets/oga_lpc/licenses/OGA_LPC_PHASE1_CREDITS.txt",
+  "sourceSha256": "1a0c25904aaacf373c54311eecca9933a9b122e4c3cb2e4cfe8e19ab06feb82a",
+  "runtimeTileRoles": {
+    "status": "disabled_until_normalized_multi_cell_recipes_are_certified",
+    "collisionAuthority": "fail_open_for_procedural_edges",
+    "requiredOutput": "metadata-backed multi-cell structural recipes with independent visual footprint, host mask, collision edges, traversal edges, acceptance fixtures, and attribution"
+  },
+  "sourceDimensions": [
+    384,
+    288
+  ],
+  "runtimeStatus": "quarantined",
+  "quarantineReasons": [
+    "The 384x288 source is a specialist connected-art construction kit; audited assemblies span 1x3, 2x3, 3x3, 3x5, 6x4, and other source-grid envelopes.",
+    "A 32x32 source cell is an addressing unit only and cannot be promoted as a standalone cliff face without a complete reviewed recipe.",
+    "The prior runtime repeated cells from the 3x5 grass pillar as if they were generic cliff modules, producing trunk-like coastal columns.",
+    "The sheet does not provide a certified complete arbitrary-direction seasonal cliff topology for Havenwild."
+  ],
+  "measurementAuthority": "content/worldgen/cliff_asset_footprint_recipe_normalization_v0_1.json",
+  "sourceGridPurpose": "32x32 source addressing only; source cells are not standalone world cliff modules",
+  "sourceAssemblies": [
+    {
+      "id": "bare_pillar_or_ring",
+      "sourceGridSpan": [
+        0,
+        0,
+        3,
+        5
+      ],
+      "sourceRectPx": [
+        0,
+        0,
+        96,
+        160
+      ],
+      "tightVisualRectPx": [
+        15,
+        15,
+        65,
+        125
+      ],
+      "classification": "specialist_complete_stamp",
+      "promotionStatus": "reference_only_semantics_pending",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "bare_diagonal_split",
+      "sourceGridSpan": [
+        3,
+        0,
+        2,
+        5
+      ],
+      "sourceRectPx": [
+        96,
+        0,
+        64,
+        160
+      ],
+      "tightVisualRectPx": [
+        96,
+        0,
+        64,
+        160
+      ],
+      "classification": "specialist_complete_stamp",
+      "promotionStatus": "reference_only_semantics_pending",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "grass_pillar",
+      "sourceGridSpan": [
+        5,
+        0,
+        3,
+        5
+      ],
+      "sourceRectPx": [
+        160,
+        0,
+        96,
+        160
+      ],
+      "tightVisualRectPx": [
+        171,
+        10,
+        75,
+        130
+      ],
+      "classification": "complete_pillar_stamp",
+      "promotionStatus": "reference_only",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "grass_crossing_or_t_ramp",
+      "sourceGridSpan": [
+        8,
+        0,
+        3,
+        4
+      ],
+      "sourceRectPx": [
+        256,
+        0,
+        96,
+        128
+      ],
+      "tightVisualRectPx": [
+        256,
+        0,
+        86,
+        128
+      ],
+      "classification": "specialist_crossing_or_ramp_assembly",
+      "promotionStatus": "reference_only_semantics_pending",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "grass_side_face",
+      "sourceGridSpan": [
+        11,
+        0,
+        1,
+        4
+      ],
+      "sourceRectPx": [
+        352,
+        0,
+        32,
+        128
+      ],
+      "tightVisualRectPx": [
+        363,
+        0,
+        21,
+        107
+      ],
+      "classification": "specialist_side_component",
+      "promotionStatus": "reference_only_semantics_pending",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "cave_host",
+      "sourceGridSpan": [
+        0,
+        5,
+        3,
+        3
+      ],
+      "sourceRectPx": [
+        0,
+        160,
+        96,
+        96
+      ],
+      "tightVisualRectPx": [
+        0,
+        160,
+        96,
+        75
+      ],
+      "classification": "complete_cave_host_assembly",
+      "promotionStatus": "reference_only",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "ramp_crossing",
+      "sourceGridSpan": [
+        3,
+        5,
+        6,
+        4
+      ],
+      "sourceRectPx": [
+        96,
+        160,
+        192,
+        128
+      ],
+      "tightVisualRectPx": [
+        106,
+        160,
+        174,
+        109
+      ],
+      "classification": "complete_multi_cell_ramp_crossing",
+      "promotionStatus": "reference_only",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "ladder",
+      "sourceGridSpan": [
+        9,
+        4,
+        1,
+        3
+      ],
+      "sourceRectPx": [
+        288,
+        128,
+        32,
+        96
+      ],
+      "tightVisualRectPx": [
+        291,
+        134,
+        26,
+        83
+      ],
+      "classification": "complete_traversal_attachment",
+      "promotionStatus": "reference_only",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "rope_bridge_or_suspension",
+      "sourceGridSpan": [
+        10,
+        4,
+        2,
+        3
+      ],
+      "sourceRectPx": [
+        320,
+        128,
+        64,
+        96
+      ],
+      "tightVisualRectPx": [
+        328,
+        134,
+        48,
+        83
+      ],
+      "classification": "complete_traversal_attachment",
+      "promotionStatus": "reference_only",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    },
+    {
+      "id": "decorative_stumps",
+      "sourceGridSpan": [
+        0,
+        8,
+        3,
+        1
+      ],
+      "sourceRectPx": [
+        0,
+        256,
+        96,
+        32
+      ],
+      "tightVisualRectPx": [
+        0,
+        256,
+        96,
+        32
+      ],
+      "classification": "non_cliff_decorative_source",
+      "promotionStatus": "excluded_from_structural_cliffs",
+      "worldVisualFootprintTiles": null,
+      "structuralHostMask": null
+    }
+  ]
+}

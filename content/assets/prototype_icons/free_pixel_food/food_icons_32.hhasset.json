@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.prototype_asset.v0_1",
+  "assetId": "prototype.free_pixel_food.icons_32",
+  "assetKind": "icon_atlas",
+  "externalSourceId": "third_party.henrysoftware.free_pixel_food_cc0",
+  "adapterId": "adapter.free_pixel_food_icons_32.v0_1",
+  "image": "assets/processed/prototype_icons/free_pixel_food/food_icons_32.png",
+  "sourceMode": "user_supplied_or_quarantine",
+  "copyMode": "no_raw_copy_until_bake",
+  "sourceCellSize": [16, 16],
+  "cellSize": [32, 32],
+  "scalePolicy": "scale_16_to_32_nearest_neighbor",
+  "families": ["icon.food", "icon.recipe", "icon.inventory", "ui.tavern_menu"],
+  "runtimeDefault": false,
+  "releaseRestriction": "metadata_gated_cc0_prototype_or_commercial_candidate",
+  "attribution": {
+    "author": "Henry Software",
+    "source": "Free Pixel Food!",
+    "licenseStatus": "CC0"
+  },
+  "validation": {
+    "requiresProcessedImageBeforeRuntimeUse": true,
+    "requiresNoStandaloneAssetExport": true,
+    "requiresIconCatalogBeforeInventoryBinding": true
+  },
+  "notes": [
+    "Metadata stub only. Food.png and FreePixelFood.zip are not copied into runtime folders by this pass.",
+    "Use as recipe/menu/inventory prototype icons after local bake."
+  ]
+}

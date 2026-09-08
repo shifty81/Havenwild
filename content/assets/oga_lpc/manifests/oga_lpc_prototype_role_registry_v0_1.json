@@ -1,0 +1,346 @@
+{
+  "schema": "havenwild.oga_lpc_prototype_role_registry.v0_1",
+  "revision": "H21A14AB18",
+  "sourceRegistry": "content/assets/oga_lpc/manifests/oga_lpc_prototype_source_registry_v0_1.json",
+  "domains": {
+    "terrain.surface": {
+      "requiredRoles": [
+        "grass",
+        "dirt",
+        "sand",
+        "mud",
+        "rock",
+        "snow",
+        "wet_shore"
+      ],
+      "providers": [
+        "elizawy.4_season_terrain"
+      ],
+      "rule": "surface topology remains canonical; providers supply season/style artwork"
+    },
+    "terrain.details": {
+      "requiredRoles": [
+        "grass_tuft",
+        "flower",
+        "leaf_litter",
+        "pebble",
+        "small_rock",
+        "moss",
+        "crack",
+        "fallen_wood"
+      ],
+      "providers": [
+        "elizawy.4_season_terrain",
+        "oga.lpc.plants",
+        "oga.lpc.rocks"
+      ],
+      "rule": "details never change topology or collision unless explicitly promoted as an interactive object"
+    },
+    "structural.cliffs": {
+      "requiredRoles": [
+        "rim_straight",
+        "rim_inner_corner",
+        "rim_outer_corner",
+        "rim_diagonal",
+        "wall_straight",
+        "wall_diagonal_start",
+        "wall_diagonal_middle",
+        "wall_diagonal_end",
+        "wall_to_diagonal_join",
+        "diagonal_to_wall_join",
+        "wall_foot",
+        "terminal_cap",
+        "ramp_left",
+        "ramp_right",
+        "ladder",
+        "vine",
+        "cave_host",
+        "waterfall_host"
+      ],
+      "providers": [
+        "elizawy.4_season_terrain"
+      ],
+      "rule": "Level 0/1/2 and canonical structural shape own gameplay; provider owns pixels only"
+    },
+    "hydrology": {
+      "requiredRoles": [
+        "ocean_base",
+        "lake_base",
+        "pond_base",
+        "river_base",
+        "stream_base",
+        "current_overlay",
+        "ripple_overlay",
+        "shore_foam",
+        "waterfall_lip",
+        "waterfall_face",
+        "waterfall_splash",
+        "frozen_water"
+      ],
+      "providers": [
+        "elizawy.4_season_terrain",
+        "oga.lpc.animated_water"
+      ],
+      "rule": "flow, depth, drainage and waterfall necessity derive from hydrology semantics"
+    },
+    "shoreline": {
+      "requiredRoles": [
+        "sand_beach",
+        "pebble_beach",
+        "mud_bank",
+        "rocky_shore",
+        "marsh_edge",
+        "cliff_coast",
+        "river_bank",
+        "estuary",
+        "wet_shore",
+        "wave_overlay"
+      ],
+      "providers": [
+        "elizawy.4_season_terrain",
+        "oga.lpc.animated_water",
+        "oga.lpc.rocks"
+      ],
+      "rule": "shore recipes bridge land material, water class, depth, flow and exposure"
+    },
+    "caves": {
+      "requiredRoles": [
+        "entrance_narrow",
+        "entrance_wide",
+        "entrance_tileable",
+        "interior_floor",
+        "interior_wall",
+        "inner_corner",
+        "outer_corner",
+        "stairs",
+        "shaft",
+        "mine_entrance",
+        "ore_detail",
+        "crystal_detail",
+        "fungus_detail",
+        "wet_detail",
+        "ruin_detail",
+        "basalt_biome"
+      ],
+      "providers": [
+        "oga.lpc.caves",
+        "oga.lpc.cave_openings",
+        "oga.lpc.mine",
+        "oga.lpc.cavern_ruins",
+        "oga.lpc.basalt_caverns",
+        "oga.lpc.plants"
+      ],
+      "rule": "surface entrances bind deterministic cave graph nodes; interior PCG expands from graph before local geometry"
+    },
+    "ecology": {
+      "requiredRoles": [
+        "deciduous_tree",
+        "conifer_tree",
+        "tree_sapling",
+        "tree_young",
+        "tree_mature",
+        "tree_stump",
+        "tree_fallen",
+        "bush",
+        "flower",
+        "mushroom",
+        "herb",
+        "reed",
+        "log",
+        "boulder",
+        "pebble"
+      ],
+      "providers": [
+        "elizawy.4_season_terrain",
+        "oga.lpc.trees",
+        "oga.lpc.conifers",
+        "oga.lpc.plants",
+        "oga.lpc.rocks"
+      ],
+      "rule": "placement comes from ecological communities/stands, never uniform per-cell scatter"
+    },
+    "farming": {
+      "requiredRoles": [
+        "crop_growth",
+        "fruit_tree_growth",
+        "barn",
+        "silo",
+        "granary",
+        "coop",
+        "apiary",
+        "stable",
+        "windmill",
+        "water_wheel",
+        "processing_station",
+        "fence"
+      ],
+      "providers": [
+        "oga.lpc.crops",
+        "oga.lpc.fruit_trees",
+        "oga.lpc.farm"
+      ],
+      "rule": "art visualizes crop/building definitions; gameplay values remain data owned"
+    },
+    "routes": {
+      "requiredRoles": [
+        "road",
+        "stone_path",
+        "bridge",
+        "boardwalk",
+        "dock",
+        "pier"
+      ],
+      "providers": [
+        "oga.lpc.wood_bridge",
+        "oga.lpc.dock",
+        "elizawy.4_season_terrain"
+      ],
+      "rule": "route graph exists before ecology and reserves its corridor"
+    },
+    "settlements": {
+      "requiredRoles": [
+        "city_wall",
+        "roof",
+        "window",
+        "door",
+        "market",
+        "well",
+        "civic_detail",
+        "market_stall",
+        "sign",
+        "lamp",
+        "banner",
+        "fence",
+        "town_square",
+        "harbor_dock",
+        "farm_building"
+      ],
+      "providers": [
+        "oga.lpc.city_outside",
+        "oga.lpc.medieval_decor",
+        "oga.lpc.dock",
+        "oga.lpc.farm"
+      ],
+      "rule": "district/road/plot graph precedes buildings; Willowmere authored core is invariant and seed fits surroundings to it"
+    },
+    "tools_and_equipment": {
+      "requiredRoles": [
+        "axe",
+        "pickaxe",
+        "hammer",
+        "shovel",
+        "hoe",
+        "watering_can",
+        "fishing_rod",
+        "scythe",
+        "whip"
+      ],
+      "providers": [
+        "oga.lpc.hand_tools",
+        "universal_lpc_character_generator"
+      ],
+      "rule": "Havenwild item IDs and gameplay actions own semantics; LPC providers supply layered body/equipment animation pixels and provenance."
+    },
+    "workshops": {
+      "requiredRoles": [
+        "forge",
+        "smelter",
+        "anvil",
+        "grindstone",
+        "workbench",
+        "loom",
+        "spinning_wheel",
+        "sawmill",
+        "water_wheel"
+      ],
+      "providers": [
+        "oga.lpc.blacksmith",
+        "oga.lpc.woodshop",
+        "oga.lpc.tailor",
+        "oga.lpc.sawmill",
+        "oga.lpc.revised_workshops_reference"
+      ],
+      "rule": "Stations remain Havenwild crafting authorities. LPC assets supply visuals/animation and may never redefine recipes, fuel, timings, or output."
+    },
+    "tavern_and_inn": {
+      "requiredRoles": [
+        "bar",
+        "table",
+        "chair",
+        "stool",
+        "fireplace",
+        "kitchen",
+        "brewery",
+        "glassware",
+        "lighting",
+        "food_service",
+        "instrument"
+      ],
+      "providers": [
+        "oga.lpc.tavern"
+      ],
+      "rule": "Tavern/inn business simulation remains Havenwild-owned; LPC provides scene dressing, workstation visuals, and compatible instrument animation."
+    },
+    "combat_creatures": {
+      "requiredRoles": [
+        "idle",
+        "move",
+        "attack",
+        "hurt",
+        "projectile_reference"
+      ],
+      "providers": [
+        "oga.lpc.monsters",
+        "universal_lpc_character_generator"
+      ],
+      "rule": "Creature stats, AI, hitboxes and damage are game data. Imported animations must be explicitly bound per creature profile."
+    },
+    "magic_effects": {
+      "requiredRoles": [
+        "fire",
+        "water",
+        "ice",
+        "wind",
+        "lightning",
+        "shield"
+      ],
+      "providers": [
+        "oga.lpc.extended_magic",
+        "oga.lpc.farming_magic_ui"
+      ],
+      "rule": "Effect art is presentation-only until a Havenwild spell/effect definition explicitly binds it."
+    },
+    "ui_reference": {
+      "requiredRoles": [
+        "wood_frame",
+        "scroll_frame",
+        "magic_icon"
+      ],
+      "providers": [
+        "oga.lpc.farming_magic_ui",
+        "oga.lpc.extended_magic"
+      ],
+      "rule": "Reference-only visual vocabulary; the production runtime GUI uses Havenwild-authored UI contracts and may not directly inherit incompatible licensed UI pixels."
+    },
+    "terrain_transition_extensions": {
+      "requiredRoles": [
+        "terrain.transition.twosided",
+        "terrain.transition.threesided",
+        "terrain.edge_contacts",
+        "terrain.multi_material_junction_reference"
+      ],
+      "providers": [
+        "oga.lpc.terrain_extension"
+      ],
+      "rule": "Use exact source-supported transition geometry to extend Havenwild tuple coverage; semantic terrain, collision and unsupported-combination diagnostics remain Havenwild authority."
+    }
+  },
+  "providerContract": {
+    "canonicalShapeBeforeProvider": true,
+    "seasonSwapChangesTopology": false,
+    "seasonSwapChangesCollision": false,
+    "providerMayUseDifferentAtlasLayout": true,
+    "missingMandatoryStructuralRole": "validation_error",
+    "missingOptionalDetailRole": "allowed_fallback_or_omit"
+  }
+}

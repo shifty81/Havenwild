@@ -1,0 +1,73 @@
+{
+  "schema": "havenwild.worldgen.cliff_closure_authority.v0_1",
+  "pass": "H21A14AC1",
+  "revision": "H21A14AC1-cliff-closure-multitier-traversal-occlusion-v1",
+  "status": "active_successor",
+  "supersedesForCurrentGeneration": [
+    "content/worldgen/discrete_structural_landform_generation_v0_1.json"
+  ],
+  "purpose": "Close the player-visible cliff lane: multi-tier generation, useful traversal density, authored ramp alignment, dry inland ladders, and correct actor/cliff depth ordering without replacing semantic terrain or certified LPC cliff art.",
+  "structuralGrammar": {
+    "ordinaryPlateauLevels": [
+      0,
+      2,
+      4
+    ],
+    "connectorOrReliefLevels": [
+      1,
+      3
+    ],
+    "outerInlandDrop": "2_to_0",
+    "nestedHighlandDrop": "4_to_2",
+    "genericOneLevelInlandWallsAllowed": false,
+    "highlandCoreRule": "Broad geographic highland cores inside an already-cleaned raised footprint materialize at Level 4 only when an inset Level-2 shoulder is preserved; Level 3 appears only inside a certified 4->3->2 ramp corridor.",
+    "coastalRelief": "Level 1 remains reserved for authored coastal relief where permitted by the coastal grammar."
+  },
+  "traversal": {
+    "notEveryCliffFaceRequiresConnector": true,
+    "reachableRaisedComponentsRequireUsefulAccess": true,
+    "rampFamily": "exact authored LPC directional 3x4 stamps",
+    "rampSupportedTotalDrops": [
+      "2_to_0",
+      "4_to_2"
+    ],
+    "rampCorridorCellCount": 6,
+    "rampIntermediateLevelIsConnectorLocal": true,
+    "rampMaximumWorldCount": 96,
+    "rampDensity": "one certified south gateway per eligible exact-level component plus up to three additional spatially-separated gateways as usable south perimeter grows",
+    "rampVisualAnchorOffsetTiles": [
+      -1,
+      -1
+    ],
+    "rampVisualRowsMustMatchSemanticRows": true,
+    "dryInlandLaddersEnabled": true,
+    "ladderHost": "exact straight south true-cliff face only",
+    "ladderMaximumWorldCount": 128,
+    "ladderDensity": "one to three per eligible exact-level component based on valid straight-face count",
+    "ladderRampClearanceTiles": 6,
+    "waterFacingConstructedLaddersAllowed": false,
+    "waterFacingAccessPolicy": "natural vine/climb lane"
+  },
+  "renderDepth": {
+    "southCliffFacesParticipateInActorDepthQueue": true,
+    "baseStructuralPassRetained": true,
+    "foregroundReplayContainsCrest": false,
+    "foregroundReplayContainsReceiverFaceOnly": true,
+    "depthKey": "top edge of authored foot row",
+    "expectedBehavior": "actors whose foot anchors remain in projected cliff-body rows are occluded; actors that cross onto/beyond the authored foot row render in front",
+    "completeRampFacesReplayedAsForeground": false,
+    "caveAndWaterfallReceiverColumnsReplayedAsOrdinaryFace": false
+  },
+  "acceptance": {
+    "normalGenerationCanProduceLevelFourHighlands": true,
+    "nestedRampsPreserveFourThreeTwo": true,
+    "largeEligibleCliffPerimetersReceiveMultipleRamps": true,
+    "dryStraightTrueCliffsCanReceiveLadders": true,
+    "rampArtAndSixCellCorridorShareFourWorldRows": true,
+    "tallGrassMayParticipateInGeneratedRampCorridor": true,
+    "rampCorridorsDoNotOverlap": true,
+    "lowerGroundPlayerIsOccludedByProjectedCliffFace": true,
+    "actorsInFrontOfCliffFootRemainVisible": true,
+    "levelFourCoreKeepsLevelTwoShoulder": true
+  }
+}

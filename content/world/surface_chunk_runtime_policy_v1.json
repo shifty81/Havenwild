@@ -1,0 +1,27 @@
+{
+  "schema": "havenwild.surface_chunk_runtime_policy.v1",
+  "generation": {
+    "workerThreads": 1,
+    "integrationBudgetPerFrame": 2,
+    "duplicateRequestsCoalesced": true,
+    "boundaryFallbackMayGenerateSynchronously": true
+  },
+  "residency": {
+    "activeRadiusChunks": 1,
+    "preloadRadiusChunks": 2,
+    "evictGeneratedOutsidePreload": true,
+    "authoredOverridesNeverEvictedByGeneratedPolicy": true
+  },
+  "disk": {
+    "baselineFile": "world/chunks/x_{x}_y_{y}/baseline.tworld",
+    "playerDeltaFile": "world/chunks/x_{x}_y_{y}/player_delta.tworld",
+    "loadOrder": ["player_delta", "baseline", "generate"],
+    "atomicWrites": true,
+    "originalDependencyAssetsExcluded": true
+  },
+  "authority": {
+    "hostOwnsGeneration": true,
+    "hostOwnsDeltaWrites": true,
+    "clientsReceiveResolvedChunkState": true
+  }
+}

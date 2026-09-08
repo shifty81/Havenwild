@@ -1,0 +1,16 @@
+{
+  "schema": "havenwild.canvas_view_chrome.w60e21.v1",
+  "pass": "W60E21",
+  "pixelCanvasChrome": [
+    "zoom_out",
+    "zoom_percent",
+    "zoom_in",
+    "one_to_one",
+    "fit",
+    "frame_grid",
+    "pixel_grid"
+  ],
+  "placement": "canvas_top_edge",
+  "documentTabs": "inside_canvas_document_host",
+  "looseTopControls": false
+}

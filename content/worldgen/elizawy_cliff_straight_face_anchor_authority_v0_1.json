@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.elizawy_cliff_straight_face_anchor_authority.v0_1",
+  "pass": "167Z109W9",
+  "scope": "terrain-cliff-visual-correction",
+  "sourceFamily": "ElizaWy Terrain/cliff_summer.png",
+  "problem": {
+    "runtimeEvidence": "W8.1 fresh-world screenshots showed repeated upright artifacts on long horizontal upper cliff edges and the apparent rim one 32x32 row too high",
+    "rootCause": "straight south hosts painted historical ContourSouthStraightLip on the plateau host row before drawing the dedicated StraightSouthTop/Body/Foot face beginning on the receiver-facing row",
+    "duplicateTopRows": 2
+  },
+  "contract": {
+    "straightSouthHostOwnsCompatibilityLip": false,
+    "straightSouthFace": "StraightSouthTop -> repeatable StraightSouthBody -> StraightSouthFoot",
+    "straightSouthTopProjectionOffsetRows": 1,
+    "plateauHostRowUsesV7SurfaceAuthority": true,
+    "diagonalHostLipPolicy": "unchanged; rounded diagonal recipes retain their authored host-row lip",
+    "rampPolicy": "unchanged",
+    "collisionTopology": "unchanged"
+  },
+  "forbidden": [
+    "draw ContourSouthStraightLip/SOUTH_LIP_CELL on a straight south host",
+    "compensating y-offset hacks applied to all cliff families",
+    "changing diagonal/ramp anchors to hide the straight-face defect"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "havenwild.editor.lpc_semantic_bridge.v0_1",
+  "purpose": "engine-independent semantic/provenance layer for existing LPC and ULPC content consumed by Havenwild brush resources, character assembly, world generation, and later source replacement",
+  "rules": {
+    "source_assets_remain_read_only": true,
+    "stable_semantic_ids_survive_source_replacement": true,
+    "havenwild_structural_grammar_remains_gameplay_authority": true,
+    "worldgen_consumes_only_pcg_approved_assets": true,
+    "license_and_provenance_are_asset_level": true
+  },
+  "approval_states": [
+    "discovered",
+    "imported",
+    "validated",
+    "havenwild_approved",
+    "pcg_approved"
+  ],
+  "import_grades": {
+    "A": "machine-readable metadata already exists (ULPC JSON, Tiled TSX/TMX, Wang/configured packs)",
+    "B": "documented layout can be deterministically normalized",
+    "C": "clean source requires one semantic authoring pass",
+    "D": "legacy, duplicate, ambiguous, or licensing review"
+  },
+  "license_lanes": [
+    "permissive_attribution",
+    "share_alike",
+    "gpl_explicit",
+    "review_required"
+  ],
+  "semantic_roots": [
+    "terrain",
+    "structure",
+    "object",
+    "vegetation",
+    "character",
+    "equipment",
+    "creature",
+    "vehicle",
+    "fx",
+    "ui"
+  ],
+  "starter_ids": [
+    "terrain.grass",
+    "terrain.water.shallow",
+    "terrain.cliff.stone",
+    "structure.wall.stone",
+    "structure.door.wood",
+    "object.container.chest",
+    "vegetation.tree.oak",
+    "equipment.weapon.axe",
+    "fx.water.splash"
+  ],
+  "bridge_targets": {
+    "brush_resource_catalog": "content/editor/authoring/brush_resource_catalog_v0_1.json",
+    "character_authority": "current Universal LPC generator metadata",
+    "world_authority": "Havenwild semantic terrain + structural elevation + resolver stack",
+    "pixel_authority": "local project override; never mutate upstream source"
+  }
+}

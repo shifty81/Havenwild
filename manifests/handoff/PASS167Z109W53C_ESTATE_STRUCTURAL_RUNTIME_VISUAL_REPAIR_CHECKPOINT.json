@@ -1,0 +1,70 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W53C",
+  "date": "2026-08-15",
+  "title": "Estate Structural / Runtime Visual Repair",
+  "baseline": "167Z109W40",
+  "includes": [
+    "167Z109W41A",
+    "167Z109W42",
+    "167Z109W43A",
+    "167Z109W43B",
+    "167Z109W43C",
+    "167Z109W43D",
+    "167Z109W44A",
+    "167Z109W45A",
+    "167Z109W45A1",
+    "167Z109W45B",
+    "167Z109W45C1",
+    "167Z109W45C2",
+    "167Z109W45C3A",
+    "167Z109W45D1",
+    "167Z109W45D1A",
+    "167Z109W45C3B",
+    "167Z109W45D2",
+    "167Z109W46A",
+    "167Z109W46B",
+    "167Z109W46C",
+    "167Z109W47",
+    "167Z109W48",
+    "167Z109W49",
+    "167Z109W50",
+    "167Z109W51",
+    "167Z109W52",
+    "167Z109W53",
+    "167Z109W53A",
+    "167Z109W53B",
+    "167Z109W53C"
+  ],
+  "runtimeEvidence": {
+    "observed": [
+      "starter cottage exterior visually incorrect",
+      "player could enter BuildingInstance but not cross its doorway back out",
+      "Estate cliffs presented as one-high/raw strips",
+      "ordinary cave opening did not read as the intended two-tile-tall aperture"
+    ],
+    "userCorrection": "ordinary cave mouth remains exactly 1 tile wide; only the aperture height is 2 tiles"
+  },
+  "repairs": [
+    "Authored worldgen loader consumes optional discrete structuralLevels and stores Level 0/1/2 in TavernMap.",
+    "Estate generator publishes Level-2 perimeter/cave host and Level-0 interior/gate/threshold; raw Cliff terrain is removed.",
+    "Ordinary cave is modeled as a 1x2 aperture inside the exact existing 1x3 source envelope; third row is threshold/receiver.",
+    "Cave transition/interaction moves to the walkable Level-0 threshold below its Level-2 host.",
+    "Structural cliff renderer owns valid exterior cave visual submission; separate object draw does not duplicate it.",
+    "BuildingInstance Door/Archway cells are explicit navigation thresholds so open entrances work in both directions.",
+    "Visually rejected partial Estate cottage instance is deprecated/fail-closed until a complete exact exterior recipe is certified.",
+    "Unused RuntimeBuildingDrawPiece.instance_id field removed to clear the local build warning.",
+    "Structural-level parser extracted to focused include so worldgen_loader remains under the 750-line module ceiling."
+  ],
+  "validation": {
+    "w46aThroughW52DirectAuthorityChain": "PASS",
+    "w53HistoricalForwardCompatibility": "PASS",
+    "w53bRuntimeConvergence": "PASS",
+    "w53cStructuralRuntimeRepair": "PASS",
+    "jsonParse": "PASS",
+    "pythonParse": "PASS",
+    "bashSyntax": "PASS",
+    "cargoWindowsBuild": "PENDING_USER_LOCAL_W53C"
+  },
+  "next": "Apply W53B\u2192W53C, run 2. Build all, then 53. Regenerate + validate Home Estate, then 54. Run integrated Estate visual test."
+}

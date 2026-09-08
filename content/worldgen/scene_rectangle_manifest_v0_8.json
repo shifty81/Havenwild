@@ -1,0 +1,1314 @@
+{
+  "schema": "havenwild.scene_rectangles.v008",
+  "name": "V008 World Map Scene Rectangle Pack",
+  "world_layout": "Alderreach mainland (8x5 storage partitions) + 9 surrounding smaller islands",
+  "scene_count": 63,
+  "special_scene_count": 3,
+  "scene_scale_targets": {
+    "small_test_chunk_tiles": [
+      48,
+      32
+    ],
+    "standard_outdoor_scene_tiles": [
+      96,
+      64
+    ],
+    "large_special_scene_tiles": [
+      144,
+      96
+    ],
+    "city_district_scene_tiles": [
+      192,
+      128
+    ],
+    "gameplay_camera_tiles_approx": [
+      [
+        30,
+        18
+      ],
+      [
+        45,
+        28
+      ]
+    ]
+  },
+  "edge_contract": {
+    "seam_validation_band_tiles": 4,
+    "decoration_safe_band_tiles": 8,
+    "camera_void_rule": "Player camera should never see raw void beyond scene edges."
+  },
+  "archipelago_generation": {
+    "seed": 1337,
+    "reroll_index": 0,
+    "layout_version": 1,
+    "canvas_size_px": [
+      1800,
+      1200
+    ],
+    "outer_margin_px": 70,
+    "minimum_island_gap_px": 120,
+    "placement_mode": "seeded_collision_safe_ring"
+  },
+  "scene_rectangles": [
+    {
+      "scene_id": "S000",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        548,
+        385,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S001",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        636,
+        385,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S002",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 2,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        724,
+        385,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S003",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 3,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        812,
+        385,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S004",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 4,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        900,
+        385,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S005",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 0,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        548,
+        471,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S006",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 1,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        636,
+        471,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S007",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 2,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        724,
+        471,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S008",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 3,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        812,
+        471,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S009",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 4,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        900,
+        471,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S010",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 0,
+      "grid_y": 2,
+      "world_rect_preview_px": [
+        548,
+        557,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S011",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 1,
+      "grid_y": 2,
+      "world_rect_preview_px": [
+        636,
+        557,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S012",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 2,
+      "grid_y": 2,
+      "world_rect_preview_px": [
+        724,
+        557,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S013",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 3,
+      "grid_y": 2,
+      "world_rect_preview_px": [
+        812,
+        557,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S014",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 4,
+      "grid_y": 2,
+      "world_rect_preview_px": [
+        900,
+        557,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S015",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 0,
+      "grid_y": 3,
+      "world_rect_preview_px": [
+        548,
+        643,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S016",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 1,
+      "grid_y": 3,
+      "world_rect_preview_px": [
+        636,
+        643,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S017",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 2,
+      "grid_y": 3,
+      "world_rect_preview_px": [
+        724,
+        643,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S018",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 3,
+      "grid_y": 3,
+      "world_rect_preview_px": [
+        812,
+        643,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S019",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 4,
+      "grid_y": 3,
+      "world_rect_preview_px": [
+        900,
+        643,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S043",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 5,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        988,
+        385,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S044",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 6,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1076,
+        385,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S045",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 7,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1164,
+        385,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S046",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 5,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        988,
+        471,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S047",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 6,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        1076,
+        471,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S048",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 7,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        1164,
+        471,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S049",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 5,
+      "grid_y": 2,
+      "world_rect_preview_px": [
+        988,
+        557,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S050",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 6,
+      "grid_y": 2,
+      "world_rect_preview_px": [
+        1076,
+        557,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S051",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 7,
+      "grid_y": 2,
+      "world_rect_preview_px": [
+        1164,
+        557,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S052",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 5,
+      "grid_y": 3,
+      "world_rect_preview_px": [
+        988,
+        643,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S053",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 6,
+      "grid_y": 3,
+      "world_rect_preview_px": [
+        1076,
+        643,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S054",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 7,
+      "grid_y": 3,
+      "world_rect_preview_px": [
+        1164,
+        643,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S055",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 0,
+      "grid_y": 4,
+      "world_rect_preview_px": [
+        548,
+        729,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S056",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 1,
+      "grid_y": 4,
+      "world_rect_preview_px": [
+        636,
+        729,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S057",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 2,
+      "grid_y": 4,
+      "world_rect_preview_px": [
+        724,
+        729,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S058",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 3,
+      "grid_y": 4,
+      "world_rect_preview_px": [
+        812,
+        729,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S059",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 4,
+      "grid_y": 4,
+      "world_rect_preview_px": [
+        900,
+        729,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S060",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 5,
+      "grid_y": 4,
+      "world_rect_preview_px": [
+        988,
+        729,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S061",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 6,
+      "grid_y": 4,
+      "world_rect_preview_px": [
+        1076,
+        729,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S062",
+      "landmass_id": 0,
+      "landmass_name": "Alderreach",
+      "kind": "mainland_region",
+      "grid_x": 7,
+      "grid_y": 4,
+      "world_rect_preview_px": [
+        1164,
+        729,
+        88,
+        86
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S020",
+      "landmass_id": 1,
+      "landmass_name": "Northwatch Isle",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1373,
+        510,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S021",
+      "landmass_id": 1,
+      "landmass_name": "Northwatch Isle",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1468,
+        510,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S022",
+      "landmass_id": 2,
+      "landmass_name": "Gullmere",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        228,
+        596,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S023",
+      "landmass_id": 2,
+      "landmass_name": "Gullmere",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        323,
+        596,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S024",
+      "landmass_id": 2,
+      "landmass_name": "Gullmere",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        228,
+        678,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S025",
+      "landmass_id": 2,
+      "landmass_name": "Gullmere",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        323,
+        678,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S026",
+      "landmass_id": 3,
+      "landmass_name": "Sunbreak Key",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        695,
+        155,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S027",
+      "landmass_id": 3,
+      "landmass_name": "Sunbreak Key",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        790,
+        155,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S028",
+      "landmass_id": 4,
+      "landmass_name": "Amber Shoal",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        231,
+        294,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S029",
+      "landmass_id": 4,
+      "landmass_name": "Amber Shoal",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        326,
+        294,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S030",
+      "landmass_id": 4,
+      "landmass_name": "Amber Shoal",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        231,
+        376,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S031",
+      "landmass_id": 4,
+      "landmass_name": "Amber Shoal",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        326,
+        376,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S032",
+      "landmass_id": 5,
+      "landmass_name": "Southfen Isle",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        816,
+        973,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S033",
+      "landmass_id": 5,
+      "landmass_name": "Southfen Isle",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        911,
+        973,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S034",
+      "landmass_id": 6,
+      "landmass_name": "Lowmire Cay",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1029,
+        170,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S035",
+      "landmass_id": 6,
+      "landmass_name": "Lowmire Cay",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1124,
+        170,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S036",
+      "landmass_id": 7,
+      "landmass_name": "Stonewake",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1380,
+        727,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S037",
+      "landmass_id": 7,
+      "landmass_name": "Stonewake",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1475,
+        727,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S038",
+      "landmass_id": 7,
+      "landmass_name": "Stonewake",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        1380,
+        809,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S039",
+      "landmass_id": 7,
+      "landmass_name": "Stonewake",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 1,
+      "world_rect_preview_px": [
+        1475,
+        809,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S040",
+      "landmass_id": 8,
+      "landmass_name": "Mistbarrow",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        502,
+        954,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S041",
+      "landmass_id": 8,
+      "landmass_name": "Mistbarrow",
+      "kind": "island_region",
+      "grid_x": 1,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        597,
+        954,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    },
+    {
+      "scene_id": "S042",
+      "landmass_id": 9,
+      "landmass_name": "Brineglass",
+      "kind": "island_region",
+      "grid_x": 0,
+      "grid_y": 0,
+      "world_rect_preview_px": [
+        1389,
+        302,
+        95,
+        82
+      ],
+      "tile_size": [
+        96,
+        64
+      ],
+      "edge_contract": "4-tile seam validation band + 8-tile decoration-safe band",
+      "streaming": "load self + cardinal neighbors; preload diagonal neighbors near corners"
+    }
+  ]
+}

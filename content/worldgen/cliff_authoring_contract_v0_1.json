@@ -1,0 +1,173 @@
+{
+  "schema": "havenwild.worldgen.cliff_authoring_contract.v0_1",
+  "version": 4,
+  "semanticAuthority": "explicit discrete structural level field plus exposed-neighbor topology; raw geological height is not editor-authored elevation",
+  "tileKindPolicy": {
+    "Cliff": "derived structural classification; never exposed as a normal flat ground paint brush",
+    "MountainRock": "flat plateau/highland surface material; not a vertical face",
+    "MountainPath": "walkable surface or ramp approach; ramp metadata is required for elevation traversal",
+    "CaveWall": "structural cave boundary; not a V7 flat rock fill"
+  },
+  "providers": [
+    {
+      "id": "elizawy_seasonal_cliffs",
+      "stylePackLane": "elizawy_mainland",
+      "status": "runtime_primary_structural_cliff_authority_n5r",
+      "sources": [
+        "Terrain/cliff_spring.png",
+        "Terrain/cliff_summer.png",
+        "Terrain/cliff_autumn.png",
+        "Terrain/cliff_winter.png",
+        "Terrain/cliff_winter_ice.png"
+      ],
+      "capabilities": [
+        "vertical_faces",
+        "inside_corners",
+        "outside_corners",
+        "plateau_edges",
+        "ramps",
+        "cave_hosts",
+        "waterfall_hosts"
+      ],
+      "roleCatalog": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+      "geometryFacts": {
+        "sheetGrid": "16x14 cells at 32x32",
+        "seasonalAlphaGeometryIdentical": true,
+        "requiresConnectedRegionRecipes": true,
+        "directGroundPaintingAllowed": false,
+        "sourceGridCellIsWorldFootprint": false,
+        "normalizedAssemblyAuthority": "content/worldgen/cliff_asset_footprint_recipe_normalization_v0_1.json"
+      },
+      "runtimeRolesActive": [
+        "cardinal_boundary_faces",
+        "outer_corners",
+        "inner_corner_composition",
+        "multi_level_body_extension",
+        "water_facing_sockets",
+        "ramps",
+        "stairs_lanes",
+        "ladders",
+        "cave_hosts",
+        "bridge_sockets",
+        "waterfall_hosts"
+      ],
+      "runtimeCatalog": "content/worldgen/elizawy_cliff_runtime_shape_catalog_v0_1.json"
+    },
+    {
+      "id": "oga_lpc_grass_top_cliffs",
+      "stylePackLane": "oga_lpc_cliffs",
+      "status": "quarantined_reference_only_multi_cell_assemblies_audited",
+      "sources": [
+        "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+        "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_ddirt.png",
+        "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_sand.png",
+        "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_snow.png"
+      ],
+      "capabilities": [
+        "vertical_faces",
+        "top_caps",
+        "inside_corners",
+        "outside_corners",
+        "ramps",
+        "ladder_and_bridge_overlays"
+      ],
+      "recipeCatalog": "content/assets/oga_lpc/manifests/oga_lpc_cliff_recipe_catalog_v0_2.json",
+      "runtimeRolesActive": [],
+      "geometryFacts": {
+        "sheetGrid": "12x9 cells at 32x32",
+        "sourceDimensionsPx": [
+          384,
+          288
+        ],
+        "sourceGridCellIsWorldFootprint": false,
+        "specialistMultiCellAssemblies": true,
+        "completeArbitraryCliffAutotileFamily": false
+      }
+    },
+    {
+      "id": "v7_surface_highlands",
+      "stylePackLane": "lpc_terrain_v7",
+      "status": "surface_only",
+      "sources": [
+        "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+        "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png"
+      ],
+      "capabilities": [
+        "plateau_top_materials",
+        "rock_ground",
+        "mudstone_ground",
+        "stone_ground",
+        "pits_and_holes"
+      ],
+      "notCapabilities": [
+        "vertical_cliff_faces",
+        "face_stacking",
+        "cave_host_faces",
+        "waterfall_faces"
+      ],
+      "roleCatalog": "content/worldgen/v7_terrain_role_catalog_v0_1.json"
+    },
+    {
+      "id": "elizawy_rocks_cliffs_objects",
+      "stylePackLane": "elizawy_mainland",
+      "status": "object_sheet_only",
+      "sources": [
+        "Terrain/Rocks, Cliffs.png"
+      ],
+      "capabilities": [
+        "boulders",
+        "rock_clusters",
+        "cliff_debris",
+        "resource_nodes"
+      ],
+      "notCapabilities": [
+        "structural_cliff_faces",
+        "platform_boundaries",
+        "ramps",
+        "cave_hosts",
+        "waterfall_hosts"
+      ],
+      "roleCatalog": "content/assets/lpc/elizawy_rocks_cliffs_object_catalog_v0_1.json"
+    }
+  ],
+  "requiredTopologyRoles": [
+    "top_cap",
+    "face_north",
+    "face_south",
+    "face_east",
+    "face_west",
+    "outer_corner_ne",
+    "outer_corner_nw",
+    "outer_corner_se",
+    "outer_corner_sw",
+    "inner_corner_ne",
+    "inner_corner_nw",
+    "inner_corner_se",
+    "inner_corner_sw",
+    "vertical_repeat",
+    "exposed_base",
+    "ramp_ne_sw",
+    "ramp_nw_se",
+    "cave_host",
+    "waterfall_lip",
+    "waterfall_face",
+    "waterfall_splash"
+  ],
+  "f3EditorWorkflow": [
+    "Ground Styles paints only flat semantic surfaces.",
+    "Levels & Cliffs assigns discrete Level 0, Level 1, or Level 2 to selected or rectangular platform regions.",
+    "Freeform numeric height painting, smoothing, and arbitrary per-cell elevation brushes are prohibited.",
+    "The resolver derives required boundary roles from neighboring structural levels.",
+    "Unresolved cliff topology is a validation error; certified ElizaWy structural edges now block traversal unless an explicit connector opens that edge, while missing visual authority fails open.",
+    "Ramps, stairs, ladders, bridges, cave mouths, and waterfalls are explicit connector attachments with matching visual, collision, and traversal metadata."
+  ],
+  "productionGate": "Pinned ElizaWy seasonal cliff geometry is the active runtime structural provider. Cardinal faces, water sockets, explicit connectors, cave mouths, bridge lanes, waterfalls and edge collision share the same structural-level authority; no raw-height or improvised cliff columns may become gameplay authority.",
+  "auditReferences": [
+    "content/worldgen/v7_terrain_role_catalog_v0_1.json",
+    "content/worldgen/elizawy_terrain_role_catalog_v0_1.json",
+    "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+    "content/editor/f3_terrain_style_workspace_v0_1.json"
+  ],
+  "footprintAuthority": "content/worldgen/cliff_asset_footprint_recipe_normalization_v0_1.json",
+  "measurementRule": "source grid span, visual world footprint, structural host mask, collision edges, and traversal edges are independent fields; never infer one from another"
+}

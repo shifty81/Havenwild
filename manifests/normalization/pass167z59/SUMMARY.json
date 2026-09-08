@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z59",
+  "title": "Checkpoint Packaging Repair",
+  "status": "complete",
+  "changes": [
+    "Replaced invalid two-character TrimStart separator arguments with an explicit char array.",
+    "Centralized repository-relative path normalization.",
+    "Prevented complete source rollups from traversing junctions or including machine-local and raw third-party dependency trees.",
+    "Added automatic pass inference, package manifests, and sibling SHA-256 output."
+  ]
+}

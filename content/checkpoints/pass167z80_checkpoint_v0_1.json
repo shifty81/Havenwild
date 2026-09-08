@@ -1,0 +1,27 @@
+{
+  "schema": "havenwild.project_checkpoint.v1",
+  "checkpointId": "Pass167Z80",
+  "label": "Global Surface and Terrain Checkpoint",
+  "lockedByUser": true,
+  "baseline": "Havenwild_CompleteSourceRollup_Pass167Z59_20260803.zip",
+  "cumulativePatch": "Havenwild_CumulativePatch_FromPass167Z59_ThroughPass167Z80_GlobalSurfaceClippyCleanup_20260805.zip",
+  "scope": [
+    "source-pure V7 terrain lane",
+    "authored freshwater and marine water tiers",
+    "exact/coast/hydrology terrain paint modes",
+    "global exterior terrain window",
+    "cross-partition F3 ground painting",
+    "sign-safe PCG storage partition coordinates"
+  ],
+  "policy": {
+    "subsequentWorkUsesThisCheckpoint": true,
+    "completeRollupRequired": false,
+    "defaultDelivery": "overwrite-capable cumulative patch from Pass167Z59",
+    "doNotRegress": [
+      "source-style isolation",
+      "exact paint semantic preservation",
+      "continuous exterior terrain authority",
+      "marine/freshwater gameplay separation"
+    ]
+  }
+}

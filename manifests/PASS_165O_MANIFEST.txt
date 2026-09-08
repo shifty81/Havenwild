@@ -1,0 +1,4 @@
+Pass 165O — Station Storage Transfer and Queue Inspector
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+ADD docs/patch/PASS_165O_STATION_STORAGE_TRANSFER_QUEUE_INSPECTOR.md
+ADD manifests/PASS_165O_MANIFEST.txt

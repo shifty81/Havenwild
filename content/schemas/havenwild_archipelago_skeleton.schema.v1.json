@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.archipelago_skeleton.v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "seed",
+    "world_width_tiles",
+    "world_height_tiles",
+    "shore_band_tiles",
+    "shallow_band_tiles",
+    "shelf_band_tiles",
+    "requirements",
+    "major_biomes"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.archipelago_skeleton.v1"
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "world_width_tiles": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "world_height_tiles": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "shore_band_tiles": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "shallow_band_tiles": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "shelf_band_tiles": {
+      "type": "integer",
+      "minimum": 3
+    },
+    "major_biomes": {
+      "type": "array",
+      "minItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

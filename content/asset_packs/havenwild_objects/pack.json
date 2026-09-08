@@ -1,0 +1,960 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "havenwild_objects",
+  "display_name": "Havenwild Objects and Structures",
+  "version": "1.0.0-w54e",
+  "license": {
+    "license_id": "project-authored",
+    "attribution": [],
+    "commercial_use": true,
+    "redistribution": true,
+    "production_approved": true
+  },
+  "production_enabled": true,
+  "dependencies": [
+    {
+      "pack_id": "havenwild_core",
+      "version_requirement": null,
+      "optional": false
+    }
+  ],
+  "priority": 85,
+  "sources": [
+    {
+      "id": "runtime_objects",
+      "kind": "generated",
+      "path": "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "structures",
+      "kind": "generated",
+      "path": "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "trees",
+      "kind": "generated",
+      "path": "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "clutter",
+      "kind": "generated",
+      "path": "assets/generated/havenwild_lpc_objects_160x192_v2.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "pond_stamp_manifest",
+      "kind": "sidecar",
+      "path": "assets/generated/worldgen_v0_1/terrain/lpc_expandable_ponds_32.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "pond_stamp_sheet",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "published_world_asset_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_world_assets_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "runtime_structure_components_w45b",
+      "kind": "generated",
+      "path": "assets/generated/havenwild_structure_components_w45b.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "published_structure_component_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_structure_components_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "runtime_structure_surfaces_w45c",
+      "kind": "generated",
+      "path": "assets/generated/havenwild_structure_surfaces_w45c.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "published_structure_surface_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_structure_surfaces_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "runtime_structure_roof_trim_w45c2",
+      "kind": "generated",
+      "path": "assets/generated/havenwild_structure_roof_trim_w45c2.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "published_structure_roof_trim_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_structure_roof_trim_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "published_structure_exact_modules_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_structure_exact_modules_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "published_structure_front_gable_w57k8_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_structure_front_gable_w57k8_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "lpc_roof_flat_shingle_a",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Roofing/Flat Shingle Roof A.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_roof_gable_shingle_a",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_bridge_drawbridge_a",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Bridges/Drawbridge A.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_bridge_wood_a_no_rails",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Bridges/Wood Bridge A - No Rails.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_platform_dais_steps_a",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Platforms/Dias with Steps A.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_pillar_stone_a",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Pillars/Stone Pillar A.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_pillar_floral_a",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Pillars/Floral Pillar A.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "building_recipe_catalog_w46a",
+      "kind": "sidecar",
+      "path": "content/buildings/building_recipe_catalog_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "building_instance_catalog_w46b",
+      "kind": "sidecar",
+      "path": "content/buildings/building_instance_catalog_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "lpc_cliff_summer_cave_mouth",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "published_cave_asset_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_cave_assets_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "lpc_furniture_barrel",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Objects/Furniture/Barrel.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_furniture_countertop",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Objects/Furniture/Countertop.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_furniture_fireplace_cast_iron",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Objects/Furniture/Fireplace, Cast Iron.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "published_world_visual_w52_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_world_visual_w52_v1.json",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "lpc_wall_siding_plain",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Walls/Siding, Plain.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lpc_roof_hipped_shingle_a",
+      "kind": "external_dependency",
+      "path": "assets/source/licensed/lpc_revised/Structure/Roofing/Hipped Shingle Roof A.png",
+      "margin": 0,
+      "spacing": 0,
+      "tile_size": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "published_structure_exterior_w54e_catalog",
+      "kind": "sidecar",
+      "path": "content/asset_packs/havenwild_objects/published_structure_exterior_w54e_v1.json",
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "assets": [
+    {
+      "id": "runtime_object_catalog",
+      "category": "tile_object",
+      "semantic_id": "object.catalog.runtime",
+      "source_id": "runtime_objects",
+      "variants": [],
+      "tags": [
+        "object",
+        "runtime",
+        "placeable"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "structure_catalog",
+      "category": "building",
+      "semantic_id": "building.catalog.default",
+      "source_id": "structures",
+      "variants": [],
+      "tags": [
+        "building",
+        "structure"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "tree_catalog",
+      "category": "tree",
+      "semantic_id": "tree.catalog.default",
+      "source_id": "trees",
+      "variants": [],
+      "tags": [
+        "tree",
+        "foliage"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "clutter_catalog",
+      "category": "foliage",
+      "semantic_id": "foliage.catalog.default",
+      "source_id": "clutter",
+      "variants": [],
+      "tags": [
+        "foliage",
+        "clutter"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "pond_stamp_catalog",
+      "category": "editor_template",
+      "semantic_id": "stamp.catalog.ponds",
+      "source_id": "pond_stamp_manifest",
+      "variants": [],
+      "tags": [
+        "stamp",
+        "pond",
+        "expandable"
+      ],
+      "metadata": {
+        "sheet_semantic_id": "stamp.sheet.ponds",
+        "fallback_category": "terrain/ponds"
+      }
+    },
+    {
+      "id": "pond_stamp_sheet",
+      "category": "tile_object",
+      "semantic_id": "stamp.sheet.ponds",
+      "source_id": "pond_stamp_sheet",
+      "variants": [],
+      "tags": [
+        "stamp",
+        "pond",
+        "sheet"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "published_world_asset_catalog_default",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.default",
+      "source_id": "published_world_asset_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "placeable",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "categories": [
+          "tile_object",
+          "building",
+          "wall",
+          "door",
+          "furniture",
+          "crop",
+          "tree",
+          "foliage",
+          "cave",
+          "interior"
+        ],
+        "authority": "published_world_asset"
+      }
+    },
+    {
+      "id": "runtime_structure_door_w45b",
+      "category": "door",
+      "semantic_id": "structure.door.runtime",
+      "source_id": "runtime_structure_components_w45b",
+      "variants": [],
+      "tags": [
+        "structure",
+        "door",
+        "runtime",
+        "published"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "runtime_structure_building_w45b",
+      "category": "building",
+      "semantic_id": "structure.building.runtime",
+      "source_id": "runtime_structure_components_w45b",
+      "variants": [],
+      "tags": [
+        "structure",
+        "stairs",
+        "fence",
+        "runtime",
+        "published"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "runtime_structure_wall_w45b",
+      "category": "wall",
+      "semantic_id": "structure.wall.runtime",
+      "source_id": "runtime_structure_components_w45b",
+      "variants": [],
+      "tags": [
+        "structure",
+        "wall",
+        "sign",
+        "runtime",
+        "published"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "published_structure_components_w45b",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.structure_components",
+      "source_id": "published_structure_component_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "structure_component",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "authority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W45B"
+      }
+    },
+    {
+      "id": "runtime_structure_floor_w45c",
+      "category": "floor",
+      "semantic_id": "structure.floor.runtime",
+      "source_id": "runtime_structure_surfaces_w45c",
+      "variants": [],
+      "tags": [
+        "structure",
+        "floor",
+        "interior",
+        "runtime",
+        "published"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "runtime_structure_wall_surface_w45c",
+      "category": "wall",
+      "semantic_id": "structure.wall_surface.runtime",
+      "source_id": "runtime_structure_surfaces_w45c",
+      "variants": [],
+      "tags": [
+        "structure",
+        "wall",
+        "surface",
+        "runtime",
+        "published"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "runtime_structure_cutaway_w45c",
+      "category": "wall",
+      "semantic_id": "structure.cutaway.runtime",
+      "source_id": "runtime_structure_surfaces_w45c",
+      "variants": [],
+      "tags": [
+        "structure",
+        "wall",
+        "cutaway",
+        "runtime",
+        "published"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "runtime_structure_window_w45c",
+      "category": "wall",
+      "semantic_id": "structure.window.runtime",
+      "source_id": "runtime_structure_surfaces_w45c",
+      "variants": [],
+      "tags": [
+        "structure",
+        "window",
+        "runtime",
+        "published"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "published_structure_surfaces_w45c",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.structure_surfaces",
+      "source_id": "published_structure_surface_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "structure_component",
+        "surface",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "authority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W45C"
+      }
+    },
+    {
+      "id": "runtime_structure_wall_border_w45c2",
+      "category": "wall",
+      "semantic_id": "structure.wall_border.runtime",
+      "source_id": "runtime_structure_roof_trim_w45c2",
+      "variants": [],
+      "tags": [
+        "structure",
+        "wall_border",
+        "trim",
+        "runtime",
+        "published"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "published_structure_roof_trim_w45c2",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.structure_roof_trim",
+      "source_id": "published_structure_roof_trim_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "structure_component",
+        "roof",
+        "wall_border",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "authority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W45C2"
+      }
+    },
+    {
+      "id": "lpc_roof_flat_shingle_a_source",
+      "category": "building",
+      "semantic_id": "structure.roof.flat_shingle_a.source",
+      "source_id": "lpc_roof_flat_shingle_a",
+      "variants": [],
+      "tags": [
+        "structure",
+        "roof",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "lpc_roof_gable_shingle_a_source",
+      "category": "building",
+      "semantic_id": "structure.roof.gable_shingle_a.source",
+      "source_id": "lpc_roof_gable_shingle_a",
+      "variants": [],
+      "tags": [
+        "structure",
+        "roof",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "lpc_bridge_drawbridge_a_source",
+      "category": "building",
+      "semantic_id": "structure.bridge.drawbridge_a.source",
+      "source_id": "lpc_bridge_drawbridge_a",
+      "variants": [],
+      "tags": [
+        "structure",
+        "bridge",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "lpc_bridge_wood_a_no_rails_source",
+      "category": "building",
+      "semantic_id": "structure.bridge.wood_a.no_rails.source",
+      "source_id": "lpc_bridge_wood_a_no_rails",
+      "variants": [],
+      "tags": [
+        "structure",
+        "bridge",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "lpc_platform_dais_steps_a_source",
+      "category": "building",
+      "semantic_id": "structure.platform.dais_steps_a.source",
+      "source_id": "lpc_platform_dais_steps_a",
+      "variants": [],
+      "tags": [
+        "structure",
+        "platform",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "lpc_pillar_stone_a_source",
+      "category": "building",
+      "semantic_id": "structure.pillar.stone_a.source",
+      "source_id": "lpc_pillar_stone_a",
+      "variants": [],
+      "tags": [
+        "structure",
+        "pillar",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "lpc_pillar_floral_a_source",
+      "category": "building",
+      "semantic_id": "structure.pillar.floral_a.source",
+      "source_id": "lpc_pillar_floral_a",
+      "variants": [],
+      "tags": [
+        "structure",
+        "pillar",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "published_structure_exact_modules_w45d2",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.structure_exact_modules",
+      "source_id": "published_structure_exact_modules_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "structure_component",
+        "roof",
+        "bridge",
+        "platform",
+        "pillar",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "authority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W45D2"
+      }
+    },
+    {
+      "id": "published_structure_front_gable_w57k8",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.structure_front_gable_w57k8",
+      "source_id": "published_structure_front_gable_w57k8_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "structure_component",
+        "roof",
+        "gable",
+        "wall",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "authority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W57K8"
+      }
+    },
+    {
+      "id": "building_recipe_catalog_w46a",
+      "category": "editor_template",
+      "semantic_id": "building.recipe.catalog.default",
+      "source_id": "building_recipe_catalog_w46a",
+      "variants": [],
+      "tags": [
+        "building",
+        "recipe",
+        "assembly",
+        "multi_level",
+        "published"
+      ],
+      "metadata": {
+        "authority": "BuildingRecipeRegistry",
+        "visualAuthority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W46A"
+      }
+    },
+    {
+      "id": "building_instance_catalog_w46b",
+      "category": "editor_template",
+      "semantic_id": "building.instance.catalog.default",
+      "source_id": "building_instance_catalog_w46b",
+      "variants": [],
+      "tags": [
+        "building",
+        "instance",
+        "placement",
+        "multi_level",
+        "same_world"
+      ],
+      "metadata": {
+        "authority": "BuildingInstanceRegistry",
+        "recipeAuthority": "BuildingRecipeRegistry",
+        "visualAuthority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W46B"
+      }
+    },
+    {
+      "id": "lpc_cliff_summer_cave_mouth_source",
+      "category": "building",
+      "semantic_id": "structure.cave.mouth.narrow.source",
+      "source_id": "lpc_cliff_summer_cave_mouth",
+      "variants": [],
+      "tags": [
+        "structure",
+        "cave",
+        "entrance",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source",
+        "pass": "167Z109W49"
+      }
+    },
+    {
+      "id": "published_cave_assets_w49",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.cave_assets",
+      "source_id": "published_cave_asset_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "cave",
+        "resource",
+        "connector",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "authority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W49"
+      }
+    },
+    {
+      "id": "lpc_furniture_barrel_source",
+      "category": "furniture",
+      "semantic_id": "furniture.barrel.source",
+      "source_id": "lpc_furniture_barrel",
+      "variants": [],
+      "tags": [
+        "furniture",
+        "barrel",
+        "keg",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source",
+        "pass": "167Z109W52"
+      }
+    },
+    {
+      "id": "lpc_furniture_countertop_source",
+      "category": "furniture",
+      "semantic_id": "furniture.countertop.wood.source",
+      "source_id": "lpc_furniture_countertop",
+      "variants": [],
+      "tags": [
+        "furniture",
+        "counter",
+        "bar",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source",
+        "pass": "167Z109W52"
+      }
+    },
+    {
+      "id": "lpc_furniture_fireplace_cast_iron_source",
+      "category": "furniture",
+      "semantic_id": "furniture.fireplace.cast_iron.source",
+      "source_id": "lpc_furniture_fireplace_cast_iron",
+      "variants": [],
+      "tags": [
+        "furniture",
+        "fireplace",
+        "hearth",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source",
+        "pass": "167Z109W52"
+      }
+    },
+    {
+      "id": "published_world_visual_w52",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.visual_w52",
+      "source_id": "published_world_visual_w52_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "visual_certification",
+        "tavern",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "authority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W52"
+      }
+    },
+    {
+      "id": "lpc_wall_siding_plain_source",
+      "category": "wall",
+      "semantic_id": "structure.wall.siding_plain.source",
+      "source_id": "lpc_wall_siding_plain",
+      "variants": [],
+      "tags": [
+        "structure",
+        "wall",
+        "siding",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "lpc_roof_hipped_shingle_a_source",
+      "category": "building",
+      "semantic_id": "structure.roof.hipped_shingle_a.source",
+      "source_id": "lpc_roof_hipped_shingle_a",
+      "variants": [],
+      "tags": [
+        "structure",
+        "roof",
+        "hipped",
+        "external_source"
+      ],
+      "metadata": {
+        "authority": "pinned_lpc_exact_source"
+      }
+    },
+    {
+      "id": "published_structure_exterior_w54e",
+      "category": "editor_template",
+      "semantic_id": "world_asset.catalog.structure_exterior_w54e",
+      "source_id": "published_structure_exterior_w54e_catalog",
+      "variants": [],
+      "tags": [
+        "world_asset",
+        "structure_component",
+        "wall",
+        "roof",
+        "published",
+        "catalog"
+      ],
+      "metadata": {
+        "authority": "PublishedWorldAssetRegistry",
+        "pass": "167Z109W54E"
+      }
+    }
+  ]
+}

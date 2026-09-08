@@ -1,0 +1,123 @@
+{
+  "schema": "havenwild.biome_registry.v0_1",
+  "version": "0.1.0",
+  "purpose": "Biome and scene-type targets for terrain palettes, LPC tileset selection, object spawns, animals, forage, weather, and future survival modifiers.",
+  "defaults": {
+    "season": "summer",
+    "dayLengthRealSeconds": 3600,
+    "terrainDetailVariationPercent": 50,
+    "rareDetailPercent": 5
+  },
+  "biomes": [
+    {
+      "id": "temperate",
+      "label": "Temperate",
+      "status": "production_target",
+      "sceneScopes": ["overworld"],
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "requiredTerrain": ["grass", "tall_grass", "dirt", "sand", "road", "water", "shallow_water", "deep_water"],
+      "generatedTerrain": ["wet_sand", "shore_foam"],
+      "notes": "Default mainland biome."
+    },
+    {
+      "id": "coastal",
+      "label": "Coastal",
+      "status": "production_target",
+      "sceneScopes": ["overworld", "island"],
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "requiredTerrain": ["sand", "wet_sand", "pebble_shore", "shore_foam", "water", "shallow_water", "deep_water", "ocean_shallow", "ocean_deep"],
+      "generatedTerrain": ["wet_sand", "shore_foam", "ocean_shallow", "ocean_deep", "river_mouth_blend"],
+      "notes": "Beach/island coast profile."
+    },
+    {
+      "id": "forest",
+      "label": "Forest",
+      "status": "production_target",
+      "sceneScopes": ["overworld"],
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "requiredTerrain": ["grass", "tall_grass", "dirt", "road", "water", "shallow_water"],
+      "generatedTerrain": ["mud_bank"],
+      "notes": "Woodland and forage-heavy biome."
+    },
+    {
+      "id": "farm",
+      "label": "Farm",
+      "status": "production_target",
+      "sceneScopes": ["overworld", "greenhouse"],
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "requiredTerrain": ["grass", "dirt", "tilled_soil", "watered_soil", "crop_seedling", "road"],
+      "generatedTerrain": ["crop_seedling"],
+      "notes": "Cultivated land and crop gameplay."
+    },
+    {
+      "id": "town",
+      "label": "Town Exterior",
+      "status": "production_target",
+      "sceneScopes": ["overworld", "town"],
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "requiredTerrain": ["grass", "dirt", "road", "stone_path", "bridge", "wood_floor", "stone_floor", "brick_floor", "wall"],
+      "generatedTerrain": [],
+      "notes": "Tavern/town exterior and built surfaces."
+    },
+    {
+      "id": "highlands",
+      "label": "Highlands",
+      "status": "preview",
+      "sceneScopes": ["overworld", "island"],
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "requiredTerrain": ["grass", "dirt", "mountain_path", "cliff", "mountain_rock", "pebble_shore"],
+      "generatedTerrain": ["pebble_shore"],
+      "notes": "Mountain paths, cliffs, ore, and rocky islands."
+    },
+    {
+      "id": "river_wetland",
+      "label": "River / Wetland",
+      "status": "preview",
+      "sceneScopes": ["overworld"],
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "requiredTerrain": ["grass", "dirt", "mud_bank", "water", "shallow_water", "deep_water", "river_water", "river_mouth_blend"],
+      "generatedTerrain": ["mud_bank", "river_water", "river_mouth_blend", "shore_foam"],
+      "notes": "Rivers, muddy banks, lakes, worms/forage after rain."
+    },
+    {
+      "id": "cave",
+      "label": "Cave",
+      "status": "preview",
+      "sceneScopes": ["cave"],
+      "seasons": ["none"],
+      "requiredTerrain": ["cave_floor", "cave_wall", "mountain_rock", "stone_floor", "water", "shallow_water", "deep_water"],
+      "generatedTerrain": ["mud_bank"],
+      "notes": "Caves, mining, mushrooms, underground water, future lava variants."
+    },
+    {
+      "id": "interior",
+      "label": "Interior",
+      "status": "preview",
+      "sceneScopes": ["interior"],
+      "seasons": ["none"],
+      "requiredTerrain": ["wood_floor", "plank_floor", "stone_floor", "brick_floor", "wall"],
+      "generatedTerrain": [],
+      "notes": "Tavern/building interiors."
+    },
+    {
+      "id": "winter",
+      "label": "Winter / Snow",
+      "status": "preview",
+      "sceneScopes": ["overworld", "island"],
+      "seasons": ["winter"],
+      "requiredTerrain": ["grass", "dirt", "sand", "water", "shallow_water", "deep_water", "road", "stone_path"],
+      "generatedTerrain": ["wet_sand", "shore_foam", "ocean_shallow", "ocean_deep"],
+      "notes": "Seasonal visual variant using matching LPC seasonal sheets once imported."
+    },
+    {
+      "id": "greenhouse",
+      "label": "Greenhouse Interior",
+      "status": "deferred",
+      "sceneScopes": ["greenhouse"],
+      "seasons": ["none"],
+      "requiredTerrain": ["tilled_soil", "watered_soil", "crop_seedling", "wood_floor", "plank_floor"],
+      "generatedTerrain": ["crop_seedling"],
+      "notes": "Entered from greenhouse stamp; not overworld terrain."
+    }
+  ]
+}

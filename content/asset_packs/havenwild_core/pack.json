@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "havenwild_core",
+  "display_name": "Havenwild Core",
+  "version": "0.1.0",
+  "license": {
+    "license_id": "project-authored",
+    "attribution": [],
+    "commercial_use": true,
+    "redistribution": true,
+    "production_approved": true
+  },
+  "dependencies": [],
+  "priority": 100,
+  "sources": [
+    {
+      "id": "generated_base_terrain",
+      "kind": "generated",
+      "path": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+      "tile_size": [
+        32,
+        32
+      ],
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "assets": [],
+  "production_enabled": true
+}

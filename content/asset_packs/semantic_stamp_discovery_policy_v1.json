@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.semantic_stamp_discovery_policy.v1",
+  "discovery": {
+    "catalog_category": "editor_template",
+    "catalog_semantic_prefix": "stamp.catalog.",
+    "sheet_metadata_key": "sheet_semantic_id",
+    "fallback_category_metadata_key": "fallback_category"
+  },
+  "identity": {
+    "stable_stamp_id": "pack_id::catalog_object_id",
+    "legacy_alias_lookup": true,
+    "preserve_catalog_ref": true,
+    "preserve_sheet_ref": true
+  },
+  "consumers": [
+    "runtime_f3",
+    "native_editor",
+    "asset_palette",
+    "runtime_renderer"
+  ],
+  "rules": {
+    "production_packs_only_by_default": true,
+    "no_static_manifest_registry": true,
+    "catalog_and_sheet_resolve_independently": true,
+    "duplicate_stable_ids_are_errors": true,
+    "legacy_fallback_is_diagnostic_only": true
+  }
+}

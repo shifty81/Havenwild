@@ -1,0 +1,483 @@
+{
+  "schema": "havenwild.external_asset_sources.v0_1",
+  "updated": "2026-08-09",
+  "purpose": "Tracks audited third-party/reference asset packs before any asset is promoted into Havenwild runtime content. Raw third-party files stay quarantined or user-supplied unless license and repository policy allow promotion.",
+  "rules": {
+    "rawThirdPartyAssetsDefault": "do_not_commit_to_public_runtime_bundle",
+    "promotionRequires": [
+      "license_status_allows_requested_use",
+      "source_author_and_url_recorded",
+      "raw_files_remain_quarantined_or_user_supplied",
+      "promoted_asset_has_hhasset_metadata",
+      "runtime_export_restrictions_recorded",
+      "no_standalone_asset_resale_or_redistribution"
+    ],
+    "commercialBuildGate": "commercial build may only include entries with commercialRuntimePolicy=allowed_with_attribution_or_license or project_owned_original"
+  },
+  "sources": [
+    {
+      "id": "third_party.rowdy41.wood_garden",
+      "displayName": "Wood Garden asset pack",
+      "author": "rowdy41",
+      "officialSourceUrl": "https://rowdy41.itch.io/wood-garden",
+      "uploadedArchives": [
+        "Asset Pack.zip"
+      ],
+      "licenseStatus": "audited_commercial_allowed_no_standalone_resale",
+      "commercialRuntimePolicy": "allowed_with_attribution_and_metadata",
+      "publicRepoPolicy": "do_not_commit_raw_full_pack_without_explicit_project_decision",
+      "rawAssetPolicy": "quarantine_or_user_supplied_raw",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/rowdy41_wood_garden/",
+      "processedPrototypePath": "assets/processed/prototype_props/rowdy41/",
+      "candidateFamilies": [
+        "object.fences",
+        "object.garden_boxes",
+        "object.chairs",
+        "object.chests",
+        "terrain.wooden_path",
+        "decor.flowers"
+      ],
+      "recommendedUse": "prototype props and furniture coverage after metadata; useful for garden/fence/chair object testing",
+      "prohibitedUse": "do not resell or redistribute raw assets as standalone assets",
+      "notes": [
+        "Earlier audit classified these as strong prototype/runtime candidates if attribution and metadata are kept."
+      ]
+    },
+    {
+      "id": "third_party.rowdy41.small_forest",
+      "displayName": "Small Forest asset pack subset",
+      "author": "rowdy41",
+      "officialSourceUrl": "https://rowdy41.itch.io/small-forest",
+      "uploadedArchives": [
+        "Asset Pack.zip"
+      ],
+      "licenseStatus": "audited_commercial_allowed_no_standalone_resale",
+      "commercialRuntimePolicy": "allowed_with_attribution_and_metadata",
+      "publicRepoPolicy": "do_not_commit_raw_full_pack_without_explicit_project_decision",
+      "rawAssetPolicy": "quarantine_or_user_supplied_raw",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/rowdy41_small_forest/",
+      "processedPrototypePath": "assets/processed/prototype_props/rowdy41/",
+      "candidateFamilies": [
+        "foliage.trees",
+        "foliage.bushes",
+        "terrain.stone_path",
+        "object.bench",
+        "object.chest"
+      ],
+      "recommendedUse": "prototype foliage/ground/path props after metadata",
+      "prohibitedUse": "do not resell or redistribute raw assets as standalone assets",
+      "notes": [
+        "Use for coverage and early scene dressing; final Havenwild-original art can be redrawn later."
+      ]
+    },
+    {
+      "id": "third_party.pipoya.free_rpg_tileset_32x32_bundle",
+      "displayName": "PIPOYA FREE RPG Tileset 32x32 bundle",
+      "author": "Pipoya",
+      "officialSourceUrl": "https://pipoya.itch.io/pipoya-rpg-tileset-32x32",
+      "uploadedArchives": [
+        "Pipoya RPG Tileset 32x32.zip",
+        "Door_Animation.zip",
+        "Unorganized Parts.zip"
+      ],
+      "licenseStatus": "audited_commercial_allowed_no_standalone_resale",
+      "commercialRuntimePolicy": "allowed_with_attribution_and_metadata",
+      "publicRepoPolicy": "prefer_user_supplied_or_quarantine_raw_pack; do_not_commit_raw_full_pack_by_default",
+      "rawAssetPolicy": "quarantine_or_user_supplied_raw",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/pipoya_free_rpg_tileset_32x32/",
+      "processedPrototypePath": "assets/processed/prototype_tiles/pipoya/",
+      "candidateFamilies": [
+        "terrain.grass",
+        "terrain.dirt",
+        "terrain.water",
+        "terrain.waterfall",
+        "object.doors",
+        "overlay.lighting",
+        "tiled.import_fixtures"
+      ],
+      "recommendedUse": "best immediate prototype candidate for 32x32 water/terrain/autotile tests and door animation fixtures",
+      "prohibitedUse": "do not redistribute/resell raw asset pack or expose as standalone exportable assets",
+      "notes": [
+        "Strong grid fit for Havenwild 32x32 tile scale.",
+        "Building walls still require Havenwild 2.5D metadata and likely redraw for final style."
+      ]
+    },
+    {
+      "id": "third_party.seliel.gentle_forest_3_0a_free_palettes",
+      "displayName": "Gentle Forest 3.0a ($0 palettes)",
+      "author": "Seliel the Shaper / Mana Seed",
+      "officialSourceUrl": "https://seliel-the-shaper.itch.io/gentle-forest",
+      "uploadedArchives": [
+        "19.07a - Gentle Forest 3.0a ($0 palettes).zip",
+        "sample map and Tiled files.zip"
+      ],
+      "licenseStatus": "audited_commercial_allowed_no_raw_redistribution",
+      "commercialRuntimePolicy": "allowed_with_attribution_and_metadata",
+      "publicRepoPolicy": "do_not_commit_raw_assets; use optional user-supplied import or curated generated derivatives only",
+      "rawAssetPolicy": "quarantine_or_user_supplied_raw",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/seliel_gentle_forest_3_0a/",
+      "processedPrototypePath": "assets/processed/prototype_tiles/seliel_gentle_forest_32_adapter/",
+      "candidateFamilies": [
+        "terrain.autotile",
+        "terrain.water",
+        "terrain.waterfall",
+        "terrain.cliff",
+        "terrain.tree_wall",
+        "tiled.import_fixtures"
+      ],
+      "recommendedUse": "autotile and Tiled import test fixture using a 2x adapter from 16x16 to Havenwild 32x32",
+      "prohibitedUse": "do not redistribute raw assets or sell as standalone assets",
+      "notes": [
+        "Main art is 16x16; import must go through a 2x scale adapter or remain reference-only."
+      ]
+    },
+    {
+      "id": "third_party.seliel.mana_seed_character_base_demo_2_0",
+      "displayName": "FREE Mana Seed Character Base Demo 2.0",
+      "author": "Seliel the Shaper / Mana Seed",
+      "officialSourceUrl": "https://seliel-the-shaper.itch.io/character-base",
+      "uploadedArchives": [
+        "FREE Mana Seed Character Base Demo 2.0.zip"
+      ],
+      "licenseStatus": "audited_commercial_allowed_no_raw_redistribution",
+      "commercialRuntimePolicy": "allowed_with_attribution_and_metadata_for_prototype; final_player_base_requires_project_decision",
+      "publicRepoPolicy": "do_not_commit_raw_assets; use as optional user-supplied compositor fixture",
+      "rawAssetPolicy": "quarantine_or_user_supplied_raw",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/seliel_mana_seed_character_base_demo_2_0/",
+      "processedPrototypePath": "assets/processed/prototype_characters/mana_seed_reference/",
+      "candidateFamilies": [
+        "character.paper_doll_layers",
+        "character.animation_fixture",
+        "character.compositor_reference"
+      ],
+      "recommendedUse": "paper-doll compositor/reference fixture; not a direct match for the locked Havenwild 64x96 8-direction player contract",
+      "prohibitedUse": "do not redistribute raw character base as standalone assets; do not treat as Havenwild-original final base without project decision",
+      "notes": [
+        "Useful for studying layer structure and animation metadata."
+      ]
+    },
+    {
+      "id": "third_party.shubibubi.cozy_farm_free_version",
+      "displayName": "Cozy Farm free version",
+      "author": "shubibubi",
+      "officialSourceUrl": "https://shubibubi.itch.io/cozy-farm",
+      "uploadedArchives": [
+        "free version.zip"
+      ],
+      "licenseStatus": "quarantine_non_commercial_free_version",
+      "commercialRuntimePolicy": "blocked_free_version_non_commercial_only",
+      "publicRepoPolicy": "do_not_commit_raw_assets",
+      "rawAssetPolicy": "reference_quarantine_only",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/shubibubi_cozy_farm_free_version/",
+      "processedPrototypePath": null,
+      "candidateFamilies": [
+        "reference.farm_coverage",
+        "reference.cozy_prop_style"
+      ],
+      "recommendedUse": "reference-only unless paid complete license is acquired",
+      "prohibitedUse": "do not use free version in commercial runtime or public repo bundle",
+      "notes": [
+        "Paid complete version would require a separate source record before promotion."
+      ]
+    },
+    {
+      "id": "third_party.shubibubi.cozy_interior_free_version",
+      "displayName": "Cozy Interior free version",
+      "author": "shubibubi",
+      "officialSourceUrl": "https://shubibubi.itch.io/cozy-interior",
+      "uploadedArchives": [
+        "Interior free.zip"
+      ],
+      "licenseStatus": "quarantine_non_commercial_free_version",
+      "commercialRuntimePolicy": "blocked_free_version_non_commercial_only",
+      "publicRepoPolicy": "do_not_commit_raw_assets",
+      "rawAssetPolicy": "reference_quarantine_only",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/shubibubi_cozy_interior_free_version/",
+      "processedPrototypePath": null,
+      "candidateFamilies": [
+        "reference.tavern_interior_coverage",
+        "reference.furniture_style"
+      ],
+      "recommendedUse": "reference-only interior/tavern prop coverage unless paid complete license is acquired",
+      "prohibitedUse": "do not use free version in commercial runtime or public repo bundle",
+      "notes": [
+        "Paid complete version would require a separate source record before promotion."
+      ]
+    },
+    {
+      "id": "third_party.shubibubi.cozy_town_free_version",
+      "displayName": "Cozy Town free version",
+      "author": "shubibubi",
+      "officialSourceUrl": "https://shubibubi.itch.io/cozy-town",
+      "uploadedArchives": [
+        "town free.zip"
+      ],
+      "licenseStatus": "quarantine_non_commercial_free_version",
+      "commercialRuntimePolicy": "blocked_free_version_non_commercial_only",
+      "publicRepoPolicy": "do_not_commit_raw_assets",
+      "rawAssetPolicy": "reference_quarantine_only",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/shubibubi_cozy_town_free_version/",
+      "processedPrototypePath": null,
+      "candidateFamilies": [
+        "reference.town_coverage",
+        "reference.blacksmith_props",
+        "reference.city_fences"
+      ],
+      "recommendedUse": "reference-only town/blacksmith/city prop coverage unless paid complete license is acquired",
+      "prohibitedUse": "do not use free version in commercial runtime or public repo bundle",
+      "notes": [
+        "Paid complete version would require a separate source record before promotion."
+      ]
+    },
+    {
+      "id": "third_party.lpc.opengameart_mixed_loose_assets",
+      "displayName": "Mixed LPC/OpenGameArt-looking loose assets from uploaded bundle",
+      "author": "mixed/unknown until attribution chain restored",
+      "officialSourceUrl": "pending_attribution_reconstruction",
+      "uploadedArchives": [
+        "Asset Pack.zip"
+      ],
+      "licenseStatus": "blocked_pending_author_license_attribution_chain",
+      "commercialRuntimePolicy": "blocked_until_license_chain_restored",
+      "publicRepoPolicy": "do_not_commit_raw_assets",
+      "rawAssetPolicy": "reference_quarantine_only",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/lpc_opengameart_mixed_loose_assets/",
+      "processedPrototypePath": null,
+      "candidateFamilies": [
+        "reference.character_walkcycles",
+        "reference.top_down_tiles",
+        "reference.water",
+        "reference.dungeon"
+      ],
+      "recommendedUse": "reference-only until exact asset pages/authors/licenses/attribution requirements are restored",
+      "prohibitedUse": "do not promote into runtime or public repo bundle without complete license metadata",
+      "notes": [
+        "LPC-style assets often carry attribution/share-alike obligations; treat as blocked until reconstructed."
+      ]
+    },
+    {
+      "id": "third_party.pipoya.free_rpg_world_tileset_32_40_48",
+      "displayName": "PIPOYA FREE RPG World Tileset 32x32 40x40 48x48",
+      "author": "Pipoya",
+      "officialSourceUrl": "https://pipoya.itch.io/pipoya-free-rpg-world-tileset-32x32-40x40-48x48",
+      "uploadedArchives": [
+        "Pipoya RPG World Tileset 48x48 40x40 32x32.zip",
+        "Pipoya RPG World Tileset 48x48 40x40 32x32 for Tiled1.5.zip"
+      ],
+      "licenseStatus": "audited_commercial_allowed_no_standalone_resale",
+      "commercialRuntimePolicy": "allowed_with_attribution_and_metadata",
+      "publicRepoPolicy": "prefer_user_supplied_or_quarantine_raw_pack; do_not_commit_raw_full_pack_by_default",
+      "rawAssetPolicy": "quarantine_or_user_supplied_raw",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/pipoya_free_rpg_world_tileset_32_40_48/",
+      "processedPrototypePath": "assets/processed/prototype_tiles/pipoya_world/",
+      "candidateFamilies": [
+        "terrain.overworld",
+        "terrain.water",
+        "terrain.cliff",
+        "terrain.road",
+        "terrain.bridge",
+        "tiled.import_fixtures"
+      ],
+      "recommendedUse": "prototype overworld terrain, water, cliff, road, and Tiled import fixtures; use 32x32 variant for current Havenwild runtime scale and keep 40/48 as reference",
+      "prohibitedUse": "do not redistribute/resell raw asset pack or expose as standalone exportable assets",
+      "notes": [
+        "Batch 2 audit marked this as the strongest prototype world terrain candidate.",
+        "40x40 and 48x48 variants are retained for reference/adapters, not default runtime import."
+      ]
+    },
+    {
+      "id": "third_party.henrysoftware.free_pixel_food_cc0",
+      "displayName": "Free Pixel Food!",
+      "author": "Henry Software",
+      "officialSourceUrl": "https://henrysoftware.itch.io/pixel-food",
+      "uploadedArchives": [
+        "FreePixelFood.zip",
+        "Food.png"
+      ],
+      "licenseStatus": "audited_cc0_commercial_allowed",
+      "commercialRuntimePolicy": "allowed_with_metadata_cc0",
+      "publicRepoPolicy": "allowed_to_commit_curated_processed_metadata; prefer_no_raw_bundle_duplication",
+      "rawAssetPolicy": "quarantine_or_user_supplied_raw",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/henrysoftware_free_pixel_food/",
+      "processedPrototypePath": "assets/processed/prototype_icons/free_pixel_food/",
+      "candidateFamilies": [
+        "icon.food",
+        "icon.recipe",
+        "icon.inventory",
+        "ui.tavern_menu"
+      ],
+      "recommendedUse": "prototype food, recipe, inventory, and tavern menu icons; source is 16x16 and should use a 2x adapter beside 32x32 UI/icon sets",
+      "prohibitedUse": "do not lose source/author/license metadata even though the asset license is permissive",
+      "notes": [
+        "Food.png was byte-identical to the all-in-one sheet from FreePixelFood.zip during audit."
+      ]
+    },
+    {
+      "id": "third_party.ghostpixxells.pixel_mart_cc0",
+      "displayName": "Pixel Mart",
+      "author": "ghostpixxells",
+      "officialSourceUrl": "https://ghostpixxells.itch.io/pixel-mart",
+      "uploadedArchives": [
+        "Pixel_Mart.zip"
+      ],
+      "licenseStatus": "audited_cc0_commercial_allowed",
+      "commercialRuntimePolicy": "allowed_with_metadata_cc0",
+      "publicRepoPolicy": "allowed_to_commit_curated_processed_metadata; prefer_no_raw_bundle_duplication",
+      "rawAssetPolicy": "quarantine_or_user_supplied_raw",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/ghostpixxells_pixel_mart/",
+      "processedPrototypePath": "assets/processed/prototype_icons/pixel_mart/",
+      "candidateFamilies": [
+        "icon.item",
+        "icon.shop",
+        "icon.inventory",
+        "icon.food"
+      ],
+      "recommendedUse": "prototype merchant, inventory, and shop icons with setting/style curation for Havenwild fantasy tavern use",
+      "prohibitedUse": "avoid importing modern/supermarket-specific items into final fantasy/cozy runtime without curation",
+      "notes": [
+        "Batch 2 audit marked this as usable for prototype icon flows."
+      ]
+    },
+    {
+      "id": "third_party.fishing_free_noncommercial",
+      "displayName": "Fishing free asset pack",
+      "author": "unknown / unverified third-party free pack",
+      "officialSourceUrl": "pending_source_verification",
+      "uploadedArchives": [
+        "fishing_free.zip"
+      ],
+      "licenseStatus": "quarantine_non_commercial_free_version",
+      "commercialRuntimePolicy": "blocked_free_version_non_commercial_only",
+      "publicRepoPolicy": "do_not_commit_raw_assets",
+      "rawAssetPolicy": "reference_quarantine_only",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/fishing_free_noncommercial/",
+      "processedPrototypePath": null,
+      "candidateFamilies": [
+        "reference.fishing_icons",
+        "reference.loot_coverage"
+      ],
+      "recommendedUse": "reference-only fishing loot/icon coverage unless a commercial license/source chain is acquired",
+      "prohibitedUse": "do not use free version in commercial runtime or public repo bundle",
+      "notes": [
+        "Embedded license.txt from the uploaded archive was non-commercial-only."
+      ]
+    },
+    {
+      "id": "third_party.char_free_unverified",
+      "displayName": "char free uploaded character pack",
+      "author": "unverified",
+      "officialSourceUrl": "pending_source_verification",
+      "uploadedArchives": [
+        "char free.zip"
+      ],
+      "licenseStatus": "blocked_pending_author_license_attribution_chain",
+      "commercialRuntimePolicy": "blocked_until_license_chain_restored",
+      "publicRepoPolicy": "do_not_commit_raw_assets",
+      "rawAssetPolicy": "reference_quarantine_only",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/char_free_unverified/",
+      "processedPrototypePath": null,
+      "candidateFamilies": [
+        "reference.character_animation",
+        "reference.character_sprite_coverage"
+      ],
+      "recommendedUse": "reference-only character animation coverage until source and license are verified",
+      "prohibitedUse": "do not promote into runtime or public repo bundle without complete license metadata",
+      "notes": [
+        "No embedded license/readme was found during batch 2 audit."
+      ]
+    },
+    {
+      "id": "third_party.game_endeavor.mystic_woods_free",
+      "displayName": "Mystic Woods Free Version",
+      "author": "Game Endeavor",
+      "officialSourceUrl": "pending_or_premium_license_required",
+      "uploadedArchives": [
+        "mystic_woods_free_2.2.zip"
+      ],
+      "licenseStatus": "quarantine_non_commercial_free_version",
+      "commercialRuntimePolicy": "blocked_free_version_non_commercial_only",
+      "publicRepoPolicy": "do_not_commit_raw_assets",
+      "rawAssetPolicy": "reference_quarantine_only",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/game_endeavor_mystic_woods_free/",
+      "processedPrototypePath": null,
+      "candidateFamilies": [
+        "reference.forest_tiles",
+        "reference.water",
+        "reference.walls"
+      ],
+      "recommendedUse": "reference-only forest/water/wall coverage unless premium/commercial license is acquired",
+      "prohibitedUse": "do not use free version in commercial runtime or public repo bundle",
+      "notes": [
+        "Embedded read_me.txt from the uploaded archive was non-commercial-only."
+      ]
+    },
+    {
+      "id": "third_party.lpc.victorian_buildings",
+      "displayName": "LPC Victorian Buildings",
+      "author": "bluecarrot16, Lanea Zimmerman (Sharm), Casper Nilsson, Lyndsay Takacs (cyanowl), Redshrike",
+      "officialSourceUrl": null,
+      "uploadedArchives": [],
+      "uploadedFiles": [
+        "victorian-mansion.png",
+        "victorian-tenement.png",
+        "victorian-accessories.png",
+        "victorian-windows-doors.png",
+        "CREDITS-victorian.txt"
+      ],
+      "licenseStatus": "audited_cc_by_sa_3_0_selected_from_supplied_credits",
+      "commercialRuntimePolicy": "allowed_with_cc_by_sa_3_0_attribution_and_share_alike",
+      "publicRepoPolicy": "raw supplied sheets may be redistributed under selected CC-BY-SA-3.0 route with attribution; preserve source credits and derivative share-alike obligations",
+      "rawAssetPolicy": "checked_in_licensed_source_family",
+      "rawQuarantinePath": null,
+      "processedPrototypePath": "content/assets/lpc/source/victorian-buildings/",
+      "candidateFamilies": [
+        "structure.victorian_walls",
+        "structure.victorian_roofs",
+        "structure.victorian_windows",
+        "structure.victorian_doors",
+        "structure.victorian_columns",
+        "structure.victorian_porches",
+        "structure.victorian_balconies",
+        "structure.victorian_trim"
+      ],
+      "recommendedUse": "modular Willowmere/city architecture after multi-cell region and structural footprint certification",
+      "prohibitedUse": "do not treat the 32x32 source-addressing grid as independent placeable footprints; do not publish uncertified fragments",
+      "notes": [
+        "The supplied credit file lists the combined work as CC-BY-SA 3.0 / GPL 3.0. Havenwild selects the CC-BY-SA 3.0 route.",
+        "The supplied credit file does not include a canonical URL for the combined Victorian pack; underlying source URLs are preserved in the source-family contract."
+      ]
+    },
+    {
+      "id": "third_party.oga_lpc.curated_prototype_lane",
+      "displayName": "Curated OpenGameArt LPC prototype lane",
+      "author": "multiple per-source authors",
+      "officialSourceUrl": "https://opengameart.org/",
+      "uploadedArchives": [],
+      "licenseStatus": "mixed_open_licenses_per_verified_source_registry",
+      "commercialRuntimePolicy": "conditional_per_source_license_and_attribution",
+      "publicRepoPolicy": "do_not_package_raw_dependency_mounts; package source/license/role manifests and promoted derivatives only",
+      "rawAssetPolicy": "downloaded_authoring_dependency",
+      "rawQuarantinePath": "assets/source/licensed/oga_lpc_prototypes/",
+      "processedPrototypePath": "assets/generated/oga_lpc_prototypes/",
+      "candidateFamilies": [
+        "terrain",
+        "cliffs",
+        "water",
+        "caves",
+        "ecology",
+        "forage",
+        "farming",
+        "roads",
+        "bridges",
+        "harbor",
+        "settlements"
+      ],
+      "recommendedUse": "prototype visualization and semantic-provider coverage through the Z109M unified terrain/world lane",
+      "prohibitedUse": "no blanket runtime promotion; each derivative retains the selected source license and attribution route",
+      "notes": [
+        "Canonical source registry: content/assets/oga_lpc/manifests/oga_lpc_prototype_source_registry_v0_1.json",
+        "Role registry: content/assets/oga_lpc/manifests/oga_lpc_prototype_role_registry_v0_1.json"
+      ]
+    }
+  ]
+}

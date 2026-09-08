@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.normalization.summary.v0_1",
+  "pass": "167Z109R",
+  "baseline": "167Z109Q",
+  "title": "Normalization B: World/Terrain Authority Bridge",
+  "behaviorPreserving": true,
+  "masterDomains": 7,
+  "newCanonicalSurfaceRecipe": "haven_world::SurfaceTerrainRecipeV1",
+  "migratedConsumers": [
+    "base terrain presentation cache",
+    "world map/minimap semantic classification",
+    "two-sided structural traversal edge decision"
+  ],
+  "deliberatelyUnchanged": [
+    "world generation",
+    "structural bake",
+    "V7 terrain provider",
+    "ElizaWy cliff drawing",
+    "save schema",
+    "current visible terrain output"
+  ],
+  "next": "167Z109S native canvas/shared authoring core normalization"
+}

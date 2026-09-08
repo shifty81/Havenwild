@@ -1,0 +1,9 @@
+{
+  "schema":"havenwild.gameplay.lpc_intake.mining_forge_sawmill.r23.v1",
+  "pass":"W81R23",
+  "assetFamilies":["rocks","ore_nodes","ore_piles","mine_entrances","mine_shafts","mine_carts_tracks","cranes","coal","ore_items","ingots","forge","smelter","blacksmith_tools","woodshop","sawmill","lumber"],
+  "gameplayLoops":["mining","node_hit_reaction","crack_stages","ore_drop","smelting","blacksmithing","equipment_upgrade","forestry","tree_felling","log_haul","sawmill","lumber","carpentry"],
+  "animationRequirements":["pickaxe_contact_frame","node_hit","node_break","axe_contact_frame","tree_shake","tree_fall","forge_animation","sawmill_animation"],
+  "audioRequirements":["pick_stone","pick_ore","rock_break","axe_wood","tree_creak","tree_fall","forge","sawmill"],
+  "productionRule":"Resource damage is synchronized to authored contact frames, not button-press timers."
+}

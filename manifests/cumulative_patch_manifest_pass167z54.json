@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z54",
+  "baseline": "167Z10",
+  "date": "2026-08-03",
+  "title": "Active HUD and Creator Surface Integration",
+  "overwriteCapable": true,
+  "changedFiles": [
+    "README.md",
+    "content/build/validator_registry_v3.json",
+    "content/validation/validation_manifest_v1.json",
+    "crates/haven_game/src/character_creator_catalog.rs",
+    "crates/haven_game/src/runtime_hud.rs",
+    "docs/current/APPLY_THIS_ROLLUP.md",
+    "docs/current/APPLY_THIS_SOURCE_ROLLUP.md",
+    "docs/current/CURRENT_SOURCE_HANDOFF.md",
+    "docs/current/PASS167Z54_ACTIVE_HUD_AND_CREATOR_SURFACE_INTEGRATION.md",
+    "docs/handoffs/PASS167Z54_ACTIVE_HUD_AND_CREATOR_SURFACE_INTEGRATION.md",
+    "manifests/cumulative_patch_checksums_pass167z54.sha256",
+    "manifests/cumulative_patch_manifest_pass167z54.json",
+    "manifests/cumulative_patch_removals_pass167z54.txt",
+    "manifests/normalization/pass167z54/SUMMARY.json",
+    "manifests/patches/pass167z54/APPLY.md",
+    "manifests/patches/pass167z54/CHECKSUMS.sha256",
+    "manifests/patches/pass167z54/PATCH_MANIFEST.json",
+    "manifests/patches/pass167z54/REMOVALS.txt",
+    "tools/automation/validation/checks/ui/Validate-ActiveHudCreatorSurfacePass167Z54.py"
+  ],
+  "removedFiles": [],
+  "notes": [
+    "The Z53 Windows build completed workspace Cargo checking and reached strict Clippy.",
+    "Loaded vitals, hotbar, and minimap frame textures are now consumed by the active player HUD.",
+    "The existing layered Universal LPC portrait compositor now renders in the vitals panel.",
+    "Eyebrow and headwear metadata are directly constructed by the active character creator catalog.",
+    "No dead-code allowance and no build-time Rust source rewriting were introduced.",
+    "Windows Clippy, tests, release builds, and live HUD/creator certification remain required."
+  ]
+}

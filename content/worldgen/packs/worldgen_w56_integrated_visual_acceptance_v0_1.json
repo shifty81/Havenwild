@@ -1,0 +1,23 @@
+{
+  "id": "worldgen_w56_integrated_visual_acceptance_v0_1",
+  "name": "Havenwild W56 Integrated Visual Acceptance",
+  "version": "0.1.0-w56ij",
+  "kind": "worldgen_asset_pack",
+  "defaultScene": "w56_integrated_visual_acceptance",
+  "requiresLegacySceneSet": false,
+  "sceneFiles": [
+    "content/worldgen/scenes/world_asset_acceptance/w56_integrated_visual_acceptance_scene_v1.json"
+  ],
+  "smokeTests": [
+    "content/worldgen/scenes/world_asset_acceptance/w56_integrated_visual_acceptance_scene_v1.json"
+  ],
+  "visualIntegration": {
+    "pass": "Pass167Z109W56IJ",
+    "purpose": "Permanent isolated editor/client visual acceptance board for W56 world truth.",
+    "entryScene": "w56_integrated_visual_acceptance",
+    "expectedSceneCount": 1,
+    "buildingInstanceId": "havenwild.acceptance.w56_integrated_cottage",
+    "savePolicy": "isolated visual-acceptance world id; normal gameplay saves are not authoritative",
+    "productionAuthority": false
+  }
+}

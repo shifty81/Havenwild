@@ -1,0 +1,40 @@
+HAVENWILD OPEN ASSET CREDITS
+
+Havenwild uses artwork and animation contributed by the Liberated Pixel Cup
+(LPC), Universal LPC Spritesheet Character Generator, and selected OpenGameArt
+creators.
+
+The project broadly acknowledges every creator in its approved commercial LPC
+catalog, including creators whose approved work is available to development but
+may not appear in the current build.
+
+Commercial-use assets remain governed by their individual licenses. These may
+include CC0, OGA-BY, CC-BY, and CC-BY-SA. ShareAlike artwork and adaptations
+remain available under the applicable CC-BY-SA terms.
+
+Every distributed build also includes an exact used-asset ledger containing the
+source asset, creators, source locations, selected license, and modification
+notes for artwork actually shipped in that build.
+
+Broad acknowledgment is additive. It does not replace exact attribution,
+license notices, modification records, or ShareAlike distribution requirements.
+
+Full development acknowledgment:
+  content/legal/open_assets/UNIVERSAL_LPC_MASTER_CONTRIBUTORS.txt
+
+Machine-readable contributor catalog:
+  content/legal/open_assets/UNIVERSAL_LPC_MASTER_CONTRIBUTORS.csv
+
+Release-specific exact credits:
+  OPEN_ASSET_CREDITS.txt
+  OPEN_ASSET_CREDITS.csv
+  OPEN_ASSET_CREDITS.json
+
+Press Escape, Enter, or Backspace to return to the title menu.
+
+Development source family registered in Pass167Z106N5:
+  LPC Victorian Buildings — bluecarrot16, Lanea Zimmerman (Sharm),
+  Casper Nilsson, Lyndsay Takacs (cyanowl), and Redshrike.
+  Havenwild uses the supplied CC-BY-SA 3.0 route for this source family.
+  Exact supplied credits: content/legal/open_assets/LPC_VICTORIAN_BUILDINGS_CREDITS.txt
+  Runtime promotion remains disabled until multi-cell component certification.

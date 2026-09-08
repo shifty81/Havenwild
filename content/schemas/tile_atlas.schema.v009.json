@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.tile_atlas.v009",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "image",
+    "tile_size",
+    "rows",
+    "columns"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "tile_size": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "rows": {
+      "type": "integer"
+    },
+    "columns": {
+      "type": "integer"
+    },
+    "tiles": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "autotile_families": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "preview_modes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_uniform_contour_height_authority.v0_1",
+  "pass": "167Z109W13",
+  "revision": "167Z109W13-uniform-tier-height-and-diagonal-low-side-receiver-v1",
+  "status": "superseded",
+  "source": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "path": "Terrain/cliff_summer.png",
+    "gridCellPx": 32
+  },
+  "hardRule": {
+    "statement": "one connected cliff contour uses one uniform structural tier delta all the way around each same-delta edge: 1-high stays 1-high, 2-high stays 2-high, 3-high stays 3-high, 4-high stays 4-high",
+    "shapeDoesNotChangeHeight": [
+      "straight",
+      "south-west diagonal",
+      "south-east diagonal",
+      "convex/concave join",
+      "terminal",
+      "side face"
+    ],
+    "specialConnectors": "ramps/ladders/caves/waterfalls may replace/open a local recipe but do not silently change the surrounding cliff tier delta"
+  },
+  "verticalRecipe": {
+    "tier1": "top_or_shoulder + foot",
+    "tier2": "top_or_shoulder + one repeatable body + foot",
+    "tier3": "top_or_shoulder + two repeatable bodies + foot",
+    "tier4": "top_or_shoulder + three repeatable bodies + foot",
+    "bodyRows": "max(edge_tier_delta - 1, 0)",
+    "receiverRowsBelowHost": "2 + bodyRows",
+    "bottomParity": "straight, diagonal and terminal recipes at the same tier delta terminate on the same receiver row"
+  },
+  "w12Regression": {
+    "symptom": "stair-step diagonal cliff chains visually collapsed to a thin one-block band while adjacent flat faces kept their full modular height",
+    "cause": "diagonal shoulder/body/foot visibility was evaluated against the raised host column; on a diagonal that column can remain plateau-height and wrongly occlude the low-side wall projection",
+    "correction": "south-west diagonal projection evaluates visibility against x-1 low-side receivers; south-east evaluates against x+1; authored pixels remain drawn at their original host-aligned source footprint"
+  },
+  "unchanged": [
+    "W12 clean rounded-plateau N/W/E rim source cells",
+    "W10 exact per-edge tier delta calculation",
+    "W7 authored directional ramp stamps",
+    "one-tile ordinary cave mouth policy",
+    "V7 plateau/surface ownership",
+    "no mirror/rotation/stretch/synthesized cliff pixels"
+  ],
+  "collisionParity": "south-face collision depth is derived from the same uniform receiver-row helper for every same-delta south family",
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_uniform_contour_height_pass167z109w13.png",
+  "next": "local runtime check of a fresh Level-1/2/3 contour; if diagonal height is visually uniform, finish real in-world ramp placement/visibility and freeze ordinary cliff height",
+  "supersededBy": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json",
+  "supersessionNote": "W14 keeps W13 low-side diagonal ownership but corrects ordinary south source roles and literal receiver-facing height."
+}

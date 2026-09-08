@@ -1,0 +1,350 @@
+{
+  "schema": "havenwild.character.starter_clothing_source_bindings.v0_1",
+  "sourceAuthority": "content/assets/lpc/universal_lpc_complete_repository_index_v0_1.json.gz",
+  "fullLocalAuthority": "WORKSPACE/generated/universal_lpc_character_authority_v167w.json",
+  "rules": {
+    "creatorSlots": [
+      "clothing_torso",
+      "clothing_legs",
+      "clothing_feet"
+    ],
+    "sexRestricted": false,
+    "headwearAtCreation": false,
+    "genericStarterOnly": true,
+    "allOtherValidatedClothingRoutesToGameplayAcquisition": true,
+    "sourceRepository": "universal_lpc_generator",
+    "legacyLpcRevisedCharacterSourcesAllowed": false
+  },
+  "bindings": [
+    {
+      "variantId": "starter_tshirt",
+      "slot": "clothing_torso",
+      "label": "Plain T-shirt",
+      "runtimeLayer": "torso_tshirt",
+      "sourceFamily": "Shirt 04 - T-shirt",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "torso_tshirt_male",
+        "torso_tshirt_female"
+      ]
+    },
+    {
+      "variantId": "starter_long_shirt",
+      "slot": "clothing_torso",
+      "label": "Plain long shirt",
+      "runtimeLayer": "torso_long_shirt",
+      "sourceFamily": "Shirt 01 - Longsleeve Shirt",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "torso_long_shirt_male",
+        "torso_long_shirt_female"
+      ]
+    },
+    {
+      "variantId": "starter_tunic",
+      "slot": "clothing_torso",
+      "label": "Simple tunic",
+      "runtimeLayer": "torso_tunic",
+      "sourceFamily": "Universal LPC tunic family",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "torso_tunic_male",
+        "torso_tunic_female"
+      ]
+    },
+    {
+      "variantId": "starter_vest",
+      "slot": "clothing_torso",
+      "label": "Plain vest",
+      "runtimeLayer": "torso_vest",
+      "sourceFamily": "Universal LPC vest family",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "torso_vest_male",
+        "torso_vest_female"
+      ]
+    },
+    {
+      "variantId": "starter_apron",
+      "slot": "clothing_torso",
+      "label": "Work apron",
+      "runtimeLayer": "torso_apron",
+      "sourceFamily": "Universal LPC apron family",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "torso_apron_male",
+        "torso_apron_female"
+      ]
+    },
+    {
+      "variantId": "starter_pants",
+      "slot": "clothing_legs",
+      "label": "Plain trousers",
+      "runtimeLayer": "legs_pants",
+      "sourceFamily": "Pants 03 - Pants",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "legs_pants_male",
+        "legs_pants_female"
+      ]
+    },
+    {
+      "variantId": "starter_shorts",
+      "slot": "clothing_legs",
+      "label": "Plain shorts",
+      "runtimeLayer": "legs_shorts",
+      "sourceFamily": "Shorts 01 - Shorts",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "legs_shorts_male",
+        "legs_shorts_female"
+      ]
+    },
+    {
+      "variantId": "starter_skirt",
+      "slot": "clothing_legs",
+      "label": "Plain skirt",
+      "runtimeLayer": "legs_skirt",
+      "sourceFamily": "Skirts/Plain/Thin",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "legs_skirt_male",
+        "legs_skirt_female"
+      ]
+    },
+    {
+      "variantId": "starter_long_skirt",
+      "slot": "clothing_legs",
+      "label": "Plain long skirt",
+      "runtimeLayer": "legs_long_skirt",
+      "sourceFamily": "Universal LPC long skirt family",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "legs_long_skirt_male",
+        "legs_long_skirt_female"
+      ]
+    },
+    {
+      "variantId": "starter_boots",
+      "slot": "clothing_feet",
+      "label": "Simple boots",
+      "runtimeLayer": "feet_boots",
+      "sourceFamily": "Shoes 02 - Boots",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "feet_boots_male",
+        "feet_boots_female"
+      ]
+    },
+    {
+      "variantId": "starter_shoes",
+      "slot": "clothing_feet",
+      "label": "Simple shoes",
+      "runtimeLayer": "feet_shoes",
+      "sourceFamily": "Shoes 01 - Shoes",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "feet_shoes_male",
+        "feet_shoes_female"
+      ]
+    },
+    {
+      "variantId": "starter_sandals",
+      "slot": "clothing_feet",
+      "label": "Simple sandals",
+      "runtimeLayer": "feet_sandals",
+      "sourceFamily": "Universal LPC sandals family",
+      "availability": "starter",
+      "bodySpecificRuntimeLayers": [
+        "feet_sandals_male",
+        "feet_sandals_female"
+      ]
+    },
+    {
+      "variantId": "none",
+      "slot": "clothing_feet",
+      "label": "Barefoot",
+      "runtimeLayer": null,
+      "sourceFamily": "Base body feet",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_vneck_tshirt",
+      "slot": "clothing_torso",
+      "label": "V-neck T-shirt",
+      "runtimeLayer": "torso_vneck_tshirt",
+      "bodySpecificRuntimeLayers": [
+        "torso_vneck_tshirt_male",
+        "torso_vneck_tshirt_female"
+      ],
+      "sourceFamily": "Shirt 05 - V-neck T-shirt",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_scoop_tshirt",
+      "slot": "clothing_torso",
+      "label": "Scoop-neck T-shirt",
+      "runtimeLayer": "torso_scoop_tshirt",
+      "bodySpecificRuntimeLayers": [
+        "torso_scoop_tshirt_male",
+        "torso_scoop_tshirt_female"
+      ],
+      "sourceFamily": "Shirt 06 - Scoop T-shirt",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_buttoned_tshirt",
+      "slot": "clothing_torso",
+      "label": "Buttoned T-shirt",
+      "runtimeLayer": "torso_buttoned_tshirt",
+      "bodySpecificRuntimeLayers": [
+        "torso_buttoned_tshirt_male",
+        "torso_buttoned_tshirt_female"
+      ],
+      "sourceFamily": "Shirt 08 - Buttoned T-shirt",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_vneck_long_shirt",
+      "slot": "clothing_torso",
+      "label": "V-neck long shirt",
+      "runtimeLayer": "torso_vneck_long_shirt",
+      "bodySpecificRuntimeLayers": [
+        "torso_vneck_long_shirt_male",
+        "torso_vneck_long_shirt_female"
+      ],
+      "sourceFamily": "Shirt 02 - V-neck Longsleeve Shirt",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_scoop_long_shirt",
+      "slot": "clothing_torso",
+      "label": "Scoop-neck long shirt",
+      "runtimeLayer": "torso_scoop_long_shirt",
+      "bodySpecificRuntimeLayers": [
+        "torso_scoop_long_shirt_male",
+        "torso_scoop_long_shirt_female"
+      ],
+      "sourceFamily": "Shirt 03 - Scoop Longsleeve Shirt",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_buttoned_long_shirt",
+      "slot": "clothing_torso",
+      "label": "Buttoned long shirt",
+      "runtimeLayer": "torso_buttoned_long_shirt",
+      "bodySpecificRuntimeLayers": [
+        "torso_buttoned_long_shirt_male",
+        "torso_buttoned_long_shirt_female"
+      ],
+      "sourceFamily": "Shirt 07 - Buttoned Longsleeve Shirt",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_polo",
+      "slot": "clothing_torso",
+      "label": "Plain polo",
+      "runtimeLayer": "torso_polo",
+      "bodySpecificRuntimeLayers": [
+        "torso_polo_male",
+        "torso_polo_female"
+      ],
+      "sourceFamily": "Shirt 09 - Polo",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_hose",
+      "slot": "clothing_legs",
+      "label": "Plain hose",
+      "runtimeLayer": "legs_hose",
+      "bodySpecificRuntimeLayers": [
+        "legs_hose_male",
+        "legs_hose_female"
+      ],
+      "sourceFamily": "Pants 01 - Hose",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_leggings",
+      "slot": "clothing_legs",
+      "label": "Plain leggings",
+      "runtimeLayer": "legs_leggings",
+      "bodySpecificRuntimeLayers": [
+        "legs_leggings_male",
+        "legs_leggings_female"
+      ],
+      "sourceFamily": "Pants 02 - Leggings",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_cuffed_pants",
+      "slot": "clothing_legs",
+      "label": "Cuffed trousers",
+      "runtimeLayer": "legs_cuffed_pants",
+      "bodySpecificRuntimeLayers": [
+        "legs_cuffed_pants_male",
+        "legs_cuffed_pants_female"
+      ],
+      "sourceFamily": "Pants 04 - Cuffed Pants",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_overalls",
+      "slot": "clothing_legs",
+      "label": "Plain overalls",
+      "runtimeLayer": "legs_overalls",
+      "bodySpecificRuntimeLayers": [
+        "legs_overalls_male",
+        "legs_overalls_female"
+      ],
+      "sourceFamily": "Pants 05 - Overalls",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_short_shorts",
+      "slot": "clothing_legs",
+      "label": "Short shorts",
+      "runtimeLayer": "legs_short_shorts",
+      "bodySpecificRuntimeLayers": [
+        "legs_short_shorts_male",
+        "legs_short_shorts_female"
+      ],
+      "sourceFamily": "Shorts 02 - Short Shorts",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_ankle_socks",
+      "slot": "clothing_feet",
+      "label": "Ankle socks",
+      "runtimeLayer": "feet_ankle_socks",
+      "bodySpecificRuntimeLayers": [
+        "feet_ankle_socks_male",
+        "feet_ankle_socks_female"
+      ],
+      "sourceFamily": "Socks 01 - Ankle Socks",
+      "availability": "starter"
+    },
+    {
+      "variantId": "starter_high_socks",
+      "slot": "clothing_feet",
+      "label": "High socks",
+      "runtimeLayer": "feet_high_socks",
+      "bodySpecificRuntimeLayers": [
+        "feet_high_socks_male",
+        "feet_high_socks_female"
+      ],
+      "sourceFamily": "Socks 02 - High Socks",
+      "availability": "starter"
+    }
+  ],
+  "reservedGameplayExamples": [
+    "headwear",
+    "armor",
+    "profession_uniforms",
+    "faction_clothing",
+    "rare_outfits",
+    "weather_gear",
+    "accessories"
+  ],
+  "runtimeCacheManifest": "assets/generated/lpc/characters/havenwild_player_walk_64.json"
+}

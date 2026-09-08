@@ -1,0 +1,9 @@
+PASS 164H1 BUILD IMPORT HOTFIX
+
+OVERWRITE apps/haven_editor_native/src/app/pixel_layer_panel.rs
+OVERWRITE apps/haven_editor_native/src/app/pixel_studio_input.rs
+ADD docs/patch/PASS_164H1_BUILD_IMPORT_HOTFIX.md
+ADD manifests/PASS_164H1_MANIFEST.txt
+
+Cumulative lineage: Pass 164B1 through Pass 164H1
+Base: Havenwild Complete Source Rollup Pass 164A

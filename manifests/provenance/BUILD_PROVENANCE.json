@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.build.provenance.v1",
+  "classification": "candidate",
+  "createdAt": "2026-07-23T19:43:47.478953+00:00",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "toolchain": {
+    "python": "3.13.14",
+    "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)",
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14)"
+  },
+  "contracts": {
+    "Cargo.lock": "5f2b12949b37f1e0064f890d7b77fa75ccc1c2d1a32d55a4103c3023923d4b92",
+    "content/build/validator_registry_v3.json": "b2d1f0d9c045930e812f9059fe9cc09dcfbc5f101bb8f8f5b7011f8831726cbd",
+    "content/build/generated_output_registry_v2.json": "8c67e8616d7df80e0efd9d1197362d357c9839470b258f956eaf148585990c05",
+    "content/build/validation_error_codes_v1.json": "4dcc776dbc0b3043006afcfa1024ce82ef84409e336d98f54bbc35773ba5dd74"
+  },
+  "buildReport": "logs\\build\\latest.json",
+  "buildReportSha256": "373002d2fe7e495c79c8cb053857ad9dab1368763534dd2b2e08ee97c77f960a",
+  "archive": null,
+  "archiveSha256": null,
+  "gates": {
+    "cleanExtraction": false,
+    "generation": false,
+    "validation": false,
+    "cargoCheck": false,
+    "clippy": false,
+    "tests": false,
+    "applicationBuild": false
+  }
+}

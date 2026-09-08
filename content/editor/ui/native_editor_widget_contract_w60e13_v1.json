@@ -1,0 +1,34 @@
+{
+  "schema": "havenwild.native_editor_widget_contract.w60e13.v1",
+  "canvasWorkspace": {
+    "workspaceTabs": "structural_folder_tabs",
+    "toolRail": {
+      "persistent": true,
+      "collapsible": true,
+      "compactWidth": 32,
+      "expandedWidth": 46
+    },
+    "layerRail": {
+      "persistent": true,
+      "collapsible": true,
+      "resizable": true,
+      "minWidth": 148,
+      "maxWidth": 320,
+      "resizeGrip": "diagonal_45_degree"
+    },
+    "canvasChrome": {
+      "compact": true,
+      "toolOptionsAllowed": false,
+      "viewControlsOnly": true
+    },
+    "inspector": "shared_widget_language",
+    "bottomDock": "shared_widget_language"
+  },
+  "widgets": {
+    "buttons": "draw_editor_widget_tone",
+    "tabs": "draw_tab_widget_except_workspace_folder_tabs",
+    "panels": "draw_panel",
+    "sectionHeaders": "draw_section_header",
+    "splitters": "shared_grip_treatment"
+  }
+}

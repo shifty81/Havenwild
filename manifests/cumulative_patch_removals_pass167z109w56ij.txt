@@ -1,0 +1,10 @@
+HAVENWILD_W55R8F_README.txt
+HAVENWILD_W55R8H_WORLD_TEST_RECONCILIATION.md
+PATCH_MANIFEST.txt
+PATCH_MANIFEST_W45D1A.txt
+README_W55R8E.txt
+SHA256SUMS.txt
+content/asset_packs/havenwild_objects/placeables_v1.json
+crates/haven_core/src/foundation/placeable_object_catalog.rs
+HAVENWILD_W55R8I_DISCONNECTED_GATEWAY_ACCEPTANCE.md
+HAVENWILD_W55R9_BUILD_POINT.md

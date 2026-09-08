@@ -1,0 +1,7 @@
+Havenwild Pass 167J
+Cumulative base: Pass 167I7
+Files added/updated:
+- crates/haven_game/src/runtime_hud.rs
+- crates/haven_game/src/character_runtime_compositor.rs
+- docs/patch/PASS_167J_HUD_GEOMETRY_AND_PORTRAIT_CONTRACT.md
+- manifests/PASS_167J_MANIFEST.txt

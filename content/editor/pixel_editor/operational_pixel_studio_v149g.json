@@ -1,0 +1,50 @@
+{
+  "schema": "havenwild.editor.pixel_studio_operational.v149g",
+  "status": "active",
+  "documentKinds": [
+    "tile",
+    "tilesheet",
+    "sprite_sheet",
+    "animation_sheet",
+    "ui_texture",
+    "object_sprite",
+    "character_layer",
+    "free_canvas"
+  ],
+  "creation": {
+    "nameRequired": true,
+    "maxDimension": 8192,
+    "maxPixels": 16777216,
+    "projectOwnedByDefault": true,
+    "sidecarExtension": "hhasset.json",
+    "layerPackageExtension": "hhpixel"
+  },
+  "library": {
+    "scanOnWorkspaceEntry": true,
+    "roots": [
+      "assets/source/intake",
+      "assets/source/original",
+      "assets/source/cc0/user_uploads",
+      "assets/generated"
+    ],
+    "openOnLibraryClick": true,
+    "refreshAfterSave": true,
+    "recentDocuments": true
+  },
+  "shortcuts": {
+    "new": "Ctrl+N",
+    "openLibrary": "Ctrl+O",
+    "save": "Ctrl+S",
+    "frame": "F",
+    "zoomOut": "[",
+    "zoomIn": "]"
+  },
+  "canvas": {
+    "minimumZoom": 0.0625,
+    "maximumZoom": 72.0,
+    "cursorCenteredWheelZoom": true,
+    "topRuler": true,
+    "leftRuler": true,
+    "pixelCoordinates": true
+  }
+}

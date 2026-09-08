@@ -1,0 +1,853 @@
+{
+  "schema": "havenwild.lpc_ecosystem.intake_snapshot.r18_r28.v1",
+  "passRange": "W81R18-W81R28",
+  "baseline": "W81R17",
+  "generatedFromCommittedMetadata": true,
+  "rawSourceMountsRequired": false,
+  "authority": "content/assets/lpc/lpc_ecosystem_intake_authority_r18_r28_v1.json",
+  "discoverySeed": "content/assets/lpc/lpc_ecosystem_discovery_seed_r18_v1.json",
+  "headline": {
+    "elizawyRawFilesExpected": 64365,
+    "elizawyImagesExpected": 64325,
+    "ulpcSpritesheetPngFiles": 88235,
+    "ulpcSheetDefinitions": 768,
+    "ulpcCreditRecords": 13818,
+    "ulpcEquipmentRecords": 37364,
+    "ulpcCommercialPreferredOrAttributionRecords": 13818,
+    "ulpcShareAlikeOnlyRecords": 2038,
+    "existingElizaCharacterProductionComponents": 194,
+    "ogaPreviouslyQueuedPacks": 18,
+    "r18DiscoverySeedPacks": 29
+  },
+  "universalLpc": {
+    "semanticRoleCounts": {
+      "accessory": 41,
+      "armor": 198,
+      "body": 14306,
+      "character_layer": 28987,
+      "clothing": 12909,
+      "eyes": 3093,
+      "hair": 2622,
+      "head": 2210,
+      "headwear": 22001,
+      "shield": 1351,
+      "tool": 190,
+      "weapon": 1933,
+      "wings": 6400
+    },
+    "animationCounts": {
+      "1h_backslash": 468,
+      "1h_halfslash": 468,
+      "1h_slash": 468,
+      "backslash_128": 1,
+      "climb": 3327,
+      "combat": 5014,
+      "emote": 5146,
+      "halfslash_128": 1,
+      "hurt": 8413,
+      "idle": 10984,
+      "jump": 5190,
+      "run": 5150,
+      "shoot": 8259,
+      "sit": 5117,
+      "slash": 17430,
+      "slash_128": 4,
+      "slash_oversize": 9,
+      "slash_reverse_oversize": 3,
+      "spellcast": 8070,
+      "thrust": 8484,
+      "thrust_oversize": 10,
+      "tool_axe": 2,
+      "tool_hammer": 1,
+      "tool_rod": 1,
+      "tool_whip": 1,
+      "walk": 8730,
+      "walk_128": 9,
+      "watering": 505,
+      "wheelchair": 1
+    },
+    "bodyFamilyCounts": {
+      "child": 13973,
+      "female": 10681,
+      "male": 10274,
+      "muscular": 774,
+      "pregnant": 1422,
+      "teen": 1760
+    },
+    "toolGroups": {
+      "axe": 13,
+      "fishing_rod": 2,
+      "hammer": 4,
+      "hoe": 138,
+      "scythe": 6,
+      "watering_can": 4
+    },
+    "commercialSelectedLicenseCounts": {
+      "OGA-BY 3.0": 8076,
+      "OGA-BY 3.0+": 2381,
+      "CC-BY-SA 3.0": 2038,
+      "CC0": 969,
+      "CC-BY 3.0": 225,
+      "OGA-BY 4.0": 96,
+      "OGA-BY-3.0": 18,
+      "CC-BY 4.0": 15
+    },
+    "commercialCategoryCounts": {
+      "hair": 2577,
+      "torso": 1912,
+      "shield": 1758,
+      "head": 1751,
+      "hat": 1725,
+      "body": 754,
+      "facial": 690,
+      "feet": 496,
+      "legs": 463,
+      "weapon": 417,
+      "neck": 396,
+      "beards": 210,
+      "arms": 148,
+      "shoulders": 122,
+      "dress": 105,
+      "backpack": 96,
+      "eyes": 90,
+      "cape": 40,
+      "tools": 32,
+      "shadow": 30,
+      "quiver": 6
+    },
+    "shareAlikeCategoryCounts": {
+      "hair": 540,
+      "facial": 330,
+      "head": 307,
+      "hat": 180,
+      "weapon": 138,
+      "body": 102,
+      "torso": 99,
+      "feet": 82,
+      "beards": 75,
+      "backpack": 72,
+      "neck": 59,
+      "legs": 27,
+      "shield": 12,
+      "tools": 8,
+      "dress": 7
+    },
+    "gameplayToolSeedSourceCounts": {
+      "axe": 13,
+      "fishing_rod": 2,
+      "hammer": 4,
+      "hoe": 138,
+      "scythe": 6,
+      "watering_can": 4
+    },
+    "policy": "Expose approved components through semantic Character/Wardrobe categories; preserve exact ULPC definition/zPos/action/body compatibility and per-component credits."
+  },
+  "elizawyLpcRevised": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "rawFilesExpected": 64365,
+    "imagesExpected": 64325,
+    "productionCharacterCatalog": {
+      "componentCount": 194,
+      "channelCounts": {
+        "body": 11,
+        "character_related": 74,
+        "clothing_feet": 12,
+        "clothing_legs": 18,
+        "clothing_other": 12,
+        "clothing_torso": 22,
+        "eyebrows": 3,
+        "face_overlay": 4,
+        "facial_hair": 8,
+        "head_base": 9,
+        "scalp_hair": 21
+      }
+    },
+    "policy": "Primary world/terrain/object/structure baseline remains exact-source and immutable; semantic promotion must not flatten raw PNGs into guessed roles."
+  },
+  "openGameArt": {
+    "discoveryFeedCount": 5,
+    "r18PackDomainCounts": {
+      "professions": 5,
+      "characters": 4,
+      "farming": 3,
+      "equipment": 2,
+      "food": 2,
+      "interiors": 2,
+      "mining": 2,
+      "terrain": 2,
+      "creatures": 1,
+      "fishing": 1,
+      "forestry": 1,
+      "optional_theme": 1,
+      "structures": 1,
+      "tavern": 1,
+      "travel": 1
+    },
+    "r18PackTierCounts": {
+      "review": 9,
+      "green": 8,
+      "yellow": 8,
+      "green_conditional": 3,
+      "green_reference": 1
+    },
+    "r18SelectedLicenseCounts": {
+      "UNVERIFIED": 9,
+      "OGA-BY-3.0": 6,
+      "CC-BY-SA-3.0": 4,
+      "CC-BY-SA-4.0": 4,
+      "CC-BY-4.0": 3,
+      "CC0-1.0": 2,
+      "OGA-BY-4.0": 1
+    },
+    "r18GameplayLoopCoverage": {
+      "shops": 5,
+      "tavern": 5,
+      "cooking": 3,
+      "seasons": 3,
+      "blacksmithing": 2,
+      "carpentry": 2,
+      "caves": 2,
+      "combat": 2,
+      "dungeons": 2,
+      "farming": 2,
+      "food": 2,
+      "furniture": 2,
+      "inventory": 2,
+      "storage": 2,
+      "tailoring": 2,
+      "woodworking": 2,
+      "alchemy": 1,
+      "animation": 1,
+      "animation_studio": 1,
+      "apiary": 1,
+      "aquatic_ecology": 1,
+      "archipelago_travel": 1,
+      "axe": 1,
+      "bar": 1,
+      "bard": 1,
+      "barn": 1,
+      "brewery": 1,
+      "building": 1,
+      "buildings": 1,
+      "business": 1,
+      "cargo": 1,
+      "character_creator": 1,
+      "cliff_openings": 1,
+      "cliffs": 1,
+      "clothing": 1,
+      "collision_reference": 1,
+      "coop": 1,
+      "crafting": 1,
+      "crane": 1,
+      "crop_growth": 1,
+      "decor": 1,
+      "dialogue": 1,
+      "doors": 1,
+      "dyes": 1,
+      "economy": 1,
+      "emotes": 1,
+      "encounters": 1,
+      "equipment": 1,
+      "equipment_upgrades": 1,
+      "fences": 1,
+      "fish_population": 1,
+      "fishing": 1,
+      "fishing_rod": 1,
+      "floors": 1,
+      "food_quality": 1,
+      "forestry": 1,
+      "forge": 1,
+      "fruit_harvest": 1,
+      "future_content": 1,
+      "hammer": 1,
+      "harbor": 1,
+      "harvest": 1,
+      "hauling": 1,
+      "headwear": 1,
+      "herbalism": 1,
+      "hoe": 1,
+      "ingots": 1,
+      "ingredients": 1,
+      "inn": 1,
+      "interiors": 1,
+      "inventory_icons": 1,
+      "kitchen": 1,
+      "lighting": 1,
+      "logistics": 1,
+      "loom": 1,
+      "lumber": 1,
+      "market": 1,
+      "medicine": 1,
+      "mine_entrance": 1,
+      "mine_entrances": 1,
+      "mine_shaft": 1,
+      "mining": 1,
+      "mods": 1,
+      "movement": 1,
+      "npc_equipment": 1,
+      "npc_labor": 1,
+      "npc_life": 1,
+      "occlusion": 1,
+      "orchards": 1,
+      "ore": 1,
+      "ore_storage": 1,
+      "pickaxe": 1,
+      "portraits": 1,
+      "potions": 1,
+      "processing": 1,
+      "reference": 1,
+      "relationships": 1,
+      "repair": 1,
+      "restaurant": 1,
+      "roofs": 1,
+      "ruins": 1,
+      "sailing": 1,
+      "sawmill": 1,
+      "ships": 1,
+      "shovel": 1,
+      "smelting": 1,
+      "smithing": 1,
+      "social": 1,
+      "spinning": 1,
+      "stable": 1,
+      "tavern_menu": 1,
+      "terrain": 1,
+      "tool_belt": 1,
+      "tree_growth": 1,
+      "walls": 1,
+      "water_power": 1,
+      "waterfalls": 1,
+      "watering_can": 1,
+      "weapons": 1,
+      "windows": 1,
+      "worldgen": 1
+    },
+    "existingAuditQueueStateCounts": {
+      "APPROVED_ACQUIRE_REVIEW": 13,
+      "APPROVED_ACQUIRE_NORMALIZE": 4,
+      "PINNED_PROVIDER": 1
+    },
+    "existingAuditQueueLicenseCounts": {
+      "CC-BY-SA-3.0": 11,
+      "CC-BY-4.0": 2,
+      "CC-BY-SA-4.0": 2,
+      "CC0-1.0": 2,
+      "OGA-BY-3.0": 1
+    },
+    "packs": [
+      {
+        "id": "lpc_revised_four_seasons",
+        "title": "[LPC Revised] Fully Configured 4-Seasons Tilesets for Tiled Map Editor",
+        "domain": "terrain",
+        "selectedLicense": "OGA-BY-3.0",
+        "tier": "green",
+        "sourceUrl": "https://opengameart.org/content/lpc-revised-fully-configured-4-seasons-tilesets-for-tiled-map-editor",
+        "gameplayLoops": [
+          "worldgen",
+          "seasons",
+          "terrain",
+          "cliffs",
+          "waterfalls",
+          "collision_reference"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_revised_objects",
+        "title": "[LPC Revised] Base Object Kit",
+        "domain": "interiors",
+        "selectedLicense": "CC-BY-SA-3.0",
+        "tier": "yellow",
+        "sourceUrl": "https://opengameart.org/content/lpc-revised-base-object-kit",
+        "gameplayLoops": [
+          "furniture",
+          "storage",
+          "lighting",
+          "decor",
+          "shops",
+          "tavern"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_revised_structures",
+        "title": "[LPC Revised] Base Structure Kit",
+        "domain": "structures",
+        "selectedLicense": "CC-BY-SA-3.0",
+        "tier": "yellow",
+        "sourceUrl": "https://opengameart.org/content/lpc-revised-base-structure-kit",
+        "gameplayLoops": [
+          "buildings",
+          "walls",
+          "floors",
+          "doors",
+          "windows",
+          "roofs",
+          "fences"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_caves",
+        "title": "LPC Caves",
+        "domain": "terrain",
+        "selectedLicense": "CC0-1.0",
+        "tier": "green",
+        "sourceUrl": "https://opengameart.org/content/lpc-caves",
+        "gameplayLoops": [
+          "caves",
+          "mine_entrances",
+          "dungeons",
+          "cliff_openings"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_mine",
+        "title": "[LPC] Mine",
+        "domain": "mining",
+        "selectedLicense": "CC-BY-4.0",
+        "tier": "green_conditional",
+        "sourceUrl": "https://opengameart.org/content/lpc-mine",
+        "gameplayLoops": [
+          "mining",
+          "mine_entrance",
+          "mine_shaft",
+          "ore_storage",
+          "crane"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_ore_forge",
+        "title": "[LPC] Ore and Forge",
+        "domain": "mining",
+        "selectedLicense": "OGA-BY-3.0",
+        "tier": "green",
+        "sourceUrl": "https://opengameart.org/content/lpc-ore-and-forge",
+        "gameplayLoops": [
+          "ore",
+          "ingots",
+          "smelting",
+          "smithing",
+          "economy"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_blacksmith",
+        "title": "[LPC] Blacksmith",
+        "domain": "professions",
+        "selectedLicense": "OGA-BY-3.0",
+        "tier": "green",
+        "sourceUrl": "https://opengameart.org/content/lpc-blacksmith",
+        "gameplayLoops": [
+          "blacksmithing",
+          "forge",
+          "repair",
+          "equipment_upgrades",
+          "shops"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_woodshop",
+        "title": "[LPC] Woodshop",
+        "domain": "professions",
+        "selectedLicense": "OGA-BY-3.0",
+        "tier": "green",
+        "sourceUrl": "https://opengameart.org/content/lpc-woodshop",
+        "gameplayLoops": [
+          "carpentry",
+          "woodworking",
+          "furniture",
+          "building"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_tailor",
+        "title": "[LPC] Tailor",
+        "domain": "professions",
+        "selectedLicense": "OGA-BY-3.0",
+        "tier": "green",
+        "sourceUrl": "https://opengameart.org/content/lpc-tailor",
+        "gameplayLoops": [
+          "tailoring",
+          "loom",
+          "spinning",
+          "clothing",
+          "shops"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_revised_workshops",
+        "title": "[LPC Revised] Workshop Tilesets",
+        "domain": "professions",
+        "selectedLicense": "OGA-BY-4.0",
+        "tier": "green",
+        "sourceUrl": "https://opengameart.org/content/lpc-revised-workshop-tilesets",
+        "gameplayLoops": [
+          "blacksmithing",
+          "tailoring",
+          "woodworking",
+          "interiors"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_sawmill",
+        "title": "[LPC] Sawmill",
+        "domain": "forestry",
+        "selectedLicense": "CC-BY-4.0",
+        "tier": "green_conditional",
+        "sourceUrl": "https://opengameart.org/content/lpc-sawmill",
+        "gameplayLoops": [
+          "forestry",
+          "sawmill",
+          "lumber",
+          "water_power",
+          "carpentry"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_farm",
+        "title": "[LPC] Farm",
+        "domain": "farming",
+        "selectedLicense": "CC-BY-4.0",
+        "tier": "green_conditional",
+        "sourceUrl": "https://opengameart.org/content/lpc-farm",
+        "gameplayLoops": [
+          "farming",
+          "barn",
+          "stable",
+          "coop",
+          "apiary",
+          "processing"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_crops",
+        "title": "[LPC] Crops",
+        "domain": "farming",
+        "selectedLicense": "CC-BY-SA-4.0",
+        "tier": "yellow",
+        "sourceUrl": "https://opengameart.org/content/lpc-crops",
+        "gameplayLoops": [
+          "crop_growth",
+          "harvest",
+          "seasons",
+          "food",
+          "tavern"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_fruit_trees",
+        "title": "[LPC] Fruit Trees",
+        "domain": "farming",
+        "selectedLicense": "CC-BY-SA-4.0",
+        "tier": "yellow",
+        "sourceUrl": "https://opengameart.org/content/lpc-fruit-trees",
+        "gameplayLoops": [
+          "orchards",
+          "tree_growth",
+          "fruit_harvest",
+          "seasons",
+          "food"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_food",
+        "title": "[LPC] Food",
+        "domain": "food",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-food",
+        "gameplayLoops": [
+          "cooking",
+          "ingredients",
+          "tavern",
+          "shops",
+          "inventory_icons"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_meals",
+        "title": "[LPC] Meals / More LPC meals",
+        "domain": "food",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-meals",
+        "gameplayLoops": [
+          "cooking",
+          "tavern_menu",
+          "restaurant",
+          "food_quality"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_tavern",
+        "title": "[LPC] Tavern",
+        "domain": "tavern",
+        "selectedLicense": "CC-BY-SA-3.0",
+        "tier": "yellow",
+        "sourceUrl": "https://opengameart.org/content/lpc-tavern",
+        "gameplayLoops": [
+          "tavern",
+          "inn",
+          "bar",
+          "kitchen",
+          "brewery",
+          "bard",
+          "business"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_containers",
+        "title": "[LPC] Containers",
+        "domain": "interiors",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-containers",
+        "gameplayLoops": [
+          "storage",
+          "inventory",
+          "farming",
+          "tavern",
+          "shops"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_hand_tools",
+        "title": "[LPC] Hand Tools",
+        "domain": "equipment",
+        "selectedLicense": "CC-BY-SA-3.0",
+        "tier": "yellow",
+        "sourceUrl": "https://opengameart.org/content/lpc-hand-tools",
+        "gameplayLoops": [
+          "axe",
+          "pickaxe",
+          "hammer",
+          "shovel",
+          "hoe",
+          "watering_can",
+          "fishing_rod",
+          "tool_belt"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_ship",
+        "title": "[LPC] Ship",
+        "domain": "travel",
+        "selectedLicense": "OGA-BY-3.0",
+        "tier": "green",
+        "sourceUrl": "https://opengameart.org/content/lpc-ship",
+        "gameplayLoops": [
+          "ships",
+          "sailing",
+          "harbor",
+          "cargo",
+          "archipelago_travel"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_fish",
+        "title": "[LPC] Fish",
+        "domain": "fishing",
+        "selectedLicense": "CC-BY-SA-4.0",
+        "tier": "yellow",
+        "sourceUrl": "https://opengameart.org/content/lpc-fish",
+        "gameplayLoops": [
+          "fish_population",
+          "fishing",
+          "aquatic_ecology",
+          "market",
+          "cooking"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_alchemy",
+        "title": "[LPC] Alchemy",
+        "domain": "professions",
+        "selectedLicense": "CC-BY-SA-4.0",
+        "tier": "yellow",
+        "sourceUrl": "https://opengameart.org/content/lpc-alchemy",
+        "gameplayLoops": [
+          "alchemy",
+          "herbalism",
+          "potions",
+          "medicine",
+          "dyes",
+          "crafting"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_monsters",
+        "title": "[LPC] Monsters",
+        "domain": "creatures",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-monsters",
+        "gameplayLoops": [
+          "combat",
+          "dungeons",
+          "caves",
+          "ruins",
+          "encounters"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_extended_weapon_animations",
+        "title": "[LPC] Extended Weapon Animations",
+        "domain": "equipment",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-extended-weapon-animations",
+        "gameplayLoops": [
+          "combat",
+          "weapons",
+          "npc_equipment",
+          "animation_studio"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_helmets_mega",
+        "title": "[LPC] Helmets Mega-Pack",
+        "domain": "characters",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-helmets-mega-pack",
+        "gameplayLoops": [
+          "character_creator",
+          "equipment",
+          "headwear",
+          "occlusion"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_push_carry",
+        "title": "LPC Character animations: push and carry",
+        "domain": "characters",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-character-animations-push-and-carry",
+        "gameplayLoops": [
+          "hauling",
+          "logistics",
+          "npc_labor",
+          "inventory"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_expanded_sit_run_jump",
+        "title": "[LPC Expanded] Sit, Run, Jump, & More",
+        "domain": "characters",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-expanded-sit-run-jump-more",
+        "gameplayLoops": [
+          "movement",
+          "social",
+          "animation",
+          "npc_life"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_expanded_expressions",
+        "title": "[LPC Expanded] Expressions",
+        "domain": "characters",
+        "selectedLicense": null,
+        "tier": "review",
+        "sourceUrl": "https://opengameart.org/content/lpc-expanded-expressions",
+        "gameplayLoops": [
+          "dialogue",
+          "relationships",
+          "portraits",
+          "emotes"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      },
+      {
+        "id": "lpc_modern_streets",
+        "title": "LPC Modern Streets",
+        "domain": "optional_theme",
+        "selectedLicense": "CC0-1.0",
+        "tier": "green_reference",
+        "sourceUrl": "https://opengameart.org/content/lpc-modern-streets",
+        "gameplayLoops": [
+          "mods",
+          "future_content",
+          "reference"
+        ],
+        "status": "discovered_requires_exact_file_provenance"
+      }
+    ],
+    "policy": "Collection membership is discovery only. Exact files require source URL, authors, offered licenses, selected license, checksum, derivative lineage, and attribution before promotion."
+  },
+  "promotionStates": [
+    "discovered",
+    "catalogued",
+    "license_cleared",
+    "compatibility_verified",
+    "havenwild_approved",
+    "runtime_bound",
+    "production_ready",
+    "reference_only",
+    "blocked"
+  ],
+  "licenseTiers": {
+    "green": [
+      "CC0-1.0",
+      "OGA-BY-3.0",
+      "OGA-BY-4.0"
+    ],
+    "green_conditional": [
+      "CC-BY-3.0",
+      "CC-BY-4.0"
+    ],
+    "yellow": [
+      "CC-BY-SA-3.0",
+      "CC-BY-SA-4.0"
+    ],
+    "red": [
+      "GPL-only",
+      "NC",
+      "ND",
+      "unknown_or_unverified"
+    ]
+  },
+  "passDomains": {
+    "W81R18": "complete discovery/audit and license/readiness census",
+    "W81R19": "universal asset browser v2 authority and browser projection",
+    "W81R20": "character/create/wardrobe/equipment catalog exposure",
+    "W81R21": "terrain/nature/world visual catalog exposure",
+    "W81R22": "farming/food/animal visual intake",
+    "W81R23": "mining/forge/blacksmith/woodshop/sawmill visual intake",
+    "W81R24": "tavern/interior/storage/business visual intake",
+    "W81R25": "creatures/combat/weapons/effects visual intake",
+    "W81R26": "ships/fishing/water-world visual intake",
+    "W81R27": "release licensing/credits certification",
+    "W81R28": "cross-domain LPC visual/gameplay acceptance world"
+  },
+  "releaseRule": "Fail closed on blocked/unverified provenance. Runtime packages only used/promoted/generated assets plus required attribution.",
+  "nextRuntimeIntegrationBoundary": "The R18-R28 additive authority does not modify W81R17 Rust/UI; current W81R17 source is required before implementing live browser/runtime bindings without regression risk."
+}

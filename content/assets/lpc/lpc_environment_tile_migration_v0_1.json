@@ -1,0 +1,47 @@
+{
+  "schema": "havenwild.lpc.environment_tile_migration.v0_1",
+  "id": "lpc_environment_tile_migration_v0_1",
+  "version": "0.2.0",
+  "statusBuckets": {
+    "lpcProduction": [
+      "grass",
+      "sand",
+      "wet_sand",
+      "pebble_shore",
+      "road",
+      "stone_path",
+      "mountain_path",
+      "cliff",
+      "mountain_rock",
+      "dirt",
+      "cave_floor",
+      "tilled_soil",
+      "watered_soil",
+      "water",
+      "shallow_water",
+      "deep_water"
+    ],
+    "objectOrOverlay": [
+      "tall_grass",
+      "crop"
+    ],
+    "derivedSystem": [
+      "greenhouse_zone",
+      "ocean_deep",
+      "ocean_shallow",
+      "river_water",
+      "river_mouth_blend",
+      "shore_foam",
+      "mud_bank"
+    ],
+    "lpcMappingRequired": [
+      "wood_floor",
+      "plank_floor",
+      "stone_floor",
+      "brick_floor",
+      "wall",
+      "bridge",
+      "cave_wall"
+    ]
+  }
+}

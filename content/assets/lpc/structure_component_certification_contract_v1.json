@@ -1,0 +1,92 @@
+{
+  "schema": "havenwild.structure_component_certification_contract.v1",
+  "pass": "167Z109W45C",
+  "authority": "PublishedWorldAssetRegistry",
+  "sourceInventory": "content/assets/lpc/structure_source_inventory_v1.json",
+  "purpose": "Define the promotion gate from immutable LPC Structure source sheets into exact PublishedWorldAsset structure_component/structural_connector records without reusing ordinary ObjectKind placeholder art.",
+  "roles": [
+    "floor",
+    "wall",
+    "wall_border",
+    "door",
+    "window",
+    "roof",
+    "stairs",
+    "fence",
+    "bridge",
+    "platform",
+    "pillar",
+    "sign",
+    "misc",
+    "structural_connector"
+  ],
+  "statusVocabulary": [
+    "SOURCE_CANDIDATE",
+    "COMPONENT_CANDIDATE",
+    "CERTIFIED",
+    "PROVISIONAL",
+    "PLACEHOLDER",
+    "MISSING",
+    "REJECTED"
+  ],
+  "promotionRequirements": {
+    "identity": [
+      "stable semantic id",
+      "PublishedWorldAsset role structure_component or structural_connector",
+      "exact immutable source path",
+      "exact source rectangle",
+      "source-local/root license provenance"
+    ],
+    "geometry": [
+      "bottom/connection anchor",
+      "visual bounds",
+      "placement footprint",
+      "collision footprint",
+      "interaction footprint when applicable",
+      "sort/occlusion root"
+    ],
+    "topology": [
+      "connection family",
+      "allowed neighbor directions",
+      "end/corner/junction role when connected",
+      "opening/socket role for doors windows stairs bridges and connectors",
+      "vertical tier or level delta when applicable"
+    ],
+    "runtimeEditorParity": [
+      "same PublishedWorldAsset identity in editor and runtime",
+      "same source/cache recipe in editor and runtime",
+      "no live_autotile_16_32 production fallback",
+      "no ObjectKind semantic substitution",
+      "visual acceptance fixture evidence"
+    ],
+    "presentation": [
+      "active structural level visibility role where applicable",
+      "camera-local occlusion group for roof/front-wall/cutaway components",
+      "presentation visibility must not mutate shared world state"
+    ]
+  },
+  "rolePolicies": {
+    "floor": "tileable interior surface family; not exterior generic ground authority",
+    "wall": "directional/connected interior or building-shell component with explicit corners/ends and camera-local cutaway/occlusion metadata where applicable",
+    "wall_border": "overlay/trim attached to a compatible wall family",
+    "door": "opening component with closed/open states and traversal socket; never a generic object-atlas cell",
+    "window": "wall-attached opening/overlay with facing and wall compatibility",
+    "roof": "building-shell occluder group tied to BuildingInstance visibility; exact roof grammar required before promotion; never a ground tile",
+    "stairs": "level connector with facing, footprint, entry/exit sockets and explicit vertical delta",
+    "fence": "connected boundary family with straight/corner/end/gate roles",
+    "bridge": "route connector spanning a compatible gap/water class with bank sockets",
+    "platform": "structural surface/stamp with edge and access rules",
+    "pillar": "support/trim component with structure attachment and sort root",
+    "sign": "structure/town sign component using real sign source art, not standing-screen substitution",
+    "structural_connector": "first-class connector between surface/interior/cave/level representations"
+  },
+  "forbiddenShortcuts": [
+    "ladder art used as stairs",
+    "standing screen used as sign",
+    "generic Door/Fence/Stairs ObjectKind atlas fallback as production authority",
+    "whole source sheet promoted as one ordinary placeable",
+    "generated atlas identity replacing source provenance",
+    "building reference sheet treated as a production BuildingRecipe without decomposition"
+  ],
+  "buildingVisibilityContract": "content/buildings/building_level_visibility_contract_v1.json"
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "havenwild.building_instance.v1",
+  "id": "havenwild.acceptance.standard_tavern",
+  "recipeId": "havenwild.tavern.standard_three_level",
+  "sceneId": "tavern_building_acceptance",
+  "anchorTile": [30, 18],
+  "initialLevel": 0,
+  "diagnosticOnly": true,
+  "origin": "diagnostic",
+  "placementSpace": "scene_local",
+  "surfaceRegionId": null,
+  "globalAnchorTile": null
+}

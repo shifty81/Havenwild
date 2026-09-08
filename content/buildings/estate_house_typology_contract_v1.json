@@ -1,0 +1,103 @@
+{
+  "schema": "havenwild.estate_house_typology.v2",
+  "pass": "167Z109W57K11",
+  "authority": "Estate starter + two-story modular player-home typology; building-composite authoring pilot",
+  "principles": {
+    "starterIsSingleStory": true,
+    "upgradeAddsSecondStory": true,
+    "exteriorAndInteriorFootprintsMayDiffer": true,
+    "structureUsesPublishedModularTileFamilies": true,
+    "playerAuthoredChangesRemainMetadataBacked": true,
+    "semanticCollisionNavigationRemainSeparateFromVisualPixelOverrides": true
+  },
+  "types": [
+    {
+      "id": "estate_house.starter_single_story",
+      "recipeId": "havenwild.estate.starter_cottage",
+      "status": "active_certification_building_composite_pilot",
+      "floors": 1,
+      "interior": {
+        "playableSize": [
+          7,
+          9
+        ],
+        "program": [
+          "sleeping_nook",
+          "open_living_crafting_cooking",
+          "storage"
+        ],
+        "entryCirculation": "protected"
+      },
+      "exterior": {
+        "roof": "front_gable",
+        "wallPlateTiles": 5,
+        "roofEnvelopeTiles": 7,
+        "sideEaveTiles": 1
+      },
+      "recipeVersion": "1.6.0-w57k10"
+    },
+    {
+      "id": "estate_house.upgrade_two_story",
+      "status": "runtime_recipe_ready_upgrade_activation_gated",
+      "floors": 2,
+      "interior": {
+        "groundFloor": "open living / cooking / crafting / gathering",
+        "upperFloor": "bedroom + private storage",
+        "connector": "authored stairs, reversible"
+      },
+      "exterior": {
+        "massing": "explicit two-story facade",
+        "roof": "modular gable family",
+        "trim": "continuous corner/edge treatment through upper story to eaves"
+      },
+      "recipeId": "havenwild.estate.house_two_story_upgrade",
+      "recipeVersion": "1.0.0-w57k11"
+    }
+  ],
+  "playerAuthoring": {
+    "interior": {
+      "enabledTarget": true,
+      "operations": [
+        "place/remove furniture",
+        "room partition editing",
+        "floor/wall finish selection",
+        "stair placement where topology allows",
+        "door/opening placement",
+        "room-purpose metadata"
+      ]
+    },
+    "exterior": {
+      "enabledTarget": true,
+      "operations": [
+        "footprint expansion",
+        "wall module placement",
+        "window/door placement",
+        "roof recomposition",
+        "second-story addition",
+        "wing/addition placement",
+        "trim/eave selection"
+      ]
+    },
+    "pixelStudio": {
+      "wholeSceneChunkVisualOverrides": true,
+      "semanticEditsRemainWorldEditorOwned": true,
+      "visualOverrideLayerIsNonDestructive": true,
+      "buildingCompositeAuthoring": true,
+      "versionedDerivedModules": true,
+      "collisionMaskPrecisionPx": 1,
+      "normalCollisionSnapPx": 8
+    }
+  },
+  "upgradePolicy": {
+    "preserveEstatePlotIdentity": true,
+    "preserveHomeOwnership": true,
+    "preserveStoredItemsAndPlacedFurnitureWhereLayoutSupports": true,
+    "migrationMustBeTransactional": true
+  },
+  "certificationOrder": [
+    "starter_single_story_visual_and_navigation",
+    "building_composite_round_trip",
+    "two_story_recipe_and_stairs",
+    "player_upgrade_activation_after_visual_acceptance"
+  ]
+}

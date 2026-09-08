@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.character_world_runtime_state_policy.v1",
+  "character_profile_scope": "account",
+  "world_link_scope": "world_local",
+  "restored_fields": [
+    "world_position",
+    "world_scene",
+    "world_reputation",
+    "world_relationships",
+    "world_quest_flags",
+    "last_played_unix_seconds"
+  ],
+  "save_triggers": ["manual_world_save", "future_autosave", "future_disconnect", "future_scene_transition"],
+  "rules": {
+    "preserve_existing_link_on_launch": true,
+    "fallback_to_scene_spawn_when_missing_or_invalid": true,
+    "world_relationships_and_quest_flags_round_trip_without_loss": true,
+    "character_profile_is_not_deleted_with_world": true,
+    "world_link_is_authoritative_for_world_local_character_state": true
+  }
+}

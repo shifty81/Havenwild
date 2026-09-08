@@ -1,0 +1,58 @@
+{
+  "goal": "Make worldgen look like a cozy farm/tavern world without abandoning tile precision.",
+  "passes": [
+    "height_field",
+    "island_mask",
+    "water_bodies",
+    "shoreline_classification",
+    "river_flow",
+    "road_and_paths",
+    "soil_and_fertility",
+    "biome_decor",
+    "object_scatter",
+    "season_overlay",
+    "validation"
+  ],
+  "validation_rules": [
+    "Every exterior scene has at least one valid transition path.",
+    "Natural water tiles must mark fishable=true unless explicitly unsafe.",
+    "Rivers require flow direction metadata.",
+    "Build mode forbids placement on deep water, cliff, wall, cave wall, and active construction hazard tiles.",
+    "Farm actions use soil_state overlay, not separate terrain replacement for every crop condition.",
+    "A 96x64 SceneMap is the expanded standard playable scene; 144x96 is reserved for future large scenes.",
+    "Tavern, farm, cave, and road features must stay at local tile scale inside a scene.",
+    "Island-scale previews must use a region/world graph, not a single Farmstead SceneMap."
+  ],
+  "scale_contract": {
+    "scene_map_tiles": [
+      96,
+      64
+    ],
+    "scene_map_role": "compact playable local scene",
+    "region_map_role": "abstract island/region composition across multiple scenes",
+    "farmstead_feature_budget": {
+      "tavern_footprint_max_tiles": [
+        18,
+        12
+      ],
+      "starter_field_max_scene_fraction": 0.2,
+      "road_width_tiles": [
+        1,
+        3
+      ],
+      "cave_entrance_role": "object_or_transition_feature"
+    },
+    "invalid_preview_signals": [
+      "tavern footprint appears close to island footprint",
+      "farm field covers most of the island",
+      "road appears as a full-map band unless scene_kind is road_connector",
+      "island silhouette and local structure footprints are drawn at the same scale"
+    ]
+  },
+  "starter_scene_targets": {
+    "farmstead": "tavern + farm grid + mountain/cave + river + road",
+    "south_field": "larger farming grid and soil quality bands",
+    "east_woods": "forage/trees/stream with Y-sorted tall objects",
+    "cave_mouth": "non-grid-looking cave within tile collision grid"
+  }
+}

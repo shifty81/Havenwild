@@ -1,0 +1,31 @@
+{
+  "id": "worldgen_estate_visual_test_v0_1",
+  "name": "Havenwild Isolated Estate Visual Test",
+  "version": "0.1.0-w54d2",
+  "kind": "worldgen_asset_pack",
+  "defaultScene": "farmstead",
+  "requiresLegacySceneSet": false,
+  "sceneFiles": [
+    "content/worldgen/scenes/home_island/farmstead_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/north_road_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/south_field_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/east_woods_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_mouth_scene_v0_3.json",
+    "content/worldgen/scenes/home_island/cave_depths_scene_v0_3.json"
+  ],
+  "visualIntegration": {
+    "pass": "Pass167Z109W54D2",
+    "purpose": "Fail-closed isolated runtime target for Estate visual certification.",
+    "entryScene": "farmstead",
+    "displayName": "Estate",
+    "expectedSceneCount": 6,
+    "forbidSceneIds": [
+      "willowmere_outskirts_open_world",
+      "tavern_interior",
+      "cellar",
+      "guest_floor"
+    ],
+    "buildingInstanceId": "havenwild.estate.dev.starter_cottage",
+    "savePolicy": "isolated dev world id; normal persistent world.tworld is not authoritative"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "havenwild.terrain_transition_repair_document.w77_v1",
+  "pair": [
+    "Soil",
+    "Water"
+  ],
+  "status": "placeholder_unpublished",
+  "pixelDocument": "content/editor/terrain_transition_workbench/documents/soil__water.png",
+  "maskOrder": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "mixedMasks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "editableLayers": [
+    "10_owner_fill",
+    "20_boundary_shape",
+    "30_shading_cleanup",
+    "40_alpha_cleanup"
+  ],
+  "lockedReferenceLayers": [
+    "00_semantic_shape_template",
+    "01_reference_a_style",
+    "02_reference_b_style",
+    "90_preview_only"
+  ],
+  "publishPolicy": "candidate_only_then_visual_certification"
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.starter_character_creator.v1",
+  "pass": "149H",
+  "base_body_policy": {
+    "neutral": true,
+    "clothing_baked_into_body": false,
+    "explicit_anatomy": false,
+    "variants": ["male_neutral", "female_neutral"]
+  },
+  "starter_options": {
+    "male": ["starter_tshirt", "starter_pants", "starter_boots"],
+    "female": ["starter_long_shirt", "starter_pants", "starter_tshirt", "starter_skirt", "starter_shoes"]
+  },
+  "creator_controls": [
+    "display_name",
+    "body",
+    "female_outfit",
+    "skin_palette",
+    "shirt_palette",
+    "bottom_palette",
+    "footwear_palette"
+  ],
+  "gameplay_unlock_only": ["advanced_clothing", "armor", "tools", "weapons", "accessories"]
+}

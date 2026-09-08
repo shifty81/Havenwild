@@ -1,0 +1,9 @@
+{
+  "schema": "havenwild.runtime_asset_cache_policy.v1",
+  "discovery_at_startup": true,
+  "session_registry_shared": true,
+  "stable_source_cache": true,
+  "production_only_by_default": true,
+  "legacy_direct_paths": "explicit_fallback_with_diagnostic",
+  "consumers": ["pcg", "f3_editor", "renderer", "object_placement", "character", "animation", "audio", "ui", "inventory"]
+}

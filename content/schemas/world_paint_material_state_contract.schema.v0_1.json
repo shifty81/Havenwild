@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.world_paint_material_state_contract.schema.v0.1",
+  "title": "Havenwild World Paint Material State Contract",
+  "type": "object",
+  "required": ["schema", "version", "canonical_tile_size", "runtime_document_path", "layers", "families", "subcell_modes"],
+  "properties": {
+    "schema": { "const": "havenwild.world_paint_material_state_contract.v0.1" },
+    "version": { "type": "integer", "minimum": 1 },
+    "canonical_tile_size": {
+      "type": "array",
+      "prefixItems": [{ "const": 32 }, { "const": 32 }],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "purpose": { "type": "string" },
+    "authority_policy": { "type": "string" },
+    "runtime_document_path": { "type": "string" },
+    "layers": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "families": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "subcell_modes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "grid"],
+        "properties": {
+          "code": { "type": "string" },
+          "grid": {
+            "type": "array",
+            "prefixItems": [{ "type": "integer" }, { "type": "integer" }],
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "cell_record_fields": { "type": "array", "items": { "type": "string" } },
+    "derived_visuals_not_authoritative": { "type": "array", "items": { "type": "string" } },
+    "implementation_files": { "type": "array", "items": { "type": "string" } }
+  }
+}

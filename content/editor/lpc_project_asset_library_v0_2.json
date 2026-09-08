@@ -1,0 +1,102 @@
+{
+  "schema": "havenwild.editor.lpc_project_asset_library.v0_2",
+  "pass": "167Z40",
+  "displayName": "LPC Project Foundation",
+  "providers": [
+    "elizawy_lpc_revised",
+    "universal_lpc_character_generator"
+  ],
+  "tabs": [
+    {
+      "id": "world",
+      "groups": [
+        "terrain",
+        "water",
+        "coasts",
+        "cliffs",
+        "trees",
+        "flowers",
+        "plants",
+        "mushrooms",
+        "rocks",
+        "objects",
+        "furniture",
+        "structures",
+        "bridges",
+        "fences",
+        "doors",
+        "windows",
+        "roofs",
+        "floors",
+        "walls",
+        "effects"
+      ]
+    },
+    {
+      "id": "characters",
+      "groups": [
+        "bodies",
+        "heads",
+        "eyes",
+        "hair",
+        "facial_hair",
+        "clothing",
+        "armor",
+        "headwear",
+        "accessories",
+        "tools",
+        "weapons",
+        "shields",
+        "wings",
+        "animations",
+        "children",
+        "teen",
+        "pregnancy",
+        "elderly"
+      ]
+    },
+    {
+      "id": "compatibility",
+      "groups": [
+        "body_support",
+        "animation_support",
+        "layer_order",
+        "occlusion",
+        "tool_actions",
+        "license_status",
+        "credits"
+      ]
+    }
+  ],
+  "filters": [
+    "provider",
+    "domain",
+    "semantic_role",
+    "body_family",
+    "animation",
+    "season",
+    "theme",
+    "license",
+    "production_state",
+    "compatibility",
+    "source_path"
+  ],
+  "actions": [
+    "preview",
+    "open_source",
+    "apply_to_character",
+    "equip",
+    "paint_or_place",
+    "promote_binding",
+    "show_credits",
+    "show_compatibility",
+    "rebuild_cache"
+  ],
+  "policies": {
+    "browseEntireMountedRepositories": true,
+    "hideIncompatibleByDefault": true,
+    "showIncompatibleToggle": true,
+    "neverCopyRawThirdPartyFiles": true,
+    "stableIdsSharedWithRuntime": true
+  }
+}

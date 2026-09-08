@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.scene_rectangle.v008",
+  "type": "object",
+  "required": [
+    "scene_id",
+    "landmass_id",
+    "kind",
+    "tile_size",
+    "edges",
+    "layers"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string"
+    },
+    "landmass_id": {
+      "type": "integer"
+    },
+    "landmass_name": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "grid_x": {
+      "type": "integer"
+    },
+    "grid_y": {
+      "type": "integer"
+    },
+    "tile_size": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "world_rect": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "edges": {
+      "type": "object"
+    },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "validation_state": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "havenwild.asset_palette_atlas_binding.v0_1",
+  "pass": "52",
+  "status": "active",
+  "purpose": "Bind production editor terrain, objects, live autotile topology, and terrain transitions to project-owned atlas metadata while exposing a searchable authoring palette.",
+  "palette": {
+    "searchable": true,
+    "categories": [
+      "all",
+      "terrain",
+      "floor",
+      "wall",
+      "farm",
+      "water",
+      "objects"
+    ],
+    "favoritesPersisted": true,
+    "recentAssetsPersisted": true,
+    "statePath": ".local/editor/asset_palette_state.json",
+    "dragToCanvas": true,
+    "clickToArmTool": true,
+    "provenanceWarnings": true,
+    "stableAssetIdsRequired": true
+  },
+  "atlasBinding": {
+    "baseTerrainAtlas": "assets/generated/worldgen_v0_1/terrain/common_base_terrain_32.png",
+    "objectAtlas": "assets/generated/havenwild_2p5d_objects_32x64_v1.png",
+    "liveAutotileManifest": "assets/generated/worldgen_v0_1/terrain/live_autotile_16_32.json",
+    "liveAutotileAtlas": "assets/generated/worldgen_v0_1/terrain/live_autotile_16_32.png",
+    "liveAutotileGroups": 10,
+    "cardinalMasksPerGroup": 16,
+    "requiredBindings": 160,
+    "transitionAtlasSharedWithRuntime": true,
+    "nearestFiltering": true,
+    "editorAndCanvasUseSameMetadata": true
+  },
+  "fallback": {
+    "missingBindingsRemainSearchable": true,
+    "missingBindingsShowWarning": true,
+    "proceduralFallbackAllowed": true,
+    "silentAssetOmissionForbidden": true
+  },
+  "interaction": {
+    "tileSelectionActivates": "paint",
+    "objectSelectionActivates": "place",
+    "dropCoordinatesUsePermanentCanvasTransform": true,
+    "dropCoordinatesSnapToGrid": true,
+    "placementUsesTypedTransactions": true
+  },
+  "validation": {
+    "allManifestFilesMustExist": true,
+    "allAtlasRectanglesMustFitTexture": true,
+    "duplicateStableIdsForbidden": true,
+    "newNativeModulesMaxLines": 750
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.worldgen.asset-pack.schema.v0_4",
+  "title": "Havenwild Worldgen Asset Pack v0.4",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "version",
+    "kind",
+    "masterManifest",
+    "runtimeBindings",
+    "smokeTests"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "kind": {
+      "const": "worldgen_asset_pack"
+    },
+    "masterManifest": {
+      "type": "string"
+    },
+    "runtimeBindings": {
+      "type": "string"
+    },
+    "biomeManifest": {
+      "type": "string"
+    },
+    "sceneContracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "smokeTests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "editor": {
+      "type": "object"
+    },
+    "sceneFiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "worldSurface": {
+      "type": "string"
+    },
+    "placementRules": {
+      "type": "string"
+    },
+    "autotileRules": {
+      "type": "string"
+    },
+    "editorLayerRegistry": {
+      "type": "string"
+    },
+    "biomePalette": {
+      "type": "string"
+    },
+    "edgeBorderResolution": {
+      "type": "string"
+    },
+    "islandTemplates": {
+      "type": "string"
+    },
+    "previews": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "runtimeIndex": {
+      "type": "string"
+    },
+    "runtimeLoadOrder": {
+      "type": "string"
+    },
+    "assetLookup": {
+      "type": "string"
+    },
+    "objectFootprintRegistry": {
+      "type": "string"
+    },
+    "transitionRegistry": {
+      "type": "string"
+    },
+    "navigationGraph": {
+      "type": "string"
+    },
+    "collisionInteractionOverlay": {
+      "type": "string"
+    },
+    "cameraCompositionProfile": {
+      "type": "string"
+    },
+    "validationProfile": {
+      "type": "string"
+    }
+  }
+}

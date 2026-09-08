@@ -1,0 +1,80 @@
+{
+  "schema": "havenwild.external_asset_pack_index.v0_1",
+  "generatedUtc": "2026-07-12T02:51:46.096774+00:00",
+  "pack": {
+    "id": "lpc_atlas_build_objects",
+    "displayName": "LPC Build and Object Atlases",
+    "archiveName": "Atlas2 (1).zip",
+    "archiveSha256": "db68bae7222fa84806bad88cd6fc9c239ece3bdd49fda5a0decc21f0f6e09088",
+    "externalRawRoot": "external://lpc_atlas_build_objects",
+    "licenseStatus": "allowed_with_attribution",
+    "attribution": "CC-BY-SA 3.0 attribution list retained in Attribution2.txt; includes LPC contributors and base-asset authors named there.",
+    "sourceUrl": "",
+    "rawFilesCommitted": false,
+    "rawFilesPackaged": false
+  },
+  "summary": {
+    "files": 3,
+    "images": 2,
+    "unreadableImages": 0,
+    "categoryCounts": {
+      "ui": 1,
+      "unclassified": 1
+    }
+  },
+  "records": [
+    {
+      "relativePath": "Attribution2.txt",
+      "extension": ".txt",
+      "sizeBytes": 2771,
+      "sha256": "31c6caa92239c5975f7e5b74caff4c5de58f54226dfb6c01580809fa9f27d785",
+      "promotionState": "cataloged_source_only"
+    },
+    {
+      "relativePath": "build_atlas.png",
+      "extension": ".png",
+      "sizeBytes": 185359,
+      "sha256": "b04a47b4e598bf127a520aab00cdfa7ad2f70d09518128ae79049134c7353063",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "ui"
+      ],
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "obj_misk_atlas.png",
+      "extension": ".png",
+      "sizeBytes": 259774,
+      "sha256": "3cecbf75f002d0bb0495ff4f880e22433961e5e5fcfead117a1d277ca1293114",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "unclassified"
+      ],
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    }
+  ]
+}

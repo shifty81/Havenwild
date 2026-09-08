@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z57",
+  "date": "2026-08-03",
+  "title": "Dedicated Water Depth Renderer Clippy Cleanup",
+  "status": "ready_for_windows_build",
+  "changes": [
+    "Remove the inactive generic terrain-transition selection pipeline superseded by WaterRenderMask",
+    "Remove obsolete tests that exercised only the retired selection pipeline",
+    "Preserve complete authored LPC depth cells, irregular-mask fallback, and diagonal inner corners",
+    "Keep active Rust source authoritative without dead-code suppression or build-time source rewriting"
+  ],
+  "localValidation": {
+    "focusedPassValidator": true,
+    "retiredMarkerAudit": true,
+    "activeWaterRendererAudit": true,
+    "deadCodeSuppressionAudit": true,
+    "jsonParse": true,
+    "rustDelimiterScan": true,
+    "zipIntegrity": true,
+    "cargo": false,
+    "reasonCargoNotRun": "Rust toolchain is unavailable in the artifact environment"
+  },
+  "workstationCertification": [
+    "cargo fmt --all -- --check",
+    "cargo check --workspace --all-targets",
+    "cargo clippy --workspace --all-targets -- -D warnings",
+    "cargo test --workspace",
+    "Windows editor and client builds",
+    "live title, music, rock, sand, and water contour verification"
+  ]
+}

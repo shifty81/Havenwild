@@ -1,0 +1,2373 @@
+{
+  "schema": "havenwild.world_tile_atlas_manifest.v0_1",
+  "id": "havenwild_world_environment_test_v0_1",
+  "updated": "2026-08-02T01:20:24+00:00",
+  "purpose": "LPC-derived strict 32x32 atlas used by live world-paint render bindings.",
+  "canonicalTileSize": [
+    32,
+    32
+  ],
+  "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+  "sourceImageSize": [
+    256,
+    448
+  ],
+  "columns": 8,
+  "rows": 14,
+  "sourcePolicy": "derived_from_pinned_lpc_generated_terrain",
+  "runtimeDefault": true,
+  "records": [
+    {
+      "id": "sand_shoreline_00_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_00",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": true
+    },
+    {
+      "id": "sand_shoreline_01_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        0,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_01",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_02_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_02",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_03_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        0,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_03",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_04_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        0,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_04",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_05_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        0,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_05",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_06_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        0,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_06",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_07_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        0,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_07",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_08_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        32,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_08",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_09_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_09",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_10_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        32,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_10",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_11_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        32,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_11",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_12_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        32,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_12",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_13_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        32,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_13",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_14_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        32,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_14",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_shoreline_15_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        32,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_transition_fringe",
+      "variant": "mask_15",
+      "autotileRole": "shoreline",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_00_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        64,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_00",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": true
+    },
+    {
+      "id": "sand_ground_base_01_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        64,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_01",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_02_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        64,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_02",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_03_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        64,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_03",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_04_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        64,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_04",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_05_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        64,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_05",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_06_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        64,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_06",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_07_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        64,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_07",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_08_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        96,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_08",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_09_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        96,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_09",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_10_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        96,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_10",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_11_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        96,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_11",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_12_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        96,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_12",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_13_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        96,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_13",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_14_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        96,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_14",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "sand_ground_base_15_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        96,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "sand",
+      "layer": "ground_base",
+      "variant": "mask_15",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_00_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        128,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_00",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": true
+    },
+    {
+      "id": "water_base_01_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        128,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_01",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_02_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        128,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_02",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_03_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        128,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_03",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_04_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        128,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_04",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_05_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        128,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_05",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_06_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        128,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_06",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_07_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        128,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_07",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_08_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        160,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_08",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_09_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        160,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_09",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_10_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        160,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_10",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_11_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        160,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_11",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_12_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        160,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_12",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_13_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        160,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_13",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_14_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        160,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_14",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "water_base_15_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        160,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "water",
+      "layer": "water_base",
+      "variant": "mask_15",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_00_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        192,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_00",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": true
+    },
+    {
+      "id": "cave_base_01_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        192,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_01",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_02_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        192,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_02",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_03_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        192,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_03",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_04_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        192,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_04",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_05_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        192,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_05",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_06_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        192,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_06",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_07_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        192,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_07",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_08_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        224,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_08",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_09_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        224,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_09",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_10_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        224,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_10",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_11_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        224,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_11",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_12_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        224,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_12",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_13_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        224,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_13",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_14_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        224,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_14",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_base_15_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        224,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_base",
+      "variant": "mask_15",
+      "autotileRole": "base",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_00_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        256,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_00",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": true
+    },
+    {
+      "id": "cave_wall_edge_01_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        256,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_01",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_02_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        256,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_02",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_03_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        256,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_03",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_04_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        256,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_04",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_05_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        256,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_05",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_06_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        256,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_06",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_07_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        256,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_07",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_08_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        288,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_08",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_09_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        288,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_09",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_10_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        288,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_10",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_11_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        288,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_11",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_12_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        288,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_12",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_13_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        288,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_13",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_14_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        288,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_14",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "cave_wall_edge_15_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        288,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "cave",
+      "layer": "cave_wall_face",
+      "variant": "mask_15",
+      "autotileRole": "wall_edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_00_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        320,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_00",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": true
+    },
+    {
+      "id": "paved_brick_edge_01_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        320,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_01",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_02_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        320,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_02",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_03_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        320,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_03",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_04_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        320,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_04",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_05_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        320,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_05",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_06_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        320,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_06",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_07_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        320,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_07",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_08_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        352,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_08",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_09_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        352,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_09",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_10_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        352,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_10",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_11_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        352,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_11",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_12_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        352,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_12",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_13_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        352,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_13",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_14_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        352,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_14",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "paved_brick_edge_15_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        352,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "paved_brick",
+      "layer": "town_surface",
+      "variant": "mask_15",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_00_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        384,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_00",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": true
+    },
+    {
+      "id": "wood_plank_edge_01_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        384,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_01",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_02_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        384,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_02",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_03_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        384,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_03",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_04_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        384,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_04",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_05_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        384,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_05",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_06_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        384,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_06",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_07_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        384,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_07",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_08_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        0,
+        416,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_08",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_09_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        32,
+        416,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_09",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_10_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        64,
+        416,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_10",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_11_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        96,
+        416,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_11",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_12_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        128,
+        416,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_12",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_13_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        160,
+        416,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_13",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_14_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        192,
+        416,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_14",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    },
+    {
+      "id": "wood_plank_edge_15_32x32",
+      "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+      "atlasRect": [
+        224,
+        416,
+        32,
+        32
+      ],
+      "gridSize": [
+        32,
+        32
+      ],
+      "family": "wood_plank",
+      "layer": "indoor_floor",
+      "variant": "mask_15",
+      "autotileRole": "edge",
+      "supportsSubcellPaint": true,
+      "sourceKind": "lpc_generated_runtime",
+      "runtimeDefault": false
+    }
+  ]
+}

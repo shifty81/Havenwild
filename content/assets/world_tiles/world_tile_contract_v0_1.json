@@ -1,0 +1,169 @@
+{
+  "schema": "havenwild.world_tile_contract.v0_1",
+  "updated": "2026-08-02T01:20:24+00:00",
+  "purpose": "LPC-backed strict 32x32 compatibility contract for client world-paint rendering.",
+  "canonicalTileSize": [
+    32,
+    32
+  ],
+  "runtimeCanonicalBakeSize": [
+    32,
+    32
+  ],
+  "supportedDonorGridSizes": [
+    [
+      32,
+      32
+    ],
+    [
+      16,
+      16
+    ],
+    [
+      8,
+      8
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "subcellMasks": [
+    {
+      "id": "subcell_16",
+      "cellSize": [
+        16,
+        16
+      ],
+      "grid": [
+        2,
+        2
+      ],
+      "purpose": "quarter-cell painting"
+    },
+    {
+      "id": "subcell_8",
+      "cellSize": [
+        8,
+        8
+      ],
+      "grid": [
+        4,
+        4
+      ],
+      "purpose": "sixteenth-cell painting"
+    },
+    {
+      "id": "subcell_4",
+      "cellSize": [
+        4,
+        4
+      ],
+      "grid": [
+        8,
+        8
+      ],
+      "purpose": "fine mask painting"
+    }
+  ],
+  "environmentFamiliesV1": [
+    "sand",
+    "water",
+    "cave",
+    "paved_brick",
+    "wood_plank"
+  ],
+  "layerStackV1": [
+    {
+      "order": 0,
+      "id": "ground_base",
+      "authority": "semantic terrain material",
+      "rendered": true
+    },
+    {
+      "order": 10,
+      "id": "water_base",
+      "authority": "semantic water material",
+      "rendered": true
+    },
+    {
+      "order": 20,
+      "id": "ground_transition_fringe",
+      "authority": "terrain boundary fringe",
+      "rendered": true
+    },
+    {
+      "order": 30,
+      "id": "water_surface_fx",
+      "authority": "water overlays and foam",
+      "rendered": true
+    },
+    {
+      "order": 40,
+      "id": "cave_base",
+      "authority": "cave floor material",
+      "rendered": true
+    },
+    {
+      "order": 50,
+      "id": "cave_wall_face",
+      "authority": "cave wall edge material",
+      "rendered": true
+    },
+    {
+      "order": 60,
+      "id": "town_surface",
+      "authority": "town and paved material",
+      "rendered": true
+    },
+    {
+      "order": 70,
+      "id": "indoor_floor",
+      "authority": "wood and interior floor material",
+      "rendered": true
+    },
+    {
+      "order": 80,
+      "id": "debris_overlay",
+      "authority": "small terrain detail overlay",
+      "rendered": true
+    },
+    {
+      "order": 90,
+      "id": "collision_footprint",
+      "authority": "non-rendering collision mask",
+      "rendered": false
+    },
+    {
+      "order": 100,
+      "id": "occlusion_fade_mask",
+      "authority": "non-rendering fade mask",
+      "rendered": false
+    },
+    {
+      "order": 110,
+      "id": "dev_overlay",
+      "authority": "editor visualization overlay",
+      "rendered": false
+    }
+  ],
+  "brushModesV1": [
+    "cell",
+    "subcell",
+    "line",
+    "rectangle",
+    "fill"
+  ],
+  "namingRules": {
+    "baseTilePattern": "{family}_{layer}_{variant}_32x32",
+    "transitionPattern": "{family}_{role}_{mask}_32x32",
+    "overlayPattern": "{family}_{layer}_{variant}_overlay_32x32",
+    "strictCase": "lower_snake_case",
+    "allowedSuffix": "_32x32"
+  },
+  "multiplayerRules": {
+    "storeSemanticMaterial": true,
+    "doNotStoreAtlasRectAsAuthority": true,
+    "resolveOnClientFromManifest": true
+  }
+}

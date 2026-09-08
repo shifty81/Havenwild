@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.world_paint_render_cache_contract.schema.v0_1",
+  "title": "Havenwild World Paint Render Cache Contract",
+  "type": "object",
+  "required": ["schema", "version", "purpose", "cacheDocument", "sourceInputs", "authoritativeBoundary", "sceneEntryFields", "validationRules"],
+  "properties": {
+    "schema": { "const": "havenwild.world_paint_render_cache_contract.v0.1" },
+    "version": { "type": "integer", "minimum": 1 },
+    "purpose": { "type": "string" },
+    "cacheDocument": { "type": "string" },
+    "sourceInputs": {
+      "type": "object",
+      "required": ["materialState", "atlasManifest", "atlasTexture"],
+      "properties": {
+        "materialState": { "type": "string" },
+        "atlasManifest": { "type": "string" },
+        "atlasTexture": { "type": "string" }
+      }
+    },
+    "authoritativeBoundary": {
+      "type": "object",
+      "required": ["authoritative", "derivedCache", "rule"],
+      "properties": {
+        "authoritative": { "type": "array", "items": { "type": "string" } },
+        "derivedCache": { "type": "array", "items": { "type": "string" } },
+        "rule": { "type": "string" }
+      }
+    },
+    "sceneEntryFields": { "type": "array", "items": { "type": "string" } },
+    "validationRules": { "type": "array", "items": { "type": "string" } }
+  }
+}

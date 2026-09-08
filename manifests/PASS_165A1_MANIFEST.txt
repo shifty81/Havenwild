@@ -1,0 +1,6 @@
+PASS 165A1 - CLIPPY UNUSED PARENTHESES FIX
+Base: Havenwild Pass 165A Live Frontend Shell
+
+OVERWRITE crates/haven_game/src/client_frontend.rs
+ADD docs/patch/PASS_165A1_CLIPPY_UNUSED_PARENS_FIX.md
+ADD manifests/PASS_165A1_MANIFEST.txt

@@ -1,0 +1,13 @@
+PASS 166D — Production HUD Asset Integration
+Base lineage: Pass 166C
+Package type: overwrite-capable incremental patch
+
+ADD content/ui/hud/vitals_frame.png
+ADD content/ui/hud/hotbar_frame.png
+ADD content/ui/hud/minimap_frame.png
+OVERWRITE crates/haven_game/src/runtime_assets.rs
+OVERWRITE crates/haven_game/src/game_bootstrap.rs
+OVERWRITE crates/haven_game/src/main.rs
+OVERWRITE crates/haven_game/src/runtime_hud.rs
+ADD docs/patch/PASS_166D_PRODUCTION_HUD_ASSET_INTEGRATION.md
+ADD manifests/PASS_166D_MANIFEST.txt

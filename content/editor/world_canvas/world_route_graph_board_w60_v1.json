@@ -1,0 +1,34 @@
+{
+  "schema": "havenwild.world_route_graph_board.v1",
+  "pass": "167Z109W60",
+  "authority": "World Routes as synchronized overworld spatial map plus scene-link board",
+  "layout": {
+    "overworldSpatialMap": "left",
+    "sceneYarnBoard": "right",
+    "sharedSelection": true,
+    "infiniteBoardTarget": true
+  },
+  "nodeKinds": [
+    "overworld_location",
+    "exterior_scene",
+    "interior_scene",
+    "cave_scene",
+    "harbor",
+    "generated_or_conditional_scene_target"
+  ],
+  "linkSemantics": [
+    "physical_transition",
+    "bidirectional_door",
+    "one_way",
+    "travel_route",
+    "conditional_generated"
+  ],
+  "tooling": {
+    "inspect": true,
+    "select": true,
+    "pan": true,
+    "moveSceneCardWithoutChangingWorldCoordinates": true,
+    "link": true
+  },
+  "purpose": "Map scenes to the overworld and inspect/edit their transition topology without conflating route topology with world-pixel authoring."
+}

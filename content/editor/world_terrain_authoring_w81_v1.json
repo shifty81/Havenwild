@@ -1,0 +1,29 @@
+{
+  "schema": "havenwild.world.terrain_authoring_w81.v1",
+  "pass": "167Z109W81",
+  "reference": "https://opengameart.org/content/lpc-terrains",
+  "tooltipAuthority": {
+    "drawPhase": "final_editor_overlay",
+    "initialMigratedSurfaces": [
+      "tool_rail",
+      "layer_rail",
+      "terrain_material_browser",
+      "global_settings"
+    ],
+    "legacyInlineToolTooltipForbidden": true
+  },
+  "terrainCatalog": {
+    "source": "content/terrain/havenwild_terrain_standard_v1.json",
+    "minimumMaterials": 34,
+    "hardCodedTwelvePaletteIsNotCatalogAuthority": true,
+    "unsupportedPaintingPolicy": "visible_and_status_labeled_until_stable_material_identity"
+  },
+  "structuralBoundary": {
+    "horizontalTerrainTransitionAcrossDifferentStructuralLevels": false,
+    "upperSurfaceContinuesUnderCrest": true
+  },
+  "pixelBridge": {
+    "missingGlobalSurfaceRectangle": "fall_back_to_scene_local_bounds"
+  },
+  "visualTarget": "continuous LPC illustrated landscape; semantic materials paint, exact authored tuple when available, unsupported fail closed"
+}

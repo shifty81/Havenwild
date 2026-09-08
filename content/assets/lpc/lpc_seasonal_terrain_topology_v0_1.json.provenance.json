@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.generated.provenance.v1",
+  "generator_id": "havenwild.generated.03.lpc_seasonal_terrain_topology_v0_1_json",
+  "generator_version": 1,
+  "schema_version": 1,
+  "generator": "tools/automation/terrain/Build-LpcSeasonalTerrainTopologyV106.py",
+  "source_lock": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "output": "content/assets/lpc/lpc_seasonal_terrain_topology_v0_1.json",
+  "output_sha256": "f099edfb052f6d6b1be23fdee30a1de1a5722ac1d9ae0baa160aac7b9497431b",
+  "inputs": {
+    "content/assets/intake/lpc_source_lock_v0_1.json": "4d42abca240daff584d09cc80e0da422d2216a4f6a6cf726b2482600bbff2f2c"
+  },
+  "generated_at_utc": "2026-07-23T14:40:31.374223+00:00",
+  "atomic_write_required": true
+}

@@ -1,0 +1,182 @@
+{
+  "schema": "havenwild.island_preview_index.v002",
+  "world_seed": 1337,
+  "minimum_island_gap_px": 120,
+  "canvas_size_px": [
+    1800,
+    1200
+  ],
+  "archipelago_preview": "content/worldgen/island_previews/archipelago.png",
+  "islands": [
+    {
+      "landmass_id": 0,
+      "name": "Alderreach",
+      "scene_cells": 40,
+      "source_tile_size": [
+        768,
+        320
+      ],
+      "preview_bounds_px": [
+        548,
+        385,
+        704,
+        430
+      ],
+      "preview_png": "content/worldgen/island_previews/alderreach.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 1,
+      "name": "Northwatch Isle",
+      "scene_cells": 2,
+      "source_tile_size": [
+        192,
+        64
+      ],
+      "preview_bounds_px": [
+        1373,
+        510,
+        190,
+        82
+      ],
+      "preview_png": "content/worldgen/island_previews/northwatch_isle.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 2,
+      "name": "Gullmere",
+      "scene_cells": 4,
+      "source_tile_size": [
+        192,
+        128
+      ],
+      "preview_bounds_px": [
+        228,
+        596,
+        190,
+        164
+      ],
+      "preview_png": "content/worldgen/island_previews/gullmere.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 3,
+      "name": "Sunbreak Key",
+      "scene_cells": 2,
+      "source_tile_size": [
+        192,
+        64
+      ],
+      "preview_bounds_px": [
+        695,
+        155,
+        190,
+        82
+      ],
+      "preview_png": "content/worldgen/island_previews/sunbreak_key.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 4,
+      "name": "Amber Shoal",
+      "scene_cells": 4,
+      "source_tile_size": [
+        192,
+        128
+      ],
+      "preview_bounds_px": [
+        231,
+        294,
+        190,
+        164
+      ],
+      "preview_png": "content/worldgen/island_previews/amber_shoal.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 5,
+      "name": "Southfen Isle",
+      "scene_cells": 2,
+      "source_tile_size": [
+        192,
+        64
+      ],
+      "preview_bounds_px": [
+        816,
+        973,
+        190,
+        82
+      ],
+      "preview_png": "content/worldgen/island_previews/southfen_isle.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 6,
+      "name": "Lowmire Cay",
+      "scene_cells": 2,
+      "source_tile_size": [
+        192,
+        64
+      ],
+      "preview_bounds_px": [
+        1029,
+        170,
+        190,
+        82
+      ],
+      "preview_png": "content/worldgen/island_previews/lowmire_cay.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 7,
+      "name": "Stonewake",
+      "scene_cells": 4,
+      "source_tile_size": [
+        192,
+        128
+      ],
+      "preview_bounds_px": [
+        1380,
+        727,
+        190,
+        164
+      ],
+      "preview_png": "content/worldgen/island_previews/stonewake.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 8,
+      "name": "Mistbarrow",
+      "scene_cells": 2,
+      "source_tile_size": [
+        192,
+        64
+      ],
+      "preview_bounds_px": [
+        502,
+        954,
+        190,
+        82
+      ],
+      "preview_png": "content/worldgen/island_previews/mistbarrow.png",
+      "phase": "seeded_structural_grass_coast_only"
+    },
+    {
+      "landmass_id": 9,
+      "name": "Brineglass",
+      "scene_cells": 1,
+      "source_tile_size": [
+        96,
+        64
+      ],
+      "preview_bounds_px": [
+        1389,
+        302,
+        95,
+        82
+      ],
+      "preview_png": "content/worldgen/island_previews/brineglass.png",
+      "phase": "seeded_structural_grass_coast_only"
+    }
+  ]
+}

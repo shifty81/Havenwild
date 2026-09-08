@@ -1,0 +1,40 @@
+{
+  "schema": "havenwild.editor.world_scene_convergence.r41.v1",
+  "pass": "167Z109W81R41",
+  "rule": "Scenes are indexed authoring views over stable regions/partitions of the same persistent world authority.",
+  "sceneBrowserGroups": [
+    "world_scenes",
+    "interiors",
+    "buildings",
+    "caves",
+    "dungeons",
+    "templates",
+    "authored",
+    "generated"
+  ],
+  "operations": [
+    "open",
+    "open_in_scene_studio",
+    "locate_in_world",
+    "duplicate",
+    "validate",
+    "properties"
+  ],
+  "referenceIntegrity": {
+    "validateBeforeDestructiveEdit": true,
+    "checks": [
+      "inbound_scene_links",
+      "dangling_outbound_links",
+      "world_assignment_target",
+      "stable_region_identity",
+      "duplicate_scene_identity"
+    ],
+    "locateInWorld": true
+  },
+  "stableRegionIdentity": {
+    "schema": "world-region:{worldSeedHex}:landmass:{landmassId}:{regionX}:{regionY}",
+    "authority": "ProductionWorldRegionKey",
+    "legacyAdapter": "Scene rectangle assignments derive the same stable region identity from world seed + landmass/grid position; no new authored Scene should depend on preview pixels as identity.",
+    "offWorldRule": "Interiors/caves without an overworld grid location keep a stable ProjectSceneId and are explicitly off-world rather than receiving fabricated coordinates."
+  }
+}

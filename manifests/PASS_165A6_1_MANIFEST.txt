@@ -1,0 +1,3 @@
+OVERWRITE crates/haven_game/src/client_frontend.rs
+ADD docs/patch/PASS_165A6_1_SETTINGS_CLIPPY_REPAIR.md
+ADD manifests/PASS_165A6_1_MANIFEST.txt

@@ -1,0 +1,562 @@
+{
+  "schema": "havenwild.building_recipe.v1",
+  "id": "havenwild.estate.starter_cottage",
+  "version": "1.6.0-w57k10",
+  "label": "Estate Starter Cottage",
+  "classification": {
+    "kind": "house",
+    "diagnosticOnly": false,
+    "tags": [
+      "estate",
+      "starter_cottage",
+      "two_room",
+      "exact_frontage_candidate",
+      "w54f",
+      "two_room_shell_reconstruction",
+      "w54g",
+      "interior_visibility_scoped",
+      "closed_door_defaults",
+      "w57a",
+      "canonical_exterior_mapping",
+      "architectural_socketed_roof",
+      "source_example_acceptance",
+      "linked_enclosed_interior",
+      "void_backed_interior",
+      "w57e",
+      "w57l",
+      "single_source_authored_gable",
+      "overhung_9x9_architectural_envelope",
+      "wall_body_plus_cutaway_presentation",
+      "w57k7",
+      "open_plan_linked_interior",
+      "w57k8",
+      "front_gable_infill",
+      "reserved_entry_circulation",
+      "w57k9",
+      "linked_interior_depth_decoupled",
+      "pixel_chunk_authoring_ready",
+      "w57k10",
+      "certification_house",
+      "continuous_gable_base_edges",
+      "building_composite_authoring_pilot"
+    ]
+  },
+  "footprint": [
+    9,
+    9
+  ],
+  "defaultLevel": 0,
+  "architecturalSockets": [
+    {
+      "id": "roof_wall_plate",
+      "pixel": [
+        144,
+        192
+      ]
+    },
+    {
+      "id": "front_door_threshold",
+      "pixel": [
+        144,
+        288
+      ]
+    },
+    {
+      "id": "front_window_w_sill",
+      "pixel": [
+        80,
+        288
+      ]
+    },
+    {
+      "id": "front_window_e_sill",
+      "pixel": [
+        208,
+        288
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "level": 0,
+      "id": "ground",
+      "label": "Ground Floor",
+      "bounds": [
+        0,
+        0,
+        9,
+        9
+      ],
+      "floorFills": [
+        {
+          "assetId": "floor_wood_herringbone_light",
+          "rect": [
+            1,
+            1,
+            7,
+            7
+          ]
+        }
+      ],
+      "wallRuns": [
+        {
+          "id": "gable_fill_peak",
+          "edge": "interior",
+          "start": [
+            4,
+            3
+          ],
+          "length": 1,
+          "visualAssetId": "wall_siding_plain_cream_gable_fill",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": false,
+          "occlusionGroup": "building.gable_infill.estate_cottage"
+        },
+        {
+          "id": "gable_fill_mid",
+          "edge": "interior",
+          "start": [
+            3,
+            4
+          ],
+          "length": 3,
+          "visualAssetId": "wall_siding_plain_cream_gable_fill",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": false,
+          "occlusionGroup": "building.gable_infill.estate_cottage"
+        },
+        {
+          "id": "gable_fill_base_left",
+          "edge": "interior",
+          "start": [
+            2,
+            5
+          ],
+          "length": 1,
+          "visualAssetId": "wall_siding_plain_cream_gable_fill_left",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": false,
+          "occlusionGroup": "building.gable_infill.estate_cottage"
+        },
+        {
+          "id": "gable_fill_base",
+          "edge": "interior",
+          "start": [
+            3,
+            5
+          ],
+          "length": 3,
+          "visualAssetId": "wall_siding_plain_cream_gable_fill",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": false,
+          "occlusionGroup": "building.gable_infill.estate_cottage"
+        },
+        {
+          "id": "gable_fill_base_right",
+          "edge": "interior",
+          "start": [
+            6,
+            5
+          ],
+          "length": 1,
+          "visualAssetId": "wall_siding_plain_cream_gable_fill_right",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": false,
+          "occlusionGroup": "building.gable_infill.estate_cottage"
+        },
+        {
+          "id": "north",
+          "edge": "north",
+          "start": [
+            2,
+            4
+          ],
+          "length": 5,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_rear.estate_cottage"
+        },
+        {
+          "id": "east",
+          "edge": "east",
+          "start": [
+            6,
+            4
+          ],
+          "length": 5,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_side_east.estate_cottage"
+        },
+        {
+          "id": "south_left",
+          "edge": "south",
+          "start": [
+            2,
+            8
+          ],
+          "length": 1,
+          "visualAssetId": "wall_siding_plain_cream_front_left",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_front.estate_cottage"
+        },
+        {
+          "id": "south_repeat",
+          "edge": "south",
+          "start": [
+            3,
+            8
+          ],
+          "length": 3,
+          "visualAssetId": "wall_siding_plain_cream_front_repeat",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_front.estate_cottage"
+        },
+        {
+          "id": "south_right",
+          "edge": "south",
+          "start": [
+            6,
+            8
+          ],
+          "length": 1,
+          "visualAssetId": "wall_siding_plain_cream_front_right",
+          "visualStatus": "exact_candidate",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_front.estate_cottage"
+        },
+        {
+          "id": "west",
+          "edge": "west",
+          "start": [
+            2,
+            4
+          ],
+          "length": 5,
+          "visualAssetId": null,
+          "visualStatus": "deferred_exact_facing",
+          "blocksMovement": true,
+          "occlusionGroup": "building.wall_side_west.estate_cottage"
+        }
+      ],
+      "openings": [
+        {
+          "id": "front_door",
+          "kind": "door",
+          "edge": "south",
+          "tile": [
+            4,
+            8
+          ],
+          "assetId": "door_basic",
+          "state": "closed",
+          "headerAssetId": "wall_siding_plain_cream_door_header"
+        },
+        {
+          "id": "front_window_w",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            2,
+            8
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        },
+        {
+          "id": "front_window_e",
+          "kind": "window",
+          "edge": "south",
+          "tile": [
+            6,
+            8
+          ],
+          "assetId": "window_ornamental_tall",
+          "state": "day"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "bedroom",
+          "label": "Bedroom Nook",
+          "rect": [
+            1,
+            1,
+            7,
+            3
+          ],
+          "tags": [
+            "estate",
+            "starter_home",
+            "bedroom",
+            "sleeping",
+            "private_nook"
+          ]
+        },
+        {
+          "id": "main_room",
+          "label": "Living / Crafting / Cooking",
+          "rect": [
+            1,
+            4,
+            7,
+            4
+          ],
+          "tags": [
+            "estate",
+            "starter_home",
+            "living",
+            "crafting",
+            "cooking",
+            "storage",
+            "open_plan"
+          ]
+        }
+      ],
+      "furnishings": [
+        {
+          "id": "cottage_bed",
+          "assetId": "bed_basic",
+          "roomId": "bedroom",
+          "tile": [
+            1,
+            1
+          ],
+          "kind": "furniture",
+          "state": "made",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "sleep",
+              "purpose": "sleep",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cottage_bedroom_storage",
+          "assetId": "container_crate_wood_01",
+          "roomId": "bedroom",
+          "tile": [
+            7,
+            1
+          ],
+          "kind": "container",
+          "state": "closed",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "storage",
+              "purpose": "storage",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cottage_work_table",
+          "assetId": "table_basic",
+          "roomId": "main_room",
+          "tile": [
+            2,
+            5
+          ],
+          "kind": "workstation",
+          "state": "default",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "craft",
+              "purpose": "crafting_station",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cottage_chair",
+          "assetId": "chair_basic",
+          "roomId": "main_room",
+          "tile": [
+            2,
+            7
+          ],
+          "kind": "furniture",
+          "state": "default",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "seat",
+              "purpose": "sit",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cottage_hearth",
+          "assetId": "fixture_fireplace_cast_iron_01",
+          "roomId": "main_room",
+          "tile": [
+            7,
+            5
+          ],
+          "kind": "workstation",
+          "state": "lit",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "cook",
+              "purpose": "cooking_station",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cottage_main_storage",
+          "assetId": "container_crate_wood_01",
+          "roomId": "main_room",
+          "tile": [
+            7,
+            7
+          ],
+          "kind": "container",
+          "state": "closed",
+          "visualStatus": "exact_candidate",
+          "blocksNavigation": true,
+          "interactionSockets": [
+            {
+              "id": "storage",
+              "purpose": "storage",
+              "offset": [
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "navigation": {
+        "walkableRects": [
+          [
+            1,
+            1,
+            7,
+            7
+          ]
+        ],
+        "blockedTiles": [],
+        "protectedTiles": [
+          [
+            4,
+            8
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            2
+          ]
+        ]
+      }
+    }
+  ],
+  "connectors": [],
+  "roof": {
+    "level": 0,
+    "mode": "authored_module",
+    "family": "roof.gable_shingle_a.brown.shallow_7x4.front_gable_roofline_with_infill",
+    "rect": [
+      1,
+      2,
+      7,
+      4
+    ],
+    "occlusionGroup": "building.roof.estate_cottage",
+    "cameraLocalOcclusion": true,
+    "components": null,
+    "authoredModuleAssetId": null,
+    "authoredModules": [
+      {
+        "id": "main_gable",
+        "assetId": "roof_gable_shingle_brown_shallow_7x4_roofline",
+        "tile": [
+          4,
+          5
+        ],
+        "attachSocket": "roof_wall_plate",
+        "sourceSocketPx": [
+          112,
+          128
+        ]
+      }
+    ]
+  },
+  "cutawayGroups": [
+    {
+      "id": "building.roof.estate_cottage",
+      "visibilityRole": "roof_occluder",
+      "levels": [
+        0
+      ],
+      "cameraLocal": true
+    },
+    {
+      "id": "building.wall_front.estate_cottage",
+      "visibilityRole": "wall_occluder",
+      "levels": [
+        0
+      ],
+      "cameraLocal": true
+    }
+  ],
+  "persistence": {
+    "interiorPolicy": "linked_enclosed_scene",
+    "allLevelsAuthoritative": true,
+    "separateScene": true,
+    "portableInstanceIdentity": true,
+    "linkedInteriorSize": [
+      7,
+      9
+    ]
+  }
+}

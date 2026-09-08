@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.editor_command_routing.w60e22.v1",
+  "pass": "W60E22",
+  "menus": [
+    "File",
+    "Edit",
+    "View",
+    "Run",
+    "Help"
+  ],
+  "singleCommandAuthority": true,
+  "contextualEditCommands": [
+    "undo",
+    "redo",
+    "cut",
+    "copy",
+    "copy_merged",
+    "paste",
+    "duplicate",
+    "mirror_horizontal",
+    "mirror_vertical",
+    "promote_selection"
+  ],
+  "internalDuplicateApplicationTitle": false,
+  "capabilityTruth": "commands without a workspace adapter report unavailable instead of mutating a different authority"
+}

@@ -1,0 +1,9 @@
+[package]
+name = "haven_diagnostics"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+haven_identity = { path = "../haven_identity" }
+serde.workspace = true

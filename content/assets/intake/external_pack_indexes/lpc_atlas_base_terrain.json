@@ -1,0 +1,80 @@
+{
+  "schema": "havenwild.external_asset_pack_index.v0_1",
+  "generatedUtc": "2026-07-12T02:51:45.858860+00:00",
+  "pack": {
+    "id": "lpc_atlas_base_terrain",
+    "displayName": "LPC Base and Terrain Atlases",
+    "archiveName": "Atlas (1).zip",
+    "archiveSha256": "4b8d0030c4e5c18029a0298caf11c74d38eb10273ac44e364ef620b81bcaa5fd",
+    "externalRawRoot": "external://lpc_atlas_base_terrain",
+    "licenseStatus": "allowed_with_attribution",
+    "attribution": "CC-BY-SA 3.0 attribution list retained in Attribution.txt: Casper Nilsson, Daniel Eddeland, Johann CHARLOT, Skyler Robert Colladay, Lanea Zimmerman (Sharm), Stephen Challener (Redshrike), Charles Sanchez (CharlesGabriel), Manuel Riecke (MrBeast), Daniel Armstrong (HughSpectrum).",
+    "sourceUrl": "",
+    "rawFilesCommitted": false,
+    "rawFilesPackaged": false
+  },
+  "summary": {
+    "files": 3,
+    "images": 2,
+    "unreadableImages": 0,
+    "categoryCounts": {
+      "terrain": 1,
+      "unclassified": 1
+    }
+  },
+  "records": [
+    {
+      "relativePath": "Attribution.txt",
+      "extension": ".txt",
+      "sizeBytes": 2551,
+      "sha256": "d7e00ea3bb6e032ec7f0f749387fb66fc21c7dbd03c7d497d396f3caa787ad62",
+      "promotionState": "cataloged_source_only"
+    },
+    {
+      "relativePath": "base_out_atlas.png",
+      "extension": ".png",
+      "sizeBytes": 215612,
+      "sha256": "81a37fefd8d5e1ce72e6b82a51f494aaf3324ec526c10bb8c2cbd30afa7d943e",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "unclassified"
+      ],
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    },
+    {
+      "relativePath": "terrain_atlas.png",
+      "extension": ".png",
+      "sizeBytes": 336363,
+      "sha256": "139693a61792d7880e79d3f7dc8f868b3bde0eb525bdd936bde2e852ba9e24f9",
+      "promotionState": "cataloged_source_only",
+      "classes": [
+        "terrain"
+      ],
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "frameCount": 1,
+      "gridCandidates": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "likelySpriteSheet": true,
+      "likelyMultiTile": true
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "havenwild.universal_lpc_complete_visual_authority.v0_1",
+  "sourceLock": "content/assets/intake/universal_lpc_generator_source_lock_v0_1.json",
+  "sourceMount": "assets/source/licensed/universal_lpc_generator",
+  "completeRepositorySummary": "content/assets/lpc/universal_lpc_complete_repository_summary_v0_1.json",
+  "completeRepositoryIndex": "content/assets/lpc/universal_lpc_complete_repository_index_v0_1.json.gz",
+  "equipmentCatalog": "content/assets/lpc/universal_lpc_equipment_action_catalog_v0_1.json",
+  "rules": {
+    "characterVisualSource": "universal_lpc_generator",
+    "clothingVisualSource": "universal_lpc_generator",
+    "characterAnimationSource": "universal_lpc_generator",
+    "toolWeaponShieldVisualSource": "universal_lpc_generator",
+    "externalCharacterVisualsAllowed": false,
+    "projectAuthoredCharacterPixelsAllowed": false,
+    "generatedAtlasesAreDisposableCaches": true,
+    "sourcePathAndDefinitionRequired": true,
+    "exactCreditsRequired": true,
+    "creatorToolsWeaponsArmorAllowed": false,
+    "gameplayAcquisitionRequired": true
+  },
+  "productionCategories": [
+    "body",
+    "head",
+    "eyes",
+    "facial",
+    "hair",
+    "beards",
+    "hat",
+    "torso",
+    "arms",
+    "shoulders",
+    "legs",
+    "feet",
+    "dress",
+    "cape",
+    "backpack",
+    "neck",
+    "quiver",
+    "tools",
+    "weapon",
+    "shield"
+  ],
+  "equipmentIntegration": {
+    "definitionCount": 105,
+    "toolDefinitionCount": 8,
+    "weaponDefinitionCount": 97,
+    "shieldDefinitionCount": 63,
+    "layerOrdering": "sheet definition zPos",
+    "animationCompatibility": "sheet definition animations",
+    "bodyCompatibility": "sheet definition body-key source mapping",
+    "acquisition": [
+      "crafting",
+      "shops",
+      "loot",
+      "quests",
+      "professions"
+    ]
+  }
+}

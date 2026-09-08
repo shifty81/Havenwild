@@ -1,0 +1,35 @@
+{
+  "schema": "havenwild.worldgen.v7_tile_lane_isolation_contract.v0_1",
+  "version": 1,
+  "laneId": "lpc_terrain_v7",
+  "styleFamily": "lpc_terrain_v7_island_v1",
+  "purpose": "Keep the complete V7 terrain lane pixel-pure and independently certifiable while sharing topology policy with other style packs.",
+  "allowedSourceRoot": "content/assets/lpc/source/lpc-terrains-v7",
+  "allowedSourceFiles": [
+    "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png",
+    "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.tsx",
+    "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+    "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.tsx",
+    "content/assets/lpc/source/lpc-terrains-v7/CREDITS-terrain.txt"
+  ],
+  "generatedOutputs": [
+    "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+    "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json"
+  ],
+  "generator": "tools/automation/terrain/Build-LpcMappedTerrainV7.py",
+  "forbiddenSourceTokens": [
+    "assets/source/licensed/lpc_revised",
+    "terrain_summer.png",
+    "cliff_summer.png",
+    "common_base_terrain_32",
+    "elizawy_lpc_revised"
+  ],
+  "rules": [
+    "Every pixel in the generated V7 atlas must originate from terrain-map-v7.png or terrain-v7.png.",
+    "Topology masks and shape identifiers may be shared with other style packs; source rectangles and source pixels may not be shared.",
+    "V7 world generation must not emit WetSand until a V7-authored wet-sand role exists; coastlines use Sand into Water_Shallows_Sand.",
+    "V7 families may not fall back to ElizaWy terrain, seasonal terrain, common-base terrain, or legacy mixed terrain.",
+    "The current mainland mixed integration is not part of the V7 lane and must remain labeled legacy_mixed until replaced."
+  ],
+  "certificationState": "isolated_pending_live_visual_certification"
+}

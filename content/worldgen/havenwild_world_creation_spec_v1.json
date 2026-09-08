@@ -1,0 +1,115 @@
+{
+  "schema": "havenwild.world_creation_spec.v1",
+  "id": "havenwild.production_world_creation.v1",
+  "authority": "crates/haven_world/src/world_creation.rs",
+  "outdoorWorld": {
+    "mode": "continuous_chunk_streamed_overworld",
+    "chunkSizeTiles": 64,
+    "tileSizePixels": 32,
+    "willowmereRequired": true,
+    "staticPlayerFarmsteadGenerated": false,
+    "playerBuildingOutsideProtectedZones": true,
+    "sceneTransitionsReservedFor": [
+      "interiors",
+      "caves",
+      "dungeons",
+      "special_enclosed_spaces"
+    ]
+  },
+  "sizes": [
+    { "id": "compact", "tiles": [2048, 2048], "chunks": [32, 32] },
+    { "id": "standard", "tiles": [3072, 3072], "chunks": [48, 48], "default": true },
+    { "id": "large", "tiles": [4096, 4096], "chunks": [64, 64] },
+    { "id": "huge", "tiles": [6144, 6144], "chunks": [96, 96] }
+  ],
+  "landformPresets": [
+    "balanced_continent",
+    "grand_island",
+    "archipelago",
+    "riverlands",
+    "broken_coast",
+    "highlands",
+    "inland_basin"
+  ],
+  "waterDomains": [
+    {
+      "id": "marine",
+      "playerFacingName": "Coastal Water",
+      "uses": ["open_sea", "coast", "island_channel", "harbor", "saltwater_fishing"]
+    },
+    {
+      "id": "freshwater",
+      "playerFacingName": "Inland Water",
+      "uses": ["river", "stream", "lake", "pond", "spring", "freshwater_fishing"]
+    },
+    {
+      "id": "brackish",
+      "playerFacingName": "Estuary Water",
+      "uses": ["river_mouth", "estuary", "salt_marsh", "coastal_wetland"]
+    }
+  ],
+  "hydrologyPipeline": [
+    "elevation_field",
+    "marine_basin",
+    "watershed_and_flow_accumulation",
+    "river_sources_and_tributaries",
+    "lake_basin_fill_and_spill",
+    "river_width_from_flow",
+    "freshwater_banks_and_shallows",
+    "marine_coast_and_depth_bands",
+    "estuaries_and_brackish_zones",
+    "waterfalls_from_elevation_drop",
+    "topology_and_visual_validation"
+  ],
+  "primaryBiomes": [
+    "meadow",
+    "mixed_woodland",
+    "deep_forest",
+    "river_valley",
+    "wetland",
+    "coastal_lowland",
+    "rocky_highlands",
+    "alpine_upland"
+  ],
+  "specialBiomes": [
+    "moorland",
+    "bog",
+    "blossom_grove",
+    "ancient_forest",
+    "mushroom_woodland",
+    "salt_marsh",
+    "stony_coast",
+    "fertile_basin",
+    "windy_plateau",
+    "river_delta"
+  ],
+  "generationOrder": [
+    "landform",
+    "marine_and_inland_water",
+    "willowmere_authored_framework",
+    "required_roads_and_civic_infrastructure",
+    "protected_landmarks_and_settlement_candidates",
+    "biome_assignment",
+    "elizawy_tree_masses_and_clearances",
+    "individual_tree_placement",
+    "bushes_rocks_mushrooms_flowers_reeds_and_ground_plants",
+    "wildlife_and_resource_habitats",
+    "validation_and_chunk_baseline"
+  ],
+  "menuPages": [
+    "identity",
+    "land",
+    "water",
+    "biomes",
+    "settlements",
+    "relationships_and_family",
+    "review"
+  ],
+  "runtimeStatus": {
+    "worldCreationWizard": "active_foundation",
+    "settingsPersistence": "active",
+    "finiteWrappedTopologyPersistence": "active",
+    "fullHydrologyAndBiomeRealization": "next_production_lane",
+    "hostWorldBuilder": "specified_not_yet_complete"
+  }
+}

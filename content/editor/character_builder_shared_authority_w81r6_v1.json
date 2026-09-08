@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.editor.character_builder_shared_authority.w81r6.v1",
+  "pass": "167Z109W81R6",
+  "authority": "crates/haven_assets/src/universal_lpc_character_recipe.rs",
+  "consumers": [
+    "apps/haven_editor_native/src/app/character_studio.rs",
+    "crates/haven_game/src/character_selection_ui.rs",
+    "crates/haven_assets/src/universal_lpc_npc_generation.rs"
+  ],
+  "identity": {
+    "sex": ["Male", "Female"],
+    "ageGroups": ["Child", "Teen", "Adult", "Elder"],
+    "requiredFoundation": ["body", "head"],
+    "ageChangesFoundation": true,
+    "headwearCannotReplaceHead": true
+  },
+  "categories": [
+    "body", "head", "hair", "eyebrows", "eyes", "nose", "ears", "beards",
+    "torso", "legs", "feet", "hat", "back", "weapon", "shield", "tools", "wings", "tail"
+  ],
+  "editorUx": {
+    "directCategoryMenu": true,
+    "previousNextCategoryConvenience": true,
+    "categorySelectionRoutesToChoices": true,
+    "foundationSurvivesClearRandomizeAndIdentityChanges": true
+  },
+  "runtimePolicy": {
+    "gameCreatorUsesSharedCategoriesAndIdentityFilter": true,
+    "npcGenerationUsesSharedAgeBodyHeadMapping": true,
+    "exactDefinitionZPosResolverStillRequiredForFinalCompositionParity": true
+  }
+}

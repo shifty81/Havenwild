@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.regional_settlement_cave_survival_direction.v1",
+  "status": "locked_downstream_direction_not_w60_runtime_complete",
+  "sourceCheckpoint": "167Z109W60",
+  "regionalScale": {
+    "minimumCityEligibleRegionChunks": [100, 100],
+    "cityNeedNotFillEveryChunk": true,
+    "villagesAndEncampmentsMayGenerateBetweenCities": true,
+    "authoredSceneBankFeedsPcgAsSemanticExemplars": true
+  },
+  "mountainsAndCaves": {
+    "mountainsUsuallyContainNaturalCave": true,
+    "naturalCaveTargetProbability": 0.9,
+    "solidMountainBreakthroughAfterMiningProgression": true,
+    "breakthroughTechniqueConsumesNearlyAllStamina": true,
+    "playerCreatedCaveBecomesPersistentWorldLocation": true,
+    "existingAndExcavatedCavesMayBeSettledAndBuiltIn": true,
+    "cavesProvideWeatherShelter": true
+  },
+  "survival": {
+    "weatherCanCauseHealthDamageOverTime": true,
+    "sicknessSystemTarget": true,
+    "exposureInputs": ["temperature", "wetness", "wind", "shelter", "clothing", "exertion", "duration"],
+    "caveAndBuildingShelterHaveGameplayMeaning": true
+  },
+  "authoringIntegration": {
+    "worldAndSceneCanvasCanHandAuthorExemplars": true,
+    "pixelAndCollisionCorrectionsCanBePromotedToPcg": true,
+    "pcgGeneratedAreasCanBeRefinedWithoutDestroyingSemanticAuthority": true
+  }
+}

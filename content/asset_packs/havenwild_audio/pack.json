@@ -1,0 +1,97 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "havenwild_audio",
+  "display_name": "Havenwild Audio",
+  "version": "0.2.0",
+  "license": {
+    "license_id": "project-authored",
+    "attribution": [],
+    "commercial_use": true,
+    "redistribution": true,
+    "production_approved": true
+  },
+  "production_enabled": true,
+  "dependencies": [
+    {
+      "pack_id": "havenwild_core",
+      "version_requirement": null,
+      "optional": false
+    }
+  ],
+  "priority": 75,
+  "sources": [
+    {
+      "id": "audio_source",
+      "kind": "audio",
+      "path": "content/audio",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "music_source",
+      "kind": "audio",
+      "path": "content/audio/music",
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "audio_contract",
+      "kind": "sidecar",
+      "path": "content/schemas/assets/category_metadata_contracts_v1.json",
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "assets": [
+    {
+      "id": "sound_catalog",
+      "category": "audio",
+      "semantic_id": "audio.catalog.default",
+      "source_id": "audio_source",
+      "variants": [],
+      "tags": [
+        "audio",
+        "sound"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "music_catalog",
+      "category": "music",
+      "semantic_id": "music.catalog.default",
+      "source_id": "music_source",
+      "variants": [],
+      "tags": [
+        "audio",
+        "music"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "audio_event_contract",
+      "category": "audio",
+      "semantic_id": "audio.contract.events",
+      "source_id": "audio_contract",
+      "variants": [],
+      "tags": [
+        "audio",
+        "events",
+        "contract"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "music_event_contract",
+      "category": "music",
+      "semantic_id": "music.contract.events",
+      "source_id": "audio_contract",
+      "variants": [],
+      "tags": [
+        "music",
+        "events",
+        "contract"
+      ],
+      "metadata": {}
+    }
+  ]
+}

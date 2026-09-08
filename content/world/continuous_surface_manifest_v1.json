@@ -1,0 +1,63 @@
+{
+  "schema": "havenwild.continuous_surface.v1",
+  "chunk_size_tiles": 64,
+  "active_radius_chunks": 1,
+  "preload_radius_chunks": 2,
+  "exterior_bindings": [
+    {
+      "scene_id": "farmstead",
+      "chunk": {
+        "x": 0,
+        "y": 0
+      },
+      "authored_override": true
+    },
+    {
+      "scene_id": "north_road",
+      "chunk": {
+        "x": 0,
+        "y": -1
+      },
+      "authored_override": true
+    },
+    {
+      "scene_id": "south_field",
+      "chunk": {
+        "x": 0,
+        "y": 1
+      },
+      "authored_override": true
+    },
+    {
+      "scene_id": "east_woods",
+      "chunk": {
+        "x": 1,
+        "y": 0
+      },
+      "authored_override": true
+    }
+  ],
+  "runtime_contract": {
+    "exterior_edge_transitions": "disabled_for_authored_surface_chunks",
+    "visible_transition_effect": false,
+    "scene_documents_reserved_for": [
+      "interiors",
+      "caves",
+      "mines",
+      "dungeons",
+      "instanced_ruins",
+      "dream_spaces",
+      "boss_arenas",
+      "tutorials",
+      "event_instances"
+    ],
+    "coordinate_authority": "global_world_tile_coordinates",
+    "active_window": "3x3_chunks",
+    "preload_window": "5x5_chunk_metadata_ring",
+    "authored_chunk_dimensions_tiles": [
+      96,
+      64
+    ],
+    "persistence": "global_position_plus_authored_chunk_overrides"
+  }
+}

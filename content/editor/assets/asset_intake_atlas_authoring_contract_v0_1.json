@@ -1,0 +1,49 @@
+{
+  "schema": "havenwild.editor.asset_intake_atlas_authoring.v0_1",
+  "pass": "53",
+  "status": "active",
+  "sourceIntake": {
+    "inbox": "assets/source/intake",
+    "projectOwned": "assets/source/original",
+    "acceptedFormats": ["png", "jpg", "jpeg"],
+    "scanCreatesDraftRecipes": true,
+    "rawThirdPartyQuarantineRemainsSeparate": true
+  },
+  "authoring": {
+    "explicitSourceSlice": true,
+    "pivotEditing": true,
+    "visualCollisionInteractionFootprints": true,
+    "runtimeTargetBinding": ["tile", "object"],
+    "manualRustLookupEditsRequired": false
+  },
+  "promotionGate": {
+    "allowedLicenses": ["project_owned", "cc0", "cc_by", "third_party_approved"],
+    "blockedLicenses": ["unverified", "blocked"],
+    "explicitAcceptanceRequired": true,
+    "ccByAttributionRequired": true,
+    "approvedTargetMustBeUnique": true
+  },
+  "bake": {
+    "generator": "tools/automation/assets/Bake-AssetIntakeAtlasV66.py",
+    "deterministicOrder": "stable_id",
+    "packing": "stable_id_sorted_shelf",
+    "paddingPx": 2,
+    "edgeExtrudePx": 1,
+    "atlas": "assets/generated/user_imports/havenwild_intake_atlas_v0_1.png",
+    "manifest": "assets/generated/user_imports/havenwild_intake_atlas_v0_1.json"
+  },
+  "editor": {
+    "dedicatedIntakeTab": true,
+    "scanInbox": true,
+    "validateRecipe": true,
+    "bakeAndReload": true,
+    "manifestTimestampHotReload": true,
+    "paletteRefreshAfterReload": true
+  },
+  "seedProof": {
+    "stableId": "import/cave_entrance_project_generated",
+    "target": "object/cave_entrance",
+    "source": "assets/source/original/cave_entrance_96.png",
+    "runtimeBindingResolved": true
+  }
+}

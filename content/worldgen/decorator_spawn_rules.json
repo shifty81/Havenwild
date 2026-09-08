@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "decor": "flower_patch",
+      "tiles": [
+        "grass",
+        "tall_grass"
+      ],
+      "biomes": [
+        "temperate"
+      ],
+      "season_weights": {
+        "spring": 10,
+        "summer": 5,
+        "autumn": 1,
+        "winter": 0
+      },
+      "one_in": 9
+    },
+    {
+      "decor": "clover",
+      "tiles": [
+        "grass"
+      ],
+      "biomes": [
+        "temperate"
+      ],
+      "season_weights": {
+        "spring": 8,
+        "summer": 4,
+        "autumn": 2,
+        "winter": 0
+      },
+      "one_in": 13
+    },
+    {
+      "decor": "reeds",
+      "tiles": [
+        "wet_sand",
+        "pebble_shore",
+        "shallow_water"
+      ],
+      "biomes": [
+        "coastal",
+        "temperate"
+      ],
+      "near_water": true,
+      "one_in": 5
+    },
+    {
+      "decor": "shells",
+      "tiles": [
+        "sand",
+        "wet_sand",
+        "pebble_shore"
+      ],
+      "biomes": [
+        "coastal"
+      ],
+      "one_in": 7
+    },
+    {
+      "decor": "driftwood",
+      "tiles": [
+        "sand",
+        "wet_sand"
+      ],
+      "biomes": [
+        "coastal"
+      ],
+      "one_in": 19
+    },
+    {
+      "decor": "small_rock",
+      "tiles": [
+        "dirt",
+        "mountain_path",
+        "cave_floor"
+      ],
+      "biomes": [
+        "highlands",
+        "cave"
+      ],
+      "one_in": 8
+    },
+    {
+      "decor": "mushroom",
+      "tiles": [
+        "grass",
+        "tall_grass",
+        "cave_floor"
+      ],
+      "biomes": [
+        "temperate",
+        "cave"
+      ],
+      "season_weights": {
+        "spring": 2,
+        "summer": 1,
+        "autumn": 9,
+        "winter": 0
+      },
+      "one_in": 11
+    },
+    {
+      "decor": "cave_crystal",
+      "tiles": [
+        "cave_floor",
+        "cave_wall"
+      ],
+      "biomes": [
+        "cave"
+      ],
+      "one_in": 31
+    },
+    {
+      "decor": "foam",
+      "tiles": [
+        "shallow_water",
+        "water"
+      ],
+      "near_land": true,
+      "biomes": [
+        "coastal",
+        "temperate"
+      ],
+      "one_in": 3
+    },
+    {
+      "decor": "water_ripple",
+      "tiles": [
+        "water",
+        "shallow_water",
+        "deep_water"
+      ],
+      "one_in": 4
+    },
+    {
+      "decor": "leaf_litter",
+      "tiles": [
+        "grass",
+        "road",
+        "stone_path"
+      ],
+      "biomes": [
+        "temperate"
+      ],
+      "season_weights": {
+        "spring": 0,
+        "summer": 1,
+        "autumn": 10,
+        "winter": 1
+      },
+      "one_in": 6
+    },
+    {
+      "decor": "snow_drift",
+      "tiles": [
+        "grass",
+        "road",
+        "stone_path",
+        "sand"
+      ],
+      "season_weights": {
+        "spring": 0,
+        "summer": 0,
+        "autumn": 0,
+        "winter": 10
+      },
+      "one_in": 5
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.pass_checkpoint.v1",
+  "pass": "167Z109W42",
+  "date": "2026-08-13",
+  "title": "Published World Asset Authority",
+  "baseline": "167Z109W40",
+  "includes": ["167Z109W41A", "167Z109W42"],
+  "authority": "PublishedWorldAssetRegistry",
+  "publishedRecords": 35,
+  "publishedAliases": 30,
+  "migratedSceneCandidates": 29,
+  "remainingSceneBlockers": 12,
+  "primaryLegacyAdapters": 11,
+  "validation": {
+    "sourceProfile": "PASS",
+    "w40": "PASS",
+    "w40h1": "PASS",
+    "w40h2": "PASS",
+    "w40h3": "PASS",
+    "w41a": "PASS",
+    "w42": "PASS",
+    "windowsRustBuild": "PENDING_LOCAL_TOOLCHAIN"
+  },
+  "next": "167Z109W43 visual placeable certification and world asset acceptance scene"
+}

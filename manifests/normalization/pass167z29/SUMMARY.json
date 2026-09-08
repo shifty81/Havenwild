@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z29",
+  "title": "Editor Paint Isolation and Retained Terrain Activation",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Restricted machine-local World Paint render bindings to developer mode instead of normal gameplay.",
+    "Stopped persisted paint caches from disabling the retained direct-LPC terrain surface.",
+    "Prevented stale grass, sand, shallow-water, and ocean paint cells from overlaying regenerated semantic terrain in the production client.",
+    "Added regression tests for editor-only paint activation and retained-surface eligibility."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "cargo": "pending Windows workstation rerun",
+    "liveAcceptance": "verify FPS, pond contour, ocean shore, and absence of grass-in-water with F3 off"
+  },
+  "completeSourceCreated": false
+}

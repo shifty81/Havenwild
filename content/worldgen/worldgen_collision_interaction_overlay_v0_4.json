@@ -1,0 +1,833 @@
+{
+  "id": "worldgen_collision_interaction_overlay_v0_4",
+  "version": "0.4.0",
+  "kind": "collision_interaction_overlay_index",
+  "tileSize": [
+    32,
+    32
+  ],
+  "nonWalkableTileKinds": [
+    "Wall",
+    "Cliff",
+    "MountainRock",
+    "CaveWall",
+    "Water",
+    "ShallowWater",
+    "DeepWater"
+  ],
+  "scenes": [
+    {
+      "sceneId": "farmstead",
+      "sceneKind": "exterior",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 284,
+      "terrainBlockingCoverage": 0.1849,
+      "objectCollisionRects": [
+        {
+          "objectId": "home_tavern_mountain_entrance",
+          "assetId": "home_tavern_mountain_entrance",
+          "rect": [
+            21,
+            10,
+            6,
+            1
+          ]
+        },
+        {
+          "objectId": "outside_bar_stage_01",
+          "assetId": "home_outside_bar",
+          "rect": [
+            28,
+            18,
+            4,
+            1
+          ]
+        },
+        {
+          "objectId": "apple_tree_sample",
+          "assetId": "home_apple_tree_mature",
+          "rect": [
+            8,
+            18,
+            1,
+            1
+          ]
+        },
+        {
+          "objectId": "oak_tree_sample",
+          "assetId": "home_oak_tree_mature",
+          "rect": [
+            36,
+            17,
+            1,
+            1
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "home_tavern_mountain_entrance",
+          "interactionId": "enter_tavern",
+          "kind": "enter",
+          "rect": [
+            23,
+            10,
+            2,
+            1
+          ],
+          "targetTransition": "to_tavern_interior"
+        },
+        {
+          "objectId": "outside_bar_stage_01",
+          "interactionId": "serve_outside_bar",
+          "kind": "service",
+          "rect": [
+            28,
+            19,
+            4,
+            1
+          ],
+          "targetTransition": null
+        },
+        {
+          "objectId": "apple_tree_sample",
+          "interactionId": "harvest_apple_tree",
+          "kind": "harvest",
+          "rect": [
+            8,
+            18,
+            1,
+            1
+          ],
+          "targetTransition": null
+        },
+        {
+          "objectId": "oak_tree_sample",
+          "interactionId": "chop_oak_tree",
+          "kind": "harvest",
+          "rect": [
+            36,
+            17,
+            1,
+            1
+          ],
+          "targetTransition": null
+        }
+      ],
+      "fadeMasks": [
+        {
+          "objectId": "home_tavern_mountain_entrance",
+          "rect": [
+            21,
+            6,
+            6,
+            5
+          ],
+          "fadeRadiusTiles": 2
+        },
+        {
+          "objectId": "apple_tree_sample",
+          "rect": [
+            7,
+            14,
+            3,
+            5
+          ],
+          "fadeRadiusTiles": 2
+        },
+        {
+          "objectId": "oak_tree_sample",
+          "rect": [
+            35,
+            13,
+            3,
+            5
+          ],
+          "fadeRadiusTiles": 2
+        }
+      ],
+      "transitions": [
+        {
+          "id": "to_tavern_interior",
+          "rect": [
+            23,
+            10,
+            2,
+            1
+          ],
+          "toScene": "tavern_interior"
+        },
+        {
+          "id": "to_north_road",
+          "rect": [
+            23,
+            0,
+            3,
+            1
+          ],
+          "toScene": "north_road"
+        },
+        {
+          "id": "to_south_field",
+          "rect": [
+            23,
+            31,
+            3,
+            1
+          ],
+          "toScene": "south_field"
+        },
+        {
+          "id": "to_east_woods",
+          "rect": [
+            47,
+            20,
+            1,
+            5
+          ],
+          "toScene": "east_woods"
+        },
+        {
+          "id": "to_cave_mouth",
+          "rect": [
+            23,
+            5,
+            3,
+            1
+          ],
+          "toScene": "cave_mouth"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "player_default",
+          "tile": [
+            24,
+            24
+          ]
+        },
+        {
+          "id": "from_tavern",
+          "tile": [
+            24,
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "north_road",
+      "sceneKind": "exterior",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 0,
+      "terrainBlockingCoverage": 0.0,
+      "objectCollisionRects": [
+        {
+          "objectId": "city_waystone",
+          "assetId": "stone_signpost",
+          "rect": [
+            25,
+            14,
+            1,
+            1
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "city_waystone",
+          "interactionId": "read_city_waystone",
+          "kind": "read",
+          "rect": [
+            25,
+            14,
+            1,
+            1
+          ],
+          "targetTransition": null
+        }
+      ],
+      "fadeMasks": [],
+      "transitions": [
+        {
+          "id": "to_farmstead",
+          "rect": [
+            23,
+            31,
+            3,
+            1
+          ],
+          "toScene": "farmstead"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "from_farmstead",
+          "tile": [
+            24,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "south_field",
+      "sceneKind": "exterior",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 128,
+      "terrainBlockingCoverage": 0.0833,
+      "objectCollisionRects": [
+        {
+          "objectId": "small_greenhouse_marker",
+          "assetId": "greenhouse_stub",
+          "rect": [
+            30,
+            24,
+            8,
+            1
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "small_greenhouse_marker",
+          "interactionId": "enter_greenhouse_later",
+          "kind": "locked",
+          "rect": [
+            33,
+            24,
+            2,
+            1
+          ],
+          "targetTransition": null
+        }
+      ],
+      "fadeMasks": [
+        {
+          "objectId": "small_greenhouse_marker",
+          "rect": [
+            30,
+            19,
+            8,
+            6
+          ],
+          "fadeRadiusTiles": 2
+        }
+      ],
+      "transitions": [
+        {
+          "id": "to_farmstead",
+          "rect": [
+            23,
+            0,
+            3,
+            1
+          ],
+          "toScene": "farmstead"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "from_farmstead",
+          "tile": [
+            24,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "east_woods",
+      "sceneKind": "exterior",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 52,
+      "terrainBlockingCoverage": 0.0339,
+      "objectCollisionRects": [
+        {
+          "objectId": "forage_log_01",
+          "assetId": "fallen_log",
+          "rect": [
+            14,
+            17,
+            3,
+            1
+          ]
+        },
+        {
+          "objectId": "birch_tree_cluster_a",
+          "assetId": "home_birch_tree_mature",
+          "rect": [
+            21,
+            10,
+            1,
+            1
+          ]
+        },
+        {
+          "objectId": "special_old_growth_preview",
+          "assetId": "old_growth_landmark_tree",
+          "rect": [
+            38,
+            17,
+            2,
+            2
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "forage_log_01",
+          "interactionId": "forage_log_01",
+          "kind": "forage",
+          "rect": [
+            14,
+            17,
+            3,
+            1
+          ],
+          "targetTransition": null
+        }
+      ],
+      "fadeMasks": [
+        {
+          "objectId": "birch_tree_cluster_a",
+          "rect": [
+            20,
+            6,
+            3,
+            5
+          ],
+          "fadeRadiusTiles": 2
+        },
+        {
+          "objectId": "special_old_growth_preview",
+          "rect": [
+            37,
+            13,
+            5,
+            5
+          ],
+          "fadeRadiusTiles": 2
+        }
+      ],
+      "transitions": [
+        {
+          "id": "to_farmstead",
+          "rect": [
+            0,
+            14,
+            1,
+            5
+          ],
+          "toScene": "farmstead"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "from_farmstead",
+          "tile": [
+            1,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "cave_mouth",
+      "sceneKind": "exterior",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 611,
+      "terrainBlockingCoverage": 0.3978,
+      "objectCollisionRects": [
+        {
+          "objectId": "cave_entrance",
+          "assetId": "cave_mouth_entrance",
+          "rect": [
+            22,
+            14,
+            4,
+            1
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "cave_entrance",
+          "interactionId": "enter_cave_depths",
+          "kind": "enter",
+          "rect": [
+            22,
+            12,
+            4,
+            2
+          ],
+          "targetTransition": "to_cave_depths"
+        }
+      ],
+      "fadeMasks": [
+        {
+          "objectId": "cave_entrance",
+          "rect": [
+            21,
+            10,
+            6,
+            5
+          ],
+          "fadeRadiusTiles": 2
+        }
+      ],
+      "transitions": [
+        {
+          "id": "to_farmstead",
+          "rect": [
+            23,
+            31,
+            3,
+            1
+          ],
+          "toScene": "farmstead"
+        },
+        {
+          "id": "to_cave_depths",
+          "rect": [
+            22,
+            12,
+            4,
+            2
+          ],
+          "toScene": "cave_depths"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "from_farmstead",
+          "tile": [
+            24,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "tavern_interior",
+      "sceneKind": "interior",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 380,
+      "terrainBlockingCoverage": 0.2474,
+      "objectCollisionRects": [
+        {
+          "objectId": "main_bar_counter_stage_01",
+          "assetId": "bar_counter_stage_01",
+          "rect": [
+            5,
+            8,
+            12,
+            1
+          ]
+        },
+        {
+          "objectId": "starter_large_table",
+          "assetId": "large_table_six_seat",
+          "rect": [
+            20,
+            17,
+            6,
+            2
+          ]
+        },
+        {
+          "objectId": "kitchen_stove_stub",
+          "assetId": "stove_oven_2x3",
+          "rect": [
+            34,
+            10,
+            2,
+            1
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "main_bar_counter_stage_01",
+          "interactionId": "serve_bar",
+          "kind": "service",
+          "rect": [
+            5,
+            9,
+            12,
+            1
+          ],
+          "targetTransition": null
+        },
+        {
+          "objectId": "kitchen_stove_stub",
+          "interactionId": "cook",
+          "kind": "crafting_station",
+          "rect": [
+            34,
+            10,
+            2,
+            1
+          ],
+          "targetTransition": null
+        }
+      ],
+      "fadeMasks": [],
+      "transitions": [
+        {
+          "id": "to_farmstead",
+          "rect": [
+            22,
+            29,
+            4,
+            3
+          ],
+          "toScene": "farmstead"
+        },
+        {
+          "id": "to_cellar",
+          "rect": [
+            8,
+            20,
+            3,
+            2
+          ],
+          "toScene": "cellar"
+        },
+        {
+          "id": "to_guest_floor",
+          "rect": [
+            36,
+            6,
+            3,
+            2
+          ],
+          "toScene": "guest_floor"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "from_farmstead",
+          "tile": [
+            24,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "cellar",
+      "sceneKind": "cave",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 392,
+      "terrainBlockingCoverage": 0.2552,
+      "objectCollisionRects": [
+        {
+          "objectId": "aging_barrel_row_a",
+          "assetId": "aging_barrel_row",
+          "rect": [
+            8,
+            10,
+            8,
+            1
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "aging_barrel_row_a",
+          "interactionId": "manage_aging",
+          "kind": "storage_crafting",
+          "rect": [
+            8,
+            10,
+            8,
+            1
+          ],
+          "targetTransition": null
+        }
+      ],
+      "fadeMasks": [],
+      "transitions": [
+        {
+          "id": "to_tavern_interior",
+          "rect": [
+            21,
+            3,
+            6,
+            3
+          ],
+          "toScene": "tavern_interior"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "from_tavern",
+          "tile": [
+            24,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "guest_floor",
+      "sceneKind": "interior",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 556,
+      "terrainBlockingCoverage": 0.362,
+      "objectCollisionRects": [
+        {
+          "objectId": "starter_guest_bed_a",
+          "assetId": "guest_bed",
+          "rect": [
+            5,
+            7,
+            3,
+            1
+          ]
+        },
+        {
+          "objectId": "starter_guest_bed_b",
+          "assetId": "guest_bed",
+          "rect": [
+            21,
+            7,
+            3,
+            1
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "starter_guest_bed_a",
+          "interactionId": "rent_room_a",
+          "kind": "inn_service",
+          "rect": [
+            5,
+            7,
+            3,
+            1
+          ],
+          "targetTransition": null
+        },
+        {
+          "objectId": "starter_guest_bed_b",
+          "interactionId": "rent_room_b",
+          "kind": "inn_service",
+          "rect": [
+            21,
+            7,
+            3,
+            1
+          ],
+          "targetTransition": null
+        }
+      ],
+      "fadeMasks": [],
+      "transitions": [
+        {
+          "id": "to_tavern_interior",
+          "rect": [
+            22,
+            29,
+            4,
+            3
+          ],
+          "toScene": "tavern_interior"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "from_tavern",
+          "tile": [
+            24,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "sceneId": "cave_depths",
+      "sceneKind": "cave",
+      "sceneSize": [
+        48,
+        32
+      ],
+      "terrainBlockingCellCount": 540,
+      "terrainBlockingCoverage": 0.3516,
+      "objectCollisionRects": [
+        {
+          "objectId": "ore_node_copper_preview",
+          "assetId": "ore_node_copper",
+          "rect": [
+            12,
+            22,
+            1,
+            1
+          ]
+        }
+      ],
+      "interactionRects": [
+        {
+          "objectId": "ore_node_copper_preview",
+          "interactionId": "mine_copper",
+          "kind": "mine",
+          "rect": [
+            12,
+            22,
+            1,
+            1
+          ],
+          "targetTransition": null
+        }
+      ],
+      "fadeMasks": [],
+      "transitions": [
+        {
+          "id": "to_cave_mouth",
+          "rect": [
+            22,
+            29,
+            5,
+            3
+          ],
+          "toScene": "cave_mouth"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "from_cave_mouth",
+          "tile": [
+            24,
+            27
+          ]
+        }
+      ]
+    }
+  ]
+}

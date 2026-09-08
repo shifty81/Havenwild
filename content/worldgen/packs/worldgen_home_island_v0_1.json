@@ -1,0 +1,29 @@
+{
+  "id": "shifty.havenwild.worldgen.home_island.v0_1",
+  "name": "Home Island Worldgen Pack v0.1",
+  "version": "0.1.0",
+  "kind": "worldgen_asset_pack",
+  "masterManifest": "assets/generated/worldgen_v0_1/worldgen_asset_manifest_v0_1.json",
+  "runtimeBindings": "assets/generated/worldgen_v0_1/runtime_bindings/rust_tilekind_mapping_v0_1.json",
+  "biomeManifest": "assets/generated/worldgen_v0_1/home_island/home_island_biome_v0_1.json",
+  "sceneContracts": [
+    "content/worldgen/home_island_scene_contract_v0_1.json"
+  ],
+  "smokeTests": [
+    "assets/generated/worldgen_v0_1/home_island/home_island_worldgen_smoke_test_v0_1.json"
+  ],
+  "editor": {
+    "defaultPreview": "assets/generated/worldgen_v0_1/home_island/home_island_smoke_test_preview.png",
+    "preferredPanel": "Worldgen Assets",
+    "warningsAreBlocking": false,
+    "requiresRuntimeAtlasLoader": true
+  },
+  "tags": [
+    "worldgen",
+    "home_island",
+    "terrain",
+    "water",
+    "trees",
+    "fixed_orthographic"
+  ]
+}

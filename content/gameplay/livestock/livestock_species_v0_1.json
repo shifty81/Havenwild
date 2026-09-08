@@ -1,0 +1,88 @@
+{
+  "schema": "havenwild.livestock_species.v0_1",
+  "authority": "gameplay data owns simulation; LPC art owns presentation only",
+  "update_policy": {
+    "simulation_tick_seconds": 60,
+    "offline_progression": true,
+    "deterministic_from_world_seed_and_entity_id": true,
+    "server_authoritative_when_multiplayer": true
+  },
+  "shared_rules": {
+    "needs": ["hunger", "thirst", "health", "comfort", "social"],
+    "life_stages": ["young", "adult", "elder"],
+    "sex_values": ["male", "female"],
+    "production_requires": ["adult", "healthy", "fed", "watered", "appropriate_housing"],
+    "breeding_requires": ["adult", "healthy", "fed", "compatible_pair", "housing_capacity"],
+    "visual_catalog": "content/assets/oga_lpc/manifests/oga_lpc_farm_animals_runtime_catalog_v0_1.json"
+  },
+  "species": [
+    {
+      "id": "chicken",
+      "housing_tags": ["coop", "pasture"],
+      "feed_tags": ["grain", "seed", "insect"],
+      "world_footprint_tiles": [1, 1],
+      "herd_group": "flock",
+      "base_move_speed": 0.7,
+      "produce": [{"item": "egg", "interval_hours": 36, "max_stored": 1, "female_only": true}],
+      "secondary_outputs": [{"item": "manure", "interval_hours": 48}],
+      "breeding": {"gestation_days": 3, "offspring_min": 1, "offspring_max": 3},
+      "behavior": ["wander", "peck", "eat", "return_to_coop_at_dusk", "flee_threat"],
+      "animation_bindings": {"idle": "chicken.walk.south.frame0", "walk": "chicken.walk", "eat": "chicken.eat"}
+    },
+    {
+      "id": "cow",
+      "housing_tags": ["barn", "pasture"],
+      "feed_tags": ["grass", "hay", "grain"],
+      "world_footprint_tiles": [2, 1],
+      "herd_group": "herd",
+      "base_move_speed": 0.45,
+      "produce": [{"item": "milk", "interval_hours": 24, "female_only": true, "requires_recent_birth": true}],
+      "secondary_outputs": [{"item": "manure", "interval_hours": 24}],
+      "breeding": {"gestation_days": 20, "offspring_min": 1, "offspring_max": 1},
+      "behavior": ["graze", "eat", "drink", "seek_shelter_in_severe_weather", "return_to_barn_at_dusk"],
+      "animation_bindings": {"idle": "cow.walk.south.frame0", "walk": "cow.walk", "eat": "cow.eat"}
+    },
+    {
+      "id": "llama",
+      "housing_tags": ["stable", "pasture"],
+      "feed_tags": ["grass", "hay"],
+      "world_footprint_tiles": [1, 1],
+      "herd_group": "herd",
+      "base_move_speed": 0.55,
+      "produce": [{"item": "llama_fiber", "interval_hours": 168, "requires_shearing": true}],
+      "secondary_outputs": [{"item": "manure", "interval_hours": 36}],
+      "breeding": {"gestation_days": 18, "offspring_min": 1, "offspring_max": 1},
+      "behavior": ["graze", "eat", "drink", "guard_small_livestock", "carry_pack_when_equipped"],
+      "animation_bindings": {"idle": "llama.walk.south.frame0", "walk": "llama.walk", "eat": "llama.eat"}
+    },
+    {
+      "id": "pig",
+      "housing_tags": ["pig_sty", "pasture"],
+      "feed_tags": ["vegetable", "grain", "food_scrap"],
+      "world_footprint_tiles": [2, 1],
+      "herd_group": "sounder",
+      "base_move_speed": 0.5,
+      "produce": [],
+      "secondary_outputs": [
+        {"item": "manure", "interval_hours": 24},
+        {"item": "truffle", "interval_hours": 120, "requires": ["adult", "forest_forage_access", "trained"]}
+      ],
+      "breeding": {"gestation_days": 8, "offspring_min": 2, "offspring_max": 5},
+      "behavior": ["root", "eat", "drink", "mud_wallow", "forage_truffle_when_trained"],
+      "animation_bindings": {"idle": "pig.walk.south.frame0", "walk": "pig.walk", "eat": "pig.eat"}
+    },
+    {
+      "id": "sheep",
+      "housing_tags": ["barn", "pasture"],
+      "feed_tags": ["grass", "hay"],
+      "world_footprint_tiles": [2, 1],
+      "herd_group": "flock",
+      "base_move_speed": 0.5,
+      "produce": [{"item": "wool", "interval_hours": 168, "requires_shearing": true}],
+      "secondary_outputs": [{"item": "manure", "interval_hours": 36}],
+      "breeding": {"gestation_days": 12, "offspring_min": 1, "offspring_max": 2},
+      "behavior": ["graze", "eat", "drink", "flock", "seek_shelter_in_severe_weather"],
+      "animation_bindings": {"idle": "sheep.walk.south.frame0", "walk": "sheep.walk", "eat": "sheep.eat"}
+    }
+  ]
+}

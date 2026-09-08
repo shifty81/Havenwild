@@ -1,0 +1,17 @@
+{
+  "schema": "havenwild.handoff.v1",
+  "project": "Havenwild",
+  "source_state": "Pass167Z109W40",
+  "baseline": "Pass167Z59",
+  "date": "2026-08-12",
+  "milestone": "Unified World Authority U1 - Shared Visual Authority",
+  "checkpoint": "Shared cliff recipe + native editor cliff preview + canonical placeable root/depth sorting",
+  "build_status": "NOT_BUILD_VERIFIED",
+  "static_validation": "PASS",
+  "validator": "tools/automation/validation/checks/editor/Validate-W40SharedVisualAuthorityPass167Z109W40.py",
+  "w39_preserved": true,
+  "farmstead_regeneration_allowed": false,
+  "next_pass": "Pass167Z109W41",
+  "next_focus": "Structural feature visual parity: directional ramps, connectors, waterfalls, certification",
+  "handoff_document": "docs/handoffs/HAVENWILD_W40_SHARED_VISUAL_AUTHORITY_HANDOFF_20260812.md"
+}

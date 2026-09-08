@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.cumulative_patch_manifest.v1",
+  "pass": "167Z49",
+  "baseline": "167Z10",
+  "date": "2026-08-03",
+  "title": "Visual Regression Recovery and LPC Nature Grid Repair",
+  "overwriteCapable": true,
+  "changedFiles": [
+    "README.md",
+    "tools/build/Build.sh",
+    "tools/build/Build.ps1",
+    "tools/automation/project/Repair-VisualRegressionSurfaceV167Z49.py",
+    "tools/automation/assets/Promote-LpcRuntimeAssets.py",
+    "crates/haven_game/src/runtime_draw.rs",
+    "crates/haven_game/src/runtime_object_draw.rs",
+    "crates/haven_game/src/runtime_terrain_pass.rs",
+    "docs/current/PASS167Z49_VISUAL_REGRESSION_AND_LPC_NATURE_GRID_REPAIR.md",
+    "docs/handoffs/PASS167Z49_VISUAL_REGRESSION_AND_LPC_NATURE_GRID_REPAIR.md"
+  ],
+  "removedFiles": [],
+  "notes": [
+    "Baseline-owned frontend and footprint files are patched idempotently during build rather than replaced wholesale.",
+    "Object atlas regeneration is forced by revision bump."
+  ]
+}

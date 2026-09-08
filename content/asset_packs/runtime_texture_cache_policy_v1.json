@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.runtime_texture_cache_policy.v1",
+  "stable_reference_key": [
+    "pack_id",
+    "category",
+    "asset_id",
+    "source_id",
+    "variant_id"
+  ],
+  "rules": {
+    "load_once_per_source_path": true,
+    "share_texture_between_semantic_assets": true,
+    "retain_session_cache": true,
+    "production_only_by_default": true,
+    "legacy_fallbacks_are_explicit": true,
+    "legacy_fallbacks_are_logged": true,
+    "renderer_fields_are_compatibility_aliases": true
+  },
+  "initial_bindings": [
+    "terrain.grass",
+    "terrain.sand",
+    "terrain.path.road",
+    "terrain.transition.atlas",
+    "object.catalog.runtime",
+    "character.player.base",
+    "ui.hud.vitals.frame",
+    "ui.hud.hotbar.frame",
+    "ui.hud.minimap.frame"
+  ],
+  "remaining_migrations": [
+    "optional editor-only world-paint compatibility atlas",
+    "normalized structural cliff atlas",
+    "remaining stamp sheets",
+    "preview textures"
+  ]
+}

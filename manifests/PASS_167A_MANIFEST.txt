@@ -1,0 +1,16 @@
+Havenwild Pass 167A - Canonical Hydrology Production Routing
+Date: 2026-08-01
+Base: Pass 166Z
+
+FILES
+- crates/haven_world/src/terrain_hydrology_bridge.rs (new)
+- crates/haven_world/src/lib.rs
+- crates/haven_world/src/autotile/shoreline_resolver.rs
+- crates/haven_world/src/generated_surface_chunks.rs
+
+BEHAVIOR
+- One Hydrology V2 depth resolver behind legacy editor/runtime lifecycle calls.
+- Freshwater painting derives shallow rim and deep interior through shared semantics.
+- Generated surface chunks run the same depth resolver.
+- Legacy TileKind persistence remains supported during migration.
+- Coast cleanup no longer executes a second independent shallow/deep algorithm.

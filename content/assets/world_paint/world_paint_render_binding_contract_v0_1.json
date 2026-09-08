@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.world_paint_render_binding_contract.v0.1",
+  "version": 1,
+  "purpose": "Bind deterministic material-state transition tile resolutions to the generated strict-32 world environment atlas for runtime preview drawing.",
+  "inputContracts": [
+    "world_paint_delta_contract_v0_1",
+    "world_paint_material_state_contract_v0_1",
+    "world_paint_material_adjacency_contract_v0_1",
+    "world_paint_transition_tile_resolver_contract_v0_1",
+    "world_tile_contract_v0_1"
+  ],
+  "sourceAtlas": "assets/generated/world_tiles/havenwild_world_environment_test_v0_1/havenwild_world_environment_test_v0_1.png",
+  "canonicalTileSize": [32, 32],
+  "runtimeBehavior": {
+    "loadTextureAtBoot": true,
+    "refreshOnStartup": true,
+    "refreshAfterPaintStroke": true,
+    "refreshAfterReplay": true,
+    "refreshAfterSceneSwitch": true,
+    "fallback": "If no binding exists for a cell, draw the older prototype TileKind terrain renderer."
+  },
+  "authoritativeStatePolicy": "Render bindings are derived client-side preview state. Host/server authority remains material state and paint deltas, not raw pixels.",
+  "drawPolicy": "Only strict 32x32 atlas rects selected by the transition tile resolver are drawn through this binding."
+}

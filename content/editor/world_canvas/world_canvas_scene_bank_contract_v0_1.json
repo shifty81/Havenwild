@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.world_canvas_scene_bank_contract.v0_1",
+  "name": "World Canvas / Scene Bank Contract",
+  "canonicalRule": "Exterior overworld scenes use canonical generated geography in Game Canvas. Interior, cave, dungeon, and special scenes are indexed by the Scene Library and open as Game Canvas scene documents; the library is not a parallel world or camera canvas.",
+  "overworldCanvas": {
+    "source": "SemanticWorldBakeV1 + ContinuousSurfaceManifest materialized scene overlays",
+    "placementFields": [
+      "semantic_world_bake.origin_x/y/span_w/span_h",
+      "continuous_surface chunk coordinates"
+    ],
+    "drawsActualSceneMaps": true,
+    "supportsZoom": true,
+    "selection": "Click canonical generated landmass geography to select the corresponding authored/world document; preview rectangles are compatibility-only.",
+    "legacyPreviewCompatibility": "SceneRectangleSpec.world_rect_preview_px may be read by legacy tools but never positions complete-world geography in Game Canvas."
+  },
+  "sceneBank": {
+    "includedSceneKinds": [
+      "interior",
+      "cave",
+      "special"
+    ],
+    "excludedFromOverworldTerrain": true,
+    "connectionModel": "Transitions link overworld rectangles to off-world scene-bank scenes.",
+    "selection": "Click a Scene Bank card or list row to select an off-world scene document.",
+    "dedicatedWorkspace": true,
+    "infiniteCanvas": false,
+    "supportsZoomAndPan": false,
+    "openAction": "Enter, inspector action, or selected card opens the scene as a Game Canvas scene document.",
+    "layout": "adaptive_fixed_card_collection",
+    "cameraAuthority": "none; Scene Library is screen-space collection UI and never owns CanvasCameraState"
+  },
+  "currentLimitations": [
+    "Arbitrary new scene creation still requires replacing remaining enum-backed starter IDs with fully project-owned serializable IDs.",
+    "Scene Library cards do not yet expose every transition/duplicate/delete workflow inline."
+  ]
+}

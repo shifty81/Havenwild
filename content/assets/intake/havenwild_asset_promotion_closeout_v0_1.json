@@ -1,0 +1,126 @@
+{
+  "schema": "havenwild.asset_promotion_closeout.v0_1",
+  "pass": "Pass167Z84",
+  "purpose": "Make every valid ElizaWy, Universal LPC, and curated OpenGameArt LPC source asset discoverable, attributable, semantically classified, and eligible for explicit promotion without copying every raw source permutation into runtime builds.",
+  "providers": [
+    {
+      "id": "elizawy_lpc_revised",
+      "role": "primary Havenwild world, structure, object, effect, and LPC Revised character art authority",
+      "repository": "https://github.com/ElizaWy/LPC",
+      "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+      "lock": "content/assets/intake/lpc_source_lock_v0_1.json",
+      "mount": "assets/source/licensed/lpc_revised",
+      "completeIndex": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38.json.gz",
+      "summary": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38_summary.json",
+      "catalogRoot": "WORKSPACE/generated/lpc/catalogs",
+      "rawFilesExpected": 64365,
+      "imagesExpected": 64325,
+      "policy": "immutable pinned dependency; editor may browse complete catalog; runtime requires stable IDs, source rectangles, footprint/animation metadata, license context, and explicit semantic promotion"
+    },
+    {
+      "id": "universal_lpc_character_generator",
+      "role": "complete character body, appearance, clothing, equipment, tool, weapon, shield, and animation extension",
+      "repository": "https://github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator",
+      "commit": "0f898bb675a1abe16ce430e82e3bf9daed278690",
+      "lock": "content/assets/intake/universal_lpc_generator_source_lock_v0_1.json",
+      "mount": "assets/source/licensed/universal_lpc_generator",
+      "completeIndex": "content/assets/lpc/universal_lpc_complete_repository_index_v0_1.json.gz",
+      "summary": "content/assets/lpc/universal_lpc_complete_repository_summary_v0_1.json",
+      "spritesheetPngFilesExpected": 88235,
+      "sheetDefinitionsExpected": 768,
+      "policy": "all compatible options exposed through source catalogs; runtime packages selected/generated composites and required layers rather than all raw permutations"
+    },
+    {
+      "id": "curated_open_game_art_lpc",
+      "role": "licensed LPC-compatible gap coverage for structures, cliffs, caves, farms, docks, ships, nature, creatures, items, effects, and animations",
+      "intake": "content/assets/oga_lpc/manifests/oga_lpc_gameplay_intake_v0_2.json",
+      "commercialGate": "content/assets/oga_lpc/manifests/oga_lpc_commercial_intake_v0_1.json",
+      "auditQueue": "content/assets/oga_lpc/manifests/oga_lpc_audit_queue_v0_1.json",
+      "sourceRoot": "content/assets/oga_lpc/source",
+      "policy": "collection membership is never license approval; only exact files with verified authorship, selected license, derivative chain, hashes, and credits may be promoted"
+    }
+  ],
+  "states": {
+    "source_verified": "Pinned or hashed source and complete index are available.",
+    "catalogued": "Source is indexed with stable provenance but not yet semantically bound.",
+    "promotion_candidate": "License and broad role are acceptable; footprint, compatibility, or source-rectangle work remains.",
+    "runtime_promoted": "Stable runtime/editor ID and complete metadata exist and validation passes.",
+    "quarantined": "Known wrong role, incompatible geometry/style, incomplete attribution, duplicate, or prohibited license.",
+    "blocked_missing_source": "Committed catalog exists but the raw pinned dependency is not currently mounted.",
+    "reference_only": "Documentation, test scene, preview, or visual reference that is not gameplay content."
+  },
+  "requiredPromotionMetadata": [
+    "stable_asset_id",
+    "provider_id",
+    "source_relative_path",
+    "source_file_sha256",
+    "source_rectangle_or_frame_map",
+    "semantic_domain_and_role",
+    "visual_footprint",
+    "collision_or_interaction_footprint",
+    "anchor_and_layer_order",
+    "body_animation_or_season_compatibility_when_applicable",
+    "license_and_attribution_chain",
+    "editor_categories_and_thumbnail",
+    "runtime_atlas_or_compositor_route",
+    "validation_status"
+  ],
+  "priorityLanes": [
+    {
+      "order": 1,
+      "id": "structural_terrain",
+      "roles": ["cliff_faces", "cliff_caps", "outer_corners", "inner_corners", "ramps", "stairs", "ladders", "cave_mouths", "waterfalls", "bridges"],
+      "reason": "Blocks elevation, caves, and coherent regional traversal."
+    },
+    {
+      "order": 2,
+      "id": "willowmere_and_harbor_structures",
+      "roles": ["walls", "floors", "doors", "windows", "roofs", "complete_building_stamps", "seawalls", "boardwalks", "docks", "piers", "warehouses", "ships"],
+      "reason": "Replaces Z84 invisible reservations with authored capital and port content."
+    },
+    {
+      "order": 3,
+      "id": "interiors_furniture_and_business",
+      "roles": ["interior_construction", "furniture", "storage", "lighting", "tavern", "shops", "workshops", "crafting", "commerce"],
+      "reason": "Enables functional buildings and business gameplay."
+    },
+    {
+      "order": 4,
+      "id": "nature_farming_creatures_and_fx",
+      "roles": ["trees", "bushes", "flowers", "plants", "mushrooms", "rocks", "crops", "orchards", "livestock", "fish", "environment_fx", "tool_fx"],
+      "reason": "Completes biome, farming, harvesting, and world-dressing coverage."
+    },
+    {
+      "order": 5,
+      "id": "complete_character_creator",
+      "roles": ["male", "female", "child", "teen", "adult", "elder", "pregnancy_state", "faces", "hair", "clothing", "armor", "headwear", "accessories", "portraits", "palettes"],
+      "reason": "Makes the complete compatible character repository available through normalized choices rather than a starter subset."
+    },
+    {
+      "order": 6,
+      "id": "gameplay_equipment_and_animation",
+      "roles": ["tools", "held_items", "weapons", "shields", "work_actions", "farming_actions", "fishing_actions", "crafting_actions", "damage", "climb", "swim", "carry"],
+      "reason": "Certifies visual layers and timing against actual gameplay actions."
+    }
+  ],
+  "knownQuarantine": [
+    {
+      "provider": "elizawy_lpc_revised",
+      "sourceRelativePath": "Objects/Furniture/Water Cooler.png",
+      "incorrectRole": "well_pump",
+      "state": "quarantined",
+      "reason": "Modern water cooler was visibly misclassified as Willowmere's well in Pass167Z83.",
+      "requiredRepair": "Remove ObjectKind::Well binding and promote a period-appropriate well or fountain separately."
+    }
+  ],
+  "buildCommands": {
+    "syncAndAudit": "tools/build/Build.cmd asset-sources",
+    "promotionMatrixOnly": "tools/build/Build.cmd asset-promotion-audit",
+    "legacyAlias": "tools/build/Build.cmd lpc-sync"
+  },
+  "generatedOutputs": {
+    "matrix": "WORKSPACE/generated/lpc/promotion/havenwild_asset_promotion_matrix_v167z84.json",
+    "report": "docs/audits/generated/HAVENWILD_ASSET_PROMOTION_CLOSEOUT_V167Z84.md"
+  },
+  "releaseRule": "No runtime asset may depend on a machine-local junction. Pinned dependencies may remain external authoring inputs, but every shipped asset must be a validated generated cache or promoted project asset with complete credits."
+}

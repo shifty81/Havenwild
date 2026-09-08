@@ -1,0 +1,24 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z44",
+  "title": "Haven World Module Surface Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Confirmed the Pass 167Z43 layout migration succeeded and the Windows build advanced through both LPC repository audits, character runtime caches, the ElizaWy object atlas, project validation, and Rust formatting.",
+    "Traced the new Cargo failure to Pass 167Z40 replacing haven_world/src/lib.rs with a reduced historical module surface while the newer hydrology, elevation, structural, terrain-identity, and world-foundation implementation files remained present.",
+    "Restored declarations and public re-exports for canonical hydrology, TavernMap hydrology bridging, chunk-neighborhood and full-world hydrology, elevation/cliff resolution, structural queries and bakes, terrain completion and identity, world foundation, and starter-town authority.",
+    "Preserved the Pass 167Z39 world-creation module and all Pass 167Z40 through Z43 LPC, family, layout, and equipment work without changing terrain or hydrology algorithms.",
+    "Added current and handoff documentation and extended the cumulative overwrite lineage through Pass 167Z44."
+  ],
+  "validation": {
+    "windowsFailureDiagnosis": "confirmed from build log",
+    "authoritativeSourceManifestModulePresence": "passed against Pass167Z13 source manifest",
+    "requiredCrateRootExports": "restored",
+    "algorithmBehaviorChanges": "none",
+    "archiveIntegrity": "passed",
+    "payloadChecksums": "passed",
+    "cargoFmtCheckClippyTests": "pending Windows workstation run",
+    "completeBuildAll": "pending Windows workstation run"
+  },
+  "completeSourceCreated": false
+}

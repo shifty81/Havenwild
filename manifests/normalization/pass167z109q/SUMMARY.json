@@ -1,0 +1,13 @@
+{
+  "schema": "havenwild.normalization.summary.v0_1",
+  "pass": "167Z109Q",
+  "baseline": "167Z109P",
+  "title": "Normalization A: Repository Truth + Architecture Gates",
+  "behaviorPreserving": true,
+  "currentSourceValidators": 10,
+  "buildValidators": 2,
+  "masterDomains": 7,
+  "removedLivePaths": 120,
+  "architectureGate": "passed",
+  "next": "167Z109R WorldPlan/TerrainRecipe compatibility bridge"
+}

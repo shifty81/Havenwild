@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.cave_generation_contract.v1",
+  "pass": "167Z109W50",
+  "authority": "haven_core::TavernMap starter cave generation + worldgen scene contracts",
+  "assetAuthority": "PublishedWorldAssetRegistry",
+  "terrainAuthority": "AuthoredTerrainProviderRegistry",
+  "algorithm": {
+    "topology": "deterministic_room_corridor_hybrid",
+    "solidFirst": true,
+    "criticalConnectivityBeforeDecoration": true,
+    "seededOptionalAlcoves": true,
+    "seededOptionalWaterPockets": true
+  },
+  "requiredLayers": [
+    "terrain",
+    "height",
+    "objects",
+    "zones",
+    "transitions/spawners"
+  ],
+  "rules": {
+    "entryAndExitReachable": true,
+    "transitionLandingWalkable": true,
+    "oreWallAdjacent": true,
+    "resourcesNeverSpawnOnWater": true,
+    "unresolvedVerticalCaveFacesFailClosed": true,
+    "generatedResultEditableInNativeEditor": true,
+    "caveFloorPixelStudioBinding": "terrain.lpc_v7.mudstone.brown.pure_fill",
+    "caveWallPresentation": "occupancy/fill only until exact face grammar exists"
+  },
+  "acceptanceScene": "content/worldgen/scenes/world_asset_acceptance/cave_w50_acceptance_scene_v1.json"
+}

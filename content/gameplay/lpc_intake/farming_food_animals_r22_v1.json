@@ -1,0 +1,8 @@
+{
+  "schema":"havenwild.gameplay.lpc_intake.farming_food_animals.r22.v1",
+  "pass":"W81R22",
+  "assetFamilies":["crops_growth_stages","fruit_tree_growth_and_fruit_states","farm_structures","fences","apiary","livestock","wildlife","food_ingredients","meals","containers","farm_tools"],
+  "gameplayLoops":["till","plant","water","grow","harvest","regrow","orchard","animal_husbandry","milk","shear","egg_collection","honey","food_processing","cooking","tavern_menu","market_sales"],
+  "editorNeeds":["crop_definition","tree_definition","animal_definition","growth_preview","season_variants","harvest_output","icon_and_world_drop_preview"],
+  "productionRule":"Growth/harvest assets must bind to semantic crop/tree/animal definitions rather than remain loose sprites."
+}

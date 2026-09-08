@@ -1,0 +1,14 @@
+Pass: 165V
+Title: Native Editor Module Registration Repair
+Base: Havenwild Pass 165U
+Apply mode: overwrite repository root
+
+Files:
+apps/haven_editor_native/src/app/mod.rs
+apps/haven_editor_native/src/app/pixel_layer_panel.rs
+apps/haven_editor_native/src/app/pixel_studio.rs
+apps/haven_editor_native/src/app/pixel_studio_input.rs
+apps/haven_editor_native/src/app/pixel_studio_layout.rs
+apps/haven_editor_native/src/app/pixel_studio_render.rs
+docs/patch/PASS_165V_NATIVE_EDITOR_MODULE_REGISTRATION.md
+manifests/PASS_165V_MANIFEST.txt

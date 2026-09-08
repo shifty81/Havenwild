@@ -1,0 +1,1709 @@
+{
+  "schema": "havenwild.validation.manifest.v1",
+  "version": 1,
+  "policy": {
+    "failFastDefault": true,
+    "missingRequiredFile": "fail",
+    "missingOptionalFile": "skip",
+    "reportsDirectory": "logs/validation",
+    "futurePassRule": "Every new validator or generator must be registered here with a stable id, domain, phase, kind, and order.",
+    "lifecycleStates": [
+      "active",
+      "legacy-reference",
+      "retired"
+    ],
+    "legacyRule": "Legacy-reference checks remain inventoried and runnable through the legacy profile, but cannot block active source/full validation."
+  },
+  "profiles": {
+    "quick": {
+      "domains": [
+        "architecture",
+        "content",
+        "world"
+      ],
+      "includeKinds": [
+        "validator"
+      ],
+      "lifecycles": [
+        "active"
+      ]
+    },
+    "source": {
+      "domains": [
+        "architecture",
+        "content",
+        "world",
+        "editor"
+      ],
+      "includeKinds": [
+        "validator"
+      ],
+      "lifecycles": [
+        "active"
+      ]
+    },
+    "legacy": {
+      "domains": [
+        "editor"
+      ],
+      "includeKinds": [
+        "validator",
+        "generator"
+      ],
+      "lifecycles": [
+        "legacy-reference"
+      ]
+    },
+    "full": {
+      "domains": [
+        "architecture",
+        "content",
+        "world",
+        "editor"
+      ],
+      "includeKinds": [
+        "validator"
+      ],
+      "lifecycles": [
+        "active"
+      ],
+      "cargo": [
+        "fmt-check",
+        "check",
+        "clippy",
+        "test"
+      ]
+    },
+    "generation": {
+      "domains": [
+        "architecture",
+        "content",
+        "world",
+        "editor"
+      ],
+      "includeKinds": [
+        "generator"
+      ],
+      "lifecycles": [
+        "active"
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "id": "validate-development-layout",
+      "name": "validate_development_layout",
+      "domain": "architecture",
+      "phase": "foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_development_layout.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 0,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-architecture",
+      "name": "validate_architecture",
+      "domain": "architecture",
+      "phase": "foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_architecture.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 1,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-content",
+      "name": "validate_content",
+      "domain": "content",
+      "phase": "foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/validate_content.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 2,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-havenwildopenworldpreset",
+      "name": "Validate-HavenwildOpenWorldPreset",
+      "domain": "world",
+      "phase": "world",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-HavenwildOpenWorldPreset.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 3,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-sceneidentitymigrationv54",
+      "name": "Validate-SceneIdentityMigrationV54",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-SceneIdentityMigrationV54.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 4,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-firstislandassetguicontractsv55",
+      "name": "Validate-FirstIslandAssetGuiContractsV55",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-FirstIslandAssetGuiContractsV55.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 5,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-scenereferencebridgev56",
+      "name": "Validate-SceneReferenceBridgeV56",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-SceneReferenceBridgeV56.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 6,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-permanentcanvastoolingv57",
+      "name": "Validate-PermanentCanvasToolingV57",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-PermanentCanvasToolingV57.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 7,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-editorarchitecturenormalizationv58",
+      "name": "Validate-EditorArchitectureNormalizationV58",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-EditorArchitectureNormalizationV58.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 8,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-sceneregistryfoundationnormalizationv59",
+      "name": "Validate-SceneRegistryFoundationNormalizationV59",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-SceneRegistryFoundationNormalizationV59.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 9,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-stableselectionhittestingv60",
+      "name": "Validate-StableSelectionHitTestingV60",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-StableSelectionHitTestingV60.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 10,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-transactionalundov61",
+      "name": "Validate-TransactionalUndoV61",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-TransactionalUndoV61.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 11,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-productioninfinitecanvastoolsv62",
+      "name": "Validate-ProductionInfiniteCanvasToolsV62",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-ProductionInfiniteCanvasToolsV62.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 12,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-productionobjectoutlinerinspectorv63",
+      "name": "Validate-ProductionObjectOutlinerInspectorV63",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-ProductionObjectOutlinerInspectorV63.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 13,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-liveautotileterraintransitionsv64",
+      "name": "Validate-LiveAutotileTerrainTransitionsV64",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LiveAutotileTerrainTransitionsV64.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 14,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-assetpaletteatlasbindingv65",
+      "name": "Validate-AssetPaletteAtlasBindingV65",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-AssetPaletteAtlasBindingV65.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 15,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-assetintakeatlasauthoringv66",
+      "name": "Validate-AssetIntakeAtlasAuthoringV66",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-AssetIntakeAtlasAuthoringV66.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 16,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-camerazoomorientationhotfix",
+      "name": "Validate-CameraZoomOrientationHotfix",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/rendering/Validate-CameraZoomOrientationHotfix.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 17,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-worldcanvasislandpcgharborv67",
+      "name": "Validate-WorldCanvasIslandPcgHarborV67",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-WorldCanvasIslandPcgHarborV67.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 18,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-scenebankruntimeframingv68",
+      "name": "Validate-SceneBankRuntimeFramingV68",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-SceneBankRuntimeFramingV68.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 19,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-bashbuildentrypointv69",
+      "name": "Validate-BashBuildEntrypointV69",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-BashBuildEntrypointV69.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 20,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-islandpcgtestpathv70",
+      "name": "Validate-IslandPcgTestPathV70",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-IslandPcgTestPathV70.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 21,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-structuralarchipelagoworkspacev71",
+      "name": "Validate-StructuralArchipelagoWorkspaceV71",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-StructuralArchipelagoWorkspaceV71.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 22,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-islandassemblysaveroutesv72",
+      "name": "Validate-IslandAssemblySaveRoutesV72",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-IslandAssemblySaveRoutesV72.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 23,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-seededarchipelagospacingv73",
+      "name": "Validate-SeededArchipelagoSpacingV73",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-SeededArchipelagoSpacingV73.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 24,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-clientsaveslotsv74",
+      "name": "Validate-ClientSaveSlotsV74",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/persistence/Validate-ClientSaveSlotsV74.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 25,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-clientsavepreviewpausemenuv75",
+      "name": "Validate-ClientSavePreviewPauseMenuV75",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-ClientSavePreviewPauseMenuV75.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 26,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-productionterraintilesv76",
+      "name": "Validate-ProductionTerrainTilesV76",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ProductionTerrainTilesV76.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 27,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-productionenvironmentlibraryv77",
+      "name": "Validate-ProductionEnvironmentLibraryV77",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ProductionEnvironmentLibraryV77.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 28,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-genericmultitilestampsystemv78",
+      "name": "Validate-GenericMultitileStampSystemV78",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-GenericMultitileStampSystemV78.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 29,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-nativepixelstudiov79",
+      "name": "Validate-NativePixelStudioV79",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-NativePixelStudioV79.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 30,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-nativeanimationstudiov80",
+      "name": "Validate-NativeAnimationStudioV80",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-NativeAnimationStudioV80.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 31,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-pixeldocumentlayersystemv81",
+      "name": "Validate-PixelDocumentLayerSystemV81",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-PixelDocumentLayerSystemV81.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 32,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-pixelanimationroundtripbridgev82",
+      "name": "Validate-PixelAnimationRoundtripBridgeV82",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-PixelAnimationRoundtripBridgeV82.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 33,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-externalassetpackintakev83",
+      "name": "Validate-ExternalAssetPackIntakeV83",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-ExternalAssetPackIntakeV83.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 34,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-organiccoastlinelpcatlasv84",
+      "name": "Validate-OrganicCoastlineLpcAtlasV84",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-OrganicCoastlineLpcAtlasV84.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 35,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpccoastlinesaveregenerationv85",
+      "name": "Validate-LpcCoastlineSaveRegenerationV85",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcCoastlineSaveRegenerationV85.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 36,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcexpandablepondfamiliesv86",
+      "name": "Validate-LpcExpandablePondFamiliesV86",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcExpandablePondFamiliesV86.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 37,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-expandedscenescalelegacymigrationv87",
+      "name": "Validate-ExpandedSceneScaleLegacyMigrationV87",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleLegacyMigrationV87.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 38,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-expandedscenescalecompilehotfixv88",
+      "name": "Validate-ExpandedSceneScaleCompileHotfixV88",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleCompileHotfixV88.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 39,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-expandedscenescaleclippyhotfixv89",
+      "name": "Validate-ExpandedSceneScaleClippyHotfixV89",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneScaleClippyHotfixV89.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 40,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-stampinspectorclippyhotfixv90",
+      "name": "Validate-StampInspectorClippyHotfixV90",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-StampInspectorClippyHotfixV90.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 41,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-stampupdaterequestimportv91",
+      "name": "Validate-StampUpdateRequestImportV91",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-StampUpdateRequestImportV91.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 42,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-runtimepathpaintbindingstabilizationv92",
+      "name": "Validate-RuntimePathPaintBindingStabilizationV92",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-RuntimePathPaintBindingStabilizationV92.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 43,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcterrainfamilyfoundationv93",
+      "name": "Validate-LpcTerrainFamilyFoundationV93",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTerrainFamilyFoundationV93.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 44,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-sceneregistryexpandedspawntestv94",
+      "name": "Validate-SceneRegistryExpandedSpawnTestV94",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-SceneRegistryExpandedSpawnTestV94.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 45,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-expandedscenestartergenerationv95",
+      "name": "Validate-ExpandedSceneStarterGenerationV95",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ExpandedSceneStarterGenerationV95.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 46,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-runtimeviewcullingunitisolationv96",
+      "name": "Validate-RuntimeViewCullingUnitIsolationV96",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/rendering/Validate-RuntimeViewCullingUnitIsolationV96.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 47,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcterrainownersideworldtestsv97",
+      "name": "Validate-LpcTerrainOwnerSideWorldTestsV97",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTerrainOwnerSideWorldTestsV97.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 48,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpccompleteroleterrainruntimestabilityv98",
+      "name": "Validate-LpcCompleteRoleTerrainRuntimeStabilityV98",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcCompleteRoleTerrainRuntimeStabilityV98.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 49,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-clientcamerazoomatlastesthotfixv99",
+      "name": "Validate-ClientCameraZoomAtlasTestHotfixV99",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-ClientCameraZoomAtlasTestHotfixV99.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 50,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-clientcamerazoomclippyhotfixv100",
+      "name": "Validate-ClientCameraZoomClippyHotfixV100",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/rendering/Validate-ClientCameraZoomClippyHotfixV100.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 51,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcclienteditorstabilityv102",
+      "name": "Validate-LpcClientEditorStabilityV102",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-LpcClientEditorStabilityV102.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 52,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcterrainsummercompletemapv103",
+      "name": "Validate-LpcTerrainSummerCompleteMapV103",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTerrainSummerCompleteMapV103.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 53,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcdependencymountv104",
+      "name": "Validate-LpcDependencyMountV104",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-LpcDependencyMountV104.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 54,
+      "lifecycle": "legacy-reference",
+      "requires": [
+        "DEPENDENCIES/lpc"
+      ]
+    },
+    {
+      "id": "validate-nativeeditorstartuprenderstabilityv105",
+      "name": "Validate-NativeEditorStartupRenderStabilityV105",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-NativeEditorStartupRenderStabilityV105.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 55,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcseasonalterraintopologyv106",
+      "name": "Validate-LpcSeasonalTerrainTopologyV106",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcSeasonalTerrainTopologyV106.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 56,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcsummerruntimepromotionv107",
+      "name": "Validate-LpcSummerRuntimePromotionV107",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcSummerRuntimePromotionV107.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 57,
+      "lifecycle": "legacy-reference",
+      "requires": [
+        "assets/generated/lpc/terrain"
+      ]
+    },
+    {
+      "id": "validate-lpcedgesignatureseamsv108",
+      "name": "Validate-LpcEdgeSignatureSeamsV108",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcEdgeSignatureSeamsV108.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 58,
+      "lifecycle": "legacy-reference",
+      "requires": [
+        "assets/generated/lpc/terrain"
+      ]
+    },
+    {
+      "id": "validate-transitionatlasgrouprustsyntaxv109",
+      "name": "Validate-TransitionAtlasGroupRustSyntaxV109",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-TransitionAtlasGroupRustSyntaxV109.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 59,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-editorregistryderivedtestsv110",
+      "name": "Validate-EditorRegistryDerivedTestsV110",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-EditorRegistryDerivedTestsV110.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 60,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcauthoredreplacementrolesv111",
+      "name": "Validate-LpcAuthoredReplacementRolesV111",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcAuthoredReplacementRolesV111.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 61,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcenvironmenttilemigrationv112",
+      "name": "Validate-LpcEnvironmentTileMigrationV112",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/persistence/Validate-LpcEnvironmentTileMigrationV112.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 62,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcuniversalautotilepolicyv113",
+      "name": "Validate-LpcUniversalAutotilePolicyV113",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcUniversalAutotilePolicyV113.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 63,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcpainttopologystabilityv114",
+      "name": "Validate-LpcPaintTopologyStabilityV114",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcPaintTopologyStabilityV114.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 64,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-havenwildassetutilizationauditv115",
+      "name": "Validate-HavenwildAssetUtilizationAuditV115",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-HavenwildAssetUtilizationAuditV115.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 65,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcmixedcornertopologyv116",
+      "name": "Validate-LpcMixedCornerTopologyV116",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcMixedCornerTopologyV116.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 66,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcclosedsandgrasscornertopologyv121",
+      "name": "Validate-LpcClosedSandGrassCornerTopologyV121",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcClosedSandGrassCornerTopologyV121.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 67,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcmappedterrainreplacementv122",
+      "name": "Validate-LpcMappedTerrainReplacementV122",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainReplacementV122.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 68,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcterraindetaileditorwindowv123",
+      "name": "Validate-LpcTerrainDetailEditorWindowV123",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTerrainDetailEditorWindowV123.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 69,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcmappedterrainruntimeperformancev124",
+      "name": "Validate-LpcMappedTerrainRuntimePerformanceV124",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcMappedTerrainRuntimePerformanceV124.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 70,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcstructuralrockterraindeferralv125",
+      "name": "Validate-LpcStructuralRockTerrainDeferralV125",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcStructuralRockTerrainDeferralV125.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 71,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-terrainmaterialregistryv126",
+      "name": "Validate-TerrainMaterialRegistryV126",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-TerrainMaterialRegistryV126.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 72,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-shorewaternormalizationv127",
+      "name": "Validate-ShoreWaterNormalizationV127",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreWaterNormalizationV127.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 73,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "validate-lpcwateranimationandshoredepthv128",
+      "name": "Validate-LpcWaterAnimationAndShoreDepthV128",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationAndShoreDepthV128.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 74,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcwateranimationownershipv129",
+      "name": "Validate-LpcWaterAnimationOwnershipV129",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationOwnershipV129.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 75,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcsparsewateranimationv130",
+      "name": "Validate-LpcSparseWaterAnimationV130",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/characters/Validate-LpcSparseWaterAnimationV130.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 76,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcmappedtuplefallbackv131",
+      "name": "Validate-LpcMappedTupleFallbackV131",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcMappedTupleFallbackV131.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 77,
+      "lifecycle": "active"
+    },
+    {
+      "id": "build-lpctuplecoverageauditv133",
+      "name": "Build-LpcTupleCoverageAuditV133",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "generator",
+      "command": [
+        "{python}",
+        "tools/automation/terrain/Build-LpcTupleCoverageAuditV133.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 78,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpctuplecoverageauditv133",
+      "name": "Validate-LpcTupleCoverageAuditV133",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTupleCoverageAuditV133.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 79,
+      "lifecycle": "active"
+    },
+    {
+      "id": "build-lpctuplepromotionplanv134",
+      "name": "Build-LpcTuplePromotionPlanV134",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "generator",
+      "command": [
+        "{python}",
+        "tools/automation/terrain/Build-LpcTuplePromotionPlanV134.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 80,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpctuplepromotionplanv134",
+      "name": "Validate-LpcTuplePromotionPlanV134",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcTuplePromotionPlanV134.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 81,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcmappededitorterrainandwaterpaintv135",
+      "name": "Validate-LpcMappedEditorTerrainAndWaterPaintV135",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcMappedEditorTerrainAndWaterPaintV135.py"
+      ],
+      "required": false,
+      "enabled": true,
+      "order": 82,
+      "lifecycle": "legacy-reference"
+    },
+    {
+      "id": "build-lpcproductiontuplepromotionv136",
+      "name": "Build-LpcProductionTuplePromotionV136",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "generator",
+      "command": [
+        "{python}",
+        "tools/automation/terrain/Build-LpcProductionTuplePromotionV136.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 83,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcproductiontuplepromotionv136",
+      "name": "Validate-LpcProductionTuplePromotionV136",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcProductionTuplePromotionV136.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 84,
+      "lifecycle": "active"
+    },
+    {
+      "id": "build-lpcpathgroundpromotionv137",
+      "name": "Build-LpcPathGroundPromotionV137",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "generator",
+      "command": [
+        "{python}",
+        "tools/automation/terrain/Build-LpcPathGroundPromotionV137.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 85,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-lpcpathgroundpromotionv137",
+      "name": "Validate-LpcPathGroundPromotionV137",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcPathGroundPromotionV137.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 86,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-shorewaterlifecyclev138",
+      "name": "Validate-ShoreWaterLifecycleV138",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleV138.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 87,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-wrappedworldcoordinatefoundationv139",
+      "name": "Validate-WrappedWorldCoordinateFoundationV139",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-WrappedWorldCoordinateFoundationV139.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 88,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-archipelagoworldskeletonv140",
+      "name": "Validate-ArchipelagoWorldSkeletonV140",
+      "domain": "editor",
+      "phase": "editor-runtime",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldSkeletonV140.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 89,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-validationnormalizationv141",
+      "name": "Validate-ValidationNormalizationV141",
+      "domain": "architecture",
+      "phase": "foundation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidationNormalizationV141.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 90,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-terrainworldsemanticregistryv142",
+      "name": "Validate-TerrainWorldSemanticRegistryV142",
+      "domain": "world",
+      "phase": "terrain-semantics",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-TerrainWorldSemanticRegistryV142.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 91,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/worldgen/terrain_world_semantic_registry_v1.json",
+        "content/assets/terrain_material_registry_v0_1.json",
+        "crates/haven_core/src/foundation/tile_object_catalog.rs"
+      ]
+    },
+    {
+      "id": "validate-worldgenerationpipelineownershipv143",
+      "name": "Validate-WorldGenerationPipelineOwnershipV143",
+      "domain": "world",
+      "phase": "world-pipeline",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-WorldGenerationPipelineOwnershipV143.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 92,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/worldgen/world_generation_pipeline_v1.json",
+        "crates/haven_world/src/world_generation_pipeline.rs",
+        "content/validation/validation_manifest_v1.json"
+      ]
+    },
+    {
+      "id": "validate-chunkpersistencenormalizationv144",
+      "name": "Validate-ChunkPersistenceNormalizationV144",
+      "domain": "world",
+      "phase": "persistence",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ChunkPersistenceNormalizationV144.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 93,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/worldgen/chunk_persistence_contract_v1.json",
+        "crates/haven_save/src/chunk_persistence.rs",
+        "crates/haven_save/src/lib.rs"
+      ]
+    },
+    {
+      "id": "validate-editorcommandundonormalizationv145",
+      "name": "Validate-EditorCommandUndoNormalizationV145",
+      "domain": "editor",
+      "phase": "command-history",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/editor/Validate-EditorCommandUndoNormalizationV145.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 94,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/editor/commands/editor_command_contract_v1.json",
+        "crates/haven_authoring/src/command_bus.rs",
+        "content/validation/validation_manifest_v1.json"
+      ]
+    },
+    {
+      "id": "validate-sourcerollupcompletenessv146",
+      "name": "Validate-SourceRollupCompletenessV146",
+      "domain": "architecture",
+      "phase": "packaging",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-SourceRollupCompletenessV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 95,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-generatedassetbuildgraphv146",
+      "name": "Validate-GeneratedAssetBuildGraphV146",
+      "domain": "architecture",
+      "phase": "asset-generation",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-GeneratedAssetBuildGraphV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 96,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-windowsbuildportabilityv146",
+      "name": "Validate-WindowsBuildPortabilityV146",
+      "domain": "architecture",
+      "phase": "build-portability",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-WindowsBuildPortabilityV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 97,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-savemigrationcompatibilityv146",
+      "name": "Validate-SaveMigrationCompatibilityV146",
+      "domain": "architecture",
+      "phase": "persistence",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/persistence/Validate-SaveMigrationCompatibilityV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 98,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-shorewaterlifecyclecontractv146",
+      "name": "Validate-ShoreWaterLifecycleContractV146",
+      "domain": "world",
+      "phase": "terrain-lifecycle",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreWaterLifecycleContractV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 99,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-rustworkspacecontractv146",
+      "name": "Validate-RustWorkspaceContractV146",
+      "domain": "architecture",
+      "phase": "compile-contract",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-RustWorkspaceContractV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 100,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-validatorqualityv146",
+      "name": "Validate-ValidatorQualityV146",
+      "domain": "architecture",
+      "phase": "validation-quality",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidatorQualityV146.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 101,
+      "lifecycle": "active"
+    },
+    {
+      "id": "validate-validatorframeworkv146b",
+      "name": "Validate-ValidatorFrameworkV146B",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidatorFrameworkV146B.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 102,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/build/validator_registry_v2.json",
+        "content/build/validation_error_codes_v1.json"
+      ]
+    },
+    {
+      "id": "validate-generatedoutputfreshnessv146b",
+      "name": "Validate-GeneratedOutputFreshnessV146B",
+      "domain": "architecture",
+      "phase": "generated-freshness",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-GeneratedOutputFreshnessV146B.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 103,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/build/generated_output_registry_v1.json"
+      ]
+    },
+    {
+      "id": "validate-validationframeworkselftestsv146b",
+      "name": "Validate-ValidationFrameworkSelfTestsV146B",
+      "domain": "architecture",
+      "phase": "validation-framework",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-ValidationFrameworkSelfTestsV146B.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 104,
+      "lifecycle": "active",
+      "prerequisites": [
+        "tools/automation/validation/registry.py",
+        "tools/automation/validation/result.py"
+      ]
+    }
+  ]
+}

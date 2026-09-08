@@ -1,0 +1,6 @@
+Pass: 164F Object Geometry and Variable Atlas Entry Foundation
+Base lineage: Havenwild Complete Source Rollup Pass 164A
+Cumulative through: 164B1, 164B2, 164B3, 164C, 164D, 164E, 164F
+Deletes: none
+Apply mode: overwrite repository root
+Local certification command: tools/build/Build.cmd all

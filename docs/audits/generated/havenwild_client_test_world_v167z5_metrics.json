@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.client_test_world_terrain_metrics.v167z25",
+  "scene": "content/worldgen/scenes/home_island/farmstead_scene_v0_3.json",
+  "generation_seed": 167260801,
+  "terrain_counts": {
+    "Bridge": 12,
+    "Cliff": 50,
+    "DeepWater": 47,
+    "Grass": 3178,
+    "MountainPath": 37,
+    "MountainRock": 408,
+    "MudBank": 28,
+    "OceanDeep": 1389,
+    "OceanShallow": 251,
+    "Road": 251,
+    "Sand": 125,
+    "ShallowWater": 42,
+    "TallGrass": 121,
+    "TilledSoil": 142,
+    "WetSand": 63
+  },
+  "topology_violations": 0,
+  "reachable_cells": 4360,
+  "protected_goals": 4,
+  "cleanup": {
+    "hydrology_mutations": 0,
+    "route_bridge_cells": 12,
+    "cliff_mutations": 2,
+    "tall_grass_conflicts_removed": 11
+  }
+}

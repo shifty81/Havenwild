@@ -1,0 +1,18 @@
+{
+  "schema": "havenwild.oga_lpc.cliff_stamps.v0_2",
+  "license": "CC-BY-SA-3.0 — Lanea Zimmerman (Sharm), Daniel Eddeland, Wiliam Thompson; source and full attribution in content/assets/oga_lpc/licenses/OGA_LPC_PHASE1_CREDITS.txt",
+  "objects": [],
+  "runtimeState": "quarantined_pending_normalized_multi_cell_stamp_recipes",
+  "sourceDimensions": [
+    384,
+    288
+  ],
+  "quarantineReasons": [
+    "The source is a valid 384x288 connected-art sheet, but its pillar, ramps, cave, ladder, and bridge regions are authored assemblies rather than a generic 32x32 structural autotile family.",
+    "The prior runtime treated rows from the isolated grass-top pillar as repeatable terrain cliff faces, producing trunk-like columns along generated coastlines.",
+    "Pixel Studio must extract complete assemblies and create a metadata-backed Havenwild structural atlas before runtime placement."
+  ],
+  "revision": "167Z104-multi-cell-source-assembly-normalization-v3",
+  "measurementAuthority": "content/worldgen/cliff_asset_footprint_recipe_normalization_v0_1.json",
+  "sourceAssemblyCatalog": "content/assets/oga_lpc/manifests/oga_lpc_cliff_recipe_catalog_v0_2.json#sourceAssemblies"
+}

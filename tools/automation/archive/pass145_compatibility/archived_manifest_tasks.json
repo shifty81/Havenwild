@@ -1,0 +1,288 @@
+{
+  "schema": "havenwild.validation.archived_tasks.v1",
+  "tasks": [
+    {
+      "id": "validate-sourcerollupbootstrapv145a",
+      "name": "Validate-SourceRollupBootstrapV145A",
+      "domain": "architecture",
+      "phase": "packaging",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-SourceRollupBootstrapV145A.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 95,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/assets/intake/lpc_source_lock_v0_1.json",
+        "tools/automation/dependencies/Ensure-LpcDependency.py",
+        "tools/automation/packaging/Create-SourceOnlyRollup.py",
+        "content/assets/intake/lpc_terrain_summer_complete_map_v0_1.json",
+        "content/assets/intake/lpc_terrain_family_mapping_v0_3.json",
+        "content/assets/intake/lpc_terrain_promotion_v0_2.json"
+      ]
+    },
+    {
+      "id": "validate-lpcdependencyacquisitionv145b",
+      "name": "Validate-LpcDependencyAcquisitionV145B",
+      "domain": "architecture",
+      "phase": "dependency-bootstrap",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-LpcDependencyAcquisitionV145B.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 96,
+      "lifecycle": "active",
+      "prerequisites": [
+        "tools/automation/dependencies/Ensure-LpcDependency.py",
+        "content/assets/intake/lpc_source_lock_v0_1.json",
+        "content/assets/intake/lpc_terrain_summer_complete_map_v0_1.json"
+      ]
+    },
+    {
+      "id": "validate-baseterrainbootstrapv145d",
+      "name": "Validate-BaseTerrainBootstrapV145D",
+      "domain": "architecture",
+      "phase": "asset-bootstrap",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-BaseTerrainBootstrapV145D.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 97,
+      "lifecycle": "active",
+      "prerequisites": [
+        "tools/automation/terrain/Ensure-BaseTerrainBootstrapV145D.py",
+        "content/worldgen/terrain_world_semantic_registry_v1.json",
+        "tools/automation/terrain/Promote-LpcTerrainFamiliesV90.py"
+      ]
+    },
+    {
+      "id": "validate-assetintakebootstrapv145e",
+      "name": "Validate-AssetIntakeBootstrapV145E",
+      "domain": "architecture",
+      "phase": "asset-bootstrap",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-AssetIntakeBootstrapV145E.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 98,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/assets/intake/asset_intake_catalog_v0_1.json",
+        "content/editor/assets/asset_intake_atlas_authoring_contract_v0_1.json",
+        "assets/source/original/cave_entrance_96.png",
+        "tools/automation/assets/Bake-AssetIntakeAtlasV66.py"
+      ]
+    },
+    {
+      "id": "validate-pythonutf8buildreportsv145f",
+      "name": "Validate-PythonUtf8BuildReportsV145F",
+      "domain": "architecture",
+      "phase": "build-bootstrap",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/build/Validate-PythonUtf8BuildReportsV145F.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 99,
+      "lifecycle": "active",
+      "prerequisites": [
+        "tools/build/Build.sh",
+        "tools/build/Build.ps1",
+        "tools/automation/terrain/Build-LpcProductionTuplePromotionV136.py",
+        "tools/automation/terrain/Build-LpcPathGroundPromotionV137.py"
+      ]
+    },
+    {
+      "id": "validate-savegenerationvalidatorcompatibilityv145g",
+      "name": "Validate-SaveGenerationValidatorCompatibilityV145G",
+      "domain": "architecture",
+      "phase": "validation-normalization",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/persistence/Validate-SaveGenerationValidatorCompatibilityV145G.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 100,
+      "lifecycle": "active",
+      "prerequisites": [
+        "tools/automation/validation/checks/worldgen/Validate-WrappedWorldCoordinateFoundationV139.py",
+        "content/worldgen/chunk_persistence_contract_v1.json",
+        "crates/haven_save/src/lib.rs"
+      ]
+    },
+    {
+      "id": "validate-archipelagoworldtilecoordimportv145h",
+      "name": "Validate-ArchipelagoWorldTileCoordImportV145H",
+      "domain": "architecture",
+      "phase": "compile-compatibility",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ArchipelagoWorldTileCoordImportV145H.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 101,
+      "lifecycle": "active",
+      "prerequisites": [
+        "crates/haven_world/src/archipelago_skeleton.rs",
+        "crates/haven_world/src/open_world.rs"
+      ]
+    },
+    {
+      "id": "validate-archipelagoclippycleanv145i",
+      "name": "Validate-ArchipelagoClippyCleanV145I",
+      "domain": "architecture",
+      "phase": "compile-compatibility",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/worldgen/Validate-ArchipelagoClippyCleanV145I.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 102,
+      "lifecycle": "active",
+      "prerequisites": [
+        "crates/haven_world/src/archipelago_skeleton.rs",
+        "crates/haven_game/src/runtime_editor_shell.rs"
+      ]
+    },
+    {
+      "id": "validate-lpcpainttopologysharedlifecyclev145j",
+      "name": "Validate-LpcPaintTopologySharedLifecycleV145J",
+      "domain": "architecture",
+      "phase": "validation-normalization",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-LpcPaintTopologySharedLifecycleV145J.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 103,
+      "lifecycle": "active",
+      "prerequisites": [
+        "tools/automation/validation/checks/terrain/Validate-LpcPaintTopologyStabilityV114.py",
+        "crates/haven_game/src/runtime_editor_shell.rs",
+        "crates/haven_world/src/autotile/shoreline_resolver.rs"
+      ]
+    },
+    {
+      "id": "validate-shorewatervalidatorsharedlifecyclev145k",
+      "name": "Validate-ShoreWaterValidatorSharedLifecycleV145K",
+      "domain": "architecture",
+      "phase": "validation-normalization",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreWaterValidatorSharedLifecycleV145K.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 104,
+      "lifecycle": "active",
+      "prerequisites": [
+        "tools/automation/validation/checks/terrain/Validate-ShoreWaterNormalizationV127.py",
+        "tools/automation/validation/checks/characters/Validate-LpcWaterAnimationAndShoreDepthV128.py",
+        "crates/haven_game/src/runtime_editor_shell.rs",
+        "crates/haven_world/src/autotile/shoreline_resolver.rs"
+      ]
+    },
+    {
+      "id": "validate-havenassetsbootstrapandtestsv145l",
+      "name": "Validate-HavenAssetsBootstrapAndTestsV145L",
+      "domain": "architecture",
+      "phase": "compile-compatibility",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/assets/Validate-HavenAssetsBootstrapAndTestsV145L.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 105,
+      "lifecycle": "active",
+      "prerequisites": [
+        "tools/build/Build.sh",
+        "tools/build/Build.ps1",
+        "crates/haven_assets/src/asset_registry.rs",
+        "tools/automation/terrain/Promote-LpcExpandablePondsV87.py"
+      ]
+    },
+    {
+      "id": "validate-expandablepondbootstrapv145m",
+      "name": "Validate-ExpandablePondBootstrapV145M",
+      "domain": "architecture",
+      "phase": "compile-compatibility",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ExpandablePondBootstrapV145M.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 106,
+      "lifecycle": "active",
+      "prerequisites": [
+        "content/assets/intake/lpc_expandable_terrain_families_v0_1.json",
+        "tools/automation/terrain/Promote-LpcExpandablePondsV87.py",
+        "content/assets/intake/lpc_source_lock_v0_1.json"
+      ]
+    },
+    {
+      "id": "validate-shorefoamtestcontractv145n",
+      "name": "Validate-ShoreFoamTestContractV145N",
+      "domain": "architecture",
+      "phase": "compile-compatibility",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreFoamTestContractV145N.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 107,
+      "lifecycle": "active",
+      "prerequisites": [
+        "crates/haven_game/src/runtime_editor_shell/shore_water_tests.rs",
+        "crates/haven_world/src/autotile/shoreline_resolver.rs"
+      ]
+    },
+    {
+      "id": "validate-shorelifecycle-ringgeometry-v145o",
+      "name": "Validate-ShoreLifecycleRingGeometryV145O",
+      "domain": "architecture",
+      "phase": "compile-compatibility",
+      "kind": "validator",
+      "command": [
+        "{python}",
+        "tools/automation/validation/checks/terrain/Validate-ShoreLifecycleRingGeometryV145O.py"
+      ],
+      "required": true,
+      "enabled": true,
+      "order": 108,
+      "lifecycle": "active",
+      "prerequisites": [
+        "crates/haven_game/src/runtime_editor_shell/shore_water_tests.rs",
+        "crates/haven_world/src/autotile/shoreline_resolver.rs"
+      ]
+    }
+  ]
+}

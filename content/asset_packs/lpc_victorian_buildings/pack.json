@@ -1,0 +1,169 @@
+{
+  "schema": "havenwild.asset_pack.v1",
+  "id": "lpc_victorian_buildings",
+  "display_name": "LPC Victorian Buildings \u2014 Multi-Cell Source Family",
+  "version": "0.1.0",
+  "license": {
+    "license_id": "CC-BY-SA-3.0",
+    "production_approved": true,
+    "attribution": [
+      "bluecarrot16",
+      "Lanea Zimmerman (Sharm)",
+      "Casper Nilsson",
+      "Lyndsay Takacs (cyanowl)",
+      "Redshrike"
+    ],
+    "commercial_use": true,
+    "redistribution": true,
+    "source_url": null
+  },
+  "production_enabled": false,
+  "dependencies": [
+    {
+      "pack_id": "havenwild_core",
+      "version_requirement": null,
+      "optional": false
+    }
+  ],
+  "priority": 65,
+  "sources": [
+    {
+      "id": "mansion",
+      "kind": "raw_sheet",
+      "path": "content/assets/lpc/source/victorian-buildings/victorian-mansion.png",
+      "tile_size": null,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "tenement",
+      "kind": "raw_sheet",
+      "path": "content/assets/lpc/source/victorian-buildings/victorian-tenement.png",
+      "tile_size": null,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "accessories",
+      "kind": "raw_sheet",
+      "path": "content/assets/lpc/source/victorian-buildings/victorian-accessories.png",
+      "tile_size": null,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "windows_doors",
+      "kind": "raw_sheet",
+      "path": "content/assets/lpc/source/victorian-buildings/victorian-windows-doors.png",
+      "tile_size": null,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "id": "credits",
+      "kind": "sidecar",
+      "path": "content/assets/lpc/source/victorian-buildings/CREDITS-victorian.txt",
+      "tile_size": null,
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "assets": [
+    {
+      "id": "mansion_source_sheet",
+      "category": "building",
+      "semantic_id": "source.building.victorian.mansion",
+      "source_id": "mansion",
+      "atlas_region": null,
+      "variants": [],
+      "tags": [
+        "victorian",
+        "building",
+        "multi_cell",
+        "authoring_source",
+        "requires_region_certification"
+      ],
+      "metadata": {
+        "runtime_state": "source_only_region_certification_required",
+        "source_dimensions": [
+          1024,
+          2048
+        ],
+        "grid_policy": "addressing_hint_only_not_placeable_footprint",
+        "family_contract": "content/assets/lpc/victorian_building_source_family_v0_1.json"
+      }
+    },
+    {
+      "id": "tenement_source_sheet",
+      "category": "building",
+      "semantic_id": "source.building.victorian.tenement",
+      "source_id": "tenement",
+      "atlas_region": null,
+      "variants": [],
+      "tags": [
+        "victorian",
+        "building",
+        "multi_cell",
+        "authoring_source",
+        "requires_region_certification"
+      ],
+      "metadata": {
+        "runtime_state": "source_only_region_certification_required",
+        "source_dimensions": [
+          682,
+          2048
+        ],
+        "grid_policy": "addressing_hint_only_not_placeable_footprint",
+        "family_contract": "content/assets/lpc/victorian_building_source_family_v0_1.json"
+      }
+    },
+    {
+      "id": "accessories_source_sheet",
+      "category": "building",
+      "semantic_id": "source.building.victorian.accessories",
+      "source_id": "accessories",
+      "atlas_region": null,
+      "variants": [],
+      "tags": [
+        "victorian",
+        "building",
+        "multi_cell",
+        "authoring_source",
+        "requires_region_certification"
+      ],
+      "metadata": {
+        "runtime_state": "source_only_region_certification_required",
+        "source_dimensions": [
+          819,
+          2048
+        ],
+        "grid_policy": "addressing_hint_only_not_placeable_footprint",
+        "family_contract": "content/assets/lpc/victorian_building_source_family_v0_1.json"
+      }
+    },
+    {
+      "id": "windows_doors_source_sheet",
+      "category": "building",
+      "semantic_id": "source.building.victorian.windows_doors",
+      "source_id": "windows_doors",
+      "atlas_region": null,
+      "variants": [],
+      "tags": [
+        "victorian",
+        "building",
+        "multi_cell",
+        "authoring_source",
+        "requires_region_certification"
+      ],
+      "metadata": {
+        "runtime_state": "source_only_region_certification_required",
+        "source_dimensions": [
+          409,
+          2048
+        ],
+        "grid_policy": "addressing_hint_only_not_placeable_footprint",
+        "family_contract": "content/assets/lpc/victorian_building_source_family_v0_1.json"
+      }
+    }
+  ]
+}

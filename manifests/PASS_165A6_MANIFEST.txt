@@ -1,0 +1,6 @@
+OVERWRITE apps/haven_editor_native/src/app/canvas_view.rs
+OVERWRITE apps/haven_editor_native/src/app/scene_toolrail.rs
+OVERWRITE apps/haven_editor_native/src/app/canvas_controller.rs
+OVERWRITE apps/haven_editor_native/src/app/mod.rs
+ADD docs/patch/PASS_165A6_SCENE_TOOLRAIL_RESPONSIVE_LAYOUT.md
+ADD manifests/PASS_165A6_MANIFEST.txt

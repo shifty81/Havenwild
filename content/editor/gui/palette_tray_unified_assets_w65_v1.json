@@ -1,0 +1,39 @@
+{
+  "schema": "havenwild.editor.palette_assets.w65.v1",
+  "pass": "167Z109W65",
+  "priority": "P0",
+  "paletteTray": {
+    "anchor": "Pixel bottom palette FG/BG controls",
+    "openFrom": [
+      "foreground swatch",
+      "background swatch",
+      "palette add",
+      "right-click palette swatch"
+    ],
+    "dismiss": [
+      "outside click",
+      "close control",
+      "escape"
+    ],
+    "notPermanentInspector": true
+  },
+  "assetBrowser": {
+    "host": "right dock Assets tab",
+    "thumbnailRuntime": "UnifiedAssetBrowserRuntime",
+    "contexts": [
+      "World",
+      "Scene",
+      "Pixel",
+      "Animation",
+      "Character",
+      "Logic",
+      "Sound"
+    ],
+    "retiredVisibleSurfaces": [
+      "left Pixel library",
+      "left Animation library",
+      "Scene Assets/Intake/Library nested dock",
+      "floating Asset Shelf"
+    ]
+  }
+}

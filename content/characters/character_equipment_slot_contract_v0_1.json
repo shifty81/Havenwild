@@ -1,0 +1,104 @@
+{
+  "schema": "havenwild.character.equipment_slot_contract.v0_1",
+  "revision": "167Z43-complete-lpc-slot-authority-v1",
+  "standardSlotCount": 19,
+  "conditionalSlotCount": 1,
+  "slotOrder": [
+    "head",
+    "face",
+    "neck",
+    "shoulders",
+    "torso",
+    "torso_outer",
+    "arms",
+    "hands",
+    "waist",
+    "legs",
+    "feet",
+    "back",
+    "main_hand",
+    "off_hand",
+    "accessory_1",
+    "accessory_2",
+    "ring_1",
+    "ring_2",
+    "utility",
+    "mobility"
+  ],
+  "conditionalSlots": {
+    "mobility": {
+      "visibleWhen": ["equipped", "character_requires_mobility_slot", "show_all_slots"],
+      "examples": ["wheelchair", "future_movement_assistance"]
+    }
+  },
+  "appearanceOnlyFields": [
+    "sex",
+    "age_group",
+    "body_family",
+    "skin_tone",
+    "head",
+    "eyes",
+    "eyebrows",
+    "hair",
+    "facial_hair",
+    "ears",
+    "facial_markings",
+    "pregnancy_body_state"
+  ],
+  "rendererAttachmentAnchors": [
+    "head_front",
+    "head_back",
+    "face",
+    "neck",
+    "shoulder_left",
+    "shoulder_right",
+    "chest_front",
+    "chest_back",
+    "waist_front",
+    "waist_back",
+    "hip_left",
+    "hip_right",
+    "hand_left",
+    "hand_right",
+    "back_center",
+    "foot_left",
+    "foot_right",
+    "mobility_root"
+  ],
+  "itemDefinitionRequirements": [
+    "equipmentSlot",
+    "occupiedSlots",
+    "renderLayers",
+    "attachmentAnchors",
+    "bodyFamilies",
+    "ageGroups",
+    "pregnancyCompatible",
+    "supportedAnimations",
+    "hiddenCharacterLayers",
+    "dyeChannels",
+    "handedness",
+    "holsterAnchor",
+    "statModifiers",
+    "cosmeticOnly"
+  ],
+  "multiSlotExamples": [
+    {"itemRole":"full_helmet","occupiedSlots":["head","face"]},
+    {"itemRole":"long_robe_or_dress","occupiedSlots":["torso_outer","legs"]},
+    {"itemRole":"two_handed_weapon_or_tool","occupiedSlots":["main_hand","off_hand"]},
+    {"itemRole":"backpack_with_quiver","occupiedSlots":["back","utility"]},
+    {"itemRole":"wedding_ring","occupiedSlots":["ring_1"],"alternateSlots":["ring_2"]}
+  ],
+  "toolPolicy": {
+    "inventoryOwned": true,
+    "hotbarSelected": true,
+    "temporaryHandOccupancy": true,
+    "twoHandedToolsOccupy": ["main_hand", "off_hand"],
+    "utilitySlotMayDisplayHolsteredTool": true
+  },
+  "pregnancyPolicy": {
+    "equipmentSlot": false,
+    "bodyState": true,
+    "adultOnly": true,
+    "requiresCompatibleClothing": true
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_connected_recipe_authority.v0_1",
+  "pass": "167Z109W6",
+  "revision": "167Z109W6-connected-recipe-source-safety-v1",
+  "status": "active",
+  "source": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "path": "Terrain/cliff_summer.png",
+    "cellPx": 32,
+    "grid": [
+      16,
+      14
+    ]
+  },
+  "criticalRule": "A 32x32 source cell is an address, not automatically an independently placeable 1x1 world asset. Runtime promotion happens at the connected-recipe level.",
+  "runtimePromotionContract": {
+    "individualSourceCellPromotionAllowed": false,
+    "normalizedConnectedRecipeRequired": true,
+    "worldVisualFootprintRequired": true,
+    "structuralHostMaskRequired": true,
+    "collisionFootprintRequired": true,
+    "sourceConstructionTemplatesAreRuntimeRecipes": false,
+    "halfTileSynthesisAllowed": false,
+    "stretchAllowed": false,
+    "arbitraryMirrorOrRotationAllowed": false,
+    "genericFallbackInsideCertifiedRecipeAllowed": false
+  },
+  "certifiedRuntimeRecipes": {
+    "straightSouthFace": {
+      "source": "c2r7 crest + c2r3 repeat body + c2r8 foot",
+      "height": "crest on host + max(N-1,0) authored c2r3 body rows + one c2r8 foot at host+N",
+      "status": "runtime_certified"
+    },
+    "roundedSouthWestFace": {
+      "source": "c1r7 crest + c1r3 repeat body + c1r8 foot",
+      "height": "crest on host + max(N-1,0) authored c1r3 body rows + one c1r8 foot at host+N",
+      "status": "runtime_certified"
+    },
+    "roundedSouthEastFace": {
+      "source": "c3r7 crest + c3r3 repeat body + c3r8 foot",
+      "height": "crest on host + max(N-1,0) authored c3r3 body rows + one c3r8 foot at host+N",
+      "status": "runtime_certified"
+    },
+    "roundedSouthTerminal": {
+      "source": "natural-width c1-c3 crest/body/foot connected rows",
+      "worldVisualFootprint": "3 columns",
+      "height": "crest host row + max(N-1,0) complete three-cell body rows + one three-cell foot row at host+N",
+      "status": "runtime_certified"
+    },
+    "narrowCave": {
+      "source": "c6 r9-r11",
+      "status": "runtime_certified_fixed_feature"
+    },
+    "wideCave": {
+      "source": "c7-c9 r9-r11",
+      "worldVisualFootprint": "3 columns x 3 rows",
+      "status": "runtime_certified_fixed_feature"
+    },
+    "ladderA": {
+      "source": "c11 r9-r11",
+      "height": "repeat authored middle once per structural tier",
+      "status": "runtime_certified"
+    },
+    "ladderB": {
+      "source": "c13 r9-r11",
+      "height": "repeat authored middle once per structural tier",
+      "status": "runtime_certified"
+    },
+    "waterValleyA": {
+      "source": "c9-c11 r0-r2",
+      "status": "runtime_certified_socket"
+    },
+    "waterValleyB": {
+      "source": "c12-c14 r0-r2",
+      "status": "runtime_certified_socket"
+    }
+  },
+  "constructionAndReferenceRegions": {
+    "squarePlateauTemplate": {
+      "source": "c5-c7 r5-r8",
+      "classification": "construction_template",
+      "standaloneCellPromotion": false,
+      "runtimeCompatibility": "W6 may display at most one legacy N/E/W edge cell on a non-south host; combined masks may not stack these cells. W7 removes this compatibility path with connected contour recipes."
+    },
+    "complexTransitionStrip": {
+      "source": "c8 r0-r8",
+      "classification": "connected_transition_construction_evidence",
+      "runtimeStatus": "rejected_partial_1xN_crop",
+      "standaloneRamp": false
+    },
+    "rightSideTerminalReference": {
+      "source": "c15 r0-r4",
+      "classification": "terminal_and_side_transition_reference",
+      "runtimeStatus": "source_reference_only_until_adjacency_recipe_certified"
+    }
+  },
+  "rampPolicy": {
+    "structuralIntent": "Ramp",
+    "maximumTierDelta": 1,
+    "sourceSemantics": "side-entry connected cliff connector",
+    "retiredVisual": "front-facing MountainPath flanked by two unrelated rounded south-corner cliff recipes",
+    "currentVisualPolicy": "do not draw substitute cliff pixels; semantic MountainPath remains visible and traversal-authoritative until the exact side-entry connected recipe is promoted",
+    "complexTransitionStripMayBeUsedStandalone": false
+  },
+  "overpaintPolicy": {
+    "multipleConstructionTemplateCellsOnOneHostAllowed": false,
+    "southCertifiedRecipeOwnsHost": true,
+    "backRimMayOverpaintSouthRecipe": false,
+    "ambiguousNonSouthCombinedMask": "defer to W7 connected contour ownership instead of stacking template cells"
+  },
+  "verticalContract": {
+    "authority": "content/worldgen/elizawy_cliff_vertical_modularity_v0_1.json",
+    "bodyRowsFormula": "max(face_segments, 1)",
+    "extraMiddleRowsPerAdditionalTier": 1,
+    "collisionRowsGrowWithAuthoredRows": true
+  },
+  "collisionContract": {
+    "artNeverOwnsStructuralTopology": true,
+    "southStraightBaseProjectionRows": 3,
+    "isolatedRoundedBaseProjectionRows": 3,
+    "compactDiagonalChainBaseProjectionRows": 2,
+    "extraRowsPerAdditionalStructuralTier": 1,
+    "explicitConnectorOnlyTraversal": true
+  },
+  "upstreamAcceptanceReferences": [
+    "ElizaWy/LPC _ Test Scenes/DemoGame - 2 - Summer.png",
+    "ElizaWy/LPC _ Test Scenes/Test Landscape.png",
+    "OpenGameArt [LPC] Mountains Tiled terrain + automapping workflow"
+  ],
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_connected_recipe_authority_pass167z109w6.png",
+  "next": "W7 continuous contour recipe assembler: certify complete north/east/west concave/convex/ridge/terminal and exact side-entry ramp assemblies, then freeze cliffs and move to authored shoreline/water",
+  "visualSourceRoleAuthority": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json",
+  "visualSourceRoleOverride": "W14 is current for ordinary south crest/body/foot cells and literal height; W6 remains active for recipe-level source safety/no-synthesis rules."
+}

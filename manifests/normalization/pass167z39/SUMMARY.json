@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z39",
+  "title": "World Creation, Housing, Relationships, and Family Foundation",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Added a typed world-creation authority covering world size, landform, land coverage, coastline, mountains, marine water, rivers, lakes, ponds, wetlands, waterfalls, biomes, forests, settlements, housing, relationships, and family rules.",
+    "Added a seven-page in-game world-creation wizard reached from the existing Create World card.",
+    "New worlds now persist their complete generation request and finite wrapped topology alongside the existing compatibility archipelago bootstrap.",
+    "Added city and village housing targets: cities expose multiple rental/purchase opportunities while villages normally expose one and may occasionally expose a second.",
+    "Added persistent world social-state contracts for properties, tenure, households, reputation, NPC/player relationships, player-player and player-NPC marriage, children, adoption, and pregnancy state.",
+    "Added an ElizaWy pregnancy-body asset role and strict audit/clothing-compatibility policy without inventing an unverified source filename.",
+    "Preserved Willowmere as mandatory, continuous outdoor-world direction, and the no-static-player-farmstead rule."
+  ],
+  "validation": {
+    "targetedContract": "passed",
+    "jsonParse": "passed for all project JSON in reconstructed current source",
+    "pythonCompilation": "passed for the new focused validator",
+    "rustDelimiterScan": "passed for all changed Rust files",
+    "cumulativeOverwriteTest": "prepared against the verified Pass167Z38 cumulative source",
+    "cargoFmtCheckClippyTests": "pending Windows workstation run",
+    "liveWorldCreationWizard": "pending Windows workstation run",
+    "fullHydrologyBiomeSettlementSimulation": "not claimed complete; contracts and persistence are now established"
+  },
+  "completeSourceCreated": false
+}

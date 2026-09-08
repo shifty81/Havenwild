@@ -1,0 +1,8 @@
+PASS 165X — MACROQUAD AUDIO FEATURE ENABLEMENT
+
+Overwrite-capable repository-root patch.
+
+Files:
+Cargo.toml
+docs/patch/PASS_165X_MACROQUAD_AUDIO_FEATURE_ENABLEMENT.md
+manifests/PASS_165X_MANIFEST.txt

@@ -1,0 +1,47 @@
+{
+  "schema": "havenwild.world_plan_compatibility_bridge.v0_1",
+  "revision": "167Z109T-v1",
+  "behaviorPreserving": true,
+  "goal": "Route the existing continuous-surface PCG/materialization path through one feature-first WorldPlan object before replacing any visible terrain, city, cliff, water, or cave output.",
+  "authority": {
+    "planType": "haven_world::SurfaceWorldPlanV1",
+    "boundsType": "haven_world::SurfaceWorldBounds",
+    "targetMainlandType": "haven_world::MainlandPlanV1",
+    "materializationMode": "LegacyVisualParity",
+    "legacyPartitionInput": "SceneRectangleManifest is compatibility geometry/input only; it is not promoted to gameplay authority"
+  },
+  "currentRoute": [
+    "scene rectangle compatibility geometry",
+    "SurfaceWorldPlanV1",
+    "existing geographic surface generation",
+    "existing mainland feature materializer through materialize_mainland_world_plan_compatibility",
+    "existing structural landform materializer",
+    "existing natural object population"
+  ],
+  "mainlandTargetCarriedByPlan": {
+    "primaryCities": [
+      "WesternHarborCapital",
+      "MountainCity",
+      "SouthernSandyCity"
+    ],
+    "tradeTriangleRequired": true,
+    "mountainMassifRequired": true,
+    "caveBearingMassifRequired": true,
+    "expeditionGateway": "WesternHarborCapital",
+    "materializedInThisPass": false
+  },
+  "parityRules": [
+    "mainland global geographic surface keeps the exact incoming generation seed and havenwild_mainland region key",
+    "minor-island highland/structural/ecology stages keep the pre-bridge seed expression generation_seed XOR landmass_id",
+    "terrain providers and atlases are unchanged",
+    "legacy mainland road/civic/cave materializer is retained behind the plan bridge",
+    "no save schema or generation version changes",
+    "no cliff contour replacement in this pass"
+  ],
+  "consumers": [
+    "haven_world::island_pcg::generate_landmass",
+    "haven_world::surface_population::populate_missing_pcg_mainland_features",
+    "native island authoring through GeneratedIsland.world_plan"
+  ],
+  "next": "Pass167Z109U small runtime/ECS + canonical character state foundation with player visual parity; visible cliff replacement remains deferred until parity normalization is certified."
+}

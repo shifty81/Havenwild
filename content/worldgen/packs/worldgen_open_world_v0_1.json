@@ -1,0 +1,24 @@
+{
+  "id": "worldgen_open_world_v0_1",
+  "name": "Havenwild Continuous Open World Foundation",
+  "version": "0.1.0",
+  "kind": "worldgen_asset_pack",
+  "source": "seeded_continuous_open_world",
+  "defaultScene": "willowmere_outskirts_open_world",
+  "requiresLegacySceneSet": false,
+  "sceneFiles": [
+    "content/worldgen/scenes/open_world/willowmere_outskirts_region_v0_1.json"
+  ],
+  "editor": {
+    "defaultScene": "willowmere_outskirts_open_world",
+    "worldModel": "continuous_chunked_overworld",
+    "permanentCapital": "Willowmere",
+    "staticFarmsteadFixture": false,
+    "placementPolicy": "content/worldgen/open_world_build_placement_policy_v0_1.json",
+    "terrainFamilyAuthority": "content/worldgen/terrain_visual_family_authority_v0_1.json"
+  },
+  "runtimeSourceLoader": "crates/haven_core/src/worldgen_loader.rs",
+  "runtimeEntryPoint": "GameWorld::load_worldgen_pack_path",
+  "previousPack": "content/worldgen/packs/worldgen_home_island_v0_10.json",
+  "migrationNote": "The home-island/farmstead pack remains legacy compatibility data; it is no longer the active open-world foundation."
+}

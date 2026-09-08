@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.integrated_canvas_rails.w60e20.v1",
+  "pass": "W60E20",
+  "toolRail": {
+    "opaque": true,
+    "collapsible": true,
+    "canvasReclaimsWidth": true,
+    "sharedHost": true
+  },
+  "layerRail": {
+    "opaque": true,
+    "collapsible": true,
+    "resizable": true,
+    "persistentWidth": true,
+    "minWidth": 148,
+    "maxWidth": 320,
+    "diagonalGrip": true
+  },
+  "rule": "collapsed rails never reserve an invisible permanent gutter"
+}

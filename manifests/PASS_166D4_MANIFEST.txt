@@ -1,0 +1,5 @@
+PASS 166D4 — HOTBAR DEAD-CODE REPAIR
+
+OVERWRITE crates/haven_game/src/gameplay_hotbar.rs
+ADD docs/patch/PASS_166D4_HOTBAR_DEAD_CODE_REPAIR.md
+ADD manifests/PASS_166D4_MANIFEST.txt

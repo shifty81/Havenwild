@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.editor_font_atlas.w62h3.v1",
+  "authority": "apps/haven_editor_native/src/app/editor_text.rs",
+  "fontFamilyPolicy": {
+    "primary": "Segoe UI",
+    "fallbacks": ["Segoe UI Semilight", "Arial"],
+    "source": "Windows system font directory",
+    "repositoryFontFilesForbidden": true
+  },
+  "macroquadStabilization": {
+    "dynamicRasterSizesForbiddenForNormalEditorText": true,
+    "logicalRasterTiers": [14, 18, 24, 32, 40],
+    "finalSizingUsesFontScale": true,
+    "prewarmBeforeVisibleUi": true,
+    "prewarmCharacterSet": "Macroquad ascii_character_list (Latin-1 range)",
+    "prewarmIsDpiAware": true,
+    "fontTextureFilter": "Linear",
+    "goal": "Prevent normal editor actions from forcing a Macroquad font-atlas texture resize/recreation in the middle of a batched visible frame."
+  },
+  "runtimeRules": [
+    "All editor text must route through draw_editor_text / measure_editor_text.",
+    "Pixel-art texture filtering must not change the Segoe font atlas filter.",
+    "New dialogs/documents/workspaces must reuse the fixed raster tiers instead of introducing arbitrary glyph raster sizes.",
+    "If future Unicode coverage is expanded substantially, extend startup prewarm or migrate the editor text adapter to a dedicated static/shaped text backend rather than reintroducing unbounded Macroquad atlas churn."
+  ]
+}

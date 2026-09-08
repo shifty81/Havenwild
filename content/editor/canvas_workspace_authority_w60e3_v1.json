@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.canvas_workspace_authority.w60e3.v1",
+  "pass": "167Z109W60E3",
+  "authority": "One CanvasWorkspace owns the tool rail, layer dock, ruler gutter, active layer context, and explicit tool state",
+  "canvasChrome": {
+    "toolRail": "left_full_height",
+    "layerDock": "left_full_height_after_tool_rail",
+    "rulerDedicatedGutterPx": 24,
+    "rightInspectorMayDuplicateLayers": false
+  },
+  "interaction": {
+    "defaultModifyingToolOnLayerSelect": false,
+    "unsupportedTools": "visible_disabled",
+    "lockedLayerMutatingToolsDisabled": true,
+    "syntheticLayersHaveRealActiveContext": true
+  },
+  "pixelInspector": {
+    "tabs": [
+      "Properties",
+      "Anim",
+      "Color"
+    ],
+    "layerAuthority": "canvas_layer_dock"
+  },
+  "rules": [
+    "Changing a layer never arms Paint or Place",
+    "The tool rail may only enable operations that have a wired adapter for the active canvas/layer",
+    "Locked reference layers grey mutating tools",
+    "Pixel Studio layer selection lives in the canvas Layer Dock rather than a second Inspector stack",
+    "Tool and layer chrome reserve canvas geometry and do not float over the drawable document"
+  ]
+}

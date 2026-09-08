@@ -1,0 +1,55 @@
+{
+  "id": "world_edge_border_resolution_v0_3",
+  "version": "0.3.0",
+  "kind": "scene_edge_border_resolution",
+  "borderAtlas": "scene_edge_borders_32",
+  "edgeTypes": [
+    {
+      "id": "forest",
+      "fallbackTile": "dense_forest",
+      "description": "Used when adjacent scene is wooded or unknown but exterior."
+    },
+    {
+      "id": "coast",
+      "fallbackTile": "ocean_edge",
+      "description": "Used when adjacent world-surface neighbor is ocean/coast."
+    },
+    {
+      "id": "mountain",
+      "fallbackTile": "mountain_edge",
+      "description": "Used on tavern mountain base and cave approach."
+    },
+    {
+      "id": "city",
+      "fallbackTile": "city_edge",
+      "description": "Used near main city approach and city expansion rectangles."
+    },
+    {
+      "id": "field",
+      "fallbackTile": "field_edge",
+      "description": "Used for player-owned expansion plots and farms."
+    },
+    {
+      "id": "interior_black_void",
+      "fallbackTile": "black_void_mask",
+      "description": "Used in interiors/house/cave-room scenes with black outside backdrop."
+    },
+    {
+      "id": "cave_darkness",
+      "fallbackTile": "cave_darkness_mask",
+      "description": "Used for cave and dungeon edges."
+    },
+    {
+      "id": "cliff",
+      "fallbackTile": "cliff_edge",
+      "description": "Used by highland/mountain/coastal height changes."
+    }
+  ],
+  "cameraPolicy": {
+    "fixedOrthographicDepthView": true,
+    "neverRenderUnresolvedVoid": true,
+    "edgePaddingTiles": 3,
+    "outerFillerMayRenderBeyondSceneBounds": true
+  },
+  "validation": "all four scene edges must resolve to a known edge type or an explicit transition opening"
+}

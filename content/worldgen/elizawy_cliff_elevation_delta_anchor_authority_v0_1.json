@@ -1,0 +1,64 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_elevation_delta_anchor_authority.v0_1",
+  "pass": "167Z109W10",
+  "revision": "167Z109W10-edge-delta-full-diagonal-alignment-v1",
+  "status": "active",
+  "scope": "terrain-cliff-visual-and-collision-correction",
+  "runtimeEvidence": {
+    "source": "local W9 fresh-world screenshots",
+    "observed": [
+      "Level-2 straight horizontal faces appeared vertically out of phase with adjacent angled faces",
+      "some diagonal feet terminated one projected row above neighboring straight feet",
+      "mixed-height hosts could size every exposed edge from the host-wide maximum face_segments value"
+    ]
+  },
+  "structuralHeightContract": {
+    "authoritativeLevels": [0, 1, 2],
+    "edgeHeightSource": "StructuralCellV2.edge_deltas for the exact exposed edge",
+    "resolverUnitsPerStructuralTier": 2,
+    "edgeExamples": {
+      "1_to_0": 1,
+      "2_to_1": 1,
+      "2_to_0": 2
+    },
+    "hostMaximumFaceSegmentsUse": "compatibility fallback only when an exposed edge has no positive edge delta",
+    "heightGrowthDirection": "downward from the structural plateau boundary; never move the plateau/rim upward to make a cliff taller"
+  },
+  "straightSouthRecipe": {
+    "plateauHostRow": "V7 surface authority",
+    "firstProjectedRow": "StraightSouthTop",
+    "repeat": "StraightSouthBody once per resolved structural-tier segment",
+    "foot": "StraightSouthFoot",
+    "level2To0ProjectionRows": 4
+  },
+  "roundedDiagonalRecipe": {
+    "hostRow": "authored rounded lip",
+    "receiverRow1": "authored rounded shoulder",
+    "repeat": "authored rounded body once per exact south-edge structural-tier segment",
+    "foot": "authored rounded foot",
+    "compactProjection": false,
+    "reason": "the historical compact chain path skipped the shoulder and ended Level-2 angled feet one row above the neighboring Level-2 straight face"
+  },
+  "alignment": {
+    "oneTier": "straight and diagonal feet land on host+3",
+    "twoTier": "straight and diagonal feet land on host+4",
+    "collision": "south-face collision uses the same exact south-edge segment count and the same complete base projection depth"
+  },
+  "unchanged": [
+    "V7 plateau/surface terrain authority",
+    "Level 0/1/2 topology",
+    "W7 authored directional ramp stamps",
+    "one-tile normal cave-mouth width",
+    "season/provider source coordinates",
+    "save/network schemas"
+  ],
+  "forbidden": [
+    "using host-wide maximum face_segments to size a south edge when a positive south edge delta exists",
+    "compact diagonal lip-body-foot projection",
+    "shifting the plateau/rim upward to represent additional cliff height",
+    "stretching cliff source cells",
+    "inventing replacement corner or diagonal pixels"
+  ],
+  "acceptancePreview": "docs/assets/previews/elizawy_cliff_elevation_delta_alignment_pass167z109w10.png",
+  "next": "local visual test of Level 2 horizontal/angled joins, then vertical-side family correction if required before shoreline/water"
+}

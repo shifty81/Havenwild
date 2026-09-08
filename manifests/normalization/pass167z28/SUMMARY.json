@@ -1,0 +1,19 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z28",
+  "title": "Pixel-Snap Test Tolerance Repair",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Replaced exact f32 Vec2 equality in the retained-terrain pixel-snap test with a 0.001-pixel per-axis tolerance.",
+    "Preserved the runtime pixel-snapping algorithm and retained terrain rendering behavior unchanged.",
+    "Documented the Windows-only 268.99997 versus 269.0 rounding difference as non-visible floating-point noise."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "windowsFailure": "268.99997 versus 269.0 accepted within 0.001 pixel",
+    "cargo": "pending Windows workstation rerun"
+  },
+  "completeSourceCreated": false
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "havenwild.editor.document_host.w64.v1",
+  "pass": "167Z109W64",
+  "priority": "P0",
+  "pixelDocumentHost": {
+    "newControl": "plus adjacent to document tabs",
+    "dirtyIndicator": "bullet",
+    "modes": [
+      "single",
+      "vertical",
+      "horizontal"
+    ],
+    "secondaryPane": "read-only companion document; click to focus",
+    "splitRatio": [
+      0.25,
+      0.75
+    ]
+  },
+  "futureRule": "The same document-host grammar is reusable by other Havenwild studios without creating parallel tab systems."
+}

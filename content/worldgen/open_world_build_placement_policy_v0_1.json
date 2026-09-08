@@ -1,0 +1,72 @@
+{
+  "schema": "havenwild.worldgen.open_world_build_placement_policy.v0_1",
+  "version": 1,
+  "worldModel": "continuous_seeded_open_world",
+  "capital": {
+    "name": "Willowmere",
+    "permanentAcrossSeeds": true,
+    "authoredCoreProtected": true,
+    "seedVariationScope": [
+      "surrounding terrain",
+      "approaches",
+      "outskirts",
+      "minor plots",
+      "decorations",
+      "supporting generated population"
+    ]
+  },
+  "playerBuilding": {
+    "defaultOutsideCities": "allowed",
+    "cityCore": "protected",
+    "cityConstruction": "lease_or_purchase_designated_plot",
+    "protectedConstraints": [
+      "civic buildings",
+      "major roads",
+      "public squares",
+      "quest-critical sites",
+      "other-owned plots",
+      "ecological reserves"
+    ],
+    "ruralConstraints": [
+      "terrain support",
+      "water access rules",
+      "road reservation",
+      "ownership and permissions",
+      "world-event reservations"
+    ]
+  },
+  "businessPlacement": {
+    "cityCentered": [
+      "tavern",
+      "inn",
+      "shop",
+      "bakery",
+      "brewery storefront",
+      "restaurant",
+      "workshop",
+      "smithy storefront",
+      "service business"
+    ],
+    "ruralOrPeriUrban": [
+      "farm",
+      "orchard",
+      "ranch",
+      "apiary",
+      "fishery",
+      "forestry plot"
+    ],
+    "hybrid": [
+      "brewery production yard",
+      "mill",
+      "warehouse",
+      "stable"
+    ],
+    "rule": "Most customer-facing businesses occupy city plots; land-intensive farm businesses occupy rural or peri-urban land."
+  },
+  "worldgenRules": [
+    "Do not generate a mandatory player farmstead.",
+    "Do not reserve one fixed field or tavern footprint for the player.",
+    "Generate coherent biomes, roads, resources, cities, and buildable land instead.",
+    "Outdoor travel remains continuous; interiors, caves, and dungeons may use transitions."
+  ]
+}

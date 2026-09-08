@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.logic_node_editor_contract.w60e18.v1",
+  "phase": "architecture_locked_not_exposed",
+  "workspaceTabExposed": false,
+  "reason": "no production node graph adapter/compiler UI is certified yet",
+  "sharedTools": {
+    "select": "node_wire_group_selection",
+    "pan": "graph_navigation",
+    "place": "node_placement",
+    "move": "node_or_group_move",
+    "link": "typed_pin_connection",
+    "rectangle": "box_selection"
+  },
+  "layers": [
+    "nodes",
+    "connections",
+    "groups_comments",
+    "object_bindings",
+    "runtime_debug"
+  ],
+  "nodeFamilies": [
+    "events",
+    "conditions",
+    "actions",
+    "world",
+    "logic"
+  ],
+  "runtime": "compile_authoring_graph_to_deterministic_havenwild_behavior",
+  "requiredBeforeExposure": [
+    "typed_pins",
+    "undo_redo",
+    "validation",
+    "object_scene_binding",
+    "compiler",
+    "runtime_trace"
+  ]
+}

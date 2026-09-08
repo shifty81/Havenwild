@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "havenwild.asset_local_import_instructions.schema.v0_1",
+  "title": "Havenwild Asset Local Import Instructions",
+  "type": "object",
+  "required": [
+    "schema",
+    "updated",
+    "records"
+  ],
+  "properties": {
+    "schema": {
+      "const": "havenwild.asset_local_import_instructions.v0_1"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "object"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "externalSourceId",
+          "displayName",
+          "localImportStatus",
+          "preferredWorkspaceImportPath",
+          "preferredQuarantinePath",
+          "acceptedInputFiles",
+          "instruction"
+        ],
+        "properties": {
+          "externalSourceId": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "localImportStatus": {
+            "type": "string"
+          },
+          "preferredWorkspaceImportPath": {
+            "type": "string"
+          },
+          "preferredQuarantinePath": {
+            "type": "string"
+          },
+          "acceptedInputFiles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "acceptedInputNotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dryRunCommand": {
+            "type": "string"
+          },
+          "editorDisplay": {
+            "type": "string"
+          },
+          "runtimeUseRule": {
+            "type": "string"
+          },
+          "instruction": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

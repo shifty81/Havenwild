@@ -1,0 +1,138 @@
+{
+  "schema": "havenwild.oga_lpc_commercial_intake.v0_1",
+  "revision": "167Z109M",
+  "policy": {
+    "commercial_use_required": true,
+    "preferred_licenses": [
+      "CC0-1.0",
+      "CC-BY-4.0",
+      "CC-BY-3.0",
+      "OGA-BY-3.0"
+    ],
+    "conditional_licenses": [
+      "CC-BY-SA-4.0",
+      "CC-BY-SA-3.0"
+    ],
+    "rejected_by_default": [
+      "CC-BY-NC",
+      "CC-BY-NC-SA",
+      "GPL-only",
+      "unknown",
+      "conflicting"
+    ],
+    "require_verified_authors": true,
+    "require_verified_derivative_chain": true,
+    "require_credit_record": true
+  },
+  "assets": [
+    {
+      "id": "elizawy.4_season_terrain",
+      "title": "[LPC Revised] 4-Season Terrain",
+      "source_url": "https://opengameart.org/content/lpc-revised-4-season-terrain",
+      "authors": [
+        "Eliza Wyatt (DeathsDarling)",
+        "Lanea Zimmerman (Sharm)",
+        "Hyptosis",
+        "Stephen Challener (Redshrike)",
+        "Demetrius"
+      ],
+      "selected_license": "OGA-BY-3.0",
+      "commercial_use": true,
+      "share_alike_required": false,
+      "state": "APPROVED_PINNED_PROVIDER",
+      "files": [],
+      "production_roles": [
+        "terrain.seasonal_surface",
+        "terrain.detail",
+        "structural.cliff",
+        "structural.rim",
+        "structural.ramp",
+        "structural.vine",
+        "structural.ladder",
+        "hydrology.animated_water",
+        "hydrology.waterfall",
+        "hydrology.frozen_waterfall",
+        "ecology.trees",
+        "ecology.bushes",
+        "ecology.flowers",
+        "geology.rocks"
+      ],
+      "normalization_required": [
+        "semantic_role_catalog",
+        "season_geometry_validation",
+        "detail_role_catalog"
+      ]
+    },
+    {
+      "id": "oga.lpc.caves",
+      "title": "LPC Caves",
+      "source_url": "https://opengameart.org/content/lpc-caves",
+      "authors": [
+        "Lanea Zimmerman (Sharm)"
+      ],
+      "selected_license": "CC0-1.0",
+      "commercial_use": true,
+      "share_alike_required": false,
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "files": [],
+      "production_roles": [
+        "cave.entrance",
+        "cave.wall",
+        "cave.corner",
+        "cave.front_ridge",
+        "cave.floor"
+      ],
+      "normalization_required": [
+        "cave_entrance_footprints",
+        "canonical_cave_roles"
+      ]
+    },
+    {
+      "id": "oga.lpc.cave_openings",
+      "title": "LPC Additional Mountain and Cave Opening Tiles",
+      "source_url": "https://opengameart.org/content/lpc-additional-mountain-and-cave-opening-tiles",
+      "authors": [
+        "Lanea Zimmerman (Sharm)"
+      ],
+      "selected_license": "CC0-1.0",
+      "commercial_use": true,
+      "share_alike_required": false,
+      "state": "APPROVED_ACQUIRE_NORMALIZE",
+      "files": [],
+      "production_roles": [
+        "cave.entrance_large",
+        "cave.entrance_tileable",
+        "cave.corner_extra",
+        "cave.front_ridge_variant"
+      ],
+      "normalization_required": [
+        "tileable_entrance_recipe",
+        "corner_role_map"
+      ]
+    },
+    {
+      "id": "oga.lpc.animated_water",
+      "title": "LPC Animated Water and waterfalls",
+      "source_url": "https://opengameart.org/content/lpc-animated-water-and-waterfalls",
+      "authors": [
+        "ZaPaper",
+        "Original LPC contributors"
+      ],
+      "selected_license": "CC-BY-SA-3.0",
+      "commercial_use": true,
+      "share_alike_required": true,
+      "state": "APPROVED_ACQUIRE_REVIEW",
+      "files": [],
+      "production_roles": [
+        "animated_water_overlay",
+        "waterfall_animation",
+        "water_glint"
+      ],
+      "normalization_required": [
+        "frame_map",
+        "hydrology_binding",
+        "shore_overlay_binding"
+      ]
+    }
+  ]
+}

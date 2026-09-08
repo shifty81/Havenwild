@@ -1,0 +1,118 @@
+{
+  "schema": "havenwild.assets.lpc_open_world_terrain_candidate_registry.v0_1",
+  "version": 1,
+  "policy": {
+    "defaultStatus": "candidate_pending_download_attribution_and_visual_family_audit",
+    "runtimeUseBeforeAudit": false,
+    "directUseRequires": [
+      "downloaded source archive",
+      "license verification",
+      "exact attribution",
+      "32x32 cell inventory",
+      "family/palette compatibility review",
+      "transition/corner acceptance scenes"
+    ]
+  },
+  "candidates": [
+    {
+      "id": "oga_lpc_terrains",
+      "title": "[LPC] Terrains",
+      "url": "https://opengameart.org/content/lpc-terrains",
+      "roles": [
+        "core terrain family",
+        "grass/dirt/sand/water/snow/ice transitions"
+      ],
+      "license": "verify from bundled attribution before promotion",
+      "priority": "highest",
+      "status": "current_reference_and_partial_pinned_source"
+    },
+    {
+      "id": "oga_lpc_mountains",
+      "title": "[LPC] Mountains",
+      "url": "https://opengameart.org/content/lpc-mountains",
+      "roles": [
+        "mountains",
+        "hills",
+        "grassy highlands",
+        "snow overlay"
+      ],
+      "license": "verify from downloaded package and credits",
+      "priority": "high",
+      "status": "candidate"
+    },
+    {
+      "id": "oga_lpc_grass_cliffs",
+      "title": "LPC cliffs/mountains with grass top and more!",
+      "url": "https://opengameart.org/content/lpc-cliffsmountains-with-grass-top-and-more",
+      "roles": [
+        "grass-topped cliffs",
+        "diagonal ramps",
+        "highland boundaries"
+      ],
+      "license": "CC-BY-SA 3.0 or GPL 3.0",
+      "priority": "high",
+      "status": "candidate"
+    },
+    {
+      "id": "oga_lpc_more_water",
+      "title": "LPC More Water Transitions",
+      "url": "https://opengameart.org/content/lpc-more-water-transitions",
+      "roles": [
+        "water depth transitions",
+        "cold water",
+        "ice"
+      ],
+      "license": "verify attribution and license from downloaded package",
+      "priority": "medium",
+      "status": "candidate"
+    },
+    {
+      "id": "oga_lpc_bridge_rework",
+      "title": "LPC Wooden Bridge Rework",
+      "url": "https://opengameart.org/content/lpc-wooden-bridge-rework",
+      "roles": [
+        "32x32 orthogonal bridges",
+        "coast/river crossings"
+      ],
+      "license": "CC-BY-SA 3.0+ or GPL 2.0+",
+      "priority": "high",
+      "status": "candidate"
+    },
+    {
+      "id": "oga_grass_tilled_soil",
+      "title": "Grass and Tilled Soil",
+      "url": "https://opengameart.org/content/grass-and-tilled-soil",
+      "roles": [
+        "player-authored farm plots",
+        "grass-to-field edge family"
+      ],
+      "license": "CC-BY-SA 3.0",
+      "priority": "high",
+      "status": "candidate"
+    },
+    {
+      "id": "oga_lpc_streets",
+      "title": "[LPC] Streets",
+      "url": "https://opengameart.org/content/lpc-streets",
+      "roles": [
+        "Willowmere city streets",
+        "junctions",
+        "road markings"
+      ],
+      "license": "CC-BY-SA 3.0 or GPL 3.0",
+      "priority": "medium",
+      "status": "candidate_city_family"
+    },
+    {
+      "id": "oga_lpc_outdoor_collection",
+      "title": "LPC - Outdoor Tiles",
+      "url": "https://opengameart.org/content/lpc-outdoor-tiles",
+      "roles": [
+        "curated discovery list for outdoor/city/coast assets"
+      ],
+      "license": "per-item; collection credits are not sufficient without audit",
+      "priority": "discovery",
+      "status": "reference_collection"
+    }
+  ]
+}

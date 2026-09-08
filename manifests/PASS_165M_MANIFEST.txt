@@ -1,0 +1,7 @@
+PASS 165M — Station Proximity Interaction
+ADD crates/haven_game/src/station_interaction_runtime.rs
+OVERWRITE crates/haven_game/src/player_inventory_ui.rs
+OVERWRITE crates/haven_game/src/client_pause_menu.rs
+OVERWRITE crates/haven_game/src/runtime_draw.rs
+OVERWRITE crates/haven_game/src/main.rs
+ADD docs/patch/PASS_165M_STATION_PROXIMITY_INTERACTION.md

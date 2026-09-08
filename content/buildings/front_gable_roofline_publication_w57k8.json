@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.front_gable_roofline_publication.v1",
+  "pass": "167Z109W57K8",
+  "authority": "BuildingRecipe + PublishedWorldAssetRegistry",
+  "source": {
+    "path": "assets/source/licensed/lpc_revised/Structure/Roofing/Gable Shingle Roof A.png",
+    "rect": [
+      544,
+      0,
+      224,
+      128
+    ]
+  },
+  "classification": "front_gable_roofline_rake_eave_silhouette",
+  "assetId": "roof_gable_shingle_brown_shallow_7x4_roofline",
+  "rules": {
+    "consumeOncePerStarterCottage": true,
+    "scaleSourceArtwork": false,
+    "filledRoofPlane": false,
+    "intentionalTransparentGableOpening": true,
+    "infillAssetId": "wall_siding_plain_cream_gable_fill",
+    "infillRows": [
+      1,
+      3,
+      5
+    ],
+    "wallPlateWidthTiles": 5,
+    "roofEnvelopeWidthTiles": 7,
+    "sideEaveTiles": 1
+  },
+  "supersedesActivePublication": "roof_gable_shingle_brown_shallow_7x4_module"
+}

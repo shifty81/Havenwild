@@ -1,0 +1,35 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z56",
+  "date": "2026-08-03",
+  "title": "Organic Title Controls, Frontend Music, and Rounded Water Depth Rendering",
+  "status": "ready_for_windows_build",
+  "changes": [
+    "Replace rectangular title hover feedback with one transparent organic overlay aligned to all six accepted title controls",
+    "Activate frontend title music lifecycle at 40 percent volume with exact-checksum asset restoration",
+    "Resolve shallow-to-deep visual contours through the dedicated WaterRenderMask",
+    "Draw complete authored LPC depth edge/corner cells for common pond and ocean masks",
+    "Keep active Rust source authoritative and leave historical source-rewriter scripts disabled"
+  ],
+  "localValidation": {
+    "focusedPassValidator": true,
+    "organicHoverImageAudit": true,
+    "waterMaskVisualSimulation": true,
+    "audioBootstrapOfflineMode": true,
+    "pythonCompile": true,
+    "bashSyntax": true,
+    "jsonParse": true,
+    "rustDelimiterScan": true,
+    "cargo": false,
+    "reasonCargoNotRun": "Rust toolchain is unavailable in the artifact environment"
+  },
+  "workstationCertification": [
+    "cargo fmt --all -- --check",
+    "cargo check --workspace --all-targets",
+    "cargo clippy --workspace --all-targets -- -D warnings",
+    "cargo test --workspace",
+    "live title hover and pressed-state rendering",
+    "live 40 percent frontend music playback and gameplay stop",
+    "live pond and ocean depth contour verification"
+  ]
+}

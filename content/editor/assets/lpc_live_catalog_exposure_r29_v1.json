@@ -1,0 +1,72 @@
+{
+  "schema": "havenwild.editor.lpc_live_catalog_exposure.r29.v1",
+  "pass": "W81R29",
+  "baseline": "W81R18R28",
+  "purpose": "Turn the additive R18-R28 LPC intake authority into visible, honest native-editor catalog exposure without treating unbound source art as runtime-ready placeables.",
+  "worldSourceBrowser": {
+    "projection": "content/editor/assets/lpc_world_source_browser_v1.json",
+    "sourceAuthority": "content/assets/lpc/lpc_slice_catalog_v0_1.json",
+    "expectedSourceSheetCards": 320,
+    "rawArtPolicy": "Raw LPC images remain in the verified machine-local LPC mount and are thumbnail-loaded lazily.",
+    "placementPolicy": "SourceReference cards are searchable/favoriteable/recent-visible but cannot paint/place until promoted to a semantic/runtime binding.",
+    "presentation": "dynamic scrollable thumbnail grid",
+    "forbidPrimaryPagination": true,
+    "groups": [
+      "Terrain",
+      "Structures",
+      "Nature & Resources",
+      "Interiors & Props",
+      "Food & Workshops",
+      "Effects"
+    ],
+    "categories": [
+      "Ground",
+      "Paths & Roads",
+      "Water",
+      "Elevation & Cliffs",
+      "Floors",
+      "Walls",
+      "Doors & Access",
+      "Roofs",
+      "Farming",
+      "Trees & Flora",
+      "Rocks & Resources",
+      "Runtime Objects",
+      "Furniture",
+      "Storage",
+      "Lighting",
+      "Decor",
+      "Structure Parts & Props",
+      "Food & Kitchen",
+      "Workshops & Crafting",
+      "Effects",
+      "Reusable Stamps"
+    ]
+  },
+  "characterStudio": {
+    "catalogSections": ["Create", "Wardrobe & Gear"],
+    "createCategoryIds": [
+      "body", "head", "hair", "eyebrows", "eyes", "nose", "ears",
+      "beards", "expression", "wings", "tail", "mobility", "effects"
+    ],
+    "wardrobeCategoryIds": [
+      "torso", "arms", "hands", "legs", "feet", "hat", "neck", "back",
+      "accessory", "weapon", "shield", "tools"
+    ],
+    "rule": "The two sections partition the shared Universal LPC character-builder categories; they do not create a second character catalog."
+  },
+  "gameMirror": {
+    "surface": "crates/haven_game/src/player_inventory_ui/draw.rs",
+    "label": "Wardrobe & Gear",
+    "authority": "existing gameplay equipment/runtime compositor",
+    "rule": "Character Studio and the game expose different-depth views of the same gameplay equipment concepts; the editor must not invent an editor-only equipment truth."
+  },
+  "acceptance": [
+    "All Project Asset Browser exposes hundreds of LPC source-reference cards in addition to runtime-ready assets.",
+    "Mouse wheel scrolls the visible asset-card grid; the four-card Prev/Next pagination is gone.",
+    "Source cards show exact LPC thumbnails when the pinned source mount is available.",
+    "Source cards clearly report Needs Binding and cannot be dragged onto the world as fake runtime objects.",
+    "Character Studio has Create and Wardrobe & Gear sections while retaining exact ULPC definition-driven composition.",
+    "The game inventory presents its equipment surface as Wardrobe & Gear rather than an unrelated editor-only concept."
+  ]
+}

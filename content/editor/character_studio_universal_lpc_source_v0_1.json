@@ -1,0 +1,83 @@
+{
+  "schema": "havenwild.character_studio.universal_lpc_source.v0_1",
+  "workspace": "Character Studio",
+  "sourceMount": "assets/source/licensed/universal_lpc_generator",
+  "authorityOutput": "WORKSPACE/generated/universal_lpc_character_authority_v167w.json",
+  "modes": [
+    "Player",
+    "NPC",
+    "Population",
+    "Validation"
+  ],
+  "requiredActions": [
+    "Filter by sex, age, species, culture, role, content pool, and license tier",
+    "Preview source-native animations without destructive cropping",
+    "Lock individual components before rerolling",
+    "Regenerate deterministic NPC recipes",
+    "Inspect authors, selected license, URLs, and exact recipe credit dependencies",
+    "Generate per-character and shipped-build credits",
+    "Toggle preferred and ShareAlike-compatible component pools",
+    "Show when a recipe contains CC-BY-SA layers",
+    "Export exact used CC-BY-SA sources, modifications, generated composites, credits, and license files",
+    "Browse tools, weapons, shields, body compatibility, animation coverage, and layer z-order from source definitions",
+    "Open Universal LPC source pixels in Pixel Studio as read-only reference without creating replacement art"
+  ],
+  "rightClickActions": [
+    "Open LPC Source in Pixel Studio (Read Only)",
+    "Reveal Source",
+    "Inspect Compatibility",
+    "Inspect License",
+    "Find All Recipes Using Asset"
+  ],
+  "liveRefresh": {
+    "sourceRepositoryIsReadOnly": true,
+    "metadataChangeInvalidatesAffectedCache": true,
+    "previewRebuildsAffectedRecipeOnly": true,
+    "worldViewportRefreshesCharactersUsingRecipe": true
+  },
+  "licensePools": [
+    {
+      "id": "preferred",
+      "label": "Preferred commercial",
+      "selectable": true,
+      "badge": null
+    },
+    {
+      "id": "conditional",
+      "label": "CC-BY-SA commercial",
+      "selectable": true,
+      "badge": "ShareAlike",
+      "requiresReleaseBundle": true
+    }
+  ],
+  "shareAlikeWorkflow": {
+    "showPerComponentBadge": true,
+    "showRecipeComplianceSummary": true,
+    "markGeneratedComposite": true,
+    "exportOnlyUsedSourcesByDefault": true,
+    "releaseBundleTool": "tools/automation/release/Build-UniversalLpcOpenAssetBundleV167W.py",
+    "releaseGateTool": "tools/automation/validation/checks/characters/Validate-UniversalLpcShareAlikeV167W.py"
+  },
+  "usageManifestTool": "tools/automation/characters/Build-UniversalLpcUsageManifestV167X.py",
+  "usageManifestOutput": "WORKSPACE/generated/universal_lpc_usage_manifest.json",
+  "liveWorkspace": {
+    "firstClassNativeEditorTab": true,
+    "preferredOnlyDefault": true,
+    "shareAlikeToggle": true,
+    "searchableCatalog": true,
+    "sexFilters": [
+      "Male",
+      "Female"
+    ],
+    "ageFilters": [
+      "Child",
+      "Teen",
+      "Adult",
+      "Elder"
+    ],
+    "sourceMountedOnDemand": true
+  },
+  "completeRepositoryIndex": "content/assets/lpc/universal_lpc_complete_repository_index_v0_1.json.gz",
+  "equipmentCatalog": "content/assets/lpc/universal_lpc_equipment_action_catalog_v0_1.json",
+  "runtimeCacheManifest": "assets/generated/lpc/characters/havenwild_player_walk_64.json"
+}

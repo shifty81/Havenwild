@@ -1,0 +1,278 @@
+{
+  "schema": "havenwild.worldgen.terrain_shape_grammar.v0_1",
+  "pass": "167Z109F",
+  "status": "active_normalization_authority",
+  "purpose": "Normalize visually similar LPC terrain and cliff shapes without conflating their different topology domains.",
+  "cornerOccupancy15": {
+    "domain": "V7/Tiled corner terrain surfaces",
+    "sourceConvention": "Tiled legacy terrain tuple order: top-left, top-right, bottom-left, bottom-right",
+    "bitConvention": {
+      "top_left": 1,
+      "top_right": 2,
+      "bottom_left": 4,
+      "bottom_right": 8
+    },
+    "emptyMask": 0,
+    "nonEmptyMasks": [
+      {
+        "mask": 1,
+        "id": "north_west_only",
+        "occupiedCorners": [
+          "top_left"
+        ]
+      },
+      {
+        "mask": 2,
+        "id": "north_east_only",
+        "occupiedCorners": [
+          "top_right"
+        ]
+      },
+      {
+        "mask": 3,
+        "id": "north_pair",
+        "occupiedCorners": [
+          "top_left",
+          "top_right"
+        ]
+      },
+      {
+        "mask": 4,
+        "id": "south_west_only",
+        "occupiedCorners": [
+          "bottom_left"
+        ]
+      },
+      {
+        "mask": 5,
+        "id": "west_pair",
+        "occupiedCorners": [
+          "top_left",
+          "bottom_left"
+        ]
+      },
+      {
+        "mask": 6,
+        "id": "north_east_south_west_diagonal",
+        "occupiedCorners": [
+          "top_right",
+          "bottom_left"
+        ]
+      },
+      {
+        "mask": 7,
+        "id": "all_except_south_east",
+        "occupiedCorners": [
+          "top_left",
+          "top_right",
+          "bottom_left"
+        ]
+      },
+      {
+        "mask": 8,
+        "id": "south_east_only",
+        "occupiedCorners": [
+          "bottom_right"
+        ]
+      },
+      {
+        "mask": 9,
+        "id": "north_west_south_east_diagonal",
+        "occupiedCorners": [
+          "top_left",
+          "bottom_right"
+        ]
+      },
+      {
+        "mask": 10,
+        "id": "east_pair",
+        "occupiedCorners": [
+          "top_right",
+          "bottom_right"
+        ]
+      },
+      {
+        "mask": 11,
+        "id": "all_except_south_west",
+        "occupiedCorners": [
+          "top_left",
+          "top_right",
+          "bottom_right"
+        ]
+      },
+      {
+        "mask": 12,
+        "id": "south_pair",
+        "occupiedCorners": [
+          "bottom_left",
+          "bottom_right"
+        ]
+      },
+      {
+        "mask": 13,
+        "id": "all_except_north_east",
+        "occupiedCorners": [
+          "top_left",
+          "bottom_left",
+          "bottom_right"
+        ]
+      },
+      {
+        "mask": 14,
+        "id": "all_except_north_west",
+        "occupiedCorners": [
+          "top_right",
+          "bottom_left",
+          "bottom_right"
+        ]
+      },
+      {
+        "mask": 15,
+        "id": "full",
+        "occupiedCorners": [
+          "top_left",
+          "top_right",
+          "bottom_left",
+          "bottom_right"
+        ]
+      }
+    ],
+    "rule": "For each material in a four-corner tuple, compute its independent occupancy mask. A mixed tile can therefore participate in one shape for each material present."
+  },
+  "cardinalEdge15": {
+    "domain": "structural cliff/exposed level boundaries",
+    "bitConvention": {
+      "north": 1,
+      "east": 2,
+      "south": 4,
+      "west": 8
+    },
+    "interiorMask": 0,
+    "boundaryMasks": [
+      {
+        "mask": 1,
+        "id": "north",
+        "exposedEdges": [
+          "north"
+        ]
+      },
+      {
+        "mask": 2,
+        "id": "east",
+        "exposedEdges": [
+          "east"
+        ]
+      },
+      {
+        "mask": 3,
+        "id": "north_east",
+        "exposedEdges": [
+          "north",
+          "east"
+        ]
+      },
+      {
+        "mask": 4,
+        "id": "south",
+        "exposedEdges": [
+          "south"
+        ]
+      },
+      {
+        "mask": 5,
+        "id": "north_south",
+        "exposedEdges": [
+          "north",
+          "south"
+        ]
+      },
+      {
+        "mask": 6,
+        "id": "east_south",
+        "exposedEdges": [
+          "east",
+          "south"
+        ]
+      },
+      {
+        "mask": 7,
+        "id": "north_east_south",
+        "exposedEdges": [
+          "north",
+          "east",
+          "south"
+        ]
+      },
+      {
+        "mask": 8,
+        "id": "west",
+        "exposedEdges": [
+          "west"
+        ]
+      },
+      {
+        "mask": 9,
+        "id": "north_west",
+        "exposedEdges": [
+          "north",
+          "west"
+        ]
+      },
+      {
+        "mask": 10,
+        "id": "east_west",
+        "exposedEdges": [
+          "east",
+          "west"
+        ]
+      },
+      {
+        "mask": 11,
+        "id": "north_east_west",
+        "exposedEdges": [
+          "north",
+          "east",
+          "west"
+        ]
+      },
+      {
+        "mask": 12,
+        "id": "south_west",
+        "exposedEdges": [
+          "south",
+          "west"
+        ]
+      },
+      {
+        "mask": 13,
+        "id": "north_south_west",
+        "exposedEdges": [
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      {
+        "mask": 14,
+        "id": "east_south_west",
+        "exposedEdges": [
+          "east",
+          "south",
+          "west"
+        ]
+      },
+      {
+        "mask": 15,
+        "id": "isolated",
+        "exposedEdges": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ]
+      }
+    ],
+    "rule": "This is the existing haven_world::CliffShape15 structural mask. It is intentionally not numerically reinterpreted as a V7 corner mask."
+  },
+  "normalizationRule": "Use shared orientation vocabulary and 15-shape completeness tests, but retain corner occupancy and cardinal edge exposure as separate typed grammars."
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.normalization_summary.v1",
+  "pass": "167Z31",
+  "title": "Transition Ownership Test Alignment",
+  "baseline": "Pass167Z10",
+  "changes": [
+    "Replaced the invalid shallow-water/deep-water opposite-family test with a valid dirt-bank/sand-bank multi-family shallow-water case.",
+    "Added an explicit test proving that shallow_rim_over_deep is owned by the deep-water cell adjacent to shallow water.",
+    "Added the inverse assertion preventing the shallow-water neighbor from drawing the same depth transition twice.",
+    "Preserved Pass 167Z30 runtime terrain behavior unchanged."
+  ],
+  "validation": {
+    "buildProfile": "passed",
+    "sourceProfile": "passed",
+    "contentIntegrityChecks": 17,
+    "pythonCompilation": "passed",
+    "bashSyntax": "passed",
+    "rustStructuralChecks": "passed",
+    "cargo": "pending Windows workstation rerun",
+    "liveAcceptance": "continue Z30 pond, coast, compound-corner, retained-surface, and FPS checks"
+  },
+  "completeSourceCreated": false
+}

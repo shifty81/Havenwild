@@ -1,0 +1,36 @@
+{
+  "schema": "haven.scene_registry.v0_1",
+  "purpose": "Define canonical project-owned scene storage and mutation invariants after the legacy SceneId-backed world migration.",
+  "identityType": "ProjectSceneId",
+  "referenceType": "SceneReference",
+  "storageType": "SceneRegistry",
+  "ordering": "insertion_order_is_editor_display_order",
+  "lookup": "hash_indexed_by_project_scene_id",
+  "invariants": [
+    "scene_ids_are_unique_after_normalization",
+    "active_scene_must_resolve_to_a_registered_scene",
+    "scene_rename_repairs_active_scene_and_transition_targets",
+    "scene_removal_is_blocked_for_the_active_scene",
+    "scene_removal_is_blocked_while_inbound_transition_references_exist",
+    "legacy_scene_id_is_only_a_seed_template_and_compatibility_adapter"
+  ],
+  "mutationApi": [
+    "insert_scene",
+    "duplicate_scene",
+    "rename_scene",
+    "remove_scene",
+    "set_active_scene"
+  ],
+  "serialization": {
+    "lineSaveVersion": 1,
+    "arbitraryProjectIdsRoundTrip": true,
+    "legacySeedIdsRemainCompatible": true,
+    "unresolvedActiveSceneRejected": true,
+    "duplicateSceneIdsRejected": true
+  },
+  "editorGates": {
+    "createSceneUiEnabled": false,
+    "deleteSceneUiEnabled": false,
+    "reason": "Stable selection, reference-repair presentation, and typed undo transactions must land before exposing destructive scene lifecycle controls."
+  }
+}

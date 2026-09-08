@@ -1,0 +1,15 @@
+[package]
+name = "haven_tools"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+haven_core = { path = "../haven_core" }
+haven_authoring = { path = "../haven_authoring" }
+haven_assets = { path = "../haven_assets" }
+haven_editor = { path = "../haven_editor" }
+haven_save = { path = "../haven_save" }
+haven_world = { path = "../haven_world" }
+serde.workspace = true
+serde_json.workspace = true

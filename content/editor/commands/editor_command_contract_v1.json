@@ -1,0 +1,86 @@
+{
+  "schema": "havenwild.editor.command-contract.v1",
+  "version": 1,
+  "policy": {
+    "singleMutationPath": true,
+    "nativeEditorUsesCommandBus": true,
+    "inGameDeveloperModeUsesCommandBus": true,
+    "playerWorldBuilderUsesCommandBus": true,
+    "directWorldMutationOutsideCommandHandlers": "forbidden",
+    "undoRedoRequiredForCommittedEdits": true,
+    "previewCommandsDoNotEnterHistory": true,
+    "permissionsCheckedBeforeExecution": true,
+    "dirtyChunksDeclaredByCommand": true,
+    "validationRequestsDeclaredByCommand": true
+  },
+  "requiredMetadata": [
+    "affectedBounds",
+    "dirtyChunks",
+    "validationRequests",
+    "permissionScope",
+    "persistenceIntent",
+    "requiresAuthoritativeHost"
+  ],
+  "permissionScopes": [
+    "Developer",
+    "Host",
+    "PropertyOwner",
+    "Collaborator",
+    "ReadOnly"
+  ],
+  "persistenceIntents": [
+    "None",
+    "AuthoredOverride",
+    "PlayerDelta",
+    "PersistentSimulation"
+  ],
+  "canonicalCommands": [
+    "PaintTerrainCommand",
+    "EraseTerrainCommand",
+    "NormalizeRegionCommand",
+    "GenerateShoreCommand",
+    "PlaceObjectCommand",
+    "MoveObjectCommand",
+    "RemoveObjectCommand",
+    "ReserveAnchorCommand",
+    "RegenerateChunkCommand",
+    "CommitPcgPreviewCommand"
+  ],
+  "executionOrder": [
+    "permission_check",
+    "precondition_validation",
+    "capture_transaction",
+    "apply_mutation",
+    "mark_dirty_chunks",
+    "request_validation",
+    "queue_persistence",
+    "queue_replication",
+    "record_history"
+  ],
+  "history": {
+    "gestureCoalescing": true,
+    "typedTransactionsPreferred": true,
+    "snapshotHistory": "compatibility-only",
+    "stableObjectIdentityRequired": true
+  },
+  "implementation": {
+    "status": "transitional",
+    "implemented": [
+      "typedTransactionUndoRedo",
+      "gestureCoalescing",
+      "previewFlag",
+      "validationResultSlot",
+      "undoPatchSlot",
+      "stableCommandTargets"
+    ],
+    "pendingExecutionMetadata": [
+      "affectedBounds",
+      "dirtyChunks",
+      "validationRequests",
+      "permissionScope",
+      "persistenceIntent",
+      "requiresAuthoritativeHost"
+    ],
+    "policy": "Required execution metadata remains the target contract; current builds validate the implemented command bus honestly and track metadata extraction as architecture debt."
+  }
+}
