@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-ALLOWED_ROOT_FILES = {'.gitignore', 'Cargo.lock', 'Cargo.toml', 'README.md', 'HavenwildTools.cmd'}
+ALLOWED_ROOT_FILES = {'.gitattributes', '.gitignore', 'Cargo.lock', 'Cargo.toml', 'README.md', 'HavenwildTools.cmd'}
 REQUIRED_DIRS = {
     'apps', 'assets', 'content', 'crates', 'docs', 'manifests', 'tools', 'WORKSPACE'
 }

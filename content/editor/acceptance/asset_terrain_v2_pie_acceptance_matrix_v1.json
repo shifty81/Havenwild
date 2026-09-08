@@ -1,0 +1,28 @@
+{
+  "schema": "havenwild.asset_terrain_v2.acceptance_matrix.v1",
+  "mustPass": [
+    "editor and client resolve identical semantic terrain to identical Wang recipe",
+    "editor and client resolve identical heightfield contours to identical structural recipe",
+    "V7 surface transition family renders through common resolver",
+    "ElizaWy cliff face renders through common structural resolver",
+    "LPC multi-tile prefab uses authored visual/collision/interaction footprints",
+    "single-tile and multi-tile regions coexist on one source sheet without identity ambiguity",
+    "3-material and 4-material Wang junction exact recipes resolve deterministically when authored",
+    "unsupported Wang combination emits diagnostic rather than proxy tile",
+    "single-tier and multi-tier cliffs render with correct depth/occlusion",
+    "inland ramp stays inside contour corridor",
+    "ladder anchors do not overshoot cliff base/top",
+    "water-facing one-level cliff uses vine policy rather than ladder substitution",
+    "cave and waterfall structural hosts resolve independently of ordinary Wang terrain",
+    "PIE PLAY/PAUSE/STEP/STOP lifecycle preserves authored state",
+    "PIE Keep Changes produces reviewable authored diff",
+    "asset republish/hot reload changes editor PIE and standalone client through same resource identity"
+  ],
+  "visualEvidence": [
+    "terrain transition showcase",
+    "cliff/connector showcase",
+    "prefab footprint gallery",
+    "provider utilization gallery",
+    "editor/client paired capture"
+  ]
+}

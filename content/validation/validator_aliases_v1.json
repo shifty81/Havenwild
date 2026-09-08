@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.validator.aliases.v1",
-  "version": 1,
+  "version": 3,
   "profiles": {
     "all": "source",
     "assets": "source",
@@ -14,7 +14,12 @@
     "licenses": "source",
     "validation": "source",
     "current": "source",
-    "certify": "full"
+    "certify": "full",
+    "world": "source",
+    "content": "source",
+    "editor": "source",
+    "full-certification": "full",
+    "framework-audit": "framework"
   },
   "deprecatedAuthorities": {
     "content/build/validator_registry_v3.json": "content/build/validator_registry_v4.json",
@@ -22,5 +27,11 @@
     "architecture.validation-framework.native-contract-v146c": "architecture.validation.framework-contract",
     "architecture.validation-quality.validate_validatorqualityv146": "architecture.validation.runner-contract"
   },
-  "policy": "Aliases preserve command compatibility only; deprecated validator IDs remain available exclusively through full historical certification."
+  "policy": "Aliases preserve command compatibility only; deprecated validator IDs remain available exclusively through full historical certification.",
+  "deprecatedEntrypoints": {
+    "tools/build/Build.sh test": "tools/build/Build.cmd test",
+    "tools/build/Build.ps1 test": "tools/build/Build.cmd test",
+    "tools/build/Build.sh validate": "tools/build/Build.cmd validate",
+    "tools/build/Build.ps1 validate": "tools/build/Build.cmd validate"
+  }
 }

@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.asset_intake_studio_v2.contract.v1",
+  "workflow": [
+    "source/URL/folder/ZIP intake",
+    "immutable source preservation",
+    "sheet inspection",
+    "candidate region detection",
+    "human review",
+    "semantic classification",
+    "footprint/socket/animation/Wang authoring",
+    "provenance/license/checksum review",
+    "certification",
+    "publish to Vault",
+    "hot reload shared runtime"
+  ],
+  "candidateTypes": [
+    "1x1 tile",
+    "multi-tile rectangular region",
+    "irregular region",
+    "animation strip/grid",
+    "Wang/connected family",
+    "structural assembly",
+    "atomic prefab",
+    "composite prefab",
+    "source/support region"
+  ],
+  "autoDetection": "proposal-only; ambiguity enters review queue and never silently publishes",
+  "prefabLayers": [
+    "visual",
+    "placement",
+    "collision",
+    "interaction",
+    "occlusion",
+    "navigation",
+    "water",
+    "harvest",
+    "sockets"
+  ],
+  "publishStates": [
+    "SOURCE",
+    "REVIEWED",
+    "CLASSIFIED",
+    "CERTIFIED",
+    "PUBLISHED",
+    "QUARANTINED"
+  ],
+  "existingSystemReuse": [
+    "existing dedicated Intake tab",
+    "existing asset intake atlas authoring",
+    "existing hot reload",
+    "existing Asset Browser/Palette",
+    "existing Pixel Studio bridge"
+  ]
+}

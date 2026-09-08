@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.validation.profiles.v4",
-  "version": "4.0",
+  "version": "4.2",
   "authority": "content/build/validator_registry_v4.json",
   "policy": {
     "normalBuildValidatorCount": 2,
@@ -8,7 +8,9 @@
     "frameworkAuditValidatorCount": 4,
     "historicalValidatorsImplicit": false,
     "fullCertificationOwnsHistoricalValidators": true,
-    "sourceMustWorkFromCleanCheckout": true
+    "sourceMustWorkFromCleanCheckout": true,
+    "rootControlTestUsesCurrentSourceProfile": true,
+    "legacyArchitectureSizeGateFullOnly": true
   },
   "profiles": {
     "quick": {

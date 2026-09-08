@@ -1,0 +1,39 @@
+{
+  "schema": "havenwild.asset_v2.resource_contract.v1",
+  "tilePx": 32,
+  "kinds": [
+    "single_tile",
+    "multi_tile_region",
+    "irregular_region",
+    "animation",
+    "wang_family",
+    "connected_family",
+    "structural_recipe",
+    "atomic_prefab",
+    "composite_prefab",
+    "source_support"
+  ],
+  "requiredConcepts": [
+    "semanticId",
+    "sourceSheet",
+    "sourceRectOrRegions",
+    "visualFootprint",
+    "anchor",
+    "publishState",
+    "provenance"
+  ],
+  "optionalConcepts": [
+    "placementFootprint",
+    "collisionFootprint",
+    "interactionFootprint",
+    "occlusionFootprint",
+    "navigationFootprint",
+    "sockets",
+    "animation",
+    "seasonVariants",
+    "materialVariants",
+    "tags",
+    "compositionChildren"
+  ],
+  "rule": "Source PNG dimensions and grid cells are addressing information only; they do not define gameplay footprint or resource identity."
+}

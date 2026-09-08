@@ -1,0 +1,51 @@
+{
+  "schema": "havenwild.terrain_v2.wang_resolver_contract.v1",
+  "input": {
+    "center": "semantic material identity",
+    "neighbors": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+    ],
+    "context": [
+      "season",
+      "approved variant"
+    ]
+  },
+  "algorithm": [
+    "canonicalize neighbor materials relative to center",
+    "derive edge/corner Wang signature",
+    "lookup exact published recipe",
+    "if absent lookup explicitly approved composable recipe",
+    "if absent emit unresolved diagnostic"
+  ],
+  "forbidden": [
+    "filename inference",
+    "provider branching",
+    "renderer guessing",
+    "validator repair",
+    "nearest-looking fallback"
+  ],
+  "appliesTo": [
+    "terrain transitions",
+    "shorelines",
+    "paths",
+    "roads",
+    "fences",
+    "walls",
+    "hedges",
+    "floor borders",
+    "other explicitly connected families"
+  ],
+  "notFor": [
+    "heightfield cliff faces",
+    "ramps as elevation connectors",
+    "caves as structural hosts",
+    "waterfalls as elevation features"
+  ]
+}

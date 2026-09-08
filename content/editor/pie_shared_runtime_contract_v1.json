@@ -1,0 +1,64 @@
+{
+  "schema": "havenwild.pie_shared_runtime_contract.v1",
+  "priority": "ASAP",
+  "modes": [
+    "EDIT",
+    "PLAY",
+    "PAUSE",
+    "STEP",
+    "STOP"
+  ],
+  "sharedAuthorities": [
+    "world state format",
+    "asset Vault/resolver",
+    "surface Wang resolver",
+    "heightfield/contour structural resolver",
+    "prefab definitions",
+    "collision/interaction footprints",
+    "animation resources",
+    "production renderer"
+  ],
+  "editorOnlyAfterRender": [
+    "selection outlines",
+    "gizmos",
+    "debug overlays",
+    "authoring chrome"
+  ],
+  "stopPolicy": "Default STOP restores pre-PIE authored state; runtime-only mutations are discarded.",
+  "keepChanges": {
+    "enabled": true,
+    "reviewRequired": true,
+    "allowed": [
+      "authored terrain/material edits",
+      "prefab transforms/placement",
+      "approved prefab properties",
+      "resource/recipe mappings"
+    ],
+    "neverImplicit": [
+      "player vitals",
+      "temporary NPC state",
+      "physics velocity",
+      "transient AI state",
+      "timers"
+    ]
+  },
+  "debugOverlays": [
+    "semantic materials",
+    "Wang keys",
+    "resource identity",
+    "provider/provenance",
+    "heightfield",
+    "contours",
+    "structural recipes",
+    "connector corridors",
+    "collision",
+    "interaction",
+    "placement footprints",
+    "occlusion",
+    "navigation",
+    "cave hosts",
+    "waterfall hosts",
+    "ecology density"
+  ],
+  "parityInvariant": "same seed + same authored state + same camera + same runtime inputs => same production resolved draw plan in editor-hosted PIE and standalone client"
+}

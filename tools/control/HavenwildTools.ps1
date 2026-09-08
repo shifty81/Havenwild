@@ -738,7 +738,7 @@ function Open-LatestArtifact([string]$Artifact) {
 function Get-ControlCenterRegistryIssues {
   $issues=@()
   $allowedMenus=@('build','run','world','assets','project','package','logs')
-  $allowedKinds=@('Build','Script','Package','Dependencies','LatestLog','Open','OpenArtifact','ControlSelfTest','EnvironmentDoctor','QualityGateHistory','UpdateStatus','RecoveryInspect','QualityGateCompare','CompilerWarningSummary','Help','BuiltinQualityGate','BuiltinFastQualityGate')
+  $allowedKinds=@('Build','Script','Package','Dependencies','LatestLog','Open','OpenArtifact','ControlSelfTest','EnvironmentDoctor','QualityGateHistory','UpdateStatus','RecoveryInspect','QualityGateCompare','CompilerWarningSummary','DebugBundle','Help','BuiltinQualityGate','BuiltinFastQualityGate')
   $ids=@{}; $keys=@{}
   foreach($entry in $script:Commands) {
     $id=[string]$entry.Id; $key=[string]$entry.Key; $label=[string]$entry.Label; $kind=[string]$entry.Kind
@@ -950,6 +950,22 @@ function New-DebugBundle([string]$Result) {
   }
 }
 
+function Reveal-DebugHandoff([string]$BundlePath) {
+  if([string]::IsNullOrWhiteSpace($BundlePath) -or -not (Test-Path -LiteralPath $BundlePath -PathType Leaf)) { return }
+  try {
+    $resolved=(Resolve-Path -LiteralPath $BundlePath).Path
+    Start-Process explorer.exe -ArgumentList @('/select,',('"{0}"' -f $resolved))
+    Write-Color ("DEBUG HANDOFF READY: {0}" -f $resolved) Cyan
+  } catch { Write-Color ("Debug handoff reveal warning: {0}" -f $_.Exception.Message) Yellow }
+}
+function Publish-FailureDebugHandoff([string]$Result='FAIL') {
+  try {
+    $bundle=$script:LastDebugBundlePath
+    if([string]::IsNullOrWhiteSpace($bundle) -or -not (Test-Path -LiteralPath $bundle -PathType Leaf)) { New-DebugBundle $Result; $bundle=$script:LastDebugBundlePath }
+    Reveal-DebugHandoff $bundle
+  } catch { Write-Color ("Failure debug handoff warning: {0}" -f $_.Exception.Message) Yellow }
+}
+
 function New-TroubleshootingBundle([string]$Result) {
   try {
     $bundleRoot=Join-Path $Root 'artifacts\troubleshooting-bundles'
@@ -1024,6 +1040,7 @@ function Complete-QualityGate([string]$Result) {
   if($script:QualityGateFinalized) { return }
   $script:QualityGateFinalized=$true
   try { New-DebugBundle $Result } catch { Write-Color ("Debug bundle finalizer warning: {0}" -f $_.Exception.Message) Yellow }
+  if($Result -ne 'PASS') { try { Publish-FailureDebugHandoff $Result } catch { Write-Color ("Failure debug handoff finalizer warning: {0}" -f $_.Exception.Message) Yellow } }
   try { Write-QualityGateRunRecord $Result } catch { Write-Color ("Quality gate record warning: {0}" -f $_.Exception.Message) Yellow }
   $script:QualityGateActive=$false
   Refresh-ArtifactIndex -Quiet
@@ -1104,6 +1121,7 @@ function Invoke-FullQualityGate {
     $script:LastResult='FAIL'; $script:LastExitCode=1
     Write-Color 'FAIL canonical GREEN finalization: HavenwildGateAuthority.py/Python is unavailable.' Red
     New-DebugBundle 'FAIL'
+    Publish-FailureDebugHandoff 'FAIL'
     return
   }
   & $gatePython.Source $gateAuthority finalize --root $Root --session-log $SessionLog 2>&1 | ForEach-Object { Write-Host $_; Add-Content -Path $SessionLog -Value $_ }
@@ -1111,6 +1129,7 @@ function Invoke-FullQualityGate {
     $script:LastResult='FAIL'; $script:LastExitCode=1
     Write-Color 'FAIL canonical GREEN finalization. Build/tests passed, but publication certification was not written.' Red
     New-DebugBundle 'FAIL'
+    Publish-FailureDebugHandoff 'FAIL'
     return
   }
   New-DebugBundle 'PASS'
@@ -1118,6 +1137,7 @@ function Invoke-FullQualityGate {
 }
 function Complete-FastQualityGate([string]$Result) {
   Write-FastGateRunRecord $Result
+  if($Result -ne 'PASS') { Publish-FailureDebugHandoff $Result }
   $script:QualityGateActive=$false
   Refresh-ArtifactIndex -Quiet
 }
@@ -1230,12 +1250,16 @@ function Invoke-RegisteredCommand([hashtable]$Entry) {
     'QualityGateHistory' { Invoke-QualityGateHistory }
     'QualityGateCompare' { Invoke-QualityGateComparison }
     'CompilerWarningSummary' { Invoke-CompilerWarningSummary }
+    'DebugBundle' { New-DebugBundle 'MANUAL'; Refresh-ArtifactIndex -Quiet; if($script:LastDebugBundlePath){ Reveal-DebugHandoff $script:LastDebugBundlePath }; $script:LastName='Create debug handoff'; $script:LastResult='PASS'; $script:LastActionExitCode=0 }
     'UpdateStatus' { Invoke-UpdateStatus }
     'RecoveryInspect' { Invoke-InspectLatestRecovery }
     'Help' { & (Join-Path $Root 'tools\build\Build.cmd') help; Write-Color 'Project tooling lives under tools\; HavenwildTools.cmd remains the single root Control Center launcher.' DarkGray }
     default { Write-Color ("Unsupported command kind: {0}" -f $Entry.Kind) Yellow }
   }
   $script:CurrentCommandKey=$previousCommandKey
+  if($script:LastResult -eq 'FAIL' -and [string]$Entry.Kind -notin @('BuiltinQualityGate','BuiltinFastQualityGate')) {
+    Publish-FailureDebugHandoff 'FAIL'
+  }
 }
 
 Set-Location $Root

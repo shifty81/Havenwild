@@ -67,5 +67,21 @@
   "source_dimensions": [
     384,
     288
-  ]
+  ],
+  "revision": "CLIFF-NORM-01-authority-chain",
+  "authority_chain": [
+    "haven_world.heightfield",
+    "haven_world.structural_elevation_contours",
+    "haven_world.structural_cliff_recipe",
+    "haven_assets.resolved_cliff_visual",
+    "haven_render.resolved_cliff_draw"
+  ],
+  "authoritative_pipeline": "heightfield -> contours -> structural cliff recipe -> asset lookup -> draw",
+  "renderer_policy": {
+    "topologyGuessing": false,
+    "semanticMutation": false,
+    "collisionAuthority": false,
+    "input": "resolved structural cliff recipe plus resolved visual resource"
+  },
+  "validator_policy": "verify resolved recipes/resources; never repair topology or choose replacement artwork"
 }

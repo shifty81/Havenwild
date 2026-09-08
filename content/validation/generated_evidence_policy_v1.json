@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.validation.generated_evidence_policy.v1",
+  "pass": "VALIDATION-NORM-21",
+  "currentSource": {
+    "generatedPreviewAuthority": false,
+    "rule": "Generated preview/audit/artifact outputs are optional evidence in current-source integrity; authoritative source contracts remain fail-closed."
+  },
+  "releaseCertification": {
+    "generatedEvidenceMayBeRequired": true,
+    "rule": "Explicit certification may regenerate and verify deterministic evidence."
+  }
+}

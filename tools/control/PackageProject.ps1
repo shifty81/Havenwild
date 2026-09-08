@@ -1,6 +1,6 @@
 param(
   [Parameter(Mandatory=$true)][string]$Root,
-  [ValidateSet('patch','rollup','baseline','handoff')][string]$Mode,
+  [ValidateSet('patch','rollup','fullrollup','baseline','handoff')][string]$Mode,
   [string]$Pass='manual'
 )
 
@@ -345,6 +345,8 @@ $name = if($Mode -eq 'patch') {
     }
   }
   "Havenwild_DevelopmentHandoff_FromPass$baselinePass`_ToPass$effectivePass`_$handoffStamp.zip"
+} elseif($Mode -eq 'fullrollup') {
+  "Havenwild_FullSourceRollup_Pass$effectivePass`_$stamp.zip"
 } else {
   "Havenwild_CompleteSourceRollup_Pass$effectivePass`_$stamp.zip"
 }
@@ -459,7 +461,7 @@ try {
       mode = $Mode
       pass = $effectivePass
       createdUtc = (Get-Date).ToUniversalTime().ToString('o')
-      sourcePolicy = $(if($Mode -eq 'rollup') { 'havenwild_reproducible_lean_source_v1' } else { 'havenwild_owned_source_only' })
+      sourcePolicy = $(if($Mode -eq 'rollup') { 'havenwild_reproducible_lean_source_v1' } elseif($Mode -eq 'fullrollup') { 'havenwild_complete_owned_source_v1' } else { 'havenwild_owned_source_only' })
       purpose = $(if($Mode -eq 'handoff') { 'development_handoff_only' } else { 'project_package' })
       officialCumulativePass = $false
       baselinePass = $(if($Mode -eq 'handoff') { $baselinePass } else { $null })
@@ -483,7 +485,7 @@ try {
   "$hash  $([System.IO.Path]::GetFileName($out))" | Set-Content -LiteralPath $hashPath -Encoding ASCII
 
   $latestSourcePointer = $null
-  if($Mode -eq 'rollup') {
+  if($Mode -in @('rollup','fullrollup')) {
     $latestSourcePointer = Join-Path $outDir 'LATEST_SOURCE_ROLLUP.txt'
     $pointerLines = @(
       "Havenwild lean complete source rollup"

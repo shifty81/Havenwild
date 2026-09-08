@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.validation.terrain_certification_preview_policy.v1",
+  "pass": "VALIDATION-NORM-23",
+  "generatedEvidenceFields": [
+    "semanticTopologyPreview",
+    "lpcMappedPreview",
+    "comparisonPreview"
+  ],
+  "rule": "The terrain certification preview triplet is generated acceptance evidence, not current-source authority.",
+  "authoritativeInputsRemainRequired": true,
+  "unmodifiedRenderRequirements": [
+    {
+      "line": 535,
+      "context": "532: \n533: \n534: def validate_direct_lpc_terrain_authority() -> None:\n535:     terrain_render = require_file(\n536:         \"crates/haven_game/src/terrain_render.rs\"\n537:     ).read_text(encoding=\"utf-8\")\n538:     runtime_assets = require_file(\n539:         \"crates/haven_game/src/runtime_assets.rs\"\n540:     ).read_text(encoding=\"utf-8\")"
+    },
+    {
+      "line": 702,
+      "context": "699:     runtime_draw = require_file(\n700:         \"crates/haven_game/src/runtime_draw.rs\"\n701:     ).read_text(encoding=\"utf-8\")\n702:     terrain_render = require_file(\n703:         \"crates/haven_game/src/terrain_render.rs\"\n704:     ).read_text(encoding=\"utf-8\")\n705:     revision = \"167Z109V1-authored-action-alias-and-directional-coverage-v1\"\n706:     if revision not in generator or revision not in build_script:\n707:         raise ValueError(\"tools/build/Build.sh and the Universal LPC runtime-cache generator revision differ\")"
+    },
+    {
+      "line": 794,
+      "context": "791:         raise ValueError(\"non-autotiled grass/farm terrain still loses LPC boundary transitions\")\n792:     if \"lpc_mapped_terrain_atlas\" not in terrain_base_draw:\n793:         raise ValueError(\"runtime terrain base drawer does not use the normalized V7 atlas\")\n794:     bridge_render = require_file(\n795:         \"crates/haven_game/src/bridge_render.rs\"\n796:     ).read_text(encoding=\"utf-8\")\n797:     licensed_lpc_root = ROOT / \"assets/source/licensed/lpc_revised\"\n798:     if licensed_lpc_root.exists():\n799:         require_file("
+    }
+  ]
+}

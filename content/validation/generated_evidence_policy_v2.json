@@ -1,0 +1,39 @@
+{
+  "schema": "havenwild.validation.generated_evidence_policy.v2",
+  "pass": "VALIDATION-NORM-22",
+  "principle": "Current-source integrity validates source authority; generated visual evidence belongs to explicit certification.",
+  "convertedDirectGeneratedEvidenceRequires": [
+    {
+      "object": "entry",
+      "field": "semanticTopologyPreview"
+    }
+  ],
+  "remainingSuspiciousRequireFileCalls": [
+    {
+      "line": 500,
+      "text": "require_file(entry[\"lpcMappedPreview\"])"
+    },
+    {
+      "line": 501,
+      "text": "require_file(entry[\"comparisonPreview\"])"
+    },
+    {
+      "line": 535,
+      "text": "terrain_render = require_file("
+    },
+    {
+      "line": 702,
+      "text": "terrain_render = require_file("
+    },
+    {
+      "line": 794,
+      "text": "bridge_render = require_file("
+    }
+  ],
+  "generatedEvidenceRoots": [
+    "docs/audits/generated/",
+    "docs/screenshots/",
+    "artifacts/"
+  ],
+  "failClosed": "Missing paths outside recognized generated-evidence roots remain errors."
+}

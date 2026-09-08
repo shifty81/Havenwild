@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.oga_lpc.cliff_recipe_catalog.v0_2",
-  "revision": "167Z104-multi-cell-source-assembly-normalization-v3",
+  "revision": "CLIFF-NORM-02-deterministic-recipe-resolution",
   "sourceSubmission": "https://opengameart.org/content/lpc-cliffsmountains-with-grass-top-and-more",
   "selectedLicense": "CC-BY-SA-3.0",
   "sourceSheet": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
@@ -292,6 +292,43 @@
       "promotionStatus": "excluded_from_structural_cliffs",
       "worldVisualFootprintTiles": null,
       "structuralHostMask": null
+    }
+  ],
+  "resolutionContract": {
+    "inputs": [
+      "upper_elevation_tier",
+      "lower_elevation_tier",
+      "shared_contour_edge",
+      "surface_material",
+      "season",
+      "structural_features"
+    ],
+    "orderedSteps": [
+      "derive exposed contour segments from adjacent elevation tiers",
+      "classify straight/corner/diagonal/terminal topology from contour connectivity",
+      "construct structural visual footprint independent from collision footprint",
+      "resolve one reviewed provider recipe for the complete assembly",
+      "fail closed to an explicit unresolved-recipe diagnostic when no reviewed assembly exists"
+    ],
+    "forbidden": [
+      "renderer topology guessing",
+      "single source-cell repetition as arbitrary cliff face",
+      "visual alpha as collision authority",
+      "cross-provider assembly without an explicit reviewed recipe"
+    ]
+  },
+  "providerPriority": [
+    {
+      "provider": "ElizaWy seasonal structural cliffs",
+      "role": "primary arbitrary cliff-face family"
+    },
+    {
+      "provider": "OGA LPC connected cliff sheet",
+      "role": "specialist complete stamps/ramps/caves/bridges after recipe certification"
+    },
+    {
+      "provider": "V7 MountainRock",
+      "role": "horizontal highland surface only"
     }
   ]
 }

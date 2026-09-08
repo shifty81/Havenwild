@@ -85,4 +85,13 @@
     @{ Id='84'; Key='diagnostics.compiler-warnings'; Label='Compiler warning summary'; Kind='CompilerWarningSummary'; Category='diagnostics'; Menu=@('logs'); MenuOrder=28; Args=@() }
     @{ Id='85'; Key='validation.open-latest-fast-gate'; Label='Open latest Fast Development Gate record'; Kind='OpenArtifact'; Artifact='fast-gate'; Category='sessions'; Menu=@('logs'); MenuOrder=29; Args=@() }
     @{ Id='86'; Key='project.shell'; Label='Project shell / command runner'; Kind='Script'; Script='ProjectShell.ps1'; Category='diagnostics'; Menu=@('project'); MenuOrder=35; Args=@() }
+
+    # ROOT-STANDARD-01 universal operations surface.
+    @{ Id='87'; Key='validate.framework'; Label='Framework audit (4 normalized validators)'; Kind='Build'; Category='validation'; Menu=@('build'); MenuOrder=45; Args=@('framework-audit') }
+    @{ Id='88'; Key='certify.full'; Label='Full historical / release certification'; Kind='Build'; Category='validation'; Menu=@('build'); MenuOrder=90; Args=@('certify') }
+    @{ Id='89'; Key='updates.apply-pending'; Label='Apply pending root patch / handoff ZIPs'; Kind='Script'; Script='InvokeRootPatchIntake.ps1'; Category='updates'; Menu=@('project'); MenuOrder=24; Args=@() }
+    @{ Id='90'; Key='diagnostics.create-debug-handoff'; Label='Create debug handoff ZIP + reveal in Explorer'; Kind='DebugBundle'; Category='diagnostics'; Menu=@('logs','project'); MenuOrder=23; Args=@() }
+    @{ Id='91'; Key='artifacts.open-root'; Label='Open artifacts folder'; Kind='Open'; Path='artifacts'; Category='sessions'; Menu=@('logs','package'); MenuOrder=85; Args=@() }
+    @{ Id='92'; Key='package.full-source-rollup'; Label='Package FULL complete source rollup'; Kind='Package'; Mode='fullrollup'; Category='packaging'; Menu=@('package'); MenuOrder=25; Args=@() }
+    @{ Id='93'; Key='package.development-handoff'; Label='Package development handoff'; Kind='Package'; Mode='handoff'; Category='packaging'; Menu=@('package'); MenuOrder=35; Args=@() }
 )

@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.ci_validation_contract.v1",
-  "version": 1,
+  "version": 3,
   "entrypoint": "tools/automation/validation/check_current.py",
   "commands": {
     "build": [
@@ -22,11 +22,41 @@
       "python",
       "tools/automation/validation/check_current.py",
       "full"
+    ],
+    "quality-test": [
+      "python",
+      "tools/automation/validation/check_current.py",
+      "source",
+      "--cargo-test"
     ]
   },
   "policy": {
     "ciUsesSameRunnerAsLocal": true,
     "normalBuildDoesNotImplyFullCertification": true,
-    "historicalChecksRequireExplicitFull": true
+    "historicalChecksRequireExplicitFull": true,
+    "rootControlTestUsesCurrentAuthority": true,
+    "genericTestMayRunHistoricalPassValidators": false,
+    "directLegacyBuildScriptTestCommandsAreCompatibilityOnly": true
+  },
+  "rootBuildEntrypoint": "tools/build/Build.cmd",
+  "qualityGate": {
+    "rootControl": "HavenwildTools.cmd",
+    "buildFrontDoor": "tools/build/Build.cmd",
+    "testRoute": [
+      "cargo",
+      "test",
+      "--workspace"
+    ],
+    "validationRoute": [
+      "python",
+      "tools/automation/validation/check_current.py",
+      "source"
+    ],
+    "historicalCertificationRoute": [
+      "python",
+      "tools/automation/validation/check_current.py",
+      "full"
+    ],
+    "historicalImplicit": false
   }
 }

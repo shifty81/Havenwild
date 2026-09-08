@@ -9,7 +9,7 @@ REGISTRY = Path("content/build/validator_registry_v4.json")
 PROFILES = Path("content/build/validation_profiles_v4.json")
 EXPECTED_SOURCE = {
     "architecture.foundation.validate_development_layout",
-    "architecture.foundation.validate_architecture",
+    "architecture.validation.registry-contract",
     "content.foundation.validate_content",
     "content.integrity.current-contract",
     "architecture.validation.framework-contract",
@@ -93,5 +93,7 @@ def validate_runner_contract(entry, root: Path):
         if token not in text: issues.append(ValidationIssue("HWV-QUALITY-001",f"runner missing {token}",path=str(runner_path.relative_to(root))))
     old_authority='REGISTRY = ROOT / "content/build/validator_registry_v3.json"'
     if old_authority in text: issues.append(ValidationIssue("HWV-QUALITY-001","runner still declares v3 as current registry"))
-    evidence=[f"runner={runner_path.relative_to(root)}",f"tokens={len(required)}"]
+    if "validation_manifest_v1.json" in text:
+        issues.append(ValidationIssue("HWV-QUALITY-001","runner still consumes the legacy validation manifest as live authority"))
+    evidence=[f"runner={runner_path.relative_to(root)}",f"tokens={len(required)}", "legacyManifestLive=false"]
     return _result(entry, started, issues, evidence)

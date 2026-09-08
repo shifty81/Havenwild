@@ -98,8 +98,42 @@ def validate_ci_contract(entry, root:Path):
     commands=data.get("commands",{})
     for profile in ("build","source","framework","full"):
         cmd=commands.get(profile)
-        if not isinstance(cmd,list) or entrypoint not in cmd: issues.append(ValidationIssue("HWV-MANIFEST-001",f"CI command missing normalized entrypoint for {profile}",path=rel))
-    evidence=[f"entrypoint={entrypoint}",f"commands={len(commands)}"]
+        if not isinstance(cmd,list) or entrypoint not in cmd:
+            issues.append(ValidationIssue("HWV-MANIFEST-001",f"CI command missing normalized entrypoint for {profile}",path=rel))
+    quality_test=commands.get("quality-test")
+    if not isinstance(quality_test,list) or entrypoint not in quality_test or "--cargo-test" not in quality_test:
+        issues.append(ValidationIssue("HWV-MANIFEST-001","quality-test must use current validation plus cargo tests",path=rel))
+    root_entry=str(data.get("rootBuildEntrypoint", ""))
+    root_script=root/root_entry if root_entry else None
+    if not root_entry or root_script is None or not root_script.is_file():
+        issues.append(ValidationIssue("HWV-PREREQ-001","root build entrypoint missing",path=root_entry or rel))
+    else:
+        text=root_script.read_text(encoding="utf-8",errors="replace")
+        for token in ("check_current.py", "--cargo-test", ":current_test", ":current_validate", ":current_certify", ":current_framework", "framework-audit"):
+            if token not in text:
+                issues.append(ValidationIssue("HWV-QUALITY-001",f"root build entrypoint missing normalized route {token}",path=root_entry))
+        # The authoritative front door may dispatch specialized commands to Build.sh,
+        # but generic test/validate/certify/framework-audit must be intercepted before that fallback.
+        bash_index=text.find(':bash_dispatch')
+        for command in ("test","validate","certify","framework-audit"):
+            intercept=text.find(f'if /I "%~1"=="{command}"')
+            if intercept < 0 or bash_index < 0 or intercept > bash_index:
+                issues.append(ValidationIssue("HWV-QUALITY-001",f"generic {command} interception must precede Bash fallback",path=root_entry))
+    policy=data.get("policy",{})
+    if policy.get("rootControlTestUsesCurrentAuthority") is not True:
+        issues.append(ValidationIssue("HWV-QUALITY-001","root-control tests must use current validation authority",path=rel))
+    if policy.get("genericTestMayRunHistoricalPassValidators") is not False:
+        issues.append(ValidationIssue("HWV-QUALITY-001","generic tests must not run historical pass validators",path=rel))
+    gate=data.get("qualityGate",{})
+    if gate.get("buildFrontDoor") != root_entry or gate.get("historicalImplicit") is not False:
+        issues.append(ValidationIssue("HWV-QUALITY-001","root quality-gate routing contract drift",path=rel))
+    validation_route=gate.get("validationRoute",[])
+    if entrypoint not in validation_route or "source" not in validation_route:
+        issues.append(ValidationIssue("HWV-MANIFEST-001","root quality gate must include bounded source validation",path=rel))
+    historical_route=gate.get("historicalCertificationRoute",[])
+    if entrypoint not in historical_route or "full" not in historical_route:
+        issues.append(ValidationIssue("HWV-MANIFEST-001","explicit historical certification route missing",path=rel))
+    evidence=[f"entrypoint={entrypoint}",f"rootBuildEntrypoint={root_entry}",f"commands={len(commands)}", "historicalImplicit=false"]
     return _result(entry,started,issues,evidence)
 
 

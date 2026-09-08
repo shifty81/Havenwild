@@ -26,3 +26,9 @@ The ten source checks cover repository layout, architecture, owned content parsi
 ## Historical checks
 
 Pass-specific validators remain under `tools/automation/validation/checks/` and historical manifests/evidence remain in their existing archive/manifests locations. They are preserved for diagnosis and explicit `full` certification but are not live build/source/framework authorities.
+
+## Root-control front door
+
+The authoritative Windows project-control route is `tools/build/Build.cmd`. Generic `test`, `validate`, `certify`, and `framework-audit` are intercepted before the legacy `Build.sh` fallback. `test` runs Cargo workspace tests plus the bounded current `source` profile; `certify` alone selects `full` historical certification.
+
+Legacy validation domain names resolve to `source` through `validator_aliases_v1.json`; they are compatibility aliases, not separate live validator authorities.

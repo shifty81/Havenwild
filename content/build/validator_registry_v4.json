@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.validator.registry.v4",
-  "version": "4.0",
+  "version": "4.2",
   "baseRegistry": "content/build/validator_registry_v3.json",
   "policy": {
     "currentAuthority": "content/build/validator_registry_v4.json",
@@ -12,7 +12,8 @@
     "historicalChecksLiveOnlyInFull": true,
     "doNotDeleteHistoricalEvidence": true,
     "cleanCheckoutSourceValidation": true,
-    "quarantinedHistoricalDependencyDriftIsNonBlocking": true
+    "quarantinedHistoricalDependencyDriftIsNonBlocking": true,
+    "legacyArchitectureSizeGateFullOnly": true
   },
   "stripProfilesFromBase": [
     "build",
@@ -31,10 +32,10 @@
     ],
     "source": [
       "architecture.foundation.validate_development_layout",
-      "architecture.foundation.validate_architecture",
       "content.foundation.validate_content",
       "content.integrity.current-contract",
       "architecture.validation.framework-contract",
+      "architecture.validation.registry-contract",
       "runtime.publication.contract",
       "architecture.validation.evidence-contract",
       "architecture.validation.root-intake-contract",

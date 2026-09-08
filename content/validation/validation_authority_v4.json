@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.validation.authority.v4",
-  "version": "4.0",
+  "version": "4.2",
   "updated": "2026-09-08",
   "registry": "content/build/validator_registry_v4.json",
   "profiles": "content/build/validation_profiles_v4.json",
@@ -19,6 +19,9 @@
     "Source stays at exactly ten current-authority validators.",
     "Framework stays at exactly four current framework validators.",
     "Historical/pass validators are explicit full certification only.",
-    "Historical evidence remains preserved and non-authoritative."
-  ]
+    "Historical evidence remains preserved and non-authoritative.",
+    "The root-control generic test path runs cargo test plus the bounded current source profile; historical pass validators remain explicit certification only.",
+    "Historical module-size thresholds do not block current-source validation; the legacy architecture size gate remains available through full certification."
+  ],
+  "rootBuildEntrypoint": "tools/build/Build.cmd"
 }

@@ -168,6 +168,43 @@ def validate_generated_registry() -> None:
 
 
 
+def validate_external_or_local_asset(source_rel: str, expected_sha256: str | None = None, expected_size: list[int] | None = None) -> None:
+    """Validate a production asset without confusing governed external source with committed source."""
+    source_path = ROOT / source_rel
+    if source_path.is_file():
+        if expected_size is not None:
+            with Image.open(source_path) as image:
+                if list(image.size) != expected_size:
+                    raise ValueError(f"asset dimensions changed: {source_rel}")
+        if expected_sha256:
+            import hashlib
+            digest = hashlib.sha256(source_path.read_bytes()).hexdigest()
+            if digest != expected_sha256:
+                raise ValueError(f"asset checksum changed: {source_rel}")
+        return
+
+    filename = Path(source_rel).name
+    index_root = ROOT / "content/assets/intake/external_pack_indexes"
+    matches = []
+    for index_path in sorted(index_root.glob("*.json")):
+        payload = json.loads(index_path.read_text(encoding="utf-8"))
+        pack = payload.get("pack", {})
+        if pack.get("rawFilesCommitted") is True:
+            continue
+        for record in payload.get("records", []):
+            if record.get("relativePath") == filename:
+                matches.append((index_path, record, pack))
+    if len(matches) != 1:
+        raise FileNotFoundError(f"missing governed production asset and unique external-pack record: {source_rel}")
+    _, record, pack = matches[0]
+    if expected_sha256 and record.get("sha256") != expected_sha256:
+        raise ValueError(f"external-pack checksum mismatch: {source_rel}")
+    if expected_size is not None and [record.get("width"), record.get("height")] != expected_size:
+        raise ValueError(f"external-pack dimensions mismatch: {source_rel}")
+    if not pack.get("sourceUrl") or not pack.get("licenseStatus"):
+        raise ValueError(f"external-pack provenance incomplete: {source_rel}")
+
+
 def validate_lpc_production_assets() -> None:
     animals = load_json("content/assets/oga_lpc/manifests/oga_lpc_farm_animals_runtime_catalog_v0_1.json")
     livestock = load_json("content/gameplay/livestock/livestock_species_v0_1.json")
@@ -184,10 +221,11 @@ def validate_lpc_production_assets() -> None:
             animation = entry.get("animations", {}).get(state)
             if animation is None:
                 raise ValueError(f"{entry['species_id']} is missing {state} animation")
-            source = require_file(animation["source"])
-            with Image.open(source) as image:
-                if list(image.size) != animation["sheet_size"]:
-                    raise ValueError(f"LPC animal dimensions changed: {animation['source']}")
+            validate_external_or_local_asset(
+                animation["source"],
+                expected_sha256=animation.get("sha256"),
+                expected_size=animation["sheet_size"],
+            )
     terrain_types = registry.get("terrain_v7", {}).get("terrain_types", [])
     if len(terrain_types) < 30:
         raise ValueError("LPC production terrain registry is incomplete")
@@ -251,6 +289,28 @@ def validate_character_creation_clothing_policy() -> None:
     if exception.get("channel") != "facial_hair" or exception.get("allowedSex") != ["Male"]:
         raise ValueError("facial-hair Male-only policy changed")
 
+
+def validate_optional_generated_evidence(path_value, label):
+    """Validate generated evidence when present without making it source authority."""
+    if not path_value:
+        return None
+    candidate = ROOT / path_value
+    if candidate.exists():
+        if not candidate.is_file():
+            fail(f"{label} exists but is not a file: {path_value}")
+        return candidate
+    normalized = str(path_value).replace("\\", "/").lower()
+    generated_markers = (
+        "/generated/",
+        "docs/audits/generated/",
+        "docs/screenshots/",
+        "artifacts/",
+    )
+    if any(marker in normalized for marker in generated_markers):
+        return None
+    fail(f"missing required non-generated evidence file: {path_value}")
+
+
 def validate_client_test_world_materialization() -> None:
     contract = load_json("content/worldgen/client_test_world_materialization_v0_3.json")
     scene = load_json("content/worldgen/scenes/open_world/willowmere_outskirts_region_v0_1.json")
@@ -259,7 +319,7 @@ def validate_client_test_world_materialization() -> None:
     family = load_json("content/worldgen/terrain_visual_family_authority_v0_1.json")
     candidates = load_json("content/assets/intake/lpc_open_world_terrain_candidate_registry_v0_1.json")
     require_file(contract["materializer"])
-    require_file(contract["semanticTopologyPreview"])
+    validate_optional_generated_evidence(contract["semanticTopologyPreview"], "semanticTopologyPreview")
     if "diagnostic colors only" not in contract.get("previewPolicy", "") or "live-client screenshots remain final visual authority" not in contract.get("previewPolicy", ""):
         raise ValueError("semantic topology preview is not clearly separated from runtime evidence")
     if contract.get("enabledByDefault") is not True:
@@ -436,9 +496,9 @@ def validate_terrain_topology_certification() -> None:
     acceptance_paths = {entry["path"] for entry in manifest.get("scenes", [])}
     for entry in manifest.get("scenes", []):
         require_file(entry["path"])
-        require_file(entry["semanticTopologyPreview"])
-        require_file(entry["lpcMappedPreview"])
-        require_file(entry["comparisonPreview"])
+        validate_optional_generated_evidence(entry["semanticTopologyPreview"], "semanticTopologyPreview")
+        validate_optional_generated_evidence(entry["lpcMappedPreview"], "lpcMappedPreview")
+        validate_optional_generated_evidence(entry["comparisonPreview"], "comparisonPreview")
     report = load_json("docs/audits/generated/havenwild_terrain_lpc_certification_report_v167z5a.json")
     if report.get("missingBindings"):
         raise ValueError(f"LPC terrain evidence has missing bindings: {report['missingBindings']}")

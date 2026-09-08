@@ -1,0 +1,126 @@
+{
+  "schema": "havenwild.asset_library_utilization_audit.v0_1",
+  "pass": "ASSET-AUDIT-01",
+  "policy": {
+    "externalRawBinariesAreNotRequiredInSourceRollups": true,
+    "externalPackIndexesAreSourceRollupAuthority": true,
+    "runtimeMustResolveThroughGovernedAssetIdentity": true,
+    "validatorsVerifyDeclaredAuthorityRatherThanInventingAssetRequirements": true
+  },
+  "summary": {
+    "externalPacks": 8,
+    "indexedRecords": 448,
+    "indexedImages": 442
+  },
+  "packs": [
+    {
+      "packId": "artis_dock_mixed",
+      "index": "content/assets/intake/external_pack_indexes/artis_dock_mixed.json",
+      "sourceUrl": "https://opengameart.org/content/lpc-animated-water-and-fire",
+      "licenseStatus": "unknown_requires_review",
+      "rawFilesCommitted": false,
+      "rawFilesPackaged": false,
+      "recordCount": 5,
+      "imageCount": 4,
+      "promotionStates": [
+        "cataloged_source_only"
+      ]
+    },
+    {
+      "packId": "havenwild_master_asset_pack",
+      "index": "content/assets/intake/external_pack_indexes/havenwild_master_asset_pack.json",
+      "sourceUrl": "",
+      "licenseStatus": "unknown_requires_review",
+      "rawFilesCommitted": false,
+      "rawFilesPackaged": false,
+      "recordCount": 410,
+      "imageCount": 409,
+      "promotionStates": [
+        "cataloged_source_only"
+      ]
+    },
+    {
+      "packId": "hyptosis_free_tiles_sprites_oga",
+      "index": "content/assets/intake/external_pack_indexes/hyptosis_free_tiles_sprites_oga.json",
+      "sourceUrl": "https://opengameart.org/content/lots-of-free-2d-tiles-and-sprites-by-hyptosis",
+      "licenseStatus": "allowed_with_attribution",
+      "rawFilesCommitted": false,
+      "rawFilesPackaged": false,
+      "recordCount": 7,
+      "imageCount": 7,
+      "promotionStates": [
+        "cataloged_source_only"
+      ]
+    },
+    {
+      "packId": "hyptosis_organized_oga",
+      "index": "content/assets/intake/external_pack_indexes/hyptosis_organized_oga.json",
+      "sourceUrl": "https://opengameart.org/content/lots-of-hyptosis-tiles-organized",
+      "licenseStatus": "allowed_with_attribution",
+      "rawFilesCommitted": false,
+      "rawFilesPackaged": false,
+      "recordCount": 4,
+      "imageCount": 4,
+      "promotionStates": [
+        "cataloged_source_only"
+      ]
+    },
+    {
+      "packId": "lpc_atlas_base_terrain",
+      "index": "content/assets/intake/external_pack_indexes/lpc_atlas_base_terrain.json",
+      "sourceUrl": "",
+      "licenseStatus": "allowed_with_attribution",
+      "rawFilesCommitted": false,
+      "rawFilesPackaged": false,
+      "recordCount": 3,
+      "imageCount": 2,
+      "promotionStates": [
+        "cataloged_source_only"
+      ]
+    },
+    {
+      "packId": "lpc_atlas_build_objects",
+      "index": "content/assets/intake/external_pack_indexes/lpc_atlas_build_objects.json",
+      "sourceUrl": "",
+      "licenseStatus": "allowed_with_attribution",
+      "rawFilesCommitted": false,
+      "rawFilesPackaged": false,
+      "recordCount": 3,
+      "imageCount": 2,
+      "promotionStates": [
+        "cataloged_source_only"
+      ]
+    },
+    {
+      "packId": "lpc_farm_animals_daniel_eddeland",
+      "index": "content/assets/intake/external_pack_indexes/lpc_farm_animals_daniel_eddeland.json",
+      "sourceUrl": "https://opengameart.org/content/lpc-style-farm-animals",
+      "licenseStatus": "allowed_with_attribution",
+      "rawFilesCommitted": false,
+      "rawFilesPackaged": false,
+      "recordCount": 14,
+      "imageCount": 13,
+      "promotionStates": [
+        "cataloged_source_only"
+      ]
+    },
+    {
+      "packId": "lpc_plant_repack",
+      "index": "content/assets/intake/external_pack_indexes/lpc_plant_repack.json",
+      "sourceUrl": "",
+      "licenseStatus": "allowed_with_attribution",
+      "rawFilesCommitted": false,
+      "rawFilesPackaged": false,
+      "recordCount": 2,
+      "imageCount": 1,
+      "promotionStates": [
+        "cataloged_source_only"
+      ]
+    }
+  ],
+  "nextActions": [
+    "Resolve every runtime/editor source reference through local committed source, hydrated external source, or a published Havenwild-owned derivative.",
+    "Report unresolved, multiply-matched, stale, and never-consumed indexed assets separately.",
+    "Do not duplicate third-party binary payloads into source rollups solely to satisfy validation."
+  ]
+}

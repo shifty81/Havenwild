@@ -1,0 +1,116 @@
+{
+  "schema": "havenwild.cliff_certification_matrix.v0_1",
+  "pass": "CLIFF-CERT-01",
+  "purpose": "Deterministic showcase/fixture coverage for resolved cliff outputs; this is evidence input, not a new validation authority.",
+  "requiredCases": [
+    {
+      "id": "straight_n_s_e_w",
+      "covers": [
+        "all cardinal exposed faces",
+        "top cap continuity"
+      ]
+    },
+    {
+      "id": "outer_inner_corners",
+      "covers": [
+        "outer corners",
+        "inner corners",
+        "no gaps/overdraw"
+      ]
+    },
+    {
+      "id": "diagonal_contours",
+      "covers": [
+        "NE-SW",
+        "NW-SE",
+        "contour-bounded diagonals"
+      ]
+    },
+    {
+      "id": "single_tier_plateau",
+      "covers": [
+        "guaranteed route access",
+        "no ramp on every face"
+      ]
+    },
+    {
+      "id": "multi_tier_terraces",
+      "covers": [
+        "2+ elevation tiers",
+        "independent connector routes",
+        "occlusion"
+      ]
+    },
+    {
+      "id": "inland_ramp_corridor",
+      "covers": [
+        "ramp wholly inside shared upper/lower contour corridor",
+        "walkable collision"
+      ]
+    },
+    {
+      "id": "inland_ladder",
+      "covers": [
+        "top anchor",
+        "face run",
+        "bottom anchor",
+        "no one-tile overshoot"
+      ]
+    },
+    {
+      "id": "coastal_water_vine",
+      "covers": [
+        "swimmable-water cliff foot",
+        "vine traversal",
+        "no ladder substitution"
+      ]
+    },
+    {
+      "id": "cave_host_face",
+      "covers": [
+        "valid cliff host",
+        "threshold/recess/approach",
+        "actual cave transition"
+      ]
+    },
+    {
+      "id": "waterfall_host_face",
+      "covers": [
+        "source lip",
+        "vertical fall alignment",
+        "splash pool",
+        "terrain junction"
+      ]
+    },
+    {
+      "id": "shore_cliff_junction",
+      "covers": [
+        "water/shore/cliff material continuity",
+        "no trunk-like repeated columns"
+      ]
+    },
+    {
+      "id": "actor_occlusion",
+      "covers": [
+        "lower actor partially hidden by raised face",
+        "elevation-aware sort"
+      ]
+    },
+    {
+      "id": "season_materials",
+      "covers": [
+        "grass",
+        "dark_dirt",
+        "sand",
+        "snow"
+      ]
+    }
+  ],
+  "acceptance": {
+    "allCasesResolved": true,
+    "noRendererTopologyGuessing": true,
+    "noUnreviewedSourceCellPromotion": true,
+    "connectorRoutesValidatedAgainstContours": true,
+    "unresolvedRecipesProduceDiagnosticsNotProxyArtwork": true
+  }
+}

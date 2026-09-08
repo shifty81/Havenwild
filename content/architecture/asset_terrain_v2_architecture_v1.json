@@ -1,0 +1,43 @@
+{
+  "schema": "havenwild.asset_terrain_v2.architecture.v1",
+  "status": "candidate_production_replacement",
+  "pass": "ASSET-TERRAIN-V2-01-12",
+  "principles": [
+    "preserve source artwork, provenance, useful mappings, saves, tests and deterministic evidence",
+    "replace fragmented provider-specific runtime authority rather than rewriting providers in place",
+    "editor and client consume the same production resolvers and resolved draw plan",
+    "renderer consumes answers; it does not infer terrain topology or asset semantics",
+    "validators verify authored/runtime outputs; they never repair or choose replacement artwork"
+  ],
+  "runtimeSpine": {
+    "surface": [
+      "semantic material",
+      "8-neighbor adjacency",
+      "canonical Wang key",
+      "exact/approved-composite recipe lookup",
+      "resolved surface"
+    ],
+    "structure": [
+      "heightfield",
+      "elevation contours",
+      "structural feature classification",
+      "exact structural recipe lookup",
+      "resolved structure"
+    ],
+    "assets": [
+      "semantic resource identity",
+      "published Vault record",
+      "region/prefab/animation/recipe",
+      "resolved resource"
+    ],
+    "render": [
+      "resolved surface",
+      "resolved structure",
+      "resolved objects",
+      "resolved draw plan",
+      "production renderer"
+    ]
+  },
+  "providerPolicy": "V7, ElizaWy, LPC/OGA and Havenwild-original are provenance/providers only after publication; gameplay/editor semantics never branch on provider.",
+  "failurePolicy": "Exact authored recipe first; explicitly approved composition second; otherwise structured unresolved diagnostic. Never fabricate proxy art."
+}
