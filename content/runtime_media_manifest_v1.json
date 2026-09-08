@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.runtime_media_manifest.v1",
+  "purpose": "Required small runtime media that must survive a clean GitHub clone and protected GREEN publication. Large/generated/external libraries remain provider-hydrated.",
+  "assets": [
+    {
+      "id": "havenwild_title_screen",
+      "path": "content/ui/havenwild_title_screen.png",
+      "sha256": "a6ee0a91ab5195695fd19d3552d1dcb412855cbfa75689fd043f753c5b4ca5d3",
+      "requiredForCleanCheckout": true,
+      "sourceKind": "project_owned",
+      "provenance": "content/ui/havenwild_title_screen.png.provenance.json"
+    },
+    {
+      "id": "havenwild_title_button_hover",
+      "path": "content/ui/havenwild_title_button_hover.png",
+      "sha256": "5eeacf56338a59b744584538b540c9fb8763506878af5c357f3932a1d425bab7",
+      "requiredForCleanCheckout": true,
+      "sourceKind": "project_owned",
+      "provenance": "content/ui/havenwild_title_button_hover.png.provenance.json"
+    },
+    {
+      "id": "frontend_music_harp",
+      "path": "content/audio/music/frontend/Harp.ogg",
+      "sha256": "8b3ea6ecdc3af69847c20684dca5a5ad4921bb4b41cc2563811f1f7ac50af489",
+      "requiredForCleanCheckout": true,
+      "sourceKind": "external_attributed",
+      "provenance": "content/audio/music/frontend/Harp.ogg.provenance.json"
+    }
+  ]
+}

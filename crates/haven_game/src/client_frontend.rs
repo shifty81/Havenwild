@@ -689,42 +689,69 @@ impl ClientFrontend {
     fn draw_main_menu(&self) {
         draw_title_menu_background(self.title_screen.as_ref());
         let can_continue = !self.profiles.is_empty() && !self.worlds.is_empty();
-        draw_title_menu_hover(
-            self.title_button_hover.as_ref(),
-            title_continue_visual_source(),
-            main_continue_rect(),
-            can_continue,
-        );
-        draw_title_menu_hover(
-            self.title_button_hover.as_ref(),
-            title_new_visual_source(),
-            main_new_rect(),
-            true,
-        );
-        draw_title_menu_hover(
-            self.title_button_hover.as_ref(),
-            title_load_visual_source(),
-            main_load_rect(),
-            true,
-        );
-        draw_title_menu_hover(
-            self.title_button_hover.as_ref(),
-            title_settings_visual_source(),
-            main_settings_rect(),
-            true,
-        );
-        draw_title_menu_hover(
-            self.title_button_hover.as_ref(),
-            title_multiplayer_visual_source(),
-            main_multiplayer_rect(),
-            true,
-        );
-        draw_title_menu_hover(
-            self.title_button_hover.as_ref(),
-            title_quit_visual_source(),
-            main_quit_rect(),
-            true,
-        );
+
+        if self.title_screen.is_some() {
+            // Preferred path: the accepted project-owned title image already contains
+            // the complete normal-state menu art. The hover texture supplies only
+            // organic hover/pressed states over those authored button silhouettes.
+            draw_title_menu_hover(
+                self.title_button_hover.as_ref(),
+                title_continue_visual_source(),
+                main_continue_rect(),
+                can_continue,
+            );
+            draw_title_menu_hover(
+                self.title_button_hover.as_ref(),
+                title_new_visual_source(),
+                main_new_rect(),
+                true,
+            );
+            draw_title_menu_hover(
+                self.title_button_hover.as_ref(),
+                title_load_visual_source(),
+                main_load_rect(),
+                true,
+            );
+            draw_title_menu_hover(
+                self.title_button_hover.as_ref(),
+                title_settings_visual_source(),
+                main_settings_rect(),
+                true,
+            );
+            draw_title_menu_hover(
+                self.title_button_hover.as_ref(),
+                title_multiplayer_visual_source(),
+                main_multiplayer_rect(),
+                true,
+            );
+            draw_title_menu_hover(
+                self.title_button_hover.as_ref(),
+                title_quit_visual_source(),
+                main_quit_rect(),
+                true,
+            );
+        } else {
+            // Supported fail-safe path: if the accepted title artwork cannot be
+            // loaded, keep the complete frontend usable with native drawn controls.
+            // These deliberately reuse the exact same authoritative hit rectangles
+            // consumed by update_main_menu(), so fallback behavior cannot drift from
+            // the illustrated menu's navigation behavior.
+            draw_button(main_continue_rect(), "CONTINUE", can_continue);
+            draw_button(main_new_rect(), "NEW GAME", true);
+            draw_button(main_load_rect(), "LOAD GAME", false);
+            draw_button(main_settings_rect(), "SETTINGS", false);
+            draw_button(main_multiplayer_rect(), "MULTIPLAYER", false);
+            draw_button(main_quit_rect(), "QUIT", false);
+
+            draw_text_centered(
+                "Fallback menu active - title artwork unavailable",
+                screen_width() * 0.5,
+                screen_height() - 58.0,
+                14.0,
+                Color::from_rgba(190, 177, 148, 255),
+            );
+        }
+
         draw_button(credits_button_rect(), "Credits [C]", false);
         if self.status.starts_with("No existing") {
             draw_text_centered(

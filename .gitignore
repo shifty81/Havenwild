@@ -91,5 +91,8 @@ __pycache__/
 !/content/ui/havenwild_title_screen.png
 !/content/ui/havenwild_title_button_hover.png
 
+# Required credited frontend music is small runtime media and must survive a clean clone.
+!/content/audio/music/frontend/Harp.ogg
+
 # Hydrated external LPC Terrains V7 dependency; restored from pinned lock
 /content/assets/lpc/source/lpc-terrains-v7/
