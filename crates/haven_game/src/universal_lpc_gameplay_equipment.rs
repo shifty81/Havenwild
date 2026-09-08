@@ -42,8 +42,12 @@ impl GameplayEquipmentAction {
 
     pub(crate) fn animation(self) -> CharacterAnimationIntent {
         match self {
-            Self::Chop => CharacterAnimationIntent::OneHandBackslash,
-            Self::Build | Self::Mine | Self::Dig => CharacterAnimationIntent::OneHandHalfslash,
+            // Upstream ULPC's tool_axe and tool_hammer custom 128px sheets
+            // explicitly declare `slash` as their base body animation. Drive the
+            // body from that same authored clip so the tool overlay and hands use
+            // one frame/time authority instead of visibly separating.
+            Self::Chop | Self::Build => CharacterAnimationIntent::Slash,
+            Self::Mine | Self::Dig => CharacterAnimationIntent::OneHandHalfslash,
             Self::Till => CharacterAnimationIntent::OneHandSlash,
             Self::Fish | Self::Thrust => CharacterAnimationIntent::Thrust,
             Self::Water => CharacterAnimationIntent::Watering,
@@ -56,8 +60,8 @@ impl GameplayEquipmentAction {
 
     pub(crate) fn ulpc_animation(self) -> &'static str {
         match self {
-            Self::Chop => "1h_backslash",
-            Self::Build | Self::Mine | Self::Dig => "1h_halfslash",
+            Self::Chop | Self::Build => "slash",
+            Self::Mine | Self::Dig => "1h_halfslash",
             Self::Till => "1h_slash",
             Self::Fish | Self::Thrust => "thrust",
             Self::Water => "watering",
@@ -109,14 +113,19 @@ pub(crate) struct UniversalLpcGameplayEquipmentRuntime {
 impl UniversalLpcGameplayEquipmentRuntime {
     pub(crate) fn load_default() -> Result<Self, String> {
         let source = UniversalLpcEquipmentItemSeedCatalog::load_default()?;
-        let bindings = source.items.iter().filter_map(RuntimeEquipmentBinding::from_seed).collect();
+        let bindings = source
+            .items
+            .iter()
+            .filter_map(RuntimeEquipmentBinding::from_seed)
+            .collect();
         Ok(Self { bindings })
     }
 
     pub(crate) fn find(&self, item_id: &str) -> Option<&RuntimeEquipmentBinding> {
-        self.bindings.iter().find(|binding| binding.item_id == item_id)
+        self.bindings
+            .iter()
+            .find(|binding| binding.item_id == item_id)
     }
-
 }
 
 #[cfg(test)]
@@ -127,6 +136,23 @@ mod tests {
     fn combat_actions_map_to_real_ulpc_animation_families() {
         assert_eq!(GameplayEquipmentAction::Slash.ulpc_animation(), "slash");
         assert_eq!(GameplayEquipmentAction::Shoot.ulpc_animation(), "shoot");
-        assert_eq!(GameplayEquipmentAction::Spellcast.ulpc_animation(), "spellcast");
+        assert_eq!(
+            GameplayEquipmentAction::Spellcast.ulpc_animation(),
+            "spellcast"
+        );
+    }
+
+    #[test]
+    fn custom_tool_actions_use_their_declared_ulpc_base_animation() {
+        assert_eq!(GameplayEquipmentAction::Chop.ulpc_animation(), "slash");
+        assert_eq!(GameplayEquipmentAction::Build.ulpc_animation(), "slash");
+        assert!(matches!(
+            GameplayEquipmentAction::Chop.animation(),
+            CharacterAnimationIntent::Slash
+        ));
+        assert!(matches!(
+            GameplayEquipmentAction::Build.animation(),
+            CharacterAnimationIntent::Slash
+        ));
     }
 }

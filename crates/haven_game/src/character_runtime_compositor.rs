@@ -345,17 +345,25 @@ impl RuntimeCharacterAppearance {
         let profile = load_character_profile(&profile_path(save_root, character_id))?;
         let appearance = profile.appearance.clone();
         if let Some(character_recipe) = profile.character_recipe.as_ref() {
-            if let Ok(mut recipe) = UniversalLpcCharacterRecipe::from_json_value(character_recipe.0.clone()) {
+            if let Ok(mut recipe) =
+                UniversalLpcCharacterRecipe::from_json_value(character_recipe.0.clone())
+            {
                 // AC3R4C: gameplay equipment persisted in the character profile is
                 // runtime authority. Character creation recipes predate later
                 // Main Hand/Off Hand changes, so merge the live persisted tool
                 // references before resolving the exact ULPC layers.
                 merge_profile_runtime_equipment_into_recipe(&mut recipe, &profile.equipment);
-                let source_root = haven_assets::asset_intake::repo_root_dir().join(DEFAULT_ULPC_SOURCE_ROOT);
-                let builder = UniversalLpcCharacterBuilderCatalog::load_source_root(&source_root)?;
+                let source_root = haven_assets::asset_intake::repo_root_dir()
+                    .join(DEFAULT_ULPC_SOURCE_ROOT);
+                let builder =
+                    UniversalLpcCharacterBuilderCatalog::load_source_root(&source_root)?;
                 let (layers, equipment_overlays) =
                     load_exact_universal_lpc_runtime_layers(&recipe, &builder).await?;
-                return Ok(Self { appearance, layers, equipment_overlays });
+                return Ok(Self {
+                    appearance,
+                    layers,
+                    equipment_overlays,
+                });
             }
         }
         let body_family = appearance_body_family(&appearance);
@@ -455,7 +463,8 @@ impl RuntimeCharacterAppearance {
                     }
                     let action_paths =
                         generated_component_paths("face/eyes", None, body_family, animation);
-                    if let Some(action_texture) = load_first_generated_texture(&action_paths).await
+                    if let Some(action_texture) =
+                        load_first_generated_texture(&action_paths).await
                     {
                         action_textures.insert(animation, action_texture);
                     }
@@ -477,25 +486,32 @@ impl RuntimeCharacterAppearance {
                 "production character appearance has no resolved body/base LPC layer".to_string(),
             );
         }
-        layers.sort_by(|left, right| left.z_pos.cmp(&right.z_pos).then_with(|| left.item_id.cmp(&right.item_id)).then_with(|| left.layer_number.cmp(&right.layer_number)));
+        layers.sort_by(|left, right| {
+            left.z_pos
+                .cmp(&right.z_pos)
+                .then_with(|| left.item_id.cmp(&right.item_id))
+                .then_with(|| left.layer_number.cmp(&right.layer_number))
+        });
         // AC3R4F: legacy/development profiles can predate the typed Character
         // Builder recipe while still carrying authoritative Main Hand/Off Hand
         // equipment. Keep their existing generated body/clothing layers, but
         // synthesize only the exact ULPC custom equipment overlay recipe so
         // tools remain visible without rewriting the saved appearance.
-        let equipment_overlays = match load_fallback_universal_lpc_equipment_overlays(
-            &appearance,
-            &profile.equipment,
-        )
-        .await
-        {
-            Ok(overlays) => overlays,
-            Err(error) => {
-                eprintln!("Havenwild held-equipment overlay fallback failed: {error}");
-                Vec::new()
-            }
-        };
-        Ok(Self { appearance, layers, equipment_overlays })
+        let equipment_overlays =
+            match load_fallback_universal_lpc_equipment_overlays(&appearance, &profile.equipment)
+                .await
+            {
+                Ok(overlays) => overlays,
+                Err(error) => {
+                    eprintln!("Havenwild held-equipment overlay fallback failed: {error}");
+                    Vec::new()
+                }
+            };
+        Ok(Self {
+            appearance,
+            layers,
+            equipment_overlays,
+        })
     }
 
     pub(crate) fn frame(
@@ -587,7 +603,9 @@ impl RuntimeCharacterAppearance {
         // the entire assembled character back to Idle.
         let body_supports_climb = self.layers.iter().any(|layer| {
             (layer.item_id == "body_body" || layer.slot == "body/base")
-                && layer.action_textures.contains_key(&CharacterAnimationKind::Climb)
+                && layer
+                    .action_textures
+                    .contains_key(&CharacterAnimationKind::Climb)
         });
         let frame = if requested_frame.animation == CharacterAnimationKind::Climb
             && body_supports_climb
@@ -612,9 +630,15 @@ impl RuntimeCharacterAppearance {
                 if let Some(texture) = layer.action_textures.get(&CharacterAnimationKind::Climb) {
                     (texture, frame)
                 } else if let Some(texture) = layer.idle_texture.as_ref() {
-                    (texture, remap_frame_for_presentation(frame, CharacterAnimationKind::Idle))
+                    (
+                        texture,
+                        remap_frame_for_presentation(frame, CharacterAnimationKind::Idle),
+                    )
                 } else {
-                    (&layer.walk_texture, remap_frame_for_presentation(frame, CharacterAnimationKind::Idle))
+                    (
+                        &layer.walk_texture,
+                        remap_frame_for_presentation(frame, CharacterAnimationKind::Idle),
+                    )
                 }
             } else {
                 let Some(texture) = layer_texture_for_animation(layer, frame.animation) else {
@@ -649,6 +673,14 @@ impl RuntimeCharacterAppearance {
     ) {
         for overlay in &self.equipment_overlays {
             if (overlay.z_pos < 100) != background {
+                continue;
+            }
+            // ULPC custom tool sheets are explicitly action-only. The previous
+            // renderer sampled frame zero during Idle/Walk, which is why an axe
+            // could hover beside/above the player's head while standing still.
+            // Resolve the custom sheet's declared base animation and only submit
+            // it when the body is actually playing that authored action.
+            if !custom_equipment_overlay_matches_frame(overlay, frame) {
                 continue;
             }
             let source = custom_equipment_source_rect(overlay, frame);
@@ -689,9 +721,8 @@ fn merge_profile_runtime_equipment_into_recipe(
         }) else {
             continue;
         };
-        let definition_id = normalized_universal_lpc_equipment_definition_id(
-            &seed.equipment_source_id,
-        );
+        let definition_id =
+            normalized_universal_lpc_equipment_definition_id(&seed.equipment_source_id);
         let selection = UniversalLpcSelection {
             item_id: definition_id,
             display_name: seed.display_name.clone(),
@@ -707,10 +738,15 @@ fn merge_profile_runtime_equipment_into_recipe(
 }
 
 fn normalized_universal_lpc_equipment_definition_id(source_id: &str) -> String {
-    source_id.strip_prefix("ulpc.").unwrap_or(source_id).to_string()
+    source_id
+        .strip_prefix("ulpc.")
+        .unwrap_or(source_id)
+        .to_string()
 }
 
-fn fallback_universal_lpc_identity(appearance: &CharacterAppearance) -> (&'static str, &'static str) {
+fn fallback_universal_lpc_identity(
+    appearance: &CharacterAppearance,
+) -> (&'static str, &'static str) {
     match appearance_body_family(appearance) {
         "female" | "pregnant" => ("Female", "Adult"),
         "child" => ("Male", "Child"),
@@ -736,7 +772,8 @@ async fn load_fallback_universal_lpc_equipment_overlays(
     if recipe.equipment.main_hand.is_none() && recipe.equipment.off_hand.is_none() {
         return Ok(Vec::new());
     }
-    let source_root = haven_assets::asset_intake::repo_root_dir().join(DEFAULT_ULPC_SOURCE_ROOT);
+    let source_root =
+        haven_assets::asset_intake::repo_root_dir().join(DEFAULT_ULPC_SOURCE_ROOT);
     let builder = UniversalLpcCharacterBuilderCatalog::load_source_root(&source_root)?;
     load_custom_universal_lpc_equipment_overlays(&recipe, &builder).await
 }
@@ -744,9 +781,17 @@ async fn load_fallback_universal_lpc_equipment_overlays(
 async fn load_exact_universal_lpc_runtime_layers(
     recipe: &UniversalLpcCharacterRecipe,
     builder: &UniversalLpcCharacterBuilderCatalog,
-) -> Result<(Vec<RuntimeCharacterLayer>, Vec<RuntimeCharacterEquipmentOverlay>), String> {
-    let source_root = haven_assets::asset_intake::repo_root_dir().join(DEFAULT_ULPC_SOURCE_ROOT);
-    let resolver = UniversalLpcCharacterResolver::with_source_root(&source_root, &builder.definitions);
+) -> Result<
+    (
+        Vec<RuntimeCharacterLayer>,
+        Vec<RuntimeCharacterEquipmentOverlay>,
+    ),
+    String,
+> {
+    let source_root =
+        haven_assets::asset_intake::repo_root_dir().join(DEFAULT_ULPC_SOURCE_ROOT);
+    let resolver =
+        UniversalLpcCharacterResolver::with_source_root(&source_root, &builder.definitions);
     // The exact ULPC recipe is the visual authority for body, clothing, and
     // persisted gameplay equipment. There is no second held-tool renderer;
     // stripping equipment here previously made Main Hand tools physically
@@ -754,7 +799,10 @@ async fn load_exact_universal_lpc_runtime_layers(
     let visual_recipe = recipe.clone();
     let walk = resolver.resolve(&visual_recipe, CharacterAnimationKind::Walk.ulpc_id())?;
     if !walk.unsupported_items.is_empty() {
-        return Err(format!("typed character recipe contains unsupported ULPC items: {}", walk.unsupported_items.join(", ")));
+        return Err(format!(
+            "typed character recipe contains unsupported ULPC items: {}",
+            walk.unsupported_items.join(", ")
+        ));
     }
     let mut layers = Vec::new();
     for resolved in walk.layers {
@@ -763,7 +811,12 @@ async fn load_exact_universal_lpc_runtime_layers(
         }
         let texture = load_texture(resolved.source_path.to_string_lossy().as_ref())
             .await
-            .map_err(|error| format!("failed to load {}: {error}", resolved.source_path.display()))?;
+            .map_err(|error| {
+                format!(
+                    "failed to load {}: {error}",
+                    resolved.source_path.display()
+                )
+            })?;
         enforce_nearest_character_filter(&texture);
         validate_character_texture_alignment(&resolved.item_id, &texture)?;
         layers.push(RuntimeCharacterLayer {
@@ -782,16 +835,24 @@ async fn load_exact_universal_lpc_runtime_layers(
     }
 
     for animation in CharacterAnimationKind::ALL {
-        if animation == CharacterAnimationKind::Walk { continue; }
+        if animation == CharacterAnimationKind::Walk {
+            continue;
+        }
         let resolved = resolver.resolve(&visual_recipe, animation.ulpc_id())?;
         for source in resolved.layers {
-            if source.frame_size != LPC_RUNTIME_FRAME_WIDTH as u32 { continue; }
+            if source.frame_size != LPC_RUNTIME_FRAME_WIDTH as u32 {
+                continue;
+            }
             let Some(layer) = layers.iter_mut().find(|layer| {
                 layer.item_id == source.item_id && layer.layer_number == source.layer_number
-            }) else { continue; };
+            }) else {
+                continue;
+            };
             let texture = load_texture(source.source_path.to_string_lossy().as_ref())
                 .await
-                .map_err(|error| format!("failed to load {}: {error}", source.source_path.display()))?;
+                .map_err(|error| {
+                    format!("failed to load {}: {error}", source.source_path.display())
+                })?;
             enforce_nearest_character_filter(&texture);
             validate_character_texture_alignment(&source.item_id, &texture)?;
             if animation == CharacterAnimationKind::Idle {
@@ -802,12 +863,15 @@ async fn load_exact_universal_lpc_runtime_layers(
         }
     }
     layers.sort_by(|left, right| {
-        left.z_pos.cmp(&right.z_pos)
+        left.z_pos
+            .cmp(&right.z_pos)
             .then_with(|| left.item_id.cmp(&right.item_id))
             .then_with(|| left.layer_number.cmp(&right.layer_number))
     });
     if !layers.iter().any(|layer| layer.item_id == "body_body") {
-        return Err("typed Universal LPC recipe resolved no required body foundation".to_string());
+        return Err(
+            "typed Universal LPC recipe resolved no required body foundation".to_string(),
+        );
     }
 
     // Custom tool sheets are action-only in upstream ULPC definitions and do
@@ -823,8 +887,10 @@ async fn load_custom_universal_lpc_equipment_overlays(
     recipe: &UniversalLpcCharacterRecipe,
     builder: &UniversalLpcCharacterBuilderCatalog,
 ) -> Result<Vec<RuntimeCharacterEquipmentOverlay>, String> {
-    let source_root = haven_assets::asset_intake::repo_root_dir().join(DEFAULT_ULPC_SOURCE_ROOT);
-    let resolver = UniversalLpcCharacterResolver::with_source_root(&source_root, &builder.definitions);
+    let source_root =
+        haven_assets::asset_intake::repo_root_dir().join(DEFAULT_ULPC_SOURCE_ROOT);
+    let resolver =
+        UniversalLpcCharacterResolver::with_source_root(&source_root, &builder.definitions);
     let mut equipment_overlays = Vec::new();
     for custom_animation in ["tool_axe", "tool_hammer", "tool_rod"] {
         let resolved = resolver.resolve(recipe, custom_animation)?;
@@ -836,12 +902,18 @@ async fn load_custom_universal_lpc_equipment_overlays(
             }
             let texture = load_texture(source.source_path.to_string_lossy().as_ref())
                 .await
-                .map_err(|error| format!("failed to load {}: {error}", source.source_path.display()))?;
+                .map_err(|error| {
+                    format!("failed to load {}: {error}", source.source_path.display())
+                })?;
             enforce_nearest_character_filter(&texture);
             let frame_size = source.frame_size.max(1);
             let width = texture.width().round().max(0.0) as u32;
             let height = texture.height().round().max(0.0) as u32;
-            if width == 0 || height == 0 || width % frame_size != 0 || height % frame_size != 0 {
+            if width == 0
+                || height == 0
+                || width % frame_size != 0
+                || height % frame_size != 0
+            {
                 return Err(format!(
                     "custom equipment layer {} is not aligned to its {}px frame grid ({}x{})",
                     source.item_id, frame_size, width, height
@@ -858,11 +930,20 @@ async fn load_custom_universal_lpc_equipment_overlays(
         }
     }
     equipment_overlays.sort_by(|left, right| {
-        left.z_pos.cmp(&right.z_pos)
+        left.z_pos
+            .cmp(&right.z_pos)
             .then_with(|| left.item_id.cmp(&right.item_id))
             .then_with(|| left.layer_number.cmp(&right.layer_number))
     });
     Ok(equipment_overlays)
+}
+
+fn custom_equipment_overlay_matches_frame(
+    overlay: &RuntimeCharacterEquipmentOverlay,
+    frame: CharacterAnimationFrame,
+) -> bool {
+    haven_assets::universal_lpc_resolver::custom_base_animation(&overlay.custom_animation)
+        .is_some_and(|base_animation| base_animation == frame.animation.ulpc_id())
 }
 
 fn custom_equipment_source_rect(
@@ -881,7 +962,8 @@ fn custom_equipment_source_rect(
         }
     } else {
         0
-    }.min(rows.saturating_sub(1));
+    }
+    .min(rows.saturating_sub(1));
     let action_animates_tool = matches!(
         frame.animation,
         CharacterAnimationKind::Slash
@@ -896,7 +978,12 @@ fn custom_equipment_source_rect(
     } else {
         0
     };
-    Rect::new(column as f32 * size, row as f32 * size, size, size)
+    Rect::new(
+        column as f32 * size,
+        row as f32 * size,
+        size,
+        size,
+    )
 }
 
 fn profile_path(save_root: &Path, character_id: &CharacterId) -> std::path::PathBuf {

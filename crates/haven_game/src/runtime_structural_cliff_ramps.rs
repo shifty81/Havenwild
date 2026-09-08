@@ -116,7 +116,6 @@ impl Game {
         }
     }
 
-
     pub(super) fn complete_directional_ramp_owner_for_cell(
         &self,
         _manifest: &haven_world::ContinuousSurfaceManifest,
@@ -152,7 +151,26 @@ impl Game {
             (true, false) => Some(LpcDirectionalCliffRampRole::RiseRight),
             (false, true) => Some(LpcDirectionalCliffRampRole::RiseLeft),
             (true, true) => Some(self.directional_ramp_role_for_host(manifest, global_x, global_y)),
-            (false, false) => None,
+            (false, false) => {
+                // R1 compatibility lane: older development saves can contain
+                // the canonical center MountainPath pair and a real structural
+                // Ramp connector without the later six-cell authored corridor
+                // expansion. The directional fallback below already exists for
+                // exactly that save lineage, but the strict full-corridor gate
+                // made it unreachable and therefore made the ramp art vanish.
+                // Only accept this when both semantic path cells and the actual
+                // south-edge Ramp connector agree; ordinary paths never invent
+                // structural ramp artwork.
+                let legacy_center_pair = path(0, 0) && path(0, 1);
+                let structural_ramp = self.structural_connector_from_host_edge_in_manifest(
+                    manifest,
+                    global_x,
+                    global_y,
+                    haven_world::CardinalDirectionV2::South,
+                ) == Some(StructuralConnectorKind::Ramp);
+                (legacy_center_pair && structural_ramp)
+                    .then(|| self.directional_ramp_role_for_host(manifest, global_x, global_y))
+            }
         }
     }
 
@@ -168,9 +186,8 @@ impl Game {
         let Some(role) =
             self.complete_directional_ramp_role_for_host(manifest, global_x, global_y)
         else {
-            // Never paste a complete authored 3x4 ramp over an incomplete or
-            // legacy two-cell MountainPath hint. Generation/authoring must own
-            // the full certified corridor first.
+            // No semantic/collision ramp contract resolved here. Fail closed
+            // rather than inventing a ramp from neighboring cliff geometry.
             return;
         };
         let stamp = role.source_stamp();
@@ -229,5 +246,4 @@ impl Game {
             LpcDirectionalCliffRampRole::RiseLeft
         }
     }
-
- }
+}

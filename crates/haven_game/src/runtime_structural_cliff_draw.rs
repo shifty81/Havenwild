@@ -15,18 +15,14 @@ fn generated_surface_uses_orthogonal_cliff_grammar(scene_id: &haven_core::Projec
 }
 
 fn runtime_cliff_visual_shape(
-    generated_surface: bool,
+    _generated_surface: bool,
     visual_shape: CliffVisualShape,
 ) -> CliffVisualShape {
-    if generated_surface {
-        // AC3R4F source-native PCG rule: ordinary generated cliff contours use
-        // the stable orthogonal ElizaWy/LPC edge grammar. Directional diagonals
-        // are reserved for the complete RiseL/RiseR connector stamp instead of
-        // being repeated on every staircase contour cell.
-        CliffVisualShape::Orthogonal
-    } else {
-        visual_shape
-    }
+    // R1: topology is authority. Generated and authored surfaces both consume
+    // the same resolved cliff visual shape. The previous generated-surface
+    // override forcibly collapsed every diagonal/terminal recipe to Orthogonal,
+    // which is why structurally stepped contours rendered as long square walls.
+    visual_shape
 }
 
 fn exposed_shape_neighbors_complete(
@@ -392,19 +388,28 @@ impl Game {
             .surface_structural_level_at_global_in_manifest(manifest, global_x, global_y)
             .unwrap_or(0);
         let face_segments = shared_recipe.south_face_segments.max(1);
-        if ladder_overlay {
-            // The base pass replaces the ordinary receiver column with authored
-            // ladder art. Replaying an ordinary face here would hide that ladder
-            // after actors are sorted, so replay the same certified connector.
-            self.draw_south_connector_face(
+
+        // R1 ladder actor-depth corridor. A composed LPC player is 64px wide,
+        // so the one-cell ladder lane can overlap the two immediately adjacent
+        // wall columns while climbing/cresting. The old foreground replay drew
+        // those receiver faces after the player and left only the head visible.
+        // Keep the base cliff/ladder presentation, but suppress foreground replay
+        // in the local three-column ladder corridor while the player is physically
+        // beside it. This preserves normal cliff occlusion everywhere else.
+        let ladder_host_nearby = [-1_i32, 0, 1].into_iter().any(|dx| {
+            self.structural_connector_from_host_edge_in_manifest(
                 manifest,
-                texture,
-                global_x,
+                global_x + dx,
                 global_y,
-                host_level,
-                face_segments,
-                crate::runtime_structural_connectors::StructuralConnectorKind::Ladder,
-            );
+                haven_world::CardinalDirectionV2::South,
+            ) == Some(crate::runtime_structural_connectors::StructuralConnectorKind::Ladder)
+        });
+        let player_tile = self.surface_global_tile();
+        let player_in_ladder_depth_corridor = ladder_host_nearby
+            && (player_tile.x - global_x).abs() <= 1
+            && player_tile.y >= global_y - 1
+            && player_tile.y <= global_y + i32::from(face_segments) + 1;
+        if ladder_overlay || player_in_ladder_depth_corridor {
             return;
         }
         let east = shape_exposes(shape, haven_world::EdgeMaskV2::EAST);
@@ -604,10 +609,9 @@ impl Game {
             | CliffVisualShape::SouthAuthoredTerminal => {}
         }
 
-        // AC3R4F generated orthogonal contours retain exact source-native side
-        // edges instead of repeating diagonal wedges along staircase masks.
-        // The dedicated RiseL/RiseR connector remains the only generated
-        // diagonal assembly.
+        // Orthogonal contours retain exact source-native side edges. Diagonal
+        // and terminal recipes above now remain reachable on generated surfaces
+        // instead of being collapsed to this fallback unconditionally.
         if visual_shape == CliffVisualShape::Orthogonal {
             if west {
                 self.draw_cliff_overlay_cell(texture, WEST_EDGE_CELL, global_x, global_y);
@@ -963,14 +967,14 @@ mod tests {
     }
 
     #[test]
-    fn generated_surface_downgrades_ordinary_diagonal_cliffs_to_orthogonal() {
+    fn generated_surface_preserves_resolved_diagonal_cliff_topology() {
         assert_eq!(
             runtime_cliff_visual_shape(true, CliffVisualShape::SouthWestDiagonal),
-            CliffVisualShape::Orthogonal
+            CliffVisualShape::SouthWestDiagonal
         );
         assert_eq!(
-            runtime_cliff_visual_shape(false, CliffVisualShape::SouthWestDiagonal),
-            CliffVisualShape::SouthWestDiagonal
+            runtime_cliff_visual_shape(false, CliffVisualShape::SouthEastDiagonal),
+            CliffVisualShape::SouthEastDiagonal
         );
     }
 
@@ -992,5 +996,4 @@ mod tests {
         assert_eq!(straight_foot_offset, 2);
         assert_eq!(diagonal_foot_offset, 2);
     }
-
 }

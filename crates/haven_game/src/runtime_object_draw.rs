@@ -68,20 +68,70 @@ impl Game {
             }
         }
 
+        // R1 visual-authority rule: manifest-backed natural objects use the
+        // audited generated object atlas before legacy/published gameplay adapters.
+        // The legacy `tree_default` placeable intentionally stores gameplay state
+        // only, but its historical 32x64 visual frame is transparent against the
+        // current 160x192 atlas. Letting that adapter win produced live Tree
+        // collision with no pixels on screen.
+        let canonical_natural_visual = matches!(
+            object.kind,
+            ObjectKind::Tree
+                | ObjectKind::Bush
+                | ObjectKind::Boulder
+                | ObjectKind::OreNode
+                | ObjectKind::Mushroom
+                | ObjectKind::Herb
+                | ObjectKind::Stump
+                | ObjectKind::Log
+        );
+        if canonical_natural_visual {
+            if let (Some(texture), Some(entry)) = (
+                &self.object_atlas,
+                object_asset_entry_for_cell(object.kind, object.x, object.y),
+            ) {
+                let foot = object_foot_world(object) + offset;
+                let foot = if global_surface {
+                    self.runtime_world_to_screen(foot)
+                } else {
+                    self.world_to_screen(foot)
+                };
+                draw_texture_ex(
+                    texture,
+                    foot.x - entry.foot_anchor.0,
+                    foot.y - entry.foot_anchor.1,
+                    WHITE,
+                    DrawTextureParams {
+                        dest_size: Some(vec2(entry.rect.w, entry.rect.h)),
+                        source: Some(atlas_rect(entry.rect)),
+                        ..Default::default()
+                    },
+                );
+                return;
+            }
+        }
+
         let published = scene
             .map
             .object_asset_ref(object.id)
             .and_then(|asset_ref| self.placeable_registry.resolve_persistent_ref(asset_ref))
             .or_else(|| self.placeable_registry.for_legacy_object(object.kind));
         if let Some(definition) = published {
-            if let (Some(texture), Some(visual)) = (
-                self.placeable_textures.get(definition.pack_qualified_id()),
-                definition.visual.as_ref(),
-            ) {
+            // Current runtime asset loading indexes direct placeable textures by
+            // stable_id. Older/alternate pack loaders may use the qualified key.
+            // Accept both so a valid published object never keeps collision while
+            // silently losing its visual because the cache key shape drifted.
+            let texture = self
+                .placeable_textures
+                .get(definition.pack_qualified_id())
+                .or_else(|| self.placeable_textures.get(&definition.stable_id));
+            if let (Some(texture), Some(visual)) = (texture, definition.visual.as_ref()) {
                 let state = object_state;
                 let animation = self.active_scene_door_animation(&scene.id, object.id);
                 let resolved_frame = if let Some(animation) = animation {
-                    animation.source_rect().map(|source_rect| (source_rect, animation.draw_offset_px()))
+                    animation
+                        .source_rect()
+                        .map(|source_rect| (source_rect, animation.draw_offset_px()))
                 } else {
                     visual
                         .frame_for_state(state)

@@ -1,11 +1,41 @@
 use super::*;
 
-const HUD_WOOD_DARK: Color = Color { r: 0.18, g: 0.10, b: 0.045, a: 0.96 };
-const HUD_WOOD: Color = Color { r: 0.34, g: 0.18, b: 0.07, a: 0.97 };
-const HUD_BRASS_DARK: Color = Color { r: 0.47, g: 0.27, b: 0.055, a: 1.0 };
-const HUD_BRASS: Color = Color { r: 0.88, g: 0.62, b: 0.15, a: 1.0 };
-const HUD_GOLD: Color = Color { r: 1.0, g: 0.82, b: 0.30, a: 1.0 };
-const HUD_INSET: Color = Color { r: 0.035, g: 0.070, b: 0.065, a: 0.94 };
+const HUD_WOOD_DARK: Color = Color {
+    r: 0.18,
+    g: 0.10,
+    b: 0.045,
+    a: 0.96,
+};
+const HUD_WOOD: Color = Color {
+    r: 0.34,
+    g: 0.18,
+    b: 0.07,
+    a: 0.97,
+};
+const HUD_BRASS_DARK: Color = Color {
+    r: 0.47,
+    g: 0.27,
+    b: 0.055,
+    a: 1.0,
+};
+const HUD_BRASS: Color = Color {
+    r: 0.88,
+    g: 0.62,
+    b: 0.15,
+    a: 1.0,
+};
+const HUD_GOLD: Color = Color {
+    r: 1.0,
+    g: 0.82,
+    b: 0.30,
+    a: 1.0,
+};
+const HUD_INSET: Color = Color {
+    r: 0.035,
+    g: 0.070,
+    b: 0.065,
+    a: 0.94,
+};
 
 impl Game {
     /// Player-facing HUD has no full-width bottom dock. It is composed from
@@ -71,7 +101,12 @@ impl Game {
             Color::from_rgba(173, 124, 63, 255),
         );
         draw_vital_bar(
-            Rect::new(bars_x + bars_w * 0.51, rect.y + 72.0, bars_w * 0.49, 14.0),
+            Rect::new(
+                bars_x + bars_w * 0.51,
+                rect.y + 72.0,
+                bars_w * 0.49,
+                14.0,
+            ),
             "Thirst",
             thirst_ratio,
             Color::from_rgba(73, 151, 180, 255),
@@ -95,8 +130,12 @@ impl Game {
 
     pub(super) fn draw_player_hotbar(&self) {
         let slots = gameplay_hotbar::hotbar_slot_rects(screen_width(), screen_height());
-        let Some((_, first)) = slots.first().copied() else { return; };
-        let Some((_, last)) = slots.last().copied() else { return; };
+        let Some((_, first)) = slots.first().copied() else {
+            return;
+        };
+        let Some((_, last)) = slots.last().copied() else {
+            return;
+        };
         // Frame padding is bounded from the same canonical slot geometry so
         // shrinking the player-authored strip cannot detach its decorative chrome.
         let frame_pad_x = (first.w * 0.24).clamp(8.0, 12.0);
@@ -135,12 +174,22 @@ impl Game {
                     if quantity > 1 {
                         let q = quantity.to_string();
                         let m = measure_text(&q, None, 12, 1.0);
-                        draw_text(&q, rect.x + rect.w - m.width - 4.0, rect.y + rect.h - 4.0, 12.0, WHITE);
+                        draw_text(
+                            &q,
+                            rect.x + rect.w - m.width - 4.0,
+                            rect.y + rect.h - 4.0,
+                            12.0,
+                            WHITE,
+                        );
                     }
                 }
             }
 
-            let number = if slot == 9 { "0".to_string() } else { (slot + 1).to_string() };
+            let number = if slot == 9 {
+                "0".to_string()
+            } else {
+                (slot + 1).to_string()
+            };
             draw_text(
                 &number,
                 rect.x + 4.0,
@@ -178,20 +227,29 @@ impl Game {
         true
     }
 
-
     fn draw_hotbar_main_hand_context(&self, frame: Rect) {
         // Equipment remains the gameplay authority. The hotbar is only a player-
         // authored shortcut surface, so this read reports the real equipped item.
-        let Some(main_hand) = self.player_inventory_ui.equipped_items().get("main_hand") else {
+        let Some(main_hand) = self
+            .player_inventory_ui
+            .equipped_items()
+            .get("main_hand")
+        else {
             return;
         };
         let label = format!("Main Hand · {}", main_hand.display_name);
         let metrics = measure_text(&label, None, 13, 1.0);
         let icon_size = 28.0;
         let icon_gap = 5.0;
-        let has_icon = crate::runtime_item_icons::has_item_icon(&self.item_icon_rects, &main_hand.item_id)
-            && self.item_icon_atlas.is_some();
-        let total_w = metrics.width + if has_icon { icon_size + icon_gap } else { 0.0 };
+        let has_icon =
+            crate::runtime_item_icons::has_item_icon(&self.item_icon_rects, &main_hand.item_id)
+                && self.item_icon_atlas.is_some();
+        let total_w = metrics.width
+            + if has_icon {
+                icon_size + icon_gap
+            } else {
+                0.0
+            };
         let x = frame.x + (frame.w - total_w) * 0.5;
         if has_icon {
             let icon_rect = Rect::new(x, frame.y - icon_size - 7.0, icon_size, icon_size);
@@ -205,7 +263,11 @@ impl Game {
         }
         draw_text(
             &label,
-            x + if has_icon { icon_size + icon_gap } else { 0.0 },
+            x + if has_icon {
+                icon_size + icon_gap
+            } else {
+                0.0
+            },
             frame.y - 13.0,
             13.0,
             Color::from_rgba(232, 215, 166, 255),
@@ -223,7 +285,12 @@ impl Game {
         // LPC contact point; this bar merely exposes that timing to the player.
         let progress = character.action_progress().clamp(0.0, 1.0);
         let width = (frame.w * 0.46).clamp(150.0, 300.0);
-        let bar = Rect::new(frame.x + (frame.w - width) * 0.5, frame.y - 8.0, width, 5.0);
+        let bar = Rect::new(
+            frame.x + (frame.w - width) * 0.5,
+            frame.y - 8.0,
+            width,
+            5.0,
+        );
         draw_rectangle(bar.x, bar.y, bar.w, bar.h, HUD_INSET);
         draw_rectangle(bar.x, bar.y, bar.w * progress, bar.h, HUD_GOLD);
         draw_rectangle_lines(bar.x, bar.y, bar.w, bar.h, 1.0, HUD_BRASS_DARK);
@@ -253,6 +320,11 @@ impl Game {
         let size = 286.0_f32.min(screen_width() * 0.22).max(224.0);
         let frame = Rect::new(screen_width() - size - 10.0, 8.0, size, size);
 
+        // The authored minimap texture is optional. When it is absent, reuse
+        // Havenwild's existing panel grammar rather than rendering an unframed
+        // debug-looking circle or inventing substitute art.
+        let authored_frame = self.hud_minimap_frame.is_some();
+
         // The actual world map is circular before the decorative frame is drawn.
         // AC2's minimap renderer rejects cells/markers outside this circle.
         let map = Rect::new(
@@ -261,15 +333,20 @@ impl Game {
             size * 0.69,
             size * 0.69,
         );
+        if !authored_frame {
+            draw_havenwild_minimap_fallback_frame(map);
+        }
         self.draw_player_centered_minimap(map);
 
-        // The clock housing is part of the production frame, but its internals
-        // remain live code: rotating day/night dial + authoritative game time.
+        // The clock shares the same existing frame language. Only the useful
+        // upper dial is exposed; the covered lower half becomes the time plaque.
         let clock_center = vec2(frame.x + size * 0.165, frame.y + size * 0.755);
         let clock_radius = size * 0.108;
         draw_day_night_clock(clock_center, clock_radius, self.day_clock);
 
-        draw_hud_frame_texture(self.hud_minimap_frame.as_ref(), frame);
+        if authored_frame {
+            draw_hud_frame_texture(self.hud_minimap_frame.as_ref(), frame);
+        }
     }
 }
 
@@ -278,9 +355,30 @@ impl Game {
 /// scalable visual grammar without baking a unique frame texture per window.
 pub(crate) fn draw_havenwild_panel_frame(rect: Rect) {
     draw_rectangle(rect.x, rect.y, rect.w, rect.h, HUD_WOOD_DARK);
-    draw_rectangle_lines(rect.x, rect.y, rect.w, rect.h, 4.0, HUD_BRASS_DARK);
-    draw_rectangle_lines(rect.x + 3.0, rect.y + 3.0, rect.w - 6.0, rect.h - 6.0, 2.0, HUD_GOLD);
-    draw_rectangle_lines(rect.x + 7.0, rect.y + 7.0, rect.w - 14.0, rect.h - 14.0, 2.0, HUD_WOOD);
+    draw_rectangle_lines(
+        rect.x,
+        rect.y,
+        rect.w,
+        rect.h,
+        4.0,
+        HUD_BRASS_DARK,
+    );
+    draw_rectangle_lines(
+        rect.x + 3.0,
+        rect.y + 3.0,
+        rect.w - 6.0,
+        rect.h - 6.0,
+        2.0,
+        HUD_GOLD,
+    );
+    draw_rectangle_lines(
+        rect.x + 7.0,
+        rect.y + 7.0,
+        rect.w - 14.0,
+        rect.h - 14.0,
+        2.0,
+        HUD_WOOD,
+    );
     for &(x, y) in &[
         (rect.x + 7.0, rect.y + 7.0),
         (rect.x + rect.w - 7.0, rect.y + 7.0),
@@ -290,6 +388,26 @@ pub(crate) fn draw_havenwild_panel_frame(rect: Rect) {
         draw_poly(x, y, 4, 6.0, 45.0, HUD_GOLD);
         draw_poly_lines(x, y, 4, 6.0, 45.0, 1.0, HUD_BRASS_DARK);
     }
+}
+
+
+
+fn draw_havenwild_minimap_fallback_frame(map: Rect) {
+    let center = vec2(map.x + map.w * 0.5, map.y + map.h * 0.5);
+    let radius = map.w.min(map.h) * 0.5;
+    // Reuse the same wood/brass/gold grammar as the rest of the HUD while
+    // preserving the circular minimap footprint. This is intentionally a
+    // runtime frame, not replacement artwork for a missing image asset.
+    draw_circle(center.x, center.y, radius + 10.0, HUD_WOOD_DARK);
+    draw_circle_lines(
+        center.x,
+        center.y,
+        radius + 10.0,
+        4.0,
+        HUD_BRASS_DARK,
+    );
+    draw_circle_lines(center.x, center.y, radius + 6.0, 2.0, HUD_GOLD);
+    draw_circle_lines(center.x, center.y, radius + 3.0, 1.5, HUD_WOOD);
 }
 
 fn draw_havenwild_slot_frame(rect: Rect, selected: bool) {
@@ -302,7 +420,14 @@ fn draw_havenwild_slot_frame(rect: Rect, selected: bool) {
         if selected { 3.0 } else { 1.5 },
         if selected { HUD_GOLD } else { HUD_BRASS },
     );
-    draw_rectangle_lines(rect.x + 3.0, rect.y + 3.0, rect.w - 6.0, rect.h - 6.0, 1.0, HUD_WOOD);
+    draw_rectangle_lines(
+        rect.x + 3.0,
+        rect.y + 3.0,
+        rect.w - 6.0,
+        rect.h - 6.0,
+        1.0,
+        HUD_WOOD,
+    );
 }
 
 fn draw_vital_bar(rect: Rect, label: &str, ratio: f32, fill: Color) {
@@ -316,12 +441,22 @@ fn draw_vital_bar(rect: Rect, label: &str, ratio: f32, fill: Color) {
     );
     draw_rectangle_lines(rect.x, rect.y, rect.w, rect.h, 1.5, HUD_BRASS);
     if rect.h >= 18.0 {
-        draw_text(label, rect.x + 6.0, rect.y + 14.0, 12.0, Color::from_rgba(247, 235, 199, 255));
+        draw_text(
+            label,
+            rect.x + 6.0,
+            rect.y + 14.0,
+            12.0,
+            Color::from_rgba(247, 235, 199, 255),
+        );
     }
 }
 
 fn draw_day_night_clock(center: Vec2, radius: f32, hour: f32) {
     let rotation = (hour.rem_euclid(24.0) / 24.0) * std::f32::consts::TAU;
+
+    // Render the same live day/night dial first, then mask its lower hemisphere.
+    // This preserves the authoritative clock/orbit behavior without maintaining
+    // a second bespoke time renderer.
     draw_circle(center.x, center.y, radius + 2.0, HUD_BRASS_DARK);
     draw_half_disc(
         center,
@@ -343,14 +478,24 @@ fn draw_day_night_clock(center: Vec2, radius: f32, hour: f32) {
     let orbit = radius * 0.52;
     let sun = center + vec2(sun_angle.cos(), sun_angle.sin()) * orbit;
     let moon = center + vec2(moon_angle.cos(), moon_angle.sin()) * orbit;
-    draw_circle(sun.x, sun.y, radius * 0.16, Color::from_rgba(255, 210, 73, 255));
+    draw_circle(
+        sun.x,
+        sun.y,
+        radius * 0.16,
+        Color::from_rgba(255, 210, 73, 255),
+    );
     for index in 0..8 {
         let a = index as f32 / 8.0 * std::f32::consts::TAU;
         let inner = sun + vec2(a.cos(), a.sin()) * radius * 0.22;
         let outer = sun + vec2(a.cos(), a.sin()) * radius * 0.30;
         draw_line(inner.x, inner.y, outer.x, outer.y, 1.5, HUD_GOLD);
     }
-    draw_circle(moon.x, moon.y, radius * 0.17, Color::from_rgba(238, 219, 148, 255));
+    draw_circle(
+        moon.x,
+        moon.y,
+        radius * 0.17,
+        Color::from_rgba(238, 219, 148, 255),
+    );
     draw_circle(
         moon.x + radius * 0.075,
         moon.y - radius * 0.025,
@@ -358,22 +503,70 @@ fn draw_day_night_clock(center: Vec2, radius: f32, hour: f32) {
         Color::from_rgba(14, 31, 64, 255),
     );
 
-    let label = clock_label(hour);
-    let metrics = measure_text(&label, None, 12, 1.0);
-    let label_y = center.y + radius * 0.72;
+    // Hide the lower dial completely. The dark wood cover deliberately matches
+    // the shared HUD frame so it reads as part of the housing, not a black mask.
     draw_rectangle(
-        center.x - metrics.width * 0.5 - 4.0,
-        label_y - 11.0,
-        metrics.width + 8.0,
-        14.0,
-        Color::from_rgba(7, 15, 22, 190),
+        center.x - radius - 3.0,
+        center.y,
+        radius * 2.0 + 6.0,
+        radius + 5.0,
+        HUD_WOOD_DARK,
+    );
+    draw_line(
+        center.x - radius,
+        center.y,
+        center.x + radius,
+        center.y,
+        2.0,
+        HUD_BRASS,
+    );
+
+    // The time now owns the covered portion as a readable framed plaque.
+    let label = clock_label(hour);
+    let font_size = 20_u16;
+    let metrics = measure_text(&label, None, font_size, 1.0);
+    let plaque_w = (metrics.width + 20.0).max(radius * 1.52);
+    let plaque_h = 27.0;
+    let plaque = Rect::new(
+        center.x - plaque_w * 0.5,
+        center.y + radius * 0.10,
+        plaque_w,
+        plaque_h,
+    );
+    draw_rectangle(plaque.x, plaque.y, plaque.w, plaque.h, HUD_WOOD_DARK);
+    draw_rectangle_lines(
+        plaque.x,
+        plaque.y,
+        plaque.w,
+        plaque.h,
+        2.0,
+        HUD_BRASS_DARK,
+    );
+    draw_rectangle_lines(
+        plaque.x + 2.0,
+        plaque.y + 2.0,
+        plaque.w - 4.0,
+        plaque.h - 4.0,
+        1.0,
+        HUD_GOLD,
+    );
+    let text_x = center.x - metrics.width * 0.5;
+    let text_y = plaque.y + 21.0;
+    // A dark one-pixel shadow keeps the authoritative time legible against the
+    // brass/wood housing at high DPI without changing the approved clock layout.
+    draw_text(
+        &label,
+        text_x + 1.0,
+        text_y + 1.0,
+        font_size as f32,
+        Color::from_rgba(24, 14, 8, 255),
     );
     draw_text(
         &label,
-        center.x - metrics.width * 0.5,
-        label_y,
-        12.0,
-        Color::from_rgba(255, 222, 123, 255),
+        text_x,
+        text_y,
+        font_size as f32,
+        Color::from_rgba(255, 232, 148, 255),
     );
 }
 
@@ -407,7 +600,9 @@ fn compact_item_marker(label: &str) -> String {
 }
 
 fn draw_hud_frame_texture(texture: Option<&Texture2D>, rect: Rect) {
-    let Some(texture) = texture else { return; };
+    let Some(texture) = texture else {
+        return;
+    };
     draw_texture_ex(
         texture,
         rect.x,
