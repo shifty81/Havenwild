@@ -29,7 +29,7 @@ impl EditorApp {
             },
             EditorViewportMode::PixelStudio => pixel_dirty,
             EditorViewportMode::AnimationStudio => animation_dirty,
-            EditorViewportMode::CharacterStudio => false,
+            EditorViewportMode::CharacterStudio => self.character_studio.dirty(),
             EditorViewportMode::LogicStudio => self.logic_studio.dirty,
             EditorViewportMode::SoundStudio => self.sound_studio.dirty,
             _ => world_dirty,
@@ -44,6 +44,7 @@ impl EditorApp {
                 .document
                 .as_ref()
                 .is_some_and(|document| document.dirty)
+            || self.character_studio.dirty()
             || self.logic_studio.dirty
             || self.sound_studio.dirty
             || self.game_canvas_ui.dirty

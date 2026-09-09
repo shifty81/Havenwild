@@ -113,7 +113,7 @@ impl EditorApp {
                 .is_some_and(|document| document.dirty),
             EditorViewportMode::LogicStudio => self.logic_studio.dirty,
             EditorViewportMode::SoundStudio => self.sound_studio.dirty,
-            EditorViewportMode::CharacterStudio => false,
+            EditorViewportMode::CharacterStudio => self.character_studio.dirty(),
             EditorViewportMode::SceneRectangles | EditorViewportMode::RegionGraph | EditorViewportMode::SceneBank => {
                 self.command_bus.undo_len() != self.saved_undo_depth
             }
@@ -133,6 +133,52 @@ impl EditorApp {
         }
         self.close_document_target(target);
         true
+    }
+
+    fn save_document_target(&mut self, target: &DocumentCloseTarget) -> Result<String, String> {
+        match target {
+            DocumentCloseTarget::Scene(scene_id) => {
+                let path = development_session::editor_world_path();
+                save_world_to_path(&path.to_string_lossy(), &self.model.world)?;
+                self.scene_document_dirty_ids.remove(scene_id);
+                if self.active_scene_id().as_ref() == Some(scene_id) {
+                    self.saved_undo_depth = self.command_bus.undo_len();
+                }
+                Ok(format!("Saved scene {}", scene_id.label()))
+            }
+            DocumentCloseTarget::Ui => {
+                self.game_canvas_ui.save_active()?;
+                Ok("Saved UI document".to_string())
+            }
+            DocumentCloseTarget::Pixel(index) => {
+                self.pixel_studio.save_document_tab(*index)?;
+                Ok("Saved Pixel document".to_string())
+            }
+            DocumentCloseTarget::PixelAll => Err("Save & Close All must use explicit Save All".to_string()),
+            DocumentCloseTarget::Workspace(mode) => match mode {
+                EditorViewportMode::AnimationStudio => {
+                    let document = self.animation_studio.document.as_mut().ok_or_else(|| "No animation document is open".to_string())?;
+                    document.save(repo_root_dir())?;
+                    Ok("Saved Animation document".to_string())
+                }
+                EditorViewportMode::CharacterStudio => self.character_studio.save_recipe_draft(),
+                EditorViewportMode::LogicStudio => {
+                    let root = repo_root_dir();
+                    let path = root.join("WORKSPACE/logic/documents").join(format!("{}.hhlogic.json", self.logic_studio.graph.id));
+                    self.logic_studio.graph.save_to_path(&path)?;
+                    self.logic_studio.dirty = false;
+                    Ok("Saved Logic document".to_string())
+                }
+                EditorViewportMode::SoundStudio => {
+                    let root = repo_root_dir();
+                    let path = root.join("WORKSPACE/audio/documents").join(format!("{}.hhsound.json", self.sound_studio.document.id));
+                    self.sound_studio.document.save_to_path(&path)?;
+                    self.sound_studio.dirty = false;
+                    Ok("Saved Sound document".to_string())
+                }
+                _ => Err(format!("{} uses the shared world Save All authority", mode.label())),
+            },
+        }
     }
 
     fn close_document_target(&mut self, target: DocumentCloseTarget) {
@@ -251,8 +297,15 @@ impl EditorApp {
         let panel = modal_rect();
         if save_rect(panel).contains(point) {
             self.pending_document_close = None;
-            self.save_all_editor_documents();
-            self.close_document_target(dialog.target);
+            match self.save_document_target(&dialog.target) {
+                Ok(message) => {
+                    self.close_document_target(dialog.target);
+                    self.status_message = format!("{message}; closed document");
+                }
+                Err(error) => {
+                    self.status_message = format!("Document save failed: {error}");
+                }
+            }
             return true;
         }
         if close_rect(panel).contains(point) {

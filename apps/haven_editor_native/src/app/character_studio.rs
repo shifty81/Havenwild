@@ -328,6 +328,7 @@ pub(crate) struct CharacterStudioState {
     npc_generation_seed: u64,
     npc_profile_editor_open: bool,
     npc_profile_draft: Option<UniversalLpcNpcGenerationProfile>,
+    saved_recipe_fingerprint: String,
 }
 
 impl CharacterStudioState {
@@ -374,8 +375,10 @@ impl CharacterStudioState {
             npc_generation_seed: 0x4E50_435F_4841_5645,
             npc_profile_editor_open: false,
             npc_profile_draft: None,
+            saved_recipe_fingerprint: String::new(),
         };
         state.reload();
+        state.mark_recipe_saved();
         state
     }
 
@@ -931,6 +934,18 @@ impl CharacterStudioState {
         message
     }
 
+    fn recipe_fingerprint(&self) -> String {
+        serde_json::to_string(&self.recipe).unwrap_or_else(|_| self.recipe.layers.len().to_string())
+    }
+
+    pub(crate) fn dirty(&self) -> bool {
+        self.recipe_fingerprint() != self.saved_recipe_fingerprint
+    }
+
+    fn mark_recipe_saved(&mut self) {
+        self.saved_recipe_fingerprint = self.recipe_fingerprint();
+    }
+
     pub(crate) fn save_recipe_draft(&mut self) -> Result<String, String> {
         self.sync_recipe_identity();
         let root = haven_assets::asset_intake::repo_root_dir();
@@ -948,6 +963,7 @@ impl CharacterStudioState {
             self.recipe.layers.len()
         );
         self.recipe_message = Some(message.clone());
+        self.mark_recipe_saved();
         Ok(message)
     }
 
@@ -982,6 +998,7 @@ impl CharacterStudioState {
             self.recipe.layers.len()
         );
         self.recipe_message = Some(message.clone());
+        self.mark_recipe_saved();
         Ok(message)
     }
 

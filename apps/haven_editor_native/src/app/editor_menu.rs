@@ -454,6 +454,10 @@ impl EditorApp {
             ui_result,
         ) {
             (Ok(()), Ok(()), Ok(()), Ok(()), Ok(()), Ok(count), Ok(()), Ok(()), Ok(()), Ok(()), Ok(())) => {
+                if let Err(error) = self.character_studio.save_recipe_draft() {
+                    self.status_message = format!("Save failed: {error}");
+                    return;
+                }
                 self.saved_undo_depth = self.command_bus.undo_len();
                 self.clear_scene_document_dirty_state();
                 self.sound_studio.dirty = false;

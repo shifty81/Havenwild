@@ -458,6 +458,26 @@ impl PixelStudioState {
             || self.recently_closed_documents.iter().any(|session| session.document.dirty)
     }
 
+    pub(crate) fn save_document_tab(&mut self, index: usize) -> Result<(), String> {
+        if self.active_document_tab == Some(index) {
+            if self.world_region_context.is_some() {
+                return Err("world-region Pixel documents must publish through the world bridge".to_string());
+            }
+            return self.document.as_mut().ok_or_else(|| "active Pixel document is unavailable".to_string())?.save(repo_root_dir());
+        }
+        self.document_tabs
+            .get_mut(index)
+            .and_then(Option::as_mut)
+            .ok_or_else(|| format!("Pixel document tab {index} is unavailable"))
+            .and_then(|session| {
+                if session.world_region_context.is_some() {
+                    Err("world-region Pixel documents must publish through the world bridge".to_string())
+                } else {
+                    session.document.save(repo_root_dir())
+                }
+            })
+    }
+
     pub(crate) fn save_inactive_documents(&mut self) -> Result<usize, String> {
         let mut saved = 0usize;
         for session in self.document_tabs.iter_mut().filter_map(Option::as_mut) {

@@ -28,6 +28,7 @@ mod collision_authoring;
 mod draw;
 mod development_session;
 mod direct_visual_authoring;
+mod document_authority;
 mod document_lifecycle;
 mod document_tabs;
 mod pixel_library_panel;
