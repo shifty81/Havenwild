@@ -42,7 +42,26 @@ def _write(path: Path | None, payload: dict) -> None:
 
 
 def _load_json(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
+    text = path.read_text(encoding="utf-8")
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        # PCC-ASSET-SCALE-02 briefly emitted the literal characters ``\\n``
+        # after an otherwise complete catalog.  Repair only that exact known
+        # generated-catalog defect; never guess at arbitrary malformed JSON.
+        if not text.endswith("\\n"):
+            raise
+        repaired = text[:-2] + "\n"
+        payload = json.loads(repaired)
+        temporary = path.with_name(path.name + ".repair.tmp")
+        try:
+            temporary.write_text(repaired, encoding="utf-8")
+            json.loads(temporary.read_text(encoding="utf-8"))
+            os.replace(temporary, path)
+        finally:
+            temporary.unlink(missing_ok=True)
+        print(f"[REPAIRED] Legacy PCC-ASSET-SCALE-02 catalog terminator: {path}", file=sys.stderr)
+        return payload
 
 
 def build_parser() -> argparse.ArgumentParser:

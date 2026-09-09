@@ -5,7 +5,7 @@ import tempfile
 from pathlib import Path
 
 from .adapters import HAVENWILD
-from .catalog import scan_asset_root
+from .catalog import scan_asset_root, write_catalog
 from .pngio import Image, encode_png
 from .prefab import generate_house_prefab
 from .sheet import analyze_sheet
@@ -76,6 +76,19 @@ def run_selftest() -> dict:
         assert catalog["summary"]["tiledMetadataCount"] == 1
         assert not validate_catalog(catalog)
 
+        # Writer contract: compact and full catalogs must each be exactly one
+        # JSON document and must survive a strict json.loads round trip.
+        compact_path = root / "catalog-compact.json"
+        full_path = root / "catalog-full.json"
+        write_catalog(compact_path, catalog, detail="compact")
+        write_catalog(full_path, catalog, detail="full")
+        compact_payload = json.loads(compact_path.read_text(encoding="utf-8"))
+        full_payload = json.loads(full_path.read_text(encoding="utf-8"))
+        assert compact_payload["storage"]["mode"] == "compact"
+        assert full_payload["summary"] == catalog["summary"]
+        assert not compact_path.with_name(compact_path.name + ".tmp").exists()
+        assert not full_path.with_name(full_path.name + ".tmp").exists()
+
         role_map = {
             "schema": "pcc.asset.role_map.v1",
             "roles": {
@@ -110,6 +123,8 @@ def run_selftest() -> dict:
                 "tsxAnimation": True,
                 "catalogScan": True,
                 "catalogValidation": True,
+                "catalogAtomicWrite": True,
+                "catalogStrictJsonRoundTrip": True,
                 "prefabResolved": True,
                 "prefabUnresolvedSafety": True,
             },

@@ -346,6 +346,15 @@ def finalize(root: Path, session_log: Path) -> int:
     snap = snapshot(root)
     run_id = parse_run_id(session_log)
     source_pass = current_source_pass(root)
+    head_at_gate = git_text(root, ["rev-parse", "--verify", "HEAD"]) or None
+    repository_pass_at_gate = None
+    previous_marker = None
+    try:
+        previous_marker = load_marker(root)
+    except Exception:
+        previous_marker = None
+    if previous_marker and head_at_gate and str(previous_marker.get("publishedCommit") or "") == head_at_gate:
+        repository_pass_at_gate = str(previous_marker.get("pass") or "").strip() or None
     record_path = root / ".havenwild" / "quality-gates" / f"{run_id}.json"
     record = {
         "schema": SCHEMA,
@@ -362,7 +371,8 @@ def finalize(root: Path, session_log: Path) -> int:
         "requiredRuntimeMediaPaths": snap["requiredRuntimeMediaPaths"],
         "cleanCheckoutContract": "PASS",
         "gitReady": git_ready(root),
-        "gitHeadAtGate": git_text(root, ["rev-parse", "--verify", "HEAD"]) or None,
+        "gitHeadAtGate": head_at_gate,
+        "repositoryPassAtGate": repository_pass_at_gate,
         "gitBranchAtGate": git_text(root, ["symbolic-ref", "--quiet", "--short", "HEAD"]) or None,
         "gitRemoteAtGate": git_text(root, ["remote", "get-url", "origin"]) or None,
         "gitUpstreamAtGate": git_text(root, ["rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}"]) or None,
@@ -563,6 +573,59 @@ def manual_commit(root: Path, message: str | None) -> int:
     return 0
 
 
+def frontdoor_state(root: Path) -> int:
+    local_pass = current_source_pass(root)
+    payload = {
+        "schema": "havenwild.frontdoor_state.v1",
+        "localPatch": local_pass,
+        "repositoryPatch": None,
+        "repositoryCommit": None,
+        "gateId": None,
+        "gateState": "NONE",
+        "syncState": "NO_CERTIFICATION",
+        "gitState": worktree_summary(root),
+        "publicationEligible": False,
+        "governedPathCount": None,
+    }
+    if git_ready(root):
+        head = git_text(root, ["rev-parse", "--verify", "HEAD"]) or None
+        payload["repositoryCommit"] = head
+    else:
+        head = None
+    try:
+        marker = load_marker(root)
+        payload["gateId"] = marker.get("runId")
+        ok, snap, reason = certify_matches(root, marker)
+        payload["governedPathCount"] = snap.get("pathCount")
+        payload["publicationEligible"] = bool(ok)
+        payload["gateState"] = "GREEN" if ok else "STALE"
+        published = str(marker.get("publishedCommit") or "").strip() or None
+        if head and published == head:
+            payload["repositoryPatch"] = str(marker.get("pass") or "").strip() or None
+        elif head:
+            payload["repositoryPatch"] = str(marker.get("repositoryPassAtGate") or "").strip() or None
+        if not payload["repositoryPatch"] and head:
+            subject = git_text(root, ["show", "-s", "--format=%s", head])
+            import re
+            m = re.search(r"Havenwild\s+([A-Za-z0-9_.-]+)\s+(?:—|-)\s+certified GREEN", subject, re.I)
+            payload["repositoryPatch"] = m.group(1) if m else f"commit {head[:8]}"
+        if not ok:
+            payload["syncState"] = "LOCAL_MODIFIED_GATE_STALE"
+            payload["blockReason"] = reason
+        elif not head:
+            payload["syncState"] = "GREEN_NOT_PUBLISHED"
+        elif published == head and str(marker.get("pass") or "") == local_pass:
+            payload["syncState"] = "MATCH"
+        elif published == head:
+            payload["syncState"] = "LOCAL_PATCH_AHEAD_UNCERTIFIED"
+        else:
+            payload["syncState"] = "LOCAL_AHEAD_GREEN_UNPUBLISHED"
+    except Exception as exc:
+        payload["blockReason"] = str(exc)
+    print(json.dumps(payload, separators=(",", ":")))
+    return 0
+
+
 def dispatch_git(root: Path, action: str, message: str | None, remote: str | None) -> int:
     a = (action or "Status").strip().lower().replace("_", "").replace("-", "")
     aliases = {
@@ -609,6 +672,8 @@ def main() -> int:
     f = sub.add_parser("finalize")
     f.add_argument("--root", required=True)
     f.add_argument("--session-log", required=True)
+    fd = sub.add_parser("frontdoor")
+    fd.add_argument("--root", required=True)
     g = sub.add_parser("git")
     g.add_argument("--root", required=True)
     g.add_argument("--action", required=True)
@@ -619,6 +684,8 @@ def main() -> int:
     try:
         if args.command == "finalize":
             return finalize(root, Path(args.session_log).resolve())
+        if args.command == "frontdoor":
+            return frontdoor_state(root)
         return dispatch_git(root, args.action, args.message, args.remote)
     except AuthorityError as exc:
         print(f"FAIL: {exc}", file=sys.stderr); return 1

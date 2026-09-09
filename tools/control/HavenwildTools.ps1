@@ -223,18 +223,74 @@ function Get-CommandById([string]$Id) {
 function Get-CommandByKey([string]$Key) {
   return $script:Commands | Where-Object { [string]$_.Key -eq $Key } | Select-Object -First 1
 }
+function Get-FrontDoorState {
+  $fallback=[pscustomobject]@{
+    localPatch=(Get-CurrentAcceptedPass); repositoryPatch=$null; repositoryCommit=$null
+    gateId=$null; gateState='NONE'; syncState='NO_CERTIFICATION'; gitState=(Get-GitState)
+    publicationEligible=$false; governedPathCount=$null
+  }
+  try {
+    $authority=Join-Path $PSScriptRoot 'HavenwildGateAuthority.py'
+    $python=Get-Command python -ErrorAction SilentlyContinue
+    if($null -eq $python){ $python=Get-Command py -ErrorAction SilentlyContinue }
+    if($null -eq $python -or -not (Test-Path -LiteralPath $authority -PathType Leaf)){ return $fallback }
+    $raw=@(& $python.Source $authority frontdoor --root $Root 2>$null)
+    if($LASTEXITCODE -ne 0 -or $raw.Count -eq 0){ return $fallback }
+    return (($raw -join "`n") | ConvertFrom-Json)
+  } catch { return $fallback }
+}
+function Get-PendingRootPatchCount {
+  $seen=@{}
+  foreach($pattern in @('Havenwild_IncrementalPatch_*.zip','Havenwild_Patch_*.zip','Havenwild_Handoff_*.zip')) {
+    foreach($candidate in @(Get-ChildItem -LiteralPath $Root -File -Filter $pattern -ErrorAction SilentlyContinue)) { $seen[$candidate.FullName.ToLowerInvariant()]=$true }
+  }
+  return $seen.Count
+}
+function Get-CertifiedCommitMessage {
+  try {
+    if(Test-Path -LiteralPath $script:GreenGateMarker -PathType Leaf) {
+      $marker=Get-Content -LiteralPath $script:GreenGateMarker -Raw | ConvertFrom-Json
+      $patch=[string]$marker.pass
+      if(-not [string]::IsNullOrWhiteSpace($patch)) { return ("Havenwild {0} - certified GREEN" -f $patch) }
+    }
+  } catch {}
+  return (Get-DefaultCommitMessage)
+}
+function Invoke-RootGreenPublication {
+  $state=Get-FrontDoorState
+  if([string]$state.gateState -ne 'GREEN' -or -not [bool]$state.publicationEligible) {
+    Write-Color 'PUBLICATION BLOCKED: current governed source is not certified GREEN.' Red
+    Write-Color 'Run option 1 - FULL QUALITY GATE / CERTIFY GREEN first.' Yellow
+    $script:LastName='Publish current GREEN'; $script:LastResult='FAIL'; $script:LastActionExitCode=1
+    return
+  }
+  $message=Get-CertifiedCommitMessage
+  Write-Color ("Publishing certified patch: {0}" -f [string]$state.localPatch) Cyan
+  Write-Color ("Repository baseline       : {0}" -f [string]$state.repositoryPatch) DarkGray
+  Write-Color ("Commit message            : {0}" -f $message) DarkGray
+  Invoke-GitSourceAction 'CommitPushGreen' $message
+}
 function Show-Header {
   Clear-Host
-  $git=Get-GitState; $editor=Get-BuildState "haven_editor_native.exe"; $client=Get-BuildState "haven_game.exe"; $baseline=Get-BaselineState
+  $state=Get-FrontDoorState
+  $git=[string]$state.gitState; $editor=Get-BuildState "haven_editor_native.exe"; $client=Get-BuildState "haven_game.exe"; $baseline=Get-BaselineState
+  $localPatch=if([string]::IsNullOrWhiteSpace([string]$state.localPatch)){'<unknown>'}else{[string]$state.localPatch}
+  $repoPatch=if([string]::IsNullOrWhiteSpace([string]$state.repositoryPatch)){if([string]::IsNullOrWhiteSpace([string]$state.repositoryCommit)){'<none>'}else{"commit " + ([string]$state.repositoryCommit).Substring(0,[Math]::Min(8,([string]$state.repositoryCommit).Length))}}else{[string]$state.repositoryPatch}
+  $sync=[string]$state.syncState
+  $gate=if([string]$state.gateState -eq 'GREEN'){"GREEN " + $localPatch}elseif([string]$state.gateState -eq 'STALE'){"STALE - recertify"}else{[string]$state.gateState}
   Write-Color "========================================================================" DarkCyan
   Write-Color " HAVENWILD PROJECT CONTROL CENTER" Cyan
   Write-Color "========================================================================" DarkCyan
   Write-Color (" Repository : {0}" -f $Root) Gray
-  Write-Color (" Git        : {0}" -f $git) $(if($git -eq 'Clean'){'Green'}elseif($git -eq 'Modified'){'Yellow'}else{'DarkGray'})
+  Write-Color (" Git        : {0}" -f $git) $(if($git -eq 'Clean'){'Green'}elseif($git -like 'Modified*'){'Yellow'}else{'DarkGray'})
   Write-Color (" Editor     : {0}" -f $editor) $(if($editor -eq 'Ready'){'Green'}else{'Yellow'})
   Write-Color (" Client     : {0}" -f $client) $(if($client -eq 'Ready'){'Green'}else{'Yellow'})
   Write-Color (" Baseline   : {0}" -f $baseline) $(if($baseline -eq 'Ready'){'Green'}else{'Yellow'})
-  Write-Color (" Gate       : {0}" -f (Get-GreenGateSummary)) $(if((Get-GreenGateSummary) -like 'GREEN*'){'Green'}else{'DarkGray'})
+  Write-Color (" Local      : {0}" -f $localPatch) $(if([string]$state.gateState -eq 'GREEN'){'Green'}else{'Yellow'})
+  Write-Color (" Repository : {0}" -f $repoPatch) Gray
+  Write-Color (" Sync       : {0}" -f $sync) $(if($sync -eq 'MATCH'){'Green'}elseif($sync -like '*GREEN*'){'Yellow'}elseif($sync -like '*STALE*'){'Red'}else{'Yellow'})
+  Write-Color (" Gate       : {0}" -f $gate) $(if([string]$state.gateState -eq 'GREEN'){'Green'}elseif([string]$state.gateState -eq 'STALE'){'Red'}else{'DarkGray'})
+  Write-Color (" Updates    : {0} pending" -f (Get-PendingRootPatchCount)) DarkGray
   Write-Color (" Last       : {0} [{1}] in {2}" -f $script:LastName,$script:LastResult,$script:LastDuration) $(if($script:LastResult -eq 'PASS'){'Green'}elseif($script:LastResult -eq 'FAIL'){'Red'}else{'Gray'})
   Write-Color (" Active log : {0}" -f $SessionLog) DarkGray
   foreach ($startupWarning in $script:StartupWarnings) { Write-Color (" Startup    : WARNING - {0}" -f $startupWarning) Yellow }
@@ -808,15 +864,18 @@ function Show-StatusFooter {
   Write-Color ("[Editor:{0}] [Client:{1}] [Baseline:{2}] [Git:{3}] [Last:{4} {5}]" -f (Get-BuildState 'haven_editor_native.exe'),(Get-BuildState 'haven_game.exe'),(Get-BaselineState),(Get-GitState),$script:LastResult,$script:LastDuration) DarkCyan
 }
 function Show-MainMenu {
-  Write-Color "  1. Build & verify" White
-  Write-Color "  2. Run & play" White
-  Write-Color "  3. World, terrain & scene tools" White
-  Write-Color "  4. Asset authority & catalog" White
-  Write-Color "  5. Project maintenance & diagnostics" White
-  Write-Color "  6. Packaging & baselines" White
-  Write-Color "  7. Logs & help" White
-  Write-Color "  8. Advanced / all registered commands" DarkGray
-  Write-Color "  9. Source control (GitHub optional)" White
+  Write-Color "  1. FULL QUALITY GATE / CERTIFY GREEN" Green
+  Write-Color "  2. COMMIT + PUSH CURRENT GREEN" Green
+  Write-Color "" DarkGray
+  Write-Color "  3. Build & verify" White
+  Write-Color "  4. Run & play" White
+  Write-Color "  5. World, terrain & scene tools" White
+  Write-Color "  6. Asset authority & catalog" White
+  Write-Color "  7. Project maintenance & diagnostics" White
+  Write-Color "  8. Packaging & baselines" White
+  Write-Color "  9. Logs & help" White
+  Write-Color " 10. Advanced / all registered commands" DarkGray
+  Write-Color " 11. Source control (GitHub optional)" White
   Write-Color "  0. Exit" DarkGray
   Show-StatusFooter
 }
@@ -1290,15 +1349,17 @@ do {
   # both ordinary and self-update-owned Control Center sessions cleanly.
   if($choice -eq '0') { break }
   switch($choice) {
-    '1' { Invoke-SubMenu 'build' 'Build & Verify' }
-    '2' { Invoke-SubMenu 'run' 'Run & Play' }
-    '3' { Invoke-SubMenu 'world' 'World, Terrain & Scene Tools' }
-    '4' { Invoke-SubMenu 'assets' 'Asset Authority & Catalog' }
-    '5' { Invoke-SubMenu 'project' 'Project Maintenance & Diagnostics' }
-    '6' { Invoke-SubMenu 'package' 'Packaging & Baselines' }
-    '7' { Invoke-SubMenu 'logs' 'Logs & Help' }
-    '8' { Invoke-SubMenu 'advanced' 'Advanced / All Registered Commands' }
-    '9' { Invoke-GitHubMenu }
+    '1' { Invoke-FullQualityGate }
+    '2' { Invoke-RootGreenPublication; Write-Color ''; Read-Host 'Press Enter to return to the menu' | Out-Null }
+    '3' { Invoke-SubMenu 'build' 'Build & Verify' }
+    '4' { Invoke-SubMenu 'run' 'Run & Play' }
+    '5' { Invoke-SubMenu 'world' 'World, Terrain & Scene Tools' }
+    '6' { Invoke-SubMenu 'assets' 'Asset Authority & Catalog' }
+    '7' { Invoke-SubMenu 'project' 'Project Maintenance & Diagnostics' }
+    '8' { Invoke-SubMenu 'package' 'Packaging & Baselines' }
+    '9' { Invoke-SubMenu 'logs' 'Logs & Help' }
+    '10' { Invoke-SubMenu 'advanced' 'Advanced / All Registered Commands' }
+    '11' { Invoke-GitHubMenu }
     default { Write-Color 'Unknown menu option.' Yellow; Start-Sleep -Milliseconds 650 }
   }
 } while($true)

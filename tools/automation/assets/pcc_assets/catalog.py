@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import sqlite3
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -1090,4 +1091,34 @@ def write_catalog(
         raise ValueError(f"unknown catalog detail: {detail}")
     payload = catalog if detail == "full" else compact_catalog(catalog)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2) + "\\n", encoding="utf-8")
+
+    # Never expose a partially-written or syntactically-invalid authoritative
+    # catalog.  The previous compact writer accidentally appended the literal
+    # characters ``\\n`` after the JSON document; json.loads correctly
+    # rejected that as trailing data.  Serialize once, round-trip it, write a
+    # sibling temporary file, verify the exact bytes, then atomically replace.
+    serialized = json.dumps(payload, indent=2) + "\n"
+    decoded = json.loads(serialized)
+    if not isinstance(decoded, dict):
+        raise ValueError("asset catalog root must be a JSON object")
+
+    from .validate import validate_catalog
+
+    problems = [
+        problem for problem in validate_catalog(decoded)
+        if problem.get("severity") == "error"
+    ]
+    if problems:
+        messages = "; ".join(problem.get("message", "unknown error") for problem in problems)
+        raise ValueError(f"refusing to publish invalid asset catalog: {messages}")
+
+    temporary = path.with_name(path.name + ".tmp")
+    try:
+        temporary.write_text(serialized, encoding="utf-8")
+        written = temporary.read_text(encoding="utf-8")
+        round_trip = json.loads(written)
+        if round_trip != decoded:
+            raise ValueError("asset catalog temporary-file round trip changed payload")
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)

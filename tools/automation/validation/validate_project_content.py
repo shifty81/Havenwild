@@ -7,7 +7,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 ROOT = Path(__file__).resolve().parents[3]
-VALIDATOR_REVISION = "167Z62-project-content-scope-v5"
+VALIDATOR_REVISION = "167Z62-project-content-scope-v6"
 
 # These repository-root trees are generated, imported, archived, cached, or
 # machine-local. They are not Havenwild-owned JSON authority and may contain
@@ -18,6 +18,7 @@ EXCLUDED_TOP_LEVEL = {
     ".local",
     ".venv",
     "archive",
+    "artifacts",
     "build",
     "imports",
     "logs",
@@ -87,6 +88,7 @@ def run_self_test() -> int:
             root / ".havenwild" / "package-baseline.json",
             root / ".local" / "dependencies" / "fixture" / "bad.json",
             root / "IMPORTS" / "bad.json",
+            root / "artifacts" / "asset-intake" / "generated-bad.json",
             root / "assets" / "source" / "licensed" / "fixture" / "bad.json",
             root / "node_modules" / "fixture" / "bad.json",
             root / "Build" / "HavenwildClient" / "content" / "bad.json",
