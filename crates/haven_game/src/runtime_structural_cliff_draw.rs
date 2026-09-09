@@ -39,6 +39,15 @@ fn exposed_shape_neighbors_complete(
         && (!shape_exposes(shape, EdgeMaskV2::WEST) || west_loaded)
 }
 
+/// HW-CLIFF-02: ordinary one-structural-step relief stays visually retired, but
+/// a certified ramp corridor is allowed to resolve its one-step retaining walls.
+/// This makes the ramp an opening in the same cliff topology rather than a
+/// foreign sprite pasted over a deleted corridor.
+fn structural_cliff_projection_visible(maximum_drop: i16, in_ramp_corridor: bool) -> bool {
+    in_ramp_corridor
+        || maximum_drop > haven_world::STRUCTURAL_ELEVATION_RESOLVER_STEP_V2
+}
+
 impl Game {
     /// Canonical structural cliff renderer.
     ///
@@ -62,8 +71,6 @@ impl Game {
         let min_y = ((self.camera_target.y - half_visible.y) / TILE_SIZE).floor() as i32 - 8;
         let max_x = ((self.camera_target.x + half_visible.x) / TILE_SIZE).ceil() as i32 + 4;
         let max_y = ((self.camera_target.y + half_visible.y) / TILE_SIZE).ceil() as i32 + 7;
-        let mut deferred_ramp_overlays = std::collections::BTreeSet::<(i32, i32)>::new();
-
         for global_y in min_y..=max_y {
             for global_x in min_x..=max_x {
                 #[cfg(target_os = "windows")]
@@ -115,36 +122,30 @@ impl Game {
                         crate::native_crash_windows::CLIFF_STAGE_RAMP_OWNERSHIP,
                     );
                 }
-
-                // AC3R4E connected-recipe ownership: only the six semantic
-                // MountainPath corridor cells suppress ordinary cliff recipes.
-                // The wider 3x4 authored stamp is replayed after the complete
-                // base-cliff pass, so transparent source pixels reveal the
-                // surrounding continuous cliff instead of rectangular holes.
-                let ramp_owner =
+                // HW-CLIFF-02 connected structural ownership:
+                //
+                // The six MountainPath cells are the semantic/traversal ramp
+                // corridor, not six deleted cliff cells. Each corridor cell
+                // still resolves its structural edges so the same ElizaWy cliff
+                // family supplies retaining walls, shoulders and terminals.
+                // Only an exact Ramp connector edge is opened below.
+                let ramp_corridor_owner =
                     self.complete_directional_ramp_owner_for_cell(&manifest, global_x, global_y);
-                if let Some((owner_x, owner_y)) = ramp_owner {
-                    if owner_x != global_x || owner_y != global_y {
-                        continue;
-                    }
-                }
 
-                // H20S fail-closed presentation rule: one structural-level
-                // cliffs are retired from ordinary world grammar. The only
-                // one-segment wall that may render is the certified owner edge
-                // of an authored 2->1->0 ramp stamp.
-                if ramp_owner.is_none()
-                    && center.maximum_drop
-                        <= haven_world::STRUCTURAL_ELEVATION_RESOLVER_STEP_V2
-                {
+                // One-step cliff presentation stays retired globally. The odd
+                // middle structural tier reserved inside a certified 2->1->0
+                // or 4->3->2 ramp is the sole exception.
+                if !structural_cliff_projection_visible(
+                    center.maximum_drop,
+                    ramp_corridor_owner.is_some(),
+                ) {
                     continue;
                 }
 
                 #[cfg(target_os = "windows")]
                 crate::native_crash_windows::set_cliff_stage(
                     crate::native_crash_windows::CLIFF_STAGE_CONNECTOR_RESOLVE,
-                );
-                use haven_world::{CardinalDirectionV2, EdgeMaskV2};
+                );use haven_world::{CardinalDirectionV2, EdgeMaskV2};
                 let connector_for = |direction: CardinalDirectionV2, edge: u8| {
                     shape_exposes(shape, edge)
                         .then(|| {
@@ -261,12 +262,10 @@ impl Game {
                     )
                 {
                     // Animated Waterfall.png owns the complete south connector.
-                } else if let Some(connector) = south_connector {
+                                } else if let Some(connector) = south_connector {
                     if connector
-                        == crate::runtime_structural_connectors::StructuralConnectorKind::Ramp
+                        != crate::runtime_structural_connectors::StructuralConnectorKind::Ramp
                     {
-                        deferred_ramp_overlays.insert((global_x, global_y));
-                    } else {
                         self.draw_south_connector_face(
                             &manifest,
                             texture,
@@ -277,6 +276,9 @@ impl Game {
                             connector,
                         );
                     }
+                    // A Ramp is an opening in the cliff recipe. MountainPath
+                    // terrain owns its walk surface; structural cliff recipes
+                    // own all rock surrounding the open edge.
                 }
 
                 #[cfg(target_os = "windows")]
@@ -293,20 +295,24 @@ impl Game {
                 );
             }
         }
-
-        // The complete LPC ramp stamp is a foreground connector assembly. Draw
-        // it once after all ordinary cliff recipes so neighboring contour cells
-        // cannot overpaint the authored diagonal. The semantic six-cell owner
-        // suppression above keeps cliff bodies out of the true walk corridor.
-        for (owner_x, owner_y) in deferred_ramp_overlays {
-            self.draw_authored_directional_ramp(&manifest, owner_x, owner_y);
-        }
+        // HW-CLIFF-02: no deferred foreign ramp overlay. The normal terrain
+        // pass plus structural cliff recipe are the complete ramp authority.}
+    // HW-CLIFF-02R7 doc-boundary method-close repair:
+    // close draw_structural_cliffs() before the foreground function docs.
     }
 
     /// Replay only the receiver-facing portion of one south cliff into the
     /// actor depth queue. The structural pass already owns crest/back/side rim
     /// presentation; this replay deliberately excludes those upper-level pixels
     /// and exists only so lower-ground actors can pass behind the wall.
+    /// Replay only the receiver-facing portion of one south cliff into the
+    /// actor depth queue. The structural pass already owns crest/back/side rim
+    /// presentation; this replay deliberately excludes those upper-level pixels
+    /// and exists only so lower-ground actors can pass behind the wall.
+    ///
+    /// HW-CLIFF-02R4 foreground parser repair: ramp corridor cells retain normal
+    /// structural depth ownership. Only the exact Ramp connector edge itself is
+    /// omitted, matching traversal/collision authority.
     pub(super) fn draw_structural_cliff_foreground_face(
         &self,
         manifest: &haven_world::ContinuousSurfaceManifest,
@@ -333,21 +339,19 @@ impl Game {
         let shape = shared_recipe.shape;
         if !exposed_shape_neighbors_complete(
             shape,
-            self.surface_structural_at_global_in_manifest(manifest, global_x, global_y - 1).is_some(),
-            self.surface_structural_at_global_in_manifest(manifest, global_x + 1, global_y).is_some(),
-            self.surface_structural_at_global_in_manifest(manifest, global_x, global_y + 1).is_some(),
-            self.surface_structural_at_global_in_manifest(manifest, global_x - 1, global_y).is_some(),
+            self.surface_structural_at_global_in_manifest(manifest, global_x, global_y - 1)
+                .is_some(),
+            self.surface_structural_at_global_in_manifest(manifest, global_x + 1, global_y)
+                .is_some(),
+            self.surface_structural_at_global_in_manifest(manifest, global_x, global_y + 1)
+                .is_some(),
+            self.surface_structural_at_global_in_manifest(manifest, global_x - 1, global_y)
+                .is_some(),
         ) {
             return;
         }
         if !shape_exposes(shape, haven_world::EdgeMaskV2::SOUTH)
             || shared_recipe.south_face_segments < 2
-        {
-            return;
-        }
-        if self
-            .complete_directional_ramp_owner_for_cell(manifest, global_x, global_y)
-            .is_some()
         {
             return;
         }
@@ -995,5 +999,18 @@ mod tests {
         let diagonal_foot_offset = 1 + authored_body_rows(level_2_segments) as i32;
         assert_eq!(straight_foot_offset, 2);
         assert_eq!(diagonal_foot_offset, 2);
+    }
+}
+
+#[cfg(test)]
+mod hw_cliff_02_regression_tests {
+    use super::*;
+
+    #[test]
+    fn certified_ramp_corridor_keeps_one_step_retaining_walls_visible() {
+        let step = haven_world::STRUCTURAL_ELEVATION_RESOLVER_STEP_V2;
+        assert!(!structural_cliff_projection_visible(step, false));
+        assert!(structural_cliff_projection_visible(step, true));
+        assert!(structural_cliff_projection_visible(step * 2, false));
     }
 }

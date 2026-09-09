@@ -16,12 +16,10 @@ impl Game {
     ) {
         match connector {
             StructuralConnectorKind::Ramp => {
-                // W7: the source family already contains complete left/right
-                // 3x4 directional ramps. Place one whole authored stamp at
-                // natural 32px scale, centered on the exact structural south
-                // edge that owns traversal. No crop/mirror/rotation/stretch.
-                let _ = (texture, host_level, face_segments);
-                self.draw_authored_directional_ramp(manifest, global_x, global_y);
+                // HW-CLIFF-02: Ramp is a structural opening, not a foreign 3x4
+                // foreground stamp. The normal terrain pass owns MountainPath
+                // surface pixels and cliff topology owns the surrounding rock.
+                let _ = (manifest, texture, global_x, global_y, host_level, face_segments);
             }
             StructuralConnectorKind::Ladder => {
                 let top = Rect::new(LADDER_A_SOURCE.x, LADDER_A_SOURCE.y, 32.0, 32.0);
@@ -122,10 +120,9 @@ impl Game {
         global_x: i32,
         global_y: i32,
     ) -> Option<(i32, i32)> {
-        // AC3R4E: only the six semantic MountainPath corridor cells suppress
-        // ordinary cliff ownership. The wider 3x4 artwork is drawn as a final
-        // overlay after the base cliff pass, so transparent source pixels reveal
-        // the surrounding continuous cliff instead of cutting rectangular holes.
+        // HW-CLIFF-02: this cache identifies the complete semantic ramp corridor.
+        // It no longer suppresses whole cliff recipes; renderer consumers use it
+        // only to permit same-family one-step retaining walls around the ramp.
         self.surface_authored_ramp_owner(global_x, global_y)
     }
 
@@ -157,10 +154,10 @@ impl Game {
                 // Ramp connector without the later six-cell authored corridor
                 // expansion. The directional fallback below already exists for
                 // exactly that save lineage, but the strict full-corridor gate
-                // made it unreachable and therefore made the ramp art vanish.
+                // made it unreachable and therefore lost canonical ramp-corridor ownership.
                 // Only accept this when both semantic path cells and the actual
                 // south-edge Ramp connector agree; ordinary paths never invent
-                // structural ramp artwork.
+                // structural ramp ownership.
                 let legacy_center_pair = path(0, 0) && path(0, 1);
                 let structural_ramp = self.structural_connector_from_host_edge_in_manifest(
                     manifest,
@@ -172,40 +169,6 @@ impl Game {
                     .then(|| self.directional_ramp_role_for_host(manifest, global_x, global_y))
             }
         }
-    }
-
-    pub(super) fn draw_authored_directional_ramp(
-        &self,
-        manifest: &haven_world::ContinuousSurfaceManifest,
-        global_x: i32,
-        global_y: i32,
-    ) {
-        let Some(texture) = self.oga_cliff_source.as_ref() else {
-            return;
-        };
-        let Some(role) =
-            self.complete_directional_ramp_role_for_host(manifest, global_x, global_y)
-        else {
-            // No semantic/collision ramp contract resolved here. Fail closed
-            // rather than inventing a ramp from neighboring cliff geometry.
-            return;
-        };
-        let stamp = role.source_stamp();
-        let (anchor_x, anchor_y) = role.host_anchor_offset();
-        let source = Rect::new(
-            stamp.column as f32 * TILE_SIZE,
-            stamp.row as f32 * TILE_SIZE,
-            stamp.width_cells as f32 * TILE_SIZE,
-            stamp.height_cells as f32 * TILE_SIZE,
-        );
-        self.draw_cliff_source_rect(
-            texture,
-            source,
-            (global_x + i32::from(anchor_x)) as f32 * TILE_SIZE,
-            (global_y + i32::from(anchor_y)) as f32 * TILE_SIZE,
-            stamp.width_cells as f32 * TILE_SIZE,
-            stamp.height_cells as f32 * TILE_SIZE,
-        );
     }
 
     fn directional_ramp_role_for_host(
