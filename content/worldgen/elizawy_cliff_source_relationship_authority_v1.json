@@ -325,5 +325,14 @@
     "Write a certified source-native assembly catalog with source rect, footprint, anchor, valid neighbors and evidence lineage.",
     "Only then migrate the runtime cliff resolver from hand-authored guesses to certified assembly selection.",
     "After migration proves parity, remove companion ramp visual authority and unused foreign runtime texture loading."
-  ]
+  ],
+  "source02Evidence": {
+    "authority": "content/worldgen/elizawy_cliff_demo_relationship_evidence_v1.json",
+    "status": "official_demo_relationship_evidence_collected",
+    "c8ObservedCells": [],
+    "c15ObservedCells": [],
+    "runtimeCertificationAllowed": false,
+    "foreignRampRetirementAllowed": false
+  },
+  "updatedBy": "HW-CLIFF-SOURCE-02"
 }

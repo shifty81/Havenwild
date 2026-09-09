@@ -1,0 +1,915 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_demo_relationship_evidence.v1",
+  "pass": "HW-CLIFF-SOURCE-02",
+  "generatedUtc": "2026-09-09T04:11:43.491788+00:00",
+  "status": "official_demo_relationship_evidence_collected",
+  "policy": {
+    "runtimeRendererChangedByThisPass": false,
+    "worldgenChangedByThisPass": false,
+    "collisionChangedByThisPass": false,
+    "automaticRuntimePromotion": false,
+    "sourceArtAuthority": "ElizaWy/LPC pinned source",
+    "rule": "Observed scene adjacency is evidence. It is not a license to invent transforms, substitute another cliff family, or infer a ramp footprint that is not demonstrated."
+  },
+  "inputs": {
+    "summerCliff": {
+      "path": "C:/Users/Shifty/Desktop/Havenwild-main/assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sha256": "94bd2ddb2c51677498453486092ef28e57e0c1880f4334359189229590298147",
+      "dimensions": [
+        512,
+        448
+      ],
+      "hashMatchesPinnedAudit": true,
+      "dimensionsMatchPinnedAudit": true
+    },
+    "summerDemo": {
+      "path": "C:/Users/Shifty/Desktop/Havenwild-main/assets/source/licensed/lpc_revised/_ Test Scenes/DemoGame - 2 - Summer.png",
+      "sha256": "0cd146b765a9c5acaef03ab140d969a76acad989cd3294268bbe8c2193a336c7",
+      "dimensions": [
+        1024,
+        1184
+      ],
+      "hashMatchesPinnedAudit": true,
+      "dimensionsMatchPinnedAudit": true
+    },
+    "testLandscape": {
+      "path": "C:/Users/Shifty/Desktop/Havenwild-main/assets/source/licensed/lpc_revised/_ Test Scenes/Test Landscape.png",
+      "sha256": "3eabde7ed7ce0b88ee14eddcc0ffad93a6259ef2dcd694319661d06398267d26",
+      "dimensions": [
+        1600,
+        400
+      ],
+      "hashMatchesPinnedAudit": true,
+      "dimensionsMatchPinnedAudit": true
+    }
+  },
+  "matcher": {
+    "cellPx": 32,
+    "minimumStableOpaquePixels": 20,
+    "samplePixels": 24,
+    "sampleThreshold": 0.78,
+    "fullThreshold": 0.965,
+    "ambiguityEpsilon": 0.004,
+    "sceneGridAssumed": false,
+    "opaqueMaskOnly": true
+  },
+  "scenes": {
+    "DemoGame - 2 - Summer.png": {
+      "summary": {
+        "matchedSourceCellCount": 6,
+        "resolvedSceneTileCount": 1,
+        "ambiguousSceneTileCount": 29,
+        "sourceCellMatchCounts": {
+          "c0r4": 25,
+          "c11r0": 4,
+          "c12r3": 1,
+          "c14r0": 4,
+          "c3r1": 3,
+          "c4r0": 25
+        },
+        "ambiguousPositions": [
+          {
+            "x": 0,
+            "y": 32,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 64,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 96,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 160,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 288,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 320,
+            "options": [
+              {
+                "cell": "c3r1",
+                "score": 1.0,
+                "stablePixels": 35
+              },
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 576,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              },
+              {
+                "cell": "c3r1",
+                "score": 0.971429,
+                "stablePixels": 35
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 608,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 640,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 672,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 1.0,
+                "stablePixels": 32
+              },
+              {
+                "cell": "c3r1",
+                "score": 0.971429,
+                "stablePixels": 35
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 128,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 192,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 224,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 256,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 352,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 384,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 416,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 448,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 480,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 512,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 544,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 704,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 736,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 768,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 800,
+            "options": [
+              {
+                "cell": "c0r4",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c4r0",
+                "score": 0.96875,
+                "stablePixels": 32
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 928,
+            "options": [
+              {
+                "cell": "c11r0",
+                "score": 1.0,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c14r0",
+                "score": 1.0,
+                "stablePixels": 33
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 864,
+            "options": [
+              {
+                "cell": "c11r0",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c14r0",
+                "score": 0.969697,
+                "stablePixels": 33
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 896,
+            "options": [
+              {
+                "cell": "c11r0",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c14r0",
+                "score": 0.969697,
+                "stablePixels": 33
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 960,
+            "options": [
+              {
+                "cell": "c11r0",
+                "score": 0.969697,
+                "stablePixels": 33
+              },
+              {
+                "cell": "c14r0",
+                "score": 0.969697,
+                "stablePixels": 33
+              }
+            ]
+          }
+        ]
+      },
+      "targets": {
+        "observations": [],
+        "adjacencyCounts": {}
+      },
+      "targetComponents": [],
+      "contextCrops": []
+    },
+    "Test Landscape.png": {
+      "summary": {
+        "matchedSourceCellCount": 2,
+        "resolvedSceneTileCount": 26,
+        "ambiguousSceneTileCount": 20,
+        "sourceCellMatchCounts": {
+          "c0r8": 35,
+          "c3r6": 36
+        },
+        "ambiguousPositions": [
+          {
+            "x": 0,
+            "y": 325,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 1.0,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 1.0,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 326,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 1.0,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 1.0,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 345,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 1.0,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 1.0,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 229,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 242,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 243,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 244,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 311,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 319,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 333,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 335,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 336,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 339,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 340,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 343,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 344,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 348,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 349,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 350,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          },
+          {
+            "x": 0,
+            "y": 351,
+            "options": [
+              {
+                "cell": "c0r8",
+                "score": 0.970588,
+                "stablePixels": 34
+              },
+              {
+                "cell": "c3r6",
+                "score": 0.970588,
+                "stablePixels": 34
+              }
+            ]
+          }
+        ]
+      },
+      "targets": {
+        "observations": [],
+        "adjacencyCounts": {}
+      },
+      "targetComponents": [],
+      "contextCrops": []
+    }
+  },
+  "evidenceStatus": {
+    "c8ObservedCells": [],
+    "c15ObservedCells": [],
+    "sideEntryEvidenceState": "unresolved_no_high_confidence_demo_match",
+    "rightTerminalEvidenceState": "unresolved_no_high_confidence_demo_match",
+    "runtimeCertificationAllowed": false,
+    "foreignRampRetirementAllowed": false,
+    "reason": "SOURCE-02 records demonstrated relationships only. Runtime promotion requires human/source review of the observed assemblies and, where available, TSX donor cross-checking."
+  },
+  "next": [
+    "Review c8 target observations and connected components against the official source sheet.",
+    "Review c15 terminal observations and demonstrated neighbors.",
+    "If Tiled donor becomes available, cross-check Wang/terrain relationships against these demo observations.",
+    "Write source-native assembly candidates with exact source cells, footprint, anchor, valid adjacency and evidence references.",
+    "Only SOURCE-03 may decide whether any assembly is sufficiently proven for runtime certification."
+  ]
+}
