@@ -505,6 +505,7 @@ name = "haven_assets"
 version = "0.1.0"
 dependencies = [
  "haven_core",
+ "haven_spatial",
  "serde",
  "serde_json",
 ]
@@ -657,6 +658,7 @@ dependencies = [
  "haven_assets",
  "haven_authoring",
  "haven_core",
+ "haven_spatial",
  "haven_world",
  "macroquad",
 ]
@@ -727,6 +729,7 @@ name = "haven_world"
 version = "0.1.0"
 dependencies = [
  "haven_core",
+ "haven_spatial",
  "image 0.24.9",
  "serde",
  "serde_json",

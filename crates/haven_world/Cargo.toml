@@ -6,6 +6,7 @@ authors.workspace = true
 
 [dependencies]
 haven_core = { path = "../haven_core" }
+haven_spatial = { path = "../haven_spatial" }
 image.workspace = true
 serde.workspace = true
 serde_json.workspace = true

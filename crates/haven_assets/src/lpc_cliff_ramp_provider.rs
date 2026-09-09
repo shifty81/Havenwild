@@ -5,6 +5,7 @@
 //! them. The left/right variants are distinct authored assemblies.
 
 use crate::authored_terrain_provider::AuthoredSourceStamp;
+use haven_spatial::{offset_tile, TileCoord};
 
 pub const LPC_CLIFF_RAMP_GRASS_SOURCE_PATH: &str =
     "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png";
@@ -33,13 +34,22 @@ impl LpcDirectionalCliffRampRole {
         }
     }
 
-    /// Source-authoritative visual anchor. The six-cell MountainPath corridor
-    /// spans x=-1..=1 and y=-1..=2 relative to its structural owner, exactly
-    /// matching the authored 3x4 source envelope. The complete stamp therefore
-    /// begins one cell left and one cell above the owner.
+    /// Canonical source-authoritative ramp placement relative to the structural
+    /// owner. H20 visual acceptance moved the complete 3x4 authored stamp one
+    /// full row down from the older W7 contract: one cell left, same owner Y.
+    ///
+    /// Do not fold the terrain tuple's +0.5/+0.5 presentation correction into
+    /// this structural anchor. Terrain intersections and structural hosts are
+    /// distinct coordinate contracts.
     pub const fn host_anchor_offset(self) -> (i8, i8) {
         let _ = self;
-        (-1, -1)
+        (-1, 0)
+    }
+
+    /// Typed owner -> authored stamp origin. Runtime/editor consumers can use
+    /// this instead of reimplementing the offset arithmetic.
+    pub const fn stamp_origin(self, structural_owner: TileCoord) -> TileCoord {
+        offset_tile(structural_owner, self.host_anchor_offset())
     }
 }
 
@@ -73,25 +83,37 @@ mod tests {
 
     #[test]
     fn directional_ramps_are_complete_natural_scale_3x4_stamps() {
-        assert_eq!(LpcDirectionalCliffRampRole::RiseRight.source_stamp(), AuthoredSourceStamp::new(3, 5, 3, 4));
-        assert_eq!(LpcDirectionalCliffRampRole::RiseLeft.source_stamp(), AuthoredSourceStamp::new(6, 5, 3, 4));
-        assert_eq!(LpcDirectionalCliffRampRole::RiseRight.host_anchor_offset(), (-1, -1));
-        assert_eq!(LpcDirectionalCliffRampRole::RiseLeft.host_anchor_offset(), (-1, -1));
+        assert_eq!(
+            LpcDirectionalCliffRampRole::RiseRight.source_stamp(),
+            AuthoredSourceStamp::new(3, 5, 3, 4)
+        );
+        assert_eq!(
+            LpcDirectionalCliffRampRole::RiseLeft.source_stamp(),
+            AuthoredSourceStamp::new(6, 5, 3, 4)
+        );
+        assert_eq!(
+            LpcDirectionalCliffRampRole::RiseRight.host_anchor_offset(),
+            (-1, 0)
+        );
+        assert_eq!(
+            LpcDirectionalCliffRampRole::RiseLeft.host_anchor_offset(),
+            (-1, 0)
+        );
     }
 
     #[test]
-    fn directional_ramp_visual_rows_match_corridor_rows() {
+    fn directional_ramp_visual_rows_use_same_y_structural_owner_contract() {
+        let owner = TileCoord::new(10, 20);
         for role in [
             LpcDirectionalCliffRampRole::RiseRight,
             LpcDirectionalCliffRampRole::RiseLeft,
         ] {
-            let (_, anchor_y) = role.host_anchor_offset();
+            let origin = role.stamp_origin(owner);
             let stamp = role.source_stamp();
-            assert_eq!(anchor_y, -1);
+            assert_eq!(origin, TileCoord::new(9, 20));
+            assert_ne!(origin, TileCoord::new(9, 19));
             assert_eq!(stamp.height_cells, 4);
-            // The visual envelope is source-authoritative and exactly matches
-            // the corridor's y=-1..=2 bounding box.
-            assert_eq!(i16::from(anchor_y) + i16::from(stamp.height_cells) - 1, 2);
+            assert_eq!(origin.y + i32::from(stamp.height_cells) - 1, 23);
         }
     }
 
@@ -106,5 +128,4 @@ mod tests {
             (-1, 0)
         );
     }
-
 }

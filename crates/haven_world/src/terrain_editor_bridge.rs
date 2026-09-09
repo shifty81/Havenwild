@@ -5,6 +5,7 @@
 //! catalog and reports the cells dirtied by a semantic paint operation.
 
 use haven_core::{TavernMap, TileKind};
+use haven_spatial::{tile_anchor_tiles, TileAnchor, TileCoord};
 
 use crate::{
     embedded_terrain_tuple_resolver, TerrainCornerTuple, TerrainTupleResolution,
@@ -16,15 +17,17 @@ use crate::{
 /// tile down and right from the semantic-cell origin. Both the native editor and
 /// the runtime must use this same offset or painted terrain appears in the
 /// upper-left corner of the highlighted cell.
-pub const TERRAIN_TUPLE_RENDER_OFFSET_TILES: f32 = 0.5;
+pub const TERRAIN_TUPLE_RENDER_OFFSET_TILES: f32 =
+    haven_spatial::TERRAIN_TUPLE_PRESENTATION_OFFSET_TILES;
 
 /// World-space origin for the authored 32x32 corner-tuple tile sampled at
 /// `(x, y)`. The returned units are terrain tiles rather than pixels.
 pub const fn terrain_tuple_render_origin_tiles(x: i32, y: i32) -> (f32, f32) {
-    (
-        x as f32 + TERRAIN_TUPLE_RENDER_OFFSET_TILES,
-        y as f32 + TERRAIN_TUPLE_RENDER_OFFSET_TILES,
-    )
+    let [draw_x, draw_y] = tile_anchor_tiles(
+        TileCoord::new(x, y),
+        TileAnchor::TerrainTuplePresentationOrigin,
+    );
+    (draw_x, draw_y)
 }
 
 /// Stable Standard-v1 ordinal used by the promoted TSX tuple catalog.
@@ -214,6 +217,17 @@ mod tests {
 
     #[test]
     fn corner_tuple_render_origin_is_half_a_tile_down_and_right() {
+        assert_eq!(TERRAIN_TUPLE_RENDER_OFFSET_TILES, 0.5);
         assert_eq!(terrain_tuple_render_origin_tiles(7, 11), (7.5, 11.5));
+        assert_ne!(terrain_tuple_render_origin_tiles(7, 11), (7.0, 11.0));
+    }
+
+    #[test]
+    fn dual_tile_presentation_uses_shared_spatial_authority() {
+        let [shared_x, shared_y] = tile_anchor_tiles(
+            TileCoord::new(4, 9),
+            TileAnchor::TerrainTuplePresentationOrigin,
+        );
+        assert_eq!(terrain_tuple_render_origin_tiles(4, 9), (shared_x, shared_y));
     }
 }

@@ -4,6 +4,7 @@ pub use structural_cliff_visual::*;
 use haven_assets::asset_registry::AtlasRect;
 use haven_authoring::InspectorReport;
 use haven_core::{PlacedObject, PlacedStamp, SceneMap, SceneReference, UiAnchor, UiPanelId, TILE_SIZE};
+use haven_spatial::tile_rect_bottom_center_tiles;
 use macroquad::prelude::{
     draw_circle, draw_rectangle, draw_rectangle_lines, draw_text, load_texture, mouse_position,
     vec2, Color, FilterMode, Rect, Texture2D, Vec2,
@@ -27,17 +28,19 @@ pub fn atlas_rect(rect: AtlasRect) -> Rect {
 pub fn object_foot_world(object: PlacedObject) -> Vec2 {
     let (collision_x, collision_y, collision_w, collision_h) = object.collision_rect();
     if collision_w > 0 && collision_h > 0 {
-        return vec2(
-            (collision_x as f32 + collision_w as f32 * 0.5) * TILE_SIZE,
-            (collision_y + collision_h) as f32 * TILE_SIZE,
-        );
+        let [foot_x, foot_y] =
+            tile_rect_bottom_center_tiles(collision_x, collision_y, collision_w, collision_h);
+        return vec2(foot_x * TILE_SIZE, foot_y * TILE_SIZE);
     }
 
     let (interaction_x, interaction_y, interaction_w, interaction_h) = object.interaction_rect();
-    vec2(
-        (interaction_x as f32 + interaction_w.max(1) as f32 * 0.5) * TILE_SIZE,
-        (interaction_y + interaction_h.max(1)) as f32 * TILE_SIZE,
-    )
+    let [foot_x, foot_y] = tile_rect_bottom_center_tiles(
+        interaction_x,
+        interaction_y,
+        interaction_w.max(1),
+        interaction_h.max(1),
+    );
+    vec2(foot_x * TILE_SIZE, foot_y * TILE_SIZE)
 }
 
 /// Same canonical foot/root in tile coordinates for editor-space rendering.
@@ -51,17 +54,19 @@ pub fn object_foot_tiles(object: PlacedObject) -> Vec2 {
 pub fn stamp_foot_world(stamp: &PlacedStamp) -> Vec2 {
     let (collision_x, collision_y, collision_w, collision_h) = stamp.collision_rect();
     if collision_w > 0 && collision_h > 0 {
-        return vec2(
-            (collision_x as f32 + collision_w as f32 * 0.5) * TILE_SIZE,
-            (collision_y + collision_h) as f32 * TILE_SIZE,
-        );
+        let [foot_x, foot_y] =
+            tile_rect_bottom_center_tiles(collision_x, collision_y, collision_w, collision_h);
+        return vec2(foot_x * TILE_SIZE, foot_y * TILE_SIZE);
     }
 
     let (interaction_x, interaction_y, interaction_w, interaction_h) = stamp.interaction_rect();
-    vec2(
-        (interaction_x as f32 + interaction_w.max(1) as f32 * 0.5) * TILE_SIZE,
-        (interaction_y + interaction_h.max(1)) as f32 * TILE_SIZE,
-    )
+    let [foot_x, foot_y] = tile_rect_bottom_center_tiles(
+        interaction_x,
+        interaction_y,
+        interaction_w.max(1),
+        interaction_h.max(1),
+    );
+    vec2(foot_x * TILE_SIZE, foot_y * TILE_SIZE)
 }
 
 pub fn stamp_foot_tiles(stamp: &PlacedStamp) -> Vec2 {
@@ -77,8 +82,16 @@ pub fn object_sort_y(object: PlacedObject) -> f32 {
     object.sort_y()
 }
 
+/// Visual foot offset used by the modular runtime character compositor.
+/// Depth/foreground ordering must use the same foot as the rendered actor.
+pub const PLAYER_VISUAL_FOOT_OFFSET_Y: f32 = 18.0;
+
+pub fn player_visual_foot_world(player: Vec2) -> Vec2 {
+    vec2(player.x, player.y + PLAYER_VISUAL_FOOT_OFFSET_Y)
+}
+
 pub fn player_sort_y(player: Vec2) -> f32 {
-    player.y + 20.0
+    player_visual_foot_world(player).y
 }
 
 pub fn sky_color(night_amount: f32) -> Color {
@@ -603,5 +616,14 @@ mod shared_anchor_tests {
         assert_eq!(foot.x, 5.5);
         assert_eq!(foot.y, 9.0);
         assert_eq!(stamp.sort_y() / TILE_SIZE, foot.y);
+    }
+
+    #[test]
+    fn player_depth_uses_the_same_visual_foot_as_character_composition() {
+        let player = vec2(64.0, 96.0);
+        let foot = player_visual_foot_world(player);
+        assert_eq!(PLAYER_VISUAL_FOOT_OFFSET_Y, 18.0);
+        assert_eq!(foot, vec2(64.0, 114.0));
+        assert_eq!(player_sort_y(player), foot.y);
     }
 }

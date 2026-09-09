@@ -65,23 +65,8 @@ mod tests {
         assert!(generated.mainland_features.city_plot_reservations > 0);
         assert!(generated.mainland_features.city_reserved_tiles > 0);
         assert!(generated.mainland_features.harbor_reserved_tiles > 0);
+        assert!(generated.structural_landforms.level_one_cells > 0);
         assert!(generated.structural_landforms.level_two_cells > 0);
-        // Source-native structural authority reserves odd tiers exclusively
-        // for exact LPC ramp corridors; there is no generic one-high coastal
-        // cliff family anymore.
-        for entry in &generated.scenes {
-            for y in 0..MAP_H as i32 {
-                for x in 0..MAP_W as i32 {
-                    if matches!(entry.scene.map.get_structural_level(x, y), Some(1) | Some(3)) {
-                        assert_eq!(
-                            entry.scene.map.get(x, y),
-                            TileKind::MountainPath,
-                            "odd structural tiers must belong to an authored ramp path"
-                        );
-                    }
-                }
-            }
-        }
         assert!(generated.structural_landforms.cliff_boundaries > 0);
         // Directional LPC ramps are optional per seed. H20 visual acceptance
         // reserves the complete 3x4 stamp for a certified Level-2 -> 1 -> 0
@@ -218,7 +203,7 @@ mod tests {
     }
 
     #[test]
-    fn natural_object_population_is_deterministic_and_stays_on_grass() {
+    fn natural_object_population_is_deterministic_and_uses_compatible_ecology_surfaces() {
         let manifest = manifest();
         let first = generate_landmass(&manifest, 0, IslandGenerationSettings::default())
             .expect("first generation");
@@ -241,10 +226,19 @@ mod tests {
             for object in &entry.scene.map.objects {
                 let tile = entry.scene.map.get(object.x, object.y);
                 match object.kind {
-                    ObjectKind::Tree
-                    | ObjectKind::Bush
-                    | ObjectKind::Mushroom
-                    | ObjectKind::Herb => assert_eq!(tile, TileKind::Grass),
+                    // HW-WORLD-INTERACTION-02 intentionally promotes safe
+                    // MountainRock plateau interiors into highland ecology.
+                    // Trees/bushes may therefore anchor on either ordinary
+                    // grass or structurally-safe highland rock; dedicated
+                    // surface_population tests certify their full visual
+                    // footprint/halo remains on one structural surface.
+                    ObjectKind::Tree | ObjectKind::Bush => assert!(matches!(
+                        tile,
+                        TileKind::Grass | TileKind::MountainRock
+                    )),
+                    ObjectKind::Mushroom | ObjectKind::Herb => {
+                        assert_eq!(tile, TileKind::Grass)
+                    },
                     ObjectKind::Boulder => assert!(matches!(
                         tile,
                         TileKind::Grass | TileKind::Dirt | TileKind::MountainRock

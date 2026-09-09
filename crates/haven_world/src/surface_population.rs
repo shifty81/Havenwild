@@ -34,6 +34,10 @@ pub struct NaturalObjectPopulationReport {
     pub forest_trees: usize,
     pub boulders: usize,
     pub ore_nodes: usize,
+    /// Legacy/generated natural objects removed because their footprint crossed
+    /// a structural cliff/ramp/route boundary. This is repair telemetry only and
+    /// is intentionally excluded from `total_objects()`.
+    pub structural_conflicts_removed: usize,
 }
 
 impl NaturalObjectPopulationReport {
@@ -56,6 +60,7 @@ impl NaturalObjectPopulationReport {
         self.forest_trees += other.forest_trees;
         self.boulders += other.boulders;
         self.ore_nodes += other.ore_nodes;
+        self.structural_conflicts_removed += other.structural_conflicts_removed;
     }
 }
 
@@ -83,9 +88,10 @@ pub fn populate_pcg_natural_objects_with_habitat_seed(
     tree_density: f32,
 ) -> NaturalObjectPopulationReport {
     let mut report = NaturalObjectPopulationReport::default();
-    // AC3R4F idempotence: cached generated baselines may be reconciled more than
-    // once as runtime asset/worldgen authority advances. Existing trees count
-    // toward the deterministic floor so reconciliation never stacks duplicates.
+
+    // Idempotence: reconciliation may run more than once. Existing generated
+    // trees count toward the deterministic floor so a repair/reconcile pass does
+    // not stack a second forest on top of the first one.
     for object in &scene.map.objects {
         if object.kind == ObjectKind::Tree {
             report.trees += 1;
@@ -96,6 +102,7 @@ pub fn populate_pcg_natural_objects_with_habitat_seed(
             }
         }
     }
+
     let tree_density = tree_density.clamp(0.0, 0.22);
     let mut eligible_field_tree_cells = 0usize;
     let mut field_tree_floor_candidates = Vec::<(f32, i32, i32, f32)>::new();
@@ -105,21 +112,25 @@ pub fn populate_pcg_natural_objects_with_habitat_seed(
             let tile = scene.map.get(x, y);
             // City/harbor/agricultural reservations are semantic protected
             // areas. Ecology must never grow through a reserved Willowmere
-            // building plot simply because its floor is still Grass.
+            // building plot simply because its visible cap is grass-compatible.
             if scene.zone_at(x, y) != ZoneKind::None {
                 continue;
             }
             let gx = chunk.x * MAP_W as i32 + x;
             let gy = chunk.y * MAP_H as i32 + y;
-            // Z108: populate recognizable groves/forest belts with feathered
-            // woodland edges and deterministic clearings. The habitat field is
-            // a bounded macro feature, not a thresholded noise contour.
             let habitat = geographic_forest_habitat(habitat_seed, gx, gy);
             if tile == TileKind::Grass && habitat >= 0.52 {
                 report.forest_habitat_cells += 1;
             }
             let distance_to_spawn = (x - scene.spawn_x).abs().max((y - scene.spawn_y).abs());
-            if tile == TileKind::Grass && distance_to_spawn > 4 {
+
+            // The floor only counts cells on which a complete mature tree can
+            // actually stand. This prevents the minimum-tree pass from chasing
+            // impossible cliff-edge/ramp/path candidates.
+            if distance_to_spawn > 4
+                && tree_surface_tile(tile)
+                && natural_object_footprint_is_compatible(scene, ObjectKind::Tree, x, y)
+            {
                 eligible_field_tree_cells += 1;
                 field_tree_floor_candidates.push((
                     deterministic_cell_roll(object_seed, gx, gy, 0x5452_4545_464c_4f4f),
@@ -128,58 +139,59 @@ pub fn populate_pcg_natural_objects_with_habitat_seed(
                     habitat,
                 ));
             }
+
             let boulder_roll = deterministic_cell_roll(object_seed, gx, gy, 0x424f_554c);
             let ore_roll = deterministic_cell_roll(object_seed, gx, gy, 0x4f52_454e);
 
-            let kind =
-                if distance_to_spawn > 5 && tile == TileKind::MountainRock && ore_roll < 0.018 {
-                    Some(ObjectKind::OreNode)
-                } else if distance_to_spawn > 4
-                    && matches!(
-                        tile,
-                        TileKind::MountainRock | TileKind::Dirt | TileKind::Grass
-                    )
-                    && boulder_roll
-                        < if tile == TileKind::MountainRock {
-                            0.052
-                        } else {
-                            0.006
-                        }
-                {
-                    Some(ObjectKind::Boulder)
-                } else if tile != TileKind::Grass {
-                    None
-                } else {
-                    let roll = deterministic_cell_roll(object_seed, gx, gy, 0x4e41_5455);
-                    if distance_to_spawn > 4
-                        && roll < tree_spawn_chance(tree_density, habitat)
-                    {
-                        Some(ObjectKind::Tree)
+            let kind = if distance_to_spawn > 5
+                && tile == TileKind::MountainRock
+                && ore_roll < 0.018
+            {
+                Some(ObjectKind::OreNode)
+            } else if distance_to_spawn > 4
+                && matches!(tile, TileKind::MountainRock | TileKind::Dirt | TileKind::Grass)
+                && boulder_roll
+                    < if tile == TileKind::MountainRock {
+                        0.052
                     } else {
-                        let bush_roll = deterministic_cell_roll(object_seed, gx, gy, 0x4255_5348);
-                        let flower_roll = deterministic_cell_roll(object_seed, gx, gy, 0x464c_4f57);
-                        let mushroom_roll = deterministic_cell_roll(object_seed, gx, gy, 0x4d55_5348);
-                        if distance_to_spawn > 2 && habitat > 0.28 && bush_roll < 0.025 {
-                            Some(ObjectKind::Bush)
-                        } else if flower_roll < if habitat < 0.18 { 0.030 } else { 0.052 } {
-                            Some(ObjectKind::Herb)
-                        } else if habitat > 0.58 && mushroom_roll < 0.014 {
-                            Some(ObjectKind::Mushroom)
-                        } else {
-                            None
-                        }
+                        0.006
                     }
-                };
+            {
+                Some(ObjectKind::Boulder)
+            } else if !tree_surface_tile(tile) {
+                None
+            } else {
+                let roll = deterministic_cell_roll(object_seed, gx, gy, 0x4e41_5455);
+                if distance_to_spawn > 4 && roll < tree_spawn_chance(tree_density, habitat) {
+                    Some(ObjectKind::Tree)
+                } else {
+                    let bush_roll = deterministic_cell_roll(object_seed, gx, gy, 0x4255_5348);
+                    let flower_roll = deterministic_cell_roll(object_seed, gx, gy, 0x464c_4f57);
+                    let mushroom_roll = deterministic_cell_roll(object_seed, gx, gy, 0x4d55_5348);
+                    if distance_to_spawn > 2
+                        && habitat > 0.28
+                        && bush_roll < if tile == TileKind::MountainRock { 0.010 } else { 0.025 }
+                    {
+                        Some(ObjectKind::Bush)
+                    } else if tile == TileKind::Grass
+                        && flower_roll < if habitat < 0.18 { 0.030 } else { 0.052 }
+                    {
+                        Some(ObjectKind::Herb)
+                    } else if tile == TileKind::Grass && habitat > 0.58 && mushroom_roll < 0.014 {
+                        Some(ObjectKind::Mushroom)
+                    } else {
+                        None
+                    }
+                }
+            };
 
             let Some(kind) = kind else {
                 continue;
             };
-            if matches!(kind, ObjectKind::Boulder | ObjectKind::OreNode)
-                && !resource_footprint_is_compatible(scene, kind, x, y)
-            {
+            if !natural_object_footprint_is_compatible(scene, kind, x, y) {
                 continue;
             }
-            if scene.map.place_object(kind, x, y).is_none() {
+            if !place_generated_natural_object(scene, kind, x, y) {
                 continue;
             }
             match kind {
@@ -198,15 +210,15 @@ pub fn populate_pcg_natural_objects_with_habitat_seed(
             }
         }
     }
-    // AC3R4E ecology fail-safe: a normal grass partition must never be visually
-    // treeless just because its probabilistic rolls happen to miss. The normal
-    // habitat-driven pass above remains authoritative; this deterministic floor
-    // only fills a severe deficit and therefore does not flatten grove/forest
-    // clustering. Candidate order is seed/world-coordinate stable.
+
+    // A normal ecology partition must never be visually treeless just because
+    // its random rolls miss. Candidate order is deterministic and every candidate
+    // has already passed complete-footprint structural clearance.
     let minimum_trees = minimum_partition_tree_count(eligible_field_tree_cells);
     if report.trees < minimum_trees {
         field_tree_floor_candidates.sort_by(|left, right| {
-            left.0.total_cmp(&right.0)
+            left.0
+                .total_cmp(&right.0)
                 .then_with(|| left.2.cmp(&right.2))
                 .then_with(|| left.1.cmp(&right.1))
         });
@@ -214,7 +226,7 @@ pub fn populate_pcg_natural_objects_with_habitat_seed(
             if report.trees >= minimum_trees {
                 break;
             }
-            if scene.map.place_object(ObjectKind::Tree, x, y).is_some() {
+            if place_generated_natural_object(scene, ObjectKind::Tree, x, y) {
                 report.trees += 1;
                 if habitat >= 0.52 {
                     report.forest_trees += 1;
@@ -229,19 +241,13 @@ pub fn populate_pcg_natural_objects_with_habitat_seed(
     report
 }
 
-/// AC2 ecology closure: forest habitat controls clustering/density, not whether
-/// trees are allowed to exist at all. The previous hard `habitat > 0.40` gate
-/// produced enormous completely treeless grasslands whenever the player was
-/// between finite grove patches. Dense grove cores remain strongly wooded,
-/// shoulders thin naturally, and open grass receives sparse field trees.
+/// Forest habitat controls clustering/density, not whether trees can exist at
+/// all. Sparse field trees remain possible outside grove cores, while elevated
+/// grass-capped MountainRock can carry highland ecology when the complete
+/// structural footprint is safe.
 fn tree_spawn_chance(tree_density: f32, habitat: f32) -> f32 {
     let density = tree_density.clamp(0.0, 0.22);
     let habitat = habitat.clamp(0.0, 1.0);
-    // AC3R4D: ecology acceptance is player-visible, not merely nonzero. The
-    // R4C meadow floor still worked out to only ~0.68% per eligible grass cell
-    // on the mainland, which can leave multiple normal camera views completely
-    // treeless. Preserve strong habitat clustering while guaranteeing sparse
-    // but tangible field trees between grove/forest patches.
     let chance = if habitat >= 0.55 {
         density * (0.88 + habitat * 0.92)
     } else if habitat >= 0.18 {
@@ -252,36 +258,188 @@ fn tree_spawn_chance(tree_density: f32, habitat: f32) -> f32 {
     chance.clamp(0.0, 0.32)
 }
 
-fn resource_footprint_is_compatible(scene: &SceneMap, kind: ObjectKind, x: i32, y: i32) -> bool {
+fn tree_surface_tile(tile: TileKind) -> bool {
+    matches!(tile, TileKind::Grass | TileKind::MountainRock)
+}
+
+fn natural_object_kind(kind: ObjectKind) -> bool {
+    matches!(
+        kind,
+        ObjectKind::Tree
+            | ObjectKind::Bush
+            | ObjectKind::Herb
+            | ObjectKind::Mushroom
+            | ObjectKind::Boulder
+            | ObjectKind::OreNode
+    )
+}
+
+fn natural_ground_compatible(kind: ObjectKind, anchor_tile: TileKind, tile: TileKind) -> bool {
+    match kind {
+        ObjectKind::Tree | ObjectKind::Bush => {
+            if anchor_tile == TileKind::MountainRock {
+                tile == TileKind::MountainRock
+            } else {
+                matches!(tile, TileKind::Grass | TileKind::TallGrass)
+            }
+        }
+        ObjectKind::Herb | ObjectKind::Mushroom => {
+            matches!(tile, TileKind::Grass | TileKind::TallGrass)
+        }
+        ObjectKind::Boulder => {
+            matches!(tile, TileKind::Grass | TileKind::Dirt | TileKind::MountainRock)
+        }
+        ObjectKind::OreNode => tile == TileKind::MountainRock,
+        _ => false,
+    }
+}
+
+fn structural_clearance_forbidden_tile(tile: TileKind) -> bool {
+    tile.is_water()
+        || matches!(
+            tile,
+            TileKind::Road
+                | TileKind::StonePath
+                | TileKind::MountainPath
+                | TileKind::Bridge
+                | TileKind::Cliff
+                | TileKind::Wall
+                | TileKind::CaveWall
+                | TileKind::Sand
+                | TileKind::WetSand
+                | TileKind::PebbleShore
+                | TileKind::MudBank
+                | TileKind::ShoreFoam
+        )
+}
+
+/// PCG natural objects are validated against their entire authored footprint,
+/// not just the anchor tile. Mature trees additionally keep a one-cell halo from
+/// structural drops and route/ramp semantics so a 3x4 canopy/trunk cannot hang
+/// across a cliff face even when its foot happens to stand on valid ground.
+fn natural_object_footprint_is_compatible(
+    scene: &SceneMap,
+    kind: ObjectKind,
+    x: i32,
+    y: i32,
+) -> bool {
+    if !natural_object_kind(kind)
+        || x < 0
+        || y < 0
+        || x >= MAP_W as i32
+        || y >= MAP_H as i32
+        || scene.zone_at(x, y) != ZoneKind::None
+    {
+        return false;
+    }
+
     let object = PlacedObject::new(kind, x, y);
-    let (cx, cy, cw, ch) = object.collision_rect();
-    for fy in cy..cy + ch.max(1) {
-        for fx in cx..cx + cw.max(1) {
+    let anchor_tile = scene.map.get(x, y);
+    let anchor_level = crate::structural_level_for_surface_recipe_v1(&scene.map, x, y);
+    // Use the complete authored visual envelope for every generated natural.
+    // This matters for multi-cell boulder variants as well as mature trees: a
+    // one-cell collision anchor is not enough to prove the artwork belongs on
+    // one structural surface.
+    let footprint = object.visual_rect();
+    let (fx0, fy0, fw, fh) = footprint;
+
+    for fy in fy0..fy0 + fh.max(1) {
+        for fx in fx0..fx0 + fw.max(1) {
+            if fx < 0 || fy < 0 || fx >= MAP_W as i32 || fy >= MAP_H as i32 {
+                return false;
+            }
             if scene.zone_at(fx, fy) != ZoneKind::None {
                 return false;
             }
             let tile = scene.map.get(fx, fy);
-            let compatible = match kind {
-                ObjectKind::Boulder => {
-                    matches!(
-                        tile,
-                        TileKind::Grass | TileKind::Dirt | TileKind::MountainRock
-                    )
-                }
-                ObjectKind::OreNode => tile == TileKind::MountainRock,
-                _ => true,
-            };
-            if !compatible {
+            if !natural_ground_compatible(kind, anchor_tile, tile)
+                || structural_clearance_forbidden_tile(tile)
+                || crate::structural_level_for_surface_recipe_v1(&scene.map, fx, fy) != anchor_level
+            {
                 return false;
             }
         }
     }
+
+    // Blocking natural objects keep a one-cell structural/route halo. Herbs and
+    // mushrooms are intentionally pass-through and may grow close to safe edges,
+    // but never on an incompatible anchor/footprint above.
+    if matches!(
+        kind,
+        ObjectKind::Tree | ObjectKind::Bush | ObjectKind::Boulder | ObjectKind::OreNode
+    ) {
+        for hy in fy0 - 1..=fy0 + fh {
+            for hx in fx0 - 1..=fx0 + fw {
+                if hx < 0 || hy < 0 || hx >= MAP_W as i32 || hy >= MAP_H as i32 {
+                    continue;
+                }
+                if scene.zone_at(hx, hy) != ZoneKind::None {
+                    return false;
+                }
+                let tile = scene.map.get(hx, hy);
+                if structural_clearance_forbidden_tile(tile)
+                    || crate::structural_level_for_surface_recipe_v1(&scene.map, hx, hy)
+                        != anchor_level
+                {
+                    return false;
+                }
+            }
+        }
+    }
+
     true
 }
 
-/// Restores deterministic natural/resource objects into older PCG saves that
-/// were generated before authored surface population was enabled. Existing
-/// natural or player-authored objects are never removed or duplicated.
+/// `TavernMap::place_object` applies building-support rules to all blocking
+/// objects. That is correct for furniture/buildings but rejects legitimate trees,
+/// boulders, and ore on walkable elevated MountainRock. PCG therefore performs
+/// its explicit ecology/structure preflight above, then uses the custom-object
+/// path only after overlap and bounds validation have succeeded. No overlapping
+/// object is removed because the preflight must be clean first.
+fn place_generated_natural_object(scene: &mut SceneMap, kind: ObjectKind, x: i32, y: i32) -> bool {
+    if !natural_object_footprint_is_compatible(scene, kind, x, y) {
+        return false;
+    }
+    let placed = PlacedObject::new(kind, x, y);
+    let mut preflight = placed;
+    preflight.footprint.blocks_movement = false;
+    if !scene.map.can_place_custom_object(preflight) {
+        return false;
+    }
+    scene.map.place_custom_object(placed).is_some()
+}
+
+fn repair_generated_natural_object_structural_conflicts(scene: &mut SceneMap) -> usize {
+    let invalid = scene
+        .map
+        .objects
+        .iter()
+        .enumerate()
+        .filter_map(|(index, object)| {
+            // Stable/pack-defined refs are authored content. This repair is for
+            // generated legacy naturals only and must not silently rewrite editor
+            // or content-pack placement.
+            if scene.map.object_asset_ref(object.id).is_some()
+                || !natural_object_kind(object.kind)
+                || natural_object_footprint_is_compatible(scene, object.kind, object.x, object.y)
+            {
+                None
+            } else {
+                Some(index)
+            }
+        })
+        .collect::<Vec<_>>();
+    let removed = invalid.len();
+    for index in invalid.into_iter().rev() {
+        let _ = scene.map.remove_object_index(index);
+    }
+    removed
+}
+
+/// Reconciles deterministic natural/resource objects in older PCG saves.
+/// Stable/pack-referenced authored objects are preserved. Unreferenced legacy
+/// naturals whose complete visual footprint now conflicts with structural
+/// terrain are removed before deterministic ecology is filled back in.
 pub fn populate_missing_pcg_natural_objects(
     world: &mut GameWorld,
     world_seed: u64,
@@ -300,14 +458,16 @@ pub fn populate_missing_pcg_natural_objects(
         let Some(scene) = world.scene_mut_by_id(&scene_id) else {
             continue;
         };
+        let removed = repair_generated_natural_object_structural_conflicts(scene);
         let region_seed = stable_region_seed(world_seed, &region);
-        let report = populate_pcg_natural_objects_with_habitat_seed(
+        let mut report = populate_pcg_natural_objects_with_habitat_seed(
             scene,
             chunk,
             region_seed,
             world_seed,
             natural_object_density_for_region(&region),
         );
+        report.structural_conflicts_removed = removed;
         total.add(report);
     }
     total
@@ -377,9 +537,9 @@ pub fn populate_missing_pcg_mainland_features(
     Ok(report)
 }
 
-fn minimum_partition_tree_count(eligible_grass_cells: usize) -> usize {
-    let mut minimum = eligible_grass_cells / 180;
-    if eligible_grass_cells >= 256 {
+fn minimum_partition_tree_count(eligible_surface_cells: usize) -> usize {
+    let mut minimum = eligible_surface_cells / 180;
+    if eligible_surface_cells >= 256 {
         minimum = minimum.max(6);
     }
     minimum.min(24)
@@ -407,41 +567,112 @@ fn stable_region_seed(world_seed: u64, region: &str) -> u64 {
     value
 }
 
-
 #[cfg(test)]
-mod ac2_ecology_tests {
+mod structural_natural_population_tests {
     use super::*;
 
-    #[test]
-    fn open_grass_keeps_sparse_nonzero_tree_probability() {
-        let open = tree_spawn_chance(natural_object_density_for_landmass(0), 0.0);
-        let edge = tree_spawn_chance(natural_object_density_for_landmass(0), 0.30);
-        let grove = tree_spawn_chance(natural_object_density_for_landmass(0), 0.80);
-        assert!(open >= 0.015, "open meadow tree floor must remain visibly nonzero");
-        assert!(edge > open);
-        assert!(grove > edge);
-    }
-
-    #[test]
-    fn ordinary_grass_partition_has_a_tangible_tree_floor() {
-        assert_eq!(minimum_partition_tree_count(0), 0);
-        assert_eq!(minimum_partition_tree_count(255), 1);
-        assert_eq!(minimum_partition_tree_count(256), 6);
-        assert!(minimum_partition_tree_count(2048) >= 11);
-        assert_eq!(minimum_partition_tree_count(4096), 22);
-    }
-
-    #[test]
-    fn deterministic_tree_floor_is_idempotent_when_baseline_is_reconciled_again() {
+    fn grass_scene() -> SceneMap {
         let mut scene = SceneMap::blank(
             crate::pcg_surface_scene_id("mainland", ChunkCoord::new(0, 0)),
-            "Tree idempotence",
+            "Natural placement test",
             haven_core::SceneKind::Exterior,
             haven_core::SceneBiome::Temperate,
         );
         scene.map = haven_core::TavernMap::empty_with(TileKind::Grass);
         scene.spawn_x = MAP_W as i32 / 2;
         scene.spawn_y = MAP_H as i32 / 2;
+        scene
+    }
+
+    #[test]
+    fn mature_tree_rejects_visual_footprint_crossing_structural_drop() {
+        let mut scene = grass_scene();
+        let anchor = (20, 20);
+        // Make the tree's exact 3x4 visual footprint Level 2, but leave the
+        // surrounding halo Level 0. The anchor is valid grass, yet the mature
+        // tree would sit directly on a cliff boundary and must be rejected.
+        for y in anchor.1 - 3..=anchor.1 {
+            for x in anchor.0 - 1..=anchor.0 + 1 {
+                scene.map.set_structural_level(x, y, Some(2));
+            }
+        }
+        assert!(!natural_object_footprint_is_compatible(
+            &scene,
+            ObjectKind::Tree,
+            anchor.0,
+            anchor.1,
+        ));
+    }
+
+    #[test]
+    fn mature_tree_accepts_safe_same_level_plateau_interior() {
+        let mut scene = grass_scene();
+        let anchor = (20, 20);
+        for y in anchor.1 - 4..=anchor.1 + 1 {
+            for x in anchor.0 - 2..=anchor.0 + 2 {
+                scene.map.set_structural_level(x, y, Some(2));
+            }
+        }
+        assert!(natural_object_footprint_is_compatible(
+            &scene,
+            ObjectKind::Tree,
+            anchor.0,
+            anchor.1,
+        ));
+    }
+
+    #[test]
+    fn mountain_path_inside_tree_clearance_rejects_tree() {
+        let mut scene = grass_scene();
+        let anchor = (20, 20);
+        scene.map.set(18, 20, TileKind::MountainPath);
+        assert!(!natural_object_footprint_is_compatible(
+            &scene,
+            ObjectKind::Tree,
+            anchor.0,
+            anchor.1,
+        ));
+    }
+
+    #[test]
+    fn generated_repair_removes_only_unreferenced_structural_conflicts() {
+        let mut scene = grass_scene();
+        let bad = scene.map.place_object(ObjectKind::Tree, 20, 20).expect("tree");
+        // The tree anchor stays level 0 while one canopy cell is raised, making
+        // the generated placement structurally invalid.
+        scene.map.set_structural_level(20, 18, Some(2));
+        let removed = repair_generated_natural_object_structural_conflicts(&mut scene);
+        assert_eq!(removed, 1);
+        assert!(scene.map.object(bad).is_none());
+    }
+
+    #[test]
+    fn highland_mountainrock_is_an_ecology_surface_when_structurally_safe() {
+        let mut scene = grass_scene();
+        let anchor = (24, 24);
+        for y in anchor.1 - 4..=anchor.1 + 1 {
+            for x in anchor.0 - 2..=anchor.0 + 2 {
+                scene.map.set(x, y, TileKind::MountainRock);
+                scene.map.set_structural_level(x, y, Some(2));
+            }
+        }
+        assert!(natural_object_footprint_is_compatible(
+            &scene,
+            ObjectKind::Tree,
+            anchor.0,
+            anchor.1,
+        ));
+        assert!(place_generated_natural_object(
+            &mut scene,
+            ObjectKind::Tree,
+            anchor.0,
+            anchor.1,
+        ));
+    }
+
+    #[test]
+    fn deterministic_tree_floor_is_idempotent_when_baseline_is_reconciled_again() {
+        let mut scene = grass_scene();
         let first = populate_pcg_natural_objects_with_habitat_seed(
             &mut scene,
             ChunkCoord::new(0, 0),
@@ -462,4 +693,17 @@ mod ac2_ecology_tests {
         assert_eq!(second.trees, first.trees);
     }
 
+    #[test]
+    fn ecology_probability_and_floor_remain_tangible() {
+        let open = tree_spawn_chance(natural_object_density_for_landmass(0), 0.0);
+        let edge = tree_spawn_chance(natural_object_density_for_landmass(0), 0.30);
+        let grove = tree_spawn_chance(natural_object_density_for_landmass(0), 0.80);
+        assert!(open >= 0.015);
+        assert!(edge > open);
+        assert!(grove > edge);
+        assert_eq!(minimum_partition_tree_count(255), 1);
+        assert_eq!(minimum_partition_tree_count(256), 6);
+        assert_eq!(minimum_partition_tree_count(4096), 22);
+    }
 }
+

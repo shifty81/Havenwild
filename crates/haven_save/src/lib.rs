@@ -25,7 +25,7 @@ pub const ARCHITECTURE_STATUS: &str =
 pub const LEGACY_CLIENT_SAVE_SLOT_COUNT: usize = 3;
 pub const CLIENT_SAVE_SLOT_COUNT: usize = LEGACY_CLIENT_SAVE_SLOT_COUNT;
 pub const CLIENT_SAVE_METADATA_SCHEMA: &str = "havenwild.client_save_slot.v0_1";
-pub const CURRENT_CLIENT_GENERATION_VERSION: u32 = 20;
+pub const CURRENT_CLIENT_GENERATION_VERSION: u32 = 21;
 
 pub fn save_pipeline_note() -> &'static str {
     "Legacy three-slot saves remain readable. New character profiles are independent from dynamically discovered, unlimited world saves."

@@ -7,6 +7,7 @@ authors.workspace = true
 [dependencies]
 haven_assets = { path = "../haven_assets" }
 haven_core = { path = "../haven_core" }
+haven_spatial = { path = "../haven_spatial" }
 haven_world = { path = "../haven_world" }
 haven_authoring = { path = "../haven_authoring" }
 macroquad.workspace = true
