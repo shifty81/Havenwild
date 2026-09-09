@@ -292,3 +292,10 @@ mod w80_tests {
         assert!(tool_is_applicable(EditorViewportMode::SceneRectangles, layer, UniversalTool::PixelEdit));
     }
 }
+
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub(crate) struct ToolAvailability { pub enabled: bool, pub reason: Option<&'static str> }
+pub(crate) fn tool_availability(viewport: EditorViewportMode, layer: Option<CanvasLayerKind>, tool: UniversalTool) -> ToolAvailability {
+    let enabled = tool_is_applicable(viewport, layer, tool);
+    ToolAvailability { enabled, reason: if enabled { None } else { Some("Tool is not supported by the active document/layer authority") } }
+}

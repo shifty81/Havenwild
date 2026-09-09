@@ -485,6 +485,10 @@ mod tests {
             locked,
             active: false,
             dirty: false,
+            generated: false,
+            derived: false,
+            diagnostic: false,
+            writable: !locked,
         }
     }
 

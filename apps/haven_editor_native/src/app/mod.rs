@@ -4,6 +4,7 @@ mod animation_studio_render;
 mod animation_studio_runtime_context;
 mod asset_browser_ui;
 mod authoring_publish;
+mod authoring_session;
 mod asset_hot_reload;
 mod asset_palette_panel;
 mod atlas_render;

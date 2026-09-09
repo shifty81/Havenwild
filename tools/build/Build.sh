@@ -769,6 +769,7 @@ case "$COMMAND" in
     run_step "validate W78 native editor GUI authority cleanup" "$(python_cmd)" tools/automation/validation/checks/editor/Validate-NativeEditorGuiAuthorityCleanupW78.py
     run_step "validate W79 native editor interaction/document closure" "$(python_cmd)" tools/automation/validation/checks/editor/Validate-NativeEditorInteractionDocumentClosureW79.py
     run_step "validate HW-AUTHORITY-05 document lifecycle authority" "$(python_cmd)" tools/automation/validation/checks/editor/Validate-DocumentAuthorityAuth05.py
+    run_step "validate HW-AUTHORITY-05 document lifecycle authority" "$(python_cmd)" tools/automation/validation/checks/editor/Validate-AuthoringAuthorityAuth10.py
     run_step "validate W80 Tool Rail + Layer Rail production completion" "$(python_cmd)" tools/automation/validation/checks/editor/Validate-ToolLayerRailProductionW80.py
     run_step "validate A14Z palette preview + icon button polish" "$(python_cmd)" tools/automation/validation/checks/editor/Validate-PalettePreviewIconButtonsA14Z.py
     run_step "validate A14AA semantic layer visibility + multi-selection" "$(python_cmd)" tools/automation/validation/checks/editor/Validate-SemanticLayerVisibilitySelectionA14AA.py

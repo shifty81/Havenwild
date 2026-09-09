@@ -189,6 +189,10 @@ pub(crate) struct CanvasLayerDescriptor {
     pub locked: bool,
     pub active: bool,
     pub dirty: bool,
+    pub generated: bool,
+    pub derived: bool,
+    pub diagnostic: bool,
+    pub writable: bool,
 }
 
 impl EditorApp {
@@ -261,50 +265,50 @@ impl EditorApp {
             use haven_authoring::UiAuthoringLane as L;
             let active = self.game_canvas_ui.active_lane;
             return vec![
-                CanvasLayerDescriptor { label: "Layout".into(), kind: CanvasLayerKind::UiLayout, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: active == L::Layout, dirty: self.game_canvas_ui.dirty },
-                CanvasLayerDescriptor { label: "Controls".into(), kind: CanvasLayerKind::UiControls, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: active == L::Controls, dirty: self.game_canvas_ui.dirty },
-                CanvasLayerDescriptor { label: "Data".into(), kind: CanvasLayerKind::UiData, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: active == L::Data, dirty: self.game_canvas_ui.dirty },
-                CanvasLayerDescriptor { label: "Behavior".into(), kind: CanvasLayerKind::UiBehavior, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: active == L::Behavior, dirty: self.game_canvas_ui.dirty },
-                CanvasLayerDescriptor { label: "Presentation".into(), kind: CanvasLayerKind::UiPresentation, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: active == L::Presentation, dirty: self.game_canvas_ui.dirty },
-                CanvasLayerDescriptor { label: "Overrides".into(), kind: CanvasLayerKind::UiOverrides, group: CanvasLayerGroup::Overrides, visible: true, locked: false, active: active == L::Overrides, dirty: self.game_canvas_ui.dirty },
+                CanvasLayerDescriptor { label: "Layout".into(), kind: CanvasLayerKind::UiLayout, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: active == L::Layout, dirty: self.game_canvas_ui.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Controls".into(), kind: CanvasLayerKind::UiControls, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: active == L::Controls, dirty: self.game_canvas_ui.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Data".into(), kind: CanvasLayerKind::UiData, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: active == L::Data, dirty: self.game_canvas_ui.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Behavior".into(), kind: CanvasLayerKind::UiBehavior, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: active == L::Behavior, dirty: self.game_canvas_ui.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Presentation".into(), kind: CanvasLayerKind::UiPresentation, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: active == L::Presentation, dirty: self.game_canvas_ui.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Overrides".into(), kind: CanvasLayerKind::UiOverrides, group: CanvasLayerGroup::Overrides, visible: true, locked: false, active: active == L::Overrides, dirty: self.game_canvas_ui.dirty , generated: false, derived: false, diagnostic: false, writable: true},
             ];
         }
         let mut rows = match self.viewport_mode {
             EditorViewportMode::SceneMap => vec![
                 self.scene_layer_grouped("Terrain", CanvasLayerKind::Terrain, SceneLayerMode::Terrain, CanvasLayerGroup::Surface),
-                CanvasLayerDescriptor { label: "Elevation / Cliffs".into(), kind: CanvasLayerKind::StructuralLevels, group: CanvasLayerGroup::Surface, visible: true, locked: true, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Water / Hydrology".into(), kind: CanvasLayerKind::Water, group: CanvasLayerGroup::Surface, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Roads & Paths".into(), kind: CanvasLayerKind::RoadsPaths, group: CanvasLayerGroup::Surface, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Structures & Buildings".into(), kind: CanvasLayerKind::Structures, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Objects & Props".into(), kind: CanvasLayerKind::Objects, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "NPCs & Creatures".into(), kind: CanvasLayerKind::Characters, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Lighting".into(), kind: CanvasLayerKind::Lighting, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Atmosphere".into(), kind: CanvasLayerKind::Atmosphere, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Weather".into(), kind: CanvasLayerKind::Weather, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Collision".into(), kind: CanvasLayerKind::Collision, group: CanvasLayerGroup::Simulation, visible: self.show_collision_overlay, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Navigation".into(), kind: CanvasLayerKind::Navigation, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Elevation / Cliffs".into(), kind: CanvasLayerKind::StructuralLevels, group: CanvasLayerGroup::Surface, visible: true, locked: true, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Water / Hydrology".into(), kind: CanvasLayerKind::Water, group: CanvasLayerGroup::Surface, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Roads & Paths".into(), kind: CanvasLayerKind::RoadsPaths, group: CanvasLayerGroup::Surface, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Structures & Buildings".into(), kind: CanvasLayerKind::Structures, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Objects & Props".into(), kind: CanvasLayerKind::Objects, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "NPCs & Creatures".into(), kind: CanvasLayerKind::Characters, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Lighting".into(), kind: CanvasLayerKind::Lighting, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Atmosphere".into(), kind: CanvasLayerKind::Atmosphere, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Weather".into(), kind: CanvasLayerKind::Weather, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Collision".into(), kind: CanvasLayerKind::Collision, group: CanvasLayerGroup::Simulation, visible: self.show_collision_overlay, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Navigation".into(), kind: CanvasLayerKind::Navigation, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
                 self.scene_layer_grouped("Gameplay", CanvasLayerKind::Zones, SceneLayerMode::Zones, CanvasLayerGroup::Simulation),
-                CanvasLayerDescriptor { label: "Visual Overrides".into(), kind: CanvasLayerKind::AuthoredPixels, group: CanvasLayerGroup::Overrides, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Generated / Derived".into(), kind: CanvasLayerKind::SourceReference, group: CanvasLayerGroup::Overrides, visible: true, locked: true, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Visual Overrides".into(), kind: CanvasLayerKind::AuthoredPixels, group: CanvasLayerGroup::Overrides, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Generated / Derived".into(), kind: CanvasLayerKind::SourceReference, group: CanvasLayerGroup::Overrides, visible: true, locked: true, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
             ],
             EditorViewportMode::SceneRectangles => vec![
                 self.world_layer_grouped("Terrain", CanvasLayerKind::Terrain, WorldLayerMode::Terrain, self.world_layer_mode == WorldLayerMode::Terrain && self.canvas_layer_context_override.is_none(), CanvasLayerGroup::Surface),
                 self.world_layer_grouped("Elevation", CanvasLayerKind::StructuralLevels, WorldLayerMode::StructuralLevels, self.world_layer_mode == WorldLayerMode::StructuralLevels, CanvasLayerGroup::Surface),
-                CanvasLayerDescriptor { label: "Hydrology".into(), kind: CanvasLayerKind::Water, group: CanvasLayerGroup::Surface, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Roads & Paths".into(), kind: CanvasLayerKind::RoadsPaths, group: CanvasLayerGroup::Surface, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Vegetation".into(), kind: CanvasLayerKind::Vegetation, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Resources".into(), kind: CanvasLayerKind::Resources, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Structures & Buildings".into(), kind: CanvasLayerKind::Structures, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Objects & Props".into(), kind: CanvasLayerKind::Objects, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "NPCs & Creatures".into(), kind: CanvasLayerKind::SpawnPopulation, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Lighting".into(), kind: CanvasLayerKind::Lighting, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Atmosphere".into(), kind: CanvasLayerKind::Atmosphere, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Weather".into(), kind: CanvasLayerKind::Weather, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Collision".into(), kind: CanvasLayerKind::Collision, group: CanvasLayerGroup::Simulation, visible: self.show_collision_overlay, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Navigation".into(), kind: CanvasLayerKind::Navigation, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Hydrology".into(), kind: CanvasLayerKind::Water, group: CanvasLayerGroup::Surface, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Roads & Paths".into(), kind: CanvasLayerKind::RoadsPaths, group: CanvasLayerGroup::Surface, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Vegetation".into(), kind: CanvasLayerKind::Vegetation, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Resources".into(), kind: CanvasLayerKind::Resources, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Structures & Buildings".into(), kind: CanvasLayerKind::Structures, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Objects & Props".into(), kind: CanvasLayerKind::Objects, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "NPCs & Creatures".into(), kind: CanvasLayerKind::SpawnPopulation, group: CanvasLayerGroup::Content, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Lighting".into(), kind: CanvasLayerKind::Lighting, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Atmosphere".into(), kind: CanvasLayerKind::Atmosphere, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Weather".into(), kind: CanvasLayerKind::Weather, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Collision".into(), kind: CanvasLayerKind::Collision, group: CanvasLayerGroup::Simulation, visible: self.show_collision_overlay, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Navigation".into(), kind: CanvasLayerKind::Navigation, group: CanvasLayerGroup::Simulation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
                 self.world_layer_grouped("Gameplay", CanvasLayerKind::Zones, WorldLayerMode::Zones, self.world_layer_mode == WorldLayerMode::Zones, CanvasLayerGroup::Simulation),
-                CanvasLayerDescriptor { label: "Visual Overrides".into(), kind: CanvasLayerKind::AuthoredPixels, group: CanvasLayerGroup::Overrides, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Generated / Derived".into(), kind: CanvasLayerKind::SourceReference, group: CanvasLayerGroup::Overrides, visible: true, locked: true, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Visual Overrides".into(), kind: CanvasLayerKind::AuthoredPixels, group: CanvasLayerGroup::Overrides, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Generated / Derived".into(), kind: CanvasLayerKind::SourceReference, group: CanvasLayerGroup::Overrides, visible: true, locked: true, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
             ],
             EditorViewportMode::PixelStudio => {
                 let mut rows = Vec::new();
@@ -342,21 +346,25 @@ impl EditorApp {
                             locked: layer.metadata.locked,
                             active: index == document.active_layer_index(),
                             dirty: document.dirty,
+                            generated: matches!(kind, CanvasLayerKind::SourceReference) && layer.metadata.name.contains("Generated"),
+                            derived: matches!(kind, CanvasLayerKind::SourceReference),
+                            diagnostic: false,
+                            writable: !layer.metadata.locked && !matches!(kind, CanvasLayerKind::SourceReference),
                         });
                     }
                 }
                 rows
             }
             EditorViewportMode::AnimationStudio => vec![
-                CanvasLayerDescriptor { label: "Frame Artwork".into(), kind: CanvasLayerKind::AnimationFrames, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: true, dirty: self.animation_studio.document.as_ref().is_some_and(|d| d.dirty) },
-                CanvasLayerDescriptor { label: "Pivot / Origin".into(), kind: CanvasLayerKind::AnimationAnchors, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Foot / Ground Anchor".into(), kind: CanvasLayerKind::AnimationFootAnchor, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Shadow Anchor".into(), kind: CanvasLayerKind::AnimationShadowAnchor, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Sockets".into(), kind: CanvasLayerKind::AnimationSockets, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Frame Events".into(), kind: CanvasLayerKind::AnimationEvents, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Hitboxes".into(), kind: CanvasLayerKind::AnimationHitboxes, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Hurtboxes".into(), kind: CanvasLayerKind::AnimationHurtboxes, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Source Reference".into(), kind: CanvasLayerKind::SourceReference, group: CanvasLayerGroup::Guides, visible: true, locked: true, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Frame Artwork".into(), kind: CanvasLayerKind::AnimationFrames, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: true, dirty: self.animation_studio.document.as_ref().is_some_and(|d| d.dirty) , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Pivot / Origin".into(), kind: CanvasLayerKind::AnimationAnchors, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Foot / Ground Anchor".into(), kind: CanvasLayerKind::AnimationFootAnchor, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Shadow Anchor".into(), kind: CanvasLayerKind::AnimationShadowAnchor, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Sockets".into(), kind: CanvasLayerKind::AnimationSockets, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Frame Events".into(), kind: CanvasLayerKind::AnimationEvents, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Hitboxes".into(), kind: CanvasLayerKind::AnimationHitboxes, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Hurtboxes".into(), kind: CanvasLayerKind::AnimationHurtboxes, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Source Reference".into(), kind: CanvasLayerKind::SourceReference, group: CanvasLayerGroup::Guides, visible: true, locked: true, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
             ],
             EditorViewportMode::CharacterStudio => {
                 let semantic_rows = self.character_studio.semantic_layer_rows();
@@ -384,35 +392,39 @@ impl EditorApp {
                         locked: layer.locked_order,
                         active: index == selected,
                         dirty: false,
+                        generated: false,
+                        derived: false,
+                        diagnostic: false,
+                        writable: !layer.locked_order,
                     }
                 }).collect::<Vec<_>>();
                 if rows.is_empty() {
-                    rows.push(CanvasLayerDescriptor { label: "Character Recipe (empty)".into(), kind: CanvasLayerKind::CharacterParts, group: CanvasLayerGroup::Visual, visible: true, locked: true, active: true, dirty: false });
+                    rows.push(CanvasLayerDescriptor { label: "Character Recipe (empty)".into(), kind: CanvasLayerKind::CharacterParts, group: CanvasLayerGroup::Visual, visible: true, locked: true, active: true, dirty: false , generated: false, derived: false, diagnostic: false, writable: true});
                 }
-                rows.push(CanvasLayerDescriptor { label: "Attachment / Sockets".into(), kind: CanvasLayerKind::AnimationSockets, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false });
-                rows.push(CanvasLayerDescriptor { label: "Source / zPos Diagnostics".into(), kind: CanvasLayerKind::SourceReference, group: CanvasLayerGroup::Guides, visible: true, locked: true, active: false, dirty: false });
+                rows.push(CanvasLayerDescriptor { label: "Attachment / Sockets".into(), kind: CanvasLayerKind::AnimationSockets, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true});
+                rows.push(CanvasLayerDescriptor { label: "Source / zPos Diagnostics".into(), kind: CanvasLayerKind::SourceReference, group: CanvasLayerGroup::Guides, visible: true, locked: true, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true});
                 rows
             },
             EditorViewportMode::LogicStudio => vec![
-                CanvasLayerDescriptor { label: "Behavior Nodes".into(), kind: CanvasLayerKind::LogicNodes, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: true, dirty: self.logic_studio.dirty },
-                CanvasLayerDescriptor { label: "Connections".into(), kind: CanvasLayerKind::LogicConnections, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: self.logic_studio.dirty },
-                CanvasLayerDescriptor { label: "Object / Scene Bindings".into(), kind: CanvasLayerKind::LogicBindings, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Runtime Debug".into(), kind: CanvasLayerKind::Guides, group: CanvasLayerGroup::Guides, visible: true, locked: true, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Behavior Nodes".into(), kind: CanvasLayerKind::LogicNodes, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: true, dirty: self.logic_studio.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Connections".into(), kind: CanvasLayerKind::LogicConnections, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: self.logic_studio.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Object / Scene Bindings".into(), kind: CanvasLayerKind::LogicBindings, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Runtime Debug".into(), kind: CanvasLayerKind::Guides, group: CanvasLayerGroup::Guides, visible: true, locked: true, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
             ],
             EditorViewportMode::SoundStudio => vec![
-                CanvasLayerDescriptor { label: "Audio Nodes".into(), kind: CanvasLayerKind::SoundNodes, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: true, dirty: self.sound_studio.dirty },
-                CanvasLayerDescriptor { label: "Audio Connections".into(), kind: CanvasLayerKind::SoundConnections, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: false, dirty: self.sound_studio.dirty },
-                CanvasLayerDescriptor { label: "MIDI / Timeline".into(), kind: CanvasLayerKind::SoundTimeline, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: self.sound_studio.dirty },
-                CanvasLayerDescriptor { label: "Meters / References".into(), kind: CanvasLayerKind::Guides, group: CanvasLayerGroup::Guides, visible: true, locked: true, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Audio Nodes".into(), kind: CanvasLayerKind::SoundNodes, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: true, dirty: self.sound_studio.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Audio Connections".into(), kind: CanvasLayerKind::SoundConnections, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: false, dirty: self.sound_studio.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "MIDI / Timeline".into(), kind: CanvasLayerKind::SoundTimeline, group: CanvasLayerGroup::Animation, visible: true, locked: false, active: false, dirty: self.sound_studio.dirty , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Meters / References".into(), kind: CanvasLayerKind::Guides, group: CanvasLayerGroup::Guides, visible: true, locked: true, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
             ],
             EditorViewportMode::RegionGraph => vec![
-                CanvasLayerDescriptor { label: "Overworld Map".into(), kind: CanvasLayerKind::Terrain, group: CanvasLayerGroup::Visual, visible: true, locked: true, active: true, dirty: false },
-                CanvasLayerDescriptor { label: "Scene Cards".into(), kind: CanvasLayerKind::Buildings, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: false, dirty: false },
-                CanvasLayerDescriptor { label: "Route Links".into(), kind: CanvasLayerKind::Links, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Overworld Map".into(), kind: CanvasLayerKind::Terrain, group: CanvasLayerGroup::Visual, visible: true, locked: true, active: true, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Scene Cards".into(), kind: CanvasLayerKind::Buildings, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Route Links".into(), kind: CanvasLayerKind::Links, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
             ],
             EditorViewportMode::SceneBank => vec![
-                CanvasLayerDescriptor { label: "Scene Cards".into(), kind: CanvasLayerKind::Buildings, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: true, dirty: false },
-                CanvasLayerDescriptor { label: "Links".into(), kind: CanvasLayerKind::Links, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false },
+                CanvasLayerDescriptor { label: "Scene Cards".into(), kind: CanvasLayerKind::Buildings, group: CanvasLayerGroup::Visual, visible: true, locked: false, active: true, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
+                CanvasLayerDescriptor { label: "Links".into(), kind: CanvasLayerKind::Links, group: CanvasLayerGroup::Gameplay, visible: true, locked: false, active: false, dirty: false , generated: false, derived: false, diagnostic: false, writable: true},
             ],
         };
         if self.game_canvas_uses_semantic_layer_authority() {
@@ -435,7 +447,7 @@ impl EditorApp {
 
     fn scene_layer(&self, label: &str, kind: CanvasLayerKind, mode: SceneLayerMode) -> CanvasLayerDescriptor {
         let state = self.scene_layers[scene_layer_index(mode)];
-        CanvasLayerDescriptor { label: label.into(), kind, group: if matches!(kind, CanvasLayerKind::Zones | CanvasLayerKind::Links | CanvasLayerKind::Collision | CanvasLayerKind::Navigation | CanvasLayerKind::Shelter) { CanvasLayerGroup::Gameplay } else { CanvasLayerGroup::Visual }, visible: state.visible, locked: state.locked, active: self.scene_layer_mode == mode, dirty: false }
+        CanvasLayerDescriptor { label: label.into(), kind, group: if matches!(kind, CanvasLayerKind::Zones | CanvasLayerKind::Links | CanvasLayerKind::Collision | CanvasLayerKind::Navigation | CanvasLayerKind::Shelter) { CanvasLayerGroup::Gameplay } else { CanvasLayerGroup::Visual }, visible: state.visible, locked: state.locked, active: self.scene_layer_mode == mode, dirty: false , generated: false, derived: false, diagnostic: false, writable: !state.locked}
     }
 
     fn scene_layer_grouped(&self, label: &str, kind: CanvasLayerKind, mode: SceneLayerMode, group: CanvasLayerGroup) -> CanvasLayerDescriptor {
@@ -445,7 +457,7 @@ impl EditorApp {
     }
 
     fn world_layer(&self, label: &str, kind: CanvasLayerKind, _mode: WorldLayerMode, active: bool) -> CanvasLayerDescriptor {
-        CanvasLayerDescriptor { label: label.into(), kind, group: if matches!(kind, CanvasLayerKind::Zones | CanvasLayerKind::Links | CanvasLayerKind::Collision | CanvasLayerKind::Navigation | CanvasLayerKind::Shelter | CanvasLayerKind::StructuralLevels) { CanvasLayerGroup::Gameplay } else { CanvasLayerGroup::Visual }, visible: true, locked: false, active, dirty: false }
+        CanvasLayerDescriptor { label: label.into(), kind, group: if matches!(kind, CanvasLayerKind::Zones | CanvasLayerKind::Links | CanvasLayerKind::Collision | CanvasLayerKind::Navigation | CanvasLayerKind::Shelter | CanvasLayerKind::StructuralLevels) { CanvasLayerGroup::Gameplay } else { CanvasLayerGroup::Visual }, visible: true, locked: false, active, dirty: false , generated: false, derived: false, diagnostic: false, writable: true}
     }
 
     fn world_layer_grouped(&self, label: &str, kind: CanvasLayerKind, mode: WorldLayerMode, active: bool, group: CanvasLayerGroup) -> CanvasLayerDescriptor {
