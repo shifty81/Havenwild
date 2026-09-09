@@ -80,6 +80,12 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--max-files", type=int)
     s.add_argument("--cache", type=Path)
     s.add_argument("--checkpoint", type=Path)
+    s.add_argument(
+        "--catalog-detail",
+        choices=["compact", "full"],
+        default="compact",
+        help="compact stores details in SQLite; full emits the legacy monolithic JSON",
+    )
     s.add_argument("--output", type=Path, required=True)
 
     s = sub.add_parser("inspect-tiled", help="parse TSX/TMX metadata evidence")
@@ -205,13 +211,14 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Checkpoint: {checkpoint}")
             return 130
 
-        write_catalog(args.output, catalog)
+        write_catalog(args.output, catalog, detail=args.catalog_detail)
         summary = catalog["summary"]
         print(
             f"Files={summary['discoveredFileCount']} "
             f"PNGs={summary['pngFileCount']} "
             f"Deep={summary['pngSheetCount']}/{summary['deepCandidateCount']} "
             f"Deferred={summary['deepDeferredCount']} "
+            f"InventoryCache={summary.get('inventoryCacheHits', 0)} "
             f"HashCache={summary['hashCacheHits']} "
             f"AnalysisCache={summary['analysisCacheHits']} "
             f"Assemblies={summary['assemblyCandidateCount']} "
