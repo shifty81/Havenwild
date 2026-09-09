@@ -507,6 +507,31 @@ def stage_certified(root: Path, marker: dict) -> dict:
     return snap2
 
 
+def _persist_marker(root: Path, marker: dict) -> None:
+    atomic_json(marker_path(root), marker)
+    record_raw = str(marker.get("recordPath") or "").strip()
+    if record_raw:
+        try:
+            atomic_json(Path(record_raw), marker)
+        except Exception:
+            pass
+
+
+def _head_matches_certified(root: Path, marker: dict) -> tuple[bool, str | None]:
+    """Return whether HEAD contains exactly the currently certified governed source."""
+    head = git_text(root, ["rev-parse", "--verify", "HEAD"]) or None
+    if not head:
+        return False, None
+    ok, snap, _ = certify_matches(root, marker)
+    if not ok:
+        return False, head
+    # A clean work tree plus matching governed fingerprint means HEAD is the
+    # certified source. Nongoverned local files do not participate in this test.
+    if worktree_summary(root) != "Clean":
+        return False, head
+    return True, head
+
+
 def commit_green(root: Path, message: str | None) -> str:
     if not git_ready(root):
         raise AuthorityError("Git is not initialized. Use Initialize / connect first.")
@@ -519,24 +544,24 @@ def commit_green(root: Path, message: str | None) -> str:
         head = git_text(root, ["rev-parse", "--verify", "HEAD"])
         if not head:
             raise AuthorityError("No staged GREEN changes exist and the repository has no commit to publish.")
-        print(f"COMMIT PASS: no source changes to commit; HEAD already {head}")
+        # Reconciliation path: a previous commit may already contain this exact
+        # certified snapshot. Record it as committed, but not yet as published.
+        marker["committedCommit"] = head
+        marker["committedUtc"] = now_utc()
+        marker["sourceFingerprint"] = snap["fingerprint"]
+        _persist_marker(root, marker)
+        print(f"COMMIT PASS: no source changes to commit; certified HEAD already {head}")
         return head
     msg = (message or "").strip() or f"Havenwild green checkpoint - {marker.get('pass')} - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
     run_git(root, ["commit", "-m", msg], timeout=120)
     head = git_text(root, ["rev-parse", "HEAD"])
     if not head:
         raise AuthorityError("Commit completed but HEAD could not be resolved.")
-    marker["publishedCommit"] = head
-    marker["publishedUtc"] = now_utc()
+    marker["committedCommit"] = head
+    marker["committedUtc"] = now_utc()
     marker["sourceFingerprint"] = snap["fingerprint"]
-    atomic_json(marker_path(root), marker)
-    record_raw = str(marker.get("recordPath") or "").strip()
-    if record_raw:
-        try:
-            atomic_json(Path(record_raw), marker)
-        except Exception:
-            pass
-    print(f"GREEN PUBLICATION CERTIFIED: {snap['pathCount']} governed path(s)")
+    _persist_marker(root, marker)
+    print(f"GREEN COMMIT CERTIFIED: {snap['pathCount']} governed path(s)")
     print(f"REQUIRED RUNTIME MEDIA TRACKED: {len(snap['requiredRuntimeMediaPaths'])}")
     print(f"CLEAN CHECKOUT CONTRACT: PASS ({len(REQUIRED_BOOTSTRAP_PATHS)} bootstrap authorities tracked)")
     print(f"COMMIT PASS: {head}")
@@ -553,9 +578,28 @@ def push_main(root: Path) -> int:
     if branch != "main":
         raise AuthorityError(f"Protected Havenwild publication requires main; current branch is {branch}.")
     run_git(root, ["push", "-u", "origin", "main"], timeout=180)
-    print("PUSH PASS: origin/main")
+    # Never infer publication from a successful process exit alone. Refresh the
+    # remote-tracking ref and prove origin/main is the exact local HEAD.
+    run_git(root, ["fetch", "origin", "main"], timeout=60)
+    head = git_text(root, ["rev-parse", "HEAD"])
+    remote_head = git_text(root, ["rev-parse", "refs/remotes/origin/main"])
+    if not head or remote_head != head:
+        raise AuthorityError(f"Push returned successfully but origin/main did not reconcile to local HEAD (local={head or '<none>'}, remote={remote_head or '<none>'}).")
+    try:
+        marker = load_marker(root)
+        matches, certified_head = _head_matches_certified(root, marker)
+        if not matches or certified_head != head:
+            raise AuthorityError("origin/main matches HEAD, but HEAD no longer matches the certified governed source.")
+        marker["committedCommit"] = head
+        marker["publishedCommit"] = head
+        marker["publishedUtc"] = now_utc()
+        marker["repositoryPassAtGate"] = str(marker.get("pass") or "").strip() or None
+        _persist_marker(root, marker)
+    except AuthorityError:
+        raise
+    print(f"PUSH PASS: origin/main = {head}")
+    print("PUBLICATION RECONCILED: local HEAD, origin/main, and GREEN certification MATCH")
     return 0
-
 
 def manual_commit(root: Path, message: str | None) -> int:
     if not git_ready(root):
@@ -610,12 +654,17 @@ def frontdoor_state(root: Path) -> int:
             m = re.search(r"Havenwild\s+([A-Za-z0-9_.-]+)\s+(?:—|-)\s+certified GREEN", subject, re.I)
             payload["repositoryPatch"] = m.group(1) if m else f"commit {head[:8]}"
         if not ok:
-            payload["syncState"] = "LOCAL_MODIFIED_GATE_STALE"
+            payload["syncState"] = (
+                "FINGERPRINT_MISMATCH_GATE_STALE"
+                if payload["gitState"] == "Clean"
+                else "LOCAL_MODIFIED_GATE_STALE"
+            )
             payload["blockReason"] = reason
         elif not head:
             payload["syncState"] = "GREEN_NOT_PUBLISHED"
         elif published == head and str(marker.get("pass") or "") == local_pass:
-            payload["syncState"] = "MATCH"
+            remote_head = git_text(root, ["rev-parse", "refs/remotes/origin/main"]) or None
+            payload["syncState"] = "MATCH" if (not remote_head or remote_head == head) else "REPOSITORY_MISMATCH"
         elif published == head:
             payload["syncState"] = "LOCAL_PATCH_AHEAD_UNCERTIFIED"
         else:
