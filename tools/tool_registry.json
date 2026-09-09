@@ -2987,6 +2987,36 @@
       "domain": "validation",
       "status": "active",
       "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/services.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/intake.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/authority.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/normalization.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-PccAssetNormalizationV2.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
     }
   ]
 }
