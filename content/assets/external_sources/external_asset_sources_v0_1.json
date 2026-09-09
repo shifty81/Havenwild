@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.external_asset_sources.v0_1",
-  "updated": "2026-09-08T01:45:51+00:00",
+  "updated": "2026-09-09T03:41:00.280681+00:00",
   "purpose": "LPC-only source registry for Havenwild runtime/editor art.",
   "sources": [
     {
@@ -28,6 +28,32 @@
       "prohibitedUse": "do not guess runtime semantics from filenames alone; review footprints/autotile roles before promotion",
       "notes": [
         "Pinned source is mirrored under assets/source/licensed/lpc_revised."
+      ]
+    },
+    {
+      "id": "jaidynreiman_lpc_revised_tiled_2024",
+      "displayName": "[LPC Revised] Fully Configured 4-Seasons Tilesets for Tiled Map Editor",
+      "author": "JaidynReiman",
+      "officialSourceUrl": "https://opengameart.org/content/lpc-revised-fully-configured-4-seasons-tilesets-for-tiled-map-editor",
+      "uploadedArchives": [],
+      "licenseStatus": "cc_by_3_0_and_oga_by_3_0_attribution_required",
+      "commercialRuntimePolicy": "metadata_evidence_only_no_runtime_art",
+      "publicRepoPolicy": "derived_metadata_and_attribution_records_allowed",
+      "rawAssetPolicy": "metadata_donor_archive_quarantine_only; compiled donor atlas is not Havenwild art authority",
+      "rawQuarantinePath": "assets/reference_quarantine/third_party/jaidynreiman_lpc_revised_tiled_2024",
+      "candidateFamilies": [
+        "terrain.relationships",
+        "tiled.tsx",
+        "collision.evidence",
+        "animation.evidence"
+      ],
+      "recommendedUse": "relationship-evidence donor for the existing Havenwild Tiled importer; use Wang/terrain sets, properties, animation and collision metadata to help map the original pinned ElizaWy source, while keeping ElizaWy/LPC as immutable art authority",
+      "prohibitedUse": "do not replace original ElizaWy source pixels; do not make donor collision authoritative for gameplay; do not promote the compiled 2048x2048 donor atlas as Havenwild cliff identity",
+      "notes": [
+        "Official OpenGameArt release dated 2024-04-14.",
+        "Release page lists CC-BY 3.0 and OGA-BY 3.0.",
+        "Author states the pack compiles existing LPC Revised exterior assets and configures Tiled Terrain Sets where possible, plus animation and collision.",
+        "Havenwild consumes this as metadata evidence only."
       ]
     }
   ]

@@ -1,0 +1,329 @@
+{
+  "schema": "havenwild.worldgen.elizawy_cliff_source_relationship_authority.v1",
+  "pass": "HW-CLIFF-SOURCE-01",
+  "generatedUtc": "2026-09-09T03:41:05.378932+00:00",
+  "status": "audit_only_runtime_migration_blocked",
+  "policy": {
+    "runtimeRendererChangedByThisPass": false,
+    "worldgenChangedByThisPass": false,
+    "collisionChangedByThisPass": false,
+    "originalArtAuthority": "ElizaWy/LPC pinned source",
+    "metadataDonorIsArtAuthority": false,
+    "derivedOverlayMayBeAuthority": false,
+    "rule": "Structural topology chooses a certified source-native ElizaWy assembly. No screenshot-driven synthesis, foreign cliff-family substitution, crop/stretch/mirror/rotation, or private ramp geometry."
+  },
+  "originalSource": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "pinnedCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "mount": "assets/source/licensed/lpc_revised",
+    "summerCliff": {
+      "path": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "exists": true,
+      "sha256": "94bd2ddb2c51677498453486092ef28e57e0c1880f4334359189229590298147",
+      "bytes": 73503,
+      "dimensions": [
+        512,
+        448
+      ]
+    },
+    "seasonalCliffs": [
+      {
+        "path": "assets/source/licensed/lpc_revised/Terrain/cliff_spring.png",
+        "exists": true,
+        "sha256": "f39b288da35fe38d62bb11f0f8a5ab803daf1a23f081cea15c18fc54f0b65ad4",
+        "bytes": 74056,
+        "dimensions": [
+          512,
+          448
+        ]
+      },
+      {
+        "path": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+        "exists": true,
+        "sha256": "94bd2ddb2c51677498453486092ef28e57e0c1880f4334359189229590298147",
+        "bytes": 73503,
+        "dimensions": [
+          512,
+          448
+        ]
+      },
+      {
+        "path": "assets/source/licensed/lpc_revised/Terrain/cliff_autumn.png",
+        "exists": true,
+        "sha256": "9535548bd6bee63155f0fa508a7249c3baf87f7bfc4ed0b75b69ed3df7fda3ed",
+        "bytes": 73667,
+        "dimensions": [
+          512,
+          448
+        ]
+      },
+      {
+        "path": "assets/source/licensed/lpc_revised/Terrain/cliff_winter.png",
+        "exists": true,
+        "sha256": "5eb9c10ba5dff5952e84efc24362336e68c4a57c7d4f6b3c6c33cbb8b738ac01",
+        "bytes": 73122,
+        "dimensions": [
+          512,
+          448
+        ]
+      }
+    ],
+    "officialTestScenes": [
+      {
+        "path": "assets/source/licensed/lpc_revised/_ Test Scenes/DemoGame - 2 - Summer.png",
+        "exists": true,
+        "sha256": "0cd146b765a9c5acaef03ab140d969a76acad989cd3294268bbe8c2193a336c7",
+        "bytes": 296311,
+        "dimensions": [
+          1024,
+          1184
+        ]
+      },
+      {
+        "path": "assets/source/licensed/lpc_revised/_ Test Scenes/Test Landscape.png",
+        "exists": true,
+        "sha256": "3eabde7ed7ce0b88ee14eddcc0ffad93a6259ef2dcd694319661d06398267d26",
+        "bytes": 124875,
+        "dimensions": [
+          1600,
+          400
+        ]
+      }
+    ],
+    "expectedCellSize": [
+      32,
+      32
+    ],
+    "expectedSummerGrid": [
+      16,
+      14
+    ],
+    "expectedSummerDimensions": [
+      512,
+      448
+    ]
+  },
+  "configuredMetadataDonor": {
+    "id": "jaidynreiman_lpc_revised_tiled_2024",
+    "officialPage": "https://opengameart.org/content/lpc-revised-fully-configured-4-seasons-tilesets-for-tiled-map-editor",
+    "licenseEvidence": [
+      "CC-BY 3.0",
+      "OGA-BY 3.0"
+    ],
+    "purpose": "Relationship evidence only: Tiled terrain/Wang sets, tile properties, animation and collision metadata. Original ElizaWy pixels remain authoritative.",
+    "collisionPolicy": "Donor collision is evidence only; Havenwild structural collision/traversal remains gameplay authority.",
+    "archive": {
+      "expectedFilename": "lpc-revised-exterior-tilesets.zip",
+      "path": "C:/Users/Shifty/Desktop/Havenwild-main/assets/reference_quarantine/third_party/jaidynreiman_lpc_revised_tiled_2024/lpc-revised-exterior-tilesets.zip",
+      "present": false,
+      "sha256": null,
+      "tsx": [],
+      "tsxCount": 0,
+      "status": "missing_optional_metadata_donor"
+    }
+  },
+  "currentProviderFindings": {
+    "elizawyProvider": {
+      "sideEntryRampPendingPresent": true,
+      "complexTransitionStripPresent": true,
+      "rejectedPartialAssemblyPresent": true,
+      "explicitRejectedRampTestPresent": true
+    },
+    "foreignRampProvider": {
+      "providerFilePresent": true,
+      "grassTopSourcePathPresent": true,
+      "threeByFourStampLanguagePresent": true
+    },
+    "runtimeAssets": {
+      "elizawyDerivedCliffSourceLoaded": true,
+      "foreignOgaCliffSourceFieldPresent": true,
+      "foreignRampGrassSourceLoaded": true
+    },
+    "runtimeDraw": {
+      "hwCliff02Present": true,
+      "deferredForeignRampOverlayPresent": false,
+      "authoredDirectionalRampDrawPresent": false
+    },
+    "runtimeRamp": {
+      "lpcDirectionalRoleStillReferenced": true,
+      "sixCellPatternStillEmbedded": true
+    },
+    "tiledImporter": {
+      "present": true,
+      "wangParsing": true,
+      "collisionParsing": true,
+      "animationParsing": true,
+      "propertiesParsing": true
+    }
+  },
+  "currentAuthorityFiles": [
+    {
+      "path": "content/worldgen/elizawy_cliff_complete_mapping_v0_1.json",
+      "exists": true,
+      "sha256": "18ca6e342cd7d647d31f00bf19e7373cff4f2cca30198101c10e075a6bc02499",
+      "bytes": 105871,
+      "dimensions": null
+    },
+    {
+      "path": "content/worldgen/elizawy_cliff_connected_recipe_authority_v0_1.json",
+      "exists": true,
+      "sha256": "55205b08cb5c78885904614886f68c45b42d8a426b08cea3282083f479544f58",
+      "bytes": 5892,
+      "dimensions": null
+    },
+    {
+      "path": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json",
+      "exists": true,
+      "sha256": "795755226a5c90e94ef82693b570edbd2c8dd06611f93b6e634a95dcd5ed7ed5",
+      "bytes": 5904,
+      "dimensions": null
+    },
+    {
+      "path": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+      "exists": true,
+      "sha256": "6a6f648da17124383053fc49e0028b95e1e179495a711f355059d92b4b0d6c52",
+      "bytes": 153212,
+      "dimensions": null
+    },
+    {
+      "path": "content/worldgen/elizawy_cliff_topology_certification_v0_1.json",
+      "exists": true,
+      "sha256": "f7a17f167f6cb1b69c520041869a06e3742c8b714b47ecf4d332bb6fdeed1327",
+      "bytes": 16625,
+      "dimensions": null
+    },
+    {
+      "path": "content/worldgen/lpc_directional_cliff_ramp_authority_v0_1.json",
+      "exists": true,
+      "sha256": "7c489c00b4e379fe1d54f5995413159be7eb9ad8a16c9466138d89ecdb98eaf3",
+      "bytes": 4895,
+      "dimensions": null
+    },
+    {
+      "path": "content/worldgen/structural_cliff_autotile_authority_v0_1.json",
+      "exists": true,
+      "sha256": "2c7a84d4da9b83bccd8a25c914e5d2329f28eca17cc3399cadb03315079f3503",
+      "bytes": 9296,
+      "dimensions": null
+    }
+  ],
+  "currentSourceFiles": [
+    {
+      "path": "crates/haven_assets/src/elizawy_cliff_provider.rs",
+      "exists": true,
+      "sha256": "6222d26aa9906d1067eb21fb7bad1f67a000691f633f4f2b597416c3538cd96e",
+      "bytes": 15378,
+      "dimensions": null
+    },
+    {
+      "path": "crates/haven_assets/src/lpc_cliff_ramp_provider.rs",
+      "exists": true,
+      "sha256": "773c69e38b2cc7c5487e6c47116c131c32dd65976e541eb9d3709e59fae9270f",
+      "bytes": 4949,
+      "dimensions": null
+    },
+    {
+      "path": "crates/haven_game/src/runtime_assets.rs",
+      "exists": true,
+      "sha256": "2ead23bb140b4d83dd1bde627389a366eb0a2cefa63b14af62ead247e9845499",
+      "bytes": 21084,
+      "dimensions": null
+    },
+    {
+      "path": "crates/haven_game/src/runtime_structural_cliff_ramps.rs",
+      "exists": true,
+      "sha256": "ab0f64fc2b7ae7f75325ac132e8364aab22c583e119883c8ef84d9e5dba529b9",
+      "bytes": 10089,
+      "dimensions": null
+    },
+    {
+      "path": "crates/haven_game/src/runtime_structural_cliff_draw.rs",
+      "exists": true,
+      "sha256": "91d1ff8e760eecabea824346d6880581d57a20d6387eb77db48d09edcf10a52f",
+      "bytes": 42272,
+      "dimensions": null
+    },
+    {
+      "path": "crates/haven_assets/src/asset_import_tiled.rs",
+      "exists": true,
+      "sha256": "db74a3c1ee18ffaf34fe8e9b92e000767f254e170f1178f3c602af8bd3e8b43b",
+      "bytes": 13214,
+      "dimensions": null
+    }
+  ],
+  "provenKeep": [
+    {
+      "id": "straight_south",
+      "source": "c2r7 -> c2r3 repeat -> c2r8",
+      "evidence": "existing demo-grounded W14 authority"
+    },
+    {
+      "id": "south_west",
+      "source": "c1r7 -> c1r3 repeat -> c1r8",
+      "evidence": "existing demo-grounded W14 authority"
+    },
+    {
+      "id": "south_east",
+      "source": "c3r7 -> c3r3 repeat -> c3r8",
+      "evidence": "existing demo-grounded W14 authority"
+    },
+    {
+      "id": "narrow_cave",
+      "source": "c6r9-c6r11",
+      "evidence": "existing source-native certified feature column"
+    },
+    {
+      "id": "ladders",
+      "source": "c11r9-c11r11 and c13r9-c13r11",
+      "evidence": "existing source-native certified feature columns"
+    }
+  ],
+  "blockedUntilEvidence": [
+    "side-entry/ramp assembly",
+    "c8 complete transition strip",
+    "right-side terminal adjacency",
+    "east-west ridge if supplied by companion cliff family",
+    "any runtime visual recipe sourced from a different cliff family"
+  ],
+  "blockers": [
+    {
+      "id": "side_entry_ramp_not_certified",
+      "severity": "blocker",
+      "evidence": "ElizaWyCliffConnectedRecipeRole::SideEntryRampPending remains source-reference-only.",
+      "requiredClosure": "Re-certify from original ElizaWy sheet plus demo/TSX relationship evidence; do not infer from screenshot."
+    },
+    {
+      "id": "complex_transition_strip_rejected",
+      "severity": "blocker",
+      "evidence": "The c8 transition strip is explicitly represented as rejected/source-reference evidence in the current provider/history.",
+      "requiredClosure": "Audit the complete c8 assembly and its valid neighbors before any runtime promotion."
+    },
+    {
+      "id": "foreign_ramp_family_authority",
+      "severity": "blocker",
+      "evidence": "A companion LPC grass-top cliff provider and oga_cliff_source remain in the runtime asset graph.",
+      "requiredClosure": "Remove as cliff/ramp visual authority only after source-native ElizaWy replacement is certified."
+    },
+    {
+      "id": "foreign_geometry_coupling",
+      "severity": "blocker",
+      "evidence": "Current directional ramp semantics still reference LpcDirectionalCliffRampRole and historical six-cell geometry designed around a 3x4 companion stamp.",
+      "requiredClosure": "Derive connector footprint from certified ElizaWy assembly evidence, not the retired companion stamp."
+    },
+    {
+      "id": "derived_overlay_is_runtime_source",
+      "severity": "review",
+      "evidence": "Runtime lpc_cliff_source currently resolves ELIZAWY_SUMMER_CLIFF_SOURCE_PATH, a derived runtime overlay.",
+      "requiredClosure": "Keep original pinned sheet as immutable art authority; derived overlays may only be recipe outputs with lineage."
+    }
+  ],
+  "migrationPlan": [
+    "Acquire/locate the configured Tiled donor archive in governed quarantine; do not replace ElizaWy source art.",
+    "Parse TSX/Wang/property/animation/collision metadata with Havenwild's existing Tiled semantics.",
+    "Map donor atlas tiles back to original ElizaWy 32x32 cells/stamps using exact pixel hashes where possible.",
+    "Cross-check ambiguous c8/side-entry/terminal relationships against ElizaWy official Summer demo and Test Landscape.",
+    "Write a certified source-native assembly catalog with source rect, footprint, anchor, valid neighbors and evidence lineage.",
+    "Only then migrate the runtime cliff resolver from hand-authored guesses to certified assembly selection.",
+    "After migration proves parity, remove companion ramp visual authority and unused foreign runtime texture loading."
+  ]
+}
