@@ -1,0 +1,42 @@
+{
+  "schema": "pcc.asset.system_manifest.v1",
+  "version": "0.1.0",
+  "status": "active_candidate",
+  "coreProjectAgnostic": true,
+  "firstAdapter": "havenwild",
+  "defaultGrid": [
+    32,
+    32
+  ],
+  "automaticRuntimeCertification": false,
+  "capabilities": [
+    "png_grid_analysis",
+    "multi_cell_assembly_detection",
+    "seam_adjacency_evidence",
+    "repeat_detection",
+    "animation_candidate_detection",
+    "tsx_wang_metadata",
+    "tsx_animation_metadata",
+    "tsx_collision_metadata",
+    "tmx_metadata",
+    "canonical_catalog",
+    "source_native_prefab_candidates",
+    "semantic_house_prefab_generator",
+    "catalog_validation",
+    "self_test",
+    "existing_tool_normalization_inventory"
+  ],
+  "futureNormalization": [
+    "existing_asset_acquisition",
+    "existing_asset_catalogs",
+    "license_and_credits",
+    "promotion_and_atlas_derivation",
+    "elizawy_lpc_authorities",
+    "structural_certification",
+    "characters",
+    "buildings",
+    "terrain",
+    "ui",
+    "audio"
+  ]
+}

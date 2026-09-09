@@ -2885,6 +2885,108 @@
       "domain": "validation",
       "status": "active",
       "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/Run-PccAssetSelfTest.cmd",
+      "domain": "automation",
+      "status": "active",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/automation/assets/Run-PccAssetTool.cmd",
+      "domain": "automation",
+      "status": "active",
+      "kind": "cmd"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/__init__.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/__main__.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/adapters.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/catalog.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/cli.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/migration.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/models.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/pngio.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/prefab.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/provenance.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/selftest.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/sheet.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/tiled.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/assets/pcc_assets/validate.py",
+      "domain": "automation",
+      "status": "active",
+      "kind": "py"
+    },
+    {
+      "path": "tools/automation/validation/checks/assets/Validate-PccAssetSystemV1.py",
+      "domain": "validation",
+      "status": "active",
+      "kind": "py"
     }
   ]
 }
