@@ -1,0 +1,1642 @@
+{
+  "schema": "havenwild.editor_authoring_v2_audit.v0_1",
+  "pass": "HW-EDITOR-AUDIT-01",
+  "createdUtc": "2026-09-10T02:20:00Z",
+  "baseline": {
+    "greenPass": "HW-FORGE-ADAPTER-01",
+    "commit": "e21419aa8f2f9d748f053be604c34a6ce819ad3c"
+  },
+  "purpose": "Authoritative inventory/disposition map for normalizing the Havenwild native editor and F3 developer authoring experience before behavioral rewrites.",
+  "dispositions": {
+    "KEEP": "Canonical behavior/owner. Preserve and integrate with minimal structural change.",
+    "MERGE": "Functionality is useful but must be folded into the named canonical owner; old module can disappear after migration.",
+    "ADAPT": "Module remains but its API/state/UI must conform to Authoring V2.",
+    "DEPRECATE": "Keep for compatibility/regression only; do not add features. Replace then remove.",
+    "DELETE_LATER": "No active authority; remove after verifying unique behavior/data has been salvaged."
+  },
+  "nonGoals": [
+    "No runtime behavior changes in this pass.",
+    "No PCC/control-center changes.",
+    "No asset, terrain, worldgen, save, or renderer authority reset.",
+    "No module deletion in this pass."
+  ],
+  "lockedDecisions": [
+    "The existing GREEN runtime remains the regression reference.",
+    "LDtk/GameMaker-style direct world construction is permanent functionality.",
+    "Native editor, F3 runtime edit mode, PIE and automation must use the same authoring commands and asset identities.",
+    "F3 Developer Overlay is lightweight inspection/diagnostics by default; Runtime Edit is explicitly entered.",
+    "Source sheets are containers; normal asset palettes show semantic/runtime assets rather than whole sheets.",
+    "Manual exact tile placement/rotation/mirroring where legal remains available even when autotiling exists.",
+    "Manual authored structures/patterns can be promoted into PCG exemplars.",
+    "Spawn placement is a first-class Game Canvas tool."
+  ],
+  "targetWorkspaces": [
+    "Game Canvas",
+    "Assets",
+    "Pixel",
+    "Animation",
+    "Character",
+    "Logic",
+    "Sound",
+    "Data (future)"
+  ],
+  "targetGameCanvasViews": [
+    "World",
+    "Scene",
+    "Scene Library",
+    "Routes",
+    "UI"
+  ],
+  "targetLayerGroups": {
+    "Surface": [
+      "Terrain",
+      "Water",
+      "Roads/Paths"
+    ],
+    "Structure": [
+      "Elevation",
+      "Cliffs",
+      "Ramps",
+      "Ladders/Stairs",
+      "Bridges",
+      "Buildings"
+    ],
+    "Content": [
+      "Vegetation",
+      "Resources",
+      "Props",
+      "Furniture"
+    ],
+    "Entities": [
+      "Characters",
+      "Animals",
+      "Player Start",
+      "Spawners"
+    ],
+    "Gameplay": [
+      "Zones",
+      "Triggers",
+      "Links",
+      "Interaction",
+      "Collision",
+      "Navigation"
+    ],
+    "Presentation": [
+      "Lighting",
+      "Weather",
+      "Atmosphere",
+      "Effects",
+      "Sound"
+    ],
+    "Overrides": [
+      "Raw Tiles",
+      "Manual Visual Overrides",
+      "Debug/Guides"
+    ]
+  },
+  "findings": [
+    {
+      "id": "EA2-001",
+      "severity": "P0",
+      "title": "Authoring identity is still legacy-first",
+      "evidence": [
+        "apps/haven_editor_native/src/app/mod.rs",
+        "apps/haven_editor_native/src/app/authoring_session.rs",
+        "apps/haven_editor_native/src/app/document_authority.rs"
+      ],
+      "finding": "AuthoringSession and DocumentAuthority are promising V2 adapters, but EditorApp still stores legacy viewport/tool/layer/document state directly. V2 currently snapshots legacy state instead of owning it.",
+      "decision": "Promote AuthoringSession + DocumentAuthority to the authoritative context spine in Pass 2."
+    },
+    {
+      "id": "EA2-002",
+      "severity": "P0",
+      "title": "Duplicate scene/world tool and layer models",
+      "evidence": [
+        "apps/haven_editor_native/src/app/editor_types.rs",
+        "apps/haven_editor_native/src/app/tool_registry.rs",
+        "apps/haven_editor_native/src/app/canvas_layers.rs"
+      ],
+      "finding": "SceneEditTool and WorldEditTool duplicate the same verbs, while SceneLayerMode/WorldLayerMode compete with CanvasLayerKind.",
+      "decision": "One UniversalTool + scope-aware target + CanvasLayerKind. Scene/World become edit scopes, not independent tool systems."
+    },
+    {
+      "id": "EA2-003",
+      "severity": "P0",
+      "title": "Layer classification still contains filename/string heuristics",
+      "evidence": [
+        "apps/haven_editor_native/src/app/canvas_layers.rs"
+      ],
+      "finding": "Stamp layer selection searches names/categories for water, pond, path, cliff, building, house, roof, wall and similar strings.",
+      "decision": "Asset Catalog V2 must declare typed semantic layer/category. Filename guessing becomes validation fallback only and cannot be runtime/editor authority."
+    },
+    {
+      "id": "EA2-004",
+      "severity": "P0",
+      "title": "Asset source sheets and usable assets remain conflated",
+      "evidence": [
+        "apps/haven_editor_native/src/app/assets_studio.rs",
+        "apps/haven_editor_native/src/app/asset_palette_panel.rs",
+        "apps/haven_editor_native/src/app/unified_asset_browser.rs",
+        "crates/haven_game/src/asset_reference_browser_panel.rs"
+      ],
+      "finding": "The project has source-sheet inventory and bounded thumbnail infrastructure, but normal selection still exposes source/donor records and promotion candidates alongside usable assets.",
+      "decision": "Assets Studio V2 owns Source Sheets, Semantic Assets, Runtime Assets and Review separately; normal palettes expose semantic/runtime assets only."
+    },
+    {
+      "id": "EA2-005",
+      "severity": "P0",
+      "title": "F3 is not lightweight",
+      "evidence": [
+        "crates/haven_game/src/runtime_input.rs",
+        "crates/haven_game/src/runtime_editor_shell.rs",
+        "crates/haven_game/src/runtime_editor_draw.rs"
+      ],
+      "finding": "Pressing F3 currently sets both dev_mode and build_mode and expands the editor, despite the status text calling it lightweight.",
+      "decision": "F3 toggles Developer Overlay only. Runtime Edit is a separate explicit action/mode."
+    },
+    {
+      "id": "EA2-006",
+      "severity": "P0",
+      "title": "Runtime dev tools duplicate native authoring authority",
+      "evidence": [
+        "crates/haven_game/src/editor_state.rs",
+        "crates/haven_game/src/map_edit_runtime.rs",
+        "crates/haven_game/src/object_edit_runtime.rs",
+        "crates/haven_game/src/world_paint_editor_panel.rs"
+      ],
+      "finding": "Runtime has its own tabs, brush modes, object editor, map editor and paint editor.",
+      "decision": "Runtime developer mode becomes a frontend over haven_authoring commands and shared metadata; it does not own a second editor model."
+    },
+    {
+      "id": "EA2-007",
+      "severity": "P0",
+      "title": "Spawn authoring is not a first-class shared workflow",
+      "evidence": [
+        "crates/haven_game/src/runtime_input.rs",
+        "crates/haven_game/src/runtime_scene_navigation.rs",
+        "crates/haven_authoring/src/capabilities.rs"
+      ],
+      "finding": "A selected-cell player spawn hotkey exists and authoring capabilities include NPC/debug spawn, but there is no unified Spawn tool/palette/typed anchor model across native editor and F3.",
+      "decision": "Add typed spawn/anchor definitions: Player Start, Play From Here, NPC, NPC/animal/resource spawner, encounter, transition destination and PCG anchor."
+    },
+    {
+      "id": "EA2-008",
+      "severity": "P1",
+      "title": "EditorApp remains a broad state container",
+      "evidence": [
+        "apps/haven_editor_native/src/app/mod.rs"
+      ],
+      "finding": "EditorApp directly owns world/scene selection, multiple palettes, asset intake, specialized studios, several canvas states, legacy tools/layers, documents, diagnostics and runtime launch state.",
+      "decision": "Pass 2 introduces owned sub-state services (session/documents/game-canvas/assets/runtime bridge) and migrates fields incrementally without a big-bang rewrite."
+    },
+    {
+      "id": "EA2-009",
+      "severity": "P1",
+      "title": "Detached editor remnants remain in source tree",
+      "evidence": [
+        "apps/haven_editor_native/src/app/dev_client_bridge.rs",
+        "apps/haven_editor_native/src/app/gui_studio.rs",
+        "apps/haven_editor_native/src/app/region_commands.rs",
+        "apps/haven_editor_native/src/app/mod.rs"
+      ],
+      "finding": "These files exist but are not declared by the active app module tree. Some contain reusable concepts; others are superseded.",
+      "decision": "Salvage bridge/region behavior into active owners, then delete remnants. GUI Studio can be removed after verifying no unique behavior is missing from Game Canvas UI."
+    },
+    {
+      "id": "EA2-010",
+      "severity": "P0",
+      "title": "Manual world construction must be permanent, not a fallback",
+      "evidence": [
+        "apps/haven_editor_native/src/app/direct_visual_authoring.rs",
+        "apps/haven_editor_native/src/app/pcg_exemplar_authoring.rs",
+        "apps/haven_editor_native/src/app/world_surface_authoring.rs"
+      ],
+      "finding": "Direct visual editing and PCG exemplar infrastructure exist, but they are not yet the primary, coherent LDtk-style workflow.",
+      "decision": "Game Canvas V2 permanently supports semantic paint + exact raw tile/region placement + manual overrides + save-as-pattern/prefab."
+    }
+  ],
+  "modules": [
+    {
+      "path": "apps/haven_editor_native/src/app/animation_studio.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Animation Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Animation authoring remains a specialized workspace, but it must use shared document/selection/resource context and the same runtime asset identities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/animation_studio_input.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Animation Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Animation authoring remains a specialized workspace, but it must use shared document/selection/resource context and the same runtime asset identities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/animation_studio_render.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Animation Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Animation authoring remains a specialized workspace, but it must use shared document/selection/resource context and the same runtime asset identities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/animation_studio_runtime_context.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Animation Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Animation authoring remains a specialized workspace, but it must use shared document/selection/resource context and the same runtime asset identities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/asset_browser_ui.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Move from source-sheet-centric browsing to Source Sheet -> Semantic Asset -> Runtime Asset, with bounded subasset thumbnails and raw-atlas drill-down."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/assets_studio.rs",
+      "surface": "native_editor",
+      "status": "active_staged_v2",
+      "disposition": "ADAPT",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Move from source-sheet-centric browsing to Source Sheet -> Semantic Asset -> Runtime Asset, with bounded subasset thumbnails and raw-atlas drill-down."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/authoring_publish.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "This is the normalization spine: stable document/resource identity, one authoring session, one command/transaction path, and no parallel scene/world/F3 state authorities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/authoring_session.rs",
+      "surface": "native_editor",
+      "status": "active_staged_v2",
+      "disposition": "KEEP",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "Keep as the primary migration spine. It already maps legacy viewport modes into WorkspaceId/GameCanvasView and should become authoritative rather than snapshot-only."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/asset_hot_reload.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Move from source-sheet-centric browsing to Source Sheet -> Semantic Asset -> Runtime Asset, with bounded subasset thumbnails and raw-atlas drill-down."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/asset_palette_panel.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Fold legacy palette browsing/promotion UI into Assets Studio + contextual palette provider; normal browser must show semantic subassets, not whole source sheets."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/atlas_render.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Move from source-sheet-centric browsing to Source Sheet -> Semantic Asset -> Runtime Asset, with bounded subasset thumbnails and raw-atlas drill-down."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/autotile_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Terrain/Structure Authoring V2",
+      "priority": "P0",
+      "migrationWave": "E6",
+      "reason": "Preserve proven terrain/structural logic but convert bespoke behavior into metadata-driven materials, structural recipes, manual patterns, and PCG exemplars."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/autotile_render.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Terrain/Structure Authoring V2",
+      "priority": "P0",
+      "migrationWave": "E6",
+      "reason": "Preserve proven terrain/structural logic but convert bespoke behavior into metadata-driven materials, structural recipes, manual patterns, and PCG exemplars."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/authoring_changeset.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "This is the normalization spine: stable document/resource identity, one authoring session, one command/transaction path, and no parallel scene/world/F3 state authorities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/bulk_result.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Editor V2",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Retain useful behavior while moving it behind the canonical Authoring V2 session, command, layer, and document contracts."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/building_instance_preview.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Inspector / Content Authoring",
+      "priority": "P1",
+      "migrationWave": "E4",
+      "reason": "Keep object/building/collision/gameplay editing but expose it through the unified inspector and shared authoring commands instead of bespoke panels."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/brush_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/brush_palette_drawer.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/canvas_camera.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/canvas_controller.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/canvas_layers.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "Keep the semantic-layer idea, but collapse the exposed hierarchy and replace filename/string heuristics for water/path/cliff/building classification with typed asset metadata."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/canvas_tool_rack.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/canvas_view.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/canvas_workspace.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/character_studio.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Character Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Character authoring remains specialized; preserve runtime context and asset provenance while breaking monolithic UI/state into document-backed services."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/character_studio_layout.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Character Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Character authoring remains specialized; preserve runtime context and asset provenance while breaking monolithic UI/state into document-backed services."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/character_studio_runtime_ext.rs",
+      "surface": "native_editor",
+      "status": "nested_helper",
+      "disposition": "ADAPT",
+      "targetOwner": "Character Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Character authoring remains specialized; preserve runtime context and asset provenance while breaking monolithic UI/state into document-backed services."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/clipboard_tools.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/collision_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Inspector / Content Authoring",
+      "priority": "P1",
+      "migrationWave": "E4",
+      "reason": "Keep object/building/collision/gameplay editing but expose it through the unified inspector and shared authoring commands instead of bespoke panels."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/command_registry.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "This is the normalization spine: stable document/resource identity, one authoring session, one command/transaction path, and no parallel scene/world/F3 state authorities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/dev_client_bridge.rs",
+      "surface": "native_editor",
+      "status": "detached_remnant",
+      "disposition": "MERGE",
+      "targetOwner": "PIE / Runtime Bridge",
+      "priority": "P1",
+      "migrationWave": "E8",
+      "reason": "Detached bridge implementation contains useful launch/restart/auto-push concepts but is not declared by the active editor module tree; salvage into the canonical development bridge."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/development_session.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "PIE / Runtime Bridge",
+      "priority": "P1",
+      "migrationWave": "E8",
+      "reason": "Preserve development launch/context capabilities but centralize live bridge, play-from-here, restart, and runtime context under one PIE bridge."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/direct_visual_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/document_authority.rs",
+      "surface": "native_editor",
+      "status": "active_staged_v2",
+      "disposition": "KEEP",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "Keep as the document identity spine. Resource identity must remain independent from presentation host and become authoritative for dirty/save/open lifecycle."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/document_lifecycle.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "This is the normalization spine: stable document/resource identity, one authoring session, one command/transaction path, and no parallel scene/world/F3 state authorities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/document_tabs.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "This is the normalization spine: stable document/resource identity, one authoring session, one command/transaction path, and no parallel scene/world/F3 state authorities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/draw.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/draw_scene_views.rs",
+      "surface": "native_editor",
+      "status": "nested_helper",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/editor_help.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/editor_menu.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/editor_settings.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/editor_text.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/editor_theme.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/editor_types.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "Contains duplicate SceneEditTool/WorldEditTool and SceneLayerMode/WorldLayerMode concepts. Merge those into UniversalTool, CanvasLayerKind and scope-aware authoring state."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/enclosed_scene_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Inspector / Content Authoring",
+      "priority": "P1",
+      "migrationWave": "E4",
+      "reason": "Keep object/building/collision/gameplay editing but expose it through the unified inspector and shared authoring commands instead of bespoke panels."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/game_canvas_ui.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "UI Authoring in Game Canvas",
+      "priority": "P1",
+      "migrationWave": "E7",
+      "reason": "UI authoring should be a Game Canvas document/resource lane, not a separate competing studio implementation."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/gameplay_layer_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Inspector / Content Authoring",
+      "priority": "P1",
+      "migrationWave": "E4",
+      "reason": "Keep object/building/collision/gameplay editing but expose it through the unified inspector and shared authoring commands instead of bespoke panels."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/gui_authority.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "UI Authoring in Game Canvas",
+      "priority": "P1",
+      "migrationWave": "E7",
+      "reason": "UI authoring should be a Game Canvas document/resource lane, not a separate competing studio implementation."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/gui_controls.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "UI Authoring in Game Canvas",
+      "priority": "P1",
+      "migrationWave": "E7",
+      "reason": "UI authoring should be a Game Canvas document/resource lane, not a separate competing studio implementation."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/gui_studio.rs",
+      "surface": "native_editor",
+      "status": "detached_remnant",
+      "disposition": "DELETE_LATER",
+      "targetOwner": "Game Canvas UI",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Detached legacy GUI Studio is not declared by the active module tree and is superseded by game_canvas_ui + gui_authority; retain only until any unique widget concepts are verified migrated."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/input.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/island_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/island_workspace.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/logic_studio.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Logic Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Logic remains a specialized workspace; align document identity, selection, and shared shell/command contracts."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/mod.rs",
+      "surface": "native_editor",
+      "status": "active_root",
+      "disposition": "ADAPT",
+      "targetOwner": "Authoring Session / Document / Command Spine",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "This is the normalization spine: stable document/resource identity, one authoring session, one command/transaction path, and no parallel scene/world/F3 state authorities."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/object_inspector.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Inspector / Content Authoring",
+      "priority": "P1",
+      "migrationWave": "E4",
+      "reason": "Keep object/building/collision/gameplay editing but expose it through the unified inspector and shared authoring commands instead of bespoke panels."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/object_inspector_geometry.rs",
+      "surface": "native_editor",
+      "status": "nested_helper",
+      "disposition": "KEEP",
+      "targetOwner": "Inspector / Content Authoring",
+      "priority": "P1",
+      "migrationWave": "E4",
+      "reason": "Keep object/building/collision/gameplay editing but expose it through the unified inspector and shared authoring commands instead of bespoke panels."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pcg_exemplar_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Terrain/Structure Authoring V2",
+      "priority": "P0",
+      "migrationWave": "E6",
+      "reason": "Preserve proven terrain/structural logic but convert bespoke behavior into metadata-driven materials, structural recipes, manual patterns, and PCG exemplars."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_animation_bridge.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_color_panel.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_context_layout.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_layer_input.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_layer_rail.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_library_panel.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_new_document.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_new_document_input.rs",
+      "surface": "native_editor",
+      "status": "nested_helper",
+      "disposition": "MERGE",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_studio.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_studio_input.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_studio_layout.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/pixel_studio_render.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/prepared_canvas_composition.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Editor V2",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Retain useful behavior while moving it behind the canonical Authoring V2 session, command, layer, and document contracts."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/production_tools.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "PIE / Runtime Bridge",
+      "priority": "P1",
+      "migrationWave": "E8",
+      "reason": "Preserve development launch/context capabilities but centralize live bridge, play-from-here, restart, and runtime context under one PIE bridge."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/region_commands.rs",
+      "surface": "native_editor",
+      "status": "detached_remnant",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas Routes/World",
+      "priority": "P1",
+      "migrationWave": "E4",
+      "reason": "Detached region graph mutation helpers should be folded into the active Game Canvas routes/world command service and then removed."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/render_helpers.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/resource_context_bridge.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "PIE / Runtime Bridge",
+      "priority": "P1",
+      "migrationWave": "E8",
+      "reason": "Preserve development launch/context capabilities but centralize live bridge, play-from-here, restart, and runtime context under one PIE bridge."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/right_dock.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/scene_asset_context.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/scene_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "Parallel scene/world edit dispatch is a major source of workflow duplication. Merge into scope-aware AuthoringCommand handlers while keeping Scene and World as edit scopes, not separate tool systems."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/scene_bank_workspace.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/scene_outliner.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/scene_render_helpers.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/selection_controller.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/shared_palette.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/sound_studio.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Sound Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Sound remains a specialized document workspace; align selection/document lifecycle and shared shell behavior."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/sprite_canvas_authority.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/sprite_workspace.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Pixel Workspace",
+      "priority": "P2",
+      "migrationWave": "E7",
+      "reason": "Pixel editing remains specialized and must keep direct pixel authority while integrating shared documents, assets, palette context, and animation handoff."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/stamp_inspector_panel.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Inspector / Content Authoring",
+      "priority": "P1",
+      "migrationWave": "E4",
+      "reason": "Keep object/building/collision/gameplay editing but expose it through the unified inspector and shared authoring commands instead of bespoke panels."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/structural_cliff_preview.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Terrain/Structure Authoring V2",
+      "priority": "P0",
+      "migrationWave": "E6",
+      "reason": "Preserve proven terrain/structural logic but convert bespoke behavior into metadata-driven materials, structural recipes, manual patterns, and PCG exemplars."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/terrain_material_browser.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Merge standalone terrain-material browsing into the contextual Asset Catalog V2 palette/Atlas Inspector while preserving material metadata and exact-source access."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/terrain_tile_variant_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Move from source-sheet-centric browsing to Source Sheet -> Semantic Asset -> Runtime Asset, with bounded subasset thumbnails and raw-atlas drill-down."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/terrain_transition_workbench.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Terrain/Structure Authoring V2",
+      "priority": "P0",
+      "migrationWave": "E6",
+      "reason": "Preserve proven terrain/structural logic but convert bespoke behavior into metadata-driven materials, structural recipes, manual patterns, and PCG exemplars."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/tool_registry.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Editor V2",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Retain useful behavior while moving it behind the canonical Authoring V2 session, command, layer, and document contracts."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/tooltip_overlay.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P1",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/transform_gizmo.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas Core",
+      "priority": "P0",
+      "migrationWave": "E3",
+      "reason": "This is part of the permanent LDtk/GameMaker-style Game Canvas path and should converge on one tool, layer, palette, camera, selection, and manual-override model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/ui_shell.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/unified_asset_browser.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Move from source-sheet-centric browsing to Source Sheet -> Semantic Asset -> Runtime Asset, with bounded subasset thumbnails and raw-atlas drill-down."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/workspace_chrome.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/workspace_shell.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "GameMaker-style Editor Shell",
+      "priority": "P0",
+      "migrationWave": "E2",
+      "reason": "Normalize the shell around Game Canvas + contextual docks/tool rail; keep menus and specialized workspaces secondary and remove duplicated UI/input ownership."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/world_asset_pixel_bridge.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "E5",
+      "reason": "Move from source-sheet-centric browsing to Source Sheet -> Semantic Asset -> Runtime Asset, with bounded subasset thumbnails and raw-atlas drill-down."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/world_canvas_context.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/world_surface_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "Parallel scene/world edit dispatch is a major source of workflow duplication. Merge into scope-aware AuthoringCommand handlers while keeping Scene and World as edit scopes, not separate tool systems."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/world_surface_authoring_geometry.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/world_surface_authoring_tests.rs",
+      "surface": "native_editor",
+      "status": "nested_helper",
+      "disposition": "KEEP",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/world_surface_authoring_ui.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "MERGE",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/world_surface_editor.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/world_surface_structural_authoring.rs",
+      "surface": "native_editor",
+      "status": "active_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Game Canvas World/Scene",
+      "priority": "P0",
+      "migrationWave": "E4",
+      "reason": "World and scene authoring are currently split into parallel paths; consolidate presentation while routing both scopes through one command/selection/clipboard model."
+    },
+    {
+      "path": "crates/haven_game/src/asset_reference_browser_panel.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "DEPRECATE",
+      "targetOwner": "Asset Catalog V2 / Atlas Inspector",
+      "priority": "P0",
+      "migrationWave": "F3-3",
+      "reason": "The F3 browser is source/donor-record oriented and should stop being a normal asset-authoring surface. Keep temporarily for provenance inspection until Assets Studio/Atlas Inspector parity exists."
+    },
+    {
+      "path": "crates/haven_game/src/client_controls.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Runtime Input Actions",
+      "priority": "P1",
+      "migrationWave": "F3-1",
+      "reason": "Keep controller/input support, but route F3 developer actions through named input actions instead of a growing list of hard-coded key checks."
+    },
+    {
+      "path": "crates/haven_game/src/development_launch.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "PIE / Development Launch",
+      "priority": "P0",
+      "migrationWave": "F3-2",
+      "reason": "Canonical development launch and play-here argument parsing is useful and should be shared with the native editor launch flow."
+    },
+    {
+      "path": "crates/haven_game/src/development_live_bridge.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "PIE / Runtime Bridge",
+      "priority": "P0",
+      "migrationWave": "F3-2",
+      "reason": "Keep the runtime live-command endpoint and resource-context publication as the stable bridge from editor/automation into a running development client."
+    },
+    {
+      "path": "crates/haven_game/src/development_resource_context.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Shared Resource Context",
+      "priority": "P0",
+      "migrationWave": "F3-2",
+      "reason": "Keep as parity context for active character/resource/action/frame information between runtime and native editor."
+    },
+    {
+      "path": "crates/haven_game/src/editor_state.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "DEPRECATE",
+      "targetOwner": "Runtime Developer Session",
+      "priority": "P0",
+      "migrationWave": "F3-1",
+      "reason": "Legacy EditorTab/MapBrushMode/FootprintEditTarget state duplicates native editor concepts. Replace with shared AuthoringSession, UniversalTool, CanvasLayerKind and typed property models."
+    },
+    {
+      "path": "crates/haven_game/src/gameplay_tool_runtime.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Gameplay Runtime",
+      "priority": "P1",
+      "migrationWave": "F3-4",
+      "reason": "Gameplay tool execution is not editor UI. Preserve it as runtime authority and make editor previews/tests consume the same equipment/action contracts."
+    },
+    {
+      "path": "crates/haven_game/src/map_edit_runtime.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "MERGE",
+      "targetOwner": "Shared Terrain/Structure Authoring",
+      "priority": "P0",
+      "migrationWave": "F3-3",
+      "reason": "Legacy elevation/map tab operations should become shared Game Canvas structural/elevation authoring commands rather than a separate F3 map editor."
+    },
+    {
+      "path": "crates/haven_game/src/object_edit_runtime.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "MERGE",
+      "targetOwner": "Shared Object Authoring",
+      "priority": "P0",
+      "migrationWave": "F3-3",
+      "reason": "Move selection, footprint, move/delete and property edits into shared object authoring/inspector commands used by native editor and runtime authoring mode."
+    },
+    {
+      "path": "crates/haven_game/src/render_telemetry.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Runtime Diagnostics",
+      "priority": "P0",
+      "migrationWave": "F3-5",
+      "reason": "Retain render telemetry as data-only diagnostics; F3 should display cached summaries on demand without changing renderer authority."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_commands.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "MERGE",
+      "targetOwner": "haven_authoring Command/Transaction Spine",
+      "priority": "P0",
+      "migrationWave": "F3-2",
+      "reason": "Undo/redo and command descriptions should route through the same authoring transaction model as the native editor rather than a second runtime command stack."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_diagnostics.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Runtime Diagnostics",
+      "priority": "P0",
+      "migrationWave": "F3-5",
+      "reason": "Keep formatting/data contracts for lightweight diagnostics; surface them through collapsible F3 diagnostics instead of always-on panels."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_draw.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Runtime Presentation",
+      "priority": "P0",
+      "migrationWave": "F3-1",
+      "reason": "Keep gameplay rendering, but isolate developer overlay composition so F3 does not force full editor drawing or invalidate gameplay presentation paths."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_editor_draw.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "F3 Developer Overlay / Runtime Edit Mode",
+      "priority": "P0",
+      "migrationWave": "F3-1",
+      "reason": "Split into a lightweight inspect overlay and an explicitly opened Runtime Edit mode. Remove dependence on the legacy nine-tab mini-editor presentation."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_editor_shell.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "F3 Developer Overlay Shell",
+      "priority": "P0",
+      "migrationWave": "F3-1",
+      "reason": "Rebuild around compact in-game controls, contextual drawers, cached diagnostics and a separate Edit World action; F3 itself must remain lightweight."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_hud.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Gameplay HUD",
+      "priority": "P1",
+      "migrationWave": "F3-1",
+      "reason": "Gameplay HUD remains runtime authority. F3 overlays should layer around it without replacing or rebuilding the normal HUD."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_input.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Runtime Input Router",
+      "priority": "P0",
+      "migrationWave": "F3-1",
+      "reason": "F3 currently enables dev_mode and build_mode together and owns many direct hotkeys. Make F3 toggle overlay only, then route named developer actions by context."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_performance_snapshot.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Runtime Diagnostics",
+      "priority": "P0",
+      "migrationWave": "F3-5",
+      "reason": "Keep the performance snapshot data source; update it at a controlled cadence and show only when requested."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_persistence.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Runtime Persistence",
+      "priority": "P0",
+      "migrationWave": "F3-2",
+      "reason": "Keep save/load persistence backend; shared authoring transactions should call it rather than duplicating persistence in UI modules."
+    },
+    {
+      "path": "crates/haven_game/src/runtime_scene_navigation.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "Runtime Navigation / Spawn",
+      "priority": "P0",
+      "migrationWave": "F3-4",
+      "reason": "Keep scene navigation, but expose Player Start, Play From Here and transition destinations through typed spawn/anchor authoring commands."
+    },
+    {
+      "path": "crates/haven_game/src/terrain_debug_overlay.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "F3 Diagnostics",
+      "priority": "P0",
+      "migrationWave": "F3-5",
+      "reason": "Keep terrain diagnostics but cull to visible/selected cells and cache summaries. It must be explicit/on-demand rather than part of the default F3 cost."
+    },
+    {
+      "path": "crates/haven_game/src/transition_edit_runtime.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "MERGE",
+      "targetOwner": "Shared Transition Authoring",
+      "priority": "P1",
+      "migrationWave": "F3-3",
+      "reason": "Merge transition mutation into shared topology/link authoring used by the Game Canvas inspector and runtime edit mode."
+    },
+    {
+      "path": "crates/haven_game/src/transition_rule_editor_panel.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "DEPRECATE",
+      "targetOwner": "Native Advanced Terrain Tool",
+      "priority": "P1",
+      "migrationWave": "F3-3",
+      "reason": "Do not maintain a full transition-rule editor inside F3. Move advanced rule authoring to the native editor; runtime keeps inspection/preview only."
+    },
+    {
+      "path": "crates/haven_game/src/transition_rule_inspector_overlay.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "F3 Diagnostics",
+      "priority": "P1",
+      "migrationWave": "F3-5",
+      "reason": "Retain as compact on-demand inspection backed by cached rule data."
+    },
+    {
+      "path": "crates/haven_game/src/transition_rule_preview_overlay.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "ADAPT",
+      "targetOwner": "F3 Diagnostics",
+      "priority": "P1",
+      "migrationWave": "F3-5",
+      "reason": "Retain as an optional preview/debug layer, not a primary editing workflow."
+    },
+    {
+      "path": "crates/haven_game/src/world_paint_editor_draw.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "DEPRECATE",
+      "targetOwner": "Runtime Edit Palette",
+      "priority": "P0",
+      "migrationWave": "F3-3",
+      "reason": "Legacy world-paint tab UI should be replaced by the same contextual terrain/material palette used by the native Game Canvas."
+    },
+    {
+      "path": "crates/haven_game/src/world_paint_editor_panel.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "MERGE",
+      "targetOwner": "Shared Terrain Authoring",
+      "priority": "P0",
+      "migrationWave": "F3-3",
+      "reason": "Move paint/fill/inspect/adjacency actions into shared authoring commands; runtime edit mode becomes only another frontend."
+    },
+    {
+      "path": "crates/haven_game/src/world_paint_lifecycle.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Terrain Persistence",
+      "priority": "P0",
+      "migrationWave": "F3-2",
+      "reason": "Keep delta replay/save lifecycle as backend authority while removing UI-specific ownership."
+    },
+    {
+      "path": "crates/haven_game/src/world_paint_render_binding.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "KEEP",
+      "targetOwner": "Terrain Render Binding",
+      "priority": "P0",
+      "migrationWave": "F3-5",
+      "reason": "Keep retained/cached render bindings; use them to prevent runtime authoring from forcing unnecessary terrain rebuilds."
+    },
+    {
+      "path": "crates/haven_game/src/world_rules_runtime.rs",
+      "surface": "runtime_dev",
+      "status": "active_runtime_module",
+      "disposition": "DEPRECATE",
+      "targetOwner": "Native Advanced Rules / Shared Inspector",
+      "priority": "P1",
+      "migrationWave": "F3-3",
+      "reason": "Legacy Rules/World tabs are accumulated runtime-editor workflows. Preserve inspection temporarily, move mutation to typed shared properties/native advanced tools."
+    }
+  ],
+  "summary": {
+    "native_editor": {
+      "moduleCount": 106,
+      "byDisposition": {
+        "ADAPT": 50,
+        "DELETE_LATER": 1,
+        "KEEP": 33,
+        "MERGE": 22
+      }
+    },
+    "runtime_dev": {
+      "moduleCount": 30,
+      "byDisposition": {
+        "ADAPT": 9,
+        "DEPRECATE": 5,
+        "KEEP": 11,
+        "MERGE": 5
+      }
+    },
+    "totalModuleCount": 136
+  },
+  "coverage": {
+    "nativeEditorGlob": "apps/haven_editor_native/src/app/*.rs",
+    "nativeExpectedCountAtBaseline": 106,
+    "runtimeDevExplicitPaths": [
+      "crates/haven_game/src/asset_reference_browser_panel.rs",
+      "crates/haven_game/src/client_controls.rs",
+      "crates/haven_game/src/development_launch.rs",
+      "crates/haven_game/src/development_live_bridge.rs",
+      "crates/haven_game/src/development_resource_context.rs",
+      "crates/haven_game/src/editor_state.rs",
+      "crates/haven_game/src/gameplay_tool_runtime.rs",
+      "crates/haven_game/src/map_edit_runtime.rs",
+      "crates/haven_game/src/object_edit_runtime.rs",
+      "crates/haven_game/src/render_telemetry.rs",
+      "crates/haven_game/src/runtime_commands.rs",
+      "crates/haven_game/src/runtime_diagnostics.rs",
+      "crates/haven_game/src/runtime_draw.rs",
+      "crates/haven_game/src/runtime_editor_draw.rs",
+      "crates/haven_game/src/runtime_editor_shell.rs",
+      "crates/haven_game/src/runtime_hud.rs",
+      "crates/haven_game/src/runtime_input.rs",
+      "crates/haven_game/src/runtime_performance_snapshot.rs",
+      "crates/haven_game/src/runtime_persistence.rs",
+      "crates/haven_game/src/runtime_scene_navigation.rs",
+      "crates/haven_game/src/terrain_debug_overlay.rs",
+      "crates/haven_game/src/transition_edit_runtime.rs",
+      "crates/haven_game/src/transition_rule_editor_panel.rs",
+      "crates/haven_game/src/transition_rule_inspector_overlay.rs",
+      "crates/haven_game/src/transition_rule_preview_overlay.rs",
+      "crates/haven_game/src/world_paint_editor_draw.rs",
+      "crates/haven_game/src/world_paint_editor_panel.rs",
+      "crates/haven_game/src/world_paint_lifecycle.rs",
+      "crates/haven_game/src/world_paint_render_binding.rs",
+      "crates/haven_game/src/world_rules_runtime.rs"
+    ],
+    "detachedNativeRemnants": [
+      "apps/haven_editor_native/src/app/dev_client_bridge.rs",
+      "apps/haven_editor_native/src/app/gui_studio.rs",
+      "apps/haven_editor_native/src/app/region_commands.rs"
+    ]
+  }
+}
