@@ -43,6 +43,37 @@ if($normalizedAction -in @('setup','init','initialize','connect','repair','adopt
 $authority = Join-Path $PSScriptRoot 'HavenwildGateAuthority.py'
 if(-not (Test-Path -LiteralPath $authority)){ throw "Canonical Havenwild source-control authority is missing: $authority" }
 
+# HW-PCC-RETIRED-TRACKED-CLEANUP-01:
+# updates/inbox is now deliberately excluded from governed source, but older
+# repository history still contains tracked checksum sidecars there. When a
+# certified GREEN commit is published, stage ONLY already-tracked deletions
+# beneath this explicitly retired prefix. This lets the PCC finish the one-time
+# retirement without widening governed source or sweeping arbitrary ignored
+# files into a protected commit.
+if($normalizedAction -in @('commitgreen','commitpushgreen')) {
+  $retiredPrefix = 'updates/inbox'
+  $retiredDeleted = @(& git -C $root ls-files --deleted -- $retiredPrefix)
+  if($LASTEXITCODE -ne 0) {
+    throw 'Unable to inspect retired tracked paths under updates/inbox.'
+  }
+
+  $retiredDeleted = @(
+    $retiredDeleted | Where-Object {
+      $candidate = ([string]$_).Replace('\','/').Trim()
+      -not [string]::IsNullOrWhiteSpace($candidate) -and
+      $candidate.ToLowerInvariant().StartsWith('updates/inbox/')
+    }
+  )
+
+  if($retiredDeleted.Count -gt 0) {
+    & git -C $root add -u -- @retiredDeleted
+    if($LASTEXITCODE -ne 0) {
+      throw 'Unable to stage retired tracked deletions under updates/inbox.'
+    }
+    Write-Host "RETIRED TRACKED CLEANUP: staged $($retiredDeleted.Count) deletion(s) under updates/inbox/"
+  }
+}
+
 $callArgs = @($authority,'git','--root',$root,'--action',$action)
 if(-not [string]::IsNullOrWhiteSpace($message)){ $callArgs += @('--message',$message) }
 if(-not [string]::IsNullOrWhiteSpace($remote)){ $callArgs += @('--remote',$remote) }
