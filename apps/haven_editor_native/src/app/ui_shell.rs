@@ -189,8 +189,8 @@ pub(crate) fn inset_panel_content(rect: Rect) -> Rect {
 }
 
 pub(crate) fn workspace_tab_rect(index: usize) -> Rect {
-    // A14X: six top-level studios. Game Canvas owns World/Scene/Routes/Scene Library.
-    const WIDTHS: [f32; 6] = [118.0, 102.0, 110.0, 124.0, 106.0, 110.0];
+    // ASSET-01: seven active top-level workspaces. Data remains reserved/unavailable until implemented.
+    const WIDTHS: [f32; 7] = [118.0, 92.0, 86.0, 104.0, 106.0, 86.0, 86.0];
     const GAP: f32 = 5.0;
     const MIN_TAB_W: f32 = 64.0;
     let available = (screen_width() - 16.0 - GAP * (WIDTHS.len() - 1) as f32).max(1.0);

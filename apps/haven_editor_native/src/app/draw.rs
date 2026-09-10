@@ -18,6 +18,7 @@ impl EditorApp {
             self.viewport_mode,
             &active_title,
             self.active_document_dirty(),
+            self.asset_studio_open,
         );
         // W63-W70 GUI closure: the permanent left project/library panel is retired.
         // Project hierarchy and every asset browser now live in the one canonical
@@ -55,9 +56,11 @@ impl EditorApp {
         // CanvasWorkspace. Pixel Studio draws its richer multi-document tabs itself;
         // every other studio consumes this shared row and therefore cannot be
         // overdrawn by rulers/canvas-local chrome.
-        self.draw_workspace_document_tabs();
+        if !self.asset_studio_open { self.draw_workspace_document_tabs(); }
 
-        if !matches!(self.viewport_mode, EditorViewportMode::SceneMap | EditorViewportMode::PixelStudio)
+        if self.asset_studio_open {
+            self.draw_assets_workspace(graph_rect);
+        } else if !matches!(self.viewport_mode, EditorViewportMode::SceneMap | EditorViewportMode::PixelStudio)
             && self.workspace_document_is_closed(self.viewport_mode)
         {
             self.draw_closed_workspace_empty_state(graph_rect);
@@ -96,8 +99,8 @@ impl EditorApp {
         // W58/W79 universal canvas chrome only exists while the current workspace
         // owns an open document. A closed document view must not leave ghost tools
         // active over the explicit empty state.
-        let canvas_document_open = matches!(self.viewport_mode, EditorViewportMode::SceneMap | EditorViewportMode::PixelStudio)
-            || !self.workspace_document_is_closed(self.viewport_mode);
+        let canvas_document_open = !self.asset_studio_open && (matches!(self.viewport_mode, EditorViewportMode::SceneMap | EditorViewportMode::PixelStudio)
+            || !self.workspace_document_is_closed(self.viewport_mode));
         if canvas_document_open {
             set_default_camera();
             gl_use_default_material();
@@ -117,7 +120,7 @@ impl EditorApp {
         // W76V GameMaker-style document chrome: floating tab overflow/recent
         // menus draw above the workspace and docks instead of being clipped by
         // the canvas they control.
-        self.draw_workspace_document_tab_overlay();
+        if !self.asset_studio_open { self.draw_workspace_document_tab_overlay(); }
 
         self.draw_workspace_bottom_dock(&layout, &validation);
         self.draw_workspace_splitters(&layout);

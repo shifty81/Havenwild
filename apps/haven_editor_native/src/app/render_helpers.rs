@@ -19,6 +19,7 @@ pub(crate) fn draw_top_bar(
     mode: EditorViewportMode,
     active_title: &str,
     active_dirty: bool,
+    assets_active: bool,
 ) {
     draw_rectangle(
         0.0,
@@ -54,31 +55,28 @@ pub(crate) fn draw_top_bar(
     // A14X: Game Canvas is one top-level studio. World/Scene/Routes/Scene Library
     // are contextual views within it and must not appear as duplicate global tabs.
     for (index, (candidate, label)) in [
-        (EditorViewportMode::SceneMap, "Game Canvas"),
-        (EditorViewportMode::PixelStudio, "Pixel Studio"),
-        (EditorViewportMode::AnimationStudio, "Animation Studio"),
-        (EditorViewportMode::CharacterStudio, "Character Studio"),
-        (EditorViewportMode::LogicStudio, "Logic Studio"),
-        (EditorViewportMode::SoundStudio, "Sound Studio"),
+        (Some(EditorViewportMode::SceneMap), "Game Canvas"),
+        (None, "Assets"),
+        (Some(EditorViewportMode::PixelStudio), "Pixel"),
+        (Some(EditorViewportMode::AnimationStudio), "Animation"),
+        (Some(EditorViewportMode::CharacterStudio), "Character"),
+        (Some(EditorViewportMode::LogicStudio), "Logic"),
+        (Some(EditorViewportMode::SoundStudio), "Sound"),
     ]
     .into_iter()
     .enumerate()
     {
         let rect = workspace_tab_rect(index);
-        let active = if candidate == EditorViewportMode::SceneMap {
-            mode.is_game_canvas()
-        } else {
-            candidate == mode
+        let active = match candidate {
+            None => assets_active,
+            Some(EditorViewportMode::SceneMap) => !assets_active && mode.is_game_canvas(),
+            Some(candidate) => !assets_active && candidate == mode,
         };
-        let label = if active && active_dirty {
-            format!("{label} *")
-        } else {
-            label.to_string()
-        };
+        let label = if active && active_dirty { format!("{label} *") } else { label.to_string() };
         draw_workspace_folder_tab(rect, &label, active);
     }
 
-    let last = workspace_tab_rect(5);
+    let last = workspace_tab_rect(6);
     let title_x = last.x + last.w + 14.0;
     let available = (w - title_x - 12.0).max(0.0);
     if available > 100.0 {

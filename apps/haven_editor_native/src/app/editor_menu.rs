@@ -132,6 +132,7 @@ impl EditorApp {
     /// surface; context menus, shortcuts, and future command-palette search should
     /// invoke this same command vocabulary rather than duplicating workflows.
     pub(crate) fn execute_editor_command(&mut self, command: EditorCommandId) {
+        if matches!(command, EditorCommandId::OpenWorld|EditorCommandId::OpenScene|EditorCommandId::OpenPixel|EditorCommandId::OpenAnimation|EditorCommandId::OpenCharacter|EditorCommandId::OpenLogic|EditorCommandId::OpenSound|EditorCommandId::OpenWorldRoutes|EditorCommandId::OpenSceneBank|EditorCommandId::OpenUiDocuments) { self.close_assets_studio(); }
         let scene_command_context = if self.viewport_mode == EditorViewportMode::SceneMap
             && self.scene_workspace_has_open_document()
         {
@@ -227,7 +228,7 @@ impl EditorApp {
             EditorCommandId::Restart => { self.stop_development_client(); self.play_development_world(false); }
             EditorCommandId::Stop => self.stop_development_client(),
             EditorCommandId::PublishComposition => self.begin_authoring_publish(),
-            EditorCommandId::OpenAssetBrowser => self.focus_right_dock(RightDockTab::Assets),
+            EditorCommandId::OpenAssetBrowser => self.open_assets_studio(),
             EditorCommandId::CreatePcgExemplar => self.promote_world_selection_to_pcg_exemplar(),
             EditorCommandId::RefreshAssetCatalog => {
                 self.asset_hot_reload_requested = true;

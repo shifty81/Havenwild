@@ -12,6 +12,7 @@ impl EditorApp {
     }
 
     pub(crate) fn active_document_dirty(&self) -> bool {
+        if self.asset_studio_open { return false; }
         let world_dirty = self.command_bus.undo_len() != self.saved_undo_depth;
         let pixel_dirty = self.pixel_studio.any_document_dirty();
         let animation_dirty = self
@@ -51,6 +52,7 @@ impl EditorApp {
     }
 
     pub(crate) fn active_document_title(&self) -> String {
+        if self.asset_studio_open { return format!("Assets — {}", self.assets_studio.section.label()); }
         match self.viewport_mode {
             EditorViewportMode::RegionGraph => "Havenwild World Routes".to_string(),
             EditorViewportMode::SceneRectangles => "Alderreach Global World Editor".to_string(),

@@ -3,6 +3,7 @@ mod animation_studio_input;
 mod animation_studio_render;
 mod animation_studio_runtime_context;
 mod asset_browser_ui;
+mod assets_studio;
 mod authoring_publish;
 mod authoring_session;
 mod asset_hot_reload;
@@ -230,6 +231,8 @@ pub(crate) struct EditorApp {
     asset_pack_source_count: usize,
     asset_intake_catalog: AssetIntakeCatalog,
     asset_hot_reload_requested: bool,
+    asset_studio_open: bool,
+    assets_studio: assets_studio::AssetsStudioState,
     asset_hot_reload_next_check: f64,
     asset_manifest_modified: Option<SystemTime>,
     editor_textures: EditorTextureSet,
@@ -475,6 +478,8 @@ impl EditorApp {
             asset_pack_source_count,
             asset_intake_catalog,
             asset_hot_reload_requested: false,
+            asset_studio_open: false,
+            assets_studio: assets_studio::AssetsStudioState::default(),
             asset_hot_reload_next_check: 0.0,
             asset_manifest_modified,
             editor_textures,

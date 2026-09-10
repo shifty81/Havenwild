@@ -45,10 +45,11 @@ pub(crate) struct EditorContextSnapshot { pub session: AuthoringSession, pub dir
 impl super::EditorApp {
     pub(crate) fn authoring_session_snapshot(&self) -> AuthoringSession {
         let docs: DocumentRegistrySnapshot = self.document_registry_snapshot();
-        let workspace = WorkspaceId::from_legacy(self.viewport_mode);
-        let game_canvas_view = GameCanvasView::from_legacy(self.viewport_mode);
-        let active_document = docs.documents.first().map(|d| d.id.clone());
-        AuthoringSession { workspace, game_canvas_view, active_document, open_documents: docs.documents.iter().map(|d| d.id.clone()).collect(),
+        let workspace = if self.asset_studio_open { WorkspaceId::Assets } else { WorkspaceId::from_legacy(self.viewport_mode) };
+        let game_canvas_view = if self.asset_studio_open { None } else { GameCanvasView::from_legacy(self.viewport_mode) };
+        let active_document = if self.asset_studio_open { None } else { docs.documents.first().map(|d| d.id.clone()) };
+        let open_documents = if self.asset_studio_open { Vec::new() } else { docs.documents.iter().map(|d| d.id.clone()).collect() };
+        AuthoringSession { workspace, game_canvas_view, active_document, open_documents,
             selection: SelectionEnvelope::None, active_layer: self.active_canvas_layer_kind(), active_tool: self.canvas_active_tool,
             active_palette: PaletteProviderId::for_context(workspace, self.active_canvas_layer_kind()), edit_scope: if workspace == WorkspaceId::GameCanvas { EditScope::World } else { EditScope::Source }, runtime_state: RuntimeState::Stopped }
     }

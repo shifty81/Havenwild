@@ -163,6 +163,7 @@ impl EditorApp {
                 return;
             }
 
+            if self.handle_assets_workspace_click(mx, my) { self.primary_pointer_owned_by_ui = true; return; }
             if self.handle_workspace_document_tabs_click(mx, my) {
                 self.primary_pointer_owned_by_ui = true;
                 return;
@@ -202,7 +203,8 @@ impl EditorApp {
             }
         }
 
-        let canvas_pointer_consumed = self.update_canvas_navigation();
+        if self.update_assets_workspace_scroll() { return; }
+        let canvas_pointer_consumed = if self.asset_studio_open { true } else { self.update_canvas_navigation() };
         let pointer_consumed =
             if is_mouse_button_pressed(MouseButton::Left) && !canvas_pointer_consumed {
                 self.handle_primary_click()
@@ -212,16 +214,17 @@ impl EditorApp {
         if is_key_pressed(KeyCode::Tab) && self.pixel_studio.new_dialog.is_none() {
             let _ = self.command_bus.commit_gesture();
             self.last_painted_cell = None;
-            self.viewport_mode = match self.viewport_mode {
-                EditorViewportMode::SceneRectangles | EditorViewportMode::RegionGraph | EditorViewportMode::SceneBank => EditorViewportMode::SceneMap,
-                EditorViewportMode::SceneMap => EditorViewportMode::PixelStudio,
+            if self.asset_studio_open { self.asset_studio_open=false; self.viewport_mode=EditorViewportMode::PixelStudio; }
+            else if self.viewport_mode.is_game_canvas() { self.open_assets_studio(); }
+            else { self.viewport_mode = match self.viewport_mode {
                 EditorViewportMode::PixelStudio => EditorViewportMode::AnimationStudio,
                 EditorViewportMode::AnimationStudio => EditorViewportMode::CharacterStudio,
                 EditorViewportMode::CharacterStudio => EditorViewportMode::LogicStudio,
                 EditorViewportMode::LogicStudio => EditorViewportMode::SoundStudio,
                 EditorViewportMode::SoundStudio => EditorViewportMode::SceneRectangles,
-            };
-            self.status_message = format!("Viewport mode: {}", self.viewport_mode.label());
+                other => other,
+            }; }
+            self.status_message = if self.asset_studio_open { "Workspace: Assets".to_string() } else { format!("Viewport mode: {}", self.viewport_mode.label()) };
             self.command_bus.record_event(self.app_command(
                 EditorCommandKind::SceneMutation,
                 self.status_message.clone(),
@@ -248,6 +251,7 @@ impl EditorApp {
         // Each tab/layer adapter decides whether a universal tool is meaningful.
         self.handle_contextual_canvas_shortcuts();
 
+        if self.asset_studio_open { return; }
         match self.viewport_mode {
             EditorViewportMode::RegionGraph => {
                 if is_key_pressed(KeyCode::Down) || is_key_pressed(KeyCode::Right) {
@@ -402,39 +406,28 @@ impl EditorApp {
             return true;
         }
 
-        // A14X: six top-level studio buttons are persistent. Game Canvas is a
-        // single studio; World/Scene/Routes/Scene Library remain contextual views.
+        // ASSET-01: Assets is a real top-level workspace. Game Canvas remains one
+        // workspace whose World/Scene/Routes/Scene Library views are contextual.
         for (index, mode) in [
-            EditorViewportMode::SceneMap,
-            EditorViewportMode::PixelStudio,
-            EditorViewportMode::AnimationStudio,
-            EditorViewportMode::CharacterStudio,
-            EditorViewportMode::LogicStudio,
-            EditorViewportMode::SoundStudio,
-        ]
-        .into_iter()
-        .enumerate()
-        {
+            Some(EditorViewportMode::SceneMap),
+            None,
+            Some(EditorViewportMode::PixelStudio),
+            Some(EditorViewportMode::AnimationStudio),
+            Some(EditorViewportMode::CharacterStudio),
+            Some(EditorViewportMode::LogicStudio),
+            Some(EditorViewportMode::SoundStudio),
+        ].into_iter().enumerate() {
             let button = workspace_tab_rect(index);
             if button.contains(vec2(mx, my)) {
-                let _ = self.command_bus.commit_gesture();
-                self.last_painted_cell = None;
-                self.text_focus = EditorTextFocus::None;
-                self.scene_name_edit = None;
-                self.scene_delete_armed = None;
-                self.world_canvas_context_menu = None;
-                        self.pixel_symmetry_popup_open = false;
-                if mode == EditorViewportMode::SceneMap {
-                    // Clicking the global Game Canvas tab while already in one of
-                    // its contextual views must not throw the user back to Scene.
-                    if !self.viewport_mode.is_game_canvas() {
-                        self.activate_scene_workspace();
-                    }
-                    self.status_message = "Opened Game Canvas workspace".to_string();
-                } else {
-                    self.viewport_mode = mode;
-                    self.reopen_workspace_document(mode);
-                    self.status_message = format!("Opened {} workspace", mode.label());
+                let _ = self.command_bus.commit_gesture(); self.last_painted_cell=None; self.text_focus=EditorTextFocus::None;
+                self.scene_name_edit=None; self.scene_delete_armed=None; self.world_canvas_context_menu=None; self.pixel_symmetry_popup_open=false;
+                if mode.is_none() { self.open_assets_studio(); }
+                else if let Some(mode) = mode {
+                    self.close_assets_studio();
+                    if mode == EditorViewportMode::SceneMap {
+                        if !self.viewport_mode.is_game_canvas() { self.activate_scene_workspace(); }
+                        self.status_message = "Opened Game Canvas workspace".to_string();
+                    } else { self.viewport_mode=mode; self.reopen_workspace_document(mode); self.status_message=format!("Opened {} workspace",mode.label()); }
                 }
                 return true;
             }

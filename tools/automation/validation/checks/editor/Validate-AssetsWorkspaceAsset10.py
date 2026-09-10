@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[5]
+def text(rel): return (ROOT/rel).read_text(encoding='utf-8')
+def req(ok,msg):
+    if not ok: raise SystemExit('FAIL HW-ASSETS-10: '+msg)
+asset=text('apps/haven_editor_native/src/app/assets_studio.rs')
+mod=text('apps/haven_editor_native/src/app/mod.rs')
+draw=text('apps/haven_editor_native/src/app/draw.rs')
+input_rs=text('apps/haven_editor_native/src/app/input.rs')
+session=text('apps/haven_editor_native/src/app/authoring_session.rs')
+render=text('apps/haven_editor_native/src/app/render_helpers.rs')
+ui=text('apps/haven_editor_native/src/app/ui_shell.rs')
+req('mod assets_studio;' in mod,'Assets workspace module is not registered')
+req('PCC_ASSET_CATALOG_PATH' in asset and 'artifacts/asset-intake/asset-catalog.json' in asset,'workspace is not consuming the PCC compact catalog')
+req(all(x in asset for x in ['Inbox','Library','Sources','Families','Usage','Review']),'frozen Assets sections missing')
+req(all(x in asset for x in ['Discovered','Identified','Mapped','Validated','Certified','Deprecated','Broken']),'asset authority states incomplete')
+req('family_completeness_roles' in asset and 'structural_cliff' in asset and 'tool_visual' in asset,'family completeness contracts missing')
+req('runtime_certified' in asset and 'review_count' in asset,'review/certification projection missing')
+req('source remains immutable' in asset.lower() or 'Raw source remains immutable' in asset,'source/derived authority rule missing')
+req('filename guesses are not treated as usage evidence' in asset,'Where Used must remain dependency-driven')
+req('open_assets_studio' in input_rs and 'handle_assets_workspace_click' in input_rs,'Assets workspace input routing missing')
+req('draw_assets_workspace' in draw,'Assets workspace draw routing missing')
+req('WorkspaceId::Assets' in session,'AuthoringSession does not report Assets workspace')
+req('(None, "Assets")' in render,'Assets is not a top-level workspace tab')
+req('const WIDTHS: [f32; 7]' in ui,'workspace tab layout is not expanded for Assets')
+req('scan' not in asset.split('fn load_compact_catalog',1)[0].lower() or 'rescan' not in asset.lower(),'Assets workspace must not launch a broad scan')
+print('PASS HW-ASSETS-10 Assets workspace/catalog/family/review authority')
