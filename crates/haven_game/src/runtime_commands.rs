@@ -17,25 +17,17 @@ impl Game {
     }
 
     pub(super) fn undo_world(&mut self) {
-        let current = self.world.serialize_lines();
-        match self.command_bus.undo(&current) {
-            Ok(step) => match GameWorld::deserialize_lines(&step.snapshot) {
-                Ok(world) => {
-                    self.world = world;
-                    self.set_player_to_active_spawn();
-                    self.sync_active_terrain_cache_now();
-                    self.status_message = format!(
-                        "Undo applied: {} ({} left)",
-                        step.label,
-                        self.command_bus.undo_len()
-                    );
-                    self.log.event(&self.status_message);
-                }
-                Err(err) => {
-                    self.status_message = format!("Undo failed: {err}");
-                    self.log.event(&self.status_message);
-                }
-            },
+        match self.command_bus.undo_world(&mut self.world) {
+            Ok(step) => {
+                self.set_player_to_active_spawn();
+                self.sync_active_terrain_cache_now();
+                self.status_message = format!(
+                    "Undo applied: {} ({} left)",
+                    step.label,
+                    self.command_bus.undo_len()
+                );
+                self.log.event(&self.status_message);
+            }
             Err(message) => {
                 self.status_message = message;
             }
@@ -43,29 +35,67 @@ impl Game {
     }
 
     pub(super) fn redo_world(&mut self) {
-        let current = self.world.serialize_lines();
-        match self.command_bus.redo(&current) {
-            Ok(step) => match GameWorld::deserialize_lines(&step.snapshot) {
-                Ok(world) => {
-                    self.world = world;
-                    self.set_player_to_active_spawn();
-                    self.sync_active_terrain_cache_now();
-                    self.status_message = format!(
-                        "Redo applied: {} ({} left)",
-                        step.label,
-                        self.command_bus.redo_len()
-                    );
-                    self.log.event(&self.status_message);
-                }
-                Err(err) => {
-                    self.status_message = format!("Redo failed: {err}");
-                    self.log.event(&self.status_message);
-                }
-            },
+        match self.command_bus.redo_world(&mut self.world) {
+            Ok(step) => {
+                self.set_player_to_active_spawn();
+                self.sync_active_terrain_cache_now();
+                self.status_message = format!(
+                    "Redo applied: {} ({} left)",
+                    step.label,
+                    self.command_bus.redo_len()
+                );
+                self.log.event(&self.status_message);
+            }
             Err(message) => {
                 self.status_message = message;
             }
         }
+    }
+
+    /// Canonical persistent Player Start mutation used by F3 and future Game Canvas entity placement.
+    /// Play From Here remains a separate ephemeral runtime launch command.
+    pub(super) fn set_active_scene_player_start(&mut self, target: GridPos) {
+        let scene_id = self.world.active().id.clone();
+        let transaction = match haven_authoring::EditTransaction::set_scene_spawn(&self.world, scene_id.clone(), target) {
+            Ok(transaction) => transaction,
+            Err(error) => {
+                self.status_message = format!("Set player start failed: {error}");
+                self.log.event(&self.status_message);
+                return;
+            }
+        };
+        if transaction.is_empty() {
+            self.status_message = format!(
+                "{} player start already at {}, {}",
+                self.world.active().name, target.x, target.y
+            );
+            return;
+        }
+        let command = EditorCommand::new(
+            EditorCommandKind::SetSceneSpawn,
+            EditorCommandSource::InGameOverlay,
+            "havenwild_starter",
+            Some(scene_id.code().to_string()),
+            Some("entity.player_start".to_string()),
+            vec![target],
+            format!("Set player start to {}, {}", target.x, target.y),
+        );
+        if let Err(error) = self
+            .command_bus
+            .execute_transaction(&mut self.world, command.clone(), transaction)
+        {
+            self.status_message = format!("Set player start failed: {error}");
+            self.log.event(&self.status_message);
+            return;
+        }
+        self.replication_sequence += 1;
+        let envelope = replicate_editor_command(self.replication_sequence, &command);
+        self.last_replication_status = envelope.status_line();
+        self.status_message = format!(
+            "Set {} player start to {}, {}",
+            self.world.active().name, target.x, target.y
+        );
+        self.log.event(&self.status_message);
     }
 
     pub(super) fn describe_editor_command(&self) -> EditorCommand {

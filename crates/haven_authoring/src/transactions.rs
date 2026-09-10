@@ -20,6 +20,36 @@ impl EditTransaction {
         }
     }
 
+    /// Builds the canonical reversible Player Start mutation for a scene.
+    pub fn set_scene_spawn(
+        world: &GameWorld,
+        scene_id: impl Into<ProjectSceneId>,
+        target: crate::GridPos,
+    ) -> Result<Self, String> {
+        let scene_id = scene_id.into();
+        let scene = world
+            .scene_by_id(&scene_id)
+            .ok_or_else(|| format!("scene {} is not loaded", scene_id.label()))?;
+        if !scene.contains_cell(target.x, target.y) {
+            return Err(format!(
+                "player start {}, {} is outside scene {} bounds {}x{}",
+                target.x, target.y, scene.name, scene.dimensions.width, scene.dimensions.height
+            ));
+        }
+        let before = crate::GridPos {
+            x: scene.spawn_x,
+            y: scene.spawn_y,
+        };
+        let mut transaction = Self::new("Set player start", scene_id);
+        if before != target {
+            transaction.push(EditOperation::SetSceneSpawn {
+                before,
+                after: target,
+            });
+        }
+        Ok(transaction)
+    }
+
     /// Adds an operation while coalescing repeated edits to the same logical target.
     pub fn push(&mut self, operation: EditOperation) {
         if self.coalesce(&operation) {
@@ -169,6 +199,26 @@ impl EditTransaction {
                             before,
                             after: existing_after,
                             ..
+                        } => {
+                            *existing_after = *after;
+                            *before == *existing_after
+                        }
+                        _ => false,
+                    };
+                    if remove {
+                        self.operations.remove(index);
+                    }
+                    return true;
+                }
+            }
+            EditOperation::SetSceneSpawn { after, .. } => {
+                if let Some(index) = self.operations.iter().position(|operation| {
+                    matches!(operation, EditOperation::SetSceneSpawn { .. })
+                }) {
+                    let remove = match &mut self.operations[index] {
+                        EditOperation::SetSceneSpawn {
+                            before,
+                            after: existing_after,
                         } => {
                             *existing_after = *after;
                             *before == *existing_after

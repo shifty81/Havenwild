@@ -20,6 +20,10 @@ pub enum EditorCommandKind {
     SetHeight,
     SetStructuralLevel,
     PlaceObject,
+    PlaceEntity,
+    PlacePrefab,
+    ApplyBrush,
+    PlaceRawTileOverride,
     PlaceStamp,
     EditStamp,
     EditObjectFootprint,
@@ -27,6 +31,7 @@ pub enum EditorCommandKind {
     CreateTransition,
     EditTransition,
     SetSceneSpawn,
+    PlayFromHere,
     ResetScene,
     RegenerateScene,
     SaveWorld,
@@ -44,13 +49,18 @@ impl EditorCommandKind {
             EditorCommandKind::SetHeight => "Set height",
             EditorCommandKind::SetStructuralLevel => "Set structural level",
             EditorCommandKind::PlaceObject => "Place object",
+            EditorCommandKind::PlaceEntity => "Place entity",
+            EditorCommandKind::PlacePrefab => "Place prefab",
+            EditorCommandKind::ApplyBrush => "Apply brush",
+            EditorCommandKind::PlaceRawTileOverride => "Place raw tile override",
             EditorCommandKind::PlaceStamp => "Place stamp",
             EditorCommandKind::EditStamp => "Edit stamp",
             EditorCommandKind::EditObjectFootprint => "Edit object footprint",
             EditorCommandKind::AssignRoom => "Assign room/zone",
             EditorCommandKind::CreateTransition => "Create transition",
             EditorCommandKind::EditTransition => "Edit transition",
-            EditorCommandKind::SetSceneSpawn => "Set scene spawn",
+            EditorCommandKind::SetSceneSpawn => "Set player start",
+            EditorCommandKind::PlayFromHere => "Play from here",
             EditorCommandKind::ResetScene => "Reset scene",
             EditorCommandKind::RegenerateScene => "Regenerate scene",
             EditorCommandKind::SaveWorld => "Save world",
@@ -58,6 +68,61 @@ impl EditorCommandKind {
             EditorCommandKind::ValidateWorld => "Validate world",
             EditorCommandKind::ExportWorldgen => "Export worldgen",
             EditorCommandKind::SceneMutation => "Scene mutation",
+        }
+    }
+
+    /// Stable command ID used by native editor, runtime authoring, automation and future Cortex bridges.
+    pub const fn id(self) -> &'static str {
+        match self {
+            Self::PaintTerrain => "world.terrain.paint",
+            Self::EditAutotile => "world.terrain.autotile_override",
+            Self::SetHeight => "world.height.set",
+            Self::SetStructuralLevel => "world.structure.level",
+            Self::PlaceObject => "world.object.place",
+            Self::PlaceEntity => "world.entity.place",
+            Self::PlacePrefab => "world.prefab.place",
+            Self::ApplyBrush => "world.brush.apply",
+            Self::PlaceRawTileOverride => "world.raw_tile_override.place",
+            Self::PlaceStamp => "world.stamp.place",
+            Self::EditStamp => "world.stamp.edit",
+            Self::EditObjectFootprint => "world.object.footprint.edit",
+            Self::AssignRoom => "world.zone.assign",
+            Self::CreateTransition => "world.transition.create",
+            Self::EditTransition => "world.transition.edit",
+            Self::SetSceneSpawn => "world.player_start.set",
+            Self::PlayFromHere => "runtime.play_from_here",
+            Self::ResetScene => "world.scene.reset",
+            Self::RegenerateScene => "world.scene.regenerate",
+            Self::SaveWorld => "world.save",
+            Self::LoadWorld => "world.load",
+            Self::ValidateWorld => "world.validate",
+            Self::ExportWorldgen => "world.export",
+            Self::SceneMutation => "world.scene.mutation",
+        }
+    }
+
+    pub const fn mutates_world(self) -> bool {
+        !matches!(
+            self,
+            Self::PlayFromHere | Self::SaveWorld | Self::LoadWorld | Self::ValidateWorld | Self::ExportWorldgen
+        )
+    }
+
+    pub const fn required_capability(self) -> Option<crate::capabilities::AuthoringCapability> {
+        use crate::capabilities::AuthoringCapability as C;
+        match self {
+            Self::PaintTerrain | Self::EditAutotile | Self::ApplyBrush | Self::PlaceRawTileOverride => Some(C::PaintTerrain),
+            Self::SetHeight => Some(C::ModifyWorldSettings),
+            Self::SetStructuralLevel => Some(C::SetStructuralLevel),
+            Self::PlaceObject | Self::PlaceStamp | Self::EditStamp | Self::EditObjectFootprint => Some(C::PlaceObject),
+            Self::PlaceEntity => Some(C::PlaceEntity),
+            Self::PlacePrefab => Some(C::PlaceStructure),
+            Self::AssignRoom => Some(C::CreateZone),
+            Self::CreateTransition | Self::EditTransition => Some(C::ModifyWorldSettings),
+            Self::SetSceneSpawn => Some(C::SetPlayerStart),
+            Self::PlayFromHere => Some(C::Teleport),
+            Self::RegenerateScene | Self::ResetScene => Some(C::RegenerateWorld),
+            Self::SaveWorld | Self::LoadWorld | Self::ValidateWorld | Self::ExportWorldgen | Self::SceneMutation => None,
         }
     }
 }
@@ -221,6 +286,23 @@ impl EditorCommandBus {
         self.active_gesture
             .as_ref()
             .map_or(0, |gesture| gesture.batch.operation_count())
+    }
+
+    /// Applies and records one typed transaction through the canonical command path.
+    /// UI/frontends should prefer this over mutating the world and separately pushing history.
+    pub fn execute_transaction(
+        &mut self,
+        world: &mut GameWorld,
+        command: EditorCommand,
+        transaction: EditTransaction,
+    ) -> Result<(), String> {
+        if transaction.is_empty() {
+            self.record_event(command);
+            return Ok(());
+        }
+        transaction.apply(world)?;
+        self.record_transaction(command, transaction);
+        Ok(())
     }
 
     /// Records a typed transaction. When a gesture is open, operations from
@@ -718,5 +800,62 @@ mod tests {
                 .get(2, 3),
             TileKind::Road
         );
+    }
+}
+
+#[cfg(test)]
+mod canonical_command_tests {
+    use super::*;
+    use crate::AuthoringCapability;
+
+    #[test]
+    fn canonical_command_ids_are_stable_and_not_ui_labels() {
+        assert_eq!(EditorCommandKind::SetSceneSpawn.id(), "world.player_start.set");
+        assert_eq!(EditorCommandKind::PlayFromHere.id(), "runtime.play_from_here");
+        assert_eq!(EditorCommandKind::PlaceEntity.id(), "world.entity.place");
+        assert_eq!(EditorCommandKind::PlacePrefab.id(), "world.prefab.place");
+        assert_eq!(EditorCommandKind::ApplyBrush.id(), "world.brush.apply");
+    }
+
+    #[test]
+    fn play_from_here_is_runtime_only_and_player_start_is_persistent() {
+        assert!(!EditorCommandKind::PlayFromHere.mutates_world());
+        assert!(EditorCommandKind::SetSceneSpawn.mutates_world());
+        assert_eq!(
+            EditorCommandKind::SetSceneSpawn.required_capability(),
+            Some(AuthoringCapability::SetPlayerStart)
+        );
+    }
+
+    #[test]
+    fn execute_transaction_applies_and_records_one_reversible_history_step() {
+        use crate::EditOperation;
+        use haven_core::{GameWorld, ProjectSceneId, SceneId, TileKind};
+
+        let mut world = GameWorld::starter();
+        let scene_id = ProjectSceneId::from(SceneId::Farmstead);
+        let before = world.scene_by_id(&scene_id).expect("farmstead").map.get(2, 2);
+        let mut transaction = EditTransaction::new("Canonical road edit", scene_id.clone());
+        transaction.push(EditOperation::SetTile {
+            cell: GridPos { x: 2, y: 2 },
+            before,
+            after: TileKind::Road,
+        });
+        let command = EditorCommand::new(
+            EditorCommandKind::PaintTerrain,
+            EditorCommandSource::MainEditor,
+            "test",
+            Some(scene_id.code().to_string()),
+            Some("material.road".to_string()),
+            vec![GridPos { x: 2, y: 2 }],
+            "Canonical road edit",
+        );
+        let mut bus = EditorCommandBus::with_limit(8);
+        bus.execute_transaction(&mut world, command, transaction)
+            .expect("execute");
+        assert_eq!(world.scene_by_id(&scene_id).expect("farmstead").map.get(2, 2), TileKind::Road);
+        assert_eq!(bus.undo_len(), 1);
+        bus.undo_world(&mut world).expect("undo");
+        assert_eq!(world.scene_by_id(&scene_id).expect("farmstead").map.get(2, 2), before);
     }
 }

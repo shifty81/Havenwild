@@ -6,6 +6,7 @@ pub mod capabilities;
 pub mod canvas;
 pub mod building_validation;
 pub mod command_bus;
+pub mod context;
 pub mod diagnostics;
 mod edit_operation;
 pub mod hit_testing;
@@ -32,6 +33,10 @@ pub use canvas::{
 pub use command_bus::{
     CommandHistoryStep, CommandPayload, CommandTarget, CommandUndoStep, EditorCommand,
     EditorCommandBus, EditorCommandKind, EditorCommandSource, GridPos,
+};
+pub use context::{
+    AuthoringContext, AuthoringCursor, AuthoringEditScope, AuthoringResourceKind,
+    AuthoringRuntimeState, AuthoringSelectionKind, AuthoringWorkspaceKind, GameCanvasContextKind,
 };
 pub use diagnostics::InspectorReport;
 pub use haven_core::{ObjectId, RegionNodeId, StampInstanceId, TransitionId, ZoneId};

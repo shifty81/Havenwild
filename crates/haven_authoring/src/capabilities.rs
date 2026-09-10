@@ -20,6 +20,8 @@ pub enum AuthoringCapability {
     CreateZone,
     ModifyRoads,
     PlaceNpc,
+    PlaceEntity,
+    SetPlayerStart,
     ModifyWorldSettings,
     RegenerateWorld,
     LiveReload,
@@ -33,7 +35,7 @@ pub enum AuthoringCapability {
 }
 
 impl AuthoringCapability {
-    pub const ALL: [Self; 22] = [
+    pub const ALL: [Self; 24] = [
         Self::InspectWorld,
         Self::PaintTerrain,
         Self::ReplaceTerrain,
@@ -46,6 +48,8 @@ impl AuthoringCapability {
         Self::CreateZone,
         Self::ModifyRoads,
         Self::PlaceNpc,
+        Self::PlaceEntity,
+        Self::SetPlayerStart,
         Self::ModifyWorldSettings,
         Self::RegenerateWorld,
         Self::LiveReload,
@@ -72,6 +76,8 @@ impl AuthoringCapability {
             Self::CreateZone => "world.zone.create",
             Self::ModifyRoads => "world.road.modify",
             Self::PlaceNpc => "world.npc.place",
+            Self::PlaceEntity => "world.entity.place",
+            Self::SetPlayerStart => "world.player_start.set",
             Self::ModifyWorldSettings => "world.settings.modify",
             Self::RegenerateWorld => "world.pcg.regenerate",
             Self::LiveReload => "runtime.live_reload",
@@ -90,7 +96,10 @@ impl AuthoringCapability {
 pub enum AuthoringFrontendKind {
     NativeDeveloperEditor,
     PlayerWorldBuilder,
+    /// Lightweight in-game inspection/diagnostics surface.
     DeveloperOverlay,
+    /// Explicit in-game world-authoring mode entered from the developer overlay.
+    RuntimeDeveloperEditor,
     Automation,
 }
 
@@ -124,6 +133,8 @@ impl AuthoringProfile {
                 AuthoringCapability::CreateZone,
                 AuthoringCapability::ModifyRoads,
                 AuthoringCapability::PlaceNpc,
+                AuthoringCapability::PlaceEntity,
+                AuthoringCapability::SetPlayerStart,
                 AuthoringCapability::ModifyWorldSettings,
             ],
         )
@@ -136,6 +147,33 @@ impl AuthoringProfile {
                 AuthoringCapability::InspectWorld,
                 AuthoringCapability::RuntimeDiagnostics,
                 AuthoringCapability::LiveReload,
+                AuthoringCapability::DebugSpawn,
+                AuthoringCapability::Teleport,
+            ],
+        )
+    }
+
+    pub fn runtime_developer_editor() -> Self {
+        Self::new(
+            AuthoringFrontendKind::RuntimeDeveloperEditor,
+            [
+                AuthoringCapability::InspectWorld,
+                AuthoringCapability::PaintTerrain,
+                AuthoringCapability::ReplaceTerrain,
+                AuthoringCapability::ModifyWater,
+                AuthoringCapability::SetStructuralLevel,
+                AuthoringCapability::PlaceObject,
+                AuthoringCapability::DeleteObject,
+                AuthoringCapability::PlaceStructure,
+                AuthoringCapability::DeleteStructure,
+                AuthoringCapability::CreateZone,
+                AuthoringCapability::ModifyRoads,
+                AuthoringCapability::PlaceNpc,
+                AuthoringCapability::PlaceEntity,
+                AuthoringCapability::SetPlayerStart,
+                AuthoringCapability::ModifyWorldSettings,
+                AuthoringCapability::LiveReload,
+                AuthoringCapability::RuntimeDiagnostics,
                 AuthoringCapability::DebugSpawn,
                 AuthoringCapability::Teleport,
             ],
@@ -158,6 +196,8 @@ impl AuthoringProfile {
                 AuthoringCapability::CreateZone,
                 AuthoringCapability::ModifyRoads,
                 AuthoringCapability::PlaceNpc,
+                AuthoringCapability::PlaceEntity,
+                AuthoringCapability::SetPlayerStart,
                 AuthoringCapability::ModifyWorldSettings,
                 AuthoringCapability::RegenerateWorld,
             ],
@@ -206,5 +246,10 @@ mod tests {
         assert!(profile.allows(AuthoringCapability::LiveReload));
         assert!(!profile.allows(AuthoringCapability::PaintTerrain));
         assert!(!profile.allows(AuthoringCapability::PlaceStructure));
+
+        let runtime_editor = AuthoringProfile::runtime_developer_editor();
+        assert!(runtime_editor.allows(AuthoringCapability::PaintTerrain));
+        assert!(runtime_editor.allows(AuthoringCapability::SetPlayerStart));
+        assert!(!runtime_editor.allows(AuthoringCapability::ModifyAssetSource));
     }
 }

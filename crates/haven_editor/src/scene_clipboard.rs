@@ -677,6 +677,7 @@ fn transaction_cells(transaction: &EditTransaction) -> Vec<GridPos> {
             | EditOperation::SetStructuralLevel { cell, .. }
             | EditOperation::SetAutotileOverride { cell, .. }
             | EditOperation::SetZone { cell, .. } => Some(*cell),
+            EditOperation::SetSceneSpawn { after, .. } => Some(*after),
             EditOperation::InsertObject { object } | EditOperation::RemoveObject { object } => {
                 Some(GridPos {
                     x: object.x,

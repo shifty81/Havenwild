@@ -193,15 +193,10 @@ impl Game {
             && self.editor_tab != EditorTab::Paint
             && is_key_pressed(KeyCode::P)
         {
-            self.push_undo_snapshot();
-            let scene = self.world.active_mut();
-            scene.spawn_x = self.selected_cell.0;
-            scene.spawn_y = self.selected_cell.1;
-            self.status_message = format!(
-                "Set {} spawn to {}, {}",
-                scene.name, scene.spawn_x, scene.spawn_y
-            );
-            self.log.event(&self.status_message);
+            self.set_active_scene_player_start(GridPos {
+                x: self.selected_cell.0,
+                y: self.selected_cell.1,
+            });
         }
         if self.dev_mode
             && is_key_pressed(KeyCode::R)

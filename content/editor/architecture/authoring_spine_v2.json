@@ -1,0 +1,99 @@
+{
+  "schema": "havenwild.authoring_spine.v2",
+  "pass": "HW-AUTHORING-SPINE-02",
+  "purpose": "One canonical authoring context, command vocabulary, reversible transaction path and frontend capability contract for the native editor, explicit runtime editor, lightweight F3 developer overlay and automation.",
+  "creatorWorkflow": {
+    "primarySurface": "game_canvas",
+    "interactionLoop": [
+      "choose_context",
+      "choose_layer",
+      "choose_resource",
+      "choose_compatible_tool",
+      "author_on_canvas",
+      "inspect_or_adjust",
+      "save_or_playtest"
+    ],
+    "spawnRule": "Spawn is not a separate studio or tool. Player Start, NPCs, animals and spawners are entity definitions/resources placed through the ordinary contextual Place workflow.",
+    "playFromHereRule": "Play From Here is an ephemeral runtime launch command and never rewrites the persistent Player Start.",
+    "manualAuthoringRule": "Raw atlas/tile overrides, brushes and prefabs use the same command/transaction spine as semantic authoring."
+  },
+  "contexts": {
+    "workspaces": [
+      "game_canvas",
+      "assets",
+      "pixel",
+      "animation",
+      "character",
+      "logic",
+      "sound"
+    ],
+    "gameCanvasContexts": [
+      "world",
+      "scene",
+      "scene_library",
+      "routes",
+      "ui"
+    ],
+    "editScopes": [
+      "world",
+      "region",
+      "chunk",
+      "scene",
+      "source",
+      "instance_override"
+    ],
+    "resourceKinds": [
+      "source_sheet",
+      "tile_set",
+      "material",
+      "asset",
+      "entity_definition",
+      "prefab",
+      "brush",
+      "rule",
+      "scene",
+      "ui_document",
+      "animation",
+      "character",
+      "sound",
+      "logic"
+    ]
+  },
+  "frontendProfiles": {
+    "nativeDeveloperEditor": "full project authoring authority",
+    "developerOverlay": "lightweight F3 inspection, diagnostics, live reload, debug spawn and teleport only",
+    "runtimeDeveloperEditor": "explicit in-game authoring mode; world/content authoring allowed, source-asset authority remains outside runtime",
+    "playerWorldBuilder": "host/player-facing world construction subset",
+    "automation": "headless world authoring subset"
+  },
+  "canonicalCommandIdsAdded": [
+    "world.entity.place",
+    "world.prefab.place",
+    "world.brush.apply",
+    "world.raw_tile_override.place",
+    "world.player_start.set",
+    "runtime.play_from_here"
+  ],
+  "transactionRules": [
+    "world mutations should execute through EditorCommandBus.execute_transaction or its future batch equivalent",
+    "typed transactions must be reversible and validate expected-before state before replay",
+    "legacy snapshot history remains supported during migration",
+    "new world mutation paths must not require UI-owned mutation semantics"
+  ],
+  "firstMigratedRuntimeMutation": {
+    "command": "world.player_start.set",
+    "legacyBehavior": "F3 P directly wrote SceneMap.spawn_x/spawn_y after snapshot capture",
+    "newBehavior": "F3 P builds EditTransaction::set_scene_spawn and executes it through EditorCommandBus.execute_transaction",
+    "undoRedo": "F3 now uses transaction-aware undo_world/redo_world while retaining snapshot compatibility"
+  },
+  "deferred": [
+    "native Game Canvas context adapter",
+    "entity definition persistence/model",
+    "contextual entity palette and Player Start visual marker",
+    "LDtk-style layer normalization",
+    "raw atlas inspector",
+    "terrain/autotile reset",
+    "structural cliff/ramp/cave authoring reset",
+    "F3 presentation/performance redesign"
+  ]
+}

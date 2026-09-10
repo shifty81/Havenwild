@@ -34,6 +34,10 @@ pub enum EditOperation {
         before: ZoneKind,
         after: ZoneKind,
     },
+    SetSceneSpawn {
+        before: GridPos,
+        after: GridPos,
+    },
     InsertObject {
         object: PlacedObject,
     },
@@ -156,6 +160,9 @@ impl EditOperation {
                 let scene = scene_mut(world, scene_id)?;
                 expect_value("zone", scene.zone_at(cell.x, cell.y), *before, *cell)?;
                 scene.set_zone(cell.x, cell.y, *after);
+            }
+            EditOperation::SetSceneSpawn { before, after } => {
+                set_scene_spawn_value(world, scene_id, *before, *after)?;
             }
             EditOperation::InsertObject { object } => {
                 let scene = scene_mut(world, scene_id)?;
@@ -330,6 +337,9 @@ impl EditOperation {
                 expect_value("zone", scene.zone_at(cell.x, cell.y), *after, *cell)?;
                 scene.set_zone(cell.x, cell.y, *before);
             }
+            EditOperation::SetSceneSpawn { before, after } => {
+                set_scene_spawn_value(world, scene_id, *after, *before)?;
+            }
             EditOperation::InsertObject { object } => {
                 let scene = scene_mut(world, scene_id)?;
                 let scene_name = scene.name.clone();
@@ -450,6 +460,34 @@ fn expect_value<T: PartialEq + std::fmt::Debug>(
             cell.x, cell.y, expected, actual
         ));
     }
+    Ok(())
+}
+
+fn set_scene_spawn_value(
+    world: &mut GameWorld,
+    scene_id: &ProjectSceneId,
+    expected: GridPos,
+    target: GridPos,
+) -> Result<(), String> {
+    let scene = scene_mut(world, scene_id)?;
+    let actual = GridPos {
+        x: scene.spawn_x,
+        y: scene.spawn_y,
+    };
+    if actual != expected {
+        return Err(format!(
+            "scene {} player start changed before transaction replay: expected {}, {}, found {}, {}",
+            scene.name, expected.x, expected.y, actual.x, actual.y
+        ));
+    }
+    if !scene.contains_cell(target.x, target.y) {
+        return Err(format!(
+            "player start {}, {} is outside scene {} bounds {}x{}",
+            target.x, target.y, scene.name, scene.dimensions.width, scene.dimensions.height
+        ));
+    }
+    scene.spawn_x = target.x;
+    scene.spawn_y = target.y;
     Ok(())
 }
 

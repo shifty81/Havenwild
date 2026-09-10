@@ -299,3 +299,29 @@ fn expandable_stamp_resize_round_trips_by_stable_id() {
         &before
     );
 }
+
+#[test]
+fn player_start_transaction_round_trips_and_validates_bounds() {
+    let mut world = GameWorld::starter();
+    let scene_id = ProjectSceneId::from(SceneId::Farmstead);
+    let before = {
+        let scene = world.scene_by_id(&scene_id).expect("farmstead");
+        GridPos { x: scene.spawn_x, y: scene.spawn_y }
+    };
+    let target = GridPos { x: 7, y: 9 };
+    let transaction = EditTransaction::set_scene_spawn(&world, scene_id.clone(), target)
+        .expect("build player start transaction");
+    assert_eq!(transaction.operation_count(), 1);
+
+    transaction.apply(&mut world).expect("apply player start");
+    let scene = world.scene_by_id(&scene_id).expect("farmstead");
+    assert_eq!((scene.spawn_x, scene.spawn_y), (target.x, target.y));
+
+    transaction.revert(&mut world).expect("revert player start");
+    let scene = world.scene_by_id(&scene_id).expect("farmstead");
+    assert_eq!((scene.spawn_x, scene.spawn_y), (before.x, before.y));
+
+    let scene = world.scene_by_id(&scene_id).expect("farmstead");
+    let invalid = GridPos { x: scene.dimensions.width as i32, y: 0 };
+    assert!(EditTransaction::set_scene_spawn(&world, scene_id, invalid).is_err());
+}
