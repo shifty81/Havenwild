@@ -1,0 +1,56 @@
+{
+  "schema": "havenwild.patch_lineage_contract.v1",
+  "project": "Havenwild",
+  "projectId": "havenwild",
+  "authority": {
+    "discoveryClassificationRetention": "forge-vault",
+    "applyTransaction": "havenwild-pcc",
+    "qualityGate": "havenwild-pcc"
+  },
+  "discovery": {
+    "classifyBeforeQueue": true,
+    "discoveryAloneMayQueue": false,
+    "historicalDestinationKind": "forge-vault-project-patch-lineage",
+    "retainTransportHash": true,
+    "retainManifest": true,
+    "retainSidecar": true,
+    "retainObservedTimestamps": true,
+    "retainOriginalSourceLocation": true
+  },
+  "lineageClasses": [
+    "ancestor",
+    "direct-parent",
+    "current",
+    "descendant-candidate",
+    "parallel-branch",
+    "superseded",
+    "duplicate",
+    "unknown-lineage",
+    "invalid-or-untrusted"
+  ],
+  "pendingEligibility": {
+    "requiredClass": "descendant-candidate",
+    "manifestMustValidate": true,
+    "declaredBaseMustBeCompatible": true,
+    "projectMustMatch": true,
+    "hashMustValidate": true,
+    "automaticHistoricalPromotionForbidden": true
+  },
+  "havenwildApply": {
+    "mode": "project-native-root-drop",
+    "normalFlow": [
+      "approved candidate staged for Havenwild root-drop intake",
+      "Full Quality Gate validates and transactionally applies it",
+      "consumed transport is archived",
+      "GREEN certification establishes new authority",
+      "protected source-control publication may then occur"
+    ]
+  },
+  "legacyInbox": {
+    "path": "updates/inbox",
+    "role": "machine-local-transient-only",
+    "gitSourceAuthority": false,
+    "historicalStorage": false,
+    "forgePatchLineageStorage": false
+  }
+}

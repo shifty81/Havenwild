@@ -42,6 +42,11 @@ __pycache__/
 # Local authoring/session state; canonical schemas/configuration live outside WORKSPACE
 /WORKSPACE/
 
+# Forge/Vault owns historical patch lineage. This legacy project-local inbox is
+# transient only and must never become repository history or a pending-update
+# source merely because Forge discovers old transport packages.
+/updates/inbox/*
+
 # Binary/source art and audio are never committed accidentally
 *.png
 *.jpg

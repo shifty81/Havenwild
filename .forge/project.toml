@@ -80,6 +80,14 @@ applied_root = "artifacts/updates/applied"
 failed_root = "artifacts/updates/failed"
 undone_root = "artifacts/updates/undone"
 project_state_root = ".havenwild/updates"
+lineage_contract = "content/architecture/havenwild_patch_lineage_contract_v1.json"
+discovery_policy = "classify-lineage-before-queue"
+historical_discovery_owner = "forge-vault"
+historical_destination = "project-patch-lineage"
+historical_may_enter_pending_queue = false
+pending_candidate_policy = "validated-descendant-with-compatible-base"
+legacy_inbox = "updates/inbox"
+legacy_inbox_role = "machine-local-transient-only"
 
 [artifacts]
 project_root = "artifacts"
