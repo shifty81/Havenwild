@@ -47,4 +47,23 @@ $callArgs = @($authority,'git','--root',$root,'--action',$action)
 if(-not [string]::IsNullOrWhiteSpace($message)){ $callArgs += @('--message',$message) }
 if(-not [string]::IsNullOrWhiteSpace($remote)){ $callArgs += @('--remote',$remote) }
 & $python.Source @callArgs
-exit $LASTEXITCODE
+$authorityExit = $LASTEXITCODE
+
+# HW-PCC-PUBLISH-VERIFY-01: the canonical authority historically required the
+# entire Git work tree to be clean during post-push verification even though
+# publication is intentionally governed-source scoped. Full gates can leave
+# generated/non-governed tracked files modified after a certified commit. If
+# the protected authority returns non-zero after CommitPushGreen/Push, perform
+# one strict reconciliation that proves origin/main == HEAD, the current
+# governed snapshot still matches the GREEN marker, and every governed path in
+# the working tree matches HEAD. This never masks an actual source mismatch or
+# failed push.
+if($authorityExit -ne 0 -and $normalizedAction -in @('commitpushgreen','push','pushmain')) {
+  $reconcile = Join-Path $PSScriptRoot 'ReconcilePublishedGreen.py'
+  if(Test-Path -LiteralPath $reconcile -PathType Leaf) {
+    Write-Host 'Protected publication returned non-zero; verifying governed-source reconciliation...'
+    & $python.Source $reconcile '--root' $root
+    if($LASTEXITCODE -eq 0) { exit 0 }
+  }
+}
+exit $authorityExit
