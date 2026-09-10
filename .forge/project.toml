@@ -1,0 +1,246 @@
+schema = 1
+adapter_schema = "forge.project.adapter.v1"
+adapter_version = "1.0.0"
+
+[project]
+id = "havenwild"
+name = "Havenwild"
+kind = "rust-game-editor"
+root_policy = "strict"
+authority = "project-native-pcc"
+
+[discovery]
+required_files = [
+  "Cargo.toml",
+  "HavenwildTools.cmd",
+  "tools/control/HavenwildTools.ps1",
+  "tools/control/ProjectCommandRegistry.ps1",
+  "tools/build/Build.cmd",
+]
+required_directories = [
+  "apps/haven_editor_native",
+  "crates/haven_game",
+]
+optional_files = [
+  ".havenwild/last-green-quality-gate.json",
+  ".havenwild/artifact-index.json",
+  ".havenwild/package-baseline.json",
+]
+
+[repository]
+provider = "git"
+primary_remote = "https://github.com/shifty81/Havenwild.git"
+primary_branch = "main"
+forge_owns_source_control_ui = true
+project_pcc_source_control_is_fallback_only = true
+
+[pcc]
+mode = "existing-native"
+interactive_launcher = "HavenwildTools.cmd"
+dispatch_launcher = "HavenwildTools.cmd"
+dispatch_argument_style = "positional-command-key"
+registry = "tools/control/ProjectCommandRegistry.ps1"
+command_keys_are_stable_api = true
+modify_internal_pcc = false
+
+[pcc.fallback]
+enabled = true
+launcher = "HavenwildTools.cmd"
+label = "Havenwild CLI"
+requirements = [
+  "HavenwildTools.cmd",
+  "tools/control/HavenwildTools.ps1",
+  "tools/control/ProjectCommandRegistry.ps1",
+]
+
+[status]
+green_marker = ".havenwild/last-green-quality-gate.json"
+artifact_index = ".havenwild/artifact-index.json"
+last_applied_update = ".havenwild/updates/last-applied.json"
+latest_quality_gate = ".havenwild/latest-quality-gate.json"
+latest_fast_gate = ".havenwild/latest-fast-gate.json"
+baseline_marker = ".havenwild/package-baseline.json"
+
+[quality]
+full_command = "validation.full-quality-gate"
+fast_command = "validation.fast-quality-gate"
+certified_result = "PASS"
+canonical_green_schema = "havenwild.green_quality_gate.v4"
+
+[updates]
+mode = "project-native-root-drop"
+queue_owner = "forge-vault"
+apply_owner = "havenwild-pcc"
+recognized_patterns = [
+  "Havenwild_IncrementalPatch_*.zip",
+  "Havenwild_Patch_*.zip",
+  "Havenwild_Handoff_*.zip",
+]
+applied_root = "artifacts/updates/applied"
+failed_root = "artifacts/updates/failed"
+undone_root = "artifacts/updates/undone"
+project_state_root = ".havenwild/updates"
+
+[artifacts]
+project_root = "artifacts"
+centralize_in_vault = true
+preserve_project_local_artifacts = true
+index = ".havenwild/artifact-index.json"
+package_roots = ["artifacts/packages"]
+recovery_roots = ["artifacts/recovery"]
+debug_roots = ["artifacts/debug-bundles", "artifacts/troubleshooting-bundles"]
+update_roots = ["artifacts/updates/applied", "artifacts/updates/failed", "artifacts/updates/undone"]
+
+[logs]
+roots = [
+  "logs/sessions",
+  "logs/builds",
+  "logs/validation",
+  "logs/diagnostics",
+  "logs/source-control",
+  "logs/updates",
+  "logs/commands",
+]
+
+[outputs]
+editor = "target/debug/haven_editor_native.exe"
+editor_release = "target/release/haven_editor_native.exe"
+client = "target/debug/haven_game.exe"
+client_release = "target/release/haven_game.exe"
+
+[adapter]
+python = "tools/forge/HavenwildForgeAdapter.py"
+describe_args = ["describe", "--json"]
+detect_args = ["detect", "--json"]
+status_args = ["status", "--json"]
+self_test_args = ["self-test", "--json"]
+
+[[commands]]
+forge_key = "project.status"
+pcc_key = "project.status"
+category = "status"
+mutates = false
+
+[[commands]]
+forge_key = "project.build"
+pcc_key = "build.all"
+category = "build"
+mutates = true
+
+[[commands]]
+forge_key = "project.test"
+pcc_key = "test.workspace"
+category = "test"
+mutates = false
+
+[[commands]]
+forge_key = "project.validate"
+pcc_key = "validate.source"
+category = "validation"
+mutates = false
+
+[[commands]]
+forge_key = "project.quality.full"
+pcc_key = "validation.full-quality-gate"
+category = "quality"
+mutates = true
+
+[[commands]]
+forge_key = "project.quality.fast"
+pcc_key = "validation.fast-quality-gate"
+category = "quality"
+mutates = true
+
+[[commands]]
+forge_key = "project.run.editor"
+pcc_key = "run.editor"
+category = "run"
+mutates = false
+interactive = true
+
+[[commands]]
+forge_key = "project.run.client"
+pcc_key = "run.game"
+category = "run"
+mutates = false
+interactive = true
+
+[[commands]]
+forge_key = "project.run.dev"
+pcc_key = "run.development-world"
+category = "run"
+mutates = false
+interactive = true
+
+[[commands]]
+forge_key = "project.clean"
+pcc_key = "maintenance.clean"
+category = "maintenance"
+mutates = true
+
+[[commands]]
+forge_key = "project.repair"
+pcc_key = "maintenance.repair"
+category = "maintenance"
+mutates = true
+
+[[commands]]
+forge_key = "project.doctor"
+pcc_key = "doctor.environment"
+category = "diagnostics"
+mutates = false
+
+[[commands]]
+forge_key = "project.assets.refresh"
+pcc_key = "assets.refresh-catalog"
+category = "assets"
+mutates = true
+
+[[commands]]
+forge_key = "project.assets.sync"
+pcc_key = "assets.sync-lpc"
+category = "assets"
+mutates = true
+
+[[commands]]
+forge_key = "project.update.status"
+pcc_key = "updates.status"
+category = "updates"
+mutates = false
+
+[[commands]]
+forge_key = "project.update.apply"
+pcc_key = "updates.apply-pending"
+category = "updates"
+mutates = true
+
+[[commands]]
+forge_key = "project.package.patch"
+pcc_key = "package.incremental-patch"
+category = "packaging"
+mutates = true
+
+[[commands]]
+forge_key = "project.package.rollup"
+pcc_key = "package.source-rollup"
+category = "packaging"
+mutates = true
+
+[[commands]]
+forge_key = "project.package.baseline"
+pcc_key = "package.capture-baseline"
+category = "packaging"
+mutates = true
+
+[[commands]]
+forge_key = "project.diagnostics.bundle"
+pcc_key = "diagnostics.create-debug-handoff"
+category = "diagnostics"
+mutates = true
+
+[[commands]]
+forge_key = "project.shell"
+pcc_key = "project.shell"
+category = "fallback"
+mutates = false
+interactive = true
