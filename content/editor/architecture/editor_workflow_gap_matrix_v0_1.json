@@ -1,0 +1,428 @@
+{
+  "schema": "havenwild.editor_workflow_gap_matrix.v0_1",
+  "pass": "HW-EDITOR-GAP-AUDIT-02",
+  "baseline": {
+    "greenPass": "HW-EDITOR-AUDIT-01",
+    "commit": "4fe34ca82a40547b475c29d22540c7a385434037"
+  },
+  "behaviorChange": false,
+  "creatorWorkflow": "layer -> contextual palette -> applicable tool -> Game Canvas -> Inspector -> shared authoring transaction -> save/PIE",
+  "canonicalNouns": [
+    "SourceSheet",
+    "TileSet",
+    "Material",
+    "Asset",
+    "EntityDefinition",
+    "Instance",
+    "Prefab",
+    "Brush",
+    "Rule"
+  ],
+  "referenceSystems": [
+    {
+      "id": "gamemaker",
+      "adopt": [
+        "single room/game canvas workflow",
+        "layer-specific toolbox",
+        "asset-browser drag/drop",
+        "source tileset editing window",
+        "multi-tile brushes",
+        "tile transforms"
+      ]
+    },
+    {
+      "id": "ldtk",
+      "adopt": [
+        "definitions vs instances",
+        "layer-driven contextual palette",
+        "semantic grid plus generated auto-layer separation",
+        "typed entity fields and constraints",
+        "world/level navigation"
+      ]
+    },
+    {
+      "id": "tiled",
+      "adopt": [
+        "tile and object layer distinction",
+        "templates/inherited object defaults",
+        "typed custom properties",
+        "stamp/terrain brushes",
+        "pattern automapping",
+        "chunked large-map authoring"
+      ]
+    },
+    {
+      "id": "godot",
+      "adopt": [
+        "tileset property layers",
+        "connect/path/manual terrain modes",
+        "alternative tiles",
+        "scene-backed rich placements",
+        "tile ID proxy migration"
+      ]
+    },
+    {
+      "id": "rpg_maker",
+      "adopt": [
+        "map-context gameplay marker/event placement",
+        "region/event authoring integrated with map workflow"
+      ]
+    }
+  ],
+  "lockedDecisions": {
+    "spawnTool": false,
+    "spawnWindow": false,
+    "playerStart": "unique EntityDefinition placed with standard Place",
+    "playFromHere": "ephemeral development launch command",
+    "manualAtlasPlacement": true,
+    "semanticAndGeneratedLayersSeparate": true,
+    "manualOverridesSurviveRegeneration": true,
+    "worldgenUsesEditorVocabulary": true,
+    "f3Default": "lightweight developer overlay",
+    "runtimeEditExplicit": true
+  },
+  "gaps": [
+    {
+      "id": "taxonomy.creator_nouns",
+      "priority": "P0",
+      "status": "partial",
+      "target": "reduce normal creator concepts to the nine canonical nouns; keep legacy terms only as adapters"
+    },
+    {
+      "id": "workflow.one_game_canvas",
+      "priority": "P0",
+      "status": "partial",
+      "target": "World/Scene/Routes/Library/UI are Game Canvas contexts rather than separate authoring philosophies"
+    },
+    {
+      "id": "workflow.context_palette",
+      "priority": "P0",
+      "status": "partial",
+      "target": "active layer selects compatible definitions/materials and applicable tools"
+    },
+    {
+      "id": "workflow.generic_place",
+      "priority": "P0",
+      "status": "partial",
+      "target": "Place handles compatible Asset, EntityDefinition and Prefab placement"
+    },
+    {
+      "id": "entity.definition_instance",
+      "priority": "P0",
+      "status": "missing",
+      "target": "typed EntityDefinition plus placed Instance contract with constraints and overrides"
+    },
+    {
+      "id": "entity.player_start",
+      "priority": "P0",
+      "status": "legacy_conflict",
+      "target": "unique Player Start EntityDefinition; remove direct scene-spawn special-case authority"
+    },
+    {
+      "id": "runtime.play_from_here",
+      "priority": "P0",
+      "status": "partial",
+      "target": "ephemeral launch from toolbar/context menu, never persisted as Player Start"
+    },
+    {
+      "id": "asset.source_vs_asset",
+      "priority": "P0",
+      "status": "partial",
+      "target": "Source Sheets are containers; normal palettes expose semantic/runtime-ready assets"
+    },
+    {
+      "id": "tileset.stable_tile_identity",
+      "priority": "P0",
+      "status": "partial",
+      "target": "stable source/tile/alternative IDs independent of list ordering"
+    },
+    {
+      "id": "tileset.atlas_inspector",
+      "priority": "P0",
+      "status": "partial",
+      "target": "dockable/floating source atlas with single/region/non-contiguous selection and metadata"
+    },
+    {
+      "id": "tileset.manual_exact_placement",
+      "priority": "P0",
+      "status": "partial",
+      "target": "exact atlas tile/region placement into explicit override lane"
+    },
+    {
+      "id": "tileset.transform_policy",
+      "priority": "P1",
+      "status": "partial",
+      "target": "rotate/mirror/flip only when definition metadata permits and transforms collision/anchors coherently"
+    },
+    {
+      "id": "tileset.property_layers",
+      "priority": "P0",
+      "status": "partial",
+      "target": "central per-tile collision/navigation/occlusion/interaction/surface/custom metadata"
+    },
+    {
+      "id": "terrain.material_contract",
+      "priority": "P0",
+      "status": "partial",
+      "target": "all terrain families use one Material capability/rule contract"
+    },
+    {
+      "id": "terrain.name_specific_rules",
+      "priority": "P0",
+      "status": "legacy_conflict",
+      "target": "remove normal semantic inference/behavior based on water/pond/cliff/house/etc name substrings"
+    },
+    {
+      "id": "terrain.connect_mode",
+      "priority": "P0",
+      "status": "partial",
+      "target": "neighbor-connected semantic terrain painting"
+    },
+    {
+      "id": "terrain.path_mode",
+      "priority": "P0",
+      "status": "missing",
+      "target": "stroke-local connection for roads/rivers/walls and similar features"
+    },
+    {
+      "id": "terrain.exact_mode",
+      "priority": "P0",
+      "status": "partial",
+      "target": "manual/specific tile mode coexists with semantic terrain painting"
+    },
+    {
+      "id": "terrain.semantic_visual_split",
+      "priority": "P0",
+      "status": "partial",
+      "target": "toggle semantic source independently from generated visual output"
+    },
+    {
+      "id": "rules.pattern_outputs",
+      "priority": "P0",
+      "status": "partial",
+      "target": "data-driven input neighborhood -> multi-layer output rules for cliffs/shorelines/etc"
+    },
+    {
+      "id": "rules.local_invalidation",
+      "priority": "P1",
+      "status": "partial",
+      "target": "recompute only affected neighborhoods after authoring"
+    },
+    {
+      "id": "rules.debugger",
+      "priority": "P1",
+      "status": "missing",
+      "target": "inspect matched rule, inputs, outputs, priority, probability and unsupported state"
+    },
+    {
+      "id": "variants.weighted_alternatives",
+      "priority": "P1",
+      "status": "partial",
+      "target": "deterministic weighted variants plus explicit manual alternative picker"
+    },
+    {
+      "id": "brush.persistent_library",
+      "priority": "P1",
+      "status": "partial",
+      "target": "searchable saved multi-tile/material brushes plus transient clipboard brush"
+    },
+    {
+      "id": "prefab.definition_instance",
+      "priority": "P0",
+      "status": "partial",
+      "target": "reusable multi-part semantic Prefab with linked instances and overrides"
+    },
+    {
+      "id": "prefab.create_from_selection",
+      "priority": "P1",
+      "status": "partial",
+      "target": "selection -> prefab with root/pivot/dependency/field definition"
+    },
+    {
+      "id": "prefab.instance_override",
+      "priority": "P1",
+      "status": "missing",
+      "target": "visible inherited vs overridden fields, reset override, controlled unpack"
+    },
+    {
+      "id": "inspector.single_authority",
+      "priority": "P0",
+      "status": "partial",
+      "target": "one contextual Inspector for layer/tile/definition/asset/prefab/instance"
+    },
+    {
+      "id": "inspector.multi_edit",
+      "priority": "P1",
+      "status": "missing",
+      "target": "edit common compatible fields across selected instances in one transaction"
+    },
+    {
+      "id": "logic.context_binding",
+      "priority": "P1",
+      "status": "partial",
+      "target": "open Behavior/Dialogue graph directly from selected entity/prefab without map-specific event language"
+    },
+    {
+      "id": "placement.ghost_preview",
+      "priority": "P1",
+      "status": "partial",
+      "target": "exact pending visual/footprint/validation before commit"
+    },
+    {
+      "id": "layers.creator_groups",
+      "priority": "P0",
+      "status": "partial",
+      "target": "seven collapsible creator groups with advanced child layers"
+    },
+    {
+      "id": "layers.visibility_lock_opacity",
+      "priority": "P1",
+      "status": "partial",
+      "target": "consistent controls and generated/derived/manual badges"
+    },
+    {
+      "id": "selection.transform_clipboard",
+      "priority": "P0",
+      "status": "partial",
+      "target": "same selection/clipboard/transform semantics across World and Scene scopes"
+    },
+    {
+      "id": "navigation.world_scene_browser",
+      "priority": "P1",
+      "status": "partial",
+      "target": "complete finite-world overview, scene/chunk browser, neighbors, minimap and bookmarks"
+    },
+    {
+      "id": "navigation.search_goto",
+      "priority": "P1",
+      "status": "missing",
+      "target": "search definitions/instances/scenes/chunks and go to coordinate/bookmark"
+    },
+    {
+      "id": "editor.streaming",
+      "priority": "P1",
+      "status": "partial",
+      "target": "full world descriptor remains navigable while detailed chunks/scenes hydrate lazily"
+    },
+    {
+      "id": "pcg.shared_vocabulary",
+      "priority": "P0",
+      "status": "partial",
+      "target": "PCG uses the same Materials/Entities/Prefabs/rules as manual authoring"
+    },
+    {
+      "id": "pcg.preview_diff",
+      "priority": "P1",
+      "status": "missing",
+      "target": "preview generated changes before replacing derived content"
+    },
+    {
+      "id": "pcg.manual_override_protection",
+      "priority": "P0",
+      "status": "partial",
+      "target": "regeneration cannot silently destroy explicit manual overrides"
+    },
+    {
+      "id": "asset.hot_reload",
+      "priority": "P1",
+      "status": "partial",
+      "target": "stable resource IDs drive event-based refresh in open canvas/PIE"
+    },
+    {
+      "id": "asset.id_migration",
+      "priority": "P1",
+      "status": "missing",
+      "target": "alias/proxy mapping for catalog ID changes"
+    },
+    {
+      "id": "asset.provenance_inspector",
+      "priority": "P1",
+      "status": "partial",
+      "target": "source/license/attribution lineage available without cluttering normal palette"
+    },
+    {
+      "id": "validation.inline_navigation",
+      "priority": "P1",
+      "status": "partial",
+      "target": "diagnostic selects/focuses offending tile/entity/definition/rule and explains repair"
+    },
+    {
+      "id": "parity.shared_render_authority",
+      "priority": "P0",
+      "status": "partial",
+      "target": "editor/client resolve world visuals from same stable asset/material/structure authority"
+    },
+    {
+      "id": "parity.command_delta_tests",
+      "priority": "P0",
+      "status": "missing",
+      "target": "native/F3/automation equivalent actions produce identical semantic world deltas"
+    },
+    {
+      "id": "pie.controls",
+      "priority": "P1",
+      "status": "partial",
+      "target": "Play/Play From Here/Pause/Restart/Stop integrated with Game Canvas"
+    },
+    {
+      "id": "f3.lightweight_default",
+      "priority": "P0",
+      "status": "legacy_conflict",
+      "target": "F3 toggles diagnostics/inspection only; Runtime Edit entered explicitly"
+    },
+    {
+      "id": "f3.performance_budget",
+      "priority": "P0",
+      "status": "partial",
+      "target": "no catalog scanning/full-world index construction/unbounded off-screen work in per-frame draw"
+    },
+    {
+      "id": "f3.runtime_edit_parity",
+      "priority": "P1",
+      "status": "partial",
+      "target": "compact runtime presentation over shared authoring commands, not a second editor implementation"
+    },
+    {
+      "id": "recovery.autosave_session",
+      "priority": "P1",
+      "status": "partial",
+      "target": "non-destructive editor session recovery separate from Git/PCC certification"
+    },
+    {
+      "id": "ux.context_menu",
+      "priority": "P1",
+      "status": "partial",
+      "target": "Play From Here, Set Player Start Here, Paste, Inspect, Open Atlas/Definition and compatible actions"
+    },
+    {
+      "id": "ux.shortcut_consistency",
+      "priority": "P1",
+      "status": "partial",
+      "target": "same core shortcuts across compatible canvases with conflicts resolved contextually"
+    },
+    {
+      "id": "ux.drag_drop",
+      "priority": "P1",
+      "status": "partial",
+      "target": "Asset/Entity/Prefab browser drag-drop is a standard Game Canvas placement path"
+    },
+    {
+      "id": "scene.inheritance_templates",
+      "priority": "P2",
+      "status": "missing",
+      "target": "evaluate base-scene/template inheritance for recurring interiors after Prefab semantics stabilize"
+    },
+    {
+      "id": "tileset.scene_backed_placements",
+      "priority": "P2",
+      "status": "partial",
+      "target": "reserve richer scene/entity-backed placements for behavior-heavy content while keeping simple visuals atlas-backed"
+    },
+    {
+      "id": "rules.optional_groups",
+      "priority": "P2",
+      "status": "missing",
+      "target": "support optional biome/level-specific rule groups with deterministic priority/probability after core rule authoring stabilizes"
+    }
+  ]
+}
