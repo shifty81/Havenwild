@@ -6,13 +6,18 @@
 //! rotation API: if a provider cannot name authored source cells for a role,
 //! the role remains unresolved until the source catalog/world topology is fixed.
 
-use crate::lpc_mapped_terrain::{
-    lpc_mapped_terrain_runtime_entry_for_map, lpc_mapped_terrain_transition_entry_for_map,
-    LpcMappedTerrainEntry,
+use crate::{
+    lpc_mapped_terrain::{
+        canonical_corner_tuple_for_map_tile, lpc_mapped_terrain_exact_entry_for_map,
+        lpc_mapped_terrain_runtime_entry_for_map, lpc_mapped_terrain_transition_entry_for_map,
+        CanonicalCornerTuple, LpcMappedTerrainEntry,
+    },
+    terrain_atlas_catalog_v2::{ATLAS_ID_V7_MAPPED, V7_MAPPED_ATLAS_PATH},
 };
 use haven_core::TavernMap;
 
 pub const AUTHORED_TERRAIN_CELL_PX: u16 = 32;
+pub const AUTHORED_SURFACE_DRAW_PLAN_V2_SCHEMA: &str = "havenwild.authored_surface_draw_plan.v2";
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub struct AuthoredSourceCell {
@@ -71,20 +76,83 @@ pub struct AuthoredSurfaceResolution {
     pub transition: Option<LpcMappedTerrainEntry>,
 }
 
+/// Explicit atlas-resolution state shared by runtime, editor and diagnostics.
+/// `OwnerFillFallback` is not fabricated art: it means the semantic owner fill
+/// remains visible while the unsupported mixed tuple is routed to authoring.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuthoredSurfaceResolutionStatusV2 {
+    ExactTuple,
+    OwnerFillFallback,
+    Unmapped,
+}
+
+/// Provider-facing visual plan for one V7 render location. This is the first
+/// atlas-level record that editor and runtime can both consume directly. It
+/// carries stable atlas identity plus the exact tuple that produced the draw,
+/// while gameplay/collision authority stays in `haven_world::SurfaceTerrainRecipeV1`.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct AuthoredSurfaceDrawPlanV2 {
+    pub atlas_id: &'static str,
+    pub atlas_path: &'static str,
+    pub tuple: Option<CanonicalCornerTuple>,
+    pub status: AuthoredSurfaceResolutionStatusV2,
+    pub base: Option<LpcMappedTerrainEntry>,
+    pub transition: Option<LpcMappedTerrainEntry>,
+}
+
+impl AuthoredSurfaceDrawPlanV2 {
+    pub const fn is_exact(self) -> bool {
+        matches!(self.status, AuthoredSurfaceResolutionStatusV2::ExactTuple)
+    }
+
+    pub const fn has_any_authored_pixels(self) -> bool {
+        self.base.is_some() || self.transition.is_some()
+    }
+}
+
+pub fn resolve_authored_v7_surface_draw_plan_v2(
+    map: &TavernMap,
+    x: i32,
+    y: i32,
+) -> AuthoredSurfaceDrawPlanV2 {
+    let tuple = canonical_corner_tuple_for_map_tile(map, x, y);
+    let exact = lpc_mapped_terrain_exact_entry_for_map(map, x, y);
+    let base = lpc_mapped_terrain_runtime_entry_for_map(map, x, y);
+    let transition = lpc_mapped_terrain_transition_entry_for_map(map, x, y);
+    let status = if exact.is_some() {
+        AuthoredSurfaceResolutionStatusV2::ExactTuple
+    } else if base.is_some() {
+        AuthoredSurfaceResolutionStatusV2::OwnerFillFallback
+    } else {
+        AuthoredSurfaceResolutionStatusV2::Unmapped
+    };
+
+    AuthoredSurfaceDrawPlanV2 {
+        atlas_id: ATLAS_ID_V7_MAPPED,
+        atlas_path: V7_MAPPED_ATLAS_PATH,
+        tuple,
+        status,
+        base,
+        transition,
+    }
+}
+
 pub fn resolve_authored_v7_surface_for_map(
     map: &TavernMap,
     x: i32,
     y: i32,
 ) -> AuthoredSurfaceResolution {
+    let plan = resolve_authored_v7_surface_draw_plan_v2(map, x, y);
     AuthoredSurfaceResolution {
-        base: lpc_mapped_terrain_runtime_entry_for_map(map, x, y),
-        transition: lpc_mapped_terrain_transition_entry_for_map(map, x, y),
+        base: plan.base,
+        transition: plan.transition,
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use haven_core::TileKind;
 
     #[test]
     fn source_cells_are_always_whole_32px_units() {
@@ -94,5 +162,24 @@ mod tests {
         let stamp = AuthoredSourceStamp::new(1, 6, 3, 3);
         assert_eq!(stamp.width_px(), 96);
         assert_eq!(stamp.height_px(), 96);
+    }
+
+    #[test]
+    fn v2_draw_plan_keeps_stable_atlas_identity() {
+        let map = TavernMap::empty_with(TileKind::Grass);
+        let plan = resolve_authored_v7_surface_draw_plan_v2(&map, 4, 4);
+        assert_eq!(plan.atlas_id, ATLAS_ID_V7_MAPPED);
+        assert_eq!(plan.atlas_path, V7_MAPPED_ATLAS_PATH);
+        assert!(plan.is_exact());
+        assert!(plan.base.is_some());
+    }
+
+    #[test]
+    fn legacy_resolution_is_a_projection_of_v2_plan() {
+        let map = TavernMap::empty_with(TileKind::Sand);
+        let plan = resolve_authored_v7_surface_draw_plan_v2(&map, 4, 4);
+        let legacy = resolve_authored_v7_surface_for_map(&map, 4, 4);
+        assert_eq!(legacy.base, plan.base);
+        assert_eq!(legacy.transition, plan.transition);
     }
 }

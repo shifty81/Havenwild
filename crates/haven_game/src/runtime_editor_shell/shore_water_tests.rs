@@ -25,7 +25,7 @@ fn exact_editor_paint_does_not_expand_one_land_cell_into_a_shallow_square() {
 }
 
 #[test]
-fn coastline_mode_explicitly_builds_a_shallow_buffer() {
+fn coastline_mode_preserves_authored_water_depth() {
     let mut map = TavernMap::empty_with(TileKind::DeepWater);
     map.set(8, 8, TileKind::Sand);
 
@@ -33,10 +33,10 @@ fn coastline_mode_explicitly_builds_a_shallow_buffer() {
         apply_editor_terrain_paint_policy(&mut map, 8, 8, 8, 8, TerrainPaintMode::Coastline)
             .expect("coastline terrain paint");
 
-    assert!(report.total_mutations() > 0);
+    assert_eq!(report.total_mutations(), 0);
     assert_eq!(map.get(8, 8), TileKind::Sand);
     for (x, y) in [(7, 8), (9, 8), (8, 7), (8, 9)] {
-        assert_eq!(map.get(x, y), TileKind::ShallowWater);
+        assert_eq!(map.get(x, y), TileKind::DeepWater);
     }
 }
 
@@ -74,7 +74,7 @@ fn exact_editor_paint_preserves_incompatible_mountain_path_for_diagnostics() {
 }
 
 #[test]
-fn coastline_mode_can_apply_the_authored_v7_road_shoulder() {
+fn coastline_mode_reports_unsupported_contact_without_rewriting_material() {
     let mut map = TavernMap::empty_with(TileKind::Grass);
     map.set(8, 8, TileKind::MountainPath);
     map.set(9, 8, TileKind::Sand);
@@ -83,7 +83,8 @@ fn coastline_mode_can_apply_the_authored_v7_road_shoulder() {
         apply_editor_terrain_paint_policy(&mut map, 8, 8, 9, 8, TerrainPaintMode::Coastline)
             .expect("coastline terrain paint");
 
-    assert!(report.total_mutations() > 0);
-    assert_eq!(map.get(8, 8), TileKind::Road);
+    assert_eq!(report.total_mutations(), 0);
+    assert!(report.unsupported_contacts > 0);
+    assert_eq!(map.get(8, 8), TileKind::MountainPath);
     assert_eq!(map.get(9, 8), TileKind::Sand);
 }

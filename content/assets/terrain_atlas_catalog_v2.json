@@ -1,0 +1,205 @@
+{
+  "schema": "havenwild.terrain_atlas_catalog.v2",
+  "version": "2.0.0-alpha.1",
+  "tileSize": [
+    32,
+    32
+  ],
+  "purpose": "Single catalog for terrain and structural source/publication identity. Existing authored sheets remain source-of-truth; renderers consume cataloged regions and never invent replacement pixels.",
+  "atlases": [
+    {
+      "id": "surface.v7.mapped",
+      "class": "surface_corner_tuple",
+      "provider": "lpc_terrain_v7",
+      "authority": "production",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.tsx",
+      "publishedPath": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png",
+      "manifestPath": "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json",
+      "cellPx": 32,
+      "roles": [
+        "owner_fill",
+        "exact_corner_tuple",
+        "three_material_junction",
+        "four_material_junction",
+        "editor_preview"
+      ]
+    },
+    {
+      "id": "surface.v7.direct",
+      "class": "surface_direct_source",
+      "provider": "lpc_terrain_v7",
+      "authority": "compatibility",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "publishedPath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "manifestPath": "content/worldgen/v7_terrain_role_catalog_v0_1.json",
+      "cellPx": 32,
+      "roles": [
+        "source_pure_fallback",
+        "reviewed_pure_fill",
+        "water_depth_rim_source"
+      ]
+    },
+    {
+      "id": "surface.v7.transition_compat",
+      "class": "transition_compatibility",
+      "provider": "lpc_terrain_v7",
+      "authority": "compatibility",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "publishedPath": "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.png",
+      "manifestPath": "assets/generated/worldgen_v0_1/terrain/terrain_autotile_47_32.json",
+      "cellPx": 32,
+      "roles": [
+        "legacy_wang_compatibility",
+        "dirty_preview",
+        "unsupported_project_adapter"
+      ]
+    },
+    {
+      "id": "structure.elizawy.cliff.summer",
+      "class": "structural_cliff",
+      "provider": "elizawy_lpc_revised",
+      "authority": "production",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "publishedPath": "assets/generated/worldgen_v0_1/terrain/elizawy_cliff_runtime_overlay_summer.png",
+      "cellPx": 32,
+      "roles": [
+        "cliff_crest",
+        "cliff_body",
+        "cliff_foot",
+        "cliff_corner",
+        "cliff_terminal",
+        "ladder",
+        "cave_host"
+      ]
+    },
+    {
+      "id": "structure.lpc.cliff_ramp.grass",
+      "class": "structural_stamp",
+      "provider": "oga_lpc_cliff_family",
+      "authority": "production",
+      "sourcePath": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "publishedPath": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "manifestPath": "content/worldgen/lpc_directional_cliff_ramp_authority_v0_1.json",
+      "cellPx": 32,
+      "roles": [
+        "directional_ramp_rise_left",
+        "directional_ramp_rise_right",
+        "vertical_ridge_middle"
+      ]
+    },
+    {
+      "id": "structure.elizawy.waterfall",
+      "class": "structural_stamp",
+      "provider": "elizawy_lpc_revised",
+      "authority": "production",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/Waterfall.png",
+      "publishedPath": "assets/source/licensed/lpc_revised/Terrain/Waterfall.png",
+      "cellPx": 32,
+      "roles": [
+        "waterfall_face",
+        "waterfall_cap",
+        "waterfall_foot"
+      ]
+    },
+    {
+      "id": "surface.elizawy.summer.reference",
+      "class": "surface_direct_source",
+      "provider": "elizawy_lpc_revised",
+      "authority": "source_reference",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+      "publishedPath": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+      "cellPx": 32,
+      "roles": [
+        "legacy_reference_only",
+        "non_v7_terrain_evidence"
+      ]
+    }
+  ],
+  "directTransitionBlocks": [
+    {
+      "group": "grass_over_dirt",
+      "outerOrigin": [
+        6,
+        0
+      ],
+      "innerOrigin": [
+        6,
+        3
+      ]
+    },
+    {
+      "group": "grass_over_sand",
+      "outerOrigin": [
+        6,
+        5
+      ],
+      "innerOrigin": [
+        6,
+        8
+      ]
+    },
+    {
+      "group": "grass_bank_over_shallow",
+      "outerOrigin": [
+        0,
+        10
+      ],
+      "innerOrigin": [
+        0,
+        13
+      ]
+    },
+    {
+      "group": "dirt_bank_over_shallow",
+      "outerOrigin": [
+        6,
+        10
+      ],
+      "innerOrigin": [
+        6,
+        13
+      ]
+    },
+    {
+      "group": "sand_bank_over_shallow",
+      "outerOrigin": [
+        0,
+        20
+      ],
+      "innerOrigin": [
+        3,
+        20
+      ]
+    },
+    {
+      "group": "shallow_rim_over_deep",
+      "outerOrigin": [
+        0,
+        23
+      ],
+      "innerOrigin": [
+        3,
+        23
+      ]
+    },
+    {
+      "group": "sand_over_wet_sand",
+      "outerOrigin": [
+        9,
+        5
+      ],
+      "innerOrigin": [
+        9,
+        8
+      ]
+    },
+    {
+      "group": "pebble_path_over_dirt",
+      "outerOrigin": [
+        9,
+        0
+      ]
+    }
+  ],
+  "failurePolicy": "Exact authored recipe first; approved compatibility source second; otherwise transparent/owner-fill diagnostic. Never synthesize or substitute unrelated art."
+}

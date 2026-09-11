@@ -1,4 +1,4 @@
-use haven_core::{TavernMap, TileKind, MAP_H, MAP_W};
+use haven_core::{TavernMap, TileKind};
 use serde::Deserialize;
 use std::{fs::read_to_string, path::Path, sync::OnceLock};
 
@@ -11,6 +11,11 @@ static MATERIAL_TUPLES: OnceLock<Result<Vec<[String; 4]>, String>> = OnceLock::n
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub struct LpcAuthoredContactRepairReport {
+    /// Legacy counter retained for API/report compatibility.
+    ///
+    /// HW-VISUAL-WORLD-RESET-01R2 requires this to remain zero: an unsupported
+    /// authored visual pair is diagnostic information, never permission to
+    /// rewrite the semantic world.
     pub mountain_path_shore_shoulders: usize,
 }
 
@@ -39,38 +44,23 @@ pub fn lpc_mapped_terrain_supports_tile_pair(first: TileKind, second: TileKind) 
     })
 }
 
+/// Legacy compatibility entry point.
+///
+/// Previous behavior changed `MountainPath` into `Road` beside sand because the
+/// current V7 tuple catalog did not contain the requested visual combination.
+/// That made renderer/asset coverage authoritative over gameplay semantics.
+///
+/// The reset retires that policy. Callers may keep invoking this function while
+/// the old API is unwound, but it performs no semantic mutation. Unsupported
+/// contacts are surfaced by the existing pair-support/audit path instead.
 pub fn normalize_lpc_authored_material_contacts_region(
-    map: &mut TavernMap,
-    min_x: i32,
-    min_y: i32,
-    max_x: i32,
-    max_y: i32,
+    _map: &mut TavernMap,
+    _min_x: i32,
+    _min_y: i32,
+    _max_x: i32,
+    _max_y: i32,
 ) -> LpcAuthoredContactRepairReport {
-    let snapshot = map.tiles.clone();
-    let mut report = LpcAuthoredContactRepairReport::default();
-    for y in (min_y - 1).max(0)..=(max_y + 1).min(MAP_H as i32 - 1) {
-        for x in (min_x - 1).max(0)..=(max_x + 1).min(MAP_W as i32 - 1) {
-            let Some(index) = TavernMap::idx(x, y) else {
-                continue;
-            };
-            if snapshot[index] != TileKind::MountainPath {
-                continue;
-            }
-            let touches_shore = [(0, -1), (1, 0), (0, 1), (-1, 0)]
-                .iter()
-                .filter_map(|(ox, oy)| TavernMap::idx(x + ox, y + oy))
-                .map(|slot| snapshot[slot])
-                .any(|tile| matches!(tile, TileKind::Sand | TileKind::WetSand));
-            if touches_shore {
-                // V7 Dirt_Roots has no authored tuple with V7 Sand. V7 Dirt_Tan
-                // has exact tuples with both sides, so it
-                // becomes a one-cell road shoulder instead of invented pixels.
-                map.set(x, y, TileKind::Road);
-                report.mountain_path_shore_shoulders += 1;
-            }
-        }
-    }
-    report
+    LpcAuthoredContactRepairReport::default()
 }
 
 fn material_tuples() -> Option<&'static [[String; 4]]> {
@@ -146,7 +136,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn mountain_path_and_sand_require_an_authored_road_shoulder() {
+    fn unsupported_mountain_path_and_sand_pair_is_detectable() {
         assert!(!lpc_mapped_terrain_supports_tile_pair(
             TileKind::MountainPath,
             TileKind::Sand,
@@ -162,40 +152,30 @@ mod tests {
     }
 
     #[test]
-    fn mountain_path_touching_sand_is_repaired_with_an_authored_road_shoulder() {
+    fn unsupported_mountain_path_and_sand_are_not_semantically_rewritten() {
         let mut map = TavernMap::empty_with(TileKind::Grass);
         map.set(10, 10, TileKind::MountainPath);
         map.set(11, 10, TileKind::Sand);
 
-        let report = normalize_lpc_authored_material_contacts_region(&mut map, 10, 10, 11, 10);
+        let report =
+            normalize_lpc_authored_material_contacts_region(&mut map, 10, 10, 11, 10);
 
-        assert_eq!(report.mountain_path_shore_shoulders, 1);
-        assert_eq!(map.get(10, 10), TileKind::Road);
+        assert_eq!(report.total_mutations(), 0);
+        assert_eq!(map.get(10, 10), TileKind::MountainPath);
         assert_eq!(map.get(11, 10), TileKind::Sand);
     }
 
     #[test]
-    fn mountain_path_touching_general_gravel_keeps_its_v7_material() {
+    fn supported_contacts_remain_unchanged() {
         let mut map = TavernMap::empty_with(TileKind::Grass);
         map.set(10, 10, TileKind::MountainPath);
         map.set(11, 10, TileKind::PebbleShore);
+        let before = map.tiles.clone();
 
-        let report = normalize_lpc_authored_material_contacts_region(&mut map, 10, 10, 11, 10);
-
-        assert_eq!(report.total_mutations(), 0);
-        assert_eq!(map.get(10, 10), TileKind::MountainPath);
-        assert_eq!(map.get(11, 10), TileKind::PebbleShore);
-    }
-
-    #[test]
-    fn mountain_path_not_touching_shore_keeps_its_v7_material() {
-        let mut map = TavernMap::empty_with(TileKind::Grass);
-        map.set(10, 10, TileKind::MountainPath);
-        map.set(11, 10, TileKind::Road);
-
-        let report = normalize_lpc_authored_material_contacts_region(&mut map, 10, 10, 11, 10);
+        let report =
+            normalize_lpc_authored_material_contacts_region(&mut map, 10, 10, 11, 10);
 
         assert_eq!(report.total_mutations(), 0);
-        assert_eq!(map.get(10, 10), TileKind::MountainPath);
+        assert_eq!(map.tiles, before);
     }
 }

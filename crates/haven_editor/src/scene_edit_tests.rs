@@ -572,7 +572,7 @@ fn exact_scene_tile_paint_changes_only_the_selected_cell_in_deep_water() {
 }
 
 #[test]
-fn coastline_scene_tile_paint_records_neighbor_repairs_in_one_undo_step() {
+fn coastline_scene_tile_paint_preserves_neighbor_semantics_in_one_undo_step() {
     let mut world = GameWorld::starter();
     let scene = world
         .scene_mut(SceneId::Farmstead)
@@ -599,8 +599,10 @@ fn coastline_scene_tile_paint_records_neighbor_repairs_in_one_undo_step() {
 
     let map = &world.scene(SceneId::Farmstead).expect("farmstead").map;
     assert_eq!(map.get(8, 8), TileKind::Sand);
-    assert_eq!(map.get(8, 7), TileKind::ShallowWater);
-    assert!(outcome.command.target.grid_cells.len() > 1);
+    for (x, y) in [(7, 8), (9, 8), (8, 7), (8, 9)] {
+        assert_eq!(map.get(x, y), TileKind::DeepWater);
+    }
+    assert_eq!(outcome.command.target.grid_cells.len(), 1);
     assert_eq!(command_bus.undo_len(), 1);
 }
 

@@ -1,0 +1,58 @@
+{
+  "schema": "havenwild.terrain_atlas_v2.proving_ground.v1",
+  "status": "candidate_pending_full_quality_gate",
+  "pass": "HW-ATLAS-V2-08",
+  "catalog": "content/assets/terrain_atlas_catalog_v2.json",
+  "cutoverDebt": "content/architecture/terrain_atlas_v2_cutover_debt_v1.json",
+  "diagnosticOnly": true,
+  "productionRegistration": false,
+  "purpose": "One repeatable proving-ground matrix for the exact authored atlas, transition, structural-cliff and connector recipes. This foundation records present parity and the exact-current consumer cutover that must pass before production reconciliation.",
+  "existingEvidence": [
+    "content/worldgen/scenes/terrain_acceptance/terrain_gallery_scene_v1.json",
+    "content/worldgen/cliff_topology_acceptance_scene_v0_1.json",
+    "content/worldgen/elizawy_cliff_visual_performance_acceptance_v0_1.json",
+    "content/worldgen/elizawy_cliff_projection_acceptance_v0_1.json",
+    "content/worldgen/elizawy_cliff_corner_foot_ramp_acceptance_v0_1.json",
+    "content/worldgen/elizawy_cliff_runtime_shape_acceptance_v0_1.json",
+    "content/worldgen/scenes/world_asset_acceptance/cliff_height_w53d_acceptance_scene_v1.json",
+    "content/editor/acceptance/asset_terrain_v2_pie_acceptance_matrix_v1.json"
+  ],
+  "surfaceCases": [
+    "every cataloged V7 pure semantic owner fill",
+    "grass/sand, grass/dirt and supported path contacts",
+    "shallow/deep marine depth boundaries",
+    "inner and outer corners",
+    "authored three-material junctions",
+    "authored four-material junctions",
+    "unsupported tuple remains owner-fill plus explicit diagnostic instead of proxy art"
+  ],
+  "structureCases": [
+    "straight and diagonal cliff contours",
+    "terminal and rounded corner contours",
+    "structural heights one through four",
+    "authored rise-left and rise-right 3x4 ramps at natural source scale",
+    "vertical ridge continuation",
+    "ladder host and receiver alignment",
+    "cave host alignment",
+    "waterfall face/cap/foot alignment"
+  ],
+  "currentFoundationConsumers": [
+    "crates/haven_game/src/base_terrain_cache.rs reaches V2 through the compatibility projection in authored_terrain_provider",
+    "apps/haven_editor_native/src/app/atlas_render.rs remains on the same lpc_mapped_terrain owner/transition authority pending exact-current call-site cutover",
+    "apps/haven_editor_native/src/app/prepared_canvas_composition.rs remains on the same lpc_mapped_terrain owner/transition authority pending exact-current call-site cutover"
+  ],
+  "foundationAcceptance": [
+    "AuthoredSurfaceDrawPlanV2 preserves the existing exact tuple, owner-fill fallback and transition result",
+    "reviewed direct compatibility transition source coordinates are registered and source-bounds-validated by terrain_atlas_catalog_v2.json",
+    "LPC structural ramp roles expose stable atlas identity without changing authored cells or stamps",
+    "no V2 provider invents, mirrors, rotates, stretches or substitutes terrain/cliff/ramp artwork",
+    "existing save/gameplay semantics remain unchanged"
+  ],
+  "postBuildCutoverAcceptance": [
+    "exact-current runtime/editor consumer files are rebased from their recorded baseline blobs",
+    "renderer-local duplicated pure-material and transition-coordinate tables are removed only after equivalent catalog-backed lookup exists",
+    "editor and standalone-client paired captures agree on source atlas, source rect and structural recipe",
+    "unsupported visual combinations remain observable rather than silently proxied",
+    "production reconciliation remains blocked until all paired captures pass"
+  ]
+}

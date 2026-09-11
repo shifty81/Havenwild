@@ -4,17 +4,20 @@
 //! 3x4 stamps at natural scale and never mirrors, rotates, crops, or stretches
 //! them. The left/right variants are distinct authored assemblies.
 
-use crate::authored_terrain_provider::AuthoredSourceStamp;
+use crate::{
+    authored_terrain_provider::AuthoredSourceStamp,
+    terrain_atlas_catalog_v2::{
+        LPC_CLIFF_RAMP_DIRT_SOURCE_PATH_V2, LPC_CLIFF_RAMP_GRASS_SOURCE_PATH_V2,
+        ATLAS_ID_LPC_CLIFF_RAMP_GRASS, LPC_CLIFF_RAMP_SAND_SOURCE_PATH_V2,
+        LPC_CLIFF_RAMP_SNOW_SOURCE_PATH_V2,
+    },
+};
 use haven_spatial::{offset_tile, TileCoord};
 
-pub const LPC_CLIFF_RAMP_GRASS_SOURCE_PATH: &str =
-    "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png";
-pub const LPC_CLIFF_RAMP_DIRT_SOURCE_PATH: &str =
-    "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_ddirt.png";
-pub const LPC_CLIFF_RAMP_SAND_SOURCE_PATH: &str =
-    "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_sand.png";
-pub const LPC_CLIFF_RAMP_SNOW_SOURCE_PATH: &str =
-    "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_snow.png";
+pub const LPC_CLIFF_RAMP_GRASS_SOURCE_PATH: &str = LPC_CLIFF_RAMP_GRASS_SOURCE_PATH_V2;
+pub const LPC_CLIFF_RAMP_DIRT_SOURCE_PATH: &str = LPC_CLIFF_RAMP_DIRT_SOURCE_PATH_V2;
+pub const LPC_CLIFF_RAMP_SAND_SOURCE_PATH: &str = LPC_CLIFF_RAMP_SAND_SOURCE_PATH_V2;
+pub const LPC_CLIFF_RAMP_SNOW_SOURCE_PATH: &str = LPC_CLIFF_RAMP_SNOW_SOURCE_PATH_V2;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub enum LpcDirectionalCliffRampRole {
@@ -25,6 +28,11 @@ pub enum LpcDirectionalCliffRampRole {
 }
 
 impl LpcDirectionalCliffRampRole {
+    pub const fn atlas_id(self) -> &'static str {
+        let _ = self;
+        ATLAS_ID_LPC_CLIFF_RAMP_GRASS
+    }
+
     pub const fn source_stamp(self) -> AuthoredSourceStamp {
         match self {
             // Catalogued in the project source as the complete authored left
@@ -65,6 +73,11 @@ pub enum LpcCliffContourStampRole {
 }
 
 impl LpcCliffContourStampRole {
+    pub const fn atlas_id(self) -> &'static str {
+        let _ = self;
+        ATLAS_ID_LPC_CLIFF_RAMP_GRASS
+    }
+
     pub const fn source_stamp(self) -> AuthoredSourceStamp {
         match self {
             Self::VerticalRidgeMiddle => AuthoredSourceStamp::new(8, 2, 3, 1),
@@ -83,6 +96,10 @@ mod tests {
 
     #[test]
     fn directional_ramps_are_complete_natural_scale_3x4_stamps() {
+        assert_eq!(
+            LpcDirectionalCliffRampRole::RiseRight.atlas_id(),
+            ATLAS_ID_LPC_CLIFF_RAMP_GRASS
+        );
         assert_eq!(
             LpcDirectionalCliffRampRole::RiseRight.source_stamp(),
             AuthoredSourceStamp::new(3, 5, 3, 4)

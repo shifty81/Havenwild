@@ -1,0 +1,67 @@
+{
+  "schema": "havenwild.terrain_atlas_v2.cutover_debt.v1",
+  "pass": "HW-ATLAS-V2-09",
+  "baselineCommit": "f8b47a750d11ea894995854ded03d70b0885fd0a",
+  "reason": "The supplied September 9 rollup predates current GitHub renderer/editor changes. Never overwrite these files from that rollup. Rebase the remaining V2 consumer cutover from the exact baseline blob below or from a verified descendant after the foundation gate.",
+  "files": [
+    {
+      "path": "crates/haven_game/src/terrain_render.rs",
+      "baselineBlobSha": "4f43e4666d1e95631bc6bc022c38834b94194b53",
+      "remainingCutover": "Replace duplicated direct V7 pure semantic fallback IDs with catalog/role lookup without changing newer rendering behavior."
+    },
+    {
+      "path": "crates/haven_game/src/terrain_transition_draw.rs",
+      "baselineBlobSha": "c8808ed8f195624e17fd4ff8d2eb78f485b4d503",
+      "remainingCutover": "Resolve reviewed direct-transition compatibility blocks through terrain_atlas_catalog_v2 rather than a renderer-local coordinate table."
+    },
+    {
+      "path": "crates/haven_game/src/base_terrain_cache.rs",
+      "baselineBlobSha": "448a3ff7ff4d0d3db7d492be2982fbf2cc4cb613",
+      "remainingCutover": "Optional explicit V2 record consumption only; current compatibility call already delegates through AuthoredSurfaceDrawPlanV2 after this foundation patch."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/atlas_render.rs",
+      "baselineBlobSha": "3de5f21fdb58e957ea564c77046f110d349e5a18",
+      "remainingCutover": "Convert direct mapped owner/transition calls to the shared V2 surface draw-plan record while preserving current editor features."
+    },
+    {
+      "path": "apps/haven_editor_native/src/app/prepared_canvas_composition.rs",
+      "baselineBlobSha": "765c43053c736a31de1306d140a82aa15e23dba0",
+      "remainingCutover": "Convert prepared-canvas terrain/transition composition to the shared V2 record while preserving current composition layers."
+    },
+    {
+      "path": "crates/haven_assets/src/autotile.rs",
+      "baselineBlobSha": "02c1a7c763278a891d16988d9f1cebc35bc69742",
+      "remainingCutover": "Keep topology logic authoritative; only centralize source/publication identity if a future exact-current change still benefits from it."
+    },
+    {
+      "path": "crates/haven_assets/src/elizawy_cliff_provider.rs",
+      "baselineBlobSha": "20cd262eb5311084fcc6f13504f0e062e79280fa",
+      "remainingCutover": "Optionally expose stable structural atlas identity without changing certified ElizaWy cell vocabulary."
+    },
+    {
+      "path": "crates/haven_tools/src/lib.rs",
+      "baselineBlobSha": "6efbafb6fdb65ffd9e415be26c6461b818285b95",
+      "remainingCutover": "Add a project tool-level cross-crate atlas audit only if it remains useful after the normal content/source validators cover the V2 catalog."
+    }
+  ],
+  "gate": "No listed file may be overwritten from an older rollup merely to complete the V2 migration. Exact-current source wins.",
+  "verifiedOverwriteBases": [
+    {
+      "path": "crates/haven_assets/src/lib.rs",
+      "baselineBlobSha": "6d7e7846ffa16b8078fa3774e40cbdfe87ebe405"
+    },
+    {
+      "path": "crates/haven_assets/src/authored_terrain_provider.rs",
+      "baselineBlobSha": "f7ceb82abc31c8082466789983ec64b5cc268238"
+    },
+    {
+      "path": "crates/haven_assets/src/lpc_cliff_ramp_provider.rs",
+      "baselineBlobSha": "e1c29f7599fb86ae0517ec4273f36b139622f220"
+    },
+    {
+      "path": "crates/haven_assets/src/lpc_mapped_terrain.rs",
+      "baselineBlobSha": "56445383c032824d8c8c3d86d8c6dae988e127e6"
+    }
+  ]
+}

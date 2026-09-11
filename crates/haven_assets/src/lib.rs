@@ -28,6 +28,7 @@ pub mod runtime_asset_adapters;
 pub mod semantic_asset_resolution;
 pub mod stamp_registry;
 pub mod terrain_material_bindings;
+pub mod terrain_atlas_catalog_v2;
 pub mod terrain_variant_authoring;
 pub mod universal_lpc_character_authority;
 pub mod universal_lpc_npc_generation;

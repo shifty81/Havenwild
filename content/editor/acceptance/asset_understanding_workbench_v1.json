@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.asset_understanding_acceptance.v1",
+  "pass": "HW-ASSET-UNDERSTANDING-02",
+  "requirements": [
+    "Assets Studio Library lists runtime-certified assemblies, not source sheets.",
+    "Assets Studio Sources lists raw sheets and labels them SOURCE ONLY.",
+    "Assets Studio Review exposes SLICED and SEMANTICALLY MAPPED stages separately from RUNTIME CERTIFIED.",
+    "Mechanical 32x32 slicing does not imply gameplay authority.",
+    "No candidate/profile rule may silently runtime-certify an asset.",
+    "World generation remains blocked from uncatalogued source sheets and unresolved candidates."
+  ],
+  "firstCertificationFocus": [
+    "terrain",
+    "water",
+    "cliffs"
+  ],
+  "visualCheck": [
+    "Open Assets Studio -> Library: full atlas/source sheets should not appear as Library rows.",
+    "Open Assets Studio -> Sources: raw source sheets should remain inspectable.",
+    "Open Assets Studio -> Review: unresolved candidates should display lifecycle stage and source."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "havenwild.terrain_atlas_v2.reconciliation.v1",
+  "status": "blocked_until_full_quality_gate_exact_current_cutover_and_visual_acceptance",
+  "pass": "HW-ATLAS-V2-10",
+  "baselineCommit": "f8b47a750d11ea894995854ded03d70b0885fd0a",
+  "catalog": "content/assets/terrain_atlas_catalog_v2.json",
+  "cutoverDebt": "content/architecture/terrain_atlas_v2_cutover_debt_v1.json",
+  "semanticAuthority": "TileKind and existing world terrain/structural state remain persistence/gameplay authority",
+  "policy": {
+    "rebakeExistingWorldsBeforeAcceptance": false,
+    "rewriteSemanticTilesForVisualCompatibility": false,
+    "inventMissingAtlasPixels": false,
+    "targetAllowsRendererLocalAtlasTables": false,
+    "preserveStableWorldAndObjectIdentity": true
+  },
+  "knownFoundationCutoverDebt": [
+    "crates/haven_game/src/terrain_render.rs still contains current renderer-local direct V7 pure fallback material IDs",
+    "crates/haven_game/src/terrain_transition_draw.rs still contains current renderer-local reviewed direct-transition coordinate selection",
+    "apps/haven_editor_native/src/app/atlas_render.rs still calls lower-level mapped terrain owner/transition APIs directly",
+    "apps/haven_editor_native/src/app/prepared_canvas_composition.rs still calls lower-level mapped terrain owner/transition APIs directly"
+  ],
+  "whyDebtIsRetained": "Those f8b47a7 files differ from the supplied September 9 rollup. They are intentionally not overwritten by stale copies; their exact blob identities are recorded for a guarded post-gate rebase.",
+  "postGateSequence": [
+    "run Full Quality Gate from the clean f8b47a7-derived working tree with this authority-foundation patch applied",
+    "rebase and complete the exact-current consumer cutover from the recorded blob/descendant authorities",
+    "rerun Full Quality Gate after consumer cutover",
+    "run the terrain/structure proving-ground acceptance matrix in editor and standalone client",
+    "compare editor/client surface draw-plan and structural recipe diagnostics",
+    "audit unresolved V7 tuples and unsupported transition groups",
+    "repair catalog/source topology only when existing authored art supports the requested relationship",
+    "reconcile generated test worlds through the same semantic and structural authorities",
+    "only then consider any migration/rebake of persistent authored or player worlds"
+  ],
+  "pcgCutoverRequirements": [
+    "PCG continues producing semantic terrain and structural levels rather than provider-specific tile IDs",
+    "surface presentation resolves through the shared V2 atlas/provider authority",
+    "structural presentation resolves through shared contour/recipe authority",
+    "chunk-edge and wrapped-world topology remains equivalent to internal topology",
+    "unsupported visual combinations remain observable diagnostics",
+    "reconciliation is deterministic for identical world seed and semantic state"
+  ],
+  "rollback": "Because this foundation does not rebake or mutate existing world content, rejection is source-only: revert the V2 catalog/provider additions while retaining f8b47a7 world/save data unchanged."
+}

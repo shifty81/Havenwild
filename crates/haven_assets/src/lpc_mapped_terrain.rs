@@ -8,13 +8,13 @@ use std::{
 };
 
 use crate::{
-    asset_registry::AtlasRect, terrain_material_bindings::canonical_corner_tuple_material,
+    asset_registry::AtlasRect,
+    terrain_atlas_catalog_v2::{V7_MAPPED_ATLAS_PATH, V7_MAPPED_MANIFEST_PATH},
+    terrain_material_bindings::canonical_corner_tuple_material,
 };
 
-pub const LPC_MAPPED_TERRAIN_ATLAS_PATH: &str =
-    "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.png";
-pub const LPC_MAPPED_TERRAIN_MANIFEST_PATH: &str =
-    "assets/generated/worldgen_v0_1/terrain/lpc_mapped_terrain_v7_32.json";
+pub const LPC_MAPPED_TERRAIN_ATLAS_PATH: &str = V7_MAPPED_ATLAS_PATH;
+pub const LPC_MAPPED_TERRAIN_MANIFEST_PATH: &str = V7_MAPPED_MANIFEST_PATH;
 
 static LPC_MAPPED_TERRAIN: OnceLock<Result<LpcMappedTerrainManifest, String>> = OnceLock::new();
 
