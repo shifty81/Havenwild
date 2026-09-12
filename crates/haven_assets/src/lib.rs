@@ -55,6 +55,8 @@ pub mod character_sprite_registry;
 pub mod placeable_asset_registry;
 pub mod published_world_asset_metadata;
 pub mod published_world_topology;
+// Published topology certification checks also live in integration tests so
+// source metadata cannot silently drift between editor and runtime contracts.
 pub mod building_recipe;
 pub mod building_instance;
 pub mod building_authority_binding;
