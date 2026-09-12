@@ -1,0 +1,184 @@
+{
+  "schema": "emberwright.project_profile.v0_1",
+  "projectProfileId": "havenwild",
+  "identity": {
+    "projectId": "havenwild",
+    "displayName": "Havenwild",
+    "shortName": "HW",
+    "version": "0.1.0",
+    "kind": "2d-open-world-life-sim-rpg"
+  },
+  "workspaces": {
+    "enabledWorkspaces": [
+      "game_canvas",
+      "assets",
+      "pixel",
+      "animation",
+      "character",
+      "logic",
+      "sound"
+    ],
+    "defaultWorkspace": "game_canvas",
+    "workspaceOrder": [
+      "game_canvas",
+      "assets",
+      "pixel",
+      "animation",
+      "character",
+      "logic",
+      "sound"
+    ],
+    "workspaceLabels": {
+      "game_canvas": "Game Canvas",
+      "assets": "Assets",
+      "pixel": "Pixel",
+      "animation": "Animation",
+      "character": "Character",
+      "logic": "Logic",
+      "sound": "Sound"
+    }
+  },
+  "canvas": {
+    "tileSize": 32,
+    "coordinateMode": "top_down_2_5d_tile_canvas",
+    "supportedCanvasViews": [
+      "world",
+      "scene",
+      "routes",
+      "scene_library",
+      "ui",
+      "prefab_pattern"
+    ],
+    "defaultView": "scene",
+    "layerModel": "terrain_objects_zones_links_structural_collision_visual_overlays"
+  },
+  "assets": {
+    "sourceLibraries": [
+      "lpc",
+      "opengameart",
+      "project_owned"
+    ],
+    "assetPackRoots": [
+      "content/assets",
+      "assets",
+      ".local/editor"
+    ],
+    "publishedAssetRegistry": "haven_assets::placeable_asset_registry::PublishedWorldAssetRegistry",
+    "publishedTopologyRegistry": "haven_assets::published_world_topology::published_world_topology_registry_v1",
+    "runtimeCachePolicy": "generated caches are disposable; published registries remain authority",
+    "sourcePromotionPolicy": "source references remain non-placeable until promoted/certified"
+  },
+  "validation": {
+    "genericProfile": "content/validation/validation_tier_policy_v0_1.json",
+    "projectProfile": "content/build/validation_profiles_v4.json",
+    "hardFailRules": [
+      "unsafe_paths",
+      "bad_checksums",
+      "authoritative_json_schema",
+      "published_asset_source_refs",
+      "license_provenance",
+      "build_test_failure"
+    ],
+    "warningRules": [
+      "corrupt_generated_catalog",
+      "uncertified_source_candidate",
+      "visual_review_pending"
+    ],
+    "reportOnlyRules": [
+      "source_coverage_gap",
+      "legacy_alias_still_present",
+      "historical_pass_note"
+    ]
+  },
+  "playSession": {
+    "defaultMode": "play_in_new_window_until_embedded_canvas_is_ready",
+    "supportedModes": [
+      "edit",
+      "simulate",
+      "play_in_canvas",
+      "play_from_here",
+      "play_in_new_window",
+      "standalone"
+    ],
+    "playFromHerePolicy": "spawn from selected scene/cursor/world cell using project spawn profile",
+    "runtimeLaunchProfile": "apps/haven_game with development world arguments",
+    "embeddedCanvasReadiness": "planned: framed runtime session inside Game Canvas"
+  },
+  "runtime": {
+    "clientExecutable": "haven_game",
+    "editorBridge": "development_client_bridge/resource_context_bridge",
+    "resourceContext": "haven_authoring::ResourceContext",
+    "saveRoot": ".local/development",
+    "devWorldProfile": "development_session::development_world_settings"
+  },
+  "projectSpecificVocabulary": {
+    "zones": [
+      "tavern",
+      "kitchen",
+      "guest_room",
+      "cellar",
+      "greenhouse",
+      "field",
+      "cave",
+      "staff_only",
+      "public_path",
+      "tavern_exterior",
+      "bar",
+      "civic_lot",
+      "market_lot",
+      "residential_lot",
+      "artisan_lot",
+      "harbor_lot",
+      "agricultural_lot"
+    ],
+    "terrainFamilies": [
+      "ground",
+      "path",
+      "road",
+      "water",
+      "cliff",
+      "structure",
+      "interior"
+    ],
+    "spawnKinds": [
+      "player_start",
+      "play_from_here",
+      "npc",
+      "animal",
+      "resource",
+      "encounter",
+      "transition_destination",
+      "pcg_anchor"
+    ],
+    "routeKinds": [
+      "road",
+      "trail",
+      "harbor",
+      "transition",
+      "bus_route",
+      "debug_route"
+    ]
+  },
+  "generationWorkflow": {
+    "template": "open_world_life_sim_rpg_2d",
+    "wizardSteps": [
+      "choose_game_template",
+      "choose_tile_size",
+      "choose_workspaces",
+      "import_sources",
+      "classify_sources",
+      "promote_assets",
+      "define_runtime_launch",
+      "validate_profile",
+      "publish_profile"
+    ],
+    "sourceClassification": "source-only -> sliced -> semantically mapped -> runtime certified",
+    "profileSynthesis": "ProjectProfile generated from template defaults plus certified content metadata",
+    "certificationOutputs": [
+      "published assets",
+      "published topology",
+      "validation policy",
+      "play session launch profile"
+    ]
+  }
+}

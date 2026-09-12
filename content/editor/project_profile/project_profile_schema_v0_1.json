@@ -1,0 +1,90 @@
+{
+  "schema": "emberwright.project_profile_schema.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "purpose": "Data contract for a hosted 2D game project inside the generic Emberwright editor shell.",
+  "requiredSections": [
+    "identity",
+    "workspaces",
+    "canvas",
+    "assets",
+    "validation",
+    "playSession",
+    "runtime",
+    "projectSpecificVocabulary",
+    "generationWorkflow"
+  ],
+  "sections": {
+    "identity": [
+      "projectId",
+      "displayName",
+      "shortName",
+      "version",
+      "kind"
+    ],
+    "workspaces": [
+      "enabledWorkspaces",
+      "defaultWorkspace",
+      "workspaceLabels",
+      "workspaceOrder"
+    ],
+    "canvas": [
+      "tileSize",
+      "coordinateMode",
+      "supportedCanvasViews",
+      "defaultView",
+      "layerModel"
+    ],
+    "assets": [
+      "sourceLibraries",
+      "assetPackRoots",
+      "publishedAssetRegistry",
+      "publishedTopologyRegistry",
+      "runtimeCachePolicy",
+      "sourcePromotionPolicy"
+    ],
+    "validation": [
+      "genericProfile",
+      "projectProfile",
+      "hardFailRules",
+      "warningRules",
+      "reportOnlyRules"
+    ],
+    "playSession": [
+      "defaultMode",
+      "supportedModes",
+      "playFromHerePolicy",
+      "runtimeLaunchProfile",
+      "embeddedCanvasReadiness"
+    ],
+    "runtime": [
+      "clientExecutable",
+      "editorBridge",
+      "resourceContext",
+      "saveRoot",
+      "devWorldProfile"
+    ],
+    "projectSpecificVocabulary": [
+      "zones",
+      "objectKinds",
+      "terrainFamilies",
+      "biomes",
+      "routeKinds",
+      "spawnKinds",
+      "resourceKinds"
+    ],
+    "generationWorkflow": [
+      "template",
+      "wizardSteps",
+      "sourceClassification",
+      "profileSynthesis",
+      "certificationOutputs"
+    ]
+  },
+  "rules": [
+    "Generic editor code may ask a ProjectProfile for names, defaults, registries, supported workspaces, asset roots, and runtime launch rules.",
+    "A ProjectProfile may reference Havenwild-specific content, but generic editor modules should not hard-code Havenwild names when a profile value is available.",
+    "Generated ProjectProfile data must be round-trippable: wizard output can be saved, reloaded, edited, validated, and regenerated from source authority.",
+    "ProjectProfile generation is deterministic from template + user choices + source/certification metadata."
+  ]
+}

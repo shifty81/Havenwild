@@ -1,0 +1,30 @@
+{
+  "schema": "emberwright.editor_product_identity.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "product": {
+    "workingName": "Emberwright",
+    "role": "generic native 2D game-maker/editor application",
+    "sisterSystem": "Ember",
+    "hostedProjectExample": "Havenwild"
+  },
+  "doctrine": [
+    "Preserve current Havenwild functionality while extracting generic editor contracts.",
+    "Game Canvas, Assets, Pixel, Animation, Character, Logic, Sound, docks, command registry, validation, and Play Session are generic editor systems.",
+    "Havenwild values move behind project-profile data and adapters rather than remaining permanent editor constants.",
+    "The generic editor must offer straightforward creation workflows that can recreate project-profile values without hand-written project-only code.",
+    "Project profiles are generated from templates, user choices, source libraries, semantic promotion, and certification results."
+  ],
+  "nonGoalsNow": [
+    "Do not rename crates or executables in this phase.",
+    "Do not delete Havenwild-specific behavior before an equivalent ProjectProfile path exists.",
+    "Do not break current internal PCC, Full Gate, Play, Play From Here, or existing editor panels."
+  ],
+  "futureExtraction": {
+    "phase1": "Add generic data contracts beside current code.",
+    "phase2": "Route current Havenwild behavior through generic contracts.",
+    "phase3": "Move project-specific values into HavenwildProjectProfile.",
+    "phase4": "Expose template/wizard workflows so those values can be recreated for any 2D project.",
+    "phase5": "Only then consider external product packaging/renaming."
+  }
+}

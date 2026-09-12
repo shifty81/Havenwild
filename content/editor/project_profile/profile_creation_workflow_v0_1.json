@@ -1,0 +1,74 @@
+{
+  "schema": "emberwright.profile_creation_workflow.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "goal": "Make Phase 3 project-specific values recreatable from a straightforward generic editor workflow.",
+  "workflow": [
+    {
+      "step": 1,
+      "id": "create_or_import_project",
+      "label": "Create or import project",
+      "output": "identity.projectId/displayName/version/kind"
+    },
+    {
+      "step": 2,
+      "id": "choose_template",
+      "label": "Choose 2D template",
+      "output": "default workspaces, canvas model, layer model, validation profile"
+    },
+    {
+      "step": 3,
+      "id": "configure_canvas",
+      "label": "Configure canvas",
+      "output": "tile size, coordinate mode, world/scene/UI views"
+    },
+    {
+      "step": 4,
+      "id": "import_sources",
+      "label": "Import source libraries",
+      "output": "source library roots and immutable source catalog"
+    },
+    {
+      "step": 5,
+      "id": "classify_sources",
+      "label": "Classify source sheets",
+      "output": "source-only/sliced/mapped/certified queues"
+    },
+    {
+      "step": 6,
+      "id": "promote_semantic_assets",
+      "label": "Promote semantic assets",
+      "output": "published assets/topology with IDs, rects, anchors, footprints, provenance"
+    },
+    {
+      "step": 7,
+      "id": "define_vocabulary",
+      "label": "Define project vocabulary",
+      "output": "zones, terrain families, object kinds, spawn kinds, route kinds"
+    },
+    {
+      "step": 8,
+      "id": "configure_runtime",
+      "label": "Configure runtime launch",
+      "output": "client executable, bridge, saves, dev world, Play From Here policy"
+    },
+    {
+      "step": 9,
+      "id": "validate_profile",
+      "label": "Validate project profile",
+      "output": "hard failures/warnings/report-only findings"
+    },
+    {
+      "step": 10,
+      "id": "publish_profile",
+      "label": "Publish profile",
+      "output": "project profile used by Game Canvas, docks, Assets, validation, and PIE"
+    }
+  ],
+  "acceptance": [
+    "A non-Havenwild project can be created without editing Rust constants.",
+    "Havenwild-specific labels can be recreated through template/profile workflow.",
+    "Existing Havenwild behavior remains active during migration.",
+    "Generic editor modules can load project identity, workspaces, asset authority, validation, and play settings from profile data."
+  ]
+}

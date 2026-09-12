@@ -1,0 +1,103 @@
+{
+  "schema": "emberwright.havenwild_profile_migration_inventory.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "purpose": "Inventory of Havenwild-specific values that should move behind HavenwildProjectProfile while preserving current functionality.",
+  "migrationOrder": [
+    "identity_and_labels",
+    "workspace_availability",
+    "asset_authority_paths",
+    "validation_profiles",
+    "play_session_launch",
+    "world_scene_vocabulary",
+    "zone_object_route_spawn_vocabularies",
+    "content_specific_editor_panels"
+  ],
+  "items": [
+    {
+      "id": "identity_and_labels",
+      "examples": [
+        "Havenwild Native Editor",
+        "Havenwild",
+        "HW-* pass names"
+      ],
+      "target": "ProjectProfile.identity + product shell branding adapter",
+      "risk": "low"
+    },
+    {
+      "id": "workspace_tabs",
+      "examples": [
+        "Game Canvas",
+        "Assets",
+        "Pixel",
+        "Animation",
+        "Character",
+        "Logic",
+        "Sound"
+      ],
+      "target": "ProjectProfile.workspaces",
+      "risk": "low"
+    },
+    {
+      "id": "tile_size",
+      "examples": [
+        "32px world tile contract"
+      ],
+      "target": "ProjectProfile.canvas.tileSize",
+      "risk": "medium"
+    },
+    {
+      "id": "zone_vocab",
+      "examples": [
+        "Tavern",
+        "Kitchen",
+        "GuestRoom",
+        "Cave",
+        "MarketLot",
+        "HarborLot"
+      ],
+      "target": "ProjectProfile.projectSpecificVocabulary.zones",
+      "risk": "medium"
+    },
+    {
+      "id": "asset_roots",
+      "examples": [
+        "content/assets",
+        "artifacts/asset-intake/asset-catalog.json"
+      ],
+      "target": "ProjectProfile.assets",
+      "risk": "medium"
+    },
+    {
+      "id": "published_registries",
+      "examples": [
+        "PublishedWorldAssetRegistry",
+        "published_world_topology_registry_v1"
+      ],
+      "target": "ProjectProfile.assets published registry bindings",
+      "risk": "medium"
+    },
+    {
+      "id": "dev_runtime_launch",
+      "examples": [
+        "haven_game",
+        "development world args",
+        "Play From Here"
+      ],
+      "target": "ProjectProfile.runtime + ProjectProfile.playSession",
+      "risk": "high"
+    },
+    {
+      "id": "world_vocab",
+      "examples": [
+        "Alderreach",
+        "harbor routes",
+        "scene rectangles",
+        "landmass"
+      ],
+      "target": "ProjectProfile.projectSpecificVocabulary + world template adapter",
+      "risk": "high"
+    }
+  ],
+  "preservationRule": "Do not move a value until current behavior is covered by profile read, fallback default, and tests."
+}
