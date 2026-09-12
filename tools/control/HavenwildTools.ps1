@@ -954,6 +954,26 @@ function New-DebugBundle([string]$Result) {
     foreach($stateFile in @($script:GreenGateMarker,(Join-Path $Root '.havenwild\updates\last-applied.json'))) {
       if(Test-Path -LiteralPath $stateFile -PathType Leaf) { Copy-Item -LiteralPath $stateFile -Destination (Join-Path $stage ([System.IO.Path]::GetFileName($stateFile))) -Force }
     }
+    # Validation reports contain structured failure details that console logs can
+    # intentionally abbreviate. Keep the newest JSON/Markdown pair in every
+    # debug handoff so read-only mutation failures identify the exact paths.
+    $validationLogRoot=Join-Path $LogRoot 'validation'
+    if(Test-Path -LiteralPath $validationLogRoot -PathType Container) {
+      foreach($pattern in @('validation-*.json','validation-*.md')) {
+        $report=Get-ChildItem -LiteralPath $validationLogRoot -File -Filter $pattern -ErrorAction SilentlyContinue | Sort-Object LastWriteTimeUtc -Descending | Select-Object -First 1
+        if($null -ne $report) { Copy-Item -LiteralPath $report.FullName -Destination (Join-Path $stage $report.Name) -Force }
+      }
+    }
+    # A compact Git snapshot distinguishes intended patch deltas from unexpected
+    # writers that touch protected project sources during a read-only validator.
+    if(Get-Command git -ErrorAction SilentlyContinue) {
+      Push-Location $Root
+      try {
+        $oldPreference=$ErrorActionPreference; $ErrorActionPreference='Continue'
+        try { $gitStatus=@(& git status --short --branch 2>&1) } finally { $ErrorActionPreference=$oldPreference }
+      } finally { Pop-Location }
+      Set-Content -LiteralPath (Join-Path $stage 'git-status.txt') -Value $gitStatus -Encoding UTF8
+    }
     $toolchain=[ordered]@{}
     foreach($spec in @(@('cargo','--version'),@('rustc','--version'),@('python','--version'),@('git','--version'))) {
       $exe=$spec[0]

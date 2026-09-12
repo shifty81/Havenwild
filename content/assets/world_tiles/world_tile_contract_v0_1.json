@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.world_tile_contract.v0_1",
-  "updated": "2026-08-02T01:20:24+00:00",
+  "updated": "2026-09-11T20:44:47+00:00",
   "purpose": "LPC-backed strict 32x32 compatibility contract for client world-paint rendering.",
   "canonicalTileSize": [
     32,

@@ -750,7 +750,10 @@ def validate_character_render_and_frame_performance() -> None:
         body_path = require_file(body_cache)
         with Image.open(body_path).convert("RGBA") as image:
             if image.size != (576, 384):
-                raise ValueError(f"Universal LPC body cache geometry changed: {body_cache}")
+                raise ValueError(
+                    f"Universal LPC body cache geometry changed: {body_cache}; "
+                    f"expected 576x384, got {image.size[0]}x{image.size[1]}"
+                )
             for row in range(4):
                 head_band = image.crop((16, row * 96 + 32, 48, row * 96 + 64))
                 if head_band.getbbox() is None:

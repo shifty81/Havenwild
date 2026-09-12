@@ -147,6 +147,85 @@ BODY_HEAD_FALLBACK = {
     "child": None,
 }
 
+REQUIRED_RUNTIME_BODY_GROUPS = ("male", "female", "pregnant", "teen", "child")
+
+
+def validate_existing_runtime_cache(quiet: bool = False) -> int:
+    """Validate the generated cache that this generator owns.
+
+    The Havenwild build sentinel must inspect the component caches as well as the assembled
+    player atlas. A matching revision marker alone is not sufficient because an
+    interrupted/older generation can leave one component sheet stale while the
+    marker and top-level atlas still look current.
+    """
+    problems: list[str] = []
+
+    if not REVISION_PATH.is_file():
+        problems.append(f"missing generator revision marker: {REVISION_PATH.relative_to(ROOT)}")
+    else:
+        installed = REVISION_PATH.read_text(encoding="utf-8").strip()
+        if installed != REVISION:
+            problems.append(f"generator revision mismatch: expected {REVISION}, got {installed or '<empty>'}")
+
+    if not MANIFEST.is_file():
+        problems.append(f"missing runtime cache manifest: {MANIFEST.relative_to(ROOT)}")
+    else:
+        try:
+            manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+            if manifest.get("generatorRevision") != REVISION:
+                problems.append("runtime cache manifest generatorRevision does not match the generator")
+        except Exception as error:
+            problems.append(f"runtime cache manifest is unreadable: {error}")
+
+    required_images = [OUTPUT] + [
+        LAYER_ROOT / f"havenwild_player_body_{body}_walk_64.png"
+        for body in REQUIRED_RUNTIME_BODY_GROUPS
+    ]
+    for path in required_images:
+        if not path.is_file():
+            problems.append(f"missing runtime cache image: {path.relative_to(ROOT)}")
+            continue
+        try:
+            with Image.open(path) as image:
+                if image.size != RUNTIME_SIZE:
+                    problems.append(
+                        f"runtime cache geometry mismatch: {path.relative_to(ROOT)}; "
+                        f"expected {RUNTIME_SIZE[0]}x{RUNTIME_SIZE[1]}, got {image.size[0]}x{image.size[1]}"
+                    )
+        except Exception as error:
+            problems.append(f"runtime cache image is unreadable: {path.relative_to(ROOT)}: {error}")
+
+    # The content gate also requires adult male/female body caches to contain the
+    # separately authored human head layer. Catch that here so the build repairs
+    # the cache before the later read-only validation phase.
+    for body in ("male", "female"):
+        path = LAYER_ROOT / f"havenwild_player_body_{body}_walk_64.png"
+        if not path.is_file():
+            continue
+        try:
+            with Image.open(path).convert("RGBA") as image:
+                if image.size != RUNTIME_SIZE:
+                    continue
+                for row in range(ROWS):
+                    head_band = image.crop((16, row * RUNTIME_H + 32, 48, row * RUNTIME_H + 64))
+                    if head_band.getbbox() is None:
+                        problems.append(
+                            f"runtime body cache is missing human head pixels: "
+                            f"{path.relative_to(ROOT)}, row {row}"
+                        )
+                        break
+        except Exception:
+            pass
+
+    if problems:
+        if not quiet:
+            for problem in problems:
+                print(f"CACHE INVALID: {problem}")
+        return 1
+    if not quiet:
+        print(f"Universal LPC runtime cache valid ({REVISION})")
+    return 0
+
 
 def load_definition(relative: str) -> dict:
     path = DEFINITIONS / relative
@@ -439,6 +518,16 @@ def body_group(body: str) -> dict[str, list[Path]]:
 
 
 def main() -> int:
+    args = set(sys.argv[1:])
+    if args:
+        supported = {"--check", "--quiet"}
+        unknown = sorted(args - supported)
+        if unknown:
+            raise SystemExit(f"unsupported argument(s): {', '.join(unknown)}")
+        if "--check" in args:
+            return validate_existing_runtime_cache(quiet="--quiet" in args)
+        raise SystemExit("--quiet is only valid with --check")
+
     if not SOURCE.is_dir():
         raise SystemExit("complete Universal LPC repository is not mounted")
     LAYER_ROOT.mkdir(parents=True, exist_ok=True)
@@ -533,6 +622,8 @@ def main() -> int:
     }
     atomic_write_json(MANIFEST, manifest)
     REVISION_PATH.write_text(REVISION + "\n", encoding="utf-8")
+    if validate_existing_runtime_cache(quiet=True) != 0:
+        raise RuntimeError("Universal LPC runtime cache self-check failed after generation")
     unique_sources = {path for item in provenance.values() for paths in item.values() for path in paths}
     print(f"Wrote {len(layer_outputs)} compatible component groups across {len(ANIMATION_FAMILIES)} action families from {len(unique_sources)} source sheets")
     if optional_failures:

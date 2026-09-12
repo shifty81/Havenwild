@@ -16,16 +16,1537 @@
     "fallbackSafety": "Fallback rows are render-safe but visually lower quality than exact tuple art."
   },
   "categoryFallbackTotals": {
-    "production_land_edge": 14,
-    "advanced_water_shore": 308,
-    "advanced_water_land": 42,
-    "advanced_land_edge": 140
+    "production_water_shore": 84,
+    "water_depth": 28,
+    "production_land_edge": 28,
+    "advanced_water_shore": 322,
+    "advanced_water_land": 56,
+    "advanced_land_edge": 171
   },
-  "completedPromotionCategories": [
-    "production_water_shore",
-    "water_depth"
-  ],
+  "completedPromotionCategories": [],
   "rows": [
+    {
+      "pair": [
+        "Sand",
+        "Water_Deep"
+      ],
+      "category": "production_water_shore",
+      "priority": 1310,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water_Shallows_Sand"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass",
+        "Water_Deep"
+      ],
+      "category": "production_water_shore",
+      "priority": 1270,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Grass",
+            "bottomLeft": "Grass",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Grass",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Grass",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Grass",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass",
+            "bottomLeft": "Grass",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Grass",
+            "bottomLeft": "Grass",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Grass",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Grass",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Grass",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Water_Deep",
+        "Water_Shallows_Sand"
+      ],
+      "category": "production_water_shore",
+      "priority": 1270,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water_Shallows_Sand"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Water_Shallows_Sand",
+        "Water_Deep"
+      ],
+      "category": "production_water_shore",
+      "priority": 1270,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water_Shallows_Sand"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Water",
+        "Mudstone_Brown"
+      ],
+      "category": "production_water_shore",
+      "priority": 1220,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water_Shallows_Dirt"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Water",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Water",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Water",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Water",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Mudstone_Brown",
+        "Water"
+      ],
+      "category": "production_water_shore",
+      "priority": 1220,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water_Shallows_Dirt"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Water",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Water",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Water",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Water",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Water_Deep",
+        "Water_Shallows_Dirt"
+      ],
+      "category": "water_depth",
+      "priority": 1120,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water_Shallows_Dirt"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Deep",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Deep",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Deep",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Water_Shallows_Sand",
+        "Water_Shallows_Dirt"
+      ],
+      "category": "water_depth",
+      "priority": 1070,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water_Shallows_Sand"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Sand",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Sand",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Sand",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Sand",
+          "tileId": 33
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Sand",
+        "Dirt_Roots"
+      ],
+      "category": "production_land_edge",
+      "priority": 960,
+      "exactPatterns": 2,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Dirt_Roots",
+        "Sand"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Sand",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Roots",
+          "tileId": 2
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Sand",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Sand",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Roots",
+          "tileId": 2
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Sand",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Roots",
+          "tileId": 2
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Roots",
+          "tileId": 2
+        }
+      ]
+    },
     {
       "pair": [
         "Dirt_Brown",
@@ -1217,7 +2738,7 @@
       ],
       "category": "advanced_water_shore",
       "priority": 720,
-      "exactPatterns": 2,
+      "exactPatterns": 1,
       "fallbackPatterns": 14,
       "fallbackMaterials": [
         "Water_Shallows_Sand"
@@ -1376,6 +2897,175 @@
           "status": "fallback",
           "fallbackMaterial": "Water_Shallows_Sand",
           "tileId": 33
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Water_Shallows_Dirt"
+      ],
+      "category": "advanced_water_shore",
+      "priority": 720,
+      "exactPatterns": 1,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water_Shallows_Dirt"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Water_Shallows_Dirt",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Water_Shallows_Dirt",
+            "bottomLeft": "Water_Shallows_Dirt",
+            "bottomRight": "Water_Shallows_Dirt"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water_Shallows_Dirt",
+          "tileId": 32
         }
       ]
     },
@@ -3921,7 +5611,7 @@
       ],
       "category": "advanced_water_land",
       "priority": 570,
-      "exactPatterns": 2,
+      "exactPatterns": 1,
       "fallbackPatterns": 14,
       "fallbackMaterials": [
         "Water"
@@ -4245,6 +5935,175 @@
             "topRight": "Water_Deep",
             "bottomLeft": "Water_Deep",
             "bottomRight": "Water_Deep"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Water"
+      ],
+      "category": "advanced_water_land",
+      "priority": 520,
+      "exactPatterns": 1,
+      "fallbackPatterns": 14,
+      "fallbackMaterials": [
+        "Water"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Water",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Water",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Water",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Water",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Water",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Water",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Water",
+          "tileId": 28
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Water",
+            "bottomLeft": "Water",
+            "bottomRight": "Water"
           },
           "status": "fallback",
           "fallbackMaterial": "Water",
@@ -4928,176 +6787,6 @@
           "status": "fallback",
           "fallbackMaterial": "Mud_Brown",
           "tileId": 15
-        }
-      ]
-    },
-    {
-      "pair": [
-        "Grass_Dark",
-        "Soil"
-      ],
-      "category": "advanced_land_edge",
-      "priority": 320,
-      "exactPatterns": 2,
-      "fallbackPatterns": 14,
-      "fallbackMaterials": [
-        "Grass_Dark",
-        "Soil"
-      ],
-      "patterns": [
-        {
-          "corners": {
-            "topLeft": "Soil",
-            "topRight": "Grass_Dark",
-            "bottomLeft": "Grass_Dark",
-            "bottomRight": "Grass_Dark"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Grass_Dark",
-            "topRight": "Soil",
-            "bottomLeft": "Grass_Dark",
-            "bottomRight": "Grass_Dark"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Soil",
-            "topRight": "Soil",
-            "bottomLeft": "Grass_Dark",
-            "bottomRight": "Grass_Dark"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Grass_Dark",
-            "topRight": "Grass_Dark",
-            "bottomLeft": "Soil",
-            "bottomRight": "Grass_Dark"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Soil",
-            "topRight": "Grass_Dark",
-            "bottomLeft": "Soil",
-            "bottomRight": "Grass_Dark"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Grass_Dark",
-            "topRight": "Soil",
-            "bottomLeft": "Soil",
-            "bottomRight": "Grass_Dark"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Soil",
-            "topRight": "Soil",
-            "bottomLeft": "Soil",
-            "bottomRight": "Grass_Dark"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Soil",
-          "tileId": 25
-        },
-        {
-          "corners": {
-            "topLeft": "Grass_Dark",
-            "topRight": "Grass_Dark",
-            "bottomLeft": "Grass_Dark",
-            "bottomRight": "Soil"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Soil",
-            "topRight": "Grass_Dark",
-            "bottomLeft": "Grass_Dark",
-            "bottomRight": "Soil"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Grass_Dark",
-            "topRight": "Soil",
-            "bottomLeft": "Grass_Dark",
-            "bottomRight": "Soil"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Soil",
-            "topRight": "Soil",
-            "bottomLeft": "Grass_Dark",
-            "bottomRight": "Soil"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Soil",
-          "tileId": 25
-        },
-        {
-          "corners": {
-            "topLeft": "Grass_Dark",
-            "topRight": "Grass_Dark",
-            "bottomLeft": "Soil",
-            "bottomRight": "Soil"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Grass_Dark",
-          "tileId": 6
-        },
-        {
-          "corners": {
-            "topLeft": "Soil",
-            "topRight": "Grass_Dark",
-            "bottomLeft": "Soil",
-            "bottomRight": "Soil"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Soil",
-          "tileId": 25
-        },
-        {
-          "corners": {
-            "topLeft": "Grass_Dark",
-            "topRight": "Soil",
-            "bottomLeft": "Soil",
-            "bottomRight": "Soil"
-          },
-          "status": "fallback",
-          "fallbackMaterial": "Soil",
-          "tileId": 25
         }
       ]
     },
@@ -6111,6 +7800,636 @@
         {
           "corners": {
             "topLeft": "Soil",
+            "topRight": "Mud_Brown",
+            "bottomLeft": "Mud_Brown",
+            "bottomRight": "Mud_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Mud_Brown",
+          "tileId": 15
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Sand"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 320,
+      "exactPatterns": 1,
+      "fallbackPatterns": 10,
+      "fallbackMaterials": [
+        "Sand"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Sand",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Sand",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Sand",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Sand",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Sand",
+            "bottomLeft": "Sand",
+            "bottomRight": "Sand"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Sand",
+          "tileId": 22
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass",
+        "Grass_Dark"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 250,
+      "exactPatterns": 1,
+      "fallbackPatterns": 7,
+      "fallbackMaterials": [
+        "Grass"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Grass",
+            "bottomLeft": "Grass",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Grass",
+          "tileId": 5
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Grass",
+          "tileId": 5
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Grass",
+          "tileId": 5
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Grass",
+          "tileId": 5
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass",
+            "bottomLeft": "Grass",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Grass",
+          "tileId": 5
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Grass",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Grass",
+          "tileId": 5
+        },
+        {
+          "corners": {
+            "topLeft": "Grass",
+            "topRight": "Grass",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Grass",
+          "tileId": 5
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Dirt_Brown"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 220,
+      "exactPatterns": 1,
+      "fallbackPatterns": 4,
+      "fallbackMaterials": [
+        "Dirt_Brown"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Dirt_Brown",
+            "topRight": "Dirt_Brown",
+            "bottomLeft": "Dirt_Brown",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Brown",
+          "tileId": 0
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Brown",
+            "topRight": "Dirt_Brown",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Dirt_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Brown",
+          "tileId": 0
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Brown",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Dirt_Brown",
+            "bottomRight": "Dirt_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Brown",
+          "tileId": 0
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Dirt_Brown",
+            "bottomLeft": "Dirt_Brown",
+            "bottomRight": "Dirt_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Brown",
+          "tileId": 0
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Stone_Tan"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 220,
+      "exactPatterns": 1,
+      "fallbackPatterns": 4,
+      "fallbackMaterials": [
+        "Stone_Tan"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Stone_Tan",
+            "topRight": "Stone_Tan",
+            "bottomLeft": "Stone_Tan",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Stone_Tan",
+          "tileId": 26
+        },
+        {
+          "corners": {
+            "topLeft": "Stone_Tan",
+            "topRight": "Stone_Tan",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Stone_Tan"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Stone_Tan",
+          "tileId": 26
+        },
+        {
+          "corners": {
+            "topLeft": "Stone_Tan",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Stone_Tan",
+            "bottomRight": "Stone_Tan"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Stone_Tan",
+          "tileId": 26
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Stone_Tan",
+            "bottomLeft": "Stone_Tan",
+            "bottomRight": "Stone_Tan"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Stone_Tan",
+          "tileId": 26
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Dirt_Tan"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 220,
+      "exactPatterns": 1,
+      "fallbackPatterns": 4,
+      "fallbackMaterials": [
+        "Dirt_Tan"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Dirt_Tan",
+            "topRight": "Dirt_Tan",
+            "bottomLeft": "Dirt_Tan",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Tan",
+          "tileId": 3
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Tan",
+            "topRight": "Dirt_Tan",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Dirt_Tan"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Tan",
+          "tileId": 3
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Tan",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Dirt_Tan",
+            "bottomRight": "Dirt_Tan"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Tan",
+          "tileId": 3
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Dirt_Tan",
+            "bottomLeft": "Dirt_Tan",
+            "bottomRight": "Dirt_Tan"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Tan",
+          "tileId": 3
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Dirt_Roots"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 220,
+      "exactPatterns": 1,
+      "fallbackPatterns": 4,
+      "fallbackMaterials": [
+        "Dirt_Roots"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Roots",
+          "tileId": 2
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Roots",
+          "tileId": 2
+        },
+        {
+          "corners": {
+            "topLeft": "Dirt_Roots",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Roots",
+          "tileId": 2
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Dirt_Roots",
+            "bottomLeft": "Dirt_Roots",
+            "bottomRight": "Dirt_Roots"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Dirt_Roots",
+          "tileId": 2
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Mudstone_Brown"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 220,
+      "exactPatterns": 1,
+      "fallbackPatterns": 4,
+      "fallbackMaterials": [
+        "Mudstone_Brown"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Mudstone_Brown",
+          "tileId": 16
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Mudstone_Brown",
+          "tileId": 16
+        },
+        {
+          "corners": {
+            "topLeft": "Mudstone_Brown",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Mudstone_Brown",
+          "tileId": 16
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Mudstone_Brown",
+            "bottomLeft": "Mudstone_Brown",
+            "bottomRight": "Mudstone_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Mudstone_Brown",
+          "tileId": 16
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Soil"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 220,
+      "exactPatterns": 1,
+      "fallbackPatterns": 4,
+      "fallbackMaterials": [
+        "Soil"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Soil",
+            "topRight": "Soil",
+            "bottomLeft": "Soil",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Soil",
+          "tileId": 25
+        },
+        {
+          "corners": {
+            "topLeft": "Soil",
+            "topRight": "Soil",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Soil"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Soil",
+          "tileId": 25
+        },
+        {
+          "corners": {
+            "topLeft": "Soil",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Soil",
+            "bottomRight": "Soil"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Soil",
+          "tileId": 25
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
+            "topRight": "Soil",
+            "bottomLeft": "Soil",
+            "bottomRight": "Soil"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Soil",
+          "tileId": 25
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Grass_Dark",
+        "Mud_Brown"
+      ],
+      "category": "advanced_land_edge",
+      "priority": 220,
+      "exactPatterns": 1,
+      "fallbackPatterns": 4,
+      "fallbackMaterials": [
+        "Mud_Brown"
+      ],
+      "patterns": [
+        {
+          "corners": {
+            "topLeft": "Mud_Brown",
+            "topRight": "Mud_Brown",
+            "bottomLeft": "Mud_Brown",
+            "bottomRight": "Grass_Dark"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Mud_Brown",
+          "tileId": 15
+        },
+        {
+          "corners": {
+            "topLeft": "Mud_Brown",
+            "topRight": "Mud_Brown",
+            "bottomLeft": "Grass_Dark",
+            "bottomRight": "Mud_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Mud_Brown",
+          "tileId": 15
+        },
+        {
+          "corners": {
+            "topLeft": "Mud_Brown",
+            "topRight": "Grass_Dark",
+            "bottomLeft": "Mud_Brown",
+            "bottomRight": "Mud_Brown"
+          },
+          "status": "fallback",
+          "fallbackMaterial": "Mud_Brown",
+          "tileId": 15
+        },
+        {
+          "corners": {
+            "topLeft": "Grass_Dark",
             "topRight": "Mud_Brown",
             "bottomLeft": "Mud_Brown",
             "bottomRight": "Mud_Brown"

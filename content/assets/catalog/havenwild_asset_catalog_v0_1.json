@@ -112,6 +112,18 @@
       "kind": "prototype_queue",
       "path": "content/assets/prototype_imports/prototype_asset_import_queue_v0_1.json",
       "editorUse": "compatibility_stub"
+    },
+    {
+      "id": "world_tile_contract",
+      "kind": "world_tile_contract",
+      "path": "content/assets/world_tiles/world_tile_contract_v0_1.json",
+      "editorUse": "world_paint_contract"
+    },
+    {
+      "id": "world_environment_test_tiles",
+      "kind": "world_tile_atlas_manifest",
+      "path": "content/assets/world_tiles/havenwild_world_environment_test_v0_1.json",
+      "editorUse": "world_paint_render_bindings"
     }
   ],
   "editorContracts": {
@@ -119,5 +131,6 @@
     "runtimeAndEditorShareCatalogs": true,
     "rawSourceTreeRemainsImmutable": true,
     "promotionRequiresSemanticRoleFootprintCollisionAndCreditContext": true
-  }
+  },
+  "updated": "2026-09-11T20:44:47+00:00"
 }

@@ -1,7 +1,7 @@
 {
   "schema": "havenwild.elizawy_cliff.runtime_shape_catalog.v0_1",
-  "pass": "167Z109W8",
-  "revision": "167Z109W8-generated-cliff-grammar-freeze-v1",
+  "pass": "167Z109F",
+  "revision": "167Z109F-full-semantic-shape-map-v1",
   "source": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
   "sourceRepository": "https://github.com/ElizaWy/LPC",
   "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
@@ -496,5 +496,412 @@
         ]
       ]
     }
+  },
+  "shapeGrammar": "content/worldgen/terrain_shape_grammar_v0_1.json#cardinalEdge15",
+  "fullSheetRoleCatalog": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+  "structuralShapeRecipes": [
+    {
+      "mask": 1,
+      "shape": "north",
+      "exposedEdges": [
+        "north"
+      ],
+      "baseComponents": [
+        "north_lip"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 2,
+      "shape": "east",
+      "exposedEdges": [
+        "east"
+      ],
+      "baseComponents": [
+        "east_side"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "east"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 3,
+      "shape": "north_east",
+      "exposedEdges": [
+        "north",
+        "east"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "east_side"
+      ],
+      "cornerJoinPolicy": [
+        "north_east_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "east"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 4,
+      "shape": "south",
+      "exposedEdges": [
+        "south"
+      ],
+      "baseComponents": [
+        "south_lip",
+        "south_vertical_face"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "south"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 5,
+      "shape": "north_south",
+      "exposedEdges": [
+        "north",
+        "south"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "south_lip",
+        "south_vertical_face"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "south"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 6,
+      "shape": "east_south",
+      "exposedEdges": [
+        "east",
+        "south"
+      ],
+      "baseComponents": [
+        "east_side",
+        "south_lip",
+        "south_vertical_face"
+      ],
+      "cornerJoinPolicy": [
+        "south_east_orthogonal_join_or_contextual_diagonal"
+      ],
+      "visualVariants": [
+        {
+          "id": "south_east_diagonal_chain",
+          "gate": "mask==6 && faceSegments==1 && (NE.mask==6 || SW.mask==6)",
+          "sourceAssembly": "grass_rounded_plateau_template/c3-r6-r8 transparent projection"
+        }
+      ],
+      "collision": {
+        "blockedCardinalEdges": [
+          "east",
+          "south"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 7,
+      "shape": "north_east_south",
+      "exposedEdges": [
+        "north",
+        "east",
+        "south"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "south_vertical_face"
+      ],
+      "cornerJoinPolicy": [
+        "north_east_orthogonal_join",
+        "south_east_orthogonal_join_or_contextual_diagonal"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "east",
+          "south"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 8,
+      "shape": "west",
+      "exposedEdges": [
+        "west"
+      ],
+      "baseComponents": [
+        "west_side"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "west"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 9,
+      "shape": "north_west",
+      "exposedEdges": [
+        "north",
+        "west"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "north_west_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 10,
+      "shape": "east_west",
+      "exposedEdges": [
+        "east",
+        "west"
+      ],
+      "baseComponents": [
+        "east_side",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "east",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 11,
+      "shape": "north_east_west",
+      "exposedEdges": [
+        "north",
+        "east",
+        "west"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "east_side",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "north_east_orthogonal_join",
+        "north_west_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "east",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "none",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 12,
+      "shape": "south_west",
+      "exposedEdges": [
+        "south",
+        "west"
+      ],
+      "baseComponents": [
+        "south_lip",
+        "south_vertical_face",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "south_west_orthogonal_join_or_contextual_diagonal"
+      ],
+      "visualVariants": [
+        {
+          "id": "south_west_diagonal_chain",
+          "gate": "mask==12 && faceSegments==1 && (NW.mask==12 || SE.mask==12)",
+          "sourceAssembly": "grass_rounded_plateau_template/c1-r6-r8 transparent projection"
+        }
+      ],
+      "collision": {
+        "blockedCardinalEdges": [
+          "south",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 13,
+      "shape": "north_south_west",
+      "exposedEdges": [
+        "north",
+        "south",
+        "west"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "south_lip",
+        "south_vertical_face",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "south_west_orthogonal_join_or_contextual_diagonal",
+        "north_west_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "south",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 14,
+      "shape": "east_south_west",
+      "exposedEdges": [
+        "east",
+        "south",
+        "west"
+      ],
+      "baseComponents": [
+        "east_side",
+        "south_lip",
+        "south_vertical_face",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "south_east_orthogonal_join_or_contextual_diagonal",
+        "south_west_orthogonal_join_or_contextual_diagonal"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "east",
+          "south",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    },
+    {
+      "mask": 15,
+      "shape": "isolated",
+      "exposedEdges": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "baseComponents": [
+        "north_lip",
+        "east_side",
+        "south_lip",
+        "south_vertical_face",
+        "west_side"
+      ],
+      "cornerJoinPolicy": [
+        "north_east_orthogonal_join",
+        "south_east_orthogonal_join_or_contextual_diagonal",
+        "south_west_orthogonal_join_or_contextual_diagonal",
+        "north_west_orthogonal_join"
+      ],
+      "visualVariants": [],
+      "collision": {
+        "blockedCardinalEdges": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
+        "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
+      }
+    }
+  ],
+  "collisionAuthority": {
+    "structuralSource": "TavernMap.structural_levels + haven_world::CliffShape15",
+    "artNeverOwnsCollision": true,
+    "edgeRule": "Every exposed structural edge is blocked in both directions unless the exact edge has an explicit traversal connector.",
+    "southFaceRule": "Visible south cliff projection blocks 3 destination rows for faceSegments=1 and +2 rows for each additional segment.",
+    "specialHosts": {
+      "cave": "blocking interaction host",
+      "waterfall": "blocking",
+      "ramp": "connector corridor open",
+      "stairs": "connector corridor open",
+      "ladder": "connector corridor open",
+      "bridge": "connector corridor open",
+      "climbVines": "blocking until dedicated climb connector/state is promoted"
+    },
+    "missingVisualProvider": "fail open to avoid invisible walls"
+  },
+  "mappingStatus": {
+    "all15MasksHaveBaseRecipe": true,
+    "specialAssemblySemanticsMapped": true,
+    "allSourceCellsAccountedFor": true,
+    "runtimeSpecialAssemblyPromotionComplete": false
   }
 }

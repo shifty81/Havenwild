@@ -54,6 +54,7 @@ pub mod character_profile;
 pub mod character_sprite_registry;
 pub mod placeable_asset_registry;
 pub mod published_world_asset_metadata;
+pub mod published_world_topology;
 pub mod building_recipe;
 pub mod building_instance;
 pub mod building_authority_binding;

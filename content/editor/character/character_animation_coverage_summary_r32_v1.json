@@ -94,9 +94,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 14,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -630,9 +628,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 15,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -660,9 +656,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 15,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -692,9 +686,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 15,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -722,9 +714,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 15,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -754,9 +744,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 15,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -784,9 +772,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 15,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -816,9 +802,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 15,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -846,9 +830,7 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [
-        "hoe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 15,
       "coreStatus": "core",
       "missingCoreActions": [],
@@ -30735,7 +30717,7 @@
       "bodyFamilies": [],
       "actions": [],
       "toolIds": [
-        "axe"
+        "pickaxe"
       ],
       "sourceRecordCount": 2,
       "coreStatus": "broken",
@@ -30758,7 +30740,7 @@
         "walk"
       ],
       "toolIds": [
-        "axe"
+        "pickaxe"
       ],
       "sourceRecordCount": 1,
       "coreStatus": "static",
@@ -30778,7 +30760,7 @@
         "walk"
       ],
       "toolIds": [
-        "axe"
+        "pickaxe"
       ],
       "sourceRecordCount": 1,
       "coreStatus": "static",
@@ -30798,7 +30780,9 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [],
+      "toolIds": [
+        "shovel"
+      ],
       "sourceRecordCount": 2,
       "coreStatus": "static",
       "missingCoreActions": [
@@ -30817,7 +30801,9 @@
         "thrust",
         "walk"
       ],
-      "toolIds": [],
+      "toolIds": [
+        "shovel"
+      ],
       "sourceRecordCount": 2,
       "coreStatus": "static",
       "missingCoreActions": [
@@ -30877,7 +30863,9 @@
       ],
       "bodyFamilies": [],
       "actions": [],
-      "toolIds": [],
+      "toolIds": [
+        "whip"
+      ],
       "sourceRecordCount": 2,
       "coreStatus": "broken",
       "missingCoreActions": [
@@ -45356,9 +45344,7 @@
       "actions": [
         "slash"
       ],
-      "toolIds": [
-        "axe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 1,
       "coreStatus": "static",
       "missingCoreActions": [
@@ -45377,9 +45363,7 @@
       "actions": [
         "slash"
       ],
-      "toolIds": [
-        "axe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 1,
       "coreStatus": "static",
       "missingCoreActions": [
@@ -45398,9 +45382,7 @@
       "actions": [
         "walk"
       ],
-      "toolIds": [
-        "axe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 1,
       "coreStatus": "static",
       "missingCoreActions": [
@@ -45418,9 +45400,7 @@
       "actions": [
         "hurt"
       ],
-      "toolIds": [
-        "axe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 1,
       "coreStatus": "static",
       "missingCoreActions": [
@@ -45439,9 +45419,7 @@
       "actions": [
         "walk"
       ],
-      "toolIds": [
-        "axe"
-      ],
+      "toolIds": [],
       "sourceRecordCount": 1,
       "coreStatus": "static",
       "missingCoreActions": [

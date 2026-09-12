@@ -75,12 +75,15 @@
       "teen": 1760
     },
     "toolGroups": {
-      "axe": 13,
+      "axe": 4,
       "fishing_rod": 2,
       "hammer": 4,
-      "hoe": 138,
+      "hoe": 4,
+      "pickaxe": 4,
       "scythe": 6,
-      "watering_can": 4
+      "shovel": 4,
+      "watering_can": 4,
+      "whip": 2
     },
     "commercialSelectedLicenseCounts": {
       "OGA-BY 3.0": 8076,
@@ -133,12 +136,15 @@
       "dress": 7
     },
     "gameplayToolSeedSourceCounts": {
-      "axe": 13,
+      "axe": 4,
       "fishing_rod": 2,
       "hammer": 4,
-      "hoe": 138,
+      "hoe": 4,
+      "pickaxe": 4,
       "scythe": 6,
-      "watering_can": 4
+      "shovel": 4,
+      "watering_can": 4,
+      "whip": 2
     },
     "policy": "Expose approved components through semantic Character/Wardrobe categories; preserve exact ULPC definition/zPos/action/body compatibility and per-component credits."
   },

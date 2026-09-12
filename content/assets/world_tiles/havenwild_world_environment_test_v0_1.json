@@ -1,7 +1,7 @@
 {
   "schema": "havenwild.world_tile_atlas_manifest.v0_1",
   "id": "havenwild_world_environment_test_v0_1",
-  "updated": "2026-08-02T01:20:24+00:00",
+  "updated": "2026-09-11T20:44:47+00:00",
   "purpose": "LPC-derived strict 32x32 atlas used by live world-paint render bindings.",
   "canonicalTileSize": [
     32,

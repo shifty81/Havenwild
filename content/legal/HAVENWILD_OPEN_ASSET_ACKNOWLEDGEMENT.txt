@@ -31,10 +31,3 @@ Release-specific exact credits:
   OPEN_ASSET_CREDITS.json
 
 Press Escape, Enter, or Backspace to return to the title menu.
-
-Development source family registered in Pass167Z106N5:
-  LPC Victorian Buildings — bluecarrot16, Lanea Zimmerman (Sharm),
-  Casper Nilsson, Lyndsay Takacs (cyanowl), and Redshrike.
-  Havenwild uses the supplied CC-BY-SA 3.0 route for this source family.
-  Exact supplied credits: content/legal/open_assets/LPC_VICTORIAN_BUILDINGS_CREDITS.txt
-  Runtime promotion remains disabled until multi-cell component certification.

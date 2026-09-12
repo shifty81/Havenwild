@@ -1,16 +1,16 @@
 {
   "schema": "havenwild.lpc_terrain_pattern_audit.v147r",
-  "mappedEntryCount": 5127,
+  "mappedEntryCount": 3453,
   "mappedTopologyCounts": {
-    "diagonal_split": 116,
-    "edge": 232,
-    "fill": 55,
-    "inner_corner": 348,
-    "junction_3_material": 2700,
-    "junction_4_material": 1560,
-    "outer_corner": 116
+    "diagonal_split": 96,
+    "edge": 192,
+    "fill": 57,
+    "inner_corner": 288,
+    "junction_3_material": 1980,
+    "junction_4_material": 744,
+    "outer_corner": 96
   },
-  "uniqueCornerSignatures": 213,
+  "uniqueCornerSignatures": 149,
   "liveAutotileGroups": [
     "road",
     "wood_floor",

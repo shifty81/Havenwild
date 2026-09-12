@@ -127,7 +127,7 @@
       "label": "Elevation & Cliffs",
       "group": "Terrain",
       "sourceCount": 6,
-      "tileableCount": 5,
+      "tileableCount": 6,
       "needsBindingCount": 6,
       "referenceOnlyCount": 0,
       "stableIds": [
@@ -518,7 +518,7 @@
       "label": "Water",
       "group": "Terrain",
       "sourceCount": 2,
-      "tileableCount": 1,
+      "tileableCount": 2,
       "needsBindingCount": 2,
       "referenceOnlyCount": 0,
       "stableIds": [

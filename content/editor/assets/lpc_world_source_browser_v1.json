@@ -9203,7 +9203,7 @@
       ],
       "sliceCount": 24,
       "nonEmptySliceCount": 24,
-      "likelyTileable": false,
+      "likelyTileable": true,
       "productionState": "needs_binding",
       "keywords": [
         "elevation",
@@ -9383,7 +9383,7 @@
       ],
       "sliceCount": 304,
       "nonEmptySliceCount": 161,
-      "likelyTileable": false,
+      "likelyTileable": true,
       "productionState": "needs_binding",
       "keywords": [
         "water",

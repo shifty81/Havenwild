@@ -1,7 +1,7 @@
 # LPC Terrain Pattern Audit — Pass 147R
 
-- mapped entries: **5127**
-- unique corner signatures: **213**
+- mapped entries: **3453**
+- unique corner signatures: **149**
 - live autotile groups: **road, wood_floor, stone_floor, water, wall, cliff, cave_wall**
 
 ## Identity collisions
@@ -17,10 +17,10 @@
 
 ## Topology inventory
 
-- `diagonal_split`: 116
-- `edge`: 232
-- `fill`: 55
-- `inner_corner`: 348
-- `junction_3_material`: 2700
-- `junction_4_material`: 1560
-- `outer_corner`: 116
+- `diagonal_split`: 96
+- `edge`: 192
+- `fill`: 57
+- `inner_corner`: 288
+- `junction_3_material`: 1980
+- `junction_4_material`: 744
+- `outer_corner`: 96

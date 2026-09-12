@@ -4764,9 +4764,9 @@
     "collisionSemanticsMapped": true,
     "runtimePromotionComplete": false,
     "remainingWork": [
-      "replace square construction-template compatibility cells with complete connected contour recipes",
-      "certify exact side-entry ramp assembly; c8 remains rejected as a standalone crop",
-      "freeze cliff grammar only after multi-height acceptance world matches upstream test/demo scenes"
+      "promote only visually certified complete special assemblies (not raw cells) into runtime code/data",
+      "finish dedicated ramp assembly certification instead of treating c8 as a standalone ramp",
+      "optionally promote alternate face/ladder/water socket variants after acceptance-scene review"
     ]
   },
   "license": {
@@ -4777,7 +4777,7 @@
     "license": "OGA-BY 3.0",
     "creditsPath": "Terrain/Credits.txt"
   },
-  "revision": "167Z109W6-connected-recipe-source-safety-v1",
+  "revision": "167Z109F-complete-semantic-sheet-and-world-shape-map-v1",
   "measurementAuthority": "content/worldgen/cliff_asset_footprint_recipe_normalization_v0_1.json",
   "reviewRegionPolicy": {
     "regionsAreRuntimeRecipes": false,
@@ -5213,7 +5213,7 @@
         "blockedCardinalEdges": [
           "south"
         ],
-        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
         "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
       }
     },
@@ -5236,7 +5236,7 @@
           "north",
           "south"
         ],
-        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
         "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
       }
     },
@@ -5267,7 +5267,7 @@
           "east",
           "south"
         ],
-        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
         "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
       }
     },
@@ -5296,7 +5296,7 @@
           "east",
           "south"
         ],
-        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
         "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
       }
     },
@@ -5420,7 +5420,7 @@
           "south",
           "west"
         ],
-        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
         "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
       }
     },
@@ -5449,7 +5449,7 @@
           "south",
           "west"
         ],
-        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
         "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
       }
     },
@@ -5478,7 +5478,7 @@
           "south",
           "west"
         ],
-        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
         "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
       }
     },
@@ -5512,7 +5512,7 @@
           "south",
           "west"
         ],
-        "southProjectedFaceFootprint": "3 rows + 1 row per additional face segment",
+        "southProjectedFaceFootprint": "3 rows + 2 rows per additional face segment",
         "connectorOverride": "only an explicit matching Ramp/Stairs/Ladder/Bridge connector may open a blocked structural edge"
       }
     }
@@ -5613,7 +5613,7 @@
     "structuralSource": "TavernMap.structural_levels + haven_world::CliffShape15",
     "artNeverOwnsCollision": true,
     "edgeRule": "Every exposed structural edge is blocked in both directions unless the exact edge has an explicit traversal connector.",
-    "southFaceRule": "Visible south cliff projection blocks 3 destination rows for faceSegments=1 and +1 row for each additional segment.",
+    "southFaceRule": "Visible south cliff projection blocks 3 destination rows for faceSegments=1 and +2 rows for each additional segment.",
     "specialHosts": {
       "cave": "blocking interaction host",
       "waterfall": "blocking",

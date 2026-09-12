@@ -310,16 +310,22 @@ prepare_direct_lpc_runtime_assets() {
   local player_atlas="assets/generated/lpc/characters/havenwild_player_walk_64.png"
   local player_atlas_revision="assets/generated/lpc/characters/.generator_revision"
   local required_player_atlas_revision="167Z109V1-authored-action-alias-and-directional-coverage-v1"
+  local player_cache_generator="tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py"
   local installed_player_atlas_revision=""
+  local player_cache_valid="0"
   if [[ -f "$player_atlas_revision" ]]; then
     installed_player_atlas_revision="$(tr -d '\r\n' < "$player_atlas_revision")"
   fi
+  if "$python" "$player_cache_generator" --check --quiet; then
+    player_cache_valid="1"
+  fi
   if [[ "${HAVENWILD_REBUILD_PLAYER_ATLAS:-0}" == "1" \
         || ! -f "$player_atlas" \
-        || "$installed_player_atlas_revision" != "$required_player_atlas_revision" ]]; then
-    run_step "build Universal LPC character runtime caches" "$python" tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py
+        || "$installed_player_atlas_revision" != "$required_player_atlas_revision" \
+        || "$player_cache_valid" != "1" ]]; then
+    run_step "build Universal LPC character runtime caches" "$python" "$player_cache_generator"
   else
-    log "LPC player atlases match generator revision $required_player_atlas_revision"
+    log "LPC player runtime cache validated ($required_player_atlas_revision)"
   fi
 
   local object_atlas_revision="assets/generated/.lpc_terrain_object_revision"
@@ -384,15 +390,22 @@ prepare_direct_lpc_runtime_assets_fast() {
   local player_atlas="assets/generated/lpc/characters/havenwild_player_walk_64.png"
   local player_atlas_revision="assets/generated/lpc/characters/.generator_revision"
   local required_player_atlas_revision="167Z109V1-authored-action-alias-and-directional-coverage-v1"
+  local player_cache_generator="tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py"
   local installed_player_atlas_revision=""
+  local player_cache_valid="0"
   if [[ -f "$player_atlas_revision" ]]; then
     installed_player_atlas_revision="$(tr -d '\r\n' < "$player_atlas_revision")"
   fi
-  if [[ ! -f "$player_atlas" || "$installed_player_atlas_revision" != "$required_player_atlas_revision" ]]; then
+  if "$python" "$player_cache_generator" --check --quiet; then
+    player_cache_valid="1"
+  fi
+  if [[ ! -f "$player_atlas" \
+        || "$installed_player_atlas_revision" != "$required_player_atlas_revision" \
+        || "$player_cache_valid" != "1" ]]; then
     run_step "restore stale/missing Universal LPC runtime cache" \
-      "$python" tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py
+      "$python" "$player_cache_generator"
   else
-    log "LPC player runtime cache ready ($required_player_atlas_revision)"
+    log "LPC player runtime cache validated ($required_player_atlas_revision)"
   fi
 
   local object_atlas_revision="assets/generated/.lpc_terrain_object_revision"
@@ -427,16 +440,22 @@ generate_lpc_runtime_assets() {
   local player_atlas="assets/generated/lpc/characters/havenwild_player_walk_64.png"
   local player_atlas_revision="assets/generated/lpc/characters/.generator_revision"
   local required_player_atlas_revision="167Z109V1-authored-action-alias-and-directional-coverage-v1"
+  local player_cache_generator="tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py"
   local installed_player_atlas_revision=""
+  local player_cache_valid="0"
   if [[ -f "$player_atlas_revision" ]]; then
     installed_player_atlas_revision="$(tr -d '\r\n' < "$player_atlas_revision")"
   fi
+  if "$python" "$player_cache_generator" --check --quiet; then
+    player_cache_valid="1"
+  fi
   if [[ "${HAVENWILD_REBUILD_PLAYER_ATLAS:-0}" == "1" \
         || ! -f "$player_atlas" \
-        || "$installed_player_atlas_revision" != "$required_player_atlas_revision" ]]; then
-    run_step "build Universal LPC character runtime caches" "$python" tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py
+        || "$installed_player_atlas_revision" != "$required_player_atlas_revision" \
+        || "$player_cache_valid" != "1" ]]; then
+    run_step "build Universal LPC character runtime caches" "$python" "$player_cache_generator"
   else
-    log "LPC player atlases match generator revision $required_player_atlas_revision"
+    log "LPC player runtime cache validated ($required_player_atlas_revision)"
   fi
 
   local object_atlas_revision="assets/generated/.lpc_terrain_object_revision"

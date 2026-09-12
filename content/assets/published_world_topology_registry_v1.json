@@ -1,0 +1,594 @@
+{
+  "schema": "havenwild.published_world_topology_registry.v1",
+  "version": "1.0.0",
+  "tileSizePx": 32,
+  "authority": "runtime_certified_assets_only",
+  "purpose": "Small published vocabulary of understood terrain/water/cliff source components. World generation may depend on stable IDs from this registry; raw sheets and anonymous grid cells remain source-only.",
+  "entries": [
+    {
+      "id": "terrain.ground.grass.v7",
+      "domain": "terrain",
+      "kind": "source_cell",
+      "semanticRole": "grass",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        1,
+        10,
+        1,
+        1
+      ],
+      "tags": [
+        "ground",
+        "walkable",
+        "temperate"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "terrain.ground.dirt_tan.v7",
+      "domain": "terrain",
+      "kind": "source_cell",
+      "semanticRole": "dirt",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        1,
+        3,
+        1,
+        1
+      ],
+      "tags": [
+        "ground",
+        "walkable",
+        "dirt"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "terrain.ground.dirt_brown.v7",
+      "domain": "terrain",
+      "kind": "source_cell",
+      "semanticRole": "dirt",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "tags": [
+        "ground",
+        "walkable",
+        "dirt"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "terrain.ground.sand.v7",
+      "domain": "terrain",
+      "kind": "source_cell",
+      "semanticRole": "sand",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        16,
+        10,
+        1,
+        1
+      ],
+      "tags": [
+        "ground",
+        "walkable",
+        "sand"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "terrain.ground.gravel.v7",
+      "domain": "terrain",
+      "kind": "source_cell",
+      "semanticRole": "gravel",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        25,
+        10,
+        1,
+        1
+      ],
+      "tags": [
+        "ground",
+        "walkable",
+        "gravel"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "terrain.ground.soil.v7",
+      "domain": "terrain",
+      "kind": "source_cell",
+      "semanticRole": "farm_soil",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        13,
+        10,
+        1,
+        1
+      ],
+      "tags": [
+        "ground",
+        "walkable",
+        "farm"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "terrain.ground.rock_gray.v7",
+      "domain": "terrain",
+      "kind": "source_cell",
+      "semanticRole": "rock_surface",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        13,
+        3,
+        1,
+        1
+      ],
+      "tags": [
+        "ground",
+        "rock",
+        "walkable_or_foundation"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "water.shallow.dirt.v7",
+      "domain": "water",
+      "kind": "source_cell",
+      "semanticRole": "shallow_water",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        1,
+        17,
+        1,
+        1
+      ],
+      "tags": [
+        "water",
+        "shallow",
+        "dirt_bank_family"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "water.base.v7",
+      "domain": "water",
+      "kind": "source_cell",
+      "semanticRole": "water",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        4,
+        17,
+        1,
+        1
+      ],
+      "tags": [
+        "water",
+        "surface"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "water.deep.v7",
+      "domain": "water",
+      "kind": "source_cell",
+      "semanticRole": "deep_water",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        7,
+        17,
+        1,
+        1
+      ],
+      "tags": [
+        "water",
+        "deep"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "water.shallow.sand.v7",
+      "domain": "water",
+      "kind": "source_cell",
+      "semanticRole": "shallow_water",
+      "usageLane": "semantic_source",
+      "atlasId": "surface.v7.direct",
+      "sourcePath": "content/assets/lpc/source/lpc-terrains-v7/terrain-v7.png",
+      "sourceRectCells": [
+        5,
+        26,
+        1,
+        1
+      ],
+      "tags": [
+        "water",
+        "shallow",
+        "sand_bank_family"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.south.straight.crest",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_crest",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        2,
+        7,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "south",
+        "straight",
+        "crest"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.south.straight.body",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_body",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "south",
+        "straight",
+        "body",
+        "repeatable_vertical"
+      ],
+      "certification": "runtime_certified",
+      "repeatableY": true
+    },
+    {
+      "id": "cliff.south.straight.foot",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_foot",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        2,
+        8,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "south",
+        "straight",
+        "foot",
+        "receiver_row"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.corner.southwest.crest",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_corner_crest",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        1,
+        6,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "southwest",
+        "rounded",
+        "crest"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.corner.southwest.body",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_corner_body",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        1,
+        3,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "southwest",
+        "rounded",
+        "body",
+        "repeatable_vertical"
+      ],
+      "certification": "runtime_certified",
+      "repeatableY": true
+    },
+    {
+      "id": "cliff.corner.southwest.foot",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_corner_foot",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        1,
+        8,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "southwest",
+        "rounded",
+        "foot"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.corner.southeast.crest",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_corner_crest",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        3,
+        6,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "southeast",
+        "rounded",
+        "crest"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.corner.southeast.body",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_corner_body",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "southeast",
+        "rounded",
+        "body",
+        "repeatable_vertical"
+      ],
+      "certification": "runtime_certified",
+      "repeatableY": true
+    },
+    {
+      "id": "cliff.corner.southeast.foot",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_corner_foot",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        3,
+        8,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "southeast",
+        "rounded",
+        "foot"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.contour.north.straight",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_contour",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        2,
+        5,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "north",
+        "straight",
+        "contour"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.contour.west.straight",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_contour",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        0,
+        5,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "west",
+        "straight",
+        "contour"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.contour.east.straight",
+      "domain": "cliff",
+      "kind": "source_cell",
+      "semanticRole": "cliff_contour",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.elizawy.cliff.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
+      "sourceRectCells": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "east",
+        "straight",
+        "contour"
+      ],
+      "certification": "runtime_certified"
+    },
+    {
+      "id": "cliff.ramp.rise_right.grass",
+      "domain": "cliff",
+      "kind": "source_stamp",
+      "semanticRole": "directional_ramp_rise_right",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.lpc.cliff_ramp.grass",
+      "sourcePath": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "sourceRectCells": [
+        3,
+        5,
+        3,
+        4
+      ],
+      "tags": [
+        "cliff",
+        "ramp",
+        "rise_right",
+        "natural_scale"
+      ],
+      "certification": "runtime_certified",
+      "anchorOffsetCells": [
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "cliff.ramp.rise_left.grass",
+      "domain": "cliff",
+      "kind": "source_stamp",
+      "semanticRole": "directional_ramp_rise_left",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.lpc.cliff_ramp.grass",
+      "sourcePath": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "sourceRectCells": [
+        6,
+        5,
+        3,
+        4
+      ],
+      "tags": [
+        "cliff",
+        "ramp",
+        "rise_left",
+        "natural_scale"
+      ],
+      "certification": "runtime_certified",
+      "anchorOffsetCells": [
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "cliff.ridge.vertical.middle.grass",
+      "domain": "cliff",
+      "kind": "source_stamp",
+      "semanticRole": "vertical_ridge_middle",
+      "usageLane": "structural_runtime",
+      "atlasId": "structure.lpc.cliff_ramp.grass",
+      "sourcePath": "content/assets/oga_lpc/source/terrain/cliffs_grass_top/LPC_cliffs_grass.png",
+      "sourceRectCells": [
+        8,
+        2,
+        3,
+        1
+      ],
+      "tags": [
+        "cliff",
+        "ridge",
+        "vertical",
+        "middle",
+        "natural_scale"
+      ],
+      "certification": "runtime_certified",
+      "anchorOffsetCells": [
+        -1,
+        0
+      ]
+    }
+  ],
+  "worldgenPolicy": {
+    "mayConsumeOnlyPublishedIds": true,
+    "mayConsumeRawSheetPath": false,
+    "mayConsumeAnonymousGridCell": false,
+    "unsupportedTopologyPolicy": "report_or_choose_another_certified_topology; never rewrite semantic terrain to satisfy art"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "havenwild.asset_understanding_acceptance.v1",
+  "pass": "HW-ASSET-UNDERSTANDING-03",
+  "baselineCommit": "c9ce64891cc608dc06154c3b4be45d7b85ec2884",
+  "requirements": [
+    "Published topology registry loads from one embedded project-owned authority.",
+    "Every published entry references a known Atlas V2 atlas and exact source path.",
+    "Published source cells are 1x1; published stamps preserve complete multi-cell source rectangles.",
+    "Terrain, water, and cliff domains each contain runtime-certified entries.",
+    "Assets Studio Library merges the published registry while raw sheets remain in Sources.",
+    "Directional ramps remain complete authored 3x4 stamps with shared [-1,0] anchor.",
+    "Straight south cliff remains explicit crest/body/foot with only body repeatable vertically.",
+    "Worldgen is not switched over yet; this registry is the certified vocabulary for the next pass."
+  ]
+}

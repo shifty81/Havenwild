@@ -104,6 +104,16 @@ def run_entry(entry: dict[str, Any], context: ValidationContext, prior: dict[str
             result.status = "failed"; result.exit_code = 1
             result.issues.append(ValidationIssue("HWV-QUALITY-001", "validator modified read-only project sources", details={"modified": modified[:50]}))
     result.duration_seconds = time.time() - started
+    if result.status == "failed" and result.issues:
+        for issue in result.issues:
+            location = f" [{issue.path}]" if issue.path else ""
+            print(f"ISSUE {issue.code}{location}: {issue.message}", flush=True)
+            modified = issue.details.get("modified") if isinstance(issue.details, dict) else None
+            if isinstance(modified, list):
+                for path in modified:
+                    print(f"  modified: {path}", flush=True)
+            elif issue.details:
+                print(f"  details: {json.dumps(issue.details, sort_keys=True)}", flush=True)
     print(f"{result.status.upper()} {entry['name']} ({result.duration_seconds:.3f}s)", flush=True)
     return result
 

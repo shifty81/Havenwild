@@ -304,6 +304,43 @@ fn load_compact_catalog(path: &Path) -> Result<AssetsStudioCatalog, String> {
         });
     }
 
+    // Published world topology is the small understood/runtime-certified
+    // vocabulary. The broad intake catalog remains useful for Sources/Review,
+    // but Library must also expose these stable semantic IDs.
+    if let Ok(published) =
+        haven_assets::published_world_topology::published_world_topology_registry_v1()
+    {
+        for entry in published.entries() {
+            if assemblies
+                .iter()
+                .any(|existing| existing.asset_id == entry.id)
+            {
+                continue;
+            }
+            *family_counts
+                .entry(format!("{:?}", entry.domain).to_ascii_lowercase())
+                .or_insert(0) += 1;
+            assemblies.push(AssetAssemblySummary {
+                asset_id: entry.id.clone(),
+                source: entry.source_path.clone(),
+                assembly_id: format!(
+                    "rect:{}:{}:{}:{}",
+                    entry.source_rect_cells[0],
+                    entry.source_rect_cells[1],
+                    entry.source_rect_cells[2],
+                    entry.source_rect_cells[3]
+                ),
+                semantic_role: entry.semantic_role.clone(),
+                certification: "runtime_certified".to_string(),
+                footprint: format!(
+                    "{}x{} source cells",
+                    entry.source_rect_cells[2],
+                    entry.source_rect_cells[3]
+                ),
+            });
+        }
+    }
+
     Ok(AssetsStudioCatalog {
         path: path.to_path_buf(),
         generated_utc: str_at(&root, "generatedUtc"),
@@ -737,4 +774,19 @@ mod tests {
             AssetUnderstandingStage::RuntimeCertified
         );
     }
+
+    #[test]
+    fn published_world_topology_feeds_runtime_certified_library_authority() {
+        let published =
+            haven_assets::published_world_topology::published_world_topology_registry_v1()
+                .expect("published world topology registry");
+        assert!(published.entry("terrain.ground.grass.v7").is_some());
+        assert!(published.entry("water.deep.v7").is_some());
+        assert!(published.entry("cliff.ramp.rise_right.grass").is_some());
+        assert!(published
+            .entries()
+            .iter()
+            .all(|entry| entry.certification == "runtime_certified"));
+    }
+
 }

@@ -280,5 +280,16 @@
     "visualPolicy": "normalized-out thin caps/posts receive no generic fallback or invented pixels; explicit authored geometry remains structurally valid for feature-specific recipes",
     "acceptance": "docs/assets/previews/elizawy_cliff_generated_contours_pass167z109w8.png"
   },
-  "visualSourceRoleAuthority": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json"
+  "visualSourceRoleAuthority": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json",
+  "mappingPass": "167Z109F",
+  "revision": "167Z109F-full-15-shape-and-collision-map-v1",
+  "shapeGrammar": "content/worldgen/terrain_shape_grammar_v0_1.json#cardinalEdge15",
+  "fullSourceSheetMapping": "content/worldgen/elizawy_cliff_sheet_role_catalog_v0_1.json",
+  "mappingStatus": {
+    "all15StructuralMasksMapped": true,
+    "all224ElizaWySheetCellsAccountedFor": true,
+    "collisionSemanticsMapped": true,
+    "specialAssembliesMapped": true,
+    "specialAssemblyRuntimePromotionIsSeparateGate": true
+  }
 }
