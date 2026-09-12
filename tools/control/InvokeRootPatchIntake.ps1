@@ -196,32 +196,45 @@ function Invoke-GitUnifiedDiffPatch {
   $patchId = Get-PatchIdFromName -Name $Patch.Name
   Push-Location $rootFull
   try {
+    $applyMode = 'plain'
     $check = @(& git apply --check --whitespace=nowarn $Patch.FullName 2>&1)
     if($LASTEXITCODE -ne 0){
-      $reverse = @(& git apply --reverse --check --whitespace=nowarn $Patch.FullName 2>&1)
+      $plainCheckText = ($check -join ' | ')
+      $threeWayCheck = @(& git apply --3way --check --whitespace=nowarn $Patch.FullName 2>&1)
       if($LASTEXITCODE -eq 0){
-        Write-UpdateLog $LogPath ("ALREADY APPLIED: {0}" -f $patchId)
-        $archivedAlready = Move-PatchTransport -ZipPath $Patch.FullName -DestinationRoot $appliedRoot -Stamp $Stamp
-        $lastAppliedAlready = [ordered]@{
-          schema = 'havenwild.last_applied_patch.v1'
-          project = 'Havenwild'
-          patchId = $patchId
-          pass = $patchId
-          appliedUtc = (Get-Date).ToUniversalTime().ToString('o')
-          archivedZip = $archivedAlready
-          files = 0
-          removals = 0
-          applyMode = 'git-unified-diff'
-          alreadyApplied = $true
+        $applyMode = 'three-way'
+        Write-UpdateLog $LogPath ("GIT PATCH CHECK: plain apply failed; using 3-way apply for {0}. Plain check: {1}" -f $Patch.Name,$plainCheckText)
+      } else {
+        $threeWayCheckText = ($threeWayCheck -join ' | ')
+        $reverse = @(& git apply --reverse --check --whitespace=nowarn $Patch.FullName 2>&1)
+        if($LASTEXITCODE -eq 0){
+          Write-UpdateLog $LogPath ("ALREADY APPLIED: {0}" -f $patchId)
+          $archivedAlready = Move-PatchTransport -ZipPath $Patch.FullName -DestinationRoot $appliedRoot -Stamp $Stamp
+          $lastAppliedAlready = [ordered]@{
+            schema = 'havenwild.last_applied_patch.v1'
+            project = 'Havenwild'
+            patchId = $patchId
+            pass = $patchId
+            appliedUtc = (Get-Date).ToUniversalTime().ToString('o')
+            archivedZip = $archivedAlready
+            files = 0
+            removals = 0
+            applyMode = 'git-unified-diff'
+            alreadyApplied = $true
+          }
+          $lastAppliedAlready | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $lastAppliedPath -Encoding UTF8
+          return
         }
-        $lastAppliedAlready | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $lastAppliedPath -Encoding UTF8
-        return
+        throw ("git apply check failed for {0}: plain=[{1}] threeWay=[{2}] reverse=[{3}]" -f $Patch.Name, $plainCheckText, $threeWayCheckText, ($reverse -join ' | '))
       }
-      throw ("git apply --check failed for {0}: {1}" -f $Patch.Name, (($check + $reverse) -join ' | '))
     }
-    $apply = @(& git apply --whitespace=nowarn $Patch.FullName 2>&1)
+    if($applyMode -eq 'three-way'){
+      $apply = @(& git apply --3way --whitespace=nowarn $Patch.FullName 2>&1)
+    } else {
+      $apply = @(& git apply --whitespace=nowarn $Patch.FullName 2>&1)
+    }
     if($LASTEXITCODE -ne 0){
-      throw ("git apply failed for {0}: {1}" -f $Patch.Name, ($apply -join ' | '))
+      throw ("git apply {0} failed for {1}: {2}" -f $applyMode, $Patch.Name, ($apply -join ' | '))
     }
   } finally {
     Pop-Location
@@ -444,7 +457,17 @@ function Invoke-OnePatch {
       }
       Write-UpdateLog $logPath 'ROLLBACK: complete.'
     }
+    $nonBlockingStartupTextPatch = $false
+    try {
+      if([bool]$Prompt -and -not (Test-PatchTransportIsZip -Path $Patch.FullName)){
+        $nonBlockingStartupTextPatch = $true
+      }
+    } catch { }
     try { $null = Move-PatchTransport -ZipPath $Patch.FullName -DestinationRoot $failedRoot -Stamp $stamp } catch { }
+    if($nonBlockingStartupTextPatch){
+      Write-UpdateLog $logPath ("NONBLOCKING STARTUP PATCH FAILURE: archived failed text patch and continued to PCC menu. Full Gate will still fail if this patch is reintroduced unchanged.")
+      return
+    }
     throw "Havenwild patch intake failed for $($Patch.Name): $failure"
   } finally {
     if(Test-Path -LiteralPath $stage){ Remove-Item -LiteralPath $stage -Recurse -Force -ErrorAction SilentlyContinue }

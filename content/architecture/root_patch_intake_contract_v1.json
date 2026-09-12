@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.root_patch_intake_contract.v1",
-  "version": 2,
+  "version": 3,
   "updated": "2026-09-12",
   "authority": "tools/control/InvokeRootPatchIntake.ps1",
   "qualityGateHook": "tools/control/HavenwildTools.ps1",
@@ -14,7 +14,8 @@
     "Git unified-diff transports are checked with git apply --check and safe path validation before application",
     "successful patch transports are archived outside the repository root",
     "root cleanliness audit runs only after consumed patch transports have left the root",
-    "after manual editor/runtime testing, option 2 commits and pushes the certified GREEN source"
+    "after manual editor/runtime testing, option 2 commits and pushes the certified GREEN source",
+    "If a text .patch does not apply during startup prompt mode, archive it to artifacts/updates/failed and keep the internal PCC menu usable."
   ],
   "supportedTransports": [
     {
@@ -65,8 +66,9 @@
     "failedArchiveRoot": "artifacts/updates/failed",
     "logRoot": "logs/updates",
     "rollbackOnFailure": true,
-    "executesPatchScripts": false
+    "executesPatchScripts": false,
+    "gitUnifiedDiffFailureHandling": "Plain git apply is checked first; 3-way git apply is allowed for text patches. Prompt-mode startup failures are archived and reported without trapping the PCC menu; Full Gate still fails on unchanged bad patches."
   },
   "rootPolicy": "Consumed patch transports are archived before normal root cleanliness assertion. Patch transports never become repository-root source authority.",
-  "preservationPolicy": "This intake extension preserves the existing ZIP/manifest workflow and adds .patch discovery for internal PCC standalone operation until ForgePY/Cortex intake is stable."
+  "preservationPolicy": "This hardening preserves existing manifest ZIP intake and patch 10 standalone PCC behavior while making failed text .patch transports diagnosable and non-poisoning at startup."
 }
