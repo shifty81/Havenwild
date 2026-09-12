@@ -1,0 +1,57 @@
+{
+  "schema": "havenwild.asset_authority_reset_policy.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "doctrine": [
+    "Use assets as authored.",
+    "Raw source sheets are immutable reference/input assets.",
+    "Mechanical slicing/indexing is inspection only, not runtime authority.",
+    "Runtime/editor authority starts at certified published metadata.",
+    "Generated catalogs and caches are disposable and recoverable.",
+    "Legacy object/tile aliases are compatibility adapters, not source authority.",
+    "Validators verify contracts; they do not invent art rules or reshape worlds."
+  ],
+  "authorityLayers": [
+    {
+      "layer": "raw_source_libraries",
+      "role": "reference/input",
+      "hardFailWhen": "certified production asset points to a missing source"
+    },
+    {
+      "layer": "mechanical_source_index",
+      "role": "inspection/search/cache",
+      "hardFailWhen": "never by itself; corruption triggers regenerate/quarantine"
+    },
+    {
+      "layer": "asset_pack_manifest",
+      "role": "provenance/license/package declaration",
+      "hardFailWhen": "production-enabled pack lacks approved provenance/license or duplicate ids"
+    },
+    {
+      "layer": "published_world_asset_registry",
+      "role": "runtime/editor placeable object authority",
+      "hardFailWhen": "stable id, source, footprint, anchor, or compatibility contract is broken"
+    },
+    {
+      "layer": "published_world_topology_registry",
+      "role": "terrain/water/cliff grammar authority",
+      "hardFailWhen": "schema, tile size, source rect, atlas path, domain, or certification is invalid"
+    },
+    {
+      "layer": "editor_palette",
+      "role": "view over certified/published assets plus source-inspection candidates",
+      "hardFailWhen": "it paints uncertified source references as runtime assets"
+    },
+    {
+      "layer": "runtime_cache_generated_catalog",
+      "role": "performance/recovery cache",
+      "hardFailWhen": "never alone; bad cache should be quarantined and rebuilt"
+    }
+  ],
+  "nextImplementationPasses": [
+    "Assets Studio must stay navigable if artifacts/asset-intake/asset-catalog.json is corrupt.",
+    "Palette must prioritize published/certified assets and keep source references non-placeable until promotion.",
+    "Terrain/cliff/water generation must consume published topology ids rather than raw atlas cells.",
+    "Tool/hotbar/equipment icons must come from real item/tool art, not drawn placeholders."
+  ]
+}

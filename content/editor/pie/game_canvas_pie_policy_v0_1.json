@@ -1,0 +1,48 @@
+{
+  "schema": "havenwild.game_canvas_pie_policy.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "goal": "Upgrade existing Play/Play From Here/dev-client bridge into Unreal-style editor testing without breaking current standalone launch.",
+  "preserve": [
+    "current Play and Play From Here commands",
+    "development world publish/round-trip/metadata path",
+    "external haven_game development client launch",
+    "dev bridge reload assets/world/build/restart/stop/status operations"
+  ],
+  "playModes": [
+    {
+      "id": "edit",
+      "description": "normal authoring mode"
+    },
+    {
+      "id": "simulate",
+      "description": "run world simulation in editor without taking player control"
+    },
+    {
+      "id": "play_in_canvas",
+      "description": "frame the live runtime session inside Game Canvas for editor testing"
+    },
+    {
+      "id": "play_from_here",
+      "description": "start from selected/cursor world or scene cell"
+    },
+    {
+      "id": "play_in_new_window",
+      "description": "launch external development client window"
+    },
+    {
+      "id": "standalone_game",
+      "description": "launch normal game executable path"
+    },
+    {
+      "id": "multiplayer_local_test",
+      "description": "future local host plus N clients for co-op validation"
+    }
+  ],
+  "acceptance": [
+    "Game Canvas shows play state, world id, scene id, spawn, runtime status, and registry versions.",
+    "Input capture is explicit and Stop returns to Edit mode.",
+    "Editor and runtime consume the same saved world/metadata/assets/topology versions.",
+    "New embedded/framed mode does not remove the external client fallback."
+  ]
+}

@@ -239,12 +239,37 @@ function Get-FrontDoorState {
     return (($raw -join "`n") | ConvertFrom-Json)
   } catch { return $fallback }
 }
+function Get-RootPatchDiscoveryPatterns {
+  return @(
+    'Havenwild_IncrementalPatch_*.zip',
+    'Havenwild_Patch_*.zip',
+    'Havenwild_Handoff_*.zip',
+    'Havenwild__*.patch',
+    'HW-*.patch'
+  )
+}
 function Get-PendingRootPatchCount {
   $seen=@{}
-  foreach($pattern in @('Havenwild_IncrementalPatch_*.zip','Havenwild_Patch_*.zip','Havenwild_Handoff_*.zip')) {
+  foreach($pattern in @(Get-RootPatchDiscoveryPatterns)) {
     foreach($candidate in @(Get-ChildItem -LiteralPath $Root -File -Filter $pattern -ErrorAction SilentlyContinue)) { $seen[$candidate.FullName.ToLowerInvariant()]=$true }
   }
   return $seen.Count
+}
+function Invoke-StartupRootPatchPrompt {
+  $pending=Get-PendingRootPatchCount
+  if($pending -le 0) { return }
+  $patchIntake = Join-Path $PSScriptRoot 'InvokeRootPatchIntake.ps1'
+  if(-not (Test-Path -LiteralPath $patchIntake -PathType Leaf)) {
+    $message = "Startup patch scan found $pending pending patch transport(s), but patch intake authority is missing: $patchIntake"
+    $script:StartupWarnings += $message
+    Add-Content -Path $SessionLog -Value $message
+    return
+  }
+  Write-Color ("STARTUP PATCH SCAN: found {0} root patch transport(s)." -f $pending) Yellow
+  Write-Color 'Internal PCC asks before applying each patch. Answer N to leave a patch in root for later.' DarkGray
+  Invoke-HavenwildAction 'Startup root patch intake' {
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $patchIntake -Root $Root -Prompt
+  } 'updates'
 }
 function Get-CertifiedCommitMessage {
   try {
@@ -1351,6 +1376,9 @@ $script:ReturnToInteractiveMenu=[bool]$ReturnToMenu
 if(-not $script:ReturnToInteractiveMenu -and (Test-ControlCenterRestartChild)) {
   $script:ReturnToInteractiveMenu=$true
   Add-Content $SessionLog 'Detected nested Control Center self-update child; interactive menu ownership will be preserved.'
+}
+if($Command -eq 'menu') {
+  Invoke-StartupRootPatchPrompt
 }
 if($Command -ne 'menu'){
   Invoke-RegisteredCommand (Get-CommandById $Command)

@@ -1,0 +1,41 @@
+{
+  "schema": "havenwild.validation_tier_policy.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "currentAuthority": "content/build/validator_registry_v4.json",
+  "preserve": [
+    "validator_registry_v4 remains the active authority",
+    "validation_runner.py remains the active runner",
+    "full profile may retain historical/subsystem certification",
+    "source/build profiles remain bounded and clean-checkout safe"
+  ],
+  "tiers": {
+    "hard_fail": [
+      "unsafe patch paths or failed hashes",
+      "authoritative source JSON/schema cannot load",
+      "missing source for certified production asset",
+      "duplicate stable asset IDs",
+      "invalid license/provenance for production-enabled content",
+      "published registry/topology contract break",
+      "Rust fmt/check/clippy/test failure in full gate"
+    ],
+    "warning": [
+      "generated cache or broad scan catalog stale/corrupt but repairable",
+      "uncertified source candidates",
+      "unused source sheets",
+      "legacy aliases still present with valid canonical target",
+      "visual certification pending"
+    ],
+    "report_only": [
+      "historical pass compliance not required by current authority",
+      "asset coverage suggestions",
+      "optional library coverage gaps",
+      "future GUI polish recommendations"
+    ],
+    "deprecated_or_delete_after_migration": [
+      "validators that mutate terrain/water/cliffs to fit art",
+      "validators that enforce obsolete atlas guesses outside metadata",
+      "validators that block GREEN for generated-cache drift alone"
+    ]
+  }
+}

@@ -1,23 +1,50 @@
 {
   "schema": "havenwild.root_patch_intake_contract.v1",
-  "version": 1,
-  "updated": "2026-08-23",
+  "version": 2,
+  "updated": "2026-09-12",
   "authority": "tools/control/InvokeRootPatchIntake.ps1",
   "qualityGateHook": "tools/control/HavenwildTools.ps1",
   "normalWorkflow": [
-    "drop an unextracted Havenwild_IncrementalPatch_*.zip into the repository root",
-    "run HavenwildTools.cmd",
-    "choose Build & Verify -> Full quality gate",
-    "the full quality gate invokes root patch intake before root cleanliness validation",
-    "patch intake transactionally backs up and applies controlled overwrite/removal data",
-    "payload hashes and post-apply state are verified",
-    "successful patch transport is archived outside the repository root",
+    "drop an unextracted Havenwild_Patch_*.zip, Havenwild_IncrementalPatch_*.zip, Havenwild_Handoff_*.zip, Havenwild__*.patch, or HW-*.patch transport into the repository root",
+    "launch HavenwildTools.cmd; startup patch scan may prompt before entering the internal PCC menu",
+    "approve only the patch transports intended for the current repository state",
+    "choose option 1 / Full quality gate to certify the current source after patch intake",
+    "patch intake validates paths, hashes, manifests, or Git unified-diff apply checks before changing source",
+    "patch intake transactionally backs up and applies controlled overwrite/removal data for manifest ZIP transports",
+    "Git unified-diff transports are checked with git apply --check and safe path validation before application",
+    "successful patch transports are archived outside the repository root",
     "root cleanliness audit runs only after consumed patch transports have left the root",
-    "the full quality gate continues into build, tests, validation, and debug bundle handling"
+    "after manual editor/runtime testing, option 2 commits and pushes the certified GREEN source"
+  ],
+  "supportedTransports": [
+    {
+      "pattern": "Havenwild_IncrementalPatch_*.zip",
+      "format": "manifest_zip",
+      "schema": "havenwild.root_patch.v1"
+    },
+    {
+      "pattern": "Havenwild_Patch_*.zip",
+      "format": "manifest_zip",
+      "schema": "havenwild.root_patch.v1"
+    },
+    {
+      "pattern": "Havenwild_Handoff_*.zip",
+      "format": "manifest_zip",
+      "schema": "havenwild.root_patch.v1"
+    },
+    {
+      "pattern": "Havenwild__*.patch",
+      "format": "manifest_zip_or_git_unified_diff"
+    },
+    {
+      "pattern": "HW-*.patch",
+      "format": "manifest_zip_or_git_unified_diff"
+    }
   ],
   "safety": {
-    "manifest": "PATCH_MANIFEST.json with schema havenwild.root_patch.v1",
-    "allowedApplyMode": "overwrite",
+    "manifest": "PATCH_MANIFEST.json with schema havenwild.root_patch.v1 for manifest ZIP transports",
+    "allowedApplyMode": "overwrite for manifest ZIP transports; git-unified-diff for text patch transports",
+    "startupPrompt": "HavenwildTools.ps1 may call InvokeRootPatchIntake.ps1 -Prompt to ask before applying each pending root patch.",
     "rejects": [
       "absolute paths",
       "drive-qualified paths",
@@ -28,7 +55,9 @@
       "payload size mismatches",
       "project mismatch",
       "unsupported schemas",
-      "directory removals"
+      "directory removals",
+      "Git binary patches",
+      "Git unified-diff paths outside the repository root"
     ],
     "backupRoot": ".havenwild/updates/backups",
     "stagingRoot": ".havenwild/updates/staging",
@@ -38,5 +67,6 @@
     "rollbackOnFailure": true,
     "executesPatchScripts": false
   },
-  "rootPolicy": "Consumed patch ZIPs are archived before the normal root cleanliness assertion. Patch transport never becomes repository-root source authority."
+  "rootPolicy": "Consumed patch transports are archived before normal root cleanliness assertion. Patch transports never become repository-root source authority.",
+  "preservationPolicy": "This intake extension preserves the existing ZIP/manifest workflow and adds .patch discovery for internal PCC standalone operation until ForgePY/Cortex intake is stable."
 }

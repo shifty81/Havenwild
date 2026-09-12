@@ -1,0 +1,74 @@
+{
+  "schema": "havenwild.editor_authoring_v2_implementation_roadmap.v0_2",
+  "version": "0.2",
+  "updated": "2026-09-12",
+  "sourceAudit": "_audit/EDITOR_AUTHORING_V2_AUDIT_01.md",
+  "principle": "Preserve first, normalize second, upgrade third, delete last after migrated behavior is verified.",
+  "passes": [
+    {
+      "id": "09A",
+      "title": "Internal PCC Root Patch Mode",
+      "intent": "preserve ZIP intake and add .patch prompt/application for standalone workflow"
+    },
+    {
+      "id": "09B",
+      "title": "Assets Input Recovery",
+      "intent": "fix Assets workspace trapping and corrupt generated catalog UX"
+    },
+    {
+      "id": "10",
+      "title": "Deep Normalization Audit Authority",
+      "intent": "record project-wide preservation/asset/validation/dock/PIE policies"
+    },
+    {
+      "id": "11",
+      "title": "Asset Catalog Authority Hardening",
+      "intent": "make generated catalog recoverable and published registries authoritative"
+    },
+    {
+      "id": "12",
+      "title": "Dock Registry Foundation",
+      "intent": "wrap existing right/bottom docks in a general panel registry"
+    },
+    {
+      "id": "13",
+      "title": "GUI Polish Normalization",
+      "intent": "normalize panel chrome, rows, tabs, scrollbars, and theme tokens"
+    },
+    {
+      "id": "14",
+      "title": "Validation Tier Refinement",
+      "intent": "keep v4, tier checks, demote generated-cache drift"
+    },
+    {
+      "id": "15",
+      "title": "Game Canvas PIE Foundation",
+      "intent": "add explicit Play In Canvas mode while preserving external Play"
+    },
+    {
+      "id": "16",
+      "title": "Runtime/Editor Parity Contract",
+      "intent": "report and verify shared world/scene/spawn/assets/topology versions"
+    },
+    {
+      "id": "17",
+      "title": "Certified Asset Palette Authority",
+      "intent": "certified published assets first, source references inspection/promotion only"
+    },
+    {
+      "id": "18",
+      "title": "Terrain Cliff Water Grammar Reset",
+      "intent": "consume published topology ids, not raw atlas cell guesses"
+    },
+    {
+      "id": "19",
+      "title": "Tool Icon Held Visual Authority",
+      "intent": "real tool icons and held visuals from certified source art"
+    },
+    {
+      "id": "20",
+      "title": "Interior Structure Furniture Authority",
+      "intent": "structures/interiors/furniture use same published semantic asset contracts"
+    }
+  ]
+}

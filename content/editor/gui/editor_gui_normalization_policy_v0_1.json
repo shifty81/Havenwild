@@ -1,0 +1,42 @@
+{
+  "schema": "havenwild.editor_gui_normalization_policy.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "goal": "Preserve the current native editor while normalizing every panel onto one dock/chrome/input model.",
+  "existingSurfaces": [
+    "Game Canvas",
+    "Assets",
+    "Pixel",
+    "Animation",
+    "Character",
+    "Logic",
+    "Sound",
+    "Right Dock",
+    "Bottom Dock",
+    "Tool Rail",
+    "Layer Rail",
+    "Asset Browser",
+    "Console",
+    "Validation",
+    "Build",
+    "Imports",
+    "Activity"
+  ],
+  "dockRegistryTarget": {
+    "panelId": "stable snake_case id",
+    "title": "visible label",
+    "defaultArea": "left|right|bottom|center_overlay|floating",
+    "visibility": "open|closed|pinned|collapsed",
+    "focusOrder": "most recent panel focus",
+    "sizing": "min/preferred/max width or height",
+    "scroll": "shared dark themed scroll policy",
+    "inputPriority": "modal > popup > menu > workspace tabs > dock chrome > panel body > canvas gestures"
+  },
+  "polishRules": [
+    "Use editor_theme tokens instead of local color literals where safe.",
+    "Use shared panel/header/tab/row/button/scrollbar helpers.",
+    "No panel may trap top-level workspace navigation.",
+    "Every panel error state must keep close/reload/navigation available.",
+    "Reset Layout must restore a usable default."
+  ]
+}

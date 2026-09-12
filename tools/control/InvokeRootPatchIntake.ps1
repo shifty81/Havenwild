@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
-  [Parameter(Mandatory=$true)][string]$Root
+  [Parameter(Mandatory=$true)][string]$Root,
+  [switch]$Prompt
 )
 
 $ErrorActionPreference = 'Stop'
@@ -121,6 +122,128 @@ function Test-ZipSidecarHash {
   if($actual -ne $expected){ throw "ZIP SHA-256 mismatch for $(Split-Path -Leaf $ZipPath)." }
 }
 
+
+function Test-PatchTransportIsZip {
+  param([Parameter(Mandatory=$true)][string]$Path)
+  $stream = [IO.File]::OpenRead($Path)
+  try {
+    if($stream.Length -lt 4){ return $false }
+    $bytes = New-Object byte[] 4
+    $read = $stream.Read($bytes,0,4)
+    if($read -lt 4){ return $false }
+    return ($bytes[0] -eq 0x50 -and $bytes[1] -eq 0x4B)
+  } finally {
+    $stream.Dispose()
+  }
+}
+
+function Confirm-PatchTransportApply {
+  param([Parameter(Mandatory=$true)][IO.FileInfo]$Patch)
+  if(-not [bool]$Prompt){ return $true }
+  $answer = Read-Host ("Apply pending root patch {0}? [y/N]" -f $Patch.Name)
+  return ($answer -match '^[Yy]')
+}
+
+function Get-PatchIdFromName {
+  param([Parameter(Mandatory=$true)][string]$Name)
+  $base = [IO.Path]::GetFileNameWithoutExtension($Name)
+  if([string]::IsNullOrWhiteSpace($base)){ return 'manual' }
+  return ($base -replace '[^A-Za-z0-9._-]','_')
+}
+
+function Assert-GitUnifiedDiffSafe {
+  param([Parameter(Mandatory=$true)][string]$PatchText)
+  if($PatchText -match '(?m)^GIT binary patch'){
+    throw 'Git binary patches are not supported by internal PCC root intake.'
+  }
+  $sawPath = $false
+  foreach($line in ($PatchText -split "`r?`n")){
+    if($line -match '^diff --git\s+a/(.+?)\s+b/(.+)$'){
+      foreach($relative in @($Matches[1], $Matches[2])){
+        if($relative -ne '/dev/null' -and -not (Test-SafeRelativePath -Relative $relative)){
+          throw "Unsafe Git patch path: $relative"
+        }
+      }
+      $sawPath = $true
+      continue
+    }
+    if($line -match '^(---|\+\+\+)\s+(a/|b/)?(.+)$'){
+      $relative = $Matches[3]
+      if($relative -ne '/dev/null' -and -not (Test-SafeRelativePath -Relative $relative)){
+        throw "Unsafe Git patch path: $relative"
+      }
+      $sawPath = $true
+    }
+  }
+  if(-not $sawPath){ throw 'Git unified diff did not declare any file paths.' }
+}
+
+function Invoke-GitUnifiedDiffPatch {
+  param(
+    [Parameter(Mandatory=$true)][IO.FileInfo]$Patch,
+    [Parameter(Mandatory=$true)][string]$LogPath,
+    [Parameter(Mandatory=$true)][string]$Stamp
+  )
+
+  if(-not (Get-Command git -ErrorAction SilentlyContinue)){
+    throw 'Git unified-diff patch requires git on PATH.'
+  }
+  $patchText = Get-Content -LiteralPath $Patch.FullName -Raw -ErrorAction Stop
+  if($patchText -notmatch '(?m)^diff --git\s+a/' -or $patchText -notmatch '(?m)^@@'){
+    throw "Text patch is not a Git unified diff transport: $($Patch.Name)"
+  }
+  Assert-GitUnifiedDiffSafe -PatchText $patchText
+  $patchId = Get-PatchIdFromName -Name $Patch.Name
+  Push-Location $rootFull
+  try {
+    $check = @(& git apply --check --whitespace=nowarn $Patch.FullName 2>&1)
+    if($LASTEXITCODE -ne 0){
+      $reverse = @(& git apply --reverse --check --whitespace=nowarn $Patch.FullName 2>&1)
+      if($LASTEXITCODE -eq 0){
+        Write-UpdateLog $LogPath ("ALREADY APPLIED: {0}" -f $patchId)
+        $archivedAlready = Move-PatchTransport -ZipPath $Patch.FullName -DestinationRoot $appliedRoot -Stamp $Stamp
+        $lastAppliedAlready = [ordered]@{
+          schema = 'havenwild.last_applied_patch.v1'
+          project = 'Havenwild'
+          patchId = $patchId
+          pass = $patchId
+          appliedUtc = (Get-Date).ToUniversalTime().ToString('o')
+          archivedZip = $archivedAlready
+          files = 0
+          removals = 0
+          applyMode = 'git-unified-diff'
+          alreadyApplied = $true
+        }
+        $lastAppliedAlready | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $lastAppliedPath -Encoding UTF8
+        return
+      }
+      throw ("git apply --check failed for {0}: {1}" -f $Patch.Name, (($check + $reverse) -join ' | '))
+    }
+    $apply = @(& git apply --whitespace=nowarn $Patch.FullName 2>&1)
+    if($LASTEXITCODE -ne 0){
+      throw ("git apply failed for {0}: {1}" -f $Patch.Name, ($apply -join ' | '))
+    }
+  } finally {
+    Pop-Location
+  }
+
+  $archived = Move-PatchTransport -ZipPath $Patch.FullName -DestinationRoot $appliedRoot -Stamp $Stamp
+  $lastApplied = [ordered]@{
+    schema = 'havenwild.last_applied_patch.v1'
+    project = 'Havenwild'
+    patchId = $patchId
+    pass = $patchId
+    appliedUtc = (Get-Date).ToUniversalTime().ToString('o')
+    archivedZip = $archived
+    files = $null
+    removals = 0
+    applyMode = 'git-unified-diff'
+  }
+  $lastApplied | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $lastAppliedPath -Encoding UTF8
+  Write-UpdateLog $LogPath ("APPLIED GIT PATCH: {0}" -f $patchId)
+  Write-UpdateLog $LogPath ("ARCHIVED: {0}" -f $archived)
+}
+
 function Invoke-OnePatch {
   param([Parameter(Mandatory=$true)][IO.FileInfo]$Patch)
 
@@ -136,7 +259,16 @@ function Invoke-OnePatch {
   New-Item -ItemType Directory -Force -Path $backup | Out-Null
   try {
     Write-UpdateLog $logPath ("PATCH DETECTED: {0}" -f $Patch.Name)
+    if(-not (Confirm-PatchTransportApply -Patch $Patch)){
+      Write-UpdateLog $logPath ("SKIPPED BY USER: {0}; patch remains in root for later." -f $Patch.Name)
+      return
+    }
     Test-ZipSidecarHash -ZipPath $Patch.FullName
+
+    if(-not (Test-PatchTransportIsZip -Path $Patch.FullName)){
+      Invoke-GitUnifiedDiffPatch -Patch $Patch -LogPath $logPath -Stamp $stamp
+      return
+    }
 
     $archive = [IO.Compression.ZipFile]::OpenRead($Patch.FullName)
     try {
@@ -322,7 +454,10 @@ function Invoke-OnePatch {
 $patchPatterns = @(
   'Havenwild_IncrementalPatch_*.zip',
   'Havenwild_Patch_*.zip',
-  'Havenwild_Handoff_*.zip'
+  'Havenwild_Handoff_*.zip',
+  'Havenwild__*.patch',
+  'Havenwild_Patch_*.patch',
+  'HW-*.patch'
 )
 $patchMap = @{}
 foreach($pattern in $patchPatterns){
@@ -332,10 +467,10 @@ foreach($pattern in $patchPatterns){
 }
 $patches = @($patchMap.Values | Sort-Object LastWriteTime,Name)
 if($patches.Count -eq 0){
-  Write-Host 'Patch discovery: 0 recognized pending root patch/handoff ZIP(s).'
+  Write-Host 'Patch discovery: 0 recognized pending root patch/handoff ZIP/.patch transport(s).'
   return
 }
 
-Write-Host ("Patch discovery: {0} recognized pending root patch/handoff ZIP(s)." -f $patches.Count)
+Write-Host ("Patch discovery: {0} recognized pending root patch/handoff ZIP/.patch transport(s)." -f $patches.Count)
 foreach($patch in $patches){ Invoke-OnePatch -Patch $patch }
-Write-Host 'Patch intake: all recognized root patches/handoffs applied successfully.'
+Write-Host 'Patch intake: all recognized root patch transports applied successfully.'
