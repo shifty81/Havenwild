@@ -1,0 +1,50 @@
+{
+  "schema": "emberwright.canvas_first_editor_model.v0.1",
+  "product": "Emberwright",
+  "status": "planning_authority",
+  "summary": "The center of the native editor is a persistent canvas/document surface. Everything else is a dockable, floating, or contextual tool panel.",
+  "corePrinciples": [
+    "The canvas/document surface is permanent and never traps access to top-level chrome.",
+    "Tools are panels, palettes, inspectors, timelines, browsers, or floating documents; tools are not mutually exclusive full-screen modes by default.",
+    "Game/room/world/scene editing happens in the center canvas; supporting workflows attach around it.",
+    "Specialized editors remain available, but are expressed as tool panels and document types rather than isolated tab prisons.",
+    "Project-specific terms are supplied by the active ProjectProfile, not hardcoded by the editor shell."
+  ],
+  "permanentCenter": {
+    "preferredName": "Canvas",
+    "alternateLabels": [
+      "Room Canvas",
+      "Game Canvas",
+      "Document Canvas"
+    ],
+    "responsibilities": [
+      "draw and edit rooms/scenes/maps/UI/prefabs/patterns/atlases/character documents as active documents",
+      "own zoom/pan/rulers/grid/snapping/selection/gizmos",
+      "host play-in-canvas and simulate overlays",
+      "accept tools from dock panels through shared commands"
+    ]
+  },
+  "nonPermanentTools": [
+    "Asset Browser",
+    "Asset Authority",
+    "Atlas Assembly",
+    "Tile Palette",
+    "Inspector",
+    "Layer Stack",
+    "Room Manager",
+    "Object Browser",
+    "Sprite/Pixel/Animation tools",
+    "Character Rig tools",
+    "Logic/Node/Scripting tools",
+    "Sound tools",
+    "Validation",
+    "Console",
+    "Build Output",
+    "Tasks"
+  ],
+  "mustNotDo": [
+    "do not add new whole-editor workspaces for asset intake",
+    "do not let a tool panel consume top-level workspace tabs",
+    "do not require users to leave the canvas to inspect assets, animation, character, logic, or sound data"
+  ]
+}

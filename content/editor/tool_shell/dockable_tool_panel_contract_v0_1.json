@@ -1,0 +1,67 @@
+{
+  "schema": "emberwright.dockable_tool_panel_contract.v0.1",
+  "status": "planning_authority",
+  "toolKinds": {
+    "panel": "Docked persistent or collapsible panel attached to a side/bottom dock.",
+    "floatingPanel": "Free-floating window that can be repositioned and optionally redocked.",
+    "palette": "Compact source/brush/object selector that feeds the active canvas document.",
+    "timeline": "Time-based editor strip, usually docked bottom or floating.",
+    "inspector": "Selection/project/document property editor.",
+    "browser": "Project resource tree or searchable resource browser.",
+    "modal": "Short-lived blocking dialog only for confirmation, naming, or destructive operations; not for normal editing."
+  },
+  "commonFields": [
+    "toolId",
+    "label",
+    "kind",
+    "dockArea",
+    "defaultVisible",
+    "canFloat",
+    "canDock",
+    "canCollapse",
+    "selectionScope",
+    "documentScope",
+    "commands",
+    "projectProfileExtensions"
+  ],
+  "requiredInputRules": [
+    "top-level menu, document tabs, and canvas/workspace tabs always route before tool-panel content",
+    "tool panels may own drag gestures only after the initial press starts inside the panel",
+    "Esc closes the focused floating panel or modal; it must not lock the editor into a panel",
+    "panel hotkeys route through the command registry so shortcuts remain visible and configurable"
+  ],
+  "defaultDockAreas": {
+    "left": [
+      "Project Files",
+      "Room Manager",
+      "Object Browser",
+      "Tile Palette"
+    ],
+    "right": [
+      "Inspector",
+      "Asset Browser",
+      "Asset Authority",
+      "Atlas Assembly",
+      "Character Rig",
+      "Validation"
+    ],
+    "bottom": [
+      "Console",
+      "Build Output",
+      "Tasks",
+      "Animation Timeline",
+      "Sound Timeline",
+      "Logic/Node Graph Details"
+    ]
+  },
+  "persistence": [
+    "visibility",
+    "dock area",
+    "floating rect",
+    "collapsed state",
+    "selected subtab",
+    "scroll state",
+    "split sizes"
+  ],
+  "genericizationRequirement": "Every editor tool must be registerable without referencing Havenwild by name. Havenwild adds project-specific panels or vocabulary through HavenwildProjectProfile."
+}

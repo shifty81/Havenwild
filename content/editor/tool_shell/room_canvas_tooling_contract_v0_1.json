@@ -1,0 +1,41 @@
+{
+  "schema": "emberwright.room_canvas_tooling_contract.v0.1",
+  "status": "planning_authority",
+  "summary": "Rooms/scenes/maps are the central authoring documents. Tool panels feed edits into the active room/canvas document.",
+  "roomLikeConcepts": [
+    "Room",
+    "Scene",
+    "Map",
+    "Interior",
+    "Cave Instance Template",
+    "Dungeon Room",
+    "UI Screen",
+    "Prefab/Pattern"
+  ],
+  "canvasServices": [
+    "camera pan/zoom",
+    "grid and snapping",
+    "selection",
+    "transform gizmos",
+    "layer visibility/lock",
+    "paint/erase/fill/rectangle/marquee tools",
+    "play in canvas",
+    "simulate",
+    "validation overlays"
+  ],
+  "toolPanelExamples": {
+    "Room Manager": "open/create/duplicate/delete/link rooms and scene chunks",
+    "Layer Stack": "tile/object/collision/navigation/zone/effect/lights/fog/weather layers",
+    "Tile Palette": "terrain/autotile/semantic material brushes",
+    "Object Browser": "placeable objects, NPCs, triggers, prefabs, rooms, doors, transitions",
+    "Inspector": "selected object/layer/document/project properties",
+    "Validation": "current document and project gate findings",
+    "Console": "always-accessible logs and command output"
+  },
+  "havenwildMapping": {
+    "World": "world graph/project map authority",
+    "Scene": "room-like editable map document",
+    "Interiors/Caves/Dungeons": "room-like documents and generated-template documents",
+    "Alderreach labels": "ProjectProfile-provided vocabulary"
+  }
+}

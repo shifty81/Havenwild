@@ -1,0 +1,102 @@
+{
+  "schema": "emberwright.tool_panel_migration_inventory.v0.1",
+  "status": "migration_inventory",
+  "groups": [
+    {
+      "group": "Asset workflow",
+      "current": [
+        "Assets top-level workspace",
+        "right dock Assets tab",
+        "unified asset browser"
+      ],
+      "target": [
+        "Asset Browser panel",
+        "Asset Authority panel",
+        "Atlas Assembly panel",
+        "Source Import panel"
+      ],
+      "priority": "P0"
+    },
+    {
+      "group": "Sprite workflow",
+      "current": [
+        "Pixel Studio",
+        "Animation Studio",
+        "Pixel Library panel",
+        "animation runtime context"
+      ],
+      "target": [
+        "Sprite Canvas document",
+        "Paint tools panel",
+        "Layer panel",
+        "Animation Timeline panel",
+        "Frame/Clip Inspector panel"
+      ],
+      "priority": "P1"
+    },
+    {
+      "group": "Character workflow",
+      "current": [
+        "Character Studio",
+        "paper doll/equipment concepts",
+        "character animation previews"
+      ],
+      "target": [
+        "Character document",
+        "Character Rig panel",
+        "Paper Doll/Equipment panel",
+        "Layer/Outfit panel",
+        "Animation Preview panel"
+      ],
+      "priority": "P1"
+    },
+    {
+      "group": "Logic workflow",
+      "current": [
+        "Logic Studio",
+        "command registry",
+        "authoring sessions"
+      ],
+      "target": [
+        "Node Graph document",
+        "Node Palette panel",
+        "Script panel",
+        "Event Binding inspector",
+        "Graph validation panel"
+      ],
+      "priority": "P2"
+    },
+    {
+      "group": "Sound workflow",
+      "current": [
+        "Sound Studio"
+      ],
+      "target": [
+        "Sound Graph document",
+        "Timeline/Mixer panel",
+        "Instrument/Source Browser panel",
+        "Procedural SFX node panel"
+      ],
+      "priority": "P2"
+    },
+    {
+      "group": "World/room workflow",
+      "current": [
+        "Game Canvas",
+        "Scene Map",
+        "Scene Rectangles",
+        "Scene Bank",
+        "World Surface editors"
+      ],
+      "target": [
+        "Canvas document host",
+        "Room Manager panel",
+        "Layer Stack panel",
+        "Object Browser panel",
+        "World Graph panel"
+      ],
+      "priority": "P0"
+    }
+  ],
+  "compatibilityRule": "Existing modes may remain as adapter views until each target panel group reaches feature parity and gates GREEN."
+}

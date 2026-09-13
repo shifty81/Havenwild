@@ -1,0 +1,47 @@
+{
+  "schema": "emberwright.atlas_assembly_panel_integration.v0.1",
+  "status": "planning_authority",
+  "summary": "Atlas Assembly remains a first-class tool, but it docks/floats around the canvas instead of becoming a whole-editor workspace.",
+  "canvasDocumentTypes": [
+    "Tile Atlas Assembly",
+    "Sprite Atlas Assembly",
+    "Character Layer Assembly",
+    "Terrain/Cliff/Water Assembly",
+    "Structure/Interior Assembly",
+    "UI Skin Assembly"
+  ],
+  "toolPanelResponsibilities": [
+    "source atlas loader",
+    "32x32 grid overlay",
+    "source rect selector",
+    "piece tray",
+    "snap/rotate/flip controls",
+    "layer stack",
+    "socket/anchor/footprint editor",
+    "adjacency preview",
+    "publish/certify controls"
+  ],
+  "pieceTransforms": {
+    "allowed": [
+      "rotate90",
+      "rotate180",
+      "rotate270",
+      "flipX",
+      "flipY"
+    ],
+    "metadata": "transforms are recorded in authored definitions; source art is never destructively changed"
+  },
+  "snapModel": {
+    "baseCellPx": 32,
+    "supportsMultiCellShapes": true,
+    "supportsAnchorOffsets": true,
+    "supportsCollisionAndTraversalOverlays": true
+  },
+  "publishTargets": [
+    "PublishedWorldAssetRegistry",
+    "PublishedWorldAssetMetadata",
+    "ProjectProfile vocabulary extensions",
+    "runtime/editor certified asset palettes"
+  ],
+  "why": "This is the visual authoring bridge that prevents terrain, cliffs, water, structures, tools, and characters from being guessed in code."
+}

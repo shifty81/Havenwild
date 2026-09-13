@@ -1,0 +1,69 @@
+{
+  "schema": "emberwright.studio_collapse_plan.v0.1",
+  "status": "migration_plan",
+  "summary": "Collapse current isolated studios into a canvas-centered document plus dockable tool-panel model.",
+  "currentTopLevelStudios": [
+    "Assets",
+    "Pixel Studio",
+    "Animation Studio",
+    "Character Studio",
+    "Logic Studio",
+    "Sound Studio"
+  ],
+  "targetTools": [
+    {
+      "from": [
+        "Assets"
+      ],
+      "to": "Asset Authority panel",
+      "centerDocument": "none by default",
+      "notes": "Asset intake, certification, usage review, and generated catalog refresh belong in a dock/floating management panel."
+    },
+    {
+      "from": [
+        "Pixel Studio",
+        "Animation Studio"
+      ],
+      "to": "Sprite Studio panel group",
+      "centerDocument": "Sprite/Atlas document",
+      "notes": "Pixel painting, frame editing, onion skin, layers, and animation timeline should operate together around one sprite/atlas canvas."
+    },
+    {
+      "from": [
+        "Character Studio"
+      ],
+      "to": "Character Tools panel group",
+      "centerDocument": "Character document",
+      "notes": "Paper doll, equipment slots, rig/layer stack, animation preview, and atlas-layer assembly are panels around a character canvas."
+    },
+    {
+      "from": [
+        "Logic Studio"
+      ],
+      "to": "Logic / Node / Scripting panel group",
+      "centerDocument": "Graph or script document",
+      "notes": "Node palette, graph inspector, script text, validation, and runtime event bindings are dockable panels."
+    },
+    {
+      "from": [
+        "Sound Studio"
+      ],
+      "to": "Sound Tools panel group",
+      "centerDocument": "Sound graph/timeline document",
+      "notes": "Mixer, procedural/MIDI nodes, waveform/timeline, and instrument/source browsers are panels."
+    }
+  ],
+  "retainedCapabilities": [
+    "documents still reopen by type",
+    "existing command registry remains the command source",
+    "existing Game Canvas stays central",
+    "current runtime/client launch stays available",
+    "project-specific content remains behind ProjectProfile"
+  ],
+  "firstImplementationCuts": [
+    "remove Assets as a top-level workspace tab and expose Asset Authority as right-dock panel",
+    "introduce ToolPanelRegistry data model",
+    "route current Pixel and Animation entry points into one Sprite Studio panel group",
+    "make Character/Sound/Logic workspaces non-trapping document contexts before deeper UI consolidation"
+  ]
+}
