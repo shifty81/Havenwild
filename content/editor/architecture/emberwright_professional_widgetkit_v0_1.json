@@ -1,0 +1,54 @@
+{
+  "schema": "havenwild.emberwright.professional_widgetkit.v0_1",
+  "pass": "HW-EMBERWRIGHT-WIDGETKIT-SEAM-17",
+  "purpose": "Add a stable vocabulary for professional editor widgets and opaque canvas overlays before further GameMaker-style GUI conversion.",
+  "canvasInvariant": "Canvas / Room Canvas / Game Canvas remains the permanent center surface.",
+  "surfaceKinds": [
+    "canvas_document",
+    "docked_panel",
+    "floating_panel",
+    "canvas_overlay",
+    "modal",
+    "status_bar"
+  ],
+  "widgetRoles": [
+    "button",
+    "icon_button",
+    "toggle_button",
+    "tab",
+    "search_box",
+    "text_field",
+    "tree_view",
+    "list_view",
+    "property_grid",
+    "inspector_row",
+    "dropdown",
+    "checkbox",
+    "slider",
+    "color_swatch",
+    "context_menu",
+    "tooltip",
+    "toast",
+    "splitter",
+    "scroll_area",
+    "panel_chrome"
+  ],
+  "overlayRules": {
+    "toolRail": "opaque canvas overlay; hidden during PIE",
+    "layerRail": "opaque canvas overlay; hidden during PIE",
+    "tilePalette": "opaque canvas overlay; hidden during PIE",
+    "pieControlStrip": "opaque canvas overlay; remains visible during PIE"
+  },
+  "professionalWidgetRequirements": [
+    "theme token backed",
+    "keyboard focus where interactive",
+    "mouse capture policy",
+    "disabled state",
+    "hover state",
+    "pressed state",
+    "active/selected state",
+    "tooltip capable",
+    "consistent padding/radius/border"
+  ],
+  "riskPolicy": "No existing drawing path is replaced in this pass; this is a compile-safe seam for later incremental wiring."
+}

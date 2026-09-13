@@ -67,6 +67,7 @@ mod pixel_studio_layout;
 mod pixel_studio_render;
 mod pcg_exemplar_authoring;
 mod production_tools;
+mod professional_widget_contract;
 mod prepared_canvas_composition;
 mod render_helpers;
 mod resource_context_bridge;
