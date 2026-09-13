@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
+  "apps/haven_atlas_mapper_lite",
   "apps/haven_editor_native",
   "crates/haven_core",
   "crates/haven_world",

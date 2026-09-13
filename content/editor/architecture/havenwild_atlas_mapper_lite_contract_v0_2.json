@@ -1,0 +1,77 @@
+{
+  "schema": "havenwild.editor_tool_contract.v0_2",
+  "tool_id": "haven_atlas_mapper_lite",
+  "display_name": "Havenwild Atlas Mapper Lite",
+  "pass": "HW-ATLAS-MAPPER-LITE-PROJECT-IO-20",
+  "status": "lightweight_standalone_tool",
+  "purpose": "Provide a simple Macroquad-based GUI for mapping immutable 32x32 atlas source cells into reusable assembled asset recipes and engine handoff JSON.",
+  "source_policy": {
+    "source_atlas_mutation": "forbidden",
+    "source_tiles": "selected_by_32x32_grid_cells",
+    "output_authority": "tool_project_json_and_handoff_json",
+    "runtime_promotion": "requires_engine_import_validation"
+  },
+  "layout": {
+    "left_panel": "read-only source atlas with 32x32 selection grid",
+    "right_panel": "assembly canvas for draggable puzzle-piece placement",
+    "top_bar": "load atlas, load project, save project, export handoff, clear, asset category selection",
+    "status_bar": "active atlas/project/category/piece count and last operation"
+  },
+  "project_format": {
+    "schema": "havenwild.atlas_mapper_project.v0_1",
+    "extension_hint": ".hw-atlas-map.json",
+    "contains": [
+      "source atlas path and file name",
+      "asset category",
+      "assembly name",
+      "source/canvas pan and zoom",
+      "piece placements",
+      "rotation and flip state",
+      "layer order"
+    ]
+  },
+  "handoff_format": {
+    "schema": "havenwild.atlas_assembly_handoff.v0_2",
+    "contains": [
+      "project schema reference",
+      "optional project file path",
+      "source atlas path",
+      "source tile rects",
+      "assembled grid positions",
+      "rotation",
+      "flip_x",
+      "flip_y",
+      "layer",
+      "semantic role placeholder",
+      "asset category"
+    ],
+    "not_yet_final_runtime_metadata": [
+      "sockets",
+      "footprints",
+      "collision",
+      "walkability",
+      "occlusion",
+      "traversal",
+      "license/provenance bindings",
+      "published registry IDs"
+    ]
+  },
+  "asset_categories": [
+    "terrain",
+    "structural_cliff",
+    "structure",
+    "building_or_house",
+    "object",
+    "character",
+    "equipment",
+    "fx",
+    "ui"
+  ],
+  "recommended_next_passes": [
+    "socket and edge annotation overlay",
+    "footprint/collision annotation overlay",
+    "depth/layer role annotation",
+    "variant grouping",
+    "engine importer into Asset Authority candidates"
+  ]
+}

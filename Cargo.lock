@@ -511,6 +511,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "haven_atlas_mapper_lite"
+version = "0.1.0"
+dependencies = [
+ "macroquad",
+ "rfd",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "haven_audio"
 version = "0.1.0"
 dependencies = [

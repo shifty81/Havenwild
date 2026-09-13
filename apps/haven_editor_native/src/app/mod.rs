@@ -70,6 +70,7 @@ mod production_tools;
 mod professional_widget_contract;
 mod prepared_canvas_composition;
 mod render_helpers;
+mod tool_panel_registry;
 mod resource_context_bridge;
 mod right_dock;
 mod scene_render_helpers;

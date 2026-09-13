@@ -1,0 +1,36 @@
+{
+  "schema": "havenwild.emberwright_tool_panel_registry.v0_1",
+  "pass": "HW-EMBERWRIGHT-TOOLPANEL-REGISTRY-18",
+  "purpose": "Normalize editor tools into stable dockable, floating, and canvas-overlay panel identities while keeping Canvas / Room Canvas / Game Canvas as the permanent center.",
+  "center_is_not_a_panel": [
+    "canvas",
+    "room_canvas",
+    "game_canvas"
+  ],
+  "default_regions": {
+    "left": ["resource.tree", "asset.browser", "sprite.tools", "logic.node_palette"],
+    "right": ["inspector", "properties", "tool.properties", "asset.source_library", "asset.authority", "asset.family_completeness", "asset.license_attribution", "sprite.raster_layers", "character.rig"],
+    "bottom": ["diagnostics.output", "diagnostics.problems", "diagnostics.build", "diagnostics.git", "diagnostics.activity", "cortex.chat", "animation.timeline", "sound.timeline", "asset.catalog_health", "asset.where_used", "asset.quarantine"],
+    "floating": ["asset.atlas_assembly", "character.paper_doll", "logic.graph"],
+    "overlay": ["overlay.tool_rail", "overlay.layer_rail", "overlay.tile_palette", "overlay.pie_control_strip"]
+  },
+  "legacy_workspace_demotions": {
+    "Assets": ["asset.browser", "asset.source_library", "asset.authority", "asset.catalog_health", "asset.family_completeness", "asset.where_used", "asset.license_attribution", "asset.quarantine", "asset.atlas_assembly"],
+    "Pixel": ["sprite.tools", "sprite.raster_layers"],
+    "Animation": ["animation.timeline"],
+    "Character": ["character.rig", "character.paper_doll"],
+    "Logic": ["logic.graph", "logic.node_palette"],
+    "Sound": ["sound.timeline"]
+  },
+  "pie_policy": {
+    "hide_during_pie": "all ordinary docks, floating panels, and authoring overlays",
+    "keep_visible_during_pie": ["overlay.pie_control_strip"],
+    "restore_rule": "restore the exact pre-PIE layout snapshot after stop/escape/shift-f5/client-exit"
+  },
+  "next_required_passes": [
+    "wire registry into workspace shell layout state",
+    "convert Assets tab into Asset Lane panel toggles",
+    "add Catalog Health panel for malformed generated catalogs",
+    "add Atlas Assembly floating shell"
+  ]
+}

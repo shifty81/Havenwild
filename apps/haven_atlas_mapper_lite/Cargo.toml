@@ -1,0 +1,11 @@
+[package]
+name = "haven_atlas_mapper_lite"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+macroquad.workspace = true
+rfd.workspace = true
+serde.workspace = true
+serde_json.workspace = true

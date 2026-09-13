@@ -1,0 +1,65 @@
+{
+  "schema": "havenwild.atlas_mapper_lite_contract.v0_1",
+  "pass": "HW-ATLAS-MAPPER-LITE-19R2",
+  "purpose": "Provide a lightweight GUI tool that maps immutable 32x32 source atlas cells into authored semantic assembly handoffs without modifying source art.",
+  "tool": {
+    "crate": "apps/haven_atlas_mapper_lite",
+    "launcher": "tools/launch/HavenwildAtlasMapperLite.cmd",
+    "launcherRootResolution": "walk_upward_from_script_directory_until_Cargo_toml_is_found",
+    "sourceAtlasPolicy": "read_only",
+    "tileSize": 32,
+    "primaryWorkflow": [
+      "load_source_png",
+      "select_32x32_source_cell",
+      "drag_to_assembly_canvas",
+      "rotate_flip_layer",
+      "choose_asset_category",
+      "export_handoff_json"
+    ]
+  },
+  "assetCategories": [
+    "terrain",
+    "structural_cliff",
+    "structure",
+    "building_or_house",
+    "object",
+    "character",
+    "equipment",
+    "fx",
+    "ui"
+  ],
+  "handoffSchema": "havenwild.atlas_assembly_handoff.v0_1",
+  "handoffFields": [
+    "source_atlas_path",
+    "source_is_modified",
+    "tile_size",
+    "category",
+    "assembly_name",
+    "pieces.source_rect",
+    "pieces.canvas_grid_x",
+    "pieces.canvas_grid_y",
+    "pieces.rotation_degrees",
+    "pieces.flip_x",
+    "pieces.flip_y",
+    "pieces.layer"
+  ],
+  "engineUse": {
+    "status": "assembly_evidence_not_runtime_certification",
+    "nextImporterMustCreate": [
+      "AssetAuthorityCandidate",
+      "PublishedWorldAssetMetadata draft",
+      "source atlas provenance",
+      "socket and adjacency metadata",
+      "footprint and collision metadata",
+      "traversal metadata when applicable",
+      "license and attribution links"
+    ]
+  },
+  "guards": [
+    "never_modify_source_atlas",
+    "never_invent_source_pixels",
+    "never_publish_without_semantic_validation",
+    "launcher_must_run_cargo_from_repository_root",
+    "no_root_level_launcher_files"
+  ]
+}
