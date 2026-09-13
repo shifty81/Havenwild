@@ -53,7 +53,7 @@
     @{ Id='52'; Key='world.visual-certification'; Label='Build world visual certification'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=520; Args=@('world-visual-certification') }
     @{ Id='53'; Key='estate.regenerate-validate'; Label='Regenerate + validate Home Estate'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=530; Args=@('estate-regeneration') }
     @{ Id='54'; Key='run.estate-visual-test'; Label='Run integrated Estate visual test'; Kind='Build'; Category='builds'; Menu=@('run'); MenuOrder=40; Args=@('estate-visual-test') }
-    @{ Id='94'; Key='run.atlas-mapper-lite'; Label='Run Atlas Mapper Lite'; Kind='Script'; Script='LaunchAtlasMapperLite.ps1'; Category='builds'; Menu=@('run'); MenuOrder=45; Args=@() }
+    @{ Id='94'; Key='assets.atlas-mapper-lite'; Label='Atlas Mapper Lite / Tile Sheet Mapper'; Kind='Script'; Script='LaunchAtlasMapperLite.ps1'; Category='assets'; Menu=@('run','assets'); MenuOrder=15; Args=@() }
     @{ Id='55'; Key='cliffs.height-grammar-acceptance'; Label='Build cliff height grammar acceptance'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=550; Args=@('cliff-height-grammar') }
     @{ Id='56'; Key='estate.regenerate-composition'; Label='Regenerate Estate composition'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=560; Args=@('estate-composition') }
     @{ Id='57'; Key='buildings.exterior-grammar'; Label='Validate building exterior grammar'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=570; Args=@('building-exterior') }
@@ -85,6 +85,7 @@
     @{ Id='83'; Key='validation.compare-quality-gates'; Label='Compare latest Full Quality Gates'; Kind='QualityGateCompare'; Category='diagnostics'; Menu=@('logs'); MenuOrder=26; Args=@() }
     @{ Id='84'; Key='diagnostics.compiler-warnings'; Label='Compiler warning summary'; Kind='CompilerWarningSummary'; Category='diagnostics'; Menu=@('logs'); MenuOrder=28; Args=@() }
     @{ Id='85'; Key='validation.open-latest-fast-gate'; Label='Open latest Fast Development Gate record'; Kind='OpenArtifact'; Artifact='fast-gate'; Category='sessions'; Menu=@('logs'); MenuOrder=29; Args=@() }
+    @{ Id='95'; Key='branch.asset-mapper-experiment'; Label='Create/switch asset mapper experiment branch'; Kind='Script'; Script='CreateAssetMapperExperimentBranch.ps1'; Category='source-control'; Menu=@('project'); MenuOrder=32; Args=@() }
     @{ Id='86'; Key='project.shell'; Label='Project shell / command runner'; Kind='Script'; Script='ProjectShell.ps1'; Category='diagnostics'; Menu=@('project'); MenuOrder=35; Args=@() }
 
     # ROOT-STANDARD-01 universal operations surface.

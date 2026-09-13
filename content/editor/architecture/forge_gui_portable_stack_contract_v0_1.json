@@ -1,0 +1,37 @@
+{
+  "schema": "forge_gui.portable_stack_contract.v0_1",
+  "purpose": "Capture the ForgePY GUI treatment as a portable editor/game UI stack usable by Havenwild, Forge, Cortex, and Ember.",
+  "components": [
+    "theme_tokens",
+    "button",
+    "toggle_button",
+    "segmented_control",
+    "toolbar",
+    "status_bar",
+    "tree_view",
+    "list_view",
+    "grid_view",
+    "property_grid",
+    "splitter",
+    "scroll_area",
+    "dock_panel",
+    "floating_tool_window",
+    "inspector_row",
+    "command_palette",
+    "toast",
+    "modal_dialog",
+    "problems_panel",
+    "activity_console"
+  ],
+  "requirements": [
+    "dark mode first",
+    "theme-consistent scrollbars",
+    "hover/pressed/active/focused/disabled states",
+    "keyboard focus",
+    "resizable panels",
+    "dock/floating/locked modes",
+    "canvas-hosted tool windows",
+    "usable by game-facing UI after certification"
+  ],
+  "extractionRule": "Keep first implementations project-local until GREEN, then extract into shared Ember/Forge UI crates/modules."
+}

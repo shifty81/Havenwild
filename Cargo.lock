@@ -514,6 +514,7 @@ dependencies = [
 name = "haven_atlas_mapper_lite"
 version = "0.1.0"
 dependencies = [
+ "image 0.24.9",
  "macroquad",
  "rfd",
  "serde",

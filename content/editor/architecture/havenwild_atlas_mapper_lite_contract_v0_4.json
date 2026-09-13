@@ -1,0 +1,68 @@
+{
+  "schema": "havenwild.atlas_mapper_lite_contract.v0_4",
+  "patchId": "HW-ATLAS-MAPPER-LITE-FORGEGUI-AUTO-22",
+  "purpose": "Normalize Atlas Mapper Lite into the Havenwild asset-intake tile-sheet lane with Forge-style UI, safer canvas behavior, category-aware auto mapping, and mapped-sheet checkmark records.",
+  "authority": {
+    "sourcePixelsMutable": false,
+    "toolOutputRole": "asset_intake_mapping_evidence",
+    "runtimePromotion": "explicit_asset_authority_import_required",
+    "mappedSheetRecordRoot": "artifacts/asset-intake/atlas-mapper/mapped-sheets"
+  },
+  "ui": {
+    "layout": [
+      "top Forge-style command bar",
+      "left immutable source tile-sheet panel",
+      "center assembly canvas",
+      "right asset-intake inspector",
+      "bottom status strip"
+    ],
+    "surfaceRules": [
+      "dark Forge-style panel surfaces",
+      "header bands with subtitles",
+      "status pills for mapped/unmapped and category",
+      "readable default canvas zoom",
+      "zoom never drops below 100 percent on assembly canvas"
+    ]
+  },
+  "mappingStates": [
+    "source_only",
+    "draft_mapped",
+    "project_saved",
+    "handoff_exported"
+  ],
+  "checkmarkSemantics": {
+    "greenMappedStateMeans": "a mapper project or mapped-sheet evidence exists for the loaded sheet/category",
+    "greenMappedStateDoesNotMean": "runtime publication or final gameplay certification"
+  },
+  "autoMapping": {
+    "trigger": "Auto Map button or Ctrl+G",
+    "behavior": "category-aware deterministic/random sampling of 32x32 source cells into a reviewable assembly canvas layout",
+    "supportedCategories": [
+      "terrain",
+      "structural_cliff",
+      "structure",
+      "building_or_house",
+      "object",
+      "character",
+      "equipment",
+      "fx",
+      "ui"
+    ],
+    "reviewRequired": true
+  },
+  "pccIntegration": {
+    "menus": [
+      "run",
+      "assets"
+    ],
+    "label": "Atlas Mapper Lite / Tile Sheet Mapper",
+    "launcher": "tools/control/LaunchAtlasMapperLite.ps1"
+  },
+  "nextRequiredPasses": [
+    "catalog-backed library browser",
+    "mapped checkmarks for every catalog row",
+    "socket/footprint/collision/depth annotation",
+    "engine importer into Asset Authority candidates",
+    "project-wide Forge GUI editor audit migration"
+  ]
+}

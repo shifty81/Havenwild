@@ -1,0 +1,37 @@
+{
+  "schema": "havenwild.atlas_mapper_lite_contract.v0_5",
+  "purpose": "Promote Atlas Mapper Lite from a loose PNG utility into the Havenwild Asset Mapping Workspace seed.",
+  "mode": "havenwild_specific_now_emberwright_generic_later",
+  "sourceTruth": [
+    "content/assets/lpc/lpc_slice_catalog_v0_1.json",
+    "content/assets/donor_reference/donor_reference_asset_catalog_v0_1.json",
+    "content/assets/intake/external_asset_roots_v0_1.json",
+    ".local/havenwild_external_asset_roots.json when present",
+    "PublishedWorldAssetRegistry / PublishedWorldAssetMetadata when present"
+  ],
+  "authoringRules": {
+    "sourcePixelsMutable": false,
+    "mappedSheetGreenMeans": "mapper metadata exists for a source path/hash",
+    "runtimePublicationRequires": "separate promotion, provenance, sockets, footprints, pixel collision, traversal, layer, occlusion, and validation",
+    "autoSceneIsAuthoringEvidenceOnly": true
+  },
+  "pass23Adds": [
+    "cell-profiled source tile roles from the loaded sheet",
+    "scene-style Auto Scene generation instead of random scatter",
+    "cliff/terrain/structure/house/gallery/strip generation templates",
+    "branch workflow scaffold for experiment/asset-mapper-workspace",
+    "Asset Mapping Workspace and Ember ingest handoff contracts"
+  ],
+  "futurePanels": [
+    "Source Library",
+    "Tile Sheet",
+    "Assembly Canvas",
+    "Layer Stack",
+    "Semantics",
+    "Socket / Edge",
+    "Pixel Collision Mask",
+    "Animation Strip",
+    "Preview Validator",
+    "Publish Candidate"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "havenwild.asset_mapping_workspace.v0_1",
+  "purpose": "Define the editor-hosted asset workspace centered on source-to-runtime mapping, dockable panels, and infinite-canvas compatibility.",
+  "workspaceName": "Asset Mapping Workspace",
+  "hostCompatibility": [
+    "Havenwild native editor",
+    "Atlas Mapper Lite",
+    "Emberwright infinite canvas",
+    "future Ember monorepo"
+  ],
+  "panels": [
+    {
+      "id": "source_library",
+      "dock": "left",
+      "role": "browse all Havenwild source families, external roots, and runtime candidates"
+    },
+    {
+      "id": "tile_sheet",
+      "dock": "left_or_center",
+      "role": "read-only 32px sheet view with mapped/unmapped indicators"
+    },
+    {
+      "id": "assembly_canvas",
+      "dock": "center",
+      "role": "scene/stamp/asset assembly surface"
+    },
+    {
+      "id": "layer_stack",
+      "dock": "right",
+      "role": "ground, edge, wall, cliff face, occluder, overlay, collision, animation roles"
+    },
+    {
+      "id": "semantics",
+      "dock": "right",
+      "role": "asset family, type, socket, variant, generation template, metadata"
+    },
+    {
+      "id": "pixel_collision",
+      "dock": "right_or_overlay",
+      "role": "per-pixel and subcell collision/occlusion masks"
+    },
+    {
+      "id": "preview_validator",
+      "dock": "bottom_or_canvas_tool",
+      "role": "preview against terrain, player scale, depth, traversal, and placement rules"
+    },
+    {
+      "id": "handoff_publish",
+      "dock": "bottom_or_right",
+      "role": "save mapper project, export handoff, create publish candidate"
+    }
+  ],
+  "sheetStatus": [
+    "unmapped",
+    "mapped_draft",
+    "project_saved",
+    "handoff_exported",
+    "validated",
+    "published_runtime",
+    "needs_review",
+    "quarantined"
+  ],
+  "greenCheckPolicy": "green check beside a tile sheet means mapped-sheet metadata exists and resolves to that sheet; it is not equivalent to runtime publication"
+}

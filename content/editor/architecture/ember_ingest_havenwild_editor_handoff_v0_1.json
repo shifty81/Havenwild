@@ -1,0 +1,20 @@
+{
+  "schema": "ember.ingest_havenwild_editor_handoff.v0_1",
+  "sourceProject": "Havenwild",
+  "target": "Ember / Emberwright monorepo",
+  "goal": "Fold Havenwild editor systems into Ember as generic editor/tooling modules while keeping Havenwild as a hosted game project/profile.",
+  "ingestOrder": [
+    "portable Forge GUI theme/widget contracts",
+    "dockable panel and infinite-canvas workspace contracts",
+    "Asset Mapping Workspace and Atlas Mapper Lite lessons",
+    "Havenwild asset lane/profile semantics",
+    "Pixel/animation/tile/collision authoring panels",
+    "runtime project loading and PIE hooks"
+  ],
+  "doNotDo": [
+    "Do not collapse unstable experimental mapper work directly into main without GREEN gates.",
+    "Do not make Havenwild-only semantics the permanent Ember API.",
+    "Do not treat mapped sheets as runtime-published assets without promotion/certification."
+  ],
+  "projectModel": "Havenwild loads as a game project/profile inside Emberwright/Ember, with project-specific semantics layered over generic editor tooling."
+}
