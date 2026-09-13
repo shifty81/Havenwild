@@ -1,0 +1,49 @@
+{
+  "schema": "havenwild.atlas_mapper_lite_contract.v0_3",
+  "tool": "haven_atlas_mapper_lite",
+  "pass": "HW-ATLAS-MAPPER-LITE-UX-PCC-21",
+  "purpose": "Lightweight 32x32 source-atlas mapping tool with safer canvas UX, PCC launch integration, and Forge-style panel normalization direction.",
+  "launch": {
+    "internalPccCommandKey": "run.atlas-mapper-lite",
+    "internalPccMenu": "run",
+    "script": "tools/control/LaunchAtlasMapperLite.ps1",
+    "launcher": "tools/launch/HavenwildAtlasMapperLite.cmd",
+    "rootScriptsAllowed": false
+  },
+  "sourcePolicy": {
+    "sourceAtlasMutable": false,
+    "writesPixels": false,
+    "writesMapperProject": true,
+    "writesEngineHandoff": true,
+    "runtimePromotionIsExplicit": true
+  },
+  "canvasUx": {
+    "tileSize": 32,
+    "defaultCanvasZoom": 2.0,
+    "minimumCanvasZoom": 0.75,
+    "maximumCanvasZoom": 4.0,
+    "sourceDropOutsideCanvas": "cancel",
+    "existingPieceReleaseOutsideCanvas": "revert_to_drag_origin",
+    "viewControls": ["2x", "fit"]
+  },
+  "guiTreatment": {
+    "style": "Forge dark treatment / Emberwright professional panel direction",
+    "requirements": [
+      "opaque panel surfaces",
+      "clear panel headers",
+      "readable zoom/status feedback",
+      "explicit hover/button states",
+      "no root-level launch residue"
+    ]
+  },
+  "outputSchemas": [
+    "havenwild.atlas_mapper_project.v0_1",
+    "havenwild.atlas_assembly_handoff.v0_2"
+  ],
+  "next": [
+    "load Havenwild asset library manifests",
+    "browse source groups without loading every image",
+    "add sockets and footprint annotation",
+    "import handoff into Asset Authority candidates"
+  ]
+}

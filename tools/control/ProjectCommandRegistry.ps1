@@ -53,6 +53,7 @@
     @{ Id='52'; Key='world.visual-certification'; Label='Build world visual certification'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=520; Args=@('world-visual-certification') }
     @{ Id='53'; Key='estate.regenerate-validate'; Label='Regenerate + validate Home Estate'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=530; Args=@('estate-regeneration') }
     @{ Id='54'; Key='run.estate-visual-test'; Label='Run integrated Estate visual test'; Kind='Build'; Category='builds'; Menu=@('run'); MenuOrder=40; Args=@('estate-visual-test') }
+    @{ Id='94'; Key='run.atlas-mapper-lite'; Label='Run Atlas Mapper Lite'; Kind='Script'; Script='LaunchAtlasMapperLite.ps1'; Category='builds'; Menu=@('run'); MenuOrder=45; Args=@() }
     @{ Id='55'; Key='cliffs.height-grammar-acceptance'; Label='Build cliff height grammar acceptance'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=550; Args=@('cliff-height-grammar') }
     @{ Id='56'; Key='estate.regenerate-composition'; Label='Regenerate Estate composition'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=560; Args=@('estate-composition') }
     @{ Id='57'; Key='buildings.exterior-grammar'; Label='Validate building exterior grammar'; Kind='Build'; Category='assets'; Menu=@('world'); MenuOrder=570; Args=@('building-exterior') }

@@ -11,6 +11,12 @@ const TILE_SIZE: i32 = 32;
 const TOP_BAR_H: f32 = 64.0;
 const STATUS_H: f32 = 30.0;
 const GAP: f32 = 12.0;
+const MIN_SOURCE_ZOOM: f32 = 0.50;
+const MAX_SOURCE_ZOOM: f32 = 6.00;
+const MIN_CANVAS_ZOOM: f32 = 0.75;
+const MAX_CANVAS_ZOOM: f32 = 4.00;
+const DEFAULT_CANVAS_ZOOM: f32 = 2.00;
+const ZOOM_STEP: f32 = 1.12;
 const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_1";
 const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_2";
 
@@ -164,6 +170,7 @@ struct MapperApp {
     selected_tile: Option<SourceTile>,
     selected_piece: Option<usize>,
     drag: DragState,
+    drag_origin: Option<(usize, i32, i32)>,
     pieces: Vec<AssemblyPiece>,
     next_piece_id: u32,
     category: AssetCategory,
@@ -186,6 +193,7 @@ impl Default for MapperApp {
             selected_tile: None,
             selected_piece: None,
             drag: DragState::None,
+            drag_origin: None,
             pieces: Vec::new(),
             next_piece_id: 1,
             category: AssetCategory::Terrain,
@@ -193,11 +201,11 @@ impl Default for MapperApp {
             source_pan: vec2(16.0, 38.0),
             source_zoom: 1.0,
             canvas_pan: vec2(32.0, 38.0),
-            canvas_zoom: 1.0,
+            canvas_zoom: DEFAULT_CANVAS_ZOOM,
             is_panning_source: false,
             is_panning_canvas: false,
             last_mouse: Vec2::ZERO,
-            status: "Load a PNG atlas, drag 32x32 tiles to the assembly canvas, save a mapper project, then export handoff JSON.".to_string(),
+            status: "Open from PCC Run menu. Load a PNG atlas, drag 32x32 tiles to the assembly canvas, save project, export handoff JSON.".to_string(),
         }
     }
 }
@@ -220,6 +228,7 @@ impl MapperApp {
                 self.selected_tile = None;
                 self.selected_piece = None;
                 self.drag = DragState::None;
+                self.drag_origin = None;
                 self.status = format!("Loaded {file_name} ({width}x{height}); source atlas remains read-only.");
             }
             Err(error) => self.status = format!("Atlas load failed: {error}"),
@@ -318,12 +327,13 @@ impl MapperApp {
         self.category = category;
         self.assembly_name = document.assembly_name;
         self.source_pan = vec2(document.source_pan[0], document.source_pan[1]);
-        self.source_zoom = document.source_zoom.clamp(0.25, 6.0);
+        self.source_zoom = document.source_zoom.clamp(MIN_SOURCE_ZOOM, MAX_SOURCE_ZOOM);
         self.canvas_pan = vec2(document.canvas_pan[0], document.canvas_pan[1]);
-        self.canvas_zoom = document.canvas_zoom.clamp(0.25, 6.0);
+        self.canvas_zoom = document.canvas_zoom.clamp(MIN_CANVAS_ZOOM, MAX_CANVAS_ZOOM);
         self.selected_tile = None;
         self.selected_piece = None;
         self.drag = DragState::None;
+        self.drag_origin = None;
 
         let atlas_path = PathBuf::from(&document.source_atlas_path);
         if atlas_path.exists() {
@@ -489,16 +499,18 @@ impl MapperApp {
         let (_wheel_x, wheel_y) = mouse_wheel();
 
         if wheel_y != 0.0 {
+            let zoom_factor = if wheel_y > 0.0 { ZOOM_STEP } else { 1.0 / ZOOM_STEP };
             if over_source {
-                self.source_zoom = (self.source_zoom + wheel_y * 0.1).clamp(0.25, 6.0);
+                self.source_zoom = (self.source_zoom * zoom_factor).clamp(MIN_SOURCE_ZOOM, MAX_SOURCE_ZOOM);
             } else if over_canvas {
-                self.canvas_zoom = (self.canvas_zoom + wheel_y * 0.1).clamp(0.25, 6.0);
+                self.canvas_zoom = (self.canvas_zoom * zoom_factor).clamp(MIN_CANVAS_ZOOM, MAX_CANVAS_ZOOM);
             }
         }
 
         if is_mouse_button_pressed(MouseButton::Left) {
             self.is_panning_source = false;
             self.is_panning_canvas = false;
+            self.drag_origin = None;
             if space_pan && over_source {
                 self.is_panning_source = true;
             } else if space_pan && over_canvas {
@@ -513,6 +525,9 @@ impl MapperApp {
                 if let Some(index) = self.hit_piece(canvas_rect, mouse) {
                     self.selected_piece = Some(index);
                     self.selected_tile = None;
+                    if let Some(piece) = self.pieces.get(index) {
+                        self.drag_origin = Some((index, piece.canvas_grid_x, piece.canvas_grid_y));
+                    }
                     self.drag = DragState::ExistingPiece(index);
                 } else {
                     self.selected_piece = None;
@@ -526,22 +541,45 @@ impl MapperApp {
             } else if self.is_panning_canvas {
                 self.canvas_pan += delta;
             } else if let DragState::ExistingPiece(index) = self.drag {
-                if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) {
-                    if let Some(piece) = self.pieces.get_mut(index) {
-                        piece.canvas_grid_x = gx;
-                        piece.canvas_grid_y = gy;
+                if over_canvas {
+                    if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) {
+                        if let Some(piece) = self.pieces.get_mut(index) {
+                            piece.canvas_grid_x = gx;
+                            piece.canvas_grid_y = gy;
+                        }
                     }
                 }
             }
         }
 
         if is_mouse_button_released(MouseButton::Left) {
-            if let DragState::SourceTile(tile) = self.drag {
-                if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) {
-                    self.add_piece_from_tile(tile, gx, gy);
+            match self.drag {
+                DragState::SourceTile(tile) => {
+                    if over_canvas {
+                        if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) {
+                            self.add_piece_from_tile(tile, gx, gy);
+                        }
+                    } else {
+                        self.status = "Drag canceled: release source tiles over the assembly canvas to place them.".to_string();
+                    }
                 }
+                DragState::ExistingPiece(index) => {
+                    if !over_canvas {
+                        if let Some((origin_index, gx, gy)) = self.drag_origin {
+                            if origin_index == index {
+                                if let Some(piece) = self.pieces.get_mut(index) {
+                                    piece.canvas_grid_x = gx;
+                                    piece.canvas_grid_y = gy;
+                                }
+                                self.status = "Move canceled: piece returned to its previous canvas cell.".to_string();
+                            }
+                        }
+                    }
+                }
+                DragState::None => {}
             }
             self.drag = DragState::None;
+            self.drag_origin = None;
             self.is_panning_source = false;
             self.is_panning_canvas = false;
         }
@@ -551,6 +589,7 @@ impl MapperApp {
 
     fn source_tile_at(&self, panel: Rect, mouse: Vec2) -> Option<SourceTile> {
         let atlas = self.atlas.as_ref()?;
+        if mouse.y < panel.y + 30.0 { return None; }
         let local = (mouse - vec2(panel.x, panel.y) - self.source_pan) / self.source_zoom;
         if local.x < 0.0 || local.y < 0.0 || local.x >= atlas.width as f32 || local.y >= atlas.height as f32 {
             return None;
@@ -561,6 +600,7 @@ impl MapperApp {
     }
 
     fn canvas_grid_at(&self, panel: Rect, mouse: Vec2) -> Option<(i32, i32)> {
+        if !panel.contains(mouse) || mouse.y < panel.y + 30.0 { return None; }
         let local = (mouse - vec2(panel.x, panel.y) - self.canvas_pan) / self.canvas_zoom;
         Some(((local.x / TILE_SIZE as f32).floor() as i32, (local.y / TILE_SIZE as f32).floor() as i32))
     }
@@ -583,6 +623,34 @@ impl MapperApp {
             TILE_SIZE as f32 * self.canvas_zoom,
         )
     }
+
+    fn reset_canvas_view(&mut self) {
+        self.canvas_zoom = DEFAULT_CANVAS_ZOOM;
+        self.canvas_pan = vec2(48.0, 56.0);
+        self.status = "Canvas view reset to a readable 2x authoring scale.".to_string();
+    }
+
+    fn fit_canvas_to_pieces(&mut self, panel: Rect) {
+        if self.pieces.is_empty() {
+            self.reset_canvas_view();
+            return;
+        }
+        let min_x = self.pieces.iter().map(|piece| piece.canvas_grid_x).min().unwrap_or(0);
+        let max_x = self.pieces.iter().map(|piece| piece.canvas_grid_x).max().unwrap_or(0);
+        let min_y = self.pieces.iter().map(|piece| piece.canvas_grid_y).min().unwrap_or(0);
+        let max_y = self.pieces.iter().map(|piece| piece.canvas_grid_y).max().unwrap_or(0);
+        let width_tiles = (max_x - min_x + 1).max(1) as f32;
+        let height_tiles = (max_y - min_y + 1).max(1) as f32;
+        let fit_zoom_x = (panel.w - 96.0).max(96.0) / (width_tiles * TILE_SIZE as f32);
+        let fit_zoom_y = (panel.h - 150.0).max(96.0) / (height_tiles * TILE_SIZE as f32);
+        self.canvas_zoom = fit_zoom_x.min(fit_zoom_y).clamp(MIN_CANVAS_ZOOM, MAX_CANVAS_ZOOM);
+        self.canvas_pan = vec2(
+            48.0 - min_x as f32 * TILE_SIZE as f32 * self.canvas_zoom,
+            64.0 - min_y as f32 * TILE_SIZE as f32 * self.canvas_zoom,
+        );
+        self.status = "Canvas view fit to current assembly without dropping below readable zoom.".to_string();
+    }
+
 }
 
 fn sanitize_file_stem(value: &str) -> String {
@@ -620,10 +688,12 @@ fn draw_button(rect: Rect, label: &str, active: bool) -> bool {
 }
 
 fn draw_panel(rect: Rect, title: &str) {
-    draw_rectangle(rect.x, rect.y, rect.w, rect.h, Color::new(0.045, 0.052, 0.065, 1.0));
-    draw_rectangle_lines(rect.x, rect.y, rect.w, rect.h, 1.0, Color::new(0.22, 0.25, 0.29, 1.0));
-    draw_rectangle(rect.x, rect.y, rect.w, 30.0, Color::new(0.065, 0.076, 0.095, 1.0));
-    draw_text(title, rect.x + 10.0, rect.y + 21.0, 18.0, Color::new(0.86, 0.90, 0.93, 1.0));
+    draw_rectangle(rect.x, rect.y, rect.w, rect.h, Color::new(0.032, 0.037, 0.047, 1.0));
+    draw_rectangle(rect.x + 1.0, rect.y + 1.0, rect.w - 2.0, rect.h - 2.0, Color::new(0.045, 0.052, 0.066, 1.0));
+    draw_rectangle(rect.x, rect.y, rect.w, 30.0, Color::new(0.060, 0.071, 0.091, 1.0));
+    draw_rectangle_lines(rect.x, rect.y, rect.w, rect.h, 1.0, Color::new(0.24, 0.28, 0.34, 1.0));
+    draw_line(rect.x, rect.y + 30.0, rect.x + rect.w, rect.y + 30.0, 1.0, Color::new(0.13, 0.16, 0.20, 1.0));
+    draw_text(title, rect.x + 10.0, rect.y + 21.0, 18.0, Color::new(0.88, 0.91, 0.94, 1.0));
 }
 
 fn draw_grid(rect: Rect, pan: Vec2, zoom: f32, line_color: Color) {
@@ -677,6 +747,11 @@ fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect) {
 
     draw_panel(source_rect, "Source Atlas - immutable 32x32 tile picker");
     draw_panel(canvas_rect, "Assembly Canvas - drag, reorder, rotate, and export recipe");
+
+    draw_text(&format!("zoom {:.0}%", app.source_zoom * 100.0), source_rect.x + source_rect.w - 92.0, source_rect.y + 21.0, 15.0, Color::new(0.64, 0.72, 0.80, 1.0));
+    draw_text(&format!("zoom {:.0}%", app.canvas_zoom * 100.0), canvas_rect.x + canvas_rect.w - 198.0, canvas_rect.y + 21.0, 15.0, Color::new(0.64, 0.72, 0.80, 1.0));
+    if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 130.0, canvas_rect.y + 5.0, 54.0, 21.0), "2x", false) { app.reset_canvas_view(); }
+    if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 70.0, canvas_rect.y + 5.0, 54.0, 21.0), "Fit", false) { app.fit_canvas_to_pieces(canvas_rect); }
 
     if let Some(atlas) = &app.atlas {
         let draw_pos = vec2(source_rect.x, source_rect.y) + app.source_pan;
@@ -749,7 +824,7 @@ fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect) {
 
     let info_y = canvas_rect.y + canvas_rect.h - 108.0;
     draw_rectangle(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 92.0, Color::new(0.02, 0.025, 0.032, 0.88));
-    draw_text("Controls: drag tile source -> canvas | select piece then R rotate, H/V flip, Del delete, [/] layer", canvas_rect.x + 18.0, info_y + 24.0, 18.0, LIGHTGRAY);
+    draw_text("Controls: drag tile source -> canvas only | release outside cancels safely | select piece then R/H/V/Del/[ ]", canvas_rect.x + 18.0, info_y + 24.0, 18.0, LIGHTGRAY);
     draw_text("Mouse wheel zooms hovered panel. Hold Space + drag to pan. Ctrl+O load PNG, Ctrl+Shift+O load project.", canvas_rect.x + 18.0, info_y + 50.0, 18.0, LIGHTGRAY);
     draw_text("Ctrl+S saves mapper project. Ctrl+E exports engine handoff. Source atlas pixels are never modified.", canvas_rect.x + 18.0, info_y + 76.0, 18.0, LIGHTGRAY);
 
