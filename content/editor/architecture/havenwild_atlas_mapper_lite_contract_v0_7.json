@@ -1,0 +1,21 @@
+{
+  "schema": "havenwild.atlas_mapper_lite_contract.v0_7",
+  "purpose": "Re-scope Atlas Mapper Lite as a standalone proof-of-workbench, not the final editor surface.",
+  "currentRole": "standalone proving tool for sheet mapping, correction scenes, metadata export, and GUI experiments",
+  "targetRole": "native editor Asset World Mapping Workspace panel set",
+  "leftColumnTarget": "scrollable project source atlas / tile sheet stack loaded from Havenwild asset lane",
+  "centerCanvasTarget": "real Havenwild world canvas generated with game worldgen and editable by tile/layer/asset tools",
+  "rightPanelTarget": "asset intake inspector for semantics, collision, sockets, layers, variants, coverage, publish state",
+  "requiredNextCapabilities": [
+    "load project asset lane sheet queue",
+    "per-source-cell mapping badges",
+    "learn from correction scene",
+    "generate next unmapped draft",
+    "world canvas tile replacement",
+    "layer rail and tool rail parity",
+    "pixel/subcell collision painting",
+    "socket/adjacency painting",
+    "coverage validation and green check rules",
+    "native editor panelization"
+  ]
+}

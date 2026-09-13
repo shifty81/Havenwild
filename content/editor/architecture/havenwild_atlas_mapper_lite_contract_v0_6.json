@@ -1,0 +1,49 @@
+{
+  "schema": "havenwild.atlas_mapper_lite_contract.v0_6",
+  "tool": "haven_atlas_mapper_lite",
+  "pass": "HW-ATLAS-MAPPER-SCENE-DRAFT-FORGEGUI-24",
+  "purpose": "Promote the standalone mapper from debug utility toward a Forge-style Asset Mapping Workspace with source-linked scene drafts instead of random scattered tile placement.",
+  "sceneDraftPolicy": {
+    "generatedPiecesAreFinal": false,
+    "generatedPiecesAreReviewableDrafts": true,
+    "sourceAdjacencyMustBePreservedWherePossible": true,
+    "randomCrossSheetScatterAllowed": false,
+    "emptyCellsSkipped": true,
+    "successiveGenerationIntent": "Generate a draft, correct it, save/export evidence, then generate another correction draft as the semantic map improves."
+  },
+  "knownSemanticsUsed": [
+    "asset category",
+    "source sheet path/name/hash in downstream records",
+    "32x32 tile grid",
+    "cell coverage",
+    "rough color-role classification",
+    "category-specific semantic role hints",
+    "layer role hints"
+  ],
+  "workspacePanels": [
+    "Source Library",
+    "Tile Sheet",
+    "Mapped Sheets",
+    "Scene Draft Canvas",
+    "Collision",
+    "Layers",
+    "Sockets",
+    "Inspector",
+    "Semantics",
+    "Publish"
+  ],
+  "assetIntakeMeaning": {
+    "greenMappedCheck": "Mapper metadata exists for a source sheet/category pair.",
+    "notRuntimePublished": true,
+    "runtimePublicationRequires": [
+      "semantic binding",
+      "source/provenance evidence",
+      "layer roles",
+      "sockets",
+      "footprint",
+      "collision masks",
+      "traversal/occlusion validation",
+      "published metadata promotion"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "havenwild.editor_asset_world_mapping_contract.v0_1",
+  "purpose": "Lock the parity direction: the standalone Atlas Mapper is a proving ground for the native Havenwild editor Asset Mapping Workspace and the later Ember editor workspace.",
+  "productLane": "Havenwild native editor first, Ember ingest second",
+  "workspaceName": "Asset World Mapping Workspace",
+  "sourceAuthorityInputs": [
+    "content/assets/lpc/lpc_slice_catalog_v0_1.json",
+    "content/assets/donor_reference/donor_reference_asset_catalog_v0_1.json",
+    "content/assets/intake/external_asset_pack_contract_v0_1.json",
+    "content/assets/intake/external_asset_roots_v0_1.json",
+    ".local/havenwild_external_asset_roots.json",
+    "PublishedWorldAssetRegistry",
+    "PublishedWorldAssetMetadata",
+    "artifacts/asset-intake/atlas-mapper/mapped-sheets",
+    "artifacts/asset-intake/atlas-mapper/projects",
+    "artifacts/asset-intake/atlas-mapper/handoffs"
+  ],
+  "nativeEditorParityRules": [
+    "The left asset area is a scrollable Source Atlas / Tile Sheet Stack loaded from the active Havenwild project asset lane.",
+    "The center surface is a real pannable game-world canvas using the same project worldgen, tile/layer model, and editor placement rules as Havenwild.",
+    "The right inspector edits semantic role, layer role, collision, sockets, adjacency, variants, and publish state for selected tiles, pieces, or world cells.",
+    "The tool rail controls edit modes: select, paint tile, replace tile, collision paint, socket paint, layer paint, erase, pan, sample, validate.",
+    "The layer rail exposes terrain_base, terrain_transition, terrain_overlay, terrain_detail, cliff_face, structure, object, collision, occlusion, actor/pathing, and debug overlays.",
+    "All mapping writes are metadata/recipe writes; source atlas pixels remain immutable.",
+    "Green tile checks mean mapping metadata exists for a source cell; sheet-level green means coverage rules pass; star/published means runtime authority promotion passed."
+  ],
+  "worldCanvasRequirements": {
+    "mustUseGameRules": true,
+    "mustUseProjectWorldgen": true,
+    "mustBePannable": true,
+    "mustBeEditable": true,
+    "mustSupportTileReplacement": true,
+    "mustSupportLayerRail": true,
+    "mustSupportToolRail": true,
+    "mustSupportUndoRedo": true,
+    "mustExportCorrectionsAsAssetAuthorityMetadata": true
+  },
+  "statusMeanings": {
+    "tileDraft": "source cell used in a correction scene, not yet certified",
+    "tileMapped": "source cell has role/layer/source rect mapping metadata",
+    "tileValidated": "source cell has required collision/socket/occlusion/animation metadata for its family",
+    "sheetMapped": "required cells for the sheet family meet coverage criteria",
+    "published": "runtime asset authority accepted the mapping"
+  }
+}

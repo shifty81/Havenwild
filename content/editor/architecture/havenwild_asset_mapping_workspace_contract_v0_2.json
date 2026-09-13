@@ -1,0 +1,43 @@
+{
+  "schema": "havenwild.asset_mapping_workspace_contract.v0_2",
+  "purpose": "Define the Havenwild-specific asset mapping workspace that will later fold into Ember as a generic profile-driven Asset Authority editor.",
+  "profile": "Havenwild",
+  "authorityInputs": [
+    "content/assets/lpc/lpc_slice_catalog_v0_1.json",
+    "content/assets/donor_reference/donor_reference_asset_catalog_v0_1.json",
+    "content/assets/intake/external_asset_pack_contract_v0_1.json",
+    "content/assets/intake/external_asset_roots_v0_1.json",
+    ".local/havenwild_external_asset_roots.json",
+    "PublishedWorldAssetRegistry",
+    "PublishedWorldAssetMetadata",
+    "artifacts/asset-intake/atlas-mapper/mapped-sheets"
+  ],
+  "panelModel": {
+    "dockable": true,
+    "canvasHostable": true,
+    "infiniteCanvasReady": true,
+    "panels": [
+      "Asset Library Tree",
+      "Tile Sheet Browser",
+      "Scene Draft Canvas",
+      "Layer Stack",
+      "Semantic Inspector",
+      "Socket Editor",
+      "Pixel Collision Editor",
+      "Variant/Randomization Inspector",
+      "Animation Strip Mapper",
+      "Preview Validator",
+      "Publish Candidate"
+    ]
+  },
+  "correctionLoop": [
+    "load sheet/family from asset lane",
+    "build coherent source-linked scene draft",
+    "user corrects scene/layers/collision/sockets",
+    "save mapper project",
+    "export handoff evidence",
+    "green mapped check appears for sheet/category",
+    "repeat until all required sheet families are covered",
+    "promote validated candidates into runtime metadata"
+  ]
+}

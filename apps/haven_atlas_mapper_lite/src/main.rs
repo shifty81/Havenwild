@@ -18,10 +18,11 @@ const MIN_CANVAS_ZOOM: f32 = 1.00;
 const MAX_CANVAS_ZOOM: f32 = 4.00;
 const DEFAULT_CANVAS_ZOOM: f32 = 2.00;
 const ZOOM_STEP: f32 = 1.07;
-const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_3";
+const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_4";
 const LEGACY_PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_1";
 const LEGACY_PROJECT_SCHEMA_V2: &str = "havenwild.atlas_mapper_project.v0_2";
-const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_4";
+const LEGACY_PROJECT_SCHEMA_V3: &str = "havenwild.atlas_mapper_project.v0_3";
+const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_5";
 const MAPPED_SHEET_SCHEMA: &str = "havenwild.atlas_mapper_mapped_sheet.v0_1";
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
@@ -188,6 +189,15 @@ struct SourceCellProfile {
     role: CellRole,
 }
 
+#[derive(Clone, Copy, Debug)]
+struct SourceSceneWindow {
+    x: i32,
+    y: i32,
+    w: i32,
+    h: i32,
+    score: f32,
+}
+
 #[derive(Clone, Debug, Serialize, Deserialize)]
 struct AssemblyPiece {
     id: u32,
@@ -336,7 +346,7 @@ impl Default for MapperApp {
             next_piece_id: 1,
             category: AssetCategory::Terrain,
             assembly_name: "new_atlas_assembly".to_string(),
-            source_pan: vec2(18.0, 48.0),
+            source_pan: vec2(18.0, 72.0),
             source_zoom: 1.0,
             canvas_pan: vec2(56.0, 64.0),
             canvas_zoom: DEFAULT_CANVAS_ZOOM,
@@ -468,7 +478,7 @@ impl MapperApp {
                 return;
             }
         };
-        if document.schema != PROJECT_SCHEMA && document.schema != LEGACY_PROJECT_SCHEMA && document.schema != LEGACY_PROJECT_SCHEMA_V2 {
+        if document.schema != PROJECT_SCHEMA && document.schema != LEGACY_PROJECT_SCHEMA && document.schema != LEGACY_PROJECT_SCHEMA_V2 && document.schema != LEGACY_PROJECT_SCHEMA_V3 {
             self.status = format!("Project schema mismatch: expected {PROJECT_SCHEMA}, got {}", document.schema);
             return;
         }
@@ -618,7 +628,7 @@ impl MapperApp {
 
     fn auto_map_sheet(&mut self) {
         let Some(atlas) = &self.atlas else {
-            self.status = "Load a tile sheet before using Auto Scene.".to_string();
+            self.status = "Load a tile sheet before using Build Scene Draft.".to_string();
             return;
         };
         let cols = (atlas.width / TILE_SIZE).max(1);
@@ -629,30 +639,19 @@ impl MapperApp {
         self.selected_piece = None;
         self.next_piece_id = 1;
         self.canvas_zoom = DEFAULT_CANVAS_ZOOM;
-        self.canvas_pan = vec2(76.0, 78.0);
+        self.canvas_pan = vec2(72.0, 76.0);
         self.scene_generation_count = self.scene_generation_count.saturating_add(1);
-        let mut seed = self.auto_seed
-            ^ unix_seconds()
-            ^ ((cols as u64) << 11)
-            ^ ((rows as u64) << 3)
-            ^ ((self.scene_generation_count as u64) << 23);
 
         let scene_label = match self.category {
-            AssetCategory::Terrain => self.generate_terrain_scene(&profiles, cols, rows, &mut seed),
-            AssetCategory::Cliff => self.generate_cliff_scene(&profiles, cols, rows, &mut seed),
-            AssetCategory::Structure => self.generate_structure_scene(&profiles, cols, rows, &mut seed),
-            AssetCategory::House => self.generate_house_scene(&profiles, cols, rows, &mut seed),
-            AssetCategory::Object => self.generate_gallery_scene(&profiles, cols, rows, &mut seed, "object_review_scene"),
-            AssetCategory::Character => self.generate_strip_scene(&profiles, cols, rows, &mut seed, "character_layer_strip"),
-            AssetCategory::Equipment => self.generate_gallery_scene(&profiles, cols, rows, &mut seed, "equipment_review_scene"),
-            AssetCategory::Fx => self.generate_strip_scene(&profiles, cols, rows, &mut seed, "fx_animation_strip"),
-            AssetCategory::Ui => self.generate_gallery_scene(&profiles, cols, rows, &mut seed, "ui_icon_review_scene"),
+            AssetCategory::Character | AssetCategory::Fx => self.generate_source_strip_draft(&profiles, cols, rows),
+            AssetCategory::Object | AssetCategory::Equipment | AssetCategory::Ui => self.generate_component_gallery_draft(&profiles, cols, rows),
+            _ => self.generate_source_window_scene_draft(&profiles, cols, rows),
         };
 
         self.selected_piece = None;
         self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::DraftMapped };
         self.status = format!(
-            "Generated {scene_label} from {file_hint} as {} pass #{}. Correct it, then generate again or Save/Export for asset intake.",
+            "Built {scene_label} from {file_hint} as {} pass #{}. These are source-linked draft tiles: correct, delete, layer, save/export, then generate another correction draft.",
             self.category.label(),
             self.scene_generation_count,
         );
@@ -676,87 +675,119 @@ impl MapperApp {
         });
     }
 
-    fn generated_tile(&self, profiles: &[SourceCellProfile], cols: i32, rows: i32, seed: &mut u64, roles: &[CellRole], ordinal: u64) -> SourceTile {
-        choose_tile_from_profiles(profiles, cols, rows, seed, roles, ordinal)
+    fn push_profile_piece(&mut self, cell: SourceCellProfile, grid_x: i32, grid_y: i32, local_x: i32, local_y: i32) {
+        if cell.role == CellRole::Empty || cell.coverage < 0.10 { return; }
+        let semantic = self.semantic_for_cell(cell, local_x, local_y);
+        let layer = self.layer_for_cell(cell, local_y);
+        self.push_generated_piece(SourceTile { tile_x: cell.tile_x, tile_y: cell.tile_y }, grid_x, grid_y, &semantic, layer);
     }
 
-    fn generate_terrain_scene(&mut self, profiles: &[SourceCellProfile], cols: i32, rows: i32, seed: &mut u64) -> &'static str {
-        for y in 0..5 {
-            for x in 0..8 {
-                let roles = if y >= 3 && x >= 3 && x <= 5 { &[CellRole::Water][..] } else { &[CellRole::Grass, CellRole::Sand, CellRole::Stone][..] };
-                let semantic = if y >= 3 && x >= 3 && x <= 5 { "terrain.water.scene_channel" } else { "terrain.ground.scene_fill" };
-                let tile = self.generated_tile(profiles, cols, rows, seed, roles, (x + y * 17) as u64);
-                self.push_generated_piece(tile, x, y, semantic, y);
+    fn generate_source_window_scene_draft(&mut self, profiles: &[SourceCellProfile], cols: i32, rows: i32) -> &'static str {
+        let (layout_w, layout_h, _) = self.category.default_layout();
+        let window_w = layout_w.max(6).min(cols.max(1));
+        let window_h = layout_h.max(4).min(rows.max(1));
+        let window = best_scene_window(profiles, cols, rows, window_w, window_h, self.category)
+            .unwrap_or(SourceSceneWindow { x: 0, y: 0, w: window_w, h: window_h, score: 0.0 });
+        for sy in window.y..(window.y + window.h) {
+            for sx in window.x..(window.x + window.w) {
+                if let Some(cell) = profile_at(profiles, cols, sx, sy) {
+                    let local_x = sx - window.x;
+                    let local_y = sy - window.y;
+                    self.push_profile_piece(cell, local_x, local_y, local_x, local_y);
+                }
             }
         }
-        "terrain scene sampler"
+        if self.pieces.is_empty() {
+            self.generate_component_gallery_draft(profiles, cols, rows)
+        } else {
+            "coherent source-window correction scene"
+        }
     }
 
-    fn generate_cliff_scene(&mut self, profiles: &[SourceCellProfile], cols: i32, rows: i32, seed: &mut u64) -> &'static str {
-        for x in 1..9 {
-            let tile = self.generated_tile(profiles, cols, rows, seed, &[CellRole::Grass, CellRole::Sand], x as u64);
-            self.push_generated_piece(tile, x, 0, "terrain.cliff.top_surface", 0);
-        }
-        for y in 1..4 {
-            for x in 2..8 {
-                let tile = self.generated_tile(profiles, cols, rows, seed, &[CellRole::Cliff, CellRole::Wood, CellRole::Stone], (x + y * 13) as u64);
-                self.push_generated_piece(tile, x, y, "terrain.cliff.face_occluder", 10 + y);
+    fn generate_source_strip_draft(&mut self, profiles: &[SourceCellProfile], cols: i32, rows: i32) -> &'static str {
+        let row_limit = 4.min(rows.max(1));
+        let col_limit = 12.min(cols.max(1));
+        let mut target_y = 0;
+        for sy in 0..rows {
+            if target_y >= row_limit { break; }
+            let row_cells: Vec<SourceCellProfile> = (0..cols)
+                .filter_map(|sx| profile_at(profiles, cols, sx, sy))
+                .filter(|cell| cell.role != CellRole::Empty && cell.coverage >= 0.10)
+                .take(col_limit as usize)
+                .collect();
+            if row_cells.is_empty() { continue; }
+            for (target_x, cell) in row_cells.into_iter().enumerate() {
+                self.push_profile_piece(cell, target_x as i32, target_y * 2, target_x as i32, target_y);
             }
+            target_y += 1;
         }
-        for x in 0..10 {
-            let tile = self.generated_tile(profiles, cols, rows, seed, &[CellRole::Water, CellRole::Sand, CellRole::Grass], (x + 91) as u64);
-            self.push_generated_piece(tile, x, 5, "terrain.water.bottom_pool", 2);
+        if self.pieces.is_empty() {
+            self.generate_component_gallery_draft(profiles, cols, rows)
+        } else {
+            "source-row animation/layer strip draft"
         }
-        for (x, y, semantic) in [(1, 1, "terrain.cliff.left_shoulder"), (8, 1, "terrain.cliff.right_shoulder"), (4, 4, "terrain.cliff.debris_or_transition"), (5, 4, "terrain.cliff.debris_or_transition")] {
-            let tile = self.generated_tile(profiles, cols, rows, seed, &[CellRole::Detail, CellRole::Cliff, CellRole::Grass], (x + y * 31) as u64);
-            self.push_generated_piece(tile, x, y, semantic, 20 + y);
-        }
-        "cliff correction scene"
     }
 
-    fn generate_structure_scene(&mut self, profiles: &[SourceCellProfile], cols: i32, rows: i32, seed: &mut u64) -> &'static str {
-        for y in 1..5 {
-            for x in 1..7 {
-                let edge = x == 1 || x == 6 || y == 1 || y == 4;
-                let roles = if edge { &[CellRole::Wood, CellRole::Stone, CellRole::Cliff][..] } else { &[CellRole::Sand, CellRole::Wood, CellRole::Stone][..] };
-                let semantic = if edge { "structure.wall_or_edge" } else { "structure.floor_fill" };
-                let tile = self.generated_tile(profiles, cols, rows, seed, roles, (x + y * 19) as u64);
-                self.push_generated_piece(tile, x, y, semantic, if edge { 20 } else { 1 });
+    fn generate_component_gallery_draft(&mut self, profiles: &[SourceCellProfile], _cols: i32, _rows: i32) -> &'static str {
+        let mut target_x = 0;
+        let mut target_y = 0;
+        for cell in profiles.iter().copied().filter(|cell| cell.role != CellRole::Empty && cell.coverage >= 0.10).take(32) {
+            self.push_profile_piece(cell, target_x * 2, target_y * 2, target_x, target_y);
+            target_x += 1;
+            if target_x >= 8 {
+                target_x = 0;
+                target_y += 1;
             }
         }
-        "structure module scene"
+        "source-linked review gallery draft"
     }
 
-    fn generate_house_scene(&mut self, profiles: &[SourceCellProfile], cols: i32, rows: i32, seed: &mut u64) -> &'static str {
-        for y in 0..6 {
-            for x in 1..8 {
-                let semantic = if y <= 1 { "building.roof_or_top" } else if y == 5 { "building.front_or_entry" } else { "building.wall_body" };
-                let roles = if y <= 1 { &[CellRole::Wood, CellRole::Cliff, CellRole::Stone][..] } else { &[CellRole::Wood, CellRole::Stone, CellRole::Sand][..] };
-                let tile = self.generated_tile(profiles, cols, rows, seed, roles, (x + y * 23) as u64);
-                self.push_generated_piece(tile, x, y, semantic, 10 + y);
-            }
+    fn semantic_for_cell(&self, cell: SourceCellProfile, local_x: i32, local_y: i32) -> String {
+        match self.category {
+            AssetCategory::Cliff => match cell.role {
+                CellRole::Grass | CellRole::Sand => "terrain.cliff.top_or_lip".to_string(),
+                CellRole::Water => "terrain.cliff.water_or_lower_pool".to_string(),
+                CellRole::Cliff | CellRole::Wood | CellRole::Stone => "terrain.cliff.face_or_support".to_string(),
+                CellRole::Detail => "terrain.cliff.detail_transition".to_string(),
+                CellRole::Empty => "terrain.cliff.empty".to_string(),
+            },
+            AssetCategory::Terrain => match cell.role {
+                CellRole::Water => "terrain.water_or_shore".to_string(),
+                CellRole::Grass => "terrain.ground_top_surface".to_string(),
+                CellRole::Sand => "terrain.path_or_bank".to_string(),
+                CellRole::Stone => "terrain.rock_or_hard_edge".to_string(),
+                _ => format!("terrain.scene_cell_{}_{}", local_x, local_y),
+            },
+            AssetCategory::Structure | AssetCategory::House => match cell.role {
+                CellRole::Wood => "structure.wood_wall_floor_or_trim".to_string(),
+                CellRole::Stone => "structure.stone_floor_wall_or_foundation".to_string(),
+                CellRole::Sand | CellRole::Grass => "structure.ground_or_transition".to_string(),
+                CellRole::Cliff => "structure.earth_or_support".to_string(),
+                _ => format!("structure.scene_cell_{}_{}", local_x, local_y),
+            },
+            AssetCategory::Character => format!("character.layer_or_frame_{}_{}", local_x, local_y),
+            AssetCategory::Fx => format!("fx.animation_frame_{}_{}", local_x, local_y),
+            AssetCategory::Object => format!("object.review_piece_{}_{}", local_x, local_y),
+            AssetCategory::Equipment => format!("equipment.review_piece_{}_{}", local_x, local_y),
+            AssetCategory::Ui => format!("ui.icon_piece_{}_{}", local_x, local_y),
         }
-        "building correction scene"
     }
 
-    fn generate_gallery_scene(&mut self, profiles: &[SourceCellProfile], cols: i32, rows: i32, seed: &mut u64, label: &'static str) -> &'static str {
-        for y in 0..4 {
-            for x in 0..6 {
-                let tile = self.generated_tile(profiles, cols, rows, seed, &[CellRole::Detail, CellRole::Wood, CellRole::Stone, CellRole::Grass, CellRole::Cliff], (x + y * 29) as u64);
-                self.push_generated_piece(tile, x * 2, y * 2, &format!("{}.candidate_{}", self.category.stable_key(), y * 6 + x), y);
-            }
+    fn layer_for_cell(&self, cell: SourceCellProfile, local_y: i32) -> i32 {
+        match self.category {
+            AssetCategory::Cliff => match cell.role {
+                CellRole::Grass | CellRole::Sand => 0,
+                CellRole::Water => 2,
+                CellRole::Cliff | CellRole::Wood | CellRole::Stone => 10 + local_y,
+                CellRole::Detail => 20 + local_y,
+                CellRole::Empty => local_y,
+            },
+            AssetCategory::Structure | AssetCategory::House => match cell.role {
+                CellRole::Wood | CellRole::Stone | CellRole::Cliff => 10 + local_y,
+                _ => local_y,
+            },
+            _ => local_y,
         }
-        label
-    }
-
-    fn generate_strip_scene(&mut self, profiles: &[SourceCellProfile], cols: i32, rows: i32, seed: &mut u64, label: &'static str) -> &'static str {
-        for y in 0..3 {
-            for x in 0..8 {
-                let tile = self.generated_tile(profiles, cols, rows, seed, &[CellRole::Detail, CellRole::Grass, CellRole::Wood, CellRole::Stone, CellRole::Cliff], (x + y * 37) as u64);
-                self.push_generated_piece(tile, x, y * 2, &format!("{}.frame_row_{}", self.category.stable_key(), y), y);
-            }
-        }
-        label
     }
 
     fn next_default_layer(&self) -> i32 {
@@ -1088,6 +1119,88 @@ fn classify_cell_role(coverage: f32, r: f32, g: f32, b: f32) -> CellRole {
     CellRole::Detail
 }
 
+fn profile_at(profiles: &[SourceCellProfile], cols: i32, tile_x: i32, tile_y: i32) -> Option<SourceCellProfile> {
+    if tile_x < 0 || tile_y < 0 || cols <= 0 { return None; }
+    let index = (tile_y * cols + tile_x) as usize;
+    profiles.get(index).copied().filter(|cell| cell.tile_x == tile_x && cell.tile_y == tile_y)
+}
+
+fn best_scene_window(
+    profiles: &[SourceCellProfile],
+    cols: i32,
+    rows: i32,
+    requested_w: i32,
+    requested_h: i32,
+    category: AssetCategory,
+) -> Option<SourceSceneWindow> {
+    if profiles.is_empty() || cols <= 0 || rows <= 0 { return None; }
+    let w = requested_w.clamp(1, cols.max(1));
+    let h = requested_h.clamp(1, rows.max(1));
+    let max_x = (cols - w).max(0);
+    let max_y = (rows - h).max(0);
+    let mut best: Option<SourceSceneWindow> = None;
+    for y in 0..=max_y {
+        for x in 0..=max_x {
+            let score = scene_window_score(profiles, cols, x, y, w, h, category);
+            if best.map(|window| score > window.score).unwrap_or(true) {
+                best = Some(SourceSceneWindow { x, y, w, h, score });
+            }
+        }
+    }
+    best
+}
+
+fn scene_window_score(profiles: &[SourceCellProfile], cols: i32, x: i32, y: i32, w: i32, h: i32, category: AssetCategory) -> f32 {
+    let mut score = 0.0f32;
+    let mut grass = 0.0f32;
+    let mut water = 0.0f32;
+    let mut cliff = 0.0f32;
+    let mut wood = 0.0f32;
+    let mut stone = 0.0f32;
+    let mut detail = 0.0f32;
+    let mut occupied = 0.0f32;
+    for sy in y..(y + h) {
+        for sx in x..(x + w) {
+            let Some(cell) = profile_at(profiles, cols, sx, sy) else { continue; };
+            if cell.role == CellRole::Empty || cell.coverage < 0.10 { continue; }
+            occupied += cell.coverage.max(0.25);
+            score += cell.coverage;
+            match cell.role {
+                CellRole::Grass | CellRole::Sand => grass += 1.0,
+                CellRole::Water => water += 1.0,
+                CellRole::Cliff => cliff += 1.0,
+                CellRole::Wood => wood += 1.0,
+                CellRole::Stone => stone += 1.0,
+                CellRole::Detail => detail += 1.0,
+                CellRole::Empty => {}
+            }
+        }
+    }
+    score += occupied * 0.45;
+    match category {
+        AssetCategory::Cliff => {
+            score += cliff * 5.0 + grass * 2.0 + water * 2.0 + detail * 0.6;
+            if cliff > 0.0 && grass > 0.0 { score += 6.0; }
+            if cliff > 0.0 && water > 0.0 { score += 4.0; }
+        }
+        AssetCategory::Terrain => {
+            score += grass * 3.0 + water * 2.4 + stone * 1.1 + detail * 0.8;
+            if grass > 0.0 && water > 0.0 { score += 5.0; }
+        }
+        AssetCategory::Structure | AssetCategory::House => {
+            score += wood * 3.5 + stone * 2.0 + detail * 1.0;
+            if wood + stone > 4.0 { score += 4.0; }
+        }
+        AssetCategory::Object | AssetCategory::Equipment | AssetCategory::Ui => {
+            score += detail * 3.0 + wood * 1.2 + stone * 1.2;
+        }
+        AssetCategory::Character | AssetCategory::Fx => {
+            score += detail * 2.5 + grass * 0.8 + wood * 0.8 + stone * 0.8;
+        }
+    }
+    score
+}
+
 fn choose_tile_from_profiles(
     profiles: &[SourceCellProfile],
     cols: i32,
@@ -1172,6 +1285,35 @@ fn draw_panel(rect: Rect, title: &str, subtitle: &str) {
     draw_text(subtitle, rect.x + 12.0, rect.y + 34.0, 12.0, Color::new(0.56, 0.64, 0.72, 1.0));
 }
 
+fn draw_dock_tabs(rect: Rect, labels: &[&str], active_index: usize) {
+    let mut x = rect.x + 12.0;
+    let y = rect.y + 40.0;
+    for (index, label) in labels.iter().enumerate() {
+        let w = ((*label).len() as f32 * 7.5 + 26.0).clamp(72.0, 168.0);
+        let active = index == active_index;
+        let fill = if active { Color::new(0.10, 0.22, 0.31, 1.0) } else { Color::new(0.052, 0.064, 0.083, 1.0) };
+        let line = if active { Color::new(0.19, 0.57, 0.72, 1.0) } else { Color::new(0.16, 0.21, 0.27, 1.0) };
+        draw_rectangle(x, y, w, 22.0, fill);
+        draw_rectangle_lines(x, y, w, 22.0, 1.0, line);
+        if active { draw_rectangle(x, y + 20.0, w, 2.0, Color::new(0.12, 0.75, 0.92, 1.0)); }
+        draw_text(label, x + 10.0, y + 15.0, 13.0, Color::new(0.78, 0.86, 0.91, 1.0));
+        x += w + 6.0;
+    }
+}
+
+fn draw_workspace_rail(y: f32, h: f32) {
+    draw_rectangle(0.0, y, 48.0, h, Color::new(0.018, 0.024, 0.034, 1.0));
+    draw_line(48.0, y, 48.0, y + h, 1.0, Color::new(0.10, 0.16, 0.21, 1.0));
+    let labels = ["LIB", "MAP", "COL", "LAY", "PUB"];
+    for (i, label) in labels.iter().enumerate() {
+        let yy = y + 16.0 + i as f32 * 54.0;
+        let active = i == 1;
+        draw_rectangle(8.0, yy, 32.0, 36.0, if active { Color::new(0.10, 0.25, 0.34, 1.0) } else { Color::new(0.045, 0.057, 0.074, 1.0) });
+        draw_rectangle_lines(8.0, yy, 32.0, 36.0, 1.0, if active { Color::new(0.17, 0.64, 0.78, 1.0) } else { Color::new(0.15, 0.20, 0.26, 1.0) });
+        draw_text(label, 12.0, yy + 22.0, 11.0, Color::new(0.74, 0.84, 0.90, 1.0));
+    }
+}
+
 fn draw_grid(rect: Rect, pan: Vec2, zoom: f32, line_color: Color) {
     let step = TILE_SIZE as f32 * zoom;
     if step < 4.0 { return; }
@@ -1218,8 +1360,8 @@ fn draw_wrapped_line(text: &str, x: f32, y: f32, max_chars: usize, font_size: f3
 fn draw_top_bar(app: &mut MapperApp) {
     draw_rectangle(0.0, 0.0, screen_width(), TOP_BAR_H, Color::new(0.028, 0.035, 0.047, 1.0));
     draw_rectangle(0.0, 0.0, screen_width(), 4.0, Color::new(0.12, 0.32, 0.45, 1.0));
-    draw_text("Havenwild Atlas Mapper Lite", 16.0, 30.0, 25.0, Color::new(0.94, 0.96, 0.98, 1.0));
-    draw_text("asset intake sheet mapper | read-only source -> puzzle assembly -> mapped-sheet checkmark -> engine handoff", 18.0, 55.0, 15.0, Color::new(0.62, 0.70, 0.78, 1.0));
+    draw_text("Havenwild Asset Mapping Workspace", 16.0, 30.0, 25.0, Color::new(0.94, 0.96, 0.98, 1.0));
+    draw_text("Forge-style asset intake | source library -> scene draft -> semantic/collision mapping -> engine handoff", 18.0, 55.0, 15.0, Color::new(0.62, 0.70, 0.78, 1.0));
 
     let mut bx = 365.0;
     if draw_button(Rect::new(bx, 12.0, 84.0, 28.0), "Load PNG", false) { app.load_atlas_dialog(); }
@@ -1230,7 +1372,7 @@ fn draw_top_bar(app: &mut MapperApp) {
     bx += 114.0;
     if draw_button(Rect::new(bx, 12.0, 124.0, 28.0), "Export Handoff", false) { app.export_handoff_dialog(); }
     bx += 132.0;
-    if draw_button(Rect::new(bx, 12.0, 116.0, 28.0), "Auto Scene", false) { app.auto_map_sheet(); }
+    if draw_button(Rect::new(bx, 12.0, 116.0, 28.0), "Build Scene Draft", false) { app.auto_map_sheet(); }
     bx += 124.0;
     if draw_button(Rect::new(bx, 12.0, 62.0, 28.0), "Clear", false) {
         app.pieces.clear();
@@ -1289,7 +1431,8 @@ fn draw_source_panel(app: &MapperApp, source_rect: Rect) {
 }
 
 fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
-    draw_panel(canvas_rect, "Assembly Canvas", "drop puzzle pieces here; transforms write metadata only");
+    draw_panel(canvas_rect, "Scene Draft Canvas", "source-linked pieces; correct into certified mapping metadata");
+    draw_dock_tabs(canvas_rect, &["Scene", "Collision", "Layers", "Sockets"], 0);
     draw_text(&format!("zoom {:.0}%", app.canvas_zoom * 100.0), canvas_rect.x + canvas_rect.w - 216.0, canvas_rect.y + 24.0, 15.0, Color::new(0.64, 0.72, 0.80, 1.0));
     if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 148.0, canvas_rect.y + 8.0, 58.0, 23.0), "2x", false) { app.reset_canvas_view(); }
     if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 82.0, canvas_rect.y + 8.0, 66.0, 23.0), "Fit", false) { app.fit_canvas_to_pieces(canvas_rect); }
@@ -1348,7 +1491,8 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
 
 fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) {
     draw_panel(inspector_rect, "Asset Intake", "mapping status, category, generated layout");
-    let mut y = inspector_rect.y + 58.0;
+    draw_dock_tabs(inspector_rect, &["Inspector", "Semantics", "Publish"], 0);
+    let mut y = inspector_rect.y + 70.0;
     draw_status_pill(Rect::new(inspector_rect.x + 14.0, y, 128.0, 24.0), app.mapping_stage.label(), app.mapping_stage.is_green());
     draw_status_pill(Rect::new(inspector_rect.x + 150.0, y, 92.0, 24.0), app.category.label(), true);
     y += 44.0;
@@ -1362,7 +1506,7 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
 
     draw_text("Forge-style commands", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
     y += 10.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Generate correction scene", false) { app.auto_map_sheet(); }
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Build correction scene draft", false) { app.auto_map_sheet(); }
     y += 37.0;
     if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Save mapper project", false) { app.save_project_current_or_dialog(); }
     y += 37.0;
@@ -1372,16 +1516,16 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
     y += 50.0;
 
     let (layout_w, layout_h, layout_label) = app.category.default_layout();
-    draw_text("Known-sheet scene generator", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
+    draw_text("Scene draft generator", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
     y += 24.0;
     draw_text(layout_label, inspector_rect.x + 14.0, y, 17.0, Color::new(0.88, 0.91, 0.94, 1.0));
     y += 24.0;
     draw_text(&format!("{} x {} 32px cells", layout_w, layout_h), inspector_rect.x + 14.0, y, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
     y += 36.0;
 
-    draw_text("Next asset-lane upgrade", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
+    draw_text("What to do with generated pieces", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
     y += 24.0;
-    let _ = draw_wrapped_line("Library browser will load the Havenwild tile-sheet catalog and show a green mapped check beside every sheet with a mapped-sheet record.", inspector_rect.x + 14.0, y, 31, 15.0, Color::new(0.70, 0.77, 0.84, 1.0));
+    let _ = draw_wrapped_line("They are not final art and not random clutter: they are source-linked draft cells. Move/delete/layer them into a useful correction scene, then Save Project or Export Handoff.", inspector_rect.x + 14.0, y, 31, 15.0, Color::new(0.70, 0.77, 0.84, 1.0));
 
     let bottom_y = inspector_rect.y + inspector_rect.h - 96.0;
     draw_rectangle(inspector_rect.x + 12.0, bottom_y, inspector_rect.w - 24.0, 78.0, app.category.color());
@@ -1394,6 +1538,7 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
 fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector_rect: Rect) {
     clear_background(Color::new(0.020, 0.026, 0.034, 1.0));
     draw_top_bar(app);
+    draw_workspace_rail(TOP_BAR_H, screen_height() - TOP_BAR_H - STATUS_H);
     draw_source_panel(app, source_rect);
     draw_canvas_panel(app, canvas_rect);
     draw_inspector(app, inspector_rect, canvas_rect);
@@ -1441,11 +1586,12 @@ async fn main() {
         let height = screen_height();
         let body_top = TOP_BAR_H + GAP;
         let body_h = height - TOP_BAR_H - STATUS_H - GAP * 2.0;
-        let source_w = (width * 0.34).clamp(410.0, 650.0);
+        let rail_w = 56.0;
+        let source_w = (width * 0.32).clamp(410.0, 650.0);
         let inspector_w = INSPECTOR_W.min((width * 0.24).max(260.0));
-        let canvas_x = source_w + GAP;
-        let canvas_w = width - source_w - inspector_w - GAP * 3.0;
-        let source_rect = Rect::new(GAP, body_top, source_w - GAP * 0.5, body_h);
+        let canvas_x = rail_w + source_w + GAP;
+        let canvas_w = width - rail_w - source_w - inspector_w - GAP * 3.0;
+        let source_rect = Rect::new(rail_w + GAP, body_top, source_w - GAP * 0.5, body_h);
         let canvas_rect = Rect::new(canvas_x, body_top, canvas_w, body_h);
         let inspector_rect = Rect::new(canvas_x + canvas_w + GAP, body_top, inspector_w, body_h);
         app.handle_input(source_rect, canvas_rect);

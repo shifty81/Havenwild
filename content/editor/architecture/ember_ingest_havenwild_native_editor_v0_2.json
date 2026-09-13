@@ -1,0 +1,27 @@
+{
+  "schema": "ember.ingest_havenwild_native_editor.v0_2",
+  "purpose": "Capture how Havenwild's native editor and Atlas Mapper work folds into Ember as a generic game-maker editor while Havenwild loads as a hosted game project/profile.",
+  "sourceProject": "Havenwild",
+  "targetProduct": "Ember",
+  "hostedProjectProfile": "HavenwildProjectProfile",
+  "ingestModules": [
+    "Asset Mapping Workspace",
+    "Source Atlas/Tile Sheet Stack",
+    "World Canvas Editor",
+    "Layer Rail",
+    "Tool Rail",
+    "Asset Authority Intake",
+    "Mapper Project/Handoff schemas",
+    "Terrain/Cliff/Structure semantics",
+    "Pixel collision and socket metadata",
+    "PCC/Forge provider contracts",
+    "Forge GUI portable panels"
+  ],
+  "monorepoTarget": "Ember owns the generic editor/tooling modules; Havenwild remains a game project/profile loaded by that editor.",
+  "doNotCollapsePrematurely": [
+    "Do not break stable Havenwild main while the asset mapper workspace is experimental.",
+    "Do not publish mapped tiles into runtime until validation metadata exists.",
+    "Do not fork Forge GUI styling into multiple incompatible UI systems."
+  ],
+  "branchLane": "experiment/asset-mapper-workspace"
+}

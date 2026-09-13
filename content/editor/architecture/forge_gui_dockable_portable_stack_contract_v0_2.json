@@ -1,0 +1,36 @@
+{
+  "schema": "forge.gui_dockable_portable_stack_contract.v0_2",
+  "purpose": "Define the portable Forge GUI layer that Havenwild should consume now and Ember should own later.",
+  "portableOwnerPath": "EmberGuiCore / ForgeGuiCore",
+  "requiredPrimitives": [
+    "ThemeTokens",
+    "PanelChrome",
+    "DockHost",
+    "DockPanel",
+    "FloatingPanel",
+    "TabWell",
+    "Splitter",
+    "ScrollArea",
+    "TreeView",
+    "SheetQueue",
+    "TileGrid",
+    "PropertyGrid",
+    "InspectorRow",
+    "CommandBar",
+    "ToolRail",
+    "LayerRail",
+    "StatusPill",
+    "BadgeOverlay",
+    "ProblemList",
+    "OutputConsole",
+    "CanvasViewport",
+    "CanvasOverlay"
+  ],
+  "interactionContracts": [
+    "Docked panels can be pinned, collapsed, floated, re-docked, and serialized into layouts.",
+    "Infinite canvas hosts world view, room view, scene draft view, and canvas-hosted tool windows using the same panel contract.",
+    "Every panel exposes a stable tool id, command id set, selection binding, and validation/status binding.",
+    "ForgePY/Rust Forge, Havenwild, Cortex, and Ember share visual state names: normal, hover, pressed, active, focused, disabled, warning, danger, success."
+  ],
+  "migrationRule": "Do not duplicate one-off debug-looking UI. Promote common chrome/widgets into the portable layer, then consume them through profile-specific panels."
+}
