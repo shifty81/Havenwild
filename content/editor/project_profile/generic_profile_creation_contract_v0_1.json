@@ -1,0 +1,40 @@
+{
+  "schema": "emberwright.generic_profile_creation_contract.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "product": {
+    "ecosystem": "Ember",
+    "editor": "Emberwright",
+    "firstHostedProject": "Havenwild"
+  },
+  "doctrine": [
+    "Generic editor capabilities must create project profiles through a normal workflow, not by hand-coding one game forever.",
+    "Havenwild-specific defaults remain supported, but they are migration candidates for HavenwildProjectProfile.",
+    "A project profile is reproducible from wizard choices, source-library imports, semantic asset promotion, and validation/certification outputs.",
+    "Existing Havenwild behavior is preserved while generic contracts are introduced beside it."
+  ],
+  "profileOutputs": [
+    "project identity and display name",
+    "canvas/tile/grid defaults",
+    "workspace list and default dock layout",
+    "asset source mounts and import recipes",
+    "published asset/topology registry bindings",
+    "project vocabulary: zones, object categories, scene kinds, biomes, layers",
+    "runtime launch/PIE settings",
+    "validation profile selections",
+    "starter world/scene/template references"
+  ],
+  "hardRules": [
+    "The generic workflow can generate a profile equivalent to the initial HavenwildProjectProfile seed.",
+    "Generated profile content may reference source libraries and registries, but must not silently invent missing runtime assets.",
+    "Project-specific vocabulary is data supplied by the profile, not a reason to fork the editor shell.",
+    "Compile/build behavior remains owned by the project-local PCC until the universal Forge/Cortex path is approved."
+  ],
+  "migrationOrder": [
+    "Add generic profile creation artifacts.",
+    "Bind existing Havenwild constants to profile inventory entries.",
+    "Expose a profile wizard/view in the editor shell.",
+    "Move one small set of values at a time behind ProjectProfile lookups.",
+    "Only rename/extract crates after behavior is proven GREEN."
+  ]
+}

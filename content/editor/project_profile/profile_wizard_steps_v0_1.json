@@ -1,0 +1,149 @@
+{
+  "schema": "emberwright.profile_wizard_steps.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "wizard": "Emberwright New/Import 2D Game Project",
+  "steps": [
+    {
+      "id": "project_identity",
+      "title": "Project Identity",
+      "inputs": [
+        "project id",
+        "display name",
+        "root path",
+        "package name",
+        "version"
+      ],
+      "outputs": [
+        "profile.identity"
+      ]
+    },
+    {
+      "id": "template_selection",
+      "title": "2D Template",
+      "inputs": [
+        "top-down",
+        "side-view",
+        "tile-map",
+        "scene-based",
+        "open-world",
+        "life-sim/adventure optional tags"
+      ],
+      "outputs": [
+        "profile.editor.defaultWorkspaces",
+        "profile.runtime.defaultMode"
+      ]
+    },
+    {
+      "id": "canvas_model",
+      "title": "Canvas / Tile / Layer Model",
+      "inputs": [
+        "tile size",
+        "chunk size",
+        "world coordinate system",
+        "default layers",
+        "grid/ruler visibility"
+      ],
+      "outputs": [
+        "profile.canvas",
+        "profile.layers"
+      ]
+    },
+    {
+      "id": "source_libraries",
+      "title": "Source Libraries",
+      "inputs": [
+        "local source folders",
+        "Vault mounts",
+        "license/provenance policy",
+        "read-only source flags"
+      ],
+      "outputs": [
+        "profile.sources",
+        "asset import recipes"
+      ]
+    },
+    {
+      "id": "semantic_asset_promotion",
+      "title": "Semantic Asset Promotion",
+      "inputs": [
+        "source sheet",
+        "source rect/frame/layer",
+        "semantic role",
+        "footprint",
+        "anchor",
+        "collision/traversal/draw-order"
+      ],
+      "outputs": [
+        "published asset registry entries",
+        "published topology entries"
+      ]
+    },
+    {
+      "id": "project_vocabulary",
+      "title": "Project Vocabulary",
+      "inputs": [
+        "scene kinds",
+        "zones",
+        "biomes",
+        "object categories",
+        "tool families",
+        "interaction verbs"
+      ],
+      "outputs": [
+        "profile.vocabulary"
+      ]
+    },
+    {
+      "id": "runtime_and_pie",
+      "title": "Runtime / Play In Editor",
+      "inputs": [
+        "game executable",
+        "working directory",
+        "dev world path",
+        "spawn rules",
+        "play modes"
+      ],
+      "outputs": [
+        "profile.runtime",
+        "profile.pie"
+      ]
+    },
+    {
+      "id": "validation_and_publish",
+      "title": "Validation / Publish",
+      "inputs": [
+        "generic validators",
+        "project validators",
+        "profile completeness",
+        "certification gates"
+      ],
+      "outputs": [
+        "profile.validation",
+        "profile publish receipt"
+      ]
+    }
+  ],
+  "minimumViableProfile": [
+    "identity",
+    "canvas",
+    "sources",
+    "defaultWorkspaces",
+    "runtime",
+    "validation"
+  ],
+  "fullProductionProfile": [
+    "identity",
+    "canvas",
+    "sources",
+    "publishedAssets",
+    "publishedTopology",
+    "vocabulary",
+    "workspaces",
+    "docks",
+    "runtime",
+    "pie",
+    "validation",
+    "starterContent"
+  ]
+}

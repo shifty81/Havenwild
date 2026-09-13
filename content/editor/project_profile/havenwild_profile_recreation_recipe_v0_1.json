@@ -1,0 +1,97 @@
+{
+  "schema": "havenwild.profile_recreation_recipe.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "purpose": "Define how a generic Emberwright workflow could recreate the HavenwildProjectProfile instead of requiring permanent Havenwild-specific editor code.",
+  "targetProfile": "HavenwildProjectProfile",
+  "wizardSelections": {
+    "project_identity": {
+      "projectId": "havenwild",
+      "displayName": "Havenwild",
+      "projectType": "2D top-down open-world life-sim sandbox with optional adventure"
+    },
+    "template_selection": {
+      "baseTemplate": "top_down_open_world_2d",
+      "featureTags": [
+        "life_sim",
+        "co_op",
+        "procedural_world",
+        "scene_interiors",
+        "caves",
+        "businesses",
+        "relationships",
+        "optional_adventure"
+      ]
+    },
+    "canvas_model": {
+      "tileSizePx": 32,
+      "coordinateModel": "tile_cell_with_scene_and_world_contexts",
+      "defaultWorkspaces": [
+        "Game Canvas",
+        "Assets",
+        "Pixel",
+        "Animation",
+        "Character",
+        "Logic",
+        "Sound"
+      ]
+    },
+    "source_libraries": {
+      "sourcePolicy": "read_only_source_libraries_with_provenance",
+      "promotionPolicy": "source_to_semantic_asset_to_certified_runtime_asset"
+    },
+    "project_vocabulary": {
+      "zones": [
+        "Tavern",
+        "Kitchen",
+        "GuestRoom",
+        "Cellar",
+        "Greenhouse",
+        "Field",
+        "Cave",
+        "StaffOnly",
+        "PublicPath",
+        "Exterior",
+        "Market",
+        "Residential",
+        "Artisan",
+        "Harbor",
+        "Agricultural"
+      ],
+      "assetDomains": [
+        "Terrain",
+        "Water",
+        "Cliff",
+        "Structures",
+        "Interiors",
+        "Tools",
+        "Characters",
+        "UI",
+        "Audio"
+      ],
+      "playModes": [
+        "Edit",
+        "Simulate",
+        "Play In Canvas",
+        "Play From Here",
+        "Play In New Window",
+        "Standalone"
+      ]
+    },
+    "runtime_and_pie": {
+      "runtimeCrate": "haven_game",
+      "editorCrate": "haven_editor_native",
+      "devWorldMode": "development_world_roundtrip_before_launch"
+    }
+  },
+  "migrationNotes": [
+    "Names like Alderreach, Havenwild-specific zones, gameplay families, and world settings should become profile data.",
+    "The editor shell should ask ProjectProfile for display labels, default workspaces, panel availability, runtime launch commands, and project vocabulary.",
+    "The same wizard can later create non-Havenwild projects using different templates and vocabularies."
+  ],
+  "acceptance": [
+    "A generic workflow can produce an equivalent profile seed from structured selections.",
+    "Havenwild continues to load exactly as before during migration.",
+    "Hardcoded Havenwild values are inventoried before being moved behind profile lookups."
+  ]
+}

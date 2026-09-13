@@ -1,0 +1,56 @@
+{
+  "schema": "emberwright.genericization_pass_matrix.v0_1",
+  "version": "0.1",
+  "updated": "2026-09-12",
+  "passes": [
+    {
+      "pass": "13",
+      "name": "Profile workflow authority",
+      "goal": "Make the generic side capable of recreating HavenwildProjectProfile",
+      "risk": "low",
+      "behaviorChange": "none"
+    },
+    {
+      "pass": "14",
+      "name": "ProjectProfile runtime seam",
+      "goal": "Add code-level ProjectProfile query helpers beside current constants",
+      "risk": "low-medium",
+      "behaviorChange": "minimal"
+    },
+    {
+      "pass": "15",
+      "name": "Dock registry foundation",
+      "goal": "Wrap right/bottom docks in registered generic panel metadata",
+      "risk": "medium",
+      "behaviorChange": "layout should remain equivalent"
+    },
+    {
+      "pass": "16",
+      "name": "GUI polish normalization",
+      "goal": "Move panels to shared chrome/theme helpers",
+      "risk": "medium",
+      "behaviorChange": "visual polish only"
+    },
+    {
+      "pass": "17",
+      "name": "Asset catalog authority recovery",
+      "goal": "Quarantine/regenerate corrupt generated catalog while keeping published assets visible",
+      "risk": "medium",
+      "behaviorChange": "Assets workspace recovery"
+    },
+    {
+      "pass": "18",
+      "name": "Play In Canvas foundation",
+      "goal": "Add explicit PIE session model around existing development-client bridge",
+      "risk": "medium-high",
+      "behaviorChange": "new play mode surface"
+    }
+  ],
+  "guardrails": [
+    "Do not rename crates during passes 13-18.",
+    "Do not remove current Havenwild editor tabs.",
+    "Do not demote current PCC gate behavior.",
+    "Do not treat raw source files as placeable runtime assets.",
+    "Do not break existing external Play / Play From Here while adding Play In Canvas."
+  ]
+}
