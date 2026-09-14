@@ -1,0 +1,22 @@
+{
+  "schema": "ember.ingest.havenwild.asset_mapper.v0_1",
+  "version": "0.1.0",
+  "source": "Havenwild standalone Asset Mapper lane",
+  "intent": "Mirror the working Havenwild mapper/editor terrain-lane contracts into Ember later as generic asset mapping and world-correction workspaces.",
+  "ingestOrder": [
+    "ForgeGui/EmberGui portable panel stack",
+    "Asset sheet stack and source library browser",
+    "Terrain Lane Authority/provider model",
+    "Source sheet profile/group/topology schema",
+    "Correction-scene and learn-from-scene records",
+    "Pixel collision, layer, socket, and variant authoring",
+    "Generated world canvas/editor parity",
+    "Havenwild project profile mounted as a hosted game project"
+  ],
+  "doNotIngestAs": [
+    "Havenwild-only hardcoded editor shell",
+    "V7-named terrain lane",
+    "single-PNG mapper utility",
+    "visual-guessing runtime renderer"
+  ]
+}

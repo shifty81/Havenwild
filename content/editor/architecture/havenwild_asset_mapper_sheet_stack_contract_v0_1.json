@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.asset_mapper.sheet_stack.v0_1",
+  "version": "0.1.0",
+  "purpose": "Define the standalone Asset Mapper left-panel sheet stack. The stack indexes every known Havenwild source sheet/card while lazy-loading only the selected/visible sheet textures.",
+  "startupBehavior": [
+    "Resolve repository root from current working directory or launcher.",
+    "Read project-owned asset lane catalogs where available.",
+    "Scan known source sheet roots for atlas images as a fallback.",
+    "Create sheet cards with provider, family, category, path, and mapped status.",
+    "Do not load every full-size PNG texture at startup.",
+    "Load the selected sheet texture on demand into the source preview panel."
+  ],
+  "knownRoots": [
+    "assets/source/licensed/lpc_revised/Terrain",
+    "assets/source/licensed/lpc_revised/Objects",
+    "assets/source/licensed/lpc_revised/Structure",
+    "content/assets/oga_lpc/source/terrain",
+    "content/assets/lpc/source/lpc-terrains-v7",
+    "assets/generated/worldgen_v0_1/terrain"
+  ],
+  "statuses": [
+    "unmapped",
+    "draft",
+    "mapped",
+    "validated",
+    "published",
+    "needs_review"
+  ],
+  "greenCheckMeaning": "A green sheet/tile badge means mapper metadata exists and satisfies the current mapping level. It does not mean runtime publication until the runtime/published status is present.",
+  "standaloneConstraint": "This remains a Havenwild standalone tool until the GitHub-mirrored Ember ingest lane absorbs the generic parts."
+}

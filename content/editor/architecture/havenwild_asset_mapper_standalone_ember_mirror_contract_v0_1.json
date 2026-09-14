@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.asset_mapper.standalone_ember_mirror.v0_1",
+  "version": "0.1.0",
+  "sourceProject": "Havenwild",
+  "targetProject": "Ember",
+  "transport": "GitHub mirrored handoff, not direct in-chat cross-repo mutation",
+  "purpose": "Keep the Asset Mapper standalone in Havenwild while producing clean, portable contracts for Ember to ingest into the eventual generic editor/tooling monorepo.",
+  "rules": [
+    "Havenwild remains the authoritative development/proof project for this mapper lane right now.",
+    "Havenwild internal PCC remains the patch/gate authority for Havenwild patches.",
+    "Ember receives mirrored contracts, docs, and later extracted generic modules from GitHub after Havenwild commits are green.",
+    "Do not prematurely move the standalone mapper out of Havenwild until the Terrain Lane and Asset Mapping Workspace are usable.",
+    "Genericizable pieces must be named and documented so they can become Ember editor modules later."
+  ],
+  "genericExtractionCandidates": [
+    "Forge/Ember GUI tokens and dock panels",
+    "Asset sheet stack and source sheet profiles",
+    "Atlas/tile cell mapping records",
+    "Family/topology group mapping",
+    "Pixel collision mask painting",
+    "Socket/adjacency rules",
+    "Generated-world correction canvas",
+    "Handoff/export schemas",
+    "PCC/Forge provider parity contracts"
+  ]
+}

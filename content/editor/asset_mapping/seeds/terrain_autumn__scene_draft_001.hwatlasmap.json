@@ -1,0 +1,446 @@
+{
+  "schema": "havenwild.atlas_mapper_project.v0_4",
+  "tool": "haven_atlas_mapper_lite",
+  "source_atlas_path": "assets/source/licensed/lpc_revised/Terrain/terrain_autumn.png",
+  "source_atlas_file_name": "terrain_autumn.png",
+  "source_is_modified": false,
+  "tile_size": 32,
+  "category": "terrain",
+  "category_label": "Terrain",
+  "assembly_name": "terrain_autumn_assembly",
+  "next_piece_id": 24,
+  "source_pan": [
+    18.0,
+    72.0
+  ],
+  "source_zoom": 1.2250426,
+  "canvas_pan": [
+    56.0,
+    64.0
+  ],
+  "canvas_zoom": 2.1111112,
+  "pieces": [
+    {
+      "id": 1,
+      "source_tile_x": 3,
+      "source_tile_y": 1,
+      "source_rect": [
+        96,
+        32,
+        32,
+        32
+      ],
+      "canvas_grid_x": 4,
+      "canvas_grid_y": 4,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 0,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 2,
+      "source_tile_x": 4,
+      "source_tile_y": 1,
+      "source_rect": [
+        128,
+        32,
+        32,
+        32
+      ],
+      "canvas_grid_x": 4,
+      "canvas_grid_y": 3,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 0,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 3,
+      "source_tile_x": 5,
+      "source_tile_y": 1,
+      "source_rect": [
+        160,
+        32,
+        32,
+        32
+      ],
+      "canvas_grid_x": 4,
+      "canvas_grid_y": 5,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 0,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 4,
+      "source_tile_x": 6,
+      "source_tile_y": 1,
+      "source_rect": [
+        192,
+        32,
+        32,
+        32
+      ],
+      "canvas_grid_x": 0,
+      "canvas_grid_y": 0,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 0,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 5,
+      "source_tile_x": 8,
+      "source_tile_y": 1,
+      "source_rect": [
+        256,
+        32,
+        32,
+        32
+      ],
+      "canvas_grid_x": 2,
+      "canvas_grid_y": 0,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 0,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 6,
+      "source_tile_x": 3,
+      "source_tile_y": 2,
+      "source_rect": [
+        96,
+        64,
+        32,
+        32
+      ],
+      "canvas_grid_x": 5,
+      "canvas_grid_y": 5,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 1,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 7,
+      "source_tile_x": 4,
+      "source_tile_y": 2,
+      "source_rect": [
+        128,
+        64,
+        32,
+        32
+      ],
+      "canvas_grid_x": 5,
+      "canvas_grid_y": 3,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 1,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 8,
+      "source_tile_x": 5,
+      "source_tile_y": 2,
+      "source_rect": [
+        160,
+        64,
+        32,
+        32
+      ],
+      "canvas_grid_x": 5,
+      "canvas_grid_y": 4,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 1,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 9,
+      "source_tile_x": 6,
+      "source_tile_y": 2,
+      "source_rect": [
+        192,
+        64,
+        32,
+        32
+      ],
+      "canvas_grid_x": 0,
+      "canvas_grid_y": 1,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 1,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 10,
+      "source_tile_x": 7,
+      "source_tile_y": 2,
+      "source_rect": [
+        224,
+        64,
+        32,
+        32
+      ],
+      "canvas_grid_x": 1,
+      "canvas_grid_y": 1,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 1,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 11,
+      "source_tile_x": 8,
+      "source_tile_y": 2,
+      "source_rect": [
+        256,
+        64,
+        32,
+        32
+      ],
+      "canvas_grid_x": 2,
+      "canvas_grid_y": 1,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 1,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 12,
+      "source_tile_x": 3,
+      "source_tile_y": 3,
+      "source_rect": [
+        96,
+        96,
+        32,
+        32
+      ],
+      "canvas_grid_x": 0,
+      "canvas_grid_y": 3,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 2,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 13,
+      "source_tile_x": 4,
+      "source_tile_y": 3,
+      "source_rect": [
+        128,
+        96,
+        32,
+        32
+      ],
+      "canvas_grid_x": 1,
+      "canvas_grid_y": 3,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 2,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 14,
+      "source_tile_x": 5,
+      "source_tile_y": 3,
+      "source_rect": [
+        160,
+        96,
+        32,
+        32
+      ],
+      "canvas_grid_x": 2,
+      "canvas_grid_y": 3,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 2,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 15,
+      "source_tile_x": 6,
+      "source_tile_y": 3,
+      "source_rect": [
+        192,
+        96,
+        32,
+        32
+      ],
+      "canvas_grid_x": 6,
+      "canvas_grid_y": 0,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 2,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 16,
+      "source_tile_x": 7,
+      "source_tile_y": 3,
+      "source_rect": [
+        224,
+        96,
+        32,
+        32
+      ],
+      "canvas_grid_x": 7,
+      "canvas_grid_y": 0,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 2,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 17,
+      "source_tile_x": 8,
+      "source_tile_y": 3,
+      "source_rect": [
+        256,
+        96,
+        32,
+        32
+      ],
+      "canvas_grid_x": 4,
+      "canvas_grid_y": 1,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 2,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 18,
+      "source_tile_x": 3,
+      "source_tile_y": 4,
+      "source_rect": [
+        96,
+        128,
+        32,
+        32
+      ],
+      "canvas_grid_x": 0,
+      "canvas_grid_y": 4,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 3,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 19,
+      "source_tile_x": 4,
+      "source_tile_y": 4,
+      "source_rect": [
+        128,
+        128,
+        32,
+        32
+      ],
+      "canvas_grid_x": 1,
+      "canvas_grid_y": 4,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 3,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 20,
+      "source_tile_x": 5,
+      "source_tile_y": 4,
+      "source_rect": [
+        160,
+        128,
+        32,
+        32
+      ],
+      "canvas_grid_x": 2,
+      "canvas_grid_y": 4,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 3,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 21,
+      "source_tile_x": 6,
+      "source_tile_y": 4,
+      "source_rect": [
+        192,
+        128,
+        32,
+        32
+      ],
+      "canvas_grid_x": 6,
+      "canvas_grid_y": 1,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 3,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 22,
+      "source_tile_x": 7,
+      "source_tile_y": 4,
+      "source_rect": [
+        224,
+        128,
+        32,
+        32
+      ],
+      "canvas_grid_x": 7,
+      "canvas_grid_y": 1,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 3,
+      "semantic_role": "terrain.path_or_bank"
+    },
+    {
+      "id": 23,
+      "source_tile_x": 8,
+      "source_tile_y": 4,
+      "source_rect": [
+        256,
+        128,
+        32,
+        32
+      ],
+      "canvas_grid_x": 4,
+      "canvas_grid_y": 0,
+      "rotation_degrees": 0,
+      "flip_x": false,
+      "flip_y": false,
+      "layer": 3,
+      "semantic_role": "terrain.path_or_bank"
+    }
+  ],
+  "authoring_notes": [
+    "Mapper project files are editable tool state, not runtime assets.",
+    "Source atlas pixels remain immutable; this file stores placement and transform metadata only.",
+    "Mapped sheets are recorded into the asset intake lane so the GUI can show mapped/unmapped state.",
+    "Scene generation passes recorded this session: 1",
+    "Sanitized content seed from the first user-corrected terrain_autumn scene draft.",
+    "Use as correction-scene evidence only; do not treat as runtime publication."
+  ]
+}

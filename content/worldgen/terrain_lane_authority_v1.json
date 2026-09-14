@@ -1,0 +1,128 @@
+{
+  "schema": "havenwild.terrain_lane_authority.v1",
+  "version": "1.0.0-alpha.1",
+  "status": "standalone_havenwild_authority_with_ember_mirror_handoff",
+  "purpose": "Normalize the former V7 terminology into one professional provider-based Terrain Lane. V7 remains a compatibility/runtime provider while LPC Revised seasonal terrain, ElizaWy cliffs, LPC directional ramps, and waterfall providers are mapped into one semantic terrain authority.",
+  "namingPolicy": {
+    "laneName": "Terrain Lane",
+    "doNotUseAsLaneNames": [
+      "V7 Terrain Lane",
+      "ElizaWy Terrain Lane",
+      "Seasonal Sheet Lane"
+    ],
+    "legacyV7Meaning": "A provider/version inside the Terrain Lane, not the terrain lane itself"
+  },
+  "providers": [
+    {
+      "id": "terrain.provider.lpc_v7.corner_tuple.production",
+      "legacyId": "surface.v7.mapped",
+      "role": "current production compatibility provider",
+      "authority": "production",
+      "status": "active_fallback_until_seasonal_profiles_certified"
+    },
+    {
+      "id": "terrain.provider.lpc_v7.direct.compatibility",
+      "legacyId": "surface.v7.direct",
+      "role": "direct source compatibility and pure fill reference",
+      "authority": "compatibility",
+      "status": "active_compatibility"
+    },
+    {
+      "id": "terrain.provider.lpc_v7.transition.compatibility",
+      "legacyId": "surface.v7.transition_compat",
+      "role": "legacy transition block compatibility",
+      "authority": "compatibility",
+      "status": "active_compatibility"
+    },
+    {
+      "id": "terrain.provider.lpc_revised_seasonal.spring",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_spring.png",
+      "role": "canonical seasonal source-art profile",
+      "authority": "source_profile",
+      "status": "mapping_required"
+    },
+    {
+      "id": "terrain.provider.lpc_revised_seasonal.summer",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+      "role": "canonical seasonal source-art profile",
+      "authority": "source_profile",
+      "status": "mapping_required"
+    },
+    {
+      "id": "terrain.provider.lpc_revised_seasonal.autumn",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_autumn.png",
+      "role": "canonical seasonal source-art profile",
+      "authority": "source_profile",
+      "status": "mapping_required"
+    },
+    {
+      "id": "terrain.provider.lpc_revised_seasonal.winter",
+      "sourcePath": "assets/source/licensed/lpc_revised/Terrain/terrain_winter.png",
+      "role": "canonical seasonal source-art profile",
+      "authority": "source_profile",
+      "status": "mapping_required"
+    },
+    {
+      "id": "terrain.provider.elizawy_cliff.summer",
+      "legacyId": "structure.elizawy.cliff.summer",
+      "role": "structural cliff overlay provider",
+      "authority": "production",
+      "status": "active_structural"
+    },
+    {
+      "id": "terrain.provider.lpc_directional_ramp.grass",
+      "legacyId": "structure.lpc.cliff_ramp.grass",
+      "role": "complete 3x4 authored directional ramp stamp provider",
+      "authority": "production",
+      "status": "active_structural"
+    },
+    {
+      "id": "terrain.provider.elizawy_waterfall",
+      "legacyId": "structure.elizawy.waterfall",
+      "role": "waterfall structural hydrology/elevation provider",
+      "authority": "production",
+      "status": "active_structural"
+    }
+  ],
+  "resolverPriority": [
+    "mapped seasonal source profile when green-checked and validated",
+    "authored structural providers for cliffs/ramps/waterfalls",
+    "current V7 production/compatibility provider",
+    "transparent diagnostic/owner-fill fallback"
+  ],
+  "semanticRoles": [
+    "terrain.base",
+    "terrain.overlay",
+    "terrain.detail",
+    "terrain.transition",
+    "terrain.path",
+    "water.center",
+    "water.edge",
+    "water.corner",
+    "water.channel",
+    "water.coast",
+    "water.island",
+    "cliff.crest",
+    "cliff.face",
+    "cliff.foot",
+    "connector.ramp",
+    "connector.ladder",
+    "hydrology.waterfall"
+  ],
+  "compatibilityRules": [
+    "Sources are compatible through semantic/topology roles, not through assumed identical tile coordinates.",
+    "Renderer draws exact source rects from mapped records and never visually searches at runtime.",
+    "V7 remains runtime fallback until seasonal source profiles are mapped, validated, and promoted.",
+    "Cliff art is structural boundary presentation and does not replace terrain semantics.",
+    "Ramp art is a complete authored stamp/provider, not a single terrain tile.",
+    "Water details/overlays decorate after structural water topology is resolved."
+  ],
+  "mapperResponsibilities": [
+    "Preload Havenwild known sheet cards from asset lane at startup without loading every full texture.",
+    "Map per-tile exact source identity, semantic role, layer role, compatibility, collision, and group membership.",
+    "Map group/topology families for shorelines, coastlines, rivers, ponds, lakes, islands, details, and overlays.",
+    "Show per-tile and per-sheet mapping status badges.",
+    "Generate correction scenes from structured sheet profiles rather than random visual scatter.",
+    "Export handoff records for native editor and later Ember ingest."
+  ]
+}
