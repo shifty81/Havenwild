@@ -1,0 +1,52 @@
+{
+  "schema": "havenwild.asset_mapper_correction_brain.v0_1",
+  "pass": "HW-ASSET-MAPPING-CORRECTION-BRAIN-29",
+  "status": "active_contract",
+  "purpose": "Convert corrected atlas mapper scenes into persistent sheet-mapping knowledge so subsequent drafts focus on unmapped or weakly mapped source cells instead of re-sampling the same sheet area.",
+  "standaloneAuthority": "Havenwild internal PCC remains the build/gate authority; Ember ingests this contract later from the GitHub-mirrored Havenwild repository.",
+  "records": {
+    "mappedSheetSchema": "havenwild.atlas_mapper_mapped_sheet.v0_4",
+    "tileStatuses": [
+      "draft_mapped",
+      "learned_mapping",
+      "validated_mapping",
+      "ignored_empty",
+      "needs_review"
+    ],
+    "requiredSourceIdentity": [
+      "source_atlas_path",
+      "source_atlas_file_name",
+      "source_hash_when_available",
+      "tile_size",
+      "source_tile_x",
+      "source_tile_y",
+      "source_rect"
+    ],
+    "requiredAuthoringBindings": [
+      "semantic_role",
+      "layer",
+      "terrain_lane_role_binding",
+      "correction_scene_count",
+      "learned_from_scene"
+    ]
+  },
+  "workflow": [
+    "Build Scene Draft from the selected sheet or loaded project.",
+    "User corrects scene layout and assigns semantic roles to selected pieces.",
+    "Learn From Scene writes learned_mapping records for exact source cells.",
+    "Generate Next Missing Draft skips learned/persisted cells and focuses unmapped coverage.",
+    "Export Handoff upgrades cells to validated_mapping evidence, but runtime publication still requires collision, sockets, topology and provider validation."
+  ],
+  "greenCheckSemantics": {
+    "tileDraftCheck": "A source cell appears in current unsaved pieces or draft_mapped records.",
+    "tileLearnedCheck": "A source cell appears in learned_mapping records written from a corrected scene.",
+    "tileValidatedCheck": "A source cell appears in validated_mapping records linked to an exported handoff.",
+    "sheetCheck": "The sheet has mapped-sheet metadata and non-zero mapped coverage.",
+    "runtimeStar": "Reserved for future cooked terrain/provider publication."
+  },
+  "nonGoals": [
+    "No runtime promotion from visual guessing.",
+    "No mutation of source PNG sheets.",
+    "No branch cutover to Ember until standalone Havenwild remains GREEN and committed."
+  ]
+}

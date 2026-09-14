@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.asset_mapper_status_overlay.v0_1",
+  "pass": "HW-ASSET-MAPPING-STATUS-OVERLAY-28",
+  "purpose": "Promote mapped-sheet records into visible per-sheet and per-source-cell status overlays inside the standalone Havenwild Atlas Mapper.",
+  "sourceOfTruth": [
+    "artifacts/asset-intake/atlas-mapper/mapped-sheets/*.mapped-sheet.json",
+    "mapper project pieces for the active unsaved draft",
+    "terrain and asset source sheet stack cards"
+  ],
+  "statusModel": {
+    "tileGreenCheck": "Exact source tile metadata exists in a saved mapped-sheet record or current correction draft.",
+    "sheetGreenCheck": "At least one mapped-sheet record exists and reports mapped source cells; this is not runtime publication.",
+    "validated": "A handoff/export or future validation record exists.",
+    "published": "Reserved for PublishedWorldAssetMetadata/runtime certification."
+  },
+  "rules": [
+    "Per-tile status is keyed by source sheet plus source_tile_x/source_tile_y/source_rect.",
+    "The renderer must still draw exact source rectangles and must not visually guess tile identity.",
+    "The status overlay is an authoring aid for mapping coverage and does not make a tile runtime-authoritative by itself."
+  ],
+  "next": [
+    "Learn From Scene converts corrected drafts into learned mapping records.",
+    "Group boxing promotes modular terrain, water, shore, cliff, and structure groups from tile-level evidence."
+  ]
+}

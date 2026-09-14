@@ -1,4 +1,4 @@
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 use std::env;
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -28,10 +28,13 @@ const LEGACY_PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_1";
 const LEGACY_PROJECT_SCHEMA_V2: &str = "havenwild.atlas_mapper_project.v0_2";
 const LEGACY_PROJECT_SCHEMA_V3: &str = "havenwild.atlas_mapper_project.v0_3";
 const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_5";
-const MAPPED_SHEET_SCHEMA: &str = "havenwild.atlas_mapper_mapped_sheet.v0_2";
+const MAPPED_SHEET_SCHEMA: &str = "havenwild.atlas_mapper_mapped_sheet.v0_4";
 const TERRAIN_ATLAS_CATALOG_REL: &str = "content/assets/terrain_atlas_catalog_v2.json";
 const EXTERNAL_ASSET_ROOTS_REL: &str = "content/assets/intake/external_asset_roots_v0_1.json";
 const LOCAL_EXTERNAL_ASSET_ROOTS_REL: &str = ".local/havenwild_external_asset_roots.json";
+const MAPPED_TILE_STATUS_DRAFT: &str = "draft_mapped";
+const MAPPED_TILE_STATUS_LEARNED: &str = "learned_mapping";
+const MAPPED_TILE_STATUS_VALIDATED: &str = "validated_mapping";
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
@@ -206,6 +209,25 @@ struct SourceSheetCard {
     family: String,
     category: AssetCategory,
     status: SourceSheetStatus,
+    mapped_tile_count: usize,
+    coverage_percent: f32,
+}
+
+#[derive(Clone, Copy, Debug)]
+struct SheetMappingSummary {
+    status: SourceSheetStatus,
+    mapped_tile_count: usize,
+    coverage_percent: f32,
+}
+
+impl SheetMappingSummary {
+    const fn unmapped() -> Self {
+        Self {
+            status: SourceSheetStatus::Unmapped,
+            mapped_tile_count: 0,
+            coverage_percent: 0.0,
+        }
+    }
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -331,6 +353,9 @@ struct MappedSheetRecord {
     mapped_tiles: Vec<MappedSheetTileRecord>,
     coverage_percent: f32,
     lifecycle_stage: String,
+    correction_scene_count: u32,
+    learned_from_scene: bool,
+    terrain_lane_role_binding: String,
     project_file: Option<String>,
     handoff_file: Option<String>,
     updated_unix_seconds: u64,
@@ -488,8 +513,16 @@ impl MapperApp {
                 if family.trim().is_empty() {
                     family = infer_sheet_family(root, &path, category);
                 }
-                let status = self.status_for_sheet_path(&path, category);
-                cards.push(SourceSheetCard { path: path.clone(), display_name, family, category, status });
+                let summary = self.mapping_summary_for_sheet_path(&path, category);
+                cards.push(SourceSheetCard {
+                    path: path.clone(),
+                    display_name,
+                    family,
+                    category,
+                    status: summary.status,
+                    mapped_tile_count: summary.mapped_tile_count,
+                    coverage_percent: summary.coverage_percent,
+                });
 
                 self.collect_seasonal_sibling_cards(root, &path, seen, cards);
             }
@@ -509,13 +542,15 @@ impl MapperApp {
             if !seen.insert(key) { continue; }
             let display_name = sibling.file_name().and_then(|name| name.to_str()).unwrap_or("terrain_season.png").to_string();
             let category = AssetCategory::Terrain;
-            let status = self.status_for_sheet_path(&sibling, category);
+            let summary = self.mapping_summary_for_sheet_path(&sibling, category);
             cards.push(SourceSheetCard {
                 path: sibling,
                 display_name,
                 family: format!("lpc_revised_seasonal_{season}"),
                 category,
-                status,
+                status: summary.status,
+                mapped_tile_count: summary.mapped_tile_count,
+                coverage_percent: summary.coverage_percent,
             });
         }
     }
@@ -536,23 +571,95 @@ impl MapperApp {
             let display_name = path.file_name().and_then(|name| name.to_str()).unwrap_or("source_sheet").to_string();
             let category = AssetCategory::from_file_hint(&path);
             let family = infer_sheet_family(root, &path, category);
-            let status = self.status_for_sheet_path(&path, category);
-            cards.push(SourceSheetCard { path, display_name, family, category, status });
+            let summary = self.mapping_summary_for_sheet_path(&path, category);
+            cards.push(SourceSheetCard {
+                path,
+                display_name,
+                family,
+                category,
+                status: summary.status,
+                mapped_tile_count: summary.mapped_tile_count,
+                coverage_percent: summary.coverage_percent,
+            });
         }
     }
 
-    fn status_for_sheet_path(&self, path: &Path, category: AssetCategory) -> SourceSheetStatus {
-        let Some(stem) = path.file_stem().and_then(|stem| stem.to_str()).map(sanitize_file_stem) else {
-            return SourceSheetStatus::NeedsReview;
-        };
-        let Ok(root) = env::current_dir() else { return SourceSheetStatus::Unmapped; };
-        let record = root
+    fn mapping_record_path_for(root: &Path, path: &Path, category: AssetCategory) -> Option<PathBuf> {
+        let stem = path.file_stem().and_then(|stem| stem.to_str()).map(sanitize_file_stem)?;
+        Some(root
             .join("artifacts")
             .join("asset-intake")
             .join("atlas-mapper")
             .join("mapped-sheets")
-            .join(format!("{}__{}.mapped-sheet.json", stem, category.stable_key()));
-        if record.exists() { SourceSheetStatus::Mapped } else { SourceSheetStatus::Unmapped }
+            .join(format!("{}__{}.mapped-sheet.json", stem, category.stable_key())))
+    }
+
+    fn mapping_summary_for_sheet_path(&self, path: &Path, category: AssetCategory) -> SheetMappingSummary {
+        let Ok(root) = env::current_dir() else { return SheetMappingSummary::unmapped(); };
+        let Some(record) = Self::mapping_record_path_for(&root, path, category) else {
+            return SheetMappingSummary { status: SourceSheetStatus::NeedsReview, mapped_tile_count: 0, coverage_percent: 0.0 };
+        };
+        let Ok(text) = fs::read_to_string(record) else { return SheetMappingSummary::unmapped(); };
+        let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) else {
+            return SheetMappingSummary { status: SourceSheetStatus::NeedsReview, mapped_tile_count: 0, coverage_percent: 0.0 };
+        };
+
+        let mapped_tile_count = value.get("mapped_tile_count")
+            .or_else(|| value.get("mappedTileCount"))
+            .and_then(|count| count.as_u64())
+            .or_else(|| value.get("mapped_tiles")
+                .or_else(|| value.get("mappedTiles"))
+                .and_then(|tiles| tiles.as_array())
+                .map(|tiles| tiles.len() as u64))
+            .unwrap_or(0) as usize;
+        let coverage_percent = value.get("coverage_percent")
+            .or_else(|| value.get("coveragePercent"))
+            .and_then(|coverage| coverage.as_f64())
+            .unwrap_or(0.0) as f32;
+        let lifecycle = value.get("lifecycle_stage")
+            .or_else(|| value.get("lifecycleStage"))
+            .and_then(|stage| stage.as_str())
+            .unwrap_or("")
+            .to_ascii_lowercase();
+        let has_handoff = value.get("handoff_file")
+            .or_else(|| value.get("handoffFile"))
+            .and_then(|path| path.as_str())
+            .map(|path| !path.trim().is_empty())
+            .unwrap_or(false);
+        let status = if lifecycle.contains("published") {
+            SourceSheetStatus::Published
+        } else if lifecycle.contains("validated") || has_handoff {
+            SourceSheetStatus::Validated
+        } else if mapped_tile_count > 0 {
+            SourceSheetStatus::Mapped
+        } else if lifecycle.contains("draft") {
+            SourceSheetStatus::Draft
+        } else {
+            SourceSheetStatus::Unmapped
+        };
+        SheetMappingSummary { status, mapped_tile_count, coverage_percent }
+    }
+
+    fn persisted_mapped_tiles_for_current_sheet(&self) -> BTreeMap<(i32, i32), String> {
+        let Some(atlas) = &self.atlas else { return BTreeMap::new(); };
+        let Ok(root) = env::current_dir() else { return BTreeMap::new(); };
+        let Some(record) = Self::mapping_record_path_for(&root, &atlas.path, self.category) else { return BTreeMap::new(); };
+        let Ok(text) = fs::read_to_string(record) else { return BTreeMap::new(); };
+        let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) else { return BTreeMap::new(); };
+        let Some(tiles) = value.get("mapped_tiles")
+            .or_else(|| value.get("mappedTiles"))
+            .and_then(|tiles| tiles.as_array()) else { return BTreeMap::new(); };
+        let mut out = BTreeMap::new();
+        for tile in tiles {
+            let Some(x) = tile.get("source_tile_x").or_else(|| tile.get("sourceTileX")).and_then(|x| x.as_i64()) else { continue; };
+            let Some(y) = tile.get("source_tile_y").or_else(|| tile.get("sourceTileY")).and_then(|y| y.as_i64()) else { continue; };
+            let status = tile.get("status")
+                .and_then(|status| status.as_str())
+                .unwrap_or(MAPPED_TILE_STATUS_DRAFT)
+                .to_string();
+            out.insert((x as i32, y as i32), status);
+        }
+        out
     }
 
     fn open_sheet_from_library(&mut self, index: usize) {
@@ -785,8 +892,8 @@ impl MapperApp {
                 Ok(()) => {
                     self.last_handoff_path = Some(path.to_path_buf());
                     self.mapping_stage = MappingStage::HandoffExported;
-                    self.write_mapping_record(Some(path));
-                    self.status = format!("Exported handoff and marked sheet mapped: {}", path.to_string_lossy());
+                    self.write_mapping_record_with_status(Some(path), MAPPED_TILE_STATUS_VALIDATED, "HANDOFF_EXPORTED", false);
+                    self.status = format!("Exported handoff and marked sheet validated: {}", path.to_string_lossy());
                 }
                 Err(error) => self.status = format!("Export failed: {error}"),
             },
@@ -846,14 +953,36 @@ impl MapperApp {
     }
 
     fn auto_map_sheet(&mut self) {
+        self.build_scene_draft(false);
+    }
+
+    fn generate_next_missing_draft(&mut self) {
+        self.build_scene_draft(true);
+    }
+
+    fn build_scene_draft(&mut self, prefer_unmapped: bool) {
         let Some(atlas) = &self.atlas else {
-            self.status = "Load a tile sheet before using Build Scene Draft.".to_string();
+            self.status = "Load a tile sheet before building a correction draft.".to_string();
             return;
         };
         let cols = (atlas.width / TILE_SIZE).max(1);
         let rows = (atlas.height / TILE_SIZE).max(1);
         let file_hint = atlas.path.file_name().and_then(|name| name.to_str()).unwrap_or("sheet").to_string();
-        let profiles = atlas.cell_profiles.clone();
+        let full_profiles = atlas.cell_profiles.clone();
+        let mut profiles = full_profiles.clone();
+        let mut skipped_known = 0usize;
+        if prefer_unmapped {
+            let persisted = self.persisted_mapped_tiles_for_current_sheet();
+            if !persisted.is_empty() {
+                for cell in &mut profiles {
+                    if persisted.contains_key(&(cell.tile_x, cell.tile_y)) {
+                        cell.role = CellRole::Empty;
+                        cell.coverage = 0.0;
+                        skipped_known += 1;
+                    }
+                }
+            }
+        }
         self.pieces.clear();
         self.selected_piece = None;
         self.next_piece_id = 1;
@@ -867,13 +996,30 @@ impl MapperApp {
             _ => self.generate_source_window_scene_draft(&profiles, cols, rows),
         };
 
+        if prefer_unmapped && self.pieces.is_empty() && skipped_known > 0 {
+            let fallback_label = match self.category {
+                AssetCategory::Character | AssetCategory::Fx => self.generate_source_strip_draft(&full_profiles, cols, rows),
+                AssetCategory::Object | AssetCategory::Equipment | AssetCategory::Ui => self.generate_component_gallery_draft(&full_profiles, cols, rows),
+                _ => self.generate_source_window_scene_draft(&full_profiles, cols, rows),
+            };
+            self.status = format!(
+                "All obvious unmapped cells were exhausted for {file_hint}; rebuilt {fallback_label} from full sheet for review."
+            );
+        } else {
+            let missing_note = if prefer_unmapped {
+                format!(" skipped {skipped_known} already-mapped source cells")
+            } else {
+                String::new()
+            };
+            self.status = format!(
+                "Built {scene_label} from {file_hint} as {} pass #{}{}. Correct roles/layers, Learn From Scene, then Generate Next Missing Draft.",
+                self.category.label(),
+                self.scene_generation_count,
+                missing_note,
+            );
+        }
         self.selected_piece = None;
         self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::DraftMapped };
-        self.status = format!(
-            "Built {scene_label} from {file_hint} as {} pass #{}. These are source-linked draft tiles: correct, delete, layer, save/export, then generate another correction draft.",
-            self.category.label(),
-            self.scene_generation_count,
-        );
     }
 
     fn push_generated_piece(&mut self, tile: SourceTile, grid_x: i32, grid_y: i32, semantic_role: &str, layer: i32) {
@@ -1013,6 +1159,90 @@ impl MapperApp {
         self.pieces.iter().map(|piece| piece.layer).max().unwrap_or(-1) + 1
     }
 
+    fn learn_from_scene(&mut self) {
+        if self.atlas.is_none() {
+            self.status = "Load a sheet before learning from a corrected scene.".to_string();
+            return;
+        }
+        if self.pieces.is_empty() {
+            self.status = "Place or generate at least one mapped source tile before learning from scene.".to_string();
+            return;
+        }
+        self.mapping_stage = MappingStage::ProjectSaved;
+        self.write_mapping_record_with_status(None, MAPPED_TILE_STATUS_LEARNED, "LEARNED_MAPPING", true);
+        self.status = "Learned from corrected scene: mapped source cells now count as learned mapping evidence for next missing-draft generation.".to_string();
+    }
+
+    fn assign_selected_semantic(&mut self, role: &str) {
+        if let Some(piece) = self.selected_piece_mut() {
+            piece.semantic_role = role.to_string();
+            self.mapping_stage = MappingStage::DraftMapped;
+            self.status = format!("Assigned selected source tile to role: {role}");
+        } else {
+            self.status = "Select a canvas piece before assigning a semantic role.".to_string();
+        }
+    }
+
+    fn category_role_presets(&self) -> Vec<&'static str> {
+        match self.category {
+            AssetCategory::Terrain => vec![
+                "terrain.base_ground",
+                "terrain.transition_edge",
+                "terrain.overlay_patch",
+                "terrain.water_topology",
+                "terrain.shoreline_or_bank",
+                "terrain.detail_scatter",
+            ],
+            AssetCategory::Cliff => vec![
+                "terrain.cliff.crest",
+                "terrain.cliff.face",
+                "terrain.cliff.foot",
+                "terrain.cliff.corner",
+                "terrain.connector.ramp_candidate",
+                "terrain.connector.ladder_candidate",
+            ],
+            AssetCategory::Structure | AssetCategory::House => vec![
+                "structure.floor",
+                "structure.wall_back",
+                "structure.wall_front",
+                "structure.roof",
+                "structure.door_socket",
+                "structure.trim_or_detail",
+            ],
+            AssetCategory::Character => vec![
+                "character.body_layer",
+                "character.hair_layer",
+                "character.clothing_layer",
+                "character.equipment_layer",
+                "character.animation_frame",
+            ],
+            AssetCategory::Fx => vec![
+                "fx.animation_frame",
+                "fx.looping_water",
+                "fx.fire_or_light",
+                "fx.impact_or_particle",
+            ],
+            AssetCategory::Object => vec![
+                "object.prop",
+                "object.interactable",
+                "object.ground_overlay",
+                "object.foreground_occluder",
+            ],
+            AssetCategory::Equipment => vec![
+                "equipment.icon",
+                "equipment.held_item",
+                "equipment.tool_head",
+                "equipment.weapon_or_armor",
+            ],
+            AssetCategory::Ui => vec![
+                "ui.icon",
+                "ui.frame",
+                "ui.button_or_panel",
+                "ui.status_element",
+            ],
+        }
+    }
+
     fn selected_piece_mut(&mut self) -> Option<&mut AssemblyPiece> {
         self.selected_piece.and_then(|index| self.pieces.get_mut(index))
     }
@@ -1027,6 +1257,8 @@ impl MapperApp {
         if ctrl && is_key_pressed(KeyCode::E) { self.export_handoff_dialog(); }
         if ctrl && is_key_pressed(KeyCode::G) { self.auto_map_sheet(); }
         if ctrl && is_key_pressed(KeyCode::L) { self.refresh_sheet_library(); }
+        if ctrl && is_key_pressed(KeyCode::M) { self.generate_next_missing_draft(); }
+        if ctrl && shift && is_key_pressed(KeyCode::Enter) { self.learn_from_scene(); }
         if is_key_pressed(KeyCode::R) {
             if let Some(piece) = self.selected_piece_mut() {
                 piece.rotation_degrees = (piece.rotation_degrees + 90) % 360;
@@ -1232,10 +1464,18 @@ impl MapperApp {
     }
 
     fn write_mapping_record(&mut self, handoff_path: Option<&Path>) {
+        self.write_mapping_record_with_status(handoff_path, MAPPED_TILE_STATUS_DRAFT, self.mapping_stage.label(), false);
+    }
+
+    fn write_mapping_record_with_status(&mut self, handoff_path: Option<&Path>, tile_status: &str, lifecycle_stage: &str, learned_from_scene: bool) {
         if self.atlas.is_none() || self.pieces.is_empty() { return; }
         let Some(path) = self.mapping_record_path() else { return; };
         let Some(atlas) = &self.atlas else { return; };
-        let source_name = atlas.path.file_name().and_then(|name| name.to_str()).unwrap_or("atlas").to_string();
+        let atlas_path = atlas.path.clone();
+        let atlas_width = atlas.width;
+        let atlas_height = atlas.height;
+        let source_name = atlas_path.file_name().and_then(|name| name.to_str()).unwrap_or("atlas").to_string();
+        let source_atlas_path = atlas_path.to_string_lossy().replace('\\', "/");
         let parent = path.parent().map(Path::to_path_buf);
         if let Some(parent) = parent {
             if let Err(error) = fs::create_dir_all(&parent) {
@@ -1249,19 +1489,19 @@ impl MapperApp {
             source_rect: piece.source_rect,
             semantic_role: piece.semantic_role.clone(),
             layer: piece.layer,
-            status: "draft_mapped".to_string(),
+            status: tile_status.to_string(),
         }).collect();
         let unique_tile_count = mapped_tiles
             .iter()
             .map(|tile| (tile.source_tile_x, tile.source_tile_y))
             .collect::<BTreeSet<_>>()
             .len();
-        let total_cells = ((atlas.width / TILE_SIZE).max(1) * (atlas.height / TILE_SIZE).max(1)).max(1) as f32;
+        let total_cells = ((atlas_width / TILE_SIZE).max(1) * (atlas_height / TILE_SIZE).max(1)).max(1) as f32;
         let coverage_percent = (unique_tile_count as f32 / total_cells * 100.0).min(100.0);
         let record = MappedSheetRecord {
             schema: MAPPED_SHEET_SCHEMA.to_string(),
             tool: "haven_atlas_mapper_lite".to_string(),
-            source_atlas_path: atlas.path.to_string_lossy().replace('\\', "/"),
+            source_atlas_path,
             source_atlas_file_name: source_name,
             tile_size: TILE_SIZE,
             category: self.category.stable_key().to_string(),
@@ -1271,24 +1511,30 @@ impl MapperApp {
             mapped_tile_count: unique_tile_count,
             mapped_tiles,
             coverage_percent,
-            lifecycle_stage: self.mapping_stage.label().to_string(),
+            lifecycle_stage: lifecycle_stage.to_string(),
+            correction_scene_count: self.scene_generation_count,
+            learned_from_scene,
+            terrain_lane_role_binding: format!("{}:{}", self.category.stable_key(), self.assembly_name),
             project_file: self.project_path.as_ref().map(|p| p.to_string_lossy().replace('\\', "/")),
             handoff_file: handoff_path
                 .map(|p| p.to_string_lossy().replace('\\', "/"))
                 .or_else(|| self.last_handoff_path.as_ref().map(|p| p.to_string_lossy().replace('\\', "/"))),
             updated_unix_seconds: unix_seconds(),
             asset_intake_notes: vec![
-                "Green mapped state means the sheet has mapper metadata, not that it is published runtime content.".to_string(),
-                "Promotion into PublishedWorldAssetMetadata still requires sockets, footprint, collision, traversal, provenance, and validation.".to_string(),
+                "Per-tile green badges mean exact source-cell metadata exists for that tile in the asset intake lane.".to_string(),
+                "Sheet green state means mapper metadata exists; runtime publication still requires sockets, footprint, collision, traversal, provenance, and validation.".to_string(),
+                "v0.4 records distinguish draft mapped cells from learned correction-scene evidence for Terrain Lane compatibility checks.".to_string(),
             ],
         };
         if let Ok(text) = serde_json::to_string_pretty(&record) {
             if fs::write(path, text).is_ok() {
-                let atlas_path = atlas.path.clone();
                 let atlas_key = normalize_path_key(&atlas_path);
+                let summary = self.mapping_summary_for_sheet_path(&atlas_path, self.category);
                 for card in &mut self.sheet_library {
                     if normalize_path_key(&card.path) == atlas_key {
-                        card.status = SourceSheetStatus::Mapped;
+                        card.status = summary.status;
+                        card.mapped_tile_count = summary.mapped_tile_count;
+                        card.coverage_percent = summary.coverage_percent;
                     }
                 }
             }
@@ -1630,6 +1876,10 @@ fn draw_top_bar(app: &mut MapperApp) {
     bx += 132.0;
     if draw_button(Rect::new(bx, 12.0, 116.0, 28.0), "Build Scene Draft", false) { app.auto_map_sheet(); }
     bx += 124.0;
+    if draw_button(Rect::new(bx, 12.0, 116.0, 28.0), "Next Missing", false) { app.generate_next_missing_draft(); }
+    bx += 124.0;
+    if draw_button(Rect::new(bx, 12.0, 110.0, 28.0), "Learn Scene", false) { app.learn_from_scene(); }
+    bx += 118.0;
     if draw_button(Rect::new(bx, 12.0, 62.0, 28.0), "Clear", false) {
         app.pieces.clear();
         app.selected_piece = None;
@@ -1679,10 +1929,19 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
         let fill = if active { Color::new(0.08, 0.18, 0.25, 1.0) } else { Color::new(0.040, 0.050, 0.066, 1.0) };
         draw_rectangle(row.x, row.y, row.w, row.h, fill);
         draw_rectangle_lines(row.x, row.y, row.w, row.h, 1.0, if active { Color::new(0.20, 0.58, 0.72, 1.0) } else { Color::new(0.12, 0.17, 0.22, 1.0) });
+        if card.status.is_good() {
+            draw_rectangle(row.x + 1.0, row.y + 2.0, 3.0, row.h - 4.0, Color::new(0.16, 0.75, 0.34, 0.95));
+        }
         draw_text(card.status.label(), row.x + 8.0, row.y + 20.0, 17.0, if card.status.is_good() { Color::new(0.44, 0.92, 0.58, 1.0) } else { Color::new(0.80, 0.73, 0.46, 1.0) });
         draw_text(&card.display_name, row.x + 34.0, row.y + 14.0, 13.5, Color::new(0.88, 0.91, 0.94, 1.0));
         draw_text(&format!("{} / {}", card.category.label(), card.status.description()), row.x + 34.0, row.y + 28.0, 11.0, Color::new(0.55, 0.64, 0.72, 1.0));
-        draw_text(&card.family, row.x + row.w - 142.0, row.y + 20.0, 11.0, Color::new(0.48, 0.58, 0.66, 1.0));
+        let metric = if card.mapped_tile_count > 0 {
+            format!("{} tiles · {:.1}%", card.mapped_tile_count, card.coverage_percent)
+        } else {
+            "no mapping".to_string()
+        };
+        draw_text(&metric, row.x + row.w - 162.0, row.y + 14.0, 11.0, Color::new(0.56, 0.74, 0.62, 1.0));
+        draw_text(&card.family, row.x + row.w - 162.0, row.y + 29.0, 10.0, Color::new(0.48, 0.58, 0.66, 1.0));
         row_y += SHEET_CARD_H;
     }
     if app.sheet_library.is_empty() {
@@ -1694,9 +1953,17 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
     draw_rectangle_lines(preview.x, preview.y, preview.w, preview.h, 1.0, Color::new(0.13, 0.18, 0.24, 1.0));
     if let Some(atlas) = &app.atlas {
         let file = atlas.path.file_name().and_then(|name| name.to_str()).unwrap_or("sheet");
-        let badge = if app.mapping_stage.is_green() { "MAPPED" } else { "UNMAPPED" };
-        draw_status_pill(Rect::new(preview.x + preview.w - 92.0, preview.y + 8.0, 78.0, 21.0), badge, app.mapping_stage.is_green());
-        draw_text(&format!("{}  |  {}x{}  |  32px source cells", file, atlas.width, atlas.height), preview.x + 14.0, preview.y + 24.0, 16.0, Color::new(0.78, 0.84, 0.89, 1.0));
+        let summary = app.mapping_summary_for_sheet_path(&atlas.path, app.category);
+        let badge = match summary.status {
+            SourceSheetStatus::Unmapped => "UNMAPPED",
+            SourceSheetStatus::Draft => "DRAFT",
+            SourceSheetStatus::Mapped => "MAPPED",
+            SourceSheetStatus::Validated => "VALIDATED",
+            SourceSheetStatus::Published => "PUBLISHED",
+            SourceSheetStatus::NeedsReview => "REVIEW",
+        };
+        draw_status_pill(Rect::new(preview.x + preview.w - 104.0, preview.y + 8.0, 90.0, 21.0), badge, summary.status.is_good());
+        draw_text(&format!("{}  |  {}x{}  |  {} mapped cells · {:.1}%", file, atlas.width, atlas.height, summary.mapped_tile_count, summary.coverage_percent), preview.x + 14.0, preview.y + 24.0, 16.0, Color::new(0.78, 0.84, 0.89, 1.0));
         let draw_pos = vec2(preview.x, preview.y) + app.source_pan;
         draw_texture_ex(
             &atlas.texture,
@@ -1736,17 +2003,26 @@ fn source_preview_rect(panel: Rect) -> Rect {
 }
 
 fn draw_mapped_tile_badges(app: &MapperApp, preview: Rect) {
-    if app.pieces.is_empty() { return; }
-    let mut mapped = BTreeSet::new();
+    let mut mapped = app.persisted_mapped_tiles_for_current_sheet();
     for piece in &app.pieces {
-        mapped.insert((piece.source_tile_x, piece.source_tile_y));
+        mapped.insert((piece.source_tile_x, piece.source_tile_y), MAPPED_TILE_STATUS_DRAFT.to_string());
     }
-    for (tile_x, tile_y) in mapped {
+    if mapped.is_empty() { return; }
+    for ((tile_x, tile_y), status) in mapped {
         let x = preview.x + app.source_pan.x + tile_x as f32 * TILE_SIZE as f32 * app.source_zoom;
         let y = preview.y + app.source_pan.y + tile_y as f32 * TILE_SIZE as f32 * app.source_zoom;
+        let tile_screen = TILE_SIZE as f32 * app.source_zoom;
+        if x + tile_screen < preview.x || y + tile_screen < preview.y || x > preview.x + preview.w || y > preview.y + preview.h {
+            continue;
+        }
         let size = (10.0 * app.source_zoom).clamp(8.0, 16.0);
-        draw_rectangle(x + 2.0, y + 2.0, size, size, Color::new(0.10, 0.50, 0.22, 0.94));
-        draw_text("✓", x + 3.0, y + size + 1.0, size + 2.0, Color::new(0.86, 1.0, 0.88, 1.0));
+        let (label, color) = if status == MAPPED_TILE_STATUS_LEARNED {
+            ("✓+", Color::new(0.06, 0.60, 0.28, 0.96))
+        } else {
+            ("✓", Color::new(0.10, 0.50, 0.22, 0.94))
+        };
+        draw_rectangle(x + 2.0, y + 2.0, size + if label == "✓+" { 7.0 } else { 0.0 }, size, color);
+        draw_text(label, x + 3.0, y + size + 1.0, size + 2.0, Color::new(0.86, 1.0, 0.88, 1.0));
     }
 }
 
@@ -1889,7 +2165,7 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
     draw_rectangle(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 78.0, Color::new(0.018, 0.023, 0.031, 0.90));
     draw_rectangle_lines(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 78.0, 1.0, Color::new(0.16, 0.22, 0.28, 1.0));
     draw_text("Controls", canvas_rect.x + 18.0, info_y + 22.0, 18.0, Color::new(0.88, 0.92, 0.95, 1.0));
-    draw_text("drag source -> canvas | outside release cancels | Space+drag pan | wheel zoom | Ctrl+G auto scene", canvas_rect.x + 18.0, info_y + 46.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
+    draw_text("drag source -> canvas | Space+drag pan | wheel zoom | Ctrl+G scene | Ctrl+M next missing | Ctrl+Shift+Enter learn", canvas_rect.x + 18.0, info_y + 46.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
     draw_text("select piece: R rotate, H/V flip, Delete remove, [ ] layer", canvas_rect.x + 18.0, info_y + 68.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
 }
 
@@ -1908,6 +2184,16 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
     y = draw_wrapped_line(file, inspector_rect.x + 14.0, y, 30, 16.0, Color::new(0.88, 0.91, 0.94, 1.0));
     y += 8.0;
 
+    if let Some(atlas) = &app.atlas {
+        let summary = app.mapping_summary_for_sheet_path(&atlas.path, app.category);
+        draw_text("Coverage", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
+        y += 22.0;
+        draw_text(&format!("{} mapped source cells · {:.1}%", summary.mapped_tile_count, summary.coverage_percent), inspector_rect.x + 14.0, y, 16.0, Color::new(0.82, 0.90, 0.86, 1.0));
+        y += 20.0;
+        draw_text("Green checks on the source sheet come from saved mapped-sheet records plus this draft.", inspector_rect.x + 14.0, y, 13.0, Color::new(0.60, 0.69, 0.74, 1.0));
+        y += 28.0;
+    }
+
     draw_text("Forge-style commands", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
     y += 10.0;
     if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Build correction scene draft", false) { app.auto_map_sheet(); }
@@ -1917,7 +2203,31 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
     if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Export engine handoff", false) { app.export_handoff_dialog(); }
     y += 37.0;
     if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Fit canvas", false) { app.fit_canvas_to_pieces(canvas_rect); }
-    y += 50.0;
+    y += 37.0;
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Refresh sheet statuses", false) { app.refresh_sheet_library(); }
+    y += 37.0;
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Learn from corrected scene", false) { app.learn_from_scene(); }
+    y += 37.0;
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Generate next missing draft", false) { app.generate_next_missing_draft(); }
+    y += 42.0;
+
+    if let Some(index) = app.selected_piece {
+        if let Some(piece) = app.pieces.get(index) {
+            draw_text("Selected tile role", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
+            y += 22.0;
+            let role = piece.semantic_role.clone();
+            y = draw_wrapped_line(&role, inspector_rect.x + 14.0, y, 31, 15.0, Color::new(0.88, 0.91, 0.94, 1.0));
+            y += 4.0;
+        }
+        for preset in app.category_role_presets().into_iter().take(6) {
+            if y > inspector_rect.y + inspector_rect.h - 190.0 { break; }
+            if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 24.0), preset, false) {
+                app.assign_selected_semantic(preset);
+            }
+            y += 29.0;
+        }
+        y += 14.0;
+    }
 
     let (layout_w, layout_h, layout_label) = app.category.default_layout();
     draw_text("Scene draft generator", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
