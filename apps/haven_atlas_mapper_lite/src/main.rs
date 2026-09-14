@@ -14,7 +14,7 @@ const STATUS_H: f32 = 32.0;
 const SOURCE_SHEET_STACK_H: f32 = 205.0;
 const SOURCE_PREVIEW_TOP_PAD: f32 = 12.0;
 const SHEET_CARD_H: f32 = 34.0;
-const MAX_LIBRARY_SHEETS: usize = 1200;
+const MAX_LIBRARY_SHEETS: usize = 8192;
 const GAP: f32 = 12.0;
 const INSPECTOR_W: f32 = 292.0;
 const MIN_SOURCE_ZOOM: f32 = 0.50;
@@ -28,7 +28,10 @@ const LEGACY_PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_1";
 const LEGACY_PROJECT_SCHEMA_V2: &str = "havenwild.atlas_mapper_project.v0_2";
 const LEGACY_PROJECT_SCHEMA_V3: &str = "havenwild.atlas_mapper_project.v0_3";
 const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_5";
-const MAPPED_SHEET_SCHEMA: &str = "havenwild.atlas_mapper_mapped_sheet.v0_1";
+const MAPPED_SHEET_SCHEMA: &str = "havenwild.atlas_mapper_mapped_sheet.v0_2";
+const TERRAIN_ATLAS_CATALOG_REL: &str = "content/assets/terrain_atlas_catalog_v2.json";
+const EXTERNAL_ASSET_ROOTS_REL: &str = "content/assets/intake/external_asset_roots_v0_1.json";
+const LOCAL_EXTERNAL_ASSET_ROOTS_REL: &str = ".local/havenwild_external_asset_roots.json";
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
@@ -304,6 +307,16 @@ struct HandoffDocument {
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+struct MappedSheetTileRecord {
+    source_tile_x: i32,
+    source_tile_y: i32,
+    source_rect: [i32; 4],
+    semantic_role: String,
+    layer: i32,
+    status: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
 struct MappedSheetRecord {
     schema: String,
     tool: String,
@@ -314,6 +327,9 @@ struct MappedSheetRecord {
     category_label: String,
     assembly_name: String,
     piece_count: usize,
+    mapped_tile_count: usize,
+    mapped_tiles: Vec<MappedSheetTileRecord>,
+    coverage_percent: f32,
     lifecycle_stage: String,
     project_file: Option<String>,
     handoff_file: Option<String>,
@@ -427,14 +443,10 @@ impl MapperApp {
         };
         let mut seen = BTreeSet::new();
         let mut cards = Vec::new();
-        let scan_roots = [
-            root.join("assets/source/licensed/lpc_revised/Terrain"),
-            root.join("assets/source/licensed/lpc_revised/Objects"),
-            root.join("assets/source/licensed/lpc_revised/Structure"),
-            root.join("content/assets/oga_lpc/source/terrain"),
-            root.join("content/assets/lpc/source/lpc-terrains-v7"),
-            root.join("assets/generated/worldgen_v0_1/terrain"),
-        ];
+        self.collect_declared_sheet_cards(&root, &mut seen, &mut cards);
+
+        let mut scan_roots = default_asset_sheet_scan_roots(&root);
+        scan_roots.extend(declared_external_asset_roots(&root));
         for scan_root in scan_roots {
             self.collect_sheet_cards(&root, &scan_root, &mut seen, &mut cards);
             if cards.len() >= MAX_LIBRARY_SHEETS { break; }
@@ -448,10 +460,64 @@ impl MapperApp {
         self.sheet_library = cards;
         self.sheet_library_scroll = self.sheet_library_scroll.min(0.0);
         self.library_notice = if count >= MAX_LIBRARY_SHEETS {
-            format!("Indexed first {count} source sheets; use family filters as the library grows.")
+            format!("Indexed first {count} sheet cards. Index cards are preloaded; textures remain lazy-loaded when selected.")
         } else {
-            format!("Indexed {count} Havenwild source sheets from the asset lane.")
+            format!("Indexed {count} Havenwild atlas/sheet cards from catalogs, source libraries, generated atlases, and external roots.")
         };
+    }
+
+    fn collect_declared_sheet_cards(&self, root: &Path, seen: &mut BTreeSet<String>, cards: &mut Vec<SourceSheetCard>) {
+        let catalog_path = root.join(TERRAIN_ATLAS_CATALOG_REL);
+        let Ok(text) = fs::read_to_string(&catalog_path) else { return; };
+        let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) else { return; };
+        let Some(atlases) = value.get("atlases").and_then(|items| items.as_array()) else { return; };
+        for atlas in atlases {
+            if cards.len() >= MAX_LIBRARY_SHEETS { return; }
+            for key in ["sourcePath", "publishedPath"] {
+                let Some(rel_path) = atlas.get(key).and_then(|path| path.as_str()) else { continue; };
+                let path = root.join(rel_path);
+                if !is_supported_image_path(&path) || !path.exists() { continue; }
+                let key = normalize_path_key(&path);
+                if !seen.insert(key) { continue; }
+                let display_name = path.file_name().and_then(|name| name.to_str()).unwrap_or("source_sheet").to_string();
+                let category = AssetCategory::from_file_hint(&path);
+                let mut family = atlas.get("id")
+                    .and_then(|id| id.as_str())
+                    .map(|id| id.replace('.', "_"))
+                    .unwrap_or_else(|| infer_sheet_family(root, &path, category));
+                if family.trim().is_empty() {
+                    family = infer_sheet_family(root, &path, category);
+                }
+                let status = self.status_for_sheet_path(&path, category);
+                cards.push(SourceSheetCard { path: path.clone(), display_name, family, category, status });
+
+                self.collect_seasonal_sibling_cards(root, &path, seen, cards);
+            }
+        }
+    }
+
+    fn collect_seasonal_sibling_cards(&self, root: &Path, path: &Path, seen: &mut BTreeSet<String>, cards: &mut Vec<SourceSheetCard>) {
+        let Some(file_name) = path.file_name().and_then(|name| name.to_str()) else { return; };
+        let Some(parent) = path.parent() else { return; };
+        let lower = file_name.to_ascii_lowercase();
+        if !(lower.starts_with("terrain_") && lower.ends_with(".png")) { return; }
+        for season in ["spring", "summer", "autumn", "winter"] {
+            if cards.len() >= MAX_LIBRARY_SHEETS { return; }
+            let sibling = parent.join(format!("terrain_{season}.png"));
+            if !sibling.exists() { continue; }
+            let key = normalize_path_key(&sibling);
+            if !seen.insert(key) { continue; }
+            let display_name = sibling.file_name().and_then(|name| name.to_str()).unwrap_or("terrain_season.png").to_string();
+            let category = AssetCategory::Terrain;
+            let status = self.status_for_sheet_path(&sibling, category);
+            cards.push(SourceSheetCard {
+                path: sibling,
+                display_name,
+                family: format!("lpc_revised_seasonal_{season}"),
+                category,
+                status,
+            });
+        }
     }
 
     fn collect_sheet_cards(&self, root: &Path, scan_root: &Path, seen: &mut BTreeSet<String>, cards: &mut Vec<SourceSheetCard>) {
@@ -464,11 +530,7 @@ impl MapperApp {
                 self.collect_sheet_cards(root, &path, seen, cards);
                 continue;
             }
-            let is_image = path.extension()
-                .and_then(|ext| ext.to_str())
-                .map(|ext| matches!(ext.to_ascii_lowercase().as_str(), "png" | "bmp" | "jpg" | "jpeg" | "webp"))
-                .unwrap_or(false);
-            if !is_image { continue; }
+            if !is_supported_image_path(&path) { continue; }
             let key = normalize_path_key(&path);
             if !seen.insert(key) { continue; }
             let display_name = path.file_name().and_then(|name| name.to_str()).unwrap_or("source_sheet").to_string();
@@ -1181,6 +1243,21 @@ impl MapperApp {
                 return;
             }
         }
+        let mapped_tiles: Vec<MappedSheetTileRecord> = self.pieces.iter().map(|piece| MappedSheetTileRecord {
+            source_tile_x: piece.source_tile_x,
+            source_tile_y: piece.source_tile_y,
+            source_rect: piece.source_rect,
+            semantic_role: piece.semantic_role.clone(),
+            layer: piece.layer,
+            status: "draft_mapped".to_string(),
+        }).collect();
+        let unique_tile_count = mapped_tiles
+            .iter()
+            .map(|tile| (tile.source_tile_x, tile.source_tile_y))
+            .collect::<BTreeSet<_>>()
+            .len();
+        let total_cells = ((atlas.width / TILE_SIZE).max(1) * (atlas.height / TILE_SIZE).max(1)).max(1) as f32;
+        let coverage_percent = (unique_tile_count as f32 / total_cells * 100.0).min(100.0);
         let record = MappedSheetRecord {
             schema: MAPPED_SHEET_SCHEMA.to_string(),
             tool: "haven_atlas_mapper_lite".to_string(),
@@ -1191,6 +1268,9 @@ impl MapperApp {
             category_label: self.category.label().to_string(),
             assembly_name: self.assembly_name.clone(),
             piece_count: self.pieces.len(),
+            mapped_tile_count: unique_tile_count,
+            mapped_tiles,
+            coverage_percent,
             lifecycle_stage: self.mapping_stage.label().to_string(),
             project_file: self.project_path.as_ref().map(|p| p.to_string_lossy().replace('\\', "/")),
             handoff_file: handoff_path
@@ -1670,6 +1750,67 @@ fn draw_mapped_tile_badges(app: &MapperApp, preview: Rect) {
     }
 }
 
+fn is_supported_image_path(path: &Path) -> bool {
+    path.extension()
+        .and_then(|ext| ext.to_str())
+        .map(|ext| matches!(ext.to_ascii_lowercase().as_str(), "png" | "bmp" | "jpg" | "jpeg" | "webp"))
+        .unwrap_or(false)
+}
+
+fn default_asset_sheet_scan_roots(root: &Path) -> Vec<PathBuf> {
+    vec![
+        root.join("assets/source/licensed/lpc_revised/Terrain"),
+        root.join("assets/source/licensed/lpc_revised/Objects"),
+        root.join("assets/source/licensed/lpc_revised/Structure"),
+        root.join("assets/source/licensed/lpc_revised/Characters"),
+        root.join("assets/source/licensed/lpc_revised/Character"),
+        root.join("assets/source/licensed/lpc_revised/Equipment"),
+        root.join("assets/source/licensed/lpc_revised/FX"),
+        root.join("assets/source/licensed/lpc_revised/UI"),
+        root.join("content/assets/oga_lpc/source"),
+        root.join("content/assets/lpc/source"),
+        root.join("assets/generated/worldgen_v0_1/terrain"),
+    ]
+}
+
+fn declared_external_asset_roots(root: &Path) -> Vec<PathBuf> {
+    let mut roots = Vec::new();
+    for rel in [EXTERNAL_ASSET_ROOTS_REL, LOCAL_EXTERNAL_ASSET_ROOTS_REL] {
+        let path = root.join(rel);
+        let Ok(text) = fs::read_to_string(path) else { continue; };
+        let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) else { continue; };
+        collect_json_root_paths(root, &value, &mut roots);
+    }
+    roots
+}
+
+fn collect_json_root_paths(root: &Path, value: &serde_json::Value, out: &mut Vec<PathBuf>) {
+    if let Some(path) = value.get("path").and_then(|path| path.as_str()) {
+        out.push(resolve_declared_path(root, path));
+    }
+    if let Some(items) = value.get("roots").and_then(|items| items.as_array()) {
+        for item in items {
+            collect_json_root_paths(root, item, out);
+        }
+    }
+    if let Some(items) = value.as_array() {
+        for item in items {
+            collect_json_root_paths(root, item, out);
+        }
+    }
+}
+
+fn resolve_declared_path(root: &Path, value: &str) -> PathBuf {
+    let normalized = value.replace('\\', "/");
+    if let Some(stripped) = normalized.strip_prefix("~/") {
+        if let Some(home) = env::var_os("USERPROFILE").or_else(|| env::var_os("HOME")) {
+            return PathBuf::from(home).join(stripped);
+        }
+    }
+    let candidate = PathBuf::from(&normalized);
+    if candidate.is_absolute() { candidate } else { root.join(candidate) }
+}
+
 fn normalize_path_key(path: &Path) -> String {
     path.to_string_lossy().replace('\\', "/").to_ascii_lowercase()
 }
@@ -1794,7 +1935,7 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
     draw_rectangle(inspector_rect.x + 12.0, bottom_y, inspector_rect.w - 24.0, 78.0, app.category.color());
     draw_rectangle(inspector_rect.x + 14.0, bottom_y + 2.0, inspector_rect.w - 28.0, 74.0, Color::new(0.025, 0.030, 0.038, 0.78));
     draw_text("Mapped-sheet meaning", inspector_rect.x + 20.0, bottom_y + 25.0, 16.0, Color::new(0.92, 0.95, 0.96, 1.0));
-    draw_text("Green = mapper metadata exists", inspector_rect.x + 20.0, bottom_y + 49.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
+    draw_text("Green = source-cell metadata exists", inspector_rect.x + 20.0, bottom_y + 49.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
     draw_text("Not runtime-published yet", inspector_rect.x + 20.0, bottom_y + 69.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
 }
 

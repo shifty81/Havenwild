@@ -1,0 +1,60 @@
+{
+  "schema": "havenwild.asset_mapping.sheet_stack_runtime.v0_2",
+  "pass": "HW-ASSET-MAPPING-SHEET-STACK-27",
+  "status": "active",
+  "purpose": "Make the standalone Havenwild Atlas Mapper preload the known Havenwild atlas/sheet universe as indexed cards while textures remain lazy-loaded. This is the standalone proof surface that will later mirror into Ember.",
+  "standaloneAuthority": {
+    "project": "Havenwild",
+    "tool": "haven_atlas_mapper_lite",
+    "pcc": "Havenwild internal PCC remains the build/gate/apply authority",
+    "emberMirror": "Generic contracts and proven patterns are mirrored from the Havenwild GitHub repository into Ember later; this repository remains standalone for now."
+  },
+  "indexedSources": [
+    "content/assets/terrain_atlas_catalog_v2.json",
+    "assets/source/licensed/lpc_revised/Terrain",
+    "assets/source/licensed/lpc_revised/Objects",
+    "assets/source/licensed/lpc_revised/Structure",
+    "assets/source/licensed/lpc_revised/Characters",
+    "assets/source/licensed/lpc_revised/Equipment",
+    "assets/source/licensed/lpc_revised/FX",
+    "assets/source/licensed/lpc_revised/UI",
+    "content/assets/oga_lpc/source",
+    "content/assets/lpc/source",
+    "assets/generated/worldgen_v0_1/terrain",
+    "content/assets/intake/external_asset_roots_v0_1.json",
+    ".local/havenwild_external_asset_roots.json"
+  ],
+  "loadingPolicy": {
+    "preloadCards": true,
+    "preloadTextures": false,
+    "lazyLoadSelectedSheetTexture": true,
+    "maxIndexedCardsPerRefresh": 8192,
+    "sourcePixelsRemainReadOnly": true,
+    "runtimePromotionIsExplicit": true
+  },
+  "mappedSheetRecord": {
+    "schema": "havenwild.atlas_mapper_mapped_sheet.v0_2",
+    "adds": [
+      "mappedTileCount",
+      "mappedTiles",
+      "coveragePercent"
+    ],
+    "tileRecordFields": [
+      "sourceTileX",
+      "sourceTileY",
+      "sourceRect",
+      "semanticRole",
+      "layer",
+      "status"
+    ],
+    "meaning": "A sheet or tile checkmark means mapping metadata exists. It does not mean the runtime has published or certified the asset yet."
+  },
+  "nextImplementation": [
+    "family filters and virtualized sheet browsing",
+    "terrain family/group boxing",
+    "learn-from-scene correction memory",
+    "generate next unmapped group",
+    "layer/collision/socket editors",
+    "real Havenwild world preview canvas"
+  ]
+}
