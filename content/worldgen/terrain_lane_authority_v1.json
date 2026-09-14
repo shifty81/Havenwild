@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.terrain_lane_authority.v1",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "status": "standalone_havenwild_authority_with_ember_mirror_handoff",
   "purpose": "Normalize the former V7 terminology into one professional provider-based Terrain Lane. V7 remains a compatibility/runtime provider while LPC Revised seasonal terrain, ElizaWy cliffs, LPC directional ramps, and waterfall providers are mapped into one semantic terrain authority.",
   "namingPolicy": {
@@ -124,5 +124,14 @@
     "Show per-tile and per-sheet mapping status badges.",
     "Generate correction scenes from structured sheet profiles rather than random visual scatter.",
     "Export handoff records for native editor and later Ember ingest."
+  ],
+  "sourceProfileContract": "content/editor/architecture/havenwild_terrain_lane_source_profile_v0_1.json",
+  "mappedCellRecordContract": "content/editor/architecture/havenwild_asset_mapper_profiled_cell_records_v0_1.json",
+  "runtimeRule": "Worldgen and editor code must request provider-neutral terrain roles; the Terrain Lane resolver maps those roles to exact source-profile rectangles with V7 as fallback until seasonal profiles are certified.",
+  "nextImplementationPasses": [
+    "group boxing and family mapping for seasonal terrain sheets",
+    "water topology family roles for pond/lake/river/coast/island modules",
+    "collision and socket authoring per mapped group",
+    "native editor world-preview correction canvas"
   ]
 }

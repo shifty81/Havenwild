@@ -1,0 +1,29 @@
+{
+  "schema": "havenwild.asset_mapper_profiled_cell_records.v0_1",
+  "status": "active_authoring_contract",
+  "purpose": "Extend Atlas Mapper mapped-sheet records so each green-checked tile carries source-profile, terrain-family, topology, layer, collision, and compatibility data instead of only visual placement.",
+  "recordSchema": "havenwild.atlas_mapper_mapped_sheet.v0_5",
+  "tileRecordFields": {
+    "source_tile_x": "Exact 32px source grid column.",
+    "source_tile_y": "Exact 32px source grid row.",
+    "source_rect": "Exact source rectangle the engine can draw.",
+    "semantic_role": "Provider-neutral Terrain Lane or asset-role meaning.",
+    "terrain_family": "Coarse family such as base_surface, water_and_shoreline, overlay_and_detail, or structural connector.",
+    "topology_role": "Grammar role such as base_fill, edge_or_bank_transition, water_surface_or_channel, overlay_detail, or structural_boundary.",
+    "layer_role": "Renderer/editor layer ownership such as terrain_base, terrain_transition, terrain_overlay_detail, terrain_water, or structural_or_foreground.",
+    "collision_profile": "Collision default or validation requirement attached to the mapped cell.",
+    "compatibility_class": "How this tile may combine with V7, seasonal sheets, water topology, overlays, or structural providers.",
+    "status": "draft_mapped, learned_mapping, validated_mapping, or later published_runtime."
+  },
+  "greenCheckPolicy": {
+    "tileGreenCheck": "May appear when exact source-cell metadata exists.",
+    "learnedCheck": "Requires Learn From Scene or imported correction evidence.",
+    "validatedCheck": "Requires handoff/export and required role metadata.",
+    "runtimeStar": "Requires cooked runtime publication, not just mapper metadata."
+  },
+  "nonGoals": [
+    "No runtime art synthesis.",
+    "No random visual guessing as source authority.",
+    "No automatic promotion of raw or reference assets into shipped runtime content."
+  ]
+}

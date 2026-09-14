@@ -23,12 +23,13 @@ const MIN_CANVAS_ZOOM: f32 = 1.00;
 const MAX_CANVAS_ZOOM: f32 = 4.00;
 const DEFAULT_CANVAS_ZOOM: f32 = 2.00;
 const ZOOM_STEP: f32 = 1.07;
-const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_4";
+const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_5";
 const LEGACY_PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_1";
 const LEGACY_PROJECT_SCHEMA_V2: &str = "havenwild.atlas_mapper_project.v0_2";
 const LEGACY_PROJECT_SCHEMA_V3: &str = "havenwild.atlas_mapper_project.v0_3";
-const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_5";
-const MAPPED_SHEET_SCHEMA: &str = "havenwild.atlas_mapper_mapped_sheet.v0_4";
+const LEGACY_PROJECT_SCHEMA_V4: &str = "havenwild.atlas_mapper_project.v0_4";
+const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_6";
+const MAPPED_SHEET_SCHEMA: &str = "havenwild.atlas_mapper_mapped_sheet.v0_5";
 const TERRAIN_ATLAS_CATALOG_REL: &str = "content/assets/terrain_atlas_catalog_v2.json";
 const EXTERNAL_ASSET_ROOTS_REL: &str = "content/assets/intake/external_asset_roots_v0_1.json";
 const LOCAL_EXTERNAL_ASSET_ROOTS_REL: &str = ".local/havenwild_external_asset_roots.json";
@@ -334,7 +335,12 @@ struct MappedSheetTileRecord {
     source_tile_y: i32,
     source_rect: [i32; 4],
     semantic_role: String,
+    terrain_family: String,
+    topology_role: String,
     layer: i32,
+    layer_role: String,
+    collision_profile: String,
+    compatibility_class: String,
     status: String,
 }
 
@@ -348,6 +354,10 @@ struct MappedSheetRecord {
     category: String,
     category_label: String,
     assembly_name: String,
+    source_sheet_profile: String,
+    provider: String,
+    season: String,
+    terrain_lane_authority: String,
     piece_count: usize,
     mapped_tile_count: usize,
     mapped_tiles: Vec<MappedSheetTileRecord>,
@@ -359,6 +369,7 @@ struct MappedSheetRecord {
     project_file: Option<String>,
     handoff_file: Option<String>,
     updated_unix_seconds: u64,
+    compatibility_notes: Vec<String>,
     asset_intake_notes: Vec<String>,
 }
 
@@ -804,7 +815,12 @@ impl MapperApp {
                 return;
             }
         };
-        if document.schema != PROJECT_SCHEMA && document.schema != LEGACY_PROJECT_SCHEMA && document.schema != LEGACY_PROJECT_SCHEMA_V2 && document.schema != LEGACY_PROJECT_SCHEMA_V3 {
+        if document.schema != PROJECT_SCHEMA
+            && document.schema != LEGACY_PROJECT_SCHEMA
+            && document.schema != LEGACY_PROJECT_SCHEMA_V2
+            && document.schema != LEGACY_PROJECT_SCHEMA_V3
+            && document.schema != LEGACY_PROJECT_SCHEMA_V4
+        {
             self.status = format!("Project schema mismatch: expected {PROJECT_SCHEMA}, got {}", document.schema);
             return;
         }
@@ -1116,12 +1132,19 @@ impl MapperApp {
                 CellRole::Detail => "terrain.cliff.detail_transition".to_string(),
                 CellRole::Empty => "terrain.cliff.empty".to_string(),
             },
-            AssetCategory::Terrain => match cell.role {
-                CellRole::Water => "terrain.water_or_shore".to_string(),
-                CellRole::Grass => "terrain.ground_top_surface".to_string(),
-                CellRole::Sand => "terrain.path_or_bank".to_string(),
-                CellRole::Stone => "terrain.rock_or_hard_edge".to_string(),
-                _ => format!("terrain.scene_cell_{}_{}", local_x, local_y),
+            AssetCategory::Terrain => {
+                if let Some(atlas) = &self.atlas {
+                    if let Some(role) = terrain_lane_profile_role(&atlas.path, cell.tile_x, cell.tile_y, cell.role, local_x, local_y) {
+                        return role;
+                    }
+                }
+                match cell.role {
+                    CellRole::Water => "terrain.water_or_shore".to_string(),
+                    CellRole::Grass => "terrain.ground_top_surface".to_string(),
+                    CellRole::Sand => "terrain.path_or_bank".to_string(),
+                    CellRole::Stone => "terrain.rock_or_hard_edge".to_string(),
+                    _ => format!("terrain.scene_cell_{}_{}", local_x, local_y),
+                }
             },
             AssetCategory::Structure | AssetCategory::House => match cell.role {
                 CellRole::Wood => "structure.wood_wall_floor_or_trim".to_string(),
@@ -1488,7 +1511,12 @@ impl MapperApp {
             source_tile_y: piece.source_tile_y,
             source_rect: piece.source_rect,
             semantic_role: piece.semantic_role.clone(),
+            terrain_family: terrain_family_for_piece(&atlas_path, &piece.semantic_role, self.category),
+            topology_role: topology_role_for_piece(&piece.semantic_role),
             layer: piece.layer,
+            layer_role: layer_role_for_piece(&piece.semantic_role, piece.layer),
+            collision_profile: collision_profile_for_piece(&piece.semantic_role),
+            compatibility_class: compatibility_class_for_piece(&piece.semantic_role),
             status: tile_status.to_string(),
         }).collect();
         let unique_tile_count = mapped_tiles
@@ -1507,6 +1535,10 @@ impl MapperApp {
             category: self.category.stable_key().to_string(),
             category_label: self.category.label().to_string(),
             assembly_name: self.assembly_name.clone(),
+            source_sheet_profile: source_sheet_profile_id(&atlas_path, self.category),
+            provider: provider_for_sheet(&atlas_path, self.category),
+            season: season_for_sheet(&atlas_path).unwrap_or("none").to_string(),
+            terrain_lane_authority: "content/worldgen/terrain_lane_authority_v1.json".to_string(),
             piece_count: self.pieces.len(),
             mapped_tile_count: unique_tile_count,
             mapped_tiles,
@@ -1520,6 +1552,11 @@ impl MapperApp {
                 .map(|p| p.to_string_lossy().replace('\\', "/"))
                 .or_else(|| self.last_handoff_path.as_ref().map(|p| p.to_string_lossy().replace('\\', "/"))),
             updated_unix_seconds: unix_seconds(),
+            compatibility_notes: vec![
+                "Terrain Lane records bind exact source cells to provider-neutral terrain roles; V7 remains a legacy/compatibility provider until seasonal profiles are complete.".to_string(),
+                "Mapped seasonal terrain cells are source-art grammar evidence first and runtime provider entries only after coverage/collision/layer validation.".to_string(),
+                "Structural providers such as cliffs, ramps, ladders, and waterfalls remain compatible by terrain role and layer, not by pretending all sheets share one atlas layout.".to_string(),
+            ],
             asset_intake_notes: vec![
                 "Per-tile green badges mean exact source-cell metadata exists for that tile in the asset intake lane.".to_string(),
                 "Sheet green state means mapper metadata exists; runtime publication still requires sockets, footprint, collision, traversal, provenance, and validation.".to_string(),
@@ -1548,6 +1585,174 @@ impl MapperApp {
                 self.mapping_stage = MappingStage::ProjectSaved;
             }
         }
+    }
+}
+
+
+fn source_sheet_profile_id(path: &Path, category: AssetCategory) -> String {
+    let name = path.file_name()
+        .and_then(|name| name.to_str())
+        .unwrap_or("source_sheet")
+        .to_ascii_lowercase();
+    let path_key = path.to_string_lossy().replace('\\', "/").to_ascii_lowercase();
+    if is_lpc_revised_seasonal_terrain_sheet(path) {
+        format!("terrain.source.lpc_revised.seasonal.{}", season_for_sheet(path).unwrap_or("unknown"))
+    } else if path_key.contains("lpc-terrains-v7") || name.contains("terrain-v7") || name.contains("terrain-map-v7") {
+        "terrain.provider.lpc_v7_legacy.compatibility".to_string()
+    } else if path_key.contains("cliffs_grass_top") || name.contains("lpc_cliffs_") {
+        "terrain.provider.lpc_directional_ramp_and_contour.source".to_string()
+    } else if name.contains("cliff") {
+        "terrain.provider.elizawy_cliff.source".to_string()
+    } else if name.contains("waterfall") {
+        "terrain.provider.elizawy_waterfall.source".to_string()
+    } else {
+        format!("asset.source.{}.unprofiled", category.stable_key())
+    }
+}
+
+fn provider_for_sheet(path: &Path, category: AssetCategory) -> String {
+    let profile = source_sheet_profile_id(path, category);
+    if profile.contains("lpc_revised") {
+        "lpc_revised_seasonal".to_string()
+    } else if profile.contains("lpc_v7") {
+        "lpc_v7_legacy".to_string()
+    } else if profile.contains("lpc_directional") {
+        "oga_lpc_cliff_family".to_string()
+    } else if profile.contains("elizawy_cliff") || profile.contains("elizawy_waterfall") {
+        "elizawy_lpc_revised".to_string()
+    } else {
+        category.stable_key().to_string()
+    }
+}
+
+fn is_lpc_revised_seasonal_terrain_sheet(path: &Path) -> bool {
+    let Some(name) = path.file_name().and_then(|name| name.to_str()) else { return false; };
+    matches!(name.to_ascii_lowercase().as_str(), "terrain_spring.png" | "terrain_summer.png" | "terrain_autumn.png" | "terrain_winter.png")
+}
+
+fn season_for_sheet(path: &Path) -> Option<&'static str> {
+    let name = path.file_name()?.to_str()?.to_ascii_lowercase();
+    if name.contains("spring") { Some("spring") }
+    else if name.contains("summer") { Some("summer") }
+    else if name.contains("autumn") || name.contains("fall") { Some("autumn") }
+    else if name.contains("winter") || name.contains("snow") { Some("winter") }
+    else { None }
+}
+
+fn terrain_lane_profile_role(path: &Path, tile_x: i32, tile_y: i32, visual_role: CellRole, local_x: i32, local_y: i32) -> Option<String> {
+    if !is_lpc_revised_seasonal_terrain_sheet(path) {
+        return None;
+    }
+    let season = season_for_sheet(path).unwrap_or("seasonal");
+    let role = match visual_role {
+        CellRole::Empty => "terrain.empty_or_padding".to_string(),
+        CellRole::Water => {
+            if tile_y >= 20 {
+                "terrain.water.depth_or_rim".to_string()
+            } else if tile_y >= 10 {
+                "terrain.water.shoreline_or_bank_topology".to_string()
+            } else {
+                "terrain.water.surface_or_channel".to_string()
+            }
+        }
+        CellRole::Grass => {
+            if tile_y >= 10 {
+                "terrain.shoreline.grass_bank_or_island_edge".to_string()
+            } else if tile_y <= 4 {
+                "terrain.base.grass_or_field".to_string()
+            } else {
+                "terrain.overlay.grass_patch_or_transition".to_string()
+            }
+        }
+        CellRole::Sand => {
+            if tile_y >= 10 {
+                "terrain.shoreline.sand_or_path_bank".to_string()
+            } else {
+                "terrain.base.path_sand_or_bank".to_string()
+            }
+        }
+        CellRole::Stone => "terrain.detail.rock_hard_edge_or_pebble_path".to_string(),
+        CellRole::Cliff => "terrain.bank.earth_cut_or_transition".to_string(),
+        CellRole::Wood => "terrain.detail.wood_bridge_or_debris_candidate".to_string(),
+        CellRole::Detail => "terrain.detail.scatter_overlay".to_string(),
+    };
+    Some(format!("{role}.{season}.cell_{tile_x}_{tile_y}.draft_profile_{local_x}_{local_y}"))
+}
+
+fn terrain_family_for_piece(path: &Path, semantic_role: &str, category: AssetCategory) -> String {
+    if category != AssetCategory::Terrain {
+        return category.stable_key().to_string();
+    }
+    if semantic_role.contains("water") || semantic_role.contains("shoreline") {
+        "terrain.water_and_shoreline".to_string()
+    } else if semantic_role.contains("base") || semantic_role.contains("ground") {
+        "terrain.base_surface".to_string()
+    } else if semantic_role.contains("overlay") || semantic_role.contains("detail") {
+        "terrain.overlay_and_detail".to_string()
+    } else if is_lpc_revised_seasonal_terrain_sheet(path) {
+        "terrain.lpc_revised_seasonal".to_string()
+    } else {
+        "terrain.unclassified".to_string()
+    }
+}
+
+fn topology_role_for_piece(semantic_role: &str) -> String {
+    if semantic_role.contains("shoreline") || semantic_role.contains("bank") {
+        "edge_or_bank_transition".to_string()
+    } else if semantic_role.contains("water") && semantic_role.contains("depth") {
+        "depth_rim_or_center".to_string()
+    } else if semantic_role.contains("water") {
+        "water_surface_or_channel".to_string()
+    } else if semantic_role.contains("overlay") || semantic_role.contains("detail") {
+        "overlay_detail".to_string()
+    } else if semantic_role.contains("base") || semantic_role.contains("ground") {
+        "base_fill".to_string()
+    } else if semantic_role.contains("cliff") || semantic_role.contains("connector") {
+        "structural_connector_or_boundary".to_string()
+    } else {
+        "unclassified_cell".to_string()
+    }
+}
+
+fn layer_role_for_piece(semantic_role: &str, layer: i32) -> String {
+    if semantic_role.contains("base") || semantic_role.contains("ground") {
+        "terrain_base".to_string()
+    } else if semantic_role.contains("shoreline") || semantic_role.contains("transition") || semantic_role.contains("bank") {
+        "terrain_transition".to_string()
+    } else if semantic_role.contains("overlay") || semantic_role.contains("detail") {
+        "terrain_overlay_detail".to_string()
+    } else if semantic_role.contains("water") {
+        "terrain_water".to_string()
+    } else if layer >= 10 {
+        "structural_or_foreground".to_string()
+    } else {
+        "layer_unassigned".to_string()
+    }
+}
+
+fn collision_profile_for_piece(semantic_role: &str) -> String {
+    if semantic_role.contains("water") {
+        "water_or_blocked_until_role_confirmed".to_string()
+    } else if semantic_role.contains("overlay") || semantic_role.contains("detail") {
+        "inherit_from_base_pass_through".to_string()
+    } else if semantic_role.contains("cliff") {
+        "structural_cliff_collision_required".to_string()
+    } else {
+        "inherit_from_terrain_role".to_string()
+    }
+}
+
+fn compatibility_class_for_piece(semantic_role: &str) -> String {
+    if semantic_role.contains("shoreline") || semantic_role.contains("bank") {
+        "terrain_water_land_boundary".to_string()
+    } else if semantic_role.contains("overlay") || semantic_role.contains("detail") {
+        "overlay_compatible_with_host_surface".to_string()
+    } else if semantic_role.contains("water") {
+        "water_family".to_string()
+    } else if semantic_role.contains("base") || semantic_role.contains("ground") {
+        "base_surface_family".to_string()
+    } else {
+        "needs_compatibility_review".to_string()
     }
 }
 
@@ -2191,7 +2396,12 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
         draw_text(&format!("{} mapped source cells · {:.1}%", summary.mapped_tile_count, summary.coverage_percent), inspector_rect.x + 14.0, y, 16.0, Color::new(0.82, 0.90, 0.86, 1.0));
         y += 20.0;
         draw_text("Green checks on the source sheet come from saved mapped-sheet records plus this draft.", inspector_rect.x + 14.0, y, 13.0, Color::new(0.60, 0.69, 0.74, 1.0));
-        y += 28.0;
+        y += 24.0;
+        let profile = source_sheet_profile_id(&atlas.path, app.category);
+        draw_text("Source profile", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
+        y += 20.0;
+        y = draw_wrapped_line(&profile, inspector_rect.x + 14.0, y, 31, 14.0, Color::new(0.78, 0.85, 0.88, 1.0));
+        y += 8.0;
     }
 
     draw_text("Forge-style commands", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));

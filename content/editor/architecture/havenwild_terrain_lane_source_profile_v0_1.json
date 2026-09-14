@@ -1,0 +1,76 @@
+{
+  "schema": "havenwild.terrain_lane_source_profile.v0_1",
+  "status": "active_authoring_contract",
+  "purpose": "Bind Havenwild terrain providers into one source-sheet/profile system so the mapper and editor can resolve exact authored source cells without visual guessing.",
+  "laneName": "Terrain Lane",
+  "sourceProfileRule": "A source sheet profile describes exact 32px cells, grouped regions, seasonal/provider identity, topology role, layer role, collision defaults, compatibility, and runtime promotion status. It does not replace semantic worldgen authority.",
+  "canonicalSourceFamilies": [
+    {
+      "id": "terrain.source.lpc_revised.seasonal",
+      "kind": "seasonal_terrain_source_art_profile",
+      "sheets": [
+        "assets/source/licensed/lpc_revised/Terrain/terrain_spring.png",
+        "assets/source/licensed/lpc_revised/Terrain/terrain_summer.png",
+        "assets/source/licensed/lpc_revised/Terrain/terrain_autumn.png",
+        "assets/source/licensed/lpc_revised/Terrain/terrain_winter.png"
+      ],
+      "role": "canonical terrain source-art grammar candidate",
+      "promotionStatus": "mapping_required"
+    },
+    {
+      "id": "terrain.provider.lpc_v7_legacy",
+      "kind": "legacy_runtime_and_transition_compatibility_provider",
+      "role": "current fallback/runtime provider until seasonal source profiles are fully mapped and certified"
+    },
+    {
+      "id": "terrain.provider.elizawy_cliffs",
+      "kind": "structural_boundary_provider",
+      "role": "cliff faces, crests, feet, terminals, ladders, and cave hosts"
+    },
+    {
+      "id": "terrain.provider.lpc_directional_ramps",
+      "kind": "authored_structural_stamp_provider",
+      "role": "complete 3x4 directional ramp stamps and related contour modules"
+    },
+    {
+      "id": "terrain.provider.elizawy_waterfalls",
+      "kind": "hydrology_elevation_stamp_provider",
+      "role": "waterfall cap, face, and foot stamps"
+    }
+  ],
+  "mappedCellRequirements": [
+    "source_atlas_path",
+    "source_atlas_file_name",
+    "source_sheet_profile",
+    "provider",
+    "season_when_applicable",
+    "source_tile_x",
+    "source_tile_y",
+    "source_rect",
+    "semantic_role",
+    "terrain_family",
+    "topology_role",
+    "layer_role",
+    "collision_profile",
+    "compatibility_class",
+    "status"
+  ],
+  "statusMeaning": {
+    "draft_mapped": "Exact source cell exists in a draft/correction scene.",
+    "learned_mapping": "User corrected/accepted scene evidence exists for the source cell.",
+    "validated_mapping": "A handoff/export exists, but runtime publication still requires stricter certification.",
+    "published_runtime": "Reserved for cooked/runtime terrain registry publication."
+  },
+  "resolverContract": [
+    "Worldgen emits provider-neutral semantic terrain/topology roles.",
+    "The Terrain Lane resolver selects a mapped source profile and exact source rect for the current season/material/context.",
+    "V7 remains the fallback provider until seasonal source sheets are fully mapped and certified.",
+    "The renderer draws exact source rects; it never visually searches or guesses art at runtime."
+  ],
+  "mapperUiContract": [
+    "Left panel preloads sheet cards from Havenwild asset authority and lazy-loads selected textures.",
+    "Source sheet preview shows per-cell status badges.",
+    "Inspector shows source profile, provider, coverage, semantic role, topology, layer, collision, and compatibility.",
+    "Correction scenes produce evidence, not runtime publication."
+  ]
+}
