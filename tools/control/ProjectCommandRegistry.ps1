@@ -96,4 +96,12 @@
     @{ Id='91'; Key='artifacts.open-root'; Label='Open artifacts folder'; Kind='Open'; Path='artifacts'; Category='sessions'; Menu=@('logs','package'); MenuOrder=85; Args=@() }
     @{ Id='92'; Key='package.full-source-rollup'; Label='Package FULL complete source rollup'; Kind='Package'; Mode='fullrollup'; Category='packaging'; Menu=@('package'); MenuOrder=25; Args=@() }
     @{ Id='93'; Key='package.development-handoff'; Label='Package development handoff'; Kind='Package'; Mode='handoff'; Category='packaging'; Menu=@('package'); MenuOrder=35; Args=@() }
+    # HW-EXPERIMENTAL-LANE-33 / ForgePY universal PCC development-lane API.
+    @{ Id='96'; Key='project.lane.status'; Label='Development lane status'; Kind='Script'; Script='DevelopmentLane.ps1'; Category='source-control'; Menu=@('project'); MenuOrder=31; Args=@('-Action','Status') }
+    @{ Id='97'; Key='project.lane.toggle'; Label='Toggle Main / Experimental lane'; Kind='Script'; Script='DevelopmentLane.ps1'; Category='source-control'; Menu=@('project'); MenuOrder=32; Args=@('-Action','Toggle') }
+    @{ Id='98'; Key='project.lane.experimental'; Label='Switch to Experimental'; Kind='Script'; Script='DevelopmentLane.ps1'; Category='source-control'; Menu=@('project'); MenuOrder=33; Args=@('-Action','SwitchExperimental') }
+    @{ Id='99'; Key='project.lane.main'; Label='Switch to Main (inspection only)'; Kind='Script'; Script='DevelopmentLane.ps1'; Category='source-control'; Menu=@('project'); MenuOrder=34; Args=@('-Action','SwitchMain') }
+    @{ Id='100'; Key='project.lane.transfer-to-experimental'; Label='Move current work to Experimental'; Kind='Script'; Script='DevelopmentLane.ps1'; Category='source-control'; Menu=@('project'); MenuOrder=35; Args=@('-Action','MoveWorkToExperimental') }
+    @{ Id='101'; Key='project.lane.compare'; Label='Compare Experimental -> Main'; Kind='Script'; Script='DevelopmentLane.ps1'; Category='source-control'; Menu=@('project'); MenuOrder=36; Args=@('-Action','CompareMain') }
+    @{ Id='102'; Key='project.lane.prepare-cutover'; Label='Prepare Main cutover plan'; Kind='Script'; Script='DevelopmentLane.ps1'; Category='source-control'; Menu=@('project'); MenuOrder=37; Args=@('-Action','PrepareCutover') }
 )

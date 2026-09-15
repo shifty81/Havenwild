@@ -54,6 +54,13 @@ COMMANDS: dict[str, dict[str, Any]] = {
     "project.package.rollup": {"pcc_key": "package.source-rollup", "category": "packaging", "mutates": True},
     "project.package.baseline": {"pcc_key": "package.capture-baseline", "category": "packaging", "mutates": True},
     "project.diagnostics.bundle": {"pcc_key": "diagnostics.create-debug-handoff", "category": "diagnostics", "mutates": True},
+    "project.lane.status": {"pcc_key": "project.lane.status", "category": "source-control", "mutates": False},
+    "project.lane.toggle": {"pcc_key": "project.lane.toggle", "category": "source-control", "mutates": True},
+    "project.lane.experimental": {"pcc_key": "project.lane.experimental", "category": "source-control", "mutates": True},
+    "project.lane.main": {"pcc_key": "project.lane.main", "category": "source-control", "mutates": True},
+    "project.lane.transfer-to-experimental": {"pcc_key": "project.lane.transfer-to-experimental", "category": "source-control", "mutates": True},
+    "project.lane.compare": {"pcc_key": "project.lane.compare", "category": "source-control", "mutates": False},
+    "project.lane.prepare-cutover": {"pcc_key": "project.lane.prepare-cutover", "category": "source-control", "mutates": True},
     "project.shell": {"pcc_key": "project.shell", "category": "fallback", "mutates": False, "interactive": True},
 }
 

@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.development_lane_policy.v1",
+  "project": "Havenwild",
+  "stableBranch": "main",
+  "developmentBranch": "experimental",
+  "experimentalParentGreenCommit": "5fb9824e6779eb16c51f3ee1a22dd9ef17a8f332",
+  "mainProtection": {
+    "routineDevelopmentAllowed": false,
+    "rootPatchApplyAllowed": false,
+    "manualDevelopmentCommitAllowed": false,
+    "buildTestRunDiagnosticsAllowed": true
+  },
+  "experimentalPolicy": {
+    "routineDevelopmentAllowed": true,
+    "greenGateRequiredForProtectedPublish": true,
+    "patchesMustDeclareTargetLane": true,
+    "artifactsMustDeclareLane": true
+  },
+  "cutover": {
+    "automatic": false,
+    "requiresExplicitUserAuthorization": true,
+    "requiresCleanExperimental": true,
+    "requiresExperimentalGreen": true,
+    "requiresMainComparison": true,
+    "requiresPostCutoverMainGreen": true
+  },
+  "notes": [
+    "Git branch identity is authoritative; local .havenwild lane state is supporting metadata only.",
+    "Experimental remains the active Havenwild development lane until the user explicitly authorizes cutover to main.",
+    "Main remains the last certified stable baseline and must not receive routine development changes."
+  ]
+}

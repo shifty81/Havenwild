@@ -252,3 +252,56 @@ pcc_key = "project.shell"
 category = "fallback"
 mutates = false
 interactive = true
+
+[lanes]
+stable_branch = "main"
+development_branch = "experimental"
+default_development_lane = "experimental"
+main_protected = true
+cutover_requires_explicit_user_authorization = true
+status_command = "project.lane.status"
+toggle_command = "project.lane.toggle"
+compare_command = "project.lane.compare"
+prepare_cutover_command = "project.lane.prepare-cutover"
+
+[[commands]]
+forge_key = "project.lane.status"
+pcc_key = "project.lane.status"
+category = "source-control"
+mutates = false
+
+[[commands]]
+forge_key = "project.lane.toggle"
+pcc_key = "project.lane.toggle"
+category = "source-control"
+mutates = true
+
+[[commands]]
+forge_key = "project.lane.experimental"
+pcc_key = "project.lane.experimental"
+category = "source-control"
+mutates = true
+
+[[commands]]
+forge_key = "project.lane.main"
+pcc_key = "project.lane.main"
+category = "source-control"
+mutates = true
+
+[[commands]]
+forge_key = "project.lane.transfer-to-experimental"
+pcc_key = "project.lane.transfer-to-experimental"
+category = "source-control"
+mutates = true
+
+[[commands]]
+forge_key = "project.lane.compare"
+pcc_key = "project.lane.compare"
+category = "source-control"
+mutates = false
+
+[[commands]]
+forge_key = "project.lane.prepare-cutover"
+pcc_key = "project.lane.prepare-cutover"
+category = "source-control"
+mutates = true

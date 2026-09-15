@@ -1,4 +1,4 @@
-# Canonical Havenwild Git bridge (CC8E16).
+# Canonical Havenwild Git bridge (HW-EXPERIMENTAL-LANE-32).
 # Intentionally no param(...) block: accepts current and legacy Control Center
 # argument shapes without parameter-binding drift.
 $ErrorActionPreference = 'Stop'
@@ -19,19 +19,69 @@ for($i=0; $i -lt $args.Count; $i++) {
 }
 
 if($positionals.Count -gt 0 -and (Test-Path -LiteralPath $positionals[0])) { $root = $positionals[0] }
-$known = @('Status','Setup','Init','Initialize','Connect','Repair','Adopt','Review','ReviewCore','ReviewGitHubCore','CommitGreen','CommitPushGreen','Push','PushMain','Pull','Open','OpenRepo','CommitManual','ManualCommit','AdvancedCommit')
+$known = @('Status','Setup','Init','Initialize','Connect','Repair','Adopt','Review','ReviewCore','ReviewGitHubCore','CommitGreen','CommitPushGreen','Push','PushMain','Pull','Open','OpenRepo','OpenRemote','CommitManual','ManualCommit','AdvancedCommit')
 foreach($p in $positionals) { if($known -contains $p) { $action = $p; break } }
 
 $python = Get-Command python -ErrorAction SilentlyContinue
 if($null -eq $python){ $python = Get-Command py -ErrorAction SilentlyContinue }
 if($null -eq $python){ throw 'Canonical Havenwild source-control authority requires Python, but Python was not found.' }
 
+function Get-ActiveGitBranch {
+  $branch = (@(& git -C $root symbolic-ref --quiet --short HEAD 2>$null) -join '').Trim()
+  if($LASTEXITCODE -ne 0) { return '' }
+  return $branch
+}
+
+function Assert-ExperimentalGreen {
+  $markerPath = Join-Path $root '.havenwild\last-green-quality-gate.json'
+  if(-not (Test-Path -LiteralPath $markerPath -PathType Leaf)) {
+    throw 'Experimental publication requires a GREEN Full Quality Gate marker.'
+  }
+  $marker = Get-Content -LiteralPath $markerPath -Raw | ConvertFrom-Json
+  if([string]$marker.result -ne 'PASS') {
+    throw 'Experimental publication requires a PASS Full Quality Gate marker.'
+  }
+  if([string]$marker.gitBranchAtGate -ne 'experimental') {
+    throw ("Experimental publication requires a gate certified on experimental; marker branch is {0}." -f [string]$marker.gitBranchAtGate)
+  }
+}
+
+function Invoke-ExperimentalReconcile {
+  $reconcile = Join-Path $PSScriptRoot 'ReconcilePublishedLane.py'
+  if(-not (Test-Path -LiteralPath $reconcile -PathType Leaf)) {
+    throw "Experimental publication reconciliation authority is missing: $reconcile"
+  }
+  & $python.Source $reconcile '--root' $root '--branch' 'experimental'
+  if($LASTEXITCODE -ne 0) {
+    throw 'Experimental publication reached GitHub but reconciliation failed.'
+  }
+}
+
+function Push-ExperimentalGreen {
+  Assert-ExperimentalGreen
+  & git -C $root push -u origin experimental
+  if($LASTEXITCODE -ne 0) { throw 'Push to origin/experimental failed.' }
+  & git -C $root fetch origin experimental
+  if($LASTEXITCODE -ne 0) { throw 'Fetch of origin/experimental after push failed.' }
+  $head = (@(& git -C $root rev-parse HEAD 2>$null) -join '').Trim()
+  $remoteHead = (@(& git -C $root rev-parse refs/remotes/origin/experimental 2>$null) -join '').Trim()
+  if([string]::IsNullOrWhiteSpace($head) -or $remoteHead -ne $head) {
+    throw ("Experimental push did not reconcile to local HEAD (local={0}, remote={1})." -f $head,$remoteHead)
+  }
+  Invoke-ExperimentalReconcile
+  Write-Host "PUSH PASS: origin/experimental = $head"
+}
+
 # CC8E16: Setup is no longer a blind git-init/fetch operation. A GitHub Download ZIP
 # can already contain a valuable hydrated/validated working tree, so connect/repair
 # adopts origin/main history with git reset --mixed while proving governed file bytes
 # did not change. Divergent local history is backed up before adoption.
 $normalizedAction = $action.Trim().ToLowerInvariant().Replace('-','').Replace('_','')
+$currentBranch = Get-ActiveGitBranch
 if($normalizedAction -in @('setup','init','initialize','connect','repair','adopt')) {
+  if($currentBranch -eq 'experimental') {
+    throw 'Repository repair/setup is Main-oriented and is blocked while Experimental is active. Switch deliberately before running repository adoption/repair.'
+  }
   $repair = Join-Path $PSScriptRoot 'RepairGitWorkingCopy.py'
   if(-not (Test-Path -LiteralPath $repair -PathType Leaf)) { throw "Git working-folder repair authority is missing: $repair" }
   $repairArgs = @($repair,'--root',$root)
@@ -42,6 +92,33 @@ if($normalizedAction -in @('setup','init','initialize','connect','repair','adopt
 
 $authority = Join-Path $PSScriptRoot 'HavenwildGateAuthority.py'
 if(-not (Test-Path -LiteralPath $authority)){ throw "Canonical Havenwild source-control authority is missing: $authority" }
+
+# HW-EXPERIMENTAL-LANE-32: protected Experimental publication is branch-aware.
+# The canonical GREEN authority still owns certification/staging/commit. This bridge
+# owns only the branch-specific push and reconciliation until the authority itself is
+# generalized in the later source-control convergence pass. Main is never moved here.
+if($currentBranch -eq 'experimental') {
+  if($normalizedAction -eq 'commitpushgreen') {
+    Assert-ExperimentalGreen
+    $commitArgs = @($authority,'git','--root',$root,'--action','CommitGreen')
+    if(-not [string]::IsNullOrWhiteSpace($message)){ $commitArgs += @('--message',$message) }
+    if(-not [string]::IsNullOrWhiteSpace($remote)){ $commitArgs += @('--remote',$remote) }
+    & $python.Source @commitArgs
+    if($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    Push-ExperimentalGreen
+    exit 0
+  }
+  if($normalizedAction -in @('push','pushmain')) {
+    Push-ExperimentalGreen
+    exit 0
+  }
+  if($normalizedAction -eq 'pull') {
+    & git -C $root pull --ff-only origin experimental
+    if($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    Write-Host 'PULL PASS: origin/experimental fast-forward only'
+    exit 0
+  }
+}
 
 # HW-PCC-RETIRED-TRACKED-CLEANUP-01:
 # updates/inbox is now deliberately excluded from governed source, but older
@@ -80,15 +157,7 @@ if(-not [string]::IsNullOrWhiteSpace($remote)){ $callArgs += @('--remote',$remot
 & $python.Source @callArgs
 $authorityExit = $LASTEXITCODE
 
-# HW-PCC-PUBLISH-VERIFY-01: the canonical authority historically required the
-# entire Git work tree to be clean during post-push verification even though
-# publication is intentionally governed-source scoped. Full gates can leave
-# generated/non-governed tracked files modified after a certified commit. If
-# the protected authority returns non-zero after CommitPushGreen/Push, perform
-# one strict reconciliation that proves origin/main == HEAD, the current
-# governed snapshot still matches the GREEN marker, and every governed path in
-# the working tree matches HEAD. This never masks an actual source mismatch or
-# failed push.
+# Main retains the historical strict protected-publication reconciliation.
 if($authorityExit -ne 0 -and $normalizedAction -in @('commitpushgreen','push','pushmain')) {
   $reconcile = Join-Path $PSScriptRoot 'ReconcilePublishedGreen.py'
   if(Test-Path -LiteralPath $reconcile -PathType Leaf) {

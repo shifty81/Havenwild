@@ -84,6 +84,17 @@ function Get-GitState {
   try { $s = git status --porcelain 2>$null; if ($LASTEXITCODE -ne 0) { return "Not a repository" }; if ($s) { return "Modified" } else { return "Clean" } }
   finally { Pop-Location }
 }
+function Get-ActiveGitBranchName {
+  if (-not (Test-GitRepository)) { return '<none>' }
+  Push-Location $Root
+  try {
+    $branch=(@(& git symbolic-ref --quiet --short HEAD 2>$null) -join '').Trim()
+    if($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($branch)) { return '<detached>' }
+    return $branch
+  } finally {
+    Pop-Location
+  }
+}
 function Test-GitRepository {
   if (-not (Get-Command git -ErrorAction SilentlyContinue)) { return $false }
   Push-Location $Root
@@ -199,6 +210,10 @@ function Get-ControlCenterAuthorityFingerprint {
   foreach($relative in @(
     'tools\control\HavenwildTools.ps1',
     'tools\control\ProjectCommandRegistry.ps1',
+    'tools\control\DevelopmentLane.ps1',
+    'tools\control\GitSourceControl.ps1',
+    'tools\control\ReconcilePublishedGreen.py',
+    'tools\control\ReconcilePublishedLane.py',
     'tools\control\InvokeRootPatchIntake.ps1',
     'tools\control\PackageProject.ps1',
     'tools\control\CreateRecoveryRollup.ps1',
@@ -307,6 +322,9 @@ function Show-Header {
   Write-Color " HAVENWILD PROJECT CONTROL CENTER" Cyan
   Write-Color "========================================================================" DarkCyan
   Write-Color (" Repository : {0}" -f $Root) Gray
+  $activeBranch=Get-ActiveGitBranchName
+  $activeLane=if($activeBranch -eq 'experimental'){'EXPERIMENTAL'}elseif($activeBranch -eq 'main'){'MAIN / PROTECTED'}else{$activeBranch.ToUpperInvariant()}
+  Write-Color (" Lane       : {0} ({1})" -f $activeLane,$activeBranch) $(if($activeBranch -eq 'experimental'){'Cyan'}elseif($activeBranch -eq 'main'){'Yellow'}else{'DarkGray'})
   Write-Color (" Git        : {0}" -f $git) $(if($git -eq 'Clean'){'Green'}elseif($git -like 'Modified*'){'Yellow'}else{'DarkGray'})
   Write-Color (" Editor     : {0}" -f $editor) $(if($editor -eq 'Ready'){'Green'}else{'Yellow'})
   Write-Color (" Client     : {0}" -f $client) $(if($client -eq 'Ready'){'Green'}else{'Yellow'})
@@ -886,7 +904,9 @@ function Get-MenuEntries([string]$MenuKey) {
 }
 function Show-StatusFooter {
   Write-Color "------------------------------------------------------------------------" DarkCyan
-  Write-Color ("[Editor:{0}] [Client:{1}] [Baseline:{2}] [Git:{3}] [Last:{4} {5}]" -f (Get-BuildState 'haven_editor_native.exe'),(Get-BuildState 'haven_game.exe'),(Get-BaselineState),(Get-GitState),$script:LastResult,$script:LastDuration) DarkCyan
+  $footerBranch=Get-ActiveGitBranchName
+  $footerLane=if($footerBranch -eq 'experimental'){'EXPERIMENTAL'}elseif($footerBranch -eq 'main'){'MAIN'}else{$footerBranch.ToUpperInvariant()}
+  Write-Color ("[Lane:{0}] [Editor:{1}] [Client:{2}] [Baseline:{3}] [Git:{4}] [Last:{5} {6}]" -f $footerLane,(Get-BuildState 'haven_editor_native.exe'),(Get-BuildState 'haven_game.exe'),(Get-BaselineState),(Get-GitState),$script:LastResult,$script:LastDuration) DarkCyan
 }
 function Show-MainMenu {
   Write-Color "  1. FULL QUALITY GATE / CERTIFY GREEN" Green
@@ -900,7 +920,10 @@ function Show-MainMenu {
   Write-Color "  8. Packaging & baselines" White
   Write-Color "  9. Logs & help" White
   Write-Color " 10. Advanced / all registered commands" DarkGray
-  Write-Color " 11. Source control (GitHub optional)" White
+  Write-Color " 11. Source control & development lanes" White
+  $menuBranch=Get-ActiveGitBranchName
+  $menuLane=if($menuBranch -eq 'experimental'){'EXPERIMENTAL'}elseif($menuBranch -eq 'main'){'MAIN / PROTECTED'}else{$menuBranch.ToUpperInvariant()}
+  Write-Color (" 12. TOGGLE DEVELOPMENT LANE  [{0}]" -f $menuLane) Cyan
   Write-Color "  0. Exit" DarkGray
   Show-StatusFooter
 }
@@ -916,6 +939,8 @@ function Show-SubMenu([string]$Title,[object[]]$Entries) {
 function Invoke-GitHubMenu {
   do {
     Show-Header
+    $activeBranch=Get-ActiveGitBranchName
+    $laneLabel=if($activeBranch -eq 'experimental'){'EXPERIMENTAL'}elseif($activeBranch -eq 'main'){'MAIN / PROTECTED'}else{$activeBranch.ToUpperInvariant()}
     Write-Color " GITHUB / SOURCE CONTROL" Cyan
     Write-Color "------------------------------------------------------------------------" DarkCyan
     Write-Color "  1. Status / green-gate state" White
@@ -923,10 +948,14 @@ function Invoke-GitHubMenu {
     Write-Color "  3. Review GitHub-Core changes" White
     Write-Color "  4. Commit + push last GREEN Full Quality Gate" Green
     Write-Color "  5. Commit last GREEN Full Quality Gate (no push)" White
-    Write-Color "  6. Push committed main to GitHub" White
-    Write-Color "  7. Pull origin/main (fast-forward only)" White
+    Write-Color ("  6. Push committed {0} to GitHub" -f $activeBranch) White
+    Write-Color ("  7. Pull origin/{0} (fast-forward only)" -f $activeBranch) White
     Write-Color "  8. Open Havenwild GitHub repository" White
     Write-Color "  9. Advanced manual commit (not green-gate protected)" DarkYellow
+    Write-Color (" 10. Toggle Main / Experimental lane (current: {0})" -f $laneLabel) Cyan
+    Write-Color " 11. Development lane status" White
+    Write-Color " 12. Compare Experimental -> Main" White
+    Write-Color " 13. Prepare Main cutover plan (NO MERGE)" DarkYellow
     Write-Color "  0. Back" DarkGray
     Show-StatusFooter
     $choice=Read-Host 'Select an option'
@@ -944,6 +973,18 @@ function Invoke-GitHubMenu {
         Write-Color 'WARNING: this commit is not protected by the last green Full Quality Gate.' Yellow
         $confirm=Read-Host 'Continue with an unverified manual commit? [y/N]'
         if($confirm -match '^[Yy]$') { $message=Read-CommitMessage; Invoke-GitSourceAction 'ManualCommit' $message }
+      }
+      '10' {
+        Write-Color 'Lane toggle is governed. From Main, current uncommitted development work is stashed, switched to Experimental, then restored there.' Yellow
+        Write-Color 'Switching from Experimental back to Main requires a clean work tree and does not merge or cut over anything.' DarkGray
+        $confirm=Read-Host 'Toggle development lane now? [y/N]'
+        if($confirm -match '^[Yy]$') { Invoke-RegisteredCommand (Get-CommandByKey 'project.lane.toggle') }
+      }
+      '11' { Invoke-RegisteredCommand (Get-CommandByKey 'project.lane.status') }
+      '12' { Invoke-RegisteredCommand (Get-CommandByKey 'project.lane.compare') }
+      '13' {
+        Write-Color 'This only writes a cutover readiness plan. It cannot merge or mutate Main.' Yellow
+        Invoke-RegisteredCommand (Get-CommandByKey 'project.lane.prepare-cutover')
       }
       default { Write-Color 'Unknown menu option.' Yellow; Start-Sleep -Milliseconds 650; continue }
     }
@@ -1408,6 +1449,17 @@ do {
     '9' { Invoke-SubMenu 'logs' 'Logs & Help' }
     '10' { Invoke-SubMenu 'advanced' 'Advanced / All Registered Commands' }
     '11' { Invoke-GitHubMenu }
+    '12' {
+      $beforeLane=Get-ActiveGitBranchName
+      Write-Color ("CURRENT DEVELOPMENT LANE: {0}" -f $beforeLane) Cyan
+      if($beforeLane -eq 'main') {
+        Write-Color 'Main is protected. Uncommitted development work will be preserved and moved to Experimental before switching.' Yellow
+      } elseif($beforeLane -eq 'experimental') {
+        Write-Color 'Returning to Main is inspection-only and requires a clean Experimental work tree. Nothing is merged or cut over.' Yellow
+      }
+      $confirm=Read-Host 'Toggle Main / Experimental now? [y/N]'
+      if($confirm -match '^[Yy]$') { Invoke-RegisteredCommand (Get-CommandByKey 'project.lane.toggle') }
+    }
     default { Write-Color 'Unknown menu option.' Yellow; Start-Sleep -Milliseconds 650 }
   }
 } while($true)
