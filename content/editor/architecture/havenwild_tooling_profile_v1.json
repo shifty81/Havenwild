@@ -1,0 +1,23 @@
+{
+  "schema": "havenwild.editor_tooling_profile.v1",
+  "project": "Havenwild",
+  "purpose": "Havenwild-specific mirror of Ember-style editor/tooling capability boundaries",
+  "host": "Havenwild Editor",
+  "sharedServices": [
+    "command-registry", "selection", "transactions", "undo-redo", "documents", "jobs", "diagnostics",
+    "project-files", "asset-browser", "content-publication", "pie-runtime-bridge"
+  ],
+  "studios": [
+    "World Studio", "Scene Studio", "Terrain Studio", "TileSet / Atlas Mapper Studio", "Pixel Studio",
+    "Animation Studio", "Character Studio", "Building Studio", "Prefab Studio", "PCG Studio",
+    "Logic Studio", "Dialogue Studio", "Sound Studio"
+  ],
+  "rules": {
+    "singleCommandAuthority": true,
+    "singleUndoAuthority": true,
+    "singleAssetBrowserAuthority": true,
+    "standaloneToolsMayUseSharedModules": true,
+    "forgeGuiContainsGameSemantics": false,
+    "havenwildSpecificProvidersStayInHavenwild": true
+  }
+}

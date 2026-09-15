@@ -1,0 +1,22 @@
+{
+  "schema": "havenwild.pcc_capabilities.v2",
+  "provider": "forge.internal_pcc.v2",
+  "project": "Havenwild",
+  "authority": "project-native-pcc",
+  "stableCommands": {
+    "status": "pcc.status",
+    "fullGate": "validation.full-quality-gate",
+    "fastGate": "validation.fast-quality-gate",
+    "commitPushGreen": "source-control.commit-push-green",
+    "laneToggle": "project.lane.toggle",
+    "patchLedger": "pcc.patch-ledger",
+    "capabilities": "pcc.capabilities",
+    "validate": "pcc.validate-v2"
+  },
+  "integration": {
+    "ForgePY": "supported through tools/forge/HavenwildPccProvider.py",
+    "Ember": "mirrors generic operations contracts without making Havenwild depend on Ember",
+    "Cortex": "future adapter may invoke the same stable command keys",
+    "standalone": true
+  }
+}

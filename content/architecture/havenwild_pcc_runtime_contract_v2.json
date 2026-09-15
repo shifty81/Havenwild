@@ -1,0 +1,65 @@
+{
+  "schema": "havenwild.pcc_runtime_contract.v2",
+  "project": "Havenwild",
+  "lane": "experimental",
+  "shell": {
+    "authority": "tools/control/HavenwildPccHost.ps1",
+    "legacyBackend": "tools/control/HavenwildTools.ps1",
+    "principle": "shell orchestration and command execution are separate authorities"
+  },
+  "frontDoor": {
+    "provider": "tools/control/PccQuickState.py",
+    "prohibitsGovernedSourceHashing": true,
+    "networkRequired": false,
+    "branchAwareRemoteTracking": true,
+    "quickCertificationReceipt": ".havenwild/pcc/quick-certification.json",
+    "rehashesOnlyChangedPaths": true,
+    "postGateUncommittedGreenSupported": true
+  },
+  "restart": {
+    "authority": "tools/control/PccRestartTicket.ps1",
+    "maxAutomaticRestartsPerUpdate": 1,
+    "synchronousNestedPcc": false,
+    "emptyInteractiveInputExits": true,
+    "gateResumeUsesOriginalCommand": true,
+    "cliSelfUpdateWaitsForResumedCommand": true,
+    "interactiveSelfUpdateTransfersMenuOwnershipOnce": true
+  },
+  "patchIntake": {
+    "authority": "tools/control/InvokeRootPatchIntake.ps1",
+    "preflight": "tools/control/PccPatchPreflight.ps1",
+    "ledger": "tools/control/PccPatchLedger.ps1",
+    "lanePreflightBeforeMutation": true,
+    "mainToExperimentalMayBeAutomaticWhenSafe": true,
+    "experimentalToMainAutomaticSwitch": false,
+    "requiredFailedPatchBlocksGate": true,
+    "states": [
+      "PENDING",
+      "APPLIED",
+      "FAILED",
+      "DEFERRED"
+    ],
+    "archiveEvidenceDeterminesAppliedVsFailed": true,
+    "legacyNonBlockingFailureCannotMasqueradeAsApplied": true
+  },
+  "commands": {
+    "registry": "tools/control/ProjectCommandRegistry.ps1",
+    "extensions": "tools/control/PccCommandExtensions.ps1",
+    "executionBackend": "tools/control/HavenwildTools.ps1"
+  },
+  "jobs": {
+    "authority": "tools/control/PccJobHost.ps1",
+    "receipts": ".havenwild/jobs",
+    "structured": true
+  },
+  "certification": {
+    "fullGateRemainsCanonical": "validation.full-quality-gate",
+    "fullHashingAllowed": [
+      "full-gate",
+      "protected-commit",
+      "protected-publication",
+      "explicit-certification"
+    ],
+    "frontDoorIsNotCertification": true
+  }
+}

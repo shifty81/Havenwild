@@ -1,7 +1,12 @@
 @echo off
 setlocal EnableExtensions
 set "ROOT=%~dp0"
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ROOT%tools\control\HavenwildTools.ps1" %*
+set "HOST=%ROOT%tools\control\HavenwildPccHost.ps1"
+if not exist "%HOST%" (
+  echo Havenwild PCC v2 host is missing: "%HOST%"
+  exit /b 2
+)
+powershell -NoProfile -ExecutionPolicy Bypass -File "%HOST%" %*
 set "RC=%ERRORLEVEL%"
 if not "%RC%"=="0" (
   echo.
