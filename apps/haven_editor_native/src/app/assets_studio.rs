@@ -1,6 +1,6 @@
 #![allow(dead_code)] // Asset authority contracts are consumed incrementally.
 use super::*;
-use super::render_helpers::{draw_list_row, draw_tab_widget};
+use super::render_helpers::{draw_editor_widget, draw_list_row, draw_tab_widget};
 use serde_json::Value;
 use std::collections::{BTreeMap, BTreeSet};
 use std::fs;
@@ -229,6 +229,34 @@ impl AssetsStudioState {
     }
 }
 
+// A fixed selection inspector lives below the scrollable list. Keep input,
+// rendering and wheel clamping in agreement so no invisible row is selectable.
+fn asset_studio_list_capacity(body_height: f32, row_height: f32) -> usize {
+    ((body_height - 200.0).max(0.0) / row_height).floor().max(1.0) as usize
+}
+
+fn asset_studio_max_scroll(count: usize, visible: usize) -> usize {
+    count.saturating_sub(visible)
+}
+
+fn asset_studio_reload_rect(body: Rect) -> Rect {
+    Rect::new(
+        body.x + (body.w - 154.0).max(4.0),
+        body.y + 5.0,
+        142.0,
+        28.0,
+    )
+}
+
+fn asset_studio_selection_rect(body: Rect) -> Rect {
+    Rect::new(
+        body.x + 8.0,
+        body.y + body.h - 114.0,
+        (body.w - 16.0).max(1.0),
+        106.0,
+    )
+}
+
 fn u64_at(v: &Value, key: &str) -> u64 {
     v.get(key).and_then(Value::as_u64).unwrap_or(0)
 }
@@ -399,6 +427,8 @@ impl EditorApp {
             body.h,
             editor_theme::colors::PANEL_BG,
         );
+        // Refresh is an explicit action: never rescan sources during drawing.
+        draw_editor_widget(asset_studio_reload_rect(body), "Refresh Catalog", false);
         if let Some(error) = self.assets_studio.load_error.as_ref() {
             draw_editor_text(
                 "Assets catalog unavailable",
@@ -449,7 +479,7 @@ impl EditorApp {
             ),
             body.x + 12.0,
             body.y + 47.0,
-            body.w - 24.0,
+            (body.w - 24.0).max(1.0),
             12.0,
             MUTED,
         );
@@ -498,7 +528,7 @@ impl EditorApp {
                 for (slot, a) in certified
                     .into_iter()
                     .skip(start)
-                    .take(((body.h - 88.0) / 38.0).max(1.0) as usize)
+                    .take(asset_studio_list_capacity(body.h, 38.0))
                     .enumerate()
                 {
                     let r = Rect::new(body.x + 12.0, y - 18.0, body.w - 24.0, 34.0);
@@ -525,7 +555,7 @@ impl EditorApp {
                     .sheets
                     .iter()
                     .skip(start)
-                    .take(((body.h - 88.0) / 34.0).max(1.0) as usize)
+                    .take(asset_studio_list_capacity(body.h, 34.0))
                     .enumerate()
                 {
                     let r = Rect::new(body.x + 12.0, y - 18.0, body.w - 24.0, 30.0);
@@ -551,7 +581,7 @@ impl EditorApp {
                     .family_counts
                     .iter()
                     .skip(self.assets_studio.scroll)
-                    .take(((body.h - 88.0) / 34.0).max(1.0) as usize)
+                    .take(asset_studio_list_capacity(body.h, 34.0))
                     .enumerate()
                 {
                     let r = Rect::new(body.x + 12.0, y - 18.0, body.w - 24.0, 30.0);
@@ -599,7 +629,7 @@ impl EditorApp {
                 for (slot, a) in review
                     .into_iter()
                     .skip(start)
-                    .take(((body.h - 88.0) / 38.0).max(1.0) as usize)
+                    .take(asset_studio_list_capacity(body.h, 38.0))
                     .enumerate()
                 {
                     let r = Rect::new(body.x + 12.0, y - 18.0, body.w - 24.0, 34.0);
@@ -624,6 +654,120 @@ impl EditorApp {
                     y += 38.0;
                 }
             }
+        }
+
+        if matches!(
+            self.assets_studio.section,
+            AssetsStudioSection::Inbox | AssetsStudioSection::Usage
+        ) {
+            return;
+        }
+        let selection = asset_studio_selection_rect(body);
+        draw_rectangle(
+            selection.x,
+            selection.y,
+            selection.w,
+            selection.h,
+            editor_theme::colors::CONTROL_BG,
+        );
+        draw_rectangle_lines(
+            selection.x,
+            selection.y,
+            selection.w,
+            selection.h,
+            1.0,
+            editor_theme::colors::BORDER_SUBTLE,
+        );
+        draw_editor_text(
+            "SELECTION / SOURCE AUTHORITY",
+            selection.x + 10.0,
+            selection.y + 20.0,
+            12.0,
+            MUTED,
+        );
+        let details: Option<[String; 3]> = match self.assets_studio.section {
+            AssetsStudioSection::Library | AssetsStudioSection::Review => {
+                let is_library = self.assets_studio.section == AssetsStudioSection::Library;
+                c.assemblies
+                    .iter()
+                    .filter(|asset| {
+                        let stage = AssetUnderstandingStage::from_assembly(asset);
+                        if is_library {
+                            stage == AssetUnderstandingStage::RuntimeCertified
+                        } else {
+                            !matches!(
+                                stage,
+                                AssetUnderstandingStage::RuntimeCertified
+                                    | AssetUnderstandingStage::RejectedOrDeprecated
+                            )
+                        }
+                    })
+                    .nth(self.assets_studio.selected_row)
+                    .map(|asset| {
+                        [
+                            format!(
+                                "ID: {} | {}",
+                                asset.asset_id,
+                                AssetUnderstandingStage::from_assembly(asset).label()
+                            ),
+                            format!(
+                                "Role: {} | Footprint: {} | Assembly: {}",
+                                asset.semantic_role, asset.footprint, asset.assembly_id
+                            ),
+                            format!("Source: {}", asset.source),
+                        ]
+                    })
+            }
+            AssetsStudioSection::Sources => c
+                .sheets
+                .get(self.assets_studio.selected_row)
+                .map(|sheet| {
+                    [
+                        format!("SOURCE ONLY: {}", sheet.source),
+                        format!(
+                            "{}x{} | {} candidate(s) | {}",
+                            sheet.width, sheet.height, sheet.assemblies, sheet.classification
+                        ),
+                        format!("SHA-256: {}", sheet.sha256),
+                    ]
+                }),
+            AssetsStudioSection::Families => c
+                .family_counts
+                .iter()
+                .nth(self.assets_studio.selected_row)
+                .map(|(name, count)| {
+                    [
+                        format!("Family: {}", name),
+                        format!(
+                            "{} candidate assemblies; individual assets require semantic certification",
+                            count
+                        ),
+                        "Use Library for certified content, Review for incomplete bindings."
+                            .to_string(),
+                    ]
+                }),
+            AssetsStudioSection::Inbox | AssetsStudioSection::Usage => None,
+        };
+        if let Some(lines) = details {
+            for (index, line) in lines.iter().enumerate() {
+                draw_scissored_text(
+                    line,
+                    selection.x + 10.0,
+                    selection.y + 41.0 + index as f32 * 22.0,
+                    (selection.w - 20.0).max(1.0),
+                    11.5,
+                    TEXT,
+                );
+            }
+        } else {
+            draw_scissored_text(
+                "Select a row to inspect its existing metadata.",
+                selection.x + 10.0,
+                selection.y + 50.0,
+                (selection.w - 20.0).max(1.0),
+                12.0,
+                MUTED,
+            );
         }
     }
 
@@ -652,15 +796,47 @@ impl EditorApp {
                 return true;
             }
         }
-        let body_y = rect.y + 46.0;
-        if my >= body_y + 54.0 {
+        let body = Rect::new(
+            rect.x + pad,
+            rect.y + 46.0,
+            (rect.w - pad * 2.0).max(1.0),
+            (rect.h - 52.0).max(1.0),
+        );
+        if asset_studio_reload_rect(body).contains(p) {
+            self.assets_studio.reload(&repo_root_dir());
+            self.status_message = match &self.assets_studio.load_error {
+                Some(error) => format!("Asset catalog refresh failed: {error}"),
+                None => format!(
+                    "Asset catalog refreshed: {} certified, {} review",
+                    self.assets_studio.certified_count(),
+                    self.assets_studio.review_count()
+                ),
+            };
+            return true;
+        }
+        if self.assets_studio.load_error.is_some() {
+            return true;
+        }
+        let body_y = body.y;
+        if my >= body_y + 54.0 && my < asset_studio_selection_rect(body).y {
             let row_h = match self.assets_studio.section {
                 AssetsStudioSection::Library | AssetsStudioSection::Review => 38.0,
                 _ => 34.0,
             };
             let idx = ((my - (body_y + 54.0)) / row_h).floor().max(0.0) as usize
                 + self.assets_studio.scroll;
-            self.assets_studio.selected_row = idx;
+            let count = match self.assets_studio.section {
+                AssetsStudioSection::Library => self.assets_studio.certified_count(),
+                AssetsStudioSection::Sources => self.assets_studio.catalog.sheets.len(),
+                AssetsStudioSection::Families => self.assets_studio.catalog.family_counts.len(),
+                AssetsStudioSection::Review => self.assets_studio.review_count(),
+                AssetsStudioSection::Inbox | AssetsStudioSection::Usage => 0,
+            };
+            if idx < count
+                && idx < self.assets_studio.scroll + asset_studio_list_capacity(body.h, row_h)
+            {
+                self.assets_studio.selected_row = idx;
+            }
             return true;
         }
         true
@@ -686,11 +862,20 @@ impl EditorApp {
             AssetsStudioSection::Review => self.assets_studio.review_count(),
             _ => 0,
         };
-        if wheel < 0.0 {
-            self.assets_studio.scroll =
-                (self.assets_studio.scroll + 3).min(max.saturating_sub(1));
+        let row_h = if matches!(
+            self.assets_studio.section,
+            AssetsStudioSection::Library | AssetsStudioSection::Review
+        ) {
+            38.0
         } else {
-            self.assets_studio.scroll = self.assets_studio.scroll.saturating_sub(3);
+            34.0
+        };
+        let body_h = (rect.h - 52.0).max(1.0);
+        let last_start = asset_studio_max_scroll(max, asset_studio_list_capacity(body_h, row_h));
+        if wheel < 0.0 {
+            self.assets_studio.scroll = self.assets_studio.scroll.saturating_add(3).min(last_start);
+        } else {
+            self.assets_studio.scroll = self.assets_studio.scroll.saturating_sub(3).min(last_start);
         }
         true
     }
@@ -724,6 +909,20 @@ pub(crate) fn family_completeness_roles() -> BTreeMap<&'static str, BTreeSet<&'s
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn asset_list_never_scrolls_into_blank_space() {
+        assert_eq!(asset_studio_max_scroll(3, 8), 0);
+        assert_eq!(asset_studio_max_scroll(20, 8), 12);
+        assert_eq!(asset_studio_list_capacity(390.0, 38.0), 5);
+        assert_eq!(asset_studio_list_capacity(120.0, 34.0), 1);
+    }
+
+    #[test]
+    fn reload_and_selection_do_not_overlap() {
+        let body = Rect::new(0.0, 0.0, 700.0, 450.0);
+        assert!(asset_studio_reload_rect(body).y + 28.0 < asset_studio_selection_rect(body).y);
+    }
 
     #[test]
     fn asset_sections_are_the_frozen_six() {
