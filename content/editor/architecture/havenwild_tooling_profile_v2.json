@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.editor_tooling_profile.v2",
+  "project": "Havenwild",
+  "purpose": "Havenwild-specific Ember-style editor capability architecture without an Ember repository dependency",
+  "host": "Havenwild Editor",
+  "headlessCore": "haven_authoring",
+  "sharedServices": [
+    "command-registry",
+    "documents",
+    "selection",
+    "transactions",
+    "undo-redo",
+    "jobs",
+    "problems",
+    "project-content",
+    "asset-browser",
+    "studio-registry",
+    "pie-runtime-bridge"
+  ],
+  "studiosAuthority": "content/editor/architecture/havenwild_studio_registry_v2.json",
+  "rules": {
+    "singleCommandAuthority": true,
+    "singleUndoAuthority": true,
+    "singleProjectContentIdentity": true,
+    "singleInspectorContext": true,
+    "standaloneToolsMayRemainThinAdapters": true,
+    "forgeGuiContainsGameSemantics": false,
+    "havenwildSpecificProvidersStayInHavenwild": true
+  }
+}

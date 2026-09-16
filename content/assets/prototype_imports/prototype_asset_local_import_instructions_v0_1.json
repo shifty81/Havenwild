@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.asset_local_import_instructions.v0_1",
-  "updated": "2026-09-08T01:45:51+00:00",
+  "updated": "2026-09-16T02:55:01+00:00",
   "purpose": "LPC source is already mirrored locally.",
   "rules": {
     "preferredMode": "promote_from_assets/source/licensed/lpc_revised"

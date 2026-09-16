@@ -1,0 +1,11 @@
+{
+  "schema": "forgepy.runtime.lock.v1",
+  "version": "1.4.0-hardened",
+  "build": "FORGEPY-STANDALONE-U5-AUTO-ONBOARD",
+  "sourceAuthority": {
+    "repository": "shifty81/Forge",
+    "commit": "f00ca0fea2dfa29dc930fcc18ddcedc347a7c6ad",
+    "candidate": "FORGEPY-F797"
+  },
+  "hardeningLane": "standalone-portable-pcc-u5-auto-onboarding"
+}

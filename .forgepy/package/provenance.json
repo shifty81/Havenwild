@@ -1,0 +1,23 @@
+{
+  "schema": "forgepy.standalone.provenance.v5",
+  "packageBuild": "FORGEPY-STANDALONE-U5-AUTO-ONBOARD",
+  "packageVersion": "1.4.0-hardened",
+  "derivedContractAuthority": {
+    "repository": "https://github.com/shifty81/Forge",
+    "commit": "f00ca0fea2dfa29dc930fcc18ddcedc347a7c6ad",
+    "candidate": "FORGEPY-F797"
+  },
+  "hardening": {
+    "basis": "FORGEPY-STANDALONE-U4-GUI-PROVIDER",
+    "scope": "repository-local PCC runtime, GUI/provider layer, automatic onboarding/build-plan discovery and snapshot performance",
+    "validation": "U4 regression matrix plus U5 mixed-component discovery/build, scan cache, snapshot, adapter pinning, release-target, unresolved-engine and control-plane protection tests"
+  },
+  "notes": [
+    "U5 scans unfamiliar repositories and synthesizes transparent component-aware gate/build/test/run operations without executing them during install.",
+    "Mixed repositories expose unique per-component operations while semantic Build/Test/Quick operations compose all matching targets.",
+    "The GUI uses one cached project snapshot per refresh and adds a Build Plan view with components, defaults, warnings and unresolved tooling.",
+    "Generated adapters can be explicitly pinned but project-owned adapters are never overwritten.",
+    "Execution-control metadata is protected from generic root-drop project patches.",
+    "Machine-wide Vault, Ember hosting and full-drive orchestration remain outside this detached repository-local core."
+  ]
+}

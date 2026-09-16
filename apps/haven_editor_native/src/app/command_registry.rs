@@ -1,18 +1,6 @@
 //! W73D/W73E — canonical native-editor command vocabulary.
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
-pub(crate) enum EditorCommandId {
-    SaveAll, ReloadSaved, CloseActiveDocument, ReopenClosedDocument, CloseAllPixelDocuments,
-    NewSceneDocument, BrowseProjectScenes, CloseSceneDocument, ReopenClosedSceneDocument,
-    Undo, Redo, Cut, Copy, CopyMerged, Paste, Duplicate, MirrorHorizontal, MirrorVertical,
-    PromoteSelection, OpenWorld, OpenScene, OpenPixel, OpenAnimation, OpenCharacter, OpenLogic,
-    OpenSound, OpenWorldRoutes, OpenSceneBank, OpenUiDocuments, ToggleRightDock, ToggleBottomDock, DockProperties,
-    DockAssets, DockOutliner, DockValidation, ToggleLayoutAudit, ResetLayout, ToggleToolRail,
-    ToggleLayerRail, TogglePalette, FrameCanvas, RegenerateSeed, RerollArchipelago,
-    ExportIslandPngs, PixelEditSelection, Play, PlayFromHere, Restart, Stop, PublishComposition,
-    OpenAssetBrowser, CreatePcgExemplar, RefreshAssetCatalog, HelpWelcome, HelpShortcuts,
-    HelpCanvas, HelpAssets, HelpPixel, HelpColor,
-}
+pub(crate) type EditorCommandId = haven_authoring::EditorActionId;
 
 #[derive(Clone, Copy, Debug)]
 pub(crate) struct MenuCommand { pub label: &'static str, pub id: EditorCommandId }
@@ -81,10 +69,60 @@ pub(crate) const HELP_COMMANDS: &[MenuCommand] = &[
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
     fn nine_menu_groups_are_registered() {
-        let menus = [FILE_COMMANDS, EDIT_COMMANDS, VIEW_COMMANDS, WORLD_COMMANDS, SCENE_COMMANDS, ASSET_COMMANDS, BUILD_COMMANDS, TOOLS_COMMANDS, HELP_COMMANDS];
+        let menus = [
+            FILE_COMMANDS,
+            EDIT_COMMANDS,
+            VIEW_COMMANDS,
+            WORLD_COMMANDS,
+            SCENE_COMMANDS,
+            ASSET_COMMANDS,
+            BUILD_COMMANDS,
+            TOOLS_COMMANDS,
+            HELP_COMMANDS,
+        ];
         assert_eq!(menus.len(), 9);
         assert!(menus.iter().all(|menu| !menu.is_empty()));
+
+        // Menu placement is a presentation surface, not command identity.
+        // One canonical action may intentionally appear in more than one menu
+        // (for example FrameCanvas and PlayFromHere). Only duplicates inside a
+        // single menu are invalid.
+        for menu in menus {
+            let mut keys = std::collections::BTreeSet::new();
+            for command in menu {
+                assert!(
+                    keys.insert(command.id.stable_key()),
+                    "duplicate action within one menu: {}",
+                    command.id.stable_key()
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn shared_actions_can_appear_on_multiple_menu_surfaces() {
+        let menus = [
+            FILE_COMMANDS,
+            EDIT_COMMANDS,
+            VIEW_COMMANDS,
+            WORLD_COMMANDS,
+            SCENE_COMMANDS,
+            ASSET_COMMANDS,
+            BUILD_COMMANDS,
+            TOOLS_COMMANDS,
+            HELP_COMMANDS,
+        ];
+        let count = |key: &str| {
+            menus
+                .iter()
+                .flat_map(|menu| menu.iter())
+                .filter(|command| command.id.stable_key() == key)
+                .count()
+        };
+        assert_eq!(count(EditorCommandId::FrameCanvas.stable_key()), 3);
+        assert_eq!(count(EditorCommandId::PlayFromHere.stable_key()), 2);
     }
 }

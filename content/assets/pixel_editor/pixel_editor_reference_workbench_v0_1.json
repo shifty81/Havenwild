@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.pixel_editor_reference_workbench.v0_1",
-  "updated": "2026-09-08T01:45:51+00:00",
+  "updated": "2026-09-16T02:55:01+00:00",
   "purpose": "LPC slice/promotion workbench contract for the Art tab and future world editor mode.",
   "defaultMode": "slice_promote",
   "allowedReferenceActions": [

@@ -1,9 +1,8 @@
 {
   "schema": "havenwild.asset_catalog.v0_1",
-  "updatedAtUnixSeconds": 1788832241,
-  "purpose": "Project-wide asset index with ElizaWy/LPC as the primary visual foundation.",
+  "updated": "2026-09-16T02:55:01+00:00",
+  "purpose": "Unified LPC-only asset catalog indexes.",
   "primaryAuthority": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
-  "primarySource": "elizawy_lpc",
   "indexes": [
     {
       "id": "elizawy_project_authority",
@@ -112,25 +111,16 @@
       "kind": "prototype_queue",
       "path": "content/assets/prototype_imports/prototype_asset_import_queue_v0_1.json",
       "editorUse": "compatibility_stub"
-    },
-    {
-      "id": "world_tile_contract",
-      "kind": "world_tile_contract",
-      "path": "content/assets/world_tiles/world_tile_contract_v0_1.json",
-      "editorUse": "world_paint_contract"
-    },
-    {
-      "id": "world_environment_test_tiles",
-      "kind": "world_tile_atlas_manifest",
-      "path": "content/assets/world_tiles/havenwild_world_environment_test_v0_1.json",
-      "editorUse": "world_paint_render_bindings"
     }
   ],
   "editorContracts": {
-    "rootCollection": "ElizaWy/LPC",
-    "runtimeAndEditorShareCatalogs": true,
-    "rawSourceTreeRemainsImmutable": true,
-    "promotionRequiresSemanticRoleFootprintCollisionAndCreditContext": true
-  },
-  "updated": "2026-09-12T05:27:20+00:00"
+    "sliceTool": "select sheet -> inspect 32x32 cells -> promote cells into terrain/object/stamp/autotile manifests",
+    "sliceToolInteractions": {
+      "atlasPreview": "click and drag to select source cells",
+      "selectionPreview": "show enlarged selected-cell rectangle and source rect metadata",
+      "assemblyCanvas": "place selected cells on a snapped canvas to author tileable patches/landmass stamps",
+      "pcgAssist": "export assembled patches as worldgen seed masks or autotile validation fixtures"
+    },
+    "worldEditorMap": "world map should consume scene/world manifests and redraw after scene mutations"
+  }
 }

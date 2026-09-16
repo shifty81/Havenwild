@@ -1,0 +1,11 @@
+{
+  "schema": "pcc.vault_project_dependencies.v1",
+  "project": "Havenwild",
+  "contract": "content/architecture/universal_pcc_vault_contract_v1.json",
+  "dependencies": [
+    {
+      "lock": "content/assets/intake/lpc_terrain_v7_source_lock_v0_1.json",
+      "role": "terrain_authoring_source"
+    }
+  ]
+}

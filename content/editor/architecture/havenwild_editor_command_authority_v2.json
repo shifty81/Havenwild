@@ -1,0 +1,11 @@
+{
+  "schema": "havenwild.editor_command_authority.v2",
+  "authority": "crates/haven_authoring/src/editor_actions.rs",
+  "nativeAdapter": "apps/haven_editor_native/src/app/command_registry.rs",
+  "rules": {
+    "oneStableActionIdPerBehavior": true,
+    "uiLabelsAreNotCommandIdentity": true,
+    "nativeEditorDoesNotOwnASecondCommandEnum": true,
+    "actionsRemainHostAgnostic": true
+  }
+}

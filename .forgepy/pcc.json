@@ -1,0 +1,24 @@
+{
+  "schema": "forgepy.universal.pcc.v5",
+  "runtimeBuild": "FORGEPY-STANDALONE-U5-AUTO-ONBOARD",
+  "runtimeVersion": "1.4.0-hardened",
+  "donorBuild": "FORGEPY-F797",
+  "providerResolution": [
+    "internal-pcc",
+    "root-project-contract",
+    "project-local-forgepy-adapter",
+    "forgepy-automatic-discovery"
+  ],
+  "rootProjectControlOptional": true,
+  "graphicalPCCDefault": true,
+  "consolePCCFallback": true,
+  "jsonlBridge": "forgepy.universal.jsonl.v2",
+  "snapshotSchema": "forgepy.snapshot.v1",
+  "onboardingPlan": "forgepy.onboarding.plan.v1",
+  "repositoryScan": "forgepy.repository.scan.v1",
+  "singleWriterOperations": true,
+  "projectIdentity": "forgepy.project.identity.v1",
+  "capabilityDiscovery": true,
+  "operationHistory": "forgepy.operation.evidence.v1",
+  "certificationReceipts": "forgepy.green.v3"
+}

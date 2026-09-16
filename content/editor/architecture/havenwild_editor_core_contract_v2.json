@@ -1,0 +1,26 @@
+{
+  "schema": "havenwild.editor_core_contract.v2",
+  "project": "Havenwild",
+  "authorityCrate": "haven_authoring",
+  "nativeHost": "apps/haven_editor_native",
+  "services": [
+    "commands",
+    "documents",
+    "selection",
+    "transactions",
+    "project-content",
+    "assets",
+    "jobs",
+    "problems",
+    "runtime-bridge",
+    "persistence",
+    "studio-registry"
+  ],
+  "rules": {
+    "headlessCoreHasNoWindowingCode": true,
+    "nativeEditorHostsButDoesNotDuplicateCoreAuthority": true,
+    "undoRedoRemainsTransactionBacked": true,
+    "selectionAndInspectorShareContext": true,
+    "projectFilesAndAssetBrowserShareContentIdentity": true
+  }
+}

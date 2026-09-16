@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.donor_reference_asset_catalog.v0_1",
-  "updated": "2026-09-08T01:45:51+00:00",
+  "updated": "2026-09-16T02:55:01+00:00",
   "purpose": "LPC source groups exposed to the in-game Art tab and future world-editor slice tool.",
   "rules": {
     "runtimePromotion": "promote exact cells/rects into generated manifests",

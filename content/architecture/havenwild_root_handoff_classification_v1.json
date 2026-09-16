@@ -1,0 +1,30 @@
+{
+  "schema": "havenwild.root_handoff_classification.v1",
+  "version": 1,
+  "updated": "2026-09-15",
+  "authority": "tools/control/PccRootHandoffClassifier.ps1",
+  "purpose": "Keep repository root clean by separating installable update transports from non-installable source rollups and snapshots.",
+  "installableTransports": [
+    "Havenwild_IncrementalPatch_*.zip",
+    "Havenwild_Patch_*.zip",
+    "Havenwild_Handoff_*.zip",
+    "Havenwild__*.patch",
+    "Havenwild_Patch_*.patch",
+    "HW-*.patch"
+  ],
+  "nonInstallableRootHandoffs": [
+    "Havenwild_CumulativeSourceRollup_*.zip",
+    "Havenwild_FullSourceRollup_*.zip",
+    "Havenwild_SourceRollup_*.zip",
+    "Havenwild_SourceSnapshot_*.zip"
+  ],
+  "behavior": {
+    "when": ["PCC startup before patch discovery", "Full/Fast Gate before patch discovery"],
+    "validHandoffDestination": "artifacts/packages/received/<timestamp>",
+    "invalidOrHashMismatchDestination": "artifacts/packages/quarantine/<timestamp>",
+    "sidecar": "If .sha256 or .sha256.txt is present, verify before classification and move it with the archive.",
+    "sourceMutation": false,
+    "rootAudit": "Root audit remains strict and side-effect free; classification happens before it."
+  },
+  "rationale": "A source rollup is a recovery/new-folder handoff, not a patch installer. Dropping one into the live repository root must not be mistaken for source authority or poison Full Gate cleanliness."
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "havenwild.editor_context_contract.v2",
+  "authority": "crates/haven_authoring/src/editor_context.rs",
+  "owns": ["active-document", "open-documents", "document-dirty-state", "selection", "inspector-context"],
+  "rules": {
+    "inspectorFollowsSelectionWhenPresent": true,
+    "inspectorFallsBackToDocumentThenProject": true,
+    "documentAndSelectionAreSeparateIdentities": true,
+    "contextIsSerializableForFutureWorkspaceRestore": true
+  }
+}

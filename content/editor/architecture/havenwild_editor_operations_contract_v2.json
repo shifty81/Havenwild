@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.editor_operations_contract.v2",
+  "authority": "crates/haven_authoring/src/editor_operations.rs",
+  "surfaces": ["jobs", "progress", "problems", "logs"],
+  "rules": {
+    "jobsHaveStableIds": true,
+    "progressIsBounded": true,
+    "terminalStateIsExplicit": true,
+    "problemsReferenceSourceAndJobWhenKnown": true,
+    "bottomDockConsumesSharedOperationsState": true
+  }
+}

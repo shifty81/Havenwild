@@ -1,0 +1,54 @@
+{
+  "schema": "forge.project.v1",
+  "provider": {
+    "type": "internal-pcc",
+    "name": "Example Project Internal PCC"
+  },
+  "project": {
+    "id": "example",
+    "name": "Example Project",
+    "kind": "custom"
+  },
+  "stateDirectory": ".forgepy/state",
+  "commands": [
+    {
+      "key": "gate.full",
+      "label": "Project Full Gate",
+      "category": "gate",
+      "risk": "write",
+      "program": "python",
+      "args": ["tools/project_gate.py", "full"],
+      "mutates": true,
+      "timeoutSeconds": 3600
+    },
+    {
+      "key": "build.default",
+      "label": "Build",
+      "category": "build",
+      "risk": "write",
+      "program": "python",
+      "args": ["tools/build.py"],
+      "mutates": true,
+      "timeoutSeconds": 3600
+    },
+    {
+      "key": "test.default",
+      "label": "Test",
+      "category": "test",
+      "risk": "read",
+      "program": "python",
+      "args": ["tools/test.py"],
+      "timeoutSeconds": 3600
+    },
+    {
+      "key": "run.default",
+      "label": "Run",
+      "category": "run",
+      "risk": "read",
+      "program": "python",
+      "args": ["main.py"],
+      "cwd": "app",
+      "timeoutSeconds": 0
+    }
+  ]
+}

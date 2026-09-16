@@ -25,8 +25,15 @@ function Test-PccCommandKey {
 function Invoke-PccLegacyCommand {
   param([string]$Root,[string]$Key,[string]$Pass='manual')
   $legacy=Join-Path $Root 'tools\control\HavenwildTools.ps1'
-  & powershell -NoProfile -ExecutionPolicy Bypass -File $legacy -Command $Key -Pass $Pass
-  return $LASTEXITCODE
+  # Do not let the caller's `$code = Invoke-PccLegacyCommand ...` assignment
+  # capture the legacy control center's success stream. Converting each child
+  # line to host output here keeps Full/Fast Gate, Cargo, tests, and validators
+  # visible in real time while this function returns only the numeric exit code.
+  & powershell -NoProfile -ExecutionPolicy Bypass -File $legacy -Command $Key -Pass $Pass 2>&1 |
+    ForEach-Object { Write-Host $_ }
+  $code=$LASTEXITCODE
+  if($null -eq $code){ $code=0 }
+  return [int]$code
 }
 
 function Invoke-PccBuiltinCommand {
@@ -49,6 +56,22 @@ function Invoke-PccBuiltinCommand {
     }
     'pcc.validate-v2' {
       & $python.Source (Join-Path $Root 'tools\validation\Validate-HavenwildPccV2.py') '--root' $Root
+      return $LASTEXITCODE
+    }
+    'pcc.validate-lifecycle' {
+      & $python.Source (Join-Path $Root 'tools\validation\Validate-HavenwildPccLifecycle.py') '--root' $Root
+      return $LASTEXITCODE
+    }
+    'pcc.validate-editor-v2' {
+      & $python.Source (Join-Path $Root 'tools\validation\Validate-HavenwildEditorArchitectureV2.py') '--root' $Root
+      return $LASTEXITCODE
+    }
+    'pcc.vault-status' {
+      & $python.Source (Join-Path $Root 'tools\control\PccVaultAdapter.py') 'status' '--root' $Root '--pretty'
+      return $LASTEXITCODE
+    }
+    'pcc.vault-sync' {
+      & $python.Source (Join-Path $Root 'tools\control\PccVaultAdapter.py') 'sync' '--root' $Root '--pretty'
       return $LASTEXITCODE
     }
   }

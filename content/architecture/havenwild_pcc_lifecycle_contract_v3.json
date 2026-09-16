@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.pcc_lifecycle_contract.v3",
+  "project": "Havenwild",
+  "lane": "experimental",
+  "authority": "tools/control/HavenwildPccHost.ps1",
+  "startup": {
+    "quickStateBeforeHeavyValidation": true,
+    "rootPatchDiscoveryIsBounded": true,
+    "networkRequired": false,
+    "governedSourceHashingAllowed": false
+  },
+  "restart": {
+    "authority": "tools/control/PccRestartTicket.ps1",
+    "singleConsumerTicket": true,
+    "maxAutomaticRestartsPerUpdate": 1,
+    "nestedInteractiveOwnership": false,
+    "resumeOriginalGateCommand": true,
+    "emptyInteractiveInputReturnsOrExits": true
+  },
+  "patchLifecycle": {
+    "lanePreflightBeforeMutation": true,
+    "archiveEvidenceRequiredForApplied": true,
+    "requiredFailureBlocksGate": true,
+    "states": ["PENDING", "APPLIED", "FAILED", "DEFERRED"]
+  },
+  "publication": {
+    "fullGateIsCanonicalCertification": true,
+    "protectedPublicationRequiresGreen": true,
+    "mainNeverMovesDuringExperimentalPublication": true
+  }
+}

@@ -14,3 +14,12 @@ Authorities:
 - certification: existing Full Quality Gate / `HavenwildGateAuthority.py`
 
 The new host does not weaken the Full Gate. It only removes expensive certification work and fragile nested menu ownership from ordinary front-door operation.
+
+## HW-46 through HW-55 integration
+
+PCC v2 now performs two additional lightweight pre-gate contract checks before entering the canonical Full Gate:
+
+- `pcc.validate-lifecycle` verifies the one-shot restart/update lifecycle and patch evidence policy.
+- `pcc.validate-editor-v2` verifies the normalized Havenwild Editor Core contracts and shared command authority.
+
+`tools/forge/HavenwildPccProvider.py` reads the live project command registry rather than maintaining a parallel ForgePY command list. ForgePY, standalone PCC and future Cortex adapters therefore consume the same project-native command keys.

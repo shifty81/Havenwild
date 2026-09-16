@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.project_content_authority.v2",
+  "authority": "crates/haven_authoring/src/project_content.rs",
+  "consumers": ["Project Files", "Content Browser", "Asset Browser", "Studio pickers"],
+  "identity": {
+    "stableIdRequired": true,
+    "relativePathIsLocationNotSemanticIdentity": true,
+    "assetIdMayBeAttached": true,
+    "externalSourceIsExplicit": true,
+    "readOnlySourceIsExplicit": true
+  }
+}

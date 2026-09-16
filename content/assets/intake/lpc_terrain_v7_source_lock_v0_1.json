@@ -60,6 +60,15 @@
     "A clean GitHub checkout may hydrate it into the project mount during build.",
     "HAVENWILD_LPC_TERRAIN_V7_ARCHIVE may point at a pre-downloaded archive.",
     "HAVENWILD_LPC_TERRAIN_V7_SOURCE may point at an already-extracted matching source directory.",
-    "HAVENWILD_OFFLINE=1 disables network acquisition and requires a valid local cache/override."
-  ]
+    "HAVENWILD_OFFLINE=1 disables network acquisition and requires a valid local cache/override.",
+    "Internal PCCs should resolve this dependency from the governed machine-wide Vault before using network acquisition.",
+    "A verified local/project copy may auto-promote to D:\\Vault\\Assets\\LPC\\Terrains\\lpc-terrains-v7 when the Universal PCC Vault contract is available."
+  ],
+  "vault": {
+    "contract": "pcc.universal_vault_contract.v1",
+    "kind": "asset",
+    "rootRelativePath": "Assets/LPC/Terrains/lpc-terrains-v7",
+    "autoPromote": true,
+    "sharedAcrossProjects": true
+  }
 }

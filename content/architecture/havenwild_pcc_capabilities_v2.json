@@ -11,12 +11,36 @@
     "laneToggle": "project.lane.toggle",
     "patchLedger": "pcc.patch-ledger",
     "capabilities": "pcc.capabilities",
-    "validate": "pcc.validate-v2"
+    "validate": "pcc.validate-v2",
+    "validateLifecycle": "pcc.validate-lifecycle",
+    "validateEditor": "pcc.validate-editor-v2",
+    "vaultStatus": "pcc.vault-status",
+    "vaultSync": "pcc.vault-sync"
   },
+  "providerActions": [
+    "capabilities",
+    "status",
+    "commands",
+    "command",
+    "full-gate",
+    "fast-gate",
+    "lane-toggle",
+    "patch-status",
+    "validate-pcc",
+    "validate-lifecycle",
+    "validate-editor"
+  ],
   "integration": {
-    "ForgePY": "supported through tools/forge/HavenwildPccProvider.py",
+    "ForgePY": "supported through tools/forge/HavenwildPccProvider.py using the live command registry",
     "Ember": "mirrors generic operations contracts without making Havenwild depend on Ember",
     "Cortex": "future adapter may invoke the same stable command keys",
     "standalone": true
+  },
+  "vault": {
+    "contract": "content/architecture/universal_pcc_vault_contract_v1.json",
+    "projectManifest": "content/architecture/pcc_vault_dependencies_v1.json",
+    "defaultWindowsRoot": "D:\\Vault",
+    "networkLastResort": true,
+    "automaticPromotionRequiresVerifiedHashesAndKnownLicense": true
   }
 }

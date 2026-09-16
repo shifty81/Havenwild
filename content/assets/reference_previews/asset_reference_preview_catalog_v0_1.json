@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.asset_reference_preview_catalog.v0_1",
-  "updated": "2026-09-08T01:45:51+00:00",
+  "updated": "2026-09-16T02:55:01+00:00",
   "purpose": "Preview records for LPC source groups.",
   "rules": {
     "previewSource": "source sheets under assets/source/licensed/lpc_revised"

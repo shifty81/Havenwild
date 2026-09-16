@@ -18,6 +18,7 @@ import hashlib
 import json
 import os
 import shutil
+import sys
 import tempfile
 import time
 import urllib.error
@@ -26,6 +27,17 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
+CONTROL_ROOT = ROOT / "tools/control"
+if str(CONTROL_ROOT) not in sys.path:
+    sys.path.insert(0, str(CONTROL_ROOT))
+from PccVaultAdapter import (  # noqa: E402
+    VaultError as PccVaultError,
+    archive_candidate as pcc_vault_archive_candidate,
+    discover_vault_root as pcc_discover_vault_root,
+    ensure_project_source as pcc_ensure_project_source,
+    promote as pcc_promote_source,
+)
+
 LOCK_PATH = ROOT / "content/assets/intake/lpc_terrain_v7_source_lock_v0_1.json"
 PROVENANCE_PATH = ROOT / "WORKSPACE/generated/dependencies/lpc_terrain_v7_source_v1.json"
 _TRUE = {"1", "true", "yes", "on"}
@@ -191,20 +203,60 @@ def write_provenance(lock: dict, source_kind: str, source_value: str, destinatio
     PROVENANCE_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
 
+def promote_to_vault_best_effort(source: Path, lock: dict, source_kind: str) -> None:
+    vault_root = pcc_discover_vault_root()
+    if vault_root is None:
+        return
+    try:
+        result = pcc_promote_source(source, lock, vault_root, ROOT)
+        status = str(result.get("status") or "")
+        if status in {"PROMOTED", "ALREADY_PRESENT"}:
+            print(f"PCC Vault {status.lower()}: {result.get('path')}")
+        elif status == "REVIEW_REQUIRED":
+            print(f"PCC Vault promotion deferred for review: {result.get('reason')}")
+    except (OSError, PccVaultError) as exc:
+        # Shared Vault availability must not make a project-local verified source unusable.
+        print(f"WARNING: PCC Vault promotion skipped after {source_kind}: {exc}")
+
+
 def main() -> int:
     lock = load_lock()
     destination = ROOT / str(lock["projectMount"])
-    ok, errors = validate_source(destination, lock)
-    if ok:
+
+    # Universal PCC Vault contract owns project/vault/cache resolution before any
+    # project-specific override or network acquisition. A valid project-local
+    # source is also promoted transactionally when the lock is hash-complete and
+    # license metadata permits automatic sharing.
+    vault_root = pcc_discover_vault_root()
+    try:
+        resolved = pcc_ensure_project_source(ROOT, LOCK_PATH, vault_root)
+    except (OSError, PccVaultError) as exc:
+        resolved = {"status": "VAULT_WARNING", "reason": str(exc)}
+    resolved_status = str(resolved.get("status") or "")
+    if resolved_status == "PROJECT_READY":
+        promotion = resolved.get("promotion") or {}
+        promotion_status = str(promotion.get("status") or "")
         print(
             f"LPC Terrains V7 source ready: {destination.relative_to(ROOT)} "
             f"({len(required_entries(lock))} locked files)"
         )
+        if promotion_status in {"PROMOTED", "ALREADY_PRESENT"}:
+            print(f"PCC Vault {promotion_status.lower()}: {promotion.get('path')}")
+        elif promotion_status == "VAULT_PROMOTION_WARNING":
+            print(f"WARNING: PCC Vault promotion skipped: {promotion.get('reason')}")
         return 0
+    if resolved_status in {"HYDRATED", "CACHE_HYDRATED"}:
+        write_provenance(lock, "pcc_vault_or_verified_cache", str(resolved.get("source") or resolved.get("vaultRoot") or ""), destination)
+        print(f"LPC Terrains V7 restored without network -> {destination}")
+        return 0
+    if resolved_status in {"VAULT_WARNING"}:
+        print(f"WARNING: PCC Vault lookup could not complete: {resolved.get('reason')}")
 
-    print("LPC Terrains V7 source requires restore:")
-    for error in errors[:12]:
-        print(f"  - {error}")
+    ok, errors = validate_source(destination, lock)
+    if not ok:
+        print("LPC Terrains V7 source requires restore:")
+        for error in errors[:12]:
+            print(f"  - {error}")
 
     source_override = os.environ.get("HAVENWILD_LPC_TERRAIN_V7_SOURCE", "").strip()
     if source_override:
@@ -217,6 +269,7 @@ def main() -> int:
             )
         install_verified_subset(source, destination, lock)
         write_provenance(lock, "source_override", str(source), destination)
+        promote_to_vault_best_effort(destination, lock, "source override")
         print(f"LPC Terrains V7 restored from source override -> {destination}")
         return 0
 
@@ -232,6 +285,7 @@ def main() -> int:
     if ok:
         install_verified_subset(verified_cache, destination, lock)
         write_provenance(lock, "verified_cache", str(verified_cache), destination)
+        promote_to_vault_best_effort(verified_cache, lock, "verified cache")
         print(f"LPC Terrains V7 restored from verified cache -> {destination}")
         return 0
 
@@ -240,17 +294,30 @@ def main() -> int:
     source_kind = ""
     source_value = ""
 
-    if archive_override:
+    # A verified/curated Vault archive is considered before an explicit project
+    # override or network acquisition. The archive contents are still verified
+    # against the exact project lock after extraction.
+    if vault_root is not None:
+        try:
+            vault_archive = pcc_vault_archive_candidate(lock, vault_root)
+        except (OSError, PccVaultError):
+            vault_archive = None
+        if vault_archive is not None:
+            archive = vault_archive
+            source_kind = "pcc_vault_archive"
+            source_value = str(vault_archive)
+
+    if archive is None and archive_override:
         archive = Path(archive_override).expanduser().resolve()
         if not archive.is_file() or not zipfile.is_zipfile(archive):
             raise RuntimeError(f"HAVENWILD_LPC_TERRAIN_V7_ARCHIVE is not a readable ZIP: {archive}")
         source_kind = "archive_override"
         source_value = str(archive)
-    else:
+    elif archive is None:
         if os.environ.get("HAVENWILD_OFFLINE", "").strip().lower() in _TRUE:
             raise RuntimeError(
                 "LPC Terrains V7 is missing and HAVENWILD_OFFLINE is enabled. "
-                "Provide HAVENWILD_LPC_TERRAIN_V7_ARCHIVE or HAVENWILD_LPC_TERRAIN_V7_SOURCE."
+                "No verified project mount, Vault source/archive, cache, or explicit override was available."
             )
         failures: list[str] = []
         download_path = cache_root / str(lock.get("archiveFileName") or "lpc-terrains.zip")
@@ -259,7 +326,7 @@ def main() -> int:
                 temporary = cache_root / f"download-{attempt}.tmp"
                 temporary.unlink(missing_ok=True)
                 try:
-                    print(f"Downloading LPC Terrains V7 (attempt {attempt}/3): {url}")
+                    print(f"Downloading LPC Terrains V7 as LAST RESORT (attempt {attempt}/3): {url}")
                     download(str(url), temporary)
                     temporary.replace(download_path)
                     archive = download_path
@@ -275,7 +342,8 @@ def main() -> int:
                 break
         if archive is None:
             raise RuntimeError(
-                "Unable to download LPC Terrains V7 archive:\n - " + "\n - ".join(failures)
+                "Unable to resolve LPC Terrains V7 from project, Vault, cache, overrides, or network:\n - "
+                + "\n - ".join(failures)
             )
 
     with tempfile.TemporaryDirectory(prefix="havenwild-lpc-terrain-v7-") as td:
@@ -298,6 +366,7 @@ def main() -> int:
 
     install_verified_subset(verified_cache, destination, lock)
     write_provenance(lock, source_kind, source_value, destination)
+    promote_to_vault_best_effort(verified_cache, lock, source_kind)
     print(
         f"LPC Terrains V7 restored and verified: {destination.relative_to(ROOT)} "
         f"({len(required_entries(lock))} locked files)"

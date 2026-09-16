@@ -1,0 +1,12 @@
+{
+  "schema": "havenwild.pie_runtime_bridge.v2",
+  "authority": "crates/haven_authoring/src/play_bridge.rs",
+  "runtimeTransport": "existing Havenwild development client bridge",
+  "requests": ["play", "play_from_here", "restart", "stop"],
+  "rules": {
+    "playFromHereRequiresExplicitLocation": true,
+    "playFromHereNeverSilentlyDegradesToPlay": true,
+    "runtimeSessionStateIsSeparateFromEditorDocumentState": true,
+    "existingDevBridgeRemainsTransportDuringMigration": true
+  }
+}

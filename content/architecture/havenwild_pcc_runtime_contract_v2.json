@@ -18,6 +18,8 @@
   },
   "restart": {
     "authority": "tools/control/PccRestartTicket.ps1",
+    "lifecycleContract": "content/architecture/havenwild_pcc_lifecycle_contract_v3.json",
+    "validator": "tools/validation/Validate-HavenwildPccLifecycle.py",
     "maxAutomaticRestartsPerUpdate": 1,
     "synchronousNestedPcc": false,
     "emptyInteractiveInputExits": true,
@@ -45,12 +47,19 @@
   "commands": {
     "registry": "tools/control/ProjectCommandRegistry.ps1",
     "extensions": "tools/control/PccCommandExtensions.ps1",
-    "executionBackend": "tools/control/HavenwildTools.ps1"
+    "executionBackend": "tools/control/HavenwildTools.ps1",
+    "provider": "tools/forge/HavenwildPccProvider.py",
+    "providerReadsLiveRegistry": true
   },
   "jobs": {
     "authority": "tools/control/PccJobHost.ps1",
     "receipts": ".havenwild/jobs",
     "structured": true
+  },
+  "editorArchitecture": {
+    "profile": "content/editor/architecture/havenwild_tooling_profile_v2.json",
+    "validator": "tools/validation/Validate-HavenwildEditorArchitectureV2.py",
+    "preflightBeforeFullGate": true
   },
   "certification": {
     "fullGateRemainsCanonical": "validation.full-quality-gate",
@@ -61,5 +70,21 @@
       "explicit-certification"
     ],
     "frontDoorIsNotCertification": true
+  },
+  "vault": {
+    "contract": "pcc.universal_vault_contract.v1",
+    "adapter": "tools/control/PccVaultAdapter.py",
+    "defaultWindowsRoot": "D:\\Vault",
+    "resolutionOrder": [
+      "project_mount",
+      "vault_source",
+      "project_cache",
+      "vault_archive",
+      "explicit_override",
+      "network"
+    ],
+    "networkIsLastResort": true,
+    "verifiedKnownLicenseMayAutoPromote": true,
+    "ambiguousContentRequiresReviewOrQuarantine": true
   }
 }

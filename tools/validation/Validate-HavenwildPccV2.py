@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, re, sys
+import argparse, json, re, subprocess, sys
 from pathlib import Path
 
 REQUIRED = [
@@ -14,6 +14,14 @@ REQUIRED = [
     "tools/control/PccCommandExtensions.ps1",
     "tools/control/PccQuickState.py",
     "tools/forge/HavenwildPccProvider.py",
+    "tools/validation/Validate-HavenwildPccLifecycle.py",
+    "tools/validation/Validate-HavenwildEditorArchitectureV2.py",
+    "tools/validation/Validate-UniversalPccVault01.py",
+    "tools/control/PccVaultAdapter.py",
+    "content/architecture/universal_pcc_vault_contract_v1.json",
+    "content/architecture/pcc_vault_dependencies_v1.json",
+    "content/architecture/havenwild_pcc_lifecycle_contract_v3.json",
+    "content/editor/architecture/havenwild_tooling_profile_v2.json",
     "content/architecture/havenwild_pcc_runtime_contract_v2.json",
     "content/architecture/havenwild_pcc_capabilities_v2.json",
     "content/editor/architecture/havenwild_tooling_profile_v1.json",
@@ -52,6 +60,12 @@ def main() -> int:
     if not runtime.get("frontDoor",{}).get("rehashesOnlyChangedPaths"): errors.append("front door must restrict quick certification hashing to Git-changed paths")
     if not runtime.get("patchIntake",{}).get("archiveEvidenceDeterminesAppliedVsFailed"): errors.append("patch ledger must use transactional archive evidence")
     if not runtime.get("restart",{}).get("gateResumeUsesOriginalCommand"): errors.append("restart handoff must resume the original gate command")
+    lifecycle_rc = subprocess.call([sys.executable, str(root / "tools/validation/Validate-HavenwildPccLifecycle.py"), "--root", str(root)])
+    if lifecycle_rc != 0: errors.append("PCC lifecycle validator failed")
+    editor_rc = subprocess.call([sys.executable, str(root / "tools/validation/Validate-HavenwildEditorArchitectureV2.py"), "--root", str(root)])
+    if editor_rc != 0: errors.append("Experimental Editor architecture v2 validator failed")
+    vault_rc = subprocess.call([sys.executable, str(root / "tools/validation/Validate-UniversalPccVault01.py"), "--root", str(root)])
+    if vault_rc != 0: errors.append("Universal PCC Vault validator failed")
     if errors:
         for e in errors: print(f"FAIL: {e}")
         return 1
@@ -64,6 +78,7 @@ def main() -> int:
     print("- transactional archive evidence distinguishes APPLIED from FAILED")
     print("- gate self-update resumes the original command once")
     print("- ForgePY-compatible project-native provider")
+    print("- Universal PCC Vault contract: project -> Vault -> cache -> override -> network")
     return 0
 
 if __name__ == "__main__":

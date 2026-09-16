@@ -1,0 +1,92 @@
+{
+  "schema": "pcc.universal_vault_contract.v1",
+  "name": "Universal PCC Vault Contract",
+  "version": 1,
+  "scope": "all project-owned internal Project Control Centers",
+  "defaultVaultRootWindows": "D:\\Vault",
+  "rootOverrides": [
+    "PCC_VAULT_ROOT",
+    "FORGE_VAULT_ROOT",
+    "CORTEX_VAULT_ROOT"
+  ],
+  "principles": {
+    "projectPccRemainsOperationalAuthority": true,
+    "vaultIsMachineWideSharedStorageAuthority": true,
+    "projectMustRemainBuildableWithoutForgePy": true,
+    "networkIsLastResort": true,
+    "hashVerificationRequiredBeforePromotion": true,
+    "knownLicenseRequiredForAutomaticPromotion": true,
+    "ambiguousOrUnlicensedContentGoesToReviewOrQuarantine": true,
+    "noSilentDeletion": true,
+    "promotionIsTransactional": true,
+    "projectLocalMountIsCacheNotSharedAuthority": true
+  },
+  "resolutionOrder": [
+    "verified_project_mount",
+    "verified_vault_source",
+    "verified_project_cache",
+    "verified_vault_archive",
+    "explicit_project_override",
+    "network_acquisition",
+    "fail_with_recovery_evidence"
+  ],
+  "vaultLayout": {
+    "Assets": [
+      "LPC",
+      "Terrain",
+      "Tilesets",
+      "Characters",
+      "UI",
+      "Audio",
+      "Fonts",
+      "3D",
+      "References"
+    ],
+    "Dependencies": [
+      "Archives",
+      "Sources",
+      "Packages"
+    ],
+    "other": [
+      "Toolchains",
+      "Models",
+      "Projects",
+      "Artifacts",
+      "History",
+      "Quarantine",
+      "Catalog"
+    ]
+  },
+  "entryLayout": {
+    "required": [
+      "source",
+      "metadata/source-lock.json",
+      "metadata/provenance.json",
+      "asset.json"
+    ],
+    "optional": [
+      "archive",
+      "licenses",
+      "derived"
+    ]
+  },
+  "dependencyLockRequirements": {
+    "required": [
+      "id",
+      "projectMount",
+      "verification.requiredFiles[].path",
+      "verification.requiredFiles[].bytes",
+      "verification.requiredFiles[].sha256"
+    ],
+    "automaticPromotionAlsoRequires": [
+      "licenseLabels",
+      "vault.rootRelativePath",
+      "vault.autoPromote=true"
+    ]
+  },
+  "stableCommands": {
+    "status": "pcc.vault-status",
+    "sync": "pcc.vault-sync"
+  },
+  "referenceAdapter": "tools/control/PccVaultAdapter.py"
+}

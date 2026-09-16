@@ -8,12 +8,19 @@ pub mod building_validation;
 pub mod command_bus;
 pub mod context;
 pub mod diagnostics;
+pub mod editor_actions;
+pub mod editor_context;
+pub mod editor_operations;
+pub mod editor_services;
 mod edit_operation;
 pub mod hit_testing;
 pub mod palette;
+pub mod play_bridge;
+pub mod project_content;
 pub mod resource_context;
 pub mod selection;
 pub mod session;
+pub mod studio_registry;
 pub mod terrain_policy;
 pub mod ui_document;
 mod transaction_batch;
@@ -39,9 +46,23 @@ pub use context::{
     AuthoringRuntimeState, AuthoringSelectionKind, AuthoringWorkspaceKind, GameCanvasContextKind,
 };
 pub use diagnostics::InspectorReport;
+pub use editor_actions::{EditorActionGroup, EditorActionId};
+pub use editor_context::{
+    EditorContextSnapshot, EditorDocumentKind, EditorDocumentRef, InspectorContextKind,
+};
+pub use editor_operations::{
+    EditorJobKind, EditorJobRecord, EditorJobState, EditorOperationsSnapshot, EditorProblem,
+    EditorProblemSeverity,
+};
+pub use editor_services::{
+    canonical_editor_services, validate_editor_service_registry, EditorServiceDescriptor,
+    EditorServiceKind,
+};
 pub use haven_core::{ObjectId, RegionNodeId, StampInstanceId, TransitionId, ZoneId};
 pub use hit_testing::{hit_test_scene_cell, CanvasHit, SceneAuthoringLayer};
 pub use palette::AuthoringPalette;
+pub use play_bridge::{PlayRequest, PlayRequestKind, PlaySessionPhase, PlaySessionStatus};
+pub use project_content::{ProjectContentKind, ProjectContentQuery, ProjectContentRef};
 pub use resource_context::{
     read_resource_context, resource_context_path, write_resource_context,
     CharacterAnimationResourceContext, ResourceContext, ResourceContextKind, ResourceContextNode,
@@ -50,6 +71,9 @@ pub use resource_context::{
 };
 pub use selection::{EditorSelection, GridRect, SelectionItem};
 pub use session::{AuthoringSession, AuthoringSource, AuthoringSourceKind, PublishPreview, PublishTarget};
+pub use studio_registry::{
+    havenwild_studio_registry, validate_studio_registry, EditorStudioDescriptor, EditorStudioId,
+};
 pub use terrain_policy::{apply_terrain_paint_mode_to_map, TerrainPaintModeReport};
 pub use ui_document::{
     TransitionResource, UiAuthoringLane, UiBehaviorBinding, UiDataBinding, UiDocument,

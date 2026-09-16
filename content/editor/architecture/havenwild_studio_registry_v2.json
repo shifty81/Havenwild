@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.studio_registry.v2",
+  "authority": "crates/haven_authoring/src/studio_registry.rs",
+  "studios": [
+    "World Studio",
+    "Scene Studio",
+    "Terrain Studio",
+    "TileSet / Atlas Mapper Studio",
+    "Pixel Studio",
+    "Animation Studio",
+    "Character Studio",
+    "Building Studio",
+    "Prefab Studio",
+    "PCG Studio",
+    "Logic Studio",
+    "Dialogue Studio",
+    "Sound Studio",
+    "Project / Build / Validation"
+  ],
+  "atlasMapper": {
+    "integrated": true,
+    "legacyLauncherIsAdapterOnly": true,
+    "legacyCommandKey": "assets.atlas-mapper-lite"
+  }
+}

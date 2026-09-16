@@ -13,14 +13,16 @@ $Root=(Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 . (Join-Path $PSScriptRoot 'PccPatchLedger.ps1')
 . (Join-Path $PSScriptRoot 'PccPatchPreflight.ps1')
 . (Join-Path $PSScriptRoot 'PccCommandHost.ps1')
+. (Join-Path $PSScriptRoot 'PccRootHandoffClassifier.ps1')
 
 function Get-PccControlFingerprint {
   $rows=@()
   foreach($relative in @(
     'HavenwildTools.cmd','tools\control\HavenwildPccHost.ps1','tools\control\PccRestartTicket.ps1',
     'tools\control\PccJobHost.ps1','tools\control\PccPatchLedger.ps1','tools\control\PccPatchPreflight.ps1',
-    'tools\control\PccCommandHost.ps1','tools\control\PccQuickState.py','tools\control\HavenwildTools.ps1',
-    'tools\control\ProjectCommandRegistry.ps1','tools\control\InvokeRootPatchIntake.ps1','tools\control\DevelopmentLane.ps1'
+    'tools\control\PccCommandHost.ps1','tools\control\PccCommandExtensions.ps1','tools\control\PccQuickState.py','tools\control\HavenwildTools.ps1',
+    'tools\control\ProjectCommandRegistry.ps1','tools\control\InvokeRootPatchIntake.ps1','tools\control\DevelopmentLane.ps1',
+    'tools\control\PccRootHandoffClassifier.ps1','tools\control\PccVaultAdapter.py'
   )){
     $path=Join-Path $Root $relative
     if(Test-Path -LiteralPath $path -PathType Leaf){ $rows += ("$relative|" + (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()) }
@@ -69,11 +71,22 @@ function Invoke-PccPatchIntake {
     [string]$ResumeCommand='menu',
     [switch]$ReturnToMenuAfterRestart
   )
+  $null=Move-PccRootHandoffArtifacts -Root $Root
   $patches=@(Get-PccPendingPatchFiles -Root $Root)
   if($patches.Count -eq 0){ return 0 }
   $preflight=Invoke-PccPatchLanePreflight -Root $Root -Patches $patches
+  # Snapshot patch metadata before invoking root intake. Intake is allowed to move
+  # transports into applied/failed archives, so post-apply bookkeeping must never
+  # reopen stale FileInfo paths from the original discovery snapshot.
+  $patchRecords=@()
   foreach($p in $patches){
     $t=Get-PccPatchTarget -Patch $p
+    $patchRecords += [pscustomobject]@{
+      Name=[string]$p.Name
+      FullName=[string]$p.FullName
+      TargetLane=[string]$t.Lane
+      Required=[bool]$t.Required
+    }
     Write-PccPatchLedgerEntry -Root $Root -Transport $p.Name -Status 'PENDING' -TargetLane $t.Lane -Required $t.Required -Message 'Discovered by PCC v2 preflight.'
   }
   $before=Get-PccControlFingerprint
@@ -83,19 +96,18 @@ function Invoke-PccPatchIntake {
   if($Prompt){ $args += '-Prompt' }
   & powershell @args
   $rc=$LASTEXITCODE
-  foreach($p in $patches){
-    $t=Get-PccPatchTarget -Patch $p
-    $evidence=Get-PccPatchArchiveEvidence -Root $Root -Transport $p.Name -SinceUtc $intakeStartedUtc
+  foreach($record in $patchRecords){
+    $evidence=Get-PccPatchArchiveEvidence -Root $Root -Transport $record.Name -SinceUtc $intakeStartedUtc
     if($null -ne $evidence -and [string]$evidence.Status -eq 'FAILED'){
-      Write-PccPatchLedgerEntry -Root $Root -Transport $p.Name -Status 'FAILED' -TargetLane $t.Lane -Required $t.Required -Message ("Legacy intake archived transport as failed: {0}" -f [string]$evidence.Path)
+      Write-PccPatchLedgerEntry -Root $Root -Transport $record.Name -Status 'FAILED' -TargetLane $record.TargetLane -Required $record.Required -Message ("Legacy intake archived transport as failed: {0}" -f [string]$evidence.Path)
     } elseif($null -ne $evidence -and [string]$evidence.Status -eq 'APPLIED'){
-      Write-PccPatchLedgerEntry -Root $Root -Transport $p.Name -Status 'APPLIED' -TargetLane $t.Lane -Required $t.Required -Message ("Applied archive evidence: {0}" -f [string]$evidence.Path)
-    } elseif(Test-Path -LiteralPath $p.FullName -PathType Leaf){
-      Write-PccPatchLedgerEntry -Root $Root -Transport $p.Name -Status 'DEFERRED' -TargetLane $t.Lane -Required $t.Required -Message 'Transport remains in root after intake.'
+      Write-PccPatchLedgerEntry -Root $Root -Transport $record.Name -Status 'APPLIED' -TargetLane $record.TargetLane -Required $record.Required -Message ("Applied archive evidence: {0}" -f [string]$evidence.Path)
+    } elseif(Test-Path -LiteralPath $record.FullName -PathType Leaf){
+      Write-PccPatchLedgerEntry -Root $Root -Transport $record.Name -Status 'DEFERRED' -TargetLane $record.TargetLane -Required $record.Required -Message 'Transport remains in root after intake.'
     } elseif($rc -ne 0){
-      Write-PccPatchLedgerEntry -Root $Root -Transport $p.Name -Status 'FAILED' -TargetLane $t.Lane -Required $t.Required -Message ("Root intake exited with code {0}." -f $rc)
+      Write-PccPatchLedgerEntry -Root $Root -Transport $record.Name -Status 'FAILED' -TargetLane $record.TargetLane -Required $record.Required -Message ("Root intake exited with code {0}." -f $rc)
     } else {
-      Write-PccPatchLedgerEntry -Root $Root -Transport $p.Name -Status 'FAILED' -TargetLane $t.Lane -Required $t.Required -Message 'Transport disappeared without APPLIED archive evidence; fail closed.'
+      Write-PccPatchLedgerEntry -Root $Root -Transport $record.Name -Status 'FAILED' -TargetLane $record.TargetLane -Required $record.Required -Message 'Transport disappeared without APPLIED archive evidence; fail closed.'
     }
   }
   if($rc -ne 0){ return $rc }
@@ -241,6 +253,7 @@ if($Command -ne 'menu'){
 }
 
 if(-not $skipStartupIntake){
+  $null=Move-PccRootHandoffArtifacts -Root $Root
   $patches=@(Get-PccPendingPatchFiles -Root $Root)
   if($patches.Count -gt 0){
     Show-PccHeader

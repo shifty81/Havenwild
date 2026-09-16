@@ -1,0 +1,116 @@
+{
+  "schema": "forgepy.standalone.package.v5",
+  "product": "ForgePY Standalone Universal PCC",
+  "version": "1.4.0-hardened",
+  "build": "FORGEPY-STANDALONE-U5-AUTO-ONBOARD",
+  "donorBuild": "FORGEPY-F797",
+  "donorCommit": "f00ca0fea2dfa29dc930fcc18ddcedc347a7c6ad",
+  "dropIn": true,
+  "packageLayout": "collision-minimized-auto-onboarding-gui",
+  "textHashNormalization": "LF",
+  "fileCountExcludingManifest": 17,
+  "files": [
+    {
+      "path": ".forgepy/README.md",
+      "bytes": 4849,
+      "hashMode": "text-lf",
+      "sha256": "e9067786654574add4fd9f3e091fad6fa547ae9e459c8380002f819f126d0ef7"
+    },
+    {
+      "path": ".forgepy/docs/FORGE_INTEGRATION_HANDOFF.md",
+      "bytes": 1800,
+      "hashMode": "text-lf",
+      "sha256": "3c898629c6236e770941347f60c5b83f8160eaa3891cb608256d11e5ded12323"
+    },
+    {
+      "path": ".forgepy/docs/FORGE_PY_STANDALONE.md",
+      "bytes": 2579,
+      "hashMode": "text-lf",
+      "sha256": "31940e0f9f51bb6dbb0cfff3600fdfd8bbb3989f981edd0cb9e9ba870d1d901c"
+    },
+    {
+      "path": ".forgepy/docs/HARDENING_AUDIT.md",
+      "bytes": 624,
+      "hashMode": "text-lf",
+      "sha256": "72f1039396cb302be7a8f3ca0c1859a85ff518e86ffba9d134c581eaa7ac8b92"
+    },
+    {
+      "path": ".forgepy/docs/VALIDATION_REPORT.md",
+      "bytes": 464,
+      "hashMode": "text-lf",
+      "sha256": "50a6a9f8b2f63e1c775a9fdf5393b239e21f635447e61b663ec2ece827cf49bb"
+    },
+    {
+      "path": ".forgepy/gui/pcc_gui.py",
+      "bytes": 37150,
+      "hashMode": "text-lf",
+      "sha256": "d48fd500ba7b2dff576af16d14d40e313ead298ec6c6b02b08f13a37cfbe0fbb"
+    },
+    {
+      "path": ".forgepy/package/provenance.json",
+      "bytes": 1489,
+      "hashMode": "text-lf",
+      "sha256": "ef606b6dda097439a00f0ecb8594e198008d5c8fd43dee6fac8365646e211331"
+    },
+    {
+      "path": ".forgepy/pcc.json",
+      "bytes": 828,
+      "hashMode": "text-lf",
+      "sha256": "58952d95ffd1f904192d8bb20e05eec038f3e5239653fa3bc542a1106f9c3d13"
+    },
+    {
+      "path": ".forgepy/policy.json",
+      "bytes": 1172,
+      "hashMode": "text-lf",
+      "sha256": "ada77dd837ba17998098ac79d128ae75c433da3b90ad7b6a7400776ec9e94c02"
+    },
+    {
+      "path": ".forgepy/runtime/forgepy.py",
+      "bytes": 118782,
+      "hashMode": "text-lf",
+      "sha256": "9a7a3780fdefe67f285b03e8eb2237cb0e0d5e72882c0d737d1943edb5286f18"
+    },
+    {
+      "path": ".forgepy/runtime.lock",
+      "bytes": 341,
+      "hashMode": "text-lf",
+      "sha256": "8864de2d3e27e73a04620e779629857e3b3e19913ad091de818e67f5d8e2e5ba"
+    },
+    {
+      "path": ".forgepy/templates/project.control.example.json",
+      "bytes": 1172,
+      "hashMode": "text-lf",
+      "sha256": "97ffe1173a3daba9b5dd24021fbf9d10dcd933f4de5f1164c8ce4dc76b254924"
+    },
+    {
+      "path": ".forgepy/tests/validation_matrix.py",
+      "bytes": 27743,
+      "hashMode": "text-lf",
+      "sha256": "13810732f02dff3dff13c4be9bc06a0bf4d5fddbf579a04d15026a6b935f29d5"
+    },
+    {
+      "path": "ForgePY-GUI.cmd",
+      "bytes": 1063,
+      "hashMode": "text-lf",
+      "sha256": "fae0b44dd6520e598c7864548c54c618917e430f9d74c4a22b6441324e1ee8a8"
+    },
+    {
+      "path": "ForgePY-Install.cmd",
+      "bytes": 574,
+      "hashMode": "text-lf",
+      "sha256": "f5f36da475188c2d0fd37e9336dc2f3f5a2b06bd47e673399b2fdf0a56b76dc0"
+    },
+    {
+      "path": "ForgePY-Verify.cmd",
+      "bytes": 257,
+      "hashMode": "text-lf",
+      "sha256": "0691825b8a1fbe53e78cafe49f421942d84b89e80ce851f702209e743d41f4e7"
+    },
+    {
+      "path": "ForgePY.cmd",
+      "bytes": 714,
+      "hashMode": "text-lf",
+      "sha256": "c7a2add4ee997bfa199bbb0ee1f93b24dd06eed59316f4abbe38fae1f306556f"
+    }
+  ]
+}
