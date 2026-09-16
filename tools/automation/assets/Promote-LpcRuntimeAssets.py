@@ -960,6 +960,11 @@ def build_object_atlas() -> None:
 
 
 def build_editor_metadata(slice_catalog: dict) -> None:
+    authority = json.loads(PROJECT_AUTHORITY.read_text(encoding="utf-8"))
+    primary_source = authority.get("source", {}).get("id")
+    if not isinstance(primary_source, str) or not primary_source:
+        raise ValueError("project asset authority is missing source.id")
+
     top_records = [
         ("lpc_terrain", "Terrain", "terrain.tileable", "Terrain sheets and authored autotile/stamp regions"),
         ("lpc_objects", "Objects", "object", "Furniture, moveable objects, wall items, and small items"),
@@ -1045,6 +1050,7 @@ def build_editor_metadata(slice_catalog: dict) -> None:
             "updated": now(),
             "purpose": "Unified LPC-only asset catalog indexes.",
             "primaryAuthority": repo_path(PROJECT_AUTHORITY),
+            "primarySource": primary_source,
             "indexes": [
                 {"id": "elizawy_project_authority", "kind": "project_asset_authority", "path": repo_path(PROJECT_AUTHORITY), "editorUse": "project_asset_root"},
                 {"id": "elizawy_repository_audit", "kind": "source_audit_summary", "path": repo_path(PROJECT_AUDIT_SUMMARY), "editorUse": "source_coverage_status"},

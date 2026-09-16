@@ -3,6 +3,7 @@
   "updated": "2026-09-16T02:55:01+00:00",
   "purpose": "Unified LPC-only asset catalog indexes.",
   "primaryAuthority": "content/assets/lpc/lpc_project_asset_authority_v0_1.json",
+  "primarySource": "elizawy_lpc",
   "indexes": [
     {
       "id": "elizawy_project_authority",

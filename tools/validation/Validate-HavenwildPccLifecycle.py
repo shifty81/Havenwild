@@ -53,6 +53,12 @@ def main() -> int:
     for token in ["Move-PccRootHandoffArtifacts", "artifacts\\packages\\received", "artifacts\\packages\\quarantine"]:
         if token not in classifier and token not in host:
             errors.append(f"root handoff lifecycle token missing: {token}")
+    # Closing the console on blank Enter immediately after a successful gate
+    # must not regress. An explicit 0 or genuine EOF still ends the session.
+    if "if($null -eq $choice){ break }" not in host or "if([Console]::IsInputRedirected){ break }" not in host or "    continue\n  }\n  switch($choice)" not in host:
+        errors.append("PCC interactive menu can close on blank Enter after a quality gate")
+    if host.count("-WaitForCompletion") < 3 or "-NoNewWindow -Wait -PassThru" not in ticket:
+        errors.append("PCC replacement must retain the original console and wait for the resumed menu")
     # Legacy commands must be bridged as live host output. Returning the child
     # success stream from Invoke-PccLegacyCommand causes callers that assign the
     # numeric result to buffer the entire Full Gate until completion.

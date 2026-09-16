@@ -64,7 +64,11 @@ function Start-PccReplacement {
   $args=@('-NoProfile','-ExecutionPolicy','Bypass','-File',("`"{0}`"" -f $host),'-Command',$ResumeCommand,'-Pass',$Pass,'-RestartToken',$ticket.Token)
   if($ReturnToMenu){ $args += '-ReturnToMenu' }
   if($WaitForCompletion){
-    $process=Start-Process -FilePath 'powershell.exe' -ArgumentList $args -WorkingDirectory $Root -Wait -PassThru
+    # Interactive PCC replacements must inherit this SAME console, not open
+    # a detached second window while the root launcher closes underneath it.
+    # Wait until the replacement has finished so the original launcher keeps
+    # the user's terminal alive for the resumed menu and command.
+    $process=Start-Process -FilePath 'powershell.exe' -ArgumentList $args -WorkingDirectory $Root -NoNewWindow -Wait -PassThru
     return [pscustomobject]@{ Token=$ticket.Token; Path=$ticket.Path; ResumeCommand=$ResumeCommand; ExitCode=[int]$process.ExitCode }
   }
   Start-Process -FilePath 'powershell.exe' -ArgumentList $args -WorkingDirectory $Root | Out-Null

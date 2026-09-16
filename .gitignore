@@ -101,3 +101,7 @@ __pycache__/
 
 # Hydrated external LPC Terrains V7 dependency; restored from pinned lock
 /content/assets/lpc/source/lpc-terrains-v7/
+
+# ForgePY project-local runtime/cache state is machine-local integration state.
+# Havenwild source authority lives under tools/forge and the project PCC contracts.
+/.forgepy/

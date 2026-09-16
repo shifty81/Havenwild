@@ -1,0 +1,69 @@
+{
+  "branch": "experimental",
+  "createdUtc": "2026-09-16T05:16:05.112173+00:00",
+  "durationSeconds": 71.526,
+  "head": "66b1bc4c37ae382093031f5683a4ec3b4ddaceb3",
+  "operationEvidence": [
+    {
+      "category": "gate",
+      "createdUtc": "2026-09-16T05:14:55.994341+00:00",
+      "durationSeconds": 1.77,
+      "exitCode": 0,
+      "key": "gate.rust.rust-root",
+      "label": "Cargo Check (.)",
+      "logPath": ".forgepy/state/logs/20260916-011454-224137-gate-rust-rust-root.log",
+      "provider": "forgepy-auto",
+      "schema": "forgepy.operation.evidence.v1",
+      "source": "forgepy-scan"
+    },
+    {
+      "category": "gate",
+      "createdUtc": "2026-09-16T05:14:59.775031+00:00",
+      "durationSeconds": 3.774,
+      "exitCode": 0,
+      "key": "gate.python.python-root",
+      "label": "Python Syntax Check (.)",
+      "provider": "forgepy-auto",
+      "schema": "forgepy.operation.evidence.v1",
+      "source": "forgepy-scan"
+    },
+    {
+      "category": "build",
+      "createdUtc": "2026-09-16T05:15:04.123580+00:00",
+      "durationSeconds": 4.345,
+      "exitCode": 0,
+      "key": "build.rust.rust-root",
+      "label": "Cargo Build (.)",
+      "logPath": ".forgepy/state/logs/20260916-011459-778266-build-rust-rust-root.log",
+      "provider": "forgepy-auto",
+      "schema": "forgepy.operation.evidence.v1",
+      "source": "forgepy-scan"
+    },
+    {
+      "category": "test",
+      "createdUtc": "2026-09-16T05:16:04.928657+00:00",
+      "durationSeconds": 60.802,
+      "exitCode": 0,
+      "key": "test.rust.rust-root",
+      "label": "Cargo Tests (.)",
+      "logPath": ".forgepy/state/logs/20260916-011504-126733-test-rust-rust-root.log",
+      "provider": "forgepy-auto",
+      "schema": "forgepy.operation.evidence.v1",
+      "source": "forgepy-scan"
+    }
+  ],
+  "operations": [
+    "gate.rust.rust-root",
+    "gate.python.python-root",
+    "build.rust.rust-root",
+    "test.rust.rust-root"
+  ],
+  "projectId": "havenwild-hw55-v2r5-test",
+  "projectName": "Havenwild-HW55-V2R5-Test",
+  "projectUuid": "",
+  "result": "GREEN",
+  "runtimeBuild": "FORGEPY-STANDALONE-U5-AUTO-ONBOARD",
+  "runtimeVersion": "1.4.0-hardened",
+  "schema": "forgepy.green.v3",
+  "sourceFingerprint": "5088ec06add99af4f874864a34d976adaf054815b63659a5ea871b85cd8fc4c7"
+}

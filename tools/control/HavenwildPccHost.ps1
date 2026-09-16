@@ -114,12 +114,12 @@ function Invoke-PccPatchIntake {
   $after=Get-PccControlFingerprint
   if($after -ne $before){
     Write-Host 'PCC source changed during patch intake; performing one-shot replacement restart.' -ForegroundColor Yellow
-    $replacement=Start-PccReplacement -Root $Root -Reason 'control-center-update' -ResumeCommand $ResumeCommand -Pass $Pass -ReturnToMenu:$ReturnToMenuAfterRestart -WaitForCompletion:(-not $ReturnToMenuAfterRestart)
+    $replacement=Start-PccReplacement -Root $Root -Reason 'control-center-update' -ResumeCommand $ResumeCommand -Pass $Pass -ReturnToMenu:$ReturnToMenuAfterRestart -WaitForCompletion
     exit ([int]$replacement.ExitCode)
   }
   if([bool]$preflight.Switched){
     Write-Host 'Development lane changed during patch preflight; reloading the PCC once on the active lane.' -ForegroundColor Yellow
-    $replacement=Start-PccReplacement -Root $Root -Reason 'lane-preflight-switch' -ResumeCommand $ResumeCommand -Pass $Pass -ReturnToMenu:$ReturnToMenuAfterRestart -WaitForCompletion:(-not $ReturnToMenuAfterRestart)
+    $replacement=Start-PccReplacement -Root $Root -Reason 'lane-preflight-switch' -ResumeCommand $ResumeCommand -Pass $Pass -ReturnToMenu:$ReturnToMenuAfterRestart -WaitForCompletion
     exit ([int]$replacement.ExitCode)
   }
   return 0
@@ -175,7 +175,7 @@ function Invoke-PccLaneToggle {
     & powershell -NoProfile -ExecutionPolicy Bypass -File $lane -Root $Root -Action Toggle
   }
   if($rc -eq 0 -and $RestartInteractive){
-    $null=Start-PccReplacement -Root $Root -Reason 'manual-lane-switch' -ResumeCommand 'menu' -Pass $Pass -ReturnToMenu
+    $null=Start-PccReplacement -Root $Root -Reason 'manual-lane-switch' -ResumeCommand 'menu' -Pass $Pass -ReturnToMenu -WaitForCompletion
     exit 0
   }
   return $rc
@@ -280,8 +280,15 @@ while($true){
   Write-Host ' 12. TOGGLE DEVELOPMENT LANE' -ForegroundColor Cyan
   Write-Host '  0. Exit' -ForegroundColor DarkGray
   $choice=Read-Host 'Select an option'
-  # EOF / detached child must exit, never spin redrawing the menu.
-  if([string]::IsNullOrWhiteSpace($choice)){ break }
+  # Only an explicit 0 exits an interactive PCC. An ordinary blank Enter (for
+  # example one buffered after the gate's return prompt) must never close it.
+  # A genuine EOF, including a detached/redirected input stream, still exits
+  # instead of spinning forever while redrawing the menu.
+  if($null -eq $choice){ break }
+  if([string]::IsNullOrWhiteSpace($choice)){
+    if([Console]::IsInputRedirected){ break }
+    continue
+  }
   switch($choice){
     '0' { exit 0 }
     '1' { $null=Invoke-PccGate -Mode full; Write-Host ''; Read-Host 'Press Enter to return to the menu' | Out-Null }
