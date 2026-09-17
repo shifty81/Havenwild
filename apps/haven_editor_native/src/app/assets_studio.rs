@@ -2,6 +2,7 @@
 use super::*;
 use super::render_helpers::{draw_editor_widget, draw_list_row, draw_tab_widget};
 use haven_assets::asset_palette::{AssetPaletteCatalog, AssetPaletteEntry, AssetPaletteKind};
+use haven_assets::placeable_asset_registry::{PublishedWorldAssetDefinition, PublishedWorldAssetRegistry};
 use serde_json::Value;
 use std::collections::{BTreeMap, BTreeSet};
 use std::fs;
@@ -265,6 +266,34 @@ fn asset_studio_use_on_canvas_rect(selection: Rect) -> Rect {
         166.0,
         28.0,
     )
+}
+
+// A visually sampled roof module belongs to a building recipe. An object-kind
+// compatibility adapter (often Crate) is not permission to stamp it onto soil.
+fn asset_studio_requires_building_recipe(definition: &PublishedWorldAssetDefinition) -> bool {
+    definition.placement_tags.iter().any(|tag| tag == "roof")
+        && !definition.allowed_surfaces.is_empty()
+        && definition.allowed_surfaces.iter().all(|surface| surface == "roof" || surface == "building")
+}
+
+fn asset_studio_handoff_warning(
+    stable_id: &str,
+    registry: &PublishedWorldAssetRegistry,
+) -> Option<String> {
+    let definition = registry.entry(stable_id)?;
+    asset_studio_requires_building_recipe(definition).then(|| format!(
+        "{} is a {:?} roof component ({:?}); use building/roof recipe authoring, not free placement on an overworld tile",
+        definition.label, definition.role, definition.certification,
+    ))
+}
+
+fn asset_studio_published_label(
+    stable_id: &str,
+    registry: &PublishedWorldAssetRegistry,
+) -> String {
+    registry.entry(stable_id).map(|definition| {
+        format!("{:?} / {:?}", definition.role, definition.certification)
+    }).unwrap_or_else(|| "texture ready".to_string())
 }
 
 fn palette_runtime_entries(catalog: &AssetPaletteCatalog) -> Vec<&AssetPaletteEntry> {
@@ -597,9 +626,9 @@ impl EditorApp {
                         r,
                         &entry.label,
                         Some(&format!(
-                            "READY | {} | {} | {} | {}",
+                            "TEXTURE | {} | {} | {} | {}",
                             entry.stable_id,
-                            entry.category.label(),
+                            asset_studio_published_label(&entry.stable_id, &self.placeable_registry),
                             entry.provenance.label(),
                             sheet
                         )),
@@ -748,10 +777,16 @@ impl EditorApp {
                 .get(self.assets_studio.selected_row)
                 .map(|entry| {
                     [
-                        format!("READY: {} | {}", entry.label, entry.stable_id),
+                        format!("TEXTURE AVAILABLE: {} | {}", entry.label, entry.stable_id),
                         format!(
-                            "Category: {} | Provenance: {} | Kind: {:?}",
-                            entry.category.label(), entry.provenance.label(), entry.kind
+                            "Category: {} | Provenance: {} | {}",
+                            entry.category.label(), entry.provenance.label(),
+                            self.placeable_registry.entry(&entry.stable_id)
+                                .map(|definition| format!(
+                                    "Semantic: {} | Role: {:?} | Certification: {:?}",
+                                    definition.semantic_id, definition.role, definition.certification,
+                                ))
+                                .unwrap_or_else(|| format!("Kind: {:?}", entry.kind))
                         ),
                         format!(
                             "Source: {} | Rect: {}",
@@ -831,9 +866,18 @@ impl EditorApp {
             draw_rectangle(preview.x, preview.y, preview.w, preview.h, Color::new(0.06, 0.07, 0.08, 1.0));
             draw_rectangle_lines(preview.x, preview.y, preview.w, preview.h, 1.0, PANEL_EDGE);
             if !self.editor_textures.draw_palette_thumbnail(entry, preview) {
-                draw_editor_text("READY", preview.x + 10.0, preview.y + 41.0, 12.0, GOOD);
+                draw_editor_text("NO PREVIEW", preview.x + 5.0, preview.y + 41.0, 11.0, WARN);
             }
-            draw_editor_widget(asset_studio_use_on_canvas_rect(selection), "Use on Game Canvas", false);
+            if asset_studio_handoff_warning(&entry.stable_id, &self.placeable_registry).is_some() {
+                draw_scissored_text(
+                    "Roof recipe required — not standalone placeable",
+                    asset_studio_use_on_canvas_rect(selection).x - 215.0,
+                    asset_studio_use_on_canvas_rect(selection).y + 19.0,
+                    380.0, 11.0, WARN,
+                );
+            } else {
+                draw_editor_widget(asset_studio_use_on_canvas_rect(selection), "Use on Game Canvas", false);
+            }
             selection.x + 90.0
         } else {
             selection.x + 10.0
@@ -931,14 +975,54 @@ impl EditorApp {
                 let stable_id = entry.stable_id.clone();
                 let kind = entry.kind;
                 let label = entry.label.clone();
-                if !self.viewport_mode.is_game_canvas() {
-                    self.viewport_mode = EditorViewportMode::SceneMap;
-                    self.reopen_workspace_document(EditorViewportMode::SceneMap);
+                if let Some(warning) = asset_studio_handoff_warning(&stable_id, &self.placeable_registry) {
+                    self.status_message = warning;
+                    return true;
                 }
+                if matches!(kind, AssetPaletteKind::Tile(TileKind::Cliff)) {
+                    self.status_message = "Cliffs use structural elevation/contour authoring; a legacy cliff tile cannot be stamped directly".to_string();
+                    return true;
+                }
+                if self.model.world.scenes.get(self.selected_scene).is_none() {
+                    self.status_message = "No editable scene loaded; open a scene before placing an asset".to_string();
+                    return true;
+                }
+                // Individual placements must never open the complete-world LOD:
+                // it intentionally has no tile hit-testing. Use the existing
+                // scene painting/placement path and its command/save authority.
+                self.viewport_mode = EditorViewportMode::SceneMap;
+                self.reopen_workspace_document(EditorViewportMode::SceneMap);
+                let (layer, scene_layer, tool, canvas_tool) = match kind {
+                    AssetPaletteKind::Tile(tile) => (
+                        super::canvas_layers::canvas_layer_kind_for_surface_tile(tile),
+                        SceneLayerMode::Terrain,
+                        SceneEditTool::Paint,
+                        super::tool_registry::UniversalTool::Paint,
+                    ),
+                    AssetPaletteKind::Object(_) | AssetPaletteKind::Stamp => (
+                        super::canvas_layers::CanvasLayerKind::Objects,
+                        SceneLayerMode::Objects,
+                        SceneEditTool::Place,
+                        super::tool_registry::UniversalTool::Place,
+                    ),
+                    AssetPaletteKind::SourceReference => return true,
+                };
+                self.set_scene_layer_mode(scene_layer);
+                self.canvas_selected_layer_kinds.clear();
+                self.canvas_selected_layer_kinds.insert(layer);
+                self.canvas_layer_context_override = Some(layer);
                 self.select_palette_asset(stable_id.clone(), kind);
+                self.canvas_active_tool = canvas_tool;
+                self.set_scene_edit_tool(tool);
+                if matches!(kind, AssetPaletteKind::Stamp) {
+                    self.canvas_authoring_context.brush_mode = super::brush_authoring::BrushMode::Stamp;
+                }
+                self.sync_canvas_authoring_context();
+                self.canvas_authoring_context.source_id = Some(stable_id.clone());
+                self.workspace_shell.shared_palette_visible = true;
                 self.close_assets_studio();
                 self.status_message = format!(
-                    "Armed {label} ({stable_id}) from Assets Studio; click/drag on Game Canvas to place"
+                    "Armed {label} ({stable_id}) in editable Scene Canvas with {}; click a scene cell to author", tool.label()
                 );
             }
             return true;
@@ -1141,6 +1225,25 @@ mod tests {
         assert!(palette_runtime_entries(&catalog)
             .iter()
             .all(|entry| entry.runtime_ready()));
+    }
+
+    #[test]
+    fn roof_candidate_remains_recipe_owned_instead_of_falling_back_to_crate() {
+        let session = haven_assets::runtime_asset_cache::RuntimeAssetSession::discover_tolerant(&repo_root_dir());
+        let registry = PublishedWorldAssetRegistry::load_discovered(&session)
+            .expect("project published asset registry");
+        let roof = registry.entries().iter()
+            .find(|definition| definition.entry_id == "roof_flat_gray_north_eave")
+            .expect("exact north eave module");
+        assert!(asset_studio_requires_building_recipe(roof));
+        assert!(asset_studio_handoff_warning(&roof.stable_id, &registry)
+            .expect("roof must have explicit workflow warning").contains("roof recipe authoring"));
+    }
+
+    #[test]
+    fn ordinary_non_roof_assets_are_not_blocked_by_roof_workflow() {
+        let registry = PublishedWorldAssetRegistry::default();
+        assert!(asset_studio_handoff_warning("tile/grass", &registry).is_none());
     }
 
     #[test]
