@@ -138,8 +138,10 @@ impl EditorApp {
     fn save_document_target(&mut self, target: &DocumentCloseTarget) -> Result<String, String> {
         match target {
             DocumentCloseTarget::Scene(scene_id) => {
-                let path = development_session::editor_world_path();
-                save_world_to_path(&path.to_string_lossy(), &self.model.world)?;
+                if !self.base_world_ready {
+                    return Err("Base World is unavailable; legacy fixture cannot be saved".to_string());
+                }
+                development_session::save_base_world(&self.model.world)?;
                 self.scene_document_dirty_ids.remove(scene_id);
                 if self.active_scene_id().as_ref() == Some(scene_id) {
                     self.saved_undo_depth = self.command_bus.undo_len();

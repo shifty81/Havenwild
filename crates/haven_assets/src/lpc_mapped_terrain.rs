@@ -141,12 +141,13 @@ impl LpcMappedTerrainManifest {
         variant_seed: u32,
     ) -> Option<LpcMappedTerrainEntry> {
         let candidates = self.tuple_index.get(&corner_tuple_key(corners))?;
-        let matches: Vec<&LpcMappedTerrainManifestEntry> = candidates
+        // Render-hot path: counting and selecting by index avoids allocating a
+        // Vec for every terrain cell (and again for animated water frames).
+        let variant_count = candidates
             .iter()
             .filter_map(|index| self.entries.get(*index))
             .filter(|entry| entry_matches(entry, corners))
-            .collect();
-        let variant_count = matches.len();
+            .count();
         if variant_count == 0 {
             return None;
         }
@@ -156,8 +157,11 @@ impl LpcMappedTerrainManifest {
         } else {
             deterministic_fill_variant(corners[0], variant_seed, variant_count)
         };
-        matches
-            .get(variant_index)
+        candidates
+            .iter()
+            .filter_map(|index| self.entries.get(*index))
+            .filter(|entry| entry_matches(entry, corners))
+            .nth(variant_index)
             .map(|entry| LpcMappedTerrainEntry {
                 rect: entry.rect,
                 is_mixed,
@@ -171,12 +175,13 @@ impl LpcMappedTerrainManifest {
         water_frame: u32,
     ) -> Option<LpcMappedTerrainEntry> {
         let candidates = self.tuple_index.get(&corner_tuple_key(corners))?;
-        let matches: Vec<&LpcMappedTerrainManifestEntry> = candidates
+        // Render-hot path: counting and selecting by index avoids allocating a
+        // Vec for every terrain cell (and again for animated water frames).
+        let variant_count = candidates
             .iter()
             .filter_map(|index| self.entries.get(*index))
             .filter(|entry| entry_matches(entry, corners))
-            .collect();
-        let variant_count = matches.len();
+            .count();
         if variant_count == 0 {
             return None;
         }
@@ -188,8 +193,11 @@ impl LpcMappedTerrainManifest {
         } else {
             deterministic_fill_variant(corners[0], variant_seed, variant_count)
         };
-        matches
-            .get(variant_index)
+        candidates
+            .iter()
+            .filter_map(|index| self.entries.get(*index))
+            .filter(|entry| entry_matches(entry, corners))
+            .nth(variant_index)
             .map(|entry| LpcMappedTerrainEntry {
                 rect: entry.rect,
                 is_mixed,
@@ -344,12 +352,18 @@ pub fn lpc_mapped_terrain_owner_fill_entry_for_map_with_water_frame(
 ) -> Option<LpcMappedTerrainEntry> {
     let owner = mapped_terrain_at(map, x, y)?;
     let manifest = lpc_mapped_terrain_manifest().ok()?;
+    // Source-only water baseline: the V7 sheet's first audited pure-water
+    // cell is a complete repeatable fill. Independently selecting source
+    // decoration cells for every world coordinate produces the visible
+    // checkerboard/striping reported in the editor. Keep mixed authored
+    // shoreline/depth tuples in their separate transition pass; animations
+    // may return only as whole source-backed, cached regional frames.
+    if is_animated_water_material(owner) {
+        return manifest.quiet_entry_for_corners([owner; 4]);
+    }
     if touches_different_mapped_material(map, x, y, owner) {
-        // Transition-adjacent owner cells must remain visually quiet. Animated
-        // shimmer/detail variants are complete authored cells, but selecting
-        // them independently under an edge tuple creates visible square blocks
-        // along long coastlines. The mixed tuple already carries the authored
-        // edge pixels; interior water continues to animate away from contacts.
+        // Mixed tuples carry authored edge pixels. Neighboring non-water
+        // materials use a quiet owner fill under those source-only overlays.
         return manifest.quiet_entry_for_corners([owner; 4]);
     }
     manifest.entry_for_corners_with_water_frame([owner; 4], cell_variant_seed(x, y), water_frame)

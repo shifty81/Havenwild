@@ -85,6 +85,13 @@ ensure_lpc_dependency_fast() {
   run_step "verify/repair pinned LPC mount" "$python" tools/automation/dependencies/Ensure-LpcDependency.py
 }
 
+ensure_cliff_source_projection() {
+  local python
+  python="$(python_cmd)"
+  run_step "verify/recover licensed-source cliff projection" \
+    "$python" tools/automation/terrain/Ensure-ElizaWyCliffRuntimeProjection.py
+}
+
 ensure_lpc_dependency() {
   local python
   python="$(python_cmd)"
@@ -379,6 +386,15 @@ ensure_rebuildable_lpc_metadata_fast() {
     run_step "restore rebuildable ElizaWy slice/library catalogs" \
       "$python" tools/automation/assets/Promote-LpcRuntimeAssets.py
   fi
+}
+
+# Source-first W45 structure caches are referenced by the production asset pack.
+# A normal Full Gate must prepare them, not leave them to optional structure-only
+# commands while the editor repeatedly tries to open missing PNGs. The existing
+# builders verify immutable source hashes; this step never fabricates artwork.
+ensure_source_structure_caches_fast() {
+  run_step "verify/restore source-backed structure texture caches" \
+    "$(python_cmd)" tools/automation/assets/Ensure-StructureSourceCaches.py --root "$ROOT"
 }
 
 prepare_direct_lpc_runtime_assets_fast() {
@@ -736,6 +752,8 @@ case "$COMMAND" in
     ensure_frontend_music
     ensure_lpc_dependency_fast
     prepare_direct_lpc_runtime_assets_fast
+    ensure_source_structure_caches_fast
+    ensure_cliff_source_projection
     require cargo
     run_step "cargo check --workspace --all-targets" cargo check --workspace --all-targets
     build_dev_apps
@@ -746,6 +764,9 @@ case "$COMMAND" in
   test)
     ensure_lpc_dependency
     ensure_direct_lpc_compatibility_assets
+    ensure_cliff_source_projection
+    run_step "test source-backed cliff projection recovery" "$(python_cmd)" \
+      tools/automation/terrain/Test-ElizaWyCliffRuntimeProjection.py
     require cargo
     run_step "cargo test --workspace" cargo test --workspace
     run_step "validate W57K10A-W60 unified authoring authority" "$(python_cmd)" tools/automation/validation/checks/editor/Validate-UnifiedCanvasAuthoringW60.py

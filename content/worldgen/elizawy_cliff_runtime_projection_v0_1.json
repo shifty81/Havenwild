@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.elizawy_cliff.runtime_projection.v0_1",
-  "pass": "167Z109G",
+  "pass": "167Z109W3",
   "status": "active",
   "licensedSource": {
     "repository": "https://github.com/ElizaWy/LPC",
@@ -15,41 +15,11 @@
   },
   "runtimeProjection": {
     "path": "assets/generated/worldgen_v0_1/terrain/elizawy_cliff_runtime_overlay_summer.png",
-    "sha256": "25b7a65f892b897d7664e8d68091661a159a41715617a18bccd185f173d9608d",
+    "sha256": "8a009b52c74792714c955a7fbc44d964a2110d8d1b835118b62c9f44ae28a7d4",
     "builder": "tools/automation/terrain/Build-ElizaWyCliffRuntimeOverlayPass167Z109D.py",
     "sourceExactOutsideCertifiedCells": false,
-    "modifiedSourceCells": [
-      [
-        1,
-        6
-      ],
-      [
-        1,
-        7
-      ],
-      [
-        1,
-        8
-      ],
-      [
-        3,
-        6
-      ],
-      [
-        3,
-        7
-      ],
-      [
-        3,
-        8
-      ],
-      [
-        2,
-        8
-      ]
-    ],
-    "modification": "receiver-aware projection: normalize raised ElizaWy owner grass to V7 Grass; make lower receiver grass transparent in c1/c3 r6-r8 and c2 r8",
-    "reason": "official ElizaWy Summer demo shows complete cliff recipes whose high side belongs to the plateau but low grass belongs to receiver terrain; opaque receiver grass caused green foot bands and over-masking caused sand/white triangles",
+    "modification": "Source-derived W3 whole-sheet projection: remove the exact ElizaWy semantic ground RGB palette and V7 owner grass RGB from the derived overlay only; retain source rock/fringe pixels unmodified. V7 resolves the plateau and receiver terrain.",
+    "reason": "W3 authored terrain provider supersedes W109G receiver-specific grass masking and its historical projection SHA. The B05B Windows gate verified both original source hashes and measured this W3 builder output hash on 2026-09-17.",
     "v7Source": {
       "path": "content/assets/lpc/source/lpc-terrains-v7/terrain-map-v7.png",
       "sha256": "adc395adc3defb182389d4ca888afdd896bdd6b672ab92609b428a5bbd79cd25",
@@ -58,69 +28,26 @@
         129,
         54
       ]
-    }
-  },
-  "orthogonalProjection": {
-    "northLipPx": [
-      192,
-      192,
-      32,
-      8
-    ],
-    "southLipPx": [
-      64,
-      248,
-      32,
-      8
-    ],
-    "westSidePx": [
-      160,
-      224,
-      8,
-      32
-    ],
-    "eastSide": "horizontal mirror of westSidePx",
-    "southFaceGrid": [
-      [
-        2,
-        7
-      ],
-      [
-        2,
-        3
-      ],
-      [
-        2,
-        8
-      ]
-    ],
-    "plateauOwner": "V7 terrain",
-    "projectedRowsBelowHost": [
-      [
-        2,
-        3
-      ],
-      [
-        2,
-        8
-      ]
-    ]
-  },
-  "visualResolver": {
-    "structuralAuthority": "haven_world::CliffShape15",
-    "presentationAuthority": "haven_game::runtime_structural_cliff_shapes::CliffVisualShape",
-    "southWestDiagonal": "exact mask 12 uses complete demo-grounded c1 r6,r7,r3,r8 assembly",
-    "southEastDiagonal": "exact mask 6 uses complete demo-grounded c3 r6,r7,r3,r8 assembly",
-    "isolatedMask6Or12": "authored rounded/diagonal corner assembly",
-    "multiLevelMask6Or12": "repeat diagonal r3 body by structural face depth, then one foot"
+    },
+    "sourceCellPolicy": "Exact authored 32x32 source cells or natural-scale multi-cell stamps; no synthetic shapes or resampling.",
+    "derivedOutputShaEvidence": "QG-20260917-154002-b5316bdf build-all-20260917-154002.log; source/V7 VERIFIED, builder output actual SHA-256."
   },
   "acceptance": [
-    "ordinary south cliff matches official ElizaWy demo c2r7 -> c2r3 -> c2r8 sequence",
-    "SW diagonal matches c1r6 -> c1r7 -> c1r3 -> c1r8; SE mirrors through c3",
-    "raised plateau grass remains visible and normalized to V7 Grass even when lower receiver is sand/dirt",
-    "low-side receiver grass is transparent so lower V7 material reaches the cliff foot without a green band",
-    "ordinary straight face projects two rows below host; rounded diagonal projects three",
-    "collision/traversal remains structural-level and connector driven"
+    "Both original ElizaWy and V7 source SHA-256 checks pass without modifying either source.",
+    "Derived overlay matches the source-backed W3 builder SHA-256 and dimensions 512x448.",
+    "Derived image removes only configured semantic ground RGB values, not cliff rock/fringe geometry.",
+    "V7 surface resolves owner/receiver material; cliff source provides only authored structural visuals.",
+    "Cliff structural collision remains authoritative even if artwork is unavailable.",
+    "Editor and client visually certify source-authored cliffs, connectors and shoreline independently of a green build."
   ],
-  "evidence": "docs/assets/previews/elizawy_cliff_projection_pass167z109d.png"
+  "evidence": "docs/assets/previews/elizawy_cliff_projection_pass167z109d.png",
+  "visualAuthority": {
+    "currentProvider": "content/worldgen/authored_terrain_provider_authority_v0_1.json",
+    "structuralAuthority": "TavernMap.structural_levels / StructuralCellV2 / CliffShape15",
+    "geometry": "ElizaWy original rock/rim/fringe source cells and certified whole-cell assemblies",
+    "surfaceAndReceiver": "V7 exact authored terrain provider",
+    "historicalReceiverProjection": "167Z109G; superseded by 167Z109W3",
+    "rendererRecipe": "Use existing W3+ cliff shapes and topology; do not reinstate historic cropped half-cell/corner synthesis"
+  },
+  "supersedes": "167Z109G projection hash 25b7a65f892b897d7664e8d68091661a159a41715617a18bccd185f173d9608d"
 }

@@ -3,7 +3,6 @@ use std::path::Path;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 use haven_assets::asset_registry::audited_object_footprint_for_cell;
-use haven_core::{GameWorld, SceneReference};
 use haven_save::{
     delete_world_save, load_or_create_world_social_state, save_chunk_manifest_to_path,
     save_world_save_metadata, save_world_to_path, save_world_topology_to_path, world_save_paths,
@@ -12,7 +11,7 @@ use haven_save::{
 use haven_world::{
     archipelago_layout::generate_archipelago_layout,
     export_archipelago_preview,
-    island_pcg::{generate_landmass, IslandGenerationSettings},
+    materialize_base_world,
     scene_rectangles::{SceneRectangleManifest, SCENE_RECTANGLE_MANIFEST_PATH},
     build_semantic_world_bake_v1, save_semantic_world_bake_v1_to_path,
     save_world_creation_settings_to_path, GeographicGenerationProfile, HorizontalWrapMode,
@@ -100,54 +99,14 @@ fn create_seeded_world_save_inner(
         .filter(|rectangle| rectangle.grid_x.is_some() && rectangle.grid_y.is_some())
         .count();
 
-    let mut world = GameWorld::starter();
-    let mut mainland_start: Option<SceneReference> = None;
-    let mut willowmere_center: Option<[i32; 2]> = None;
-    for landmass_id in landmass_ids {
-        let generated = generate_landmass(
-            &manifest,
-            landmass_id,
-            IslandGenerationSettings {
-                // The mainland must use the exact world seed because runtime
-                // streaming samples the same global geographic field. Minor
-                // islands retain their independent legacy seed lanes.
-                seed: if landmass_id == 0 {
-                    seed
-                } else {
-                    island_seed(seed, landmass_id)
-                },
-                mountain_radius: if landmass_id == 0 {
-                    settings.mountain_radius_hint()
-                } else {
-                    (settings.mountain_radius_hint() * 0.72).clamp(0.20, 0.62)
-                },
-                shoreline_width: settings.shoreline_width_hint(),
-                tree_density: haven_world::island_pcg::natural_object_density_for_landmass(
-                    landmass_id,
-                ),
-                geography: geography_profile,
-            },
-        )?;
-        if landmass_id == 0 {
-            mainland_start = Some(SceneReference::from(generated.harbor_scene_id.clone()));
-            willowmere_center = generated.mainland_features.willowmere_center;
+    let generated = materialize_base_world(&manifest, settings)?;
+    let mut world = generated.world;
+    let willowmere_center = generated.willowmere_center;
+    let starting_scene_code = generated.starting_scene.as_str().to_string();
+    for scene in world.scenes.iter_mut() {
+        for object in &mut scene.map.objects {
+            object.footprint = audited_object_footprint_for_cell(object.kind, object.x, object.y);
         }
-        for generated_scene in generated.scenes {
-            let mut scene = generated_scene.scene;
-            for object in &mut scene.map.objects {
-                object.footprint =
-                    audited_object_footprint_for_cell(object.kind, object.x, object.y);
-            }
-            world.insert_scene(scene)?;
-        }
-    }
-
-    let starting_scene_code = mainland_start
-        .as_ref()
-        .map(|reference| reference.code().to_string())
-        .unwrap_or_default();
-    if let Some(start) = mainland_start {
-        world.set_active_scene(start)?;
     }
 
     manifest.save_to_path(&paths.scene_manifest)?;
@@ -228,10 +187,6 @@ fn create_seeded_world_save_inner(
     Ok(metadata)
 }
 
-fn island_seed(world_seed: u64, landmass_id: i32) -> u64 {
-    splitmix64(world_seed ^ (landmass_id as i64 as u64).wrapping_mul(0x9e37_79b9_7f4a_7c15))
-}
-
 fn splitmix64(mut value: u64) -> u64 {
     value = value.wrapping_add(0x9e37_79b9_7f4a_7c15);
     value = (value ^ (value >> 30)).wrapping_mul(0xbf58_476d_1ce4_e5b9);
@@ -251,9 +206,4 @@ mod tests {
         );
     }
 
-    #[test]
-    fn island_seeds_are_stable_and_distinct() {
-        assert_eq!(island_seed(1_337, 2), island_seed(1_337, 2));
-        assert_ne!(island_seed(1_337, 1), island_seed(1_337, 2));
-    }
 }

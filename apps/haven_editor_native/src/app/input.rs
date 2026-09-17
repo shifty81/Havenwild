@@ -163,19 +163,7 @@ impl EditorApp {
                 return;
             }
 
-            if self.handle_assets_workspace_click(mx, my) {
-                self.primary_pointer_owned_by_ui = true;
-                return;
-            }
-            // The Assets canvas owns its content, not the entire application.
-            // Keep global menus, workspace tabs, Play/Save and right/bottom docks
-            // on the same primary-click route as every other studio. Never let
-            // an unhandled Assets click fall through into the hidden world canvas.
-            if self.asset_studio_open {
-                let _ = self.handle_primary_click();
-                self.primary_pointer_owned_by_ui = true;
-                return;
-            }
+            if self.handle_assets_workspace_click(mx, my) { self.primary_pointer_owned_by_ui = true; return; }
             if self.handle_workspace_document_tabs_click(mx, my) {
                 self.primary_pointer_owned_by_ui = true;
                 return;
@@ -216,7 +204,15 @@ impl EditorApp {
         }
 
         if self.update_assets_workspace_scroll() { return; }
-        let canvas_pointer_consumed = if self.asset_studio_open { true } else { self.update_canvas_navigation() };
+        // Assets has no canvas camera, but it is NOT a modal. Consuming every
+        // click here prevented the ordinary primary-click router from seeing
+        // the global workspace tabs, menus and right dock. The Assets content
+        // handler above already consumes clicks within its own rectangle.
+        let canvas_pointer_consumed = if self.asset_studio_open {
+            false
+        } else {
+            self.update_canvas_navigation()
+        };
         let pointer_consumed =
             if is_mouse_button_pressed(MouseButton::Left) && !canvas_pointer_consumed {
                 self.handle_primary_click()
@@ -226,7 +222,9 @@ impl EditorApp {
         if is_key_pressed(KeyCode::Tab) && self.pixel_studio.new_dialog.is_none() {
             let _ = self.command_bus.commit_gesture();
             self.last_painted_cell = None;
-            if self.asset_studio_open { self.asset_studio_open=false; self.viewport_mode=EditorViewportMode::PixelStudio; }
+            // Return to the prior workspace instead of unexpectedly opening
+            // Pixel Studio whenever the user exits Assets with Tab.
+            if self.asset_studio_open { self.close_assets_studio(); }
             else if self.viewport_mode.is_game_canvas() { self.open_assets_studio(); }
             else { self.viewport_mode = match self.viewport_mode {
                 EditorViewportMode::PixelStudio => EditorViewportMode::AnimationStudio,
@@ -445,12 +443,6 @@ impl EditorApp {
             }
         }
 
-        // Assets is a distinct workspace. Global shell controls above remain
-        // usable, but clicks on its backdrop must never mutate underlying views.
-        if self.asset_studio_open {
-            return true;
-        }
-
         let list_rect = self.shell_layout().list_content;
         if self.workspace_shell.left_panel_visible
             && self.viewport_mode == EditorViewportMode::SceneMap
@@ -509,10 +501,13 @@ impl EditorApp {
                 }
             }
         }
-        if self.workspace_shell.right_panel_visible
-            && self.viewport_mode == EditorViewportMode::SceneBank
-        {
-            if self.handle_scene_bank_inspector_click(mx, my) {
+        if self.viewport_mode == EditorViewportMode::SceneBank {
+            // The center canvas remains interactive when the right dock is
+            // hidden or showing Assets, Outliner, or Validation.
+            if self.workspace_shell.right_panel_visible
+                && self.workspace_shell.right_dock_tab == RightDockTab::Properties
+                && self.handle_scene_bank_inspector_click(mx, my)
+            {
                 return true;
             }
             if self.handle_scene_bank_canvas_click(mx, my) {

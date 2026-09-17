@@ -3,7 +3,6 @@ use std::env;
 use haven_save::{world_save_paths, CharacterId, WorldSaveId};
 
 use crate::client_frontend::WorldLaunchRequest;
-use crate::client_save_generation::create_seeded_world_save_with_settings;
 use crate::runtime_config::runtime_save_root;
 
 const DEV_WORLD_ARG: &str = "--dev-world";
@@ -57,9 +56,7 @@ where
     let save_root = runtime_save_root();
     let save_paths = world_save_paths(&save_root, &world_id)
         .map_err(|error| format!("invalid development world: {error}"))?;
-    if !std::path::Path::new(&save_paths.world).is_file() {
-        provision_development_world(&save_root, &world_id)?;
-    }
+    provision_development_world(&save_paths)?;
     if !std::path::Path::new(&save_paths.world).is_file() {
         return Err(format!(
             "development world '{}' provisioning completed without producing {}",
@@ -78,15 +75,37 @@ where
 }
 
 
-fn provision_development_world(save_root: &str, world_id: &WorldSaveId) -> Result<(), String> {
-    // Development launch owns a deterministic, disposable world. It must not
-    // depend on a historical player save surviving between source rollups.
-    let mut settings = haven_world::WorldCreationSettings::default();
-    settings.display_name = "Havenwild Development World".to_string();
-    settings.seed = 0x4841_5645_4E57_4944; // "HAVENWID", stable across machines/passes.
-    create_seeded_world_save_with_settings(save_root, world_id.clone(), settings)
-        .map(|_| ())
-        .map_err(|error| format!("unable to provision development world '{}': {error}", world_id.0))
+fn provision_development_world(paths: &haven_save::ClientSavePaths) -> Result<(), String> {
+    // The project Base World is the only development authority. Its local
+    // runtime save is a disposable copy, not an independently seeded world.
+    let source = crate::runtime_config::runtime_root()
+        .join(haven_world::CANONICAL_BASE_WORLD_RELATIVE_PATH);
+    if !source.is_file() {
+        return Err(format!("Base World missing: {}. Open the native editor to initialize it", source.display()));
+    }
+    let world = haven_save::load_world_from_path(&source.to_string_lossy())
+        .map_err(|error| format!("Base World unreadable (not replaced): {error}"))?;
+    if !world.scenes.iter().any(|scene| scene.id.as_str().starts_with("pcg_havenwild_mainland_")) {
+        return Err("Base World has no generated Alderreach mainland; refusing legacy fixture".to_string());
+    }
+    haven_save::save_world_to_path(&paths.world, &world)?;
+    let source_root = source.parent().ok_or("Base World source directory is missing")?;
+    let replica_root = std::path::Path::new(&paths.root);
+    for relative in [
+        haven_world::WORLD_CREATION_SETTINGS_FILENAME,
+        haven_world::SEMANTIC_WORLD_BAKE_RELATIVE_PATH,
+    ] {
+        let from = source_root.join(relative);
+        if !from.is_file() {
+            return Err(format!("Base World sidecar missing: {}", from.display()));
+        }
+        let to = replica_root.join(relative);
+        if let Some(parent) = to.parent() {
+            std::fs::create_dir_all(parent).map_err(|error| error.to_string())?;
+        }
+        std::fs::copy(&from, &to).map_err(|error| format!("{}: {error}", to.display()))?;
+    }
+    Ok(())
 }
 
 fn argument_value(args: &[String], name: &str) -> Result<String, String> {

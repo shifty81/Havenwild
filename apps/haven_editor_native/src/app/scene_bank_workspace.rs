@@ -51,7 +51,7 @@ pub(crate) fn scene_bank_indices(world: &haven_core::GameWorld) -> Vec<usize> {
 }
 
 fn scene_bank_action_button_rect(rect: Rect, index: usize) -> Rect {
-    Rect::new(rect.x, rect.y + 322.0 + index as f32 * 38.0, rect.w, 34.0)
+    Rect::new(rect.x, rect.y + 352.0 + index as f32 * 38.0, rect.w, 34.0)
 }
 
 fn scene_library_layout(viewport: Rect, scene_count: usize, selected_position: usize) -> (usize, usize, usize, f32) {
@@ -182,7 +182,21 @@ impl EditorApp {
                 28.0,
                 Color::new(0.035, 0.040, 0.048, 0.94),
             );
-            draw_scissored_text(&scene.name, card.x + 8.0, card.y + 20.0, card.w - 16.0, 17.0, TEXT);
+            // Card navigation is the primary Open/Edit action. The inspector is optional.
+            // Reserve a visible action region so long scene names do not hide it.
+            draw_scissored_text(
+                &scene.name,
+                card.x + 8.0,
+                card.y + 20.0,
+                (card.w - 116.0).max(1.0),
+                17.0,
+                TEXT,
+            );
+            draw_badge(
+                Rect::new(card.x + card.w - 104.0, card.y + 5.0, 96.0, 18.0),
+                "OPEN / EDIT",
+                true,
+            );
             draw_badge(
                 Rect::new(card.x + 8.0, card.y + card.h - 25.0, 72.0, 18.0),
                 scene.kind.code(),
@@ -295,9 +309,10 @@ impl EditorApp {
             .enumerate()
         {
             if scene_library_card_rect(viewport, visible_position, columns, card_w).contains(point) {
-                let scene_name = self.model.world.scenes[scene_index].name.clone();
+                // Click anywhere on a scene card to open the existing editable
+                // document. Never depend on the Properties dock to navigate.
                 self.focus_scene_index_without_open(scene_index);
-                self.status_message = format!("Selected Scene Library entry {scene_name}");
+                self.open_selected_scene_bank_scene();
                 return true;
             }
         }
@@ -315,15 +330,18 @@ impl EditorApp {
         }
         let position = (relative / 50.0).floor() as usize;
         if let Some(scene_index) = scene_bank_indices(&self.model.world).get(position).copied() {
-            let scene_name = self.model.world.scenes[scene_index].name.clone();
             self.focus_scene_index_without_open(scene_index);
-            self.status_message = format!("Selected Scene Library entry {scene_name}");
+            self.open_selected_scene_bank_scene();
         }
         true
     }
 
     pub(crate) fn handle_scene_bank_inspector_click(&mut self, mx: f32, my: f32) -> bool {
-        let rect = self.inspector_content_rect();
+        // Use the identical inset rectangle used by the Properties renderer.
+        // The old hit target was eight pixels out of alignment with the buttons.
+        let rect = super::right_dock::right_dock_inner_content_rect(
+            self.shell_layout().inspector_content,
+        );
         let point = vec2(mx, my);
         for index in 0..4 {
             let button = scene_bank_action_button_rect(rect, index);

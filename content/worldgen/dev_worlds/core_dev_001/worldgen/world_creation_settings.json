@@ -1,0 +1,87 @@
+{
+  "schema": "havenwild.world_creation_settings.v1",
+  "display_name": "Havenwild Development World",
+  "seed": 5206537499884079428,
+  "chunk_size_tiles": 64,
+  "size": "standard",
+  "extent_mode": "finite",
+  "difficulty": "standard",
+  "difficulty_tuning": {
+    "resource_abundance_percent": 58,
+    "survival_pressure_percent": 50,
+    "hostile_pressure_percent": 50,
+    "weather_severity_percent": 50,
+    "economy_pressure_percent": 50,
+    "recovery_penalty_percent": 40
+  },
+  "landform": "archipelago",
+  "land": {
+    "major_landmass_count": 8,
+    "land_coverage_percent": 65,
+    "coastline_complexity": "normal",
+    "mountain_coverage": "normal",
+    "island_frequency": "normal"
+  },
+  "hydrology": {
+    "marine_water_abundance": "normal",
+    "river_density": "normal",
+    "lake_density": "normal",
+    "pond_density": "normal",
+    "wetland_density": "normal",
+    "waterfall_density": "normal",
+    "waterfalls_required_at_structural_drops": true,
+    "estuaries_enabled": true,
+    "navigable_waterways_required": true,
+    "distinguish_marine_freshwater_and_brackish": true
+  },
+  "biomes": {
+    "variety": "normal",
+    "forest_density": "normal",
+    "special_biome_frequency": "normal",
+    "enabled_primary_biomes": [
+      "meadow",
+      "mixed_woodland",
+      "deep_forest",
+      "river_valley",
+      "wetland",
+      "coastal_lowland",
+      "rocky_highlands",
+      "alpine_upland"
+    ]
+  },
+  "settlements": {
+    "secondary_city_count": 2,
+    "villages_per_city_min": 1,
+    "villages_per_city_max": 4,
+    "independent_village_count": 1,
+    "road_density": "normal",
+    "ruin_density": "normal",
+    "cave_and_dungeon_density": "normal",
+    "willowmere_location": "automatic",
+    "housing": {
+      "city_available_homes_target": 4,
+      "village_available_homes_target": 1,
+      "village_second_home_chance_percent": 20,
+      "rentals_enabled": true,
+      "purchases_enabled": true,
+      "lease_to_own_enabled": true,
+      "household_co_ownership_enabled": true
+    }
+  },
+  "social": {
+    "npc_reputation_enabled": true,
+    "npc_relationships_enabled": true,
+    "player_player_partnership_enabled": true,
+    "player_player_marriage_enabled": true,
+    "player_npc_marriage_enabled": true,
+    "households_enabled": true,
+    "children_enabled": true,
+    "adoption_enabled": true,
+    "pregnancy_enabled": true,
+    "pregnancy_visual_layers_enabled": true,
+    "family_system_opt_out_supported": true
+  },
+  "willowmere_required": true,
+  "outdoor_world_is_continuous": true,
+  "static_player_farmstead_generated": false
+}

@@ -835,8 +835,7 @@ impl EditorApp {
                 height,
                 &rgba,
             );
-            let editor_world_path = development_session::editor_world_path();
-            save_world_to_path(&editor_world_path.to_string_lossy(), &self.model.world)
+            development_session::save_base_world(&self.model.world)
                 .map_err(|error| format!("Building Composite published but Dev World persistence failed: {error}"))?;
 
             if let Some(document) = self.pixel_studio.document.as_mut() {
@@ -954,8 +953,7 @@ impl EditorApp {
             height,
             &rgba,
         );
-        let editor_world_path = development_session::editor_world_path();
-        save_world_to_path(&editor_world_path.to_string_lossy(), &self.model.world)
+        development_session::save_base_world(&self.model.world)
             .map_err(|error| format!("Visual override saved but Dev World persistence failed: {error}"))?;
 
         let mut outputs = vec![asset_path.clone()];

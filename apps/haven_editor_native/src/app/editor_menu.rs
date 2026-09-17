@@ -398,6 +398,10 @@ impl EditorApp {
     }
 
     pub(crate) fn save_all_editor_documents(&mut self) {
+        if !self.base_world_ready {
+            self.status_message = "Save failed: Base World not loaded; starter fixture is read-only. See startup diagnostics".to_string();
+            return;
+        }
         let root = repo_root_dir();
         let project_path = root.join(STARTER_PROJECT_FILE_PATH);
         let scene_manifest_path = root.join(SCENE_RECTANGLE_MANIFEST_PATH);
@@ -413,8 +417,11 @@ impl EditorApp {
             .scene_assignments
             .save_to_path(&scene_assignments_path.to_string_lossy());
         let route_result = self.harbor_routes.save_to_path(&harbor_route_path.to_string_lossy());
-        let editor_world_path = development_session::editor_world_path();
-        let world_result = save_world_to_path(&editor_world_path.to_string_lossy(), &self.model.world);
+        let world_result = development_session::save_base_world(&self.model.world).and_then(|_| {
+            development_session::persist_development_world_authority(
+                &self.development_world_settings, self.development_world_semantic_bake.as_ref()
+            )
+        });
         let preview_result = self.export_island_preview_pngs();
         let pixel_result = if self.pixel_studio.world_region_context.is_some() {
             self.persist_active_world_region_pixels().map(|_| ())
@@ -687,7 +694,8 @@ impl EditorApp {
             load_active_scene_rectangle_manifest(),
             load_active_scene_rectangle_assignments(),
             HarborRouteCatalog::load_from_path(HARBOR_ROUTE_CATALOG_PATH),
-            load_world_from_path(&development_session::editor_world_path().to_string_lossy()),
+            load_world_from_path(&development_session::editor_world_path().to_string_lossy())
+                .and_then(|world| { development_session::verify_base_world(&world)?; Ok(world) }),
         ) {
             (Ok(project), Ok(manifest), Ok(assignments), Ok(routes), Ok(world)) => {
                 self.model.project = project;
@@ -695,6 +703,7 @@ impl EditorApp {
                 self.scene_assignments = assignments;
                 self.harbor_routes = routes;
                 self.model.world = world;
+                self.base_world_ready = true;
                 self.model.region_graph = haven_world::region_graph::starter_island_region_graph();
                 self.restore_generated_harbor_routes();
                 let existing_scene_ids = self

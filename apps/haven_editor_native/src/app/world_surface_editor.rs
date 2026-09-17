@@ -1,3 +1,6 @@
+use std::collections::HashMap;
+
+use haven_assets::stamp_registry::StampRegistry;
 use haven_core::{GameWorld, ProjectSceneId, SceneMap, MAP_H, MAP_W};
 use haven_editor::{
     visible_grid_bounds_in_world, CanvasPoint as AuthoringCanvasPoint,
@@ -13,8 +16,13 @@ use super::canvas_camera::CanvasCameraState;
 use super::canvas_view::{draw_canvas_rulers, draw_infinite_grid};
 use super::atlas_render::EditorTextureSet;
 use super::editor_text::draw_editor_text;
+use super::scene_render_helpers::{draw_scene_tilemap, SceneCanvasLayerVisibility, SceneTilemapDraw};
+use super::structural_cliff_preview::StructuralCliffPreviewCache;
 use super::render_helpers::{scene_tile_color, zone_preview_color};
-use super::{WorldEditTool, WorldLayerMode, MUTED, PANEL_EDGE, TEXT, WARN};
+use super::{
+    EditorSelection, SceneLayerMode, SceneLayerState, WorldEditTool, WorldLayerMode,
+    MUTED, PANEL_EDGE, TEXT, WARN,
+};
 
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct WorldSurfaceViewOptions {
@@ -59,6 +67,8 @@ pub(crate) fn draw_scene_rectangle_map(
     viewport: Rect,
     canvas: &CanvasCameraState,
     textures: &EditorTextureSet,
+    stamp_registry: &StampRegistry,
+    structural_caches: &mut HashMap<ProjectSceneId, StructuralCliffPreviewCache>,
     options: WorldSurfaceViewOptions,
 ) {
     draw_rectangle(
@@ -139,47 +149,71 @@ pub(crate) fn draw_scene_rectangle_map(
                 world.scene_by_id(&ProjectSceneId::new(assignment.scene_code.as_str()))
             });
         if let Some(scene) = assigned_scene {
-            draw_scene_surface_into_rect(
-                scene,
-                target,
-                visible,
-                pixels_per_tile,
-                options.show_terrain,
-                options.show_water,
-                options.show_roads_paths,
-                options.show_structures,
-                options.show_structural_levels,
-            );
-            if options.show_visual_overrides {
-                textures.draw_scene_visual_overrides(
+            if world_scene_artwork_lod(pixels_per_tile) {
+                // Reuse exactly the same authored tile, transition, cliff,
+                // visual-override and actor composition as a Scene Canvas.
+                // Scene data is partition-local; only the camera target shifts
+                // to place it into the selected landmass's global tile grid.
+                // Structural synchronization hashes each partition. Do not
+                // repeat that work if the layer is hidden or its source
+                // texture failed to load: neither case can submit cliff art.
+                let bridge = if options.show_structural_levels && textures.has_cliff_artwork() {
+                    let structural = structural_caches.entry(scene.id.clone()).or_default();
+                    structural.synchronize(scene);
+                    structural.bridge()
+                } else {
+                    None
+                };
+                draw_materialized_world_scene_artwork(
                     scene,
-                    haven_editor::GridPos { x: target.x as i32, y: target.y as i32 },
+                    target,
+                    visible,
+                    &camera,
+                    canvas.zoom,
+                    textures,
+                    stamp_registry,
+                    bridge,
+                    options,
                 );
-            }
-            if options.show_zones {
-                draw_scene_zone_overlay(scene, target, visible, pixels_per_tile);
-            }
-            if options.show_structural_levels {
-                draw_scene_structural_level_overlay(scene, target, visible, pixels_per_tile);
-            }
-            if options.show_objects
-                || options.show_water
-                || options.show_roads_paths
-                || options.show_structural_levels
-            {
-                draw_scene_object_overlay(
+            } else {
+                // At low LOD, tile art aliases badly and floods the GPU.
+                // A clearly labelled schematic retains fast world navigation.
+                draw_scene_surface_into_rect(
                     scene,
                     target,
                     visible,
                     pixels_per_tile,
-                    options.show_vegetation,
-                    options.show_resources,
-                    options.show_structures,
-                    options.show_objects_props,
+                    options.show_terrain,
                     options.show_water,
                     options.show_roads_paths,
+                    options.show_structures,
                     options.show_structural_levels,
                 );
+                if options.show_zones {
+                    draw_scene_zone_overlay(scene, target, visible, pixels_per_tile);
+                }
+                if options.show_structural_levels {
+                    draw_scene_structural_level_overlay(scene, target, visible, pixels_per_tile);
+                }
+                if options.show_objects
+                    || options.show_water
+                    || options.show_roads_paths
+                    || options.show_structural_levels
+                {
+                    draw_scene_object_overlay(
+                        scene,
+                        target,
+                        visible,
+                        pixels_per_tile,
+                        options.show_vegetation,
+                        options.show_resources,
+                        options.show_structures,
+                        options.show_objects_props,
+                        options.show_water,
+                        options.show_roads_paths,
+                        options.show_structural_levels,
+                    );
+                }
             }
         } else {
             draw_rectangle(
@@ -334,8 +368,8 @@ pub(crate) fn draw_scene_rectangle_map(
     );
     draw_editor_text(
         &format!(
-            "{} | {} layer | {} tool | brush {}x{}",
-            if options.show_entire_world { "Havenwild Development World" } else { "Selected Landmass" },
+            "{} | {} | {} | {}x{} brush",
+            if world_scene_artwork_lod(pixels_per_tile) { "Materialized artwork" } else { "Semantic overview" },
             options.layer_mode.label(),
             options.edit_tool.label(),
             options.brush_radius * 2 + 1,
@@ -347,16 +381,95 @@ pub(crate) fn draw_scene_rectangle_map(
         TEXT,
     );
     draw_editor_text(
-        if options.show_entire_world {
-            "Entire persistent world • zoom from archipelago LOD to native 32px terrain • selected landmass remains the edit authority"
+        if world_scene_artwork_lod(pixels_per_tile) {
+            if options.show_structural_levels && !textures.has_cliff_artwork() {
+                "CLIFF ART MISSING: check generated cliff overlay source | terrain may still render"
+            } else if textures.has_source_backed_terrain_artwork() {
+                "Art on loaded scenes only | partition seams need neighbor-aware resolution"
+            } else {
+                "Source terrain missing: diagnostic atlas may appear | inspect asset paths"
+            }
         } else {
-            "Selected landmass focus • storage partitions are diagnostics only"
+            "Zoom in for artwork | overview and unloaded areas are schematic"
         },
         viewport.x + 16.0,
         viewport.y + 44.0,
         13.0,
         MUTED,
     );
+}
+
+/// A texture needs several screen pixels per tile to remain readable.
+/// Overview and missing-partition cells stay explicitly schematic.
+fn world_scene_artwork_lod(pixels_per_tile: f32) -> bool {
+    pixels_per_tile >= 3.0
+}
+
+/// Draw a materialized world partition with the existing Scene Canvas renderer.
+/// No new tile atlas mapping or synthetic cliff/pixel artwork is introduced.
+fn draw_materialized_world_scene_artwork(
+    scene: &SceneMap,
+    target: Rect,
+    visible: Rect,
+    base_camera: &Camera2D,
+    zoom: f32,
+    textures: &EditorTextureSet,
+    stamp_registry: &StampRegistry,
+    structural: Option<&haven_world::LegacyCliffBridgeResultV2>,
+    options: WorldSurfaceViewOptions,
+) {
+    let (min_x, min_y, max_x, max_y) = scene_visible_local_bounds(target, visible);
+    if min_x >= max_x || min_y >= max_y {
+        return;
+    }
+    // Macroquad Camera2D is not Clone. Cloning &Camera2D only clones the
+    // reference, so build an owned camera to shift scene-local artwork
+    // while retaining the viewport, zoom, rotation, and render target.
+    let local_camera = Camera2D {
+        target: base_camera.target - vec2(target.x, target.y),
+        zoom: base_camera.zoom,
+        offset: base_camera.offset,
+        rotation: base_camera.rotation,
+        render_target: base_camera.render_target.clone(),
+        viewport: base_camera.viewport,
+    };
+    set_camera(&local_camera);
+    let selection = EditorSelection::default();
+    let layer_states = [SceneLayerState::default(); 4];
+    let visible_cells = haven_editor::GridRect {
+        min: haven_editor::GridPos { x: min_x, y: min_y },
+        max: haven_editor::GridPos { x: max_x - 1, y: max_y - 1 },
+    };
+    draw_scene_tilemap(SceneTilemapDraw {
+        scene,
+        cursor: None,
+        layer_mode: SceneLayerMode::Terrain,
+        selection: &selection,
+        layer_states: &layer_states,
+        autotile_cache: None,
+        structural_cliff_bridge: structural,
+        textures,
+        autotile_preview_enabled: false,
+        autotile_dirty_overlay: false,
+        visible_cells: Some(visible_cells),
+        zoom,
+        visibility: SceneCanvasLayerVisibility {
+            terrain: options.show_terrain,
+            water: options.show_water,
+            roads_paths: options.show_roads_paths,
+            structures: options.show_structures,
+            vegetation: options.show_vegetation,
+            resources: options.show_resources,
+            objects_props: options.show_objects_props,
+            structural_levels: options.show_structural_levels,
+            gameplay: false,
+            links: false,
+            visual_overrides: options.show_visual_overrides,
+        },
+        stamp_registry,
+        guides: false,
+    });
+    set_camera(base_camera);
 }
 
 fn draw_archipelago_overview(
@@ -519,14 +632,14 @@ fn draw_archipelago_overview(
         Color::new(0.04, 0.05, 0.05, 0.82),
     );
     draw_editor_text(
-        "Havenwild Development World | Canonical Runtime Geography",
+        "Base World | Semantic overview, not game artwork",
         viewport.x + 16.0,
         viewport.y + 25.0,
         17.0,
         TEXT,
     );
     draw_editor_text(
-        "Runtime semantic bake + materialized surface overlays • click a major landmass to edit",
+        "Low-detail world map | Open Scene for actual artwork",
         viewport.x + 16.0,
         viewport.y + 45.0,
         13.0,
@@ -1185,5 +1298,18 @@ mod tests {
         assert_eq!(world_preview_step(1.5), 4);
         assert_eq!(world_preview_step(0.8), 8);
         assert_eq!(world_preview_step(0.2), 16);
+    }
+}
+
+#[cfg(test)]
+mod world_artwork_lod_tests {
+    use super::world_scene_artwork_lod;
+
+    #[test]
+    fn schematic_navigation_switches_to_textured_scene_at_playable_scale() {
+        assert!(!world_scene_artwork_lod(0.1));
+        assert!(!world_scene_artwork_lod(2.99));
+        assert!(world_scene_artwork_lod(3.0));
+        assert!(world_scene_artwork_lod(20.0));
     }
 }

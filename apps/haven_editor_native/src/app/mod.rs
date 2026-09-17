@@ -365,6 +365,7 @@ pub(crate) struct EditorApp {
     authoring_session: Option<haven_authoring::AuthoringSession>,
     status_message: String,
     development_client: Option<std::process::Child>,
+    base_world_ready: bool,
     editor_settings: editor_settings::EditorSettingsState,
     pending_document_close: Option<document_lifecycle::PendingDocumentClose>,
     closed_workspace_documents: HashSet<EditorViewportMode>,
@@ -449,15 +450,22 @@ impl EditorApp {
         let asset_manifest_modified = None;
         let texture_summary = "asset textures deferred until the first visible frame".to_string();
         let mut model = EditorWorldModel::starter();
-        let editor_world_path = development_session::editor_world_path();
-        if let Ok(mut saved_world) = load_world_from_path(&editor_world_path.to_string_lossy()) {
-            if let Ok(descriptor) = development_session::DevelopmentWorldDescriptor::load() {
-                if development_session::ensure_acceptance_crate(&mut saved_world, &descriptor).is_ok() {
-                    let _ = save_world_to_path(&editor_world_path.to_string_lossy(), &saved_world);
-                }
+        let base_world_result = development_session::load_or_initialize_base_world(&development_world_settings);
+        let base_world_ready = base_world_result.is_ok();
+        let base_world_status = match base_world_result {
+            Ok(world) => {
+                let scenes = world.scenes.len();
+                model.world = world;
+                format!("Base World READY ({scenes} authored/generated scenes) | {}",
+                    development_session::path_label(&development_session::editor_world_path()))
             }
-            model.world = saved_world;
-        }
+            Err(error) => {
+                // Retain an inspectable compatibility fixture in memory for
+                // diagnostics, but all persistence and Play paths are blocked.
+                // Never allow it to impersonate the canonical Base World.
+                format!("BASE WORLD UNAVAILABLE — Save/Play disabled: {error}")
+            }
+        };
         let canonicalized_world_assets =
             placeable_registry.canonicalize_world_aliases(&mut model.world);
         let mut app = Self {
@@ -634,8 +642,10 @@ impl EditorApp {
             background_jobs: vec![haven_jobs::JobRecord::queued("Asset library warm-up")],
             authoring_session: None,
             development_client: None,
+            base_world_ready,
             status_message: format!(
-                "Asset palette ready | published aliases canonicalized={} | buildings recipes={} instances={}{} | {} | {}",
+                "{} | published aliases canonicalized={} | buildings recipes={} instances={}{} | {} | {}",
+                base_world_status,
                 canonicalized_world_assets,
                 building_recipe_count,
                 building_instance_count,
@@ -684,8 +694,11 @@ impl EditorApp {
         self.asset_manifest_modified = editor_textures.user_registry().modified();
         let texture_summary = editor_textures.readiness_summary();
         self.editor_textures = editor_textures;
-        self.status_message =
-            format!("Editor assets loaded | {texture_summary} | intake previews load on demand");
+        if self.base_world_ready {
+            self.status_message = format!(
+                "Base World READY | editor assets loaded | {texture_summary} | intake previews load on demand"
+            );
+        }
     }
 }
 

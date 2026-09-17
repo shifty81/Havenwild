@@ -7,6 +7,8 @@ pub(crate) struct SceneCanvasLayerVisibility {
     pub water: bool,
     pub roads_paths: bool,
     pub structures: bool,
+    pub vegetation: bool,
+    pub resources: bool,
     pub objects_props: bool,
     pub structural_levels: bool,
     pub gameplay: bool,
@@ -26,10 +28,11 @@ impl SceneCanvasLayerVisibility {
     }
 
     fn object_visible(self, kind: ObjectKind) -> bool {
-        if matches!(kind, ObjectKind::Door | ObjectKind::Stairs | ObjectKind::Fence | ObjectKind::CaveEntrance) {
-            self.structures
-        } else {
-            self.objects_props
+        match super::canvas_layers::canvas_layer_kind_for_world_object(kind) {
+            super::canvas_layers::CanvasLayerKind::Vegetation => self.vegetation,
+            super::canvas_layers::CanvasLayerKind::Resources => self.resources,
+            super::canvas_layers::CanvasLayerKind::Structures => self.structures,
+            _ => self.objects_props,
         }
     }
 
@@ -43,6 +46,8 @@ impl SceneCanvasLayerVisibility {
             super::canvas_layers::CanvasLayerKind::Water => self.water,
             super::canvas_layers::CanvasLayerKind::RoadsPaths => self.roads_paths,
             super::canvas_layers::CanvasLayerKind::Structures => self.structures,
+            super::canvas_layers::CanvasLayerKind::Vegetation => self.vegetation,
+            super::canvas_layers::CanvasLayerKind::Resources => self.resources,
             super::canvas_layers::CanvasLayerKind::StructuralLevels => self.structural_levels,
             _ => self.objects_props,
         }
@@ -64,6 +69,8 @@ pub(crate) struct SceneTilemapDraw<'a> {
     pub zoom: f32,
     pub visibility: SceneCanvasLayerVisibility,
     pub stamp_registry: &'a haven_assets::stamp_registry::StampRegistry,
+    /// World Canvas composes the same visuals without per-partition Scene Editor guides.
+    pub guides: bool,
 }
 
 pub(crate) fn draw_scene_tilemap(draw: SceneTilemapDraw<'_>) {
@@ -82,6 +89,7 @@ pub(crate) fn draw_scene_tilemap(draw: SceneTilemapDraw<'_>) {
         zoom,
         visibility,
         stamp_registry,
+        guides,
     } = draw;
     let terrain_state = layer_states[SceneLayerMode::Terrain.index()];
     if visibility.terrain
@@ -209,6 +217,8 @@ pub(crate) fn draw_scene_tilemap(draw: SceneTilemapDraw<'_>) {
 
     let object_state = layer_states[SceneLayerMode::Objects.index()];
     if visibility.objects_props
+        || visibility.vegetation
+        || visibility.resources
         || visibility.structures
         || visibility.water
         || visibility.roads_paths
@@ -278,59 +288,61 @@ pub(crate) fn draw_scene_tilemap(draw: SceneTilemapDraw<'_>) {
         // so a later depth-sorted sprite cannot hide them. Preserve the prior
         // editor convention of outlining every placeable, but move the anchor
         // dot from the raw anchor-cell center to the shared physical foot/root.
-        for stamp in &scene.map.stamps {
-            if !visibility.stamp_visible(stamp, stamp_registry) {
-                continue;
+        if guides {
+            for stamp in &scene.map.stamps {
+                if !visibility.stamp_visible(stamp, stamp_registry) {
+                    continue;
+                }
+                let is_selected = selection.items.contains(&SelectionItem::Stamp(stamp.id));
+                let (x, y, w, h) = stamp.visual_rect();
+                let mut color = if is_selected {
+                    TEXT
+                } else if layer_mode == SceneLayerMode::Objects {
+                    Color::new(0.45, 0.86, 1.0, 1.0)
+                } else {
+                    Color::new(0.45, 0.76, 0.92, 0.55)
+                };
+                color.a *= object_state.opacity;
+                draw_rectangle_lines(
+                    x as f32,
+                    y as f32,
+                    w as f32,
+                    h as f32,
+                    if is_selected { 0.18 } else { 0.08 },
+                    color,
+                );
+                let foot = haven_render::stamp_foot_tiles(stamp);
+                draw_circle(foot.x, foot.y, 0.12, color);
             }
-            let is_selected = selection.items.contains(&SelectionItem::Stamp(stamp.id));
-            let (x, y, w, h) = stamp.visual_rect();
-            let mut color = if is_selected {
-                TEXT
-            } else if layer_mode == SceneLayerMode::Objects {
-                Color::new(0.45, 0.86, 1.0, 1.0)
-            } else {
-                Color::new(0.45, 0.76, 0.92, 0.55)
-            };
-            color.a *= object_state.opacity;
-            draw_rectangle_lines(
-                x as f32,
-                y as f32,
-                w as f32,
-                h as f32,
-                if is_selected { 0.18 } else { 0.08 },
-                color,
-            );
-            let foot = haven_render::stamp_foot_tiles(stamp);
-            draw_circle(foot.x, foot.y, 0.12, color);
-        }
-        for object in &scene.map.objects {
-            if !visibility.object_visible(object.kind) {
-                continue;
+            for object in &scene.map.objects {
+                if !visibility.object_visible(object.kind) {
+                    continue;
+                }
+                let is_selected = selection.items.contains(&SelectionItem::Object(object.id));
+                let (x, y, w, h) = object.visual_rect();
+                let mut color = if is_selected {
+                    TEXT
+                } else if layer_mode == SceneLayerMode::Objects {
+                    Color::new(1.0, 0.86, 0.36, 1.0)
+                } else {
+                    Color::new(0.96, 0.78, 0.42, 0.55)
+                };
+                color.a *= object_state.opacity;
+                draw_rectangle_lines(
+                    x as f32,
+                    y as f32,
+                    w as f32,
+                    h as f32,
+                    if is_selected { 0.18 } else { 0.08 },
+                    color,
+                );
+                let foot = haven_render::object_foot_tiles(*object);
+                draw_circle(foot.x, foot.y, 0.12, color);
             }
-            let is_selected = selection.items.contains(&SelectionItem::Object(object.id));
-            let (x, y, w, h) = object.visual_rect();
-            let mut color = if is_selected {
-                TEXT
-            } else if layer_mode == SceneLayerMode::Objects {
-                Color::new(1.0, 0.86, 0.36, 1.0)
-            } else {
-                Color::new(0.96, 0.78, 0.42, 0.55)
-            };
-            color.a *= object_state.opacity;
-            draw_rectangle_lines(
-                x as f32,
-                y as f32,
-                w as f32,
-                h as f32,
-                if is_selected { 0.18 } else { 0.08 },
-                color,
-            );
-            let foot = haven_render::object_foot_tiles(*object);
-            draw_circle(foot.x, foot.y, 0.12, color);
         }
     }
 
-    if selection.scene_id.as_ref() == Some(&scene.id) {
+    if guides && selection.scene_id.as_ref() == Some(&scene.id) {
         draw_selected_cells(selection, layer_mode);
         if let Some(bounds) = selection.bounds {
             draw_rectangle_lines(
@@ -344,26 +356,28 @@ pub(crate) fn draw_scene_tilemap(draw: SceneTilemapDraw<'_>) {
         }
     }
 
-    if let Some((cursor_x, cursor_y)) = cursor {
-        draw_rectangle_lines(cursor_x as f32, cursor_y as f32, 1.0, 1.0, 0.10, TEXT);
-    }
+    if guides {
+        if let Some((cursor_x, cursor_y)) = cursor {
+            draw_rectangle_lines(cursor_x as f32, cursor_y as f32, 1.0, 1.0, 0.10, TEXT);
+        }
 
-    draw_circle_lines(
-        scene.spawn_x as f32 + 0.5,
-        scene.spawn_y as f32 + 0.5,
-        0.55,
-        0.10,
-        TEXT,
-    );
-    if let Some((min_x, min_y, max_x, max_y)) = scene.renderable_bounds() {
-        draw_rectangle_lines(
-            min_x as f32,
-            min_y as f32,
-            (max_x - min_x + 1) as f32,
-            (max_y - min_y + 1) as f32,
+        draw_circle_lines(
+            scene.spawn_x as f32 + 0.5,
+            scene.spawn_y as f32 + 0.5,
+            0.55,
             0.10,
-            PANEL_EDGE,
+            TEXT,
         );
+        if let Some((min_x, min_y, max_x, max_y)) = scene.renderable_bounds() {
+            draw_rectangle_lines(
+                min_x as f32,
+                min_y as f32,
+                (max_x - min_x + 1) as f32,
+                (max_y - min_y + 1) as f32,
+                0.10,
+                PANEL_EDGE,
+            );
+        }
     }
 }
 

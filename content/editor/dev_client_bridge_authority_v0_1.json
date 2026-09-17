@@ -50,8 +50,8 @@
     "runtimeBridgeState": "ephemeral machine-local state under WORKSPACE/dev_bridge",
     "rule": "Closing the editor/client never removes a successfully saved project-source edit. Rebuild is required only for executable Rust changes; asset/world saves remain on disk independently of the client process.",
     "coreDevelopmentWorldSource": "content/worldgen/dev_worlds/core_dev_001/world.tworld",
-    "machineLocalWorkingWorld": "WORKSPACE/saves/world.tworld",
-    "worldSaveRule": "Editor Save writes the machine-local working world and then the source-controlled Core Dev authored mirror. Client live world reload consumes the source-controlled mirror."
+    "machineLocalWorkingWorld": "WORKSPACE/saves/world_core_dev_001/world.tworld (disposable runtime replica)",
+    "worldSaveRule": "Editor Save writes and verifies the project-owned Core Dev world source first, then the disposable local development client replica. Client reload consumes the same project-owned source. Never load a machine-local world as editor source."
   },
   "handoff": {
     "toolMenu": "Package development handoff",

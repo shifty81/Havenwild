@@ -207,8 +207,7 @@ impl EditorApp {
         if session.publish_targets.contains(&PublishTarget::ApplyHere)
             && matches!(&session.source.kind, AuthoringSourceKind::WorldSelection | AuthoringSourceKind::SceneSelection | AuthoringSourceKind::BuildingComposite)
         {
-            let editor_world_path = development_session::editor_world_path();
-            save_world_to_path(&editor_world_path.to_string_lossy(), &self.model.world)
+            development_session::save_base_world(&self.model.world)
                 .map_err(|error| format!("authoring metadata committed but world persistence failed: {error}"))?;
         }
         if session.publish_targets.contains(&PublishTarget::PcgExemplar)

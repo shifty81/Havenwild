@@ -45,7 +45,7 @@
     "dryFootReceiver": "c2r8 and diagonal low-side grass are transparent; generated V7 receiver material remains visible",
     "rampVisual": "exact authored left/right 3x4 directional ramp stamp from LPC grass-top cliff companion sheet; full fresh-world footprint owns visual overpaint while structural topology remains collision authority",
     "runtimeProjection": "assets/generated/worldgen_v0_1/terrain/elizawy_cliff_runtime_overlay_summer.png",
-    "runtimeProjectionSha256": "25b7a65f892b897d7664e8d68091661a159a41715617a18bccd185f173d9608d",
+    "runtimeProjectionSha256": "8a009b52c74792714c955a7fbc44d964a2110d8d1b835118b62c9f44ae28a7d4",
     "rimRoleAuthority": {
       "northBack": "c6r6 top 12px authored square-plateau grass+dirt rim",
       "southFront": "c2r7 bottom 12px authored demo-grounded grass lip/dirt border",

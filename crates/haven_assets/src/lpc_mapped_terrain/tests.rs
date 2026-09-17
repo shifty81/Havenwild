@@ -444,3 +444,17 @@ fn compatibility_report_groups_unsupported_signatures() {
     assert!(report.is_compatible());
     assert!(report.unsupported_signatures.is_empty());
 }
+
+#[test]
+fn source_only_water_baseline_does_not_randomize_owner_fill_by_cell_or_frame() {
+    let map = TavernMap::empty_with(TileKind::OceanDeep);
+    let manifest = lpc_mapped_terrain_manifest().expect("mapped V7 manifest");
+    let expected = manifest.quiet_entry_for_corners(["Water_Deep"; 4])
+        .expect("audited V7 deep-water quiet fill");
+    for (x, y, frame) in [(0, 0, 0), (3, 19, 7), (31, 27, 99)] {
+        let actual = lpc_mapped_terrain_owner_fill_entry_for_map_with_water_frame(&map, x, y, frame)
+            .expect("source-authored water fill");
+        assert_eq!(actual.rect, expected.rect);
+        assert!(!actual.is_mixed);
+    }
+}

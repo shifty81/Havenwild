@@ -6,6 +6,8 @@ pub use world_instance::*;
 
 pub mod world_creation;
 pub use world_creation::*;
+pub mod canonical_base_world;
+pub use canonical_base_world::*;
 
 pub mod world_generation_pipeline;
 pub use world_generation_pipeline::*;

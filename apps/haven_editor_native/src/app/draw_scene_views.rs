@@ -100,6 +100,8 @@ impl EditorApp {
             water: self.canvas_layer_kind_visible(canvas_layers::CanvasLayerKind::Water),
             roads_paths: self.canvas_layer_kind_visible(canvas_layers::CanvasLayerKind::RoadsPaths),
             structures: self.canvas_layer_kind_visible(canvas_layers::CanvasLayerKind::Structures),
+            vegetation: self.canvas_layer_kind_visible(canvas_layers::CanvasLayerKind::Vegetation),
+            resources: self.canvas_layer_kind_visible(canvas_layers::CanvasLayerKind::Resources),
             objects_props: self.canvas_layer_kind_visible(canvas_layers::CanvasLayerKind::Objects),
             structural_levels: self.canvas_layer_kind_visible(canvas_layers::CanvasLayerKind::StructuralLevels),
             gameplay: self.canvas_layer_kind_visible(canvas_layers::CanvasLayerKind::Zones),
@@ -134,6 +136,7 @@ impl EditorApp {
             zoom: self.scene_canvas.zoom,
             visibility: scene_visibility,
             stamp_registry: &self.stamp_registry,
+            guides: true,
         });
         self.draw_active_scene_semantic_overlay(scene);
         if show_structures {
@@ -258,7 +261,7 @@ impl EditorApp {
         (x >= 0 && x < MAP_W as i32 && y >= 0 && y < MAP_H as i32).then_some((x, y))
     }
 
-    pub(crate) fn draw_scene_rectangles(&self, _rect: Rect) {
+    pub(crate) fn draw_scene_rectangles(&mut self, _rect: Rect) {
         let Some(manifest) = &self.scene_rectangles else {
             let host = self.canvas_host_rect();
             draw_editor_text(
@@ -321,6 +324,8 @@ impl EditorApp {
             viewport,
             &self.world_canvas,
             &self.editor_textures,
+            &self.stamp_registry,
+            &mut self.structural_cliff_caches,
             view_options,
         );
     }

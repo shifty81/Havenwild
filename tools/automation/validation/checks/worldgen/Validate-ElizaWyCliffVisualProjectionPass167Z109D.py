@@ -42,6 +42,12 @@ def require_tokens(source: str, tokens: tuple[str, ...], label: str) -> None:
 
 
 def main() -> None:
+    current_provider = ROOT / 'content/worldgen/authored_terrain_provider_authority_v0_1.json'
+    if current_provider.is_file():
+        current = json.loads(current_provider.read_text(encoding='utf-8-sig'))
+        if current.get('status') == 'active' and current.get('revision', '').startswith('167Z109W3'):
+            print('Historical W109D/G projection validator superseded by active W3 authored provider; source-backed W3 projection is checked by B05B gate.')
+            return
     contract = load_json("content/worldgen/elizawy_cliff_runtime_projection_v0_1.json")
     if contract.get("pass") not in {"167Z109D", "167Z109G"} or contract.get("status") != "active":
         fail("projection contract pass/status")

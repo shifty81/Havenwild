@@ -7,7 +7,7 @@ use std::path::{Path, PathBuf};
 
 const DEV_BRIDGE_ENV: &str = "HAVENWILD_DEV_BRIDGE";
 const HEARTBEAT_INTERVAL_MS: u64 = 500;
-const EDITOR_WORLD_PATH: &str = "content/worldgen/dev_worlds/core_dev_001/world.tworld";
+const EDITOR_WORLD_PATH: &str = haven_world::CANONICAL_BASE_WORLD_RELATIVE_PATH;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub(crate) enum DevBridgeFrameAction {

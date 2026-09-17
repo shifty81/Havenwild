@@ -190,7 +190,7 @@
     "licensedSourceSheet": "assets/source/licensed/lpc_revised/Terrain/cliff_summer.png",
     "runtimeOverlaySha256": "d0b52c40b7b6542ad56be38ce09e3032c0870218a86fdce87969baaaabe5d3ca",
     "projectionRule": "V7 owns plateau fill. W14 ordinary south presentation uses demo-grounded crest/body/foot families c2r7/c2r3/c2r8 (straight), c1r7/c1r3/c1r8 (SW), and c3r7/c3r3/c3r8 (SE). Crest stays on the host row; receiver-facing height equals structural tier delta. W13 low-side diagonal visibility is preserved.",
-    "runtimeProjectionSha256": "25b7a65f892b897d7664e8d68091661a159a41715617a18bccd185f173d9608d",
+    "runtimeProjectionSha256": "8a009b52c74792714c955a7fbc44d964a2110d8d1b835118b62c9f44ae28a7d4",
     "generatedContourAuthority": "content/worldgen/elizawy_cliff_generated_contour_authority_v0_1.json",
     "sourceGrammarOverride": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json"
   },

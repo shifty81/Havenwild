@@ -4,7 +4,7 @@ use serde::Deserialize;
 use std::path::{Path, PathBuf};
 use std::process::{Child, Command, Stdio};
 
-pub(crate) const DEVELOPMENT_WORLD_DESCRIPTOR: &str = "WORKSPACE/development/active_world.json";
+pub(crate) const DEVELOPMENT_WORLD_DESCRIPTOR: &str = haven_world::CANONICAL_BASE_WORLD_DESCRIPTOR_PATH;
 pub(crate) const DEVELOPMENT_WORLD_SEED: u64 = 0x4841_5645_4E57_4944;
 
 #[derive(Clone, Debug, Deserialize)]
@@ -47,10 +47,69 @@ impl DevelopmentWorldDescriptor {
     }
 }
 
+/// Project-owned source. `WORKSPACE/saves` holds a disposable development client
+/// replica and is never an alternative authority for the editor.
 pub(crate) fn editor_world_path() -> PathBuf {
-    DevelopmentWorldDescriptor::load()
-        .map(|descriptor| descriptor.world_path())
-        .unwrap_or_else(|_| repo_root_dir().join("WORKSPACE/saves/world.tworld"))
+    repo_root_dir().join(haven_world::CANONICAL_BASE_WORLD_RELATIVE_PATH)
+}
+
+/// Never write the historical starter fixture into the canonical source.
+pub(crate) fn verify_base_world(world: &GameWorld) -> Result<(), String> {
+    if world.scenes.is_empty() || !world.scenes.iter().any(|scene| {
+        scene.id.as_str().starts_with("pcg_havenwild_mainland_")
+    }) {
+        return Err("Base World is missing its generated Alderreach mainland; the historical starter fixture cannot be published".to_string());
+    }
+    world.scenes.validate()?;
+    if world.scene_by_reference(&world.active_scene).is_none() {
+        return Err("Base World active scene is not registered".to_string());
+    }
+    Ok(())
+}
+
+/// Author once, then replicate identical world bytes to the development client.
+/// All editor world-save call sites use this path to avoid split authorities.
+pub(crate) fn save_base_world(world: &GameWorld) -> Result<(), String> {
+    verify_base_world(world)?;
+    let descriptor = DevelopmentWorldDescriptor::load()?;
+    let source = editor_world_path();
+    haven_save::save_world_to_path(&source.to_string_lossy(), world)?;
+    let roundtrip = haven_save::load_world_from_path(&source.to_string_lossy())?;
+    verify_base_world(&roundtrip)?;
+    let replica = descriptor.world_path();
+    haven_save::save_world_to_path(&replica.to_string_lossy(), &roundtrip)?;
+    Ok(())
+}
+
+/// On a clean checkout, materialize the canonical world from the same
+/// island/semantic generator used by client New World. Existing invalid source
+/// data must fail visibly; generation never overwrites a malformed source.
+pub(crate) fn load_or_initialize_base_world(
+    settings: &haven_world::WorldCreationSettings,
+) -> Result<GameWorld, String> {
+    let descriptor = DevelopmentWorldDescriptor::load()?;
+    let source = editor_world_path();
+    if source.exists() {
+        let world = haven_save::load_world_from_path(&source.to_string_lossy())
+            .map_err(|error| format!("Base World {} is unreadable (not replaced): {error}", source.display()))?;
+        verify_base_world(&world)?;
+        return Ok(world);
+    }
+    let manifest_path = repo_root_dir().join(haven_world::scene_rectangles::SCENE_RECTANGLE_MANIFEST_PATH);
+    let manifest = haven_world::scene_rectangles::SceneRectangleManifest::load_from_path(
+        &manifest_path.to_string_lossy()
+    )?;
+    // The editor authors the checked-in default geographic layout. New World
+    // may reroll procedural positions, but opening the editor never rerolls
+    // or rewrites the project's authored rectangle manifest.
+    let generated = haven_world::materialize_base_world(&manifest, settings)?;
+    let mut world = generated.world;
+    if world.scene_by_id(&ProjectSceneId::new(descriptor.default_scene.clone())).is_some() {
+        world.set_active_scene(ProjectSceneId::new(descriptor.default_scene.clone()))?;
+    }
+    save_base_world(&world)?;
+    persist_development_world_authority(settings, development_semantic_world_bake(settings).as_ref())?;
+    Ok(world)
 }
 
 /// Loads the exact creation settings consumed by the development runtime.
@@ -103,19 +162,22 @@ pub(crate) fn persist_development_world_authority(
     settings: &haven_world::WorldCreationSettings,
     semantic_bake: Option<&haven_world::SemanticWorldBakeV1>,
 ) -> Result<(), String> {
-    let world_path = editor_world_path();
-    let save_root = world_path
-        .parent()
-        .ok_or_else(|| "development world path has no save root".to_string())?;
-    haven_world::save_world_creation_settings_to_path(
-        save_root.join(haven_world::WORLD_CREATION_SETTINGS_FILENAME),
-        settings,
-    )?;
-    if let Some(bake) = semantic_bake {
-        haven_world::save_semantic_world_bake_v1_to_path(
-            save_root.join(haven_world::SEMANTIC_WORLD_BAKE_RELATIVE_PATH),
-            bake,
+    settings.validate()?;
+    let descriptor = DevelopmentWorldDescriptor::load()?;
+    // Source has precedence. A failed source write must not publish the
+    // disposable client sidecars as a seemingly successful authored revision.
+    for world_path in [editor_world_path(), descriptor.world_path()] {
+        let save_root = world_path
+            .parent()
+            .ok_or_else(|| "development world path has no save root".to_string())?;
+        haven_world::save_world_creation_settings_to_path(
+            save_root.join(haven_world::WORLD_CREATION_SETTINGS_FILENAME), settings,
         )?;
+        if let Some(bake) = semantic_bake {
+            haven_world::save_semantic_world_bake_v1_to_path(
+                save_root.join(haven_world::SEMANTIC_WORLD_BAKE_RELATIVE_PATH), bake,
+            )?;
+        }
     }
     Ok(())
 }
@@ -381,4 +443,21 @@ pub(crate) fn publish_live_object_delete(
     publish_live_command(descriptor, LiveDeleteObjectCommand {
         command_type: "delete_object", scene_id: scene_id.as_str(), object_id: object_id.raw(),
     })
+}
+
+#[cfg(test)]
+mod canonical_world_tests {
+    use super::*;
+    #[test]
+    fn legacy_starter_cannot_be_published_as_base_world() {
+        let starter = GameWorld::starter();
+        assert!(verify_base_world(&starter).is_err());
+    }
+    #[test]
+    fn source_and_runtime_replica_have_distinct_paths() {
+        let source = editor_world_path();
+        let replica = DevelopmentWorldDescriptor::load().expect("project descriptor").world_path();
+        assert_ne!(source, replica);
+        assert!(source.ends_with(haven_world::CANONICAL_BASE_WORLD_RELATIVE_PATH));
+    }
 }

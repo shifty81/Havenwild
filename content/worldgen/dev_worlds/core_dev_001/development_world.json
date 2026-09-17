@@ -1,0 +1,10 @@
+{
+  "schema": "havenwild.development_world.v1",
+  "world_id": "world_core_dev_001",
+  "character_id": "havenwild_dev_player",
+  "default_scene": "pcg_havenwild_mainland_0_0",
+  "spawn": {
+    "x": 24,
+    "y": 16
+  }
+}

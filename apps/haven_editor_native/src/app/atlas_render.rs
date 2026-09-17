@@ -1,5 +1,6 @@
 use super::render_helpers::restore_editor_ui_render_state;
 use super::*;
+use std::sync::{Mutex, OnceLock};
 use haven_assets::{
     asset_intake::repo_root_dir,
     asset_palette::{AssetPaletteEntry, AssetPaletteKind},
@@ -97,9 +98,20 @@ impl EditorTextureSet {
             }
         };
         let mut placeable_textures = HashMap::new();
+        // Many definitions share one immutable source sheet or approved cache.
+        // Decode/upload it only once; a missing source is also remembered rather
+        // than retried for every definition referencing the same absent PNG.
+        let mut source_textures: HashMap<std::path::PathBuf, Option<Texture2D>> = HashMap::new();
         for definition in placeable_registry.entries() {
             if let Some(path) = &definition.source_path {
-                if let Some(texture) = load_nearest(path.to_string_lossy().as_ref()).await {
+                let texture = if let Some(cached) = source_textures.get(path) {
+                    (*cached).clone()
+                } else {
+                    let loaded = load_nearest(path.to_string_lossy().as_ref()).await;
+                    source_textures.insert(path.clone(), loaded.clone());
+                    loaded
+                };
+                if let Some(texture) = texture {
                     placeable_textures.insert(definition.stable_id.clone(), texture);
                 }
             }
@@ -157,6 +169,18 @@ impl EditorTextureSet {
 
     pub(crate) fn user_registry(&self) -> &UserAssetRegistry {
         &self.user_registry
+    }
+
+    /// Source-backed terrain differs from the generated diagnostic fallback.
+    /// Keep its availability visible when World Canvas changes to artwork LOD.
+    pub(crate) fn has_source_backed_terrain_artwork(&self) -> bool {
+        self.lpc_mapped_terrain.is_some() || self.user_assets.is_some()
+    }
+
+    /// Cliff artwork is an independent resource; terrain readiness alone does
+    /// not certify the structural renderer. Missing artwork fails visibly.
+    pub(crate) fn has_cliff_artwork(&self) -> bool {
+        self.lpc_cliff_source.is_some()
     }
 
     pub(crate) fn readiness_summary(&self) -> String {
@@ -856,14 +880,34 @@ async fn load_nearest(path: &str) -> Option<Texture2D> {
             .to_string_lossy()
             .into_owned()
     };
+    if !std::path::Path::new(&resolved).is_file() {
+        report_missing_editor_atlas_once(&resolved, "file not found");
+        return None;
+    }
     match load_texture(&resolved).await {
         Ok(texture) => {
             texture.set_filter(FilterMode::Nearest);
             Some(texture)
         }
         Err(error) => {
-            println!("Could not load editor atlas {resolved}: {error}");
+            report_missing_editor_atlas_once(&resolved, &error.to_string());
             None
         }
+    }
+}
+
+/// Report one actionable source failure per distinct path instead of producing
+/// dozens of identical per-definition messages. Never substitute fake pixels.
+fn report_missing_editor_atlas_once(path: &str, reason: &str) {
+    static REPORTED: OnceLock<Mutex<std::collections::HashSet<String>>> = OnceLock::new();
+    let reported = REPORTED.get_or_init(|| Mutex::new(std::collections::HashSet::new()));
+    let should_report = match reported.lock() {
+        Ok(mut paths) => paths.insert(path.replace('\\', "/").to_ascii_lowercase()),
+        Err(_) => true,
+    };
+    if should_report {
+        eprintln!(
+            "SOURCE ART UNAVAILABLE: {path} ({reason}); source/derived texture is blocked, no substitute art will be rendered. Check LPC source intake and the source-cache build report."
+        );
     }
 }

@@ -184,8 +184,7 @@ impl EditorApp {
         let scene = self.model.world.scene_mut_by_id(&scene_id).ok_or_else(|| format!("scene {} is no longer loaded", scene_id.label()))?;
         scene.set_visual_override(override_value);
         self.editor_textures.install_world_visual_override_texture(asset_path.clone(), width, height, &bytes);
-        let editor_world_path = development_session::editor_world_path();
-        save_world_to_path(&editor_world_path.to_string_lossy(), &self.model.world)
+        development_session::save_base_world(&self.model.world)
             .map_err(|error| format!("visual override saved but world persistence failed: {error}"))?;
         self.status_message = format!("Published direct visual override for {} | gameplay semantics unchanged", scene_id.label());
         Ok(())
