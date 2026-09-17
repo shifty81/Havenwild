@@ -1,6 +1,7 @@
 #![allow(dead_code)] // Asset authority contracts are consumed incrementally.
 use super::*;
 use super::render_helpers::{draw_editor_widget, draw_list_row, draw_tab_widget};
+use haven_assets::asset_palette::{AssetPaletteCatalog, AssetPaletteEntry, AssetPaletteKind};
 use serde_json::Value;
 use std::collections::{BTreeMap, BTreeSet};
 use std::fs;
@@ -232,7 +233,7 @@ impl AssetsStudioState {
 // A fixed selection inspector lives below the scrollable list. Keep input,
 // rendering and wheel clamping in agreement so no invisible row is selectable.
 fn asset_studio_list_capacity(body_height: f32, row_height: f32) -> usize {
-    ((body_height - 200.0).max(0.0) / row_height).floor().max(1.0) as usize
+    ((body_height - 252.0).max(0.0) / row_height).floor().max(1.0) as usize
 }
 
 fn asset_studio_max_scroll(count: usize, visible: usize) -> usize {
@@ -251,10 +252,37 @@ fn asset_studio_reload_rect(body: Rect) -> Rect {
 fn asset_studio_selection_rect(body: Rect) -> Rect {
     Rect::new(
         body.x + 8.0,
-        body.y + body.h - 114.0,
+        body.y + body.h - 164.0,
         (body.w - 16.0).max(1.0),
-        106.0,
+        156.0,
     )
+}
+
+fn asset_studio_use_on_canvas_rect(selection: Rect) -> Rect {
+    Rect::new(
+        selection.x + (selection.w - 176.0).max(88.0),
+        selection.y + 8.0,
+        166.0,
+        28.0,
+    )
+}
+
+fn palette_runtime_entries(catalog: &AssetPaletteCatalog) -> Vec<&AssetPaletteEntry> {
+    catalog
+        .entries()
+        .iter()
+        .filter(|entry| {
+            entry.runtime_ready() && !matches!(entry.kind, AssetPaletteKind::SourceReference)
+        })
+        .collect()
+}
+
+fn palette_source_entries(catalog: &AssetPaletteCatalog) -> Vec<&AssetPaletteEntry> {
+    catalog
+        .entries()
+        .iter()
+        .filter(|entry| matches!(entry.kind, AssetPaletteKind::SourceReference))
+        .collect()
 }
 
 fn u64_at(v: &Value, key: &str) -> u64 {
@@ -276,9 +304,72 @@ fn display_json(v: Option<&Value>) -> String {
     }
 }
 
+// The existing published topology registry is the authoritative source of
+// runtime-certified terrain/water/cliff IDs in both full and fallback views.
+fn append_published_world_assets(
+    assemblies: &mut Vec<AssetAssemblySummary>,
+    family_counts: &mut BTreeMap<String, usize>,
+) -> Result<(), String> {
+    let published = haven_assets::published_world_topology::published_world_topology_registry_v1()
+        .map_err(|error| error.to_string())?;
+    for entry in published.entries() {
+        if assemblies
+            .iter()
+            .any(|existing| existing.asset_id == entry.id)
+        {
+            continue;
+        }
+        *family_counts
+            .entry(format!("{:?}", entry.domain).to_ascii_lowercase())
+            .or_insert(0) += 1;
+        assemblies.push(AssetAssemblySummary {
+            asset_id: entry.id.clone(),
+            source: entry.source_path.clone(),
+            assembly_id: format!(
+                "rect:{}:{}:{}:{}",
+                entry.source_rect_cells[0],
+                entry.source_rect_cells[1],
+                entry.source_rect_cells[2],
+                entry.source_rect_cells[3]
+            ),
+            semantic_role: entry.semantic_role.clone(),
+            certification: "runtime_certified".to_string(),
+            footprint: format!(
+                "{}x{} source cells",
+                entry.source_rect_cells[2],
+                entry.source_rect_cells[3]
+            ),
+        });
+    }
+    Ok(())
+}
+
 fn load_compact_catalog(path: &Path) -> Result<AssetsStudioCatalog, String> {
-    let raw = fs::read_to_string(path)
-        .map_err(|e| format!("Asset catalog unavailable at {}: {e}", path.display()))?;
+    let raw = match fs::read_to_string(path) {
+        Ok(raw) => raw,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+            // The canonical intake catalog is generated on demand, not a
+            // source-controlled prerequisite for opening the Assets studio.
+            // Publish only assets from the existing validated runtime registry;
+            // never relabel arbitrary sheet cells as runtime-certified.
+            let mut catalog = AssetsStudioCatalog {
+                path: path.to_path_buf(),
+                generated_utc: "PCC intake scan not generated (published registry only)".to_string(),
+                ..Default::default()
+            };
+            append_published_world_assets(
+                &mut catalog.assemblies,
+                &mut catalog.family_counts,
+            ).map_err(|registry_error| format!(
+                "Asset intake catalog unavailable at {}; published registry: {registry_error}",
+                path.display(),
+            ))?;
+            return Ok(catalog);
+        }
+        Err(error) => return Err(format!(
+            "Asset catalog unavailable at {}: {error}", path.display(),
+        )),
+    };
     let root: Value =
         serde_json::from_str(&raw).map_err(|e| format!("Asset catalog parse failed: {e}"))?;
     let summary = root.get("summary").unwrap_or(&Value::Null);
@@ -332,42 +423,8 @@ fn load_compact_catalog(path: &Path) -> Result<AssetsStudioCatalog, String> {
         });
     }
 
-    // Published world topology is the small understood/runtime-certified
-    // vocabulary. The broad intake catalog remains useful for Sources/Review,
-    // but Library must also expose these stable semantic IDs.
-    if let Ok(published) =
-        haven_assets::published_world_topology::published_world_topology_registry_v1()
-    {
-        for entry in published.entries() {
-            if assemblies
-                .iter()
-                .any(|existing| existing.asset_id == entry.id)
-            {
-                continue;
-            }
-            *family_counts
-                .entry(format!("{:?}", entry.domain).to_ascii_lowercase())
-                .or_insert(0) += 1;
-            assemblies.push(AssetAssemblySummary {
-                asset_id: entry.id.clone(),
-                source: entry.source_path.clone(),
-                assembly_id: format!(
-                    "rect:{}:{}:{}:{}",
-                    entry.source_rect_cells[0],
-                    entry.source_rect_cells[1],
-                    entry.source_rect_cells[2],
-                    entry.source_rect_cells[3]
-                ),
-                semantic_role: entry.semantic_role.clone(),
-                certification: "runtime_certified".to_string(),
-                footprint: format!(
-                    "{}x{} source cells",
-                    entry.source_rect_cells[2],
-                    entry.source_rect_cells[3]
-                ),
-            });
-        }
-    }
+    append_published_world_assets(&mut assemblies, &mut family_counts)
+        .map_err(|error| format!("Published world asset registry unavailable: {error}"))?;
 
     Ok(AssetsStudioCatalog {
         path: path.to_path_buf(),
@@ -387,11 +444,12 @@ fn load_compact_catalog(path: &Path) -> Result<AssetsStudioCatalog, String> {
 impl EditorApp {
     pub(crate) fn open_assets_studio(&mut self) {
         self.asset_studio_open = true;
+        self.text_focus = EditorTextFocus::None;
         self.assets_studio.ensure_loaded(&repo_root_dir());
+        let palette_ready = palette_runtime_entries(&self.asset_catalog).len();
+        let source_refs = palette_source_entries(&self.asset_catalog).len();
         self.status_message = format!(
-            "Assets workspace | {} source PNGs | {} candidates | {} runtime certified",
-            self.assets_studio.catalog.png_files,
-            self.assets_studio.catalog.assembly_count,
+            "Assets workspace | {palette_ready} runtime-ready palette assets | {source_refs} LPC source references | {} topology certified",
             self.assets_studio.certified_count()
         );
     }
@@ -469,11 +527,10 @@ impl EditorApp {
         );
         draw_scissored_text(
             &format!(
-                "Catalog {} | {} source sheets | {} sliced | {} mapped | {} certified | {} review",
+                "Catalog {} | {} palette ready | {} LPC sources | {} topology certified | {} intake review",
                 c.generated_utc,
-                c.sheet_count,
-                self.assets_studio.sliced_count(),
-                self.assets_studio.mapped_count(),
+                palette_runtime_entries(&self.asset_catalog).len(),
+                palette_source_entries(&self.asset_catalog).len(),
                 self.assets_studio.certified_count(),
                 self.assets_studio.review_count()
             ),
@@ -488,7 +545,17 @@ impl EditorApp {
         match self.assets_studio.section {
             AssetsStudioSection::Inbox => {
                 for line in [
-                    format!("PCC catalog: {}", c.path.display()),
+                    format!("PCC intake catalog: {}", c.path.display()),
+                    if c.generated_utc.contains("not generated") {
+                        "Intake scan has not been run; canonical palette and published runtime registries remain available.".to_string()
+                    } else {
+                        "Intake catalog loaded; Library uses the same canonical palette authority as Game Canvas.".to_string()
+                    },
+                    format!(
+                        "Canonical editor palette: {} runtime-ready assets | {} LPC source references",
+                        palette_runtime_entries(&self.asset_catalog).len(),
+                        palette_source_entries(&self.asset_catalog).len()
+                    ),
                     format!(
                         "Detailed authority store: {}",
                         if c.detail_store.is_empty() {
@@ -516,33 +583,25 @@ impl EditorApp {
                 }
             }
             AssetsStudioSection::Library => {
-                let certified = c
-                    .assemblies
-                    .iter()
-                    .filter(|a| {
-                        AssetUnderstandingStage::from_assembly(a)
-                            == AssetUnderstandingStage::RuntimeCertified
-                    })
-                    .collect::<Vec<_>>();
-                let start = self.assets_studio.scroll.min(certified.len());
-                for (slot, a) in certified
+                let ready = palette_runtime_entries(&self.asset_catalog);
+                let start = self.assets_studio.scroll.min(ready.len());
+                for (slot, entry) in ready
                     .into_iter()
                     .skip(start)
                     .take(asset_studio_list_capacity(body.h, 38.0))
                     .enumerate()
                 {
                     let r = Rect::new(body.x + 12.0, y - 18.0, body.w - 24.0, 34.0);
-                    let role = if a.semantic_role.is_empty() {
-                        "role unspecified"
-                    } else {
-                        &a.semantic_role
-                    };
+                    let sheet = entry.sheet.as_deref().unwrap_or("no sheet");
                     draw_list_row(
                         r,
-                        &a.asset_id,
+                        &entry.label,
                         Some(&format!(
-                            "RUNTIME CERTIFIED | {} | footprint {} | {}",
-                            role, a.footprint, a.source
+                            "READY | {} | {} | {} | {}",
+                            entry.stable_id,
+                            entry.category.label(),
+                            entry.provenance.label(),
+                            sheet
                         )),
                         self.assets_studio.selected_row == start + slot,
                     );
@@ -550,27 +609,25 @@ impl EditorApp {
                 }
             }
             AssetsStudioSection::Sources => {
-                let start = self.assets_studio.scroll.min(c.sheets.len());
-                for (slot, sheet) in c
-                    .sheets
-                    .iter()
+                let sources = palette_source_entries(&self.asset_catalog);
+                let start = self.assets_studio.scroll.min(sources.len());
+                for (slot, entry) in sources
+                    .into_iter()
                     .skip(start)
                     .take(asset_studio_list_capacity(body.h, 34.0))
                     .enumerate()
                 {
                     let r = Rect::new(body.x + 12.0, y - 18.0, body.w - 24.0, 30.0);
-                    let secondary = format!(
-                        "SOURCE ONLY | {}x{} | {} candidate assembly(s) | {} | sha {}",
-                        sheet.width,
-                        sheet.height,
-                        sheet.assemblies,
-                        sheet.classification,
-                        &sheet.sha256.chars().take(10).collect::<String>()
-                    );
+                    let source = entry.sheet.as_deref().unwrap_or("source mount unavailable");
                     draw_list_row(
                         r,
-                        &sheet.source,
-                        Some(&secondary),
+                        &entry.label,
+                        Some(&format!(
+                            "LPC SOURCE | {} | {} | {}",
+                            entry.stable_id,
+                            entry.category.label(),
+                            source
+                        )),
                         self.assets_studio.selected_row == start + slot,
                     );
                     y += 34.0;
@@ -599,8 +656,9 @@ impl EditorApp {
             AssetsStudioSection::Usage => {
                 for line in [
                     "Where Used authority is dependency-driven; filename guesses are not treated as usage evidence.",
-                    "Published assets expose stable ID -> source rect/component -> semantic role -> runtime/editor consumers.",
-                    "Worldgen must consume runtime-certified topology/assemblies, never raw sheets or anonymous grid cells.",
+                    "Assets Studio and Game Canvas now share the canonical AssetPaletteCatalog; selection is no longer a parallel inventory.",
+                    "Runtime-ready palette entries can be armed here and placed with the existing Game Canvas authoring path.",
+                    "LPC source references remain read-only until promotion/binding; worldgen still consumes certified topology, never anonymous grid cells.",
                 ] {
                     draw_scissored_text(
                         line,
@@ -686,49 +744,62 @@ impl EditorApp {
             MUTED,
         );
         let details: Option<[String; 3]> = match self.assets_studio.section {
-            AssetsStudioSection::Library | AssetsStudioSection::Review => {
-                let is_library = self.assets_studio.section == AssetsStudioSection::Library;
-                c.assemblies
-                    .iter()
-                    .filter(|asset| {
-                        let stage = AssetUnderstandingStage::from_assembly(asset);
-                        if is_library {
-                            stage == AssetUnderstandingStage::RuntimeCertified
-                        } else {
-                            !matches!(
-                                stage,
-                                AssetUnderstandingStage::RuntimeCertified
-                                    | AssetUnderstandingStage::RejectedOrDeprecated
-                            )
-                        }
-                    })
-                    .nth(self.assets_studio.selected_row)
-                    .map(|asset| {
-                        [
-                            format!(
-                                "ID: {} | {}",
-                                asset.asset_id,
-                                AssetUnderstandingStage::from_assembly(asset).label()
-                            ),
-                            format!(
-                                "Role: {} | Footprint: {} | Assembly: {}",
-                                asset.semantic_role, asset.footprint, asset.assembly_id
-                            ),
-                            format!("Source: {}", asset.source),
-                        ]
-                    })
-            }
-            AssetsStudioSection::Sources => c
-                .sheets
+            AssetsStudioSection::Library => palette_runtime_entries(&self.asset_catalog)
                 .get(self.assets_studio.selected_row)
-                .map(|sheet| {
+                .map(|entry| {
                     [
-                        format!("SOURCE ONLY: {}", sheet.source),
+                        format!("READY: {} | {}", entry.label, entry.stable_id),
                         format!(
-                            "{}x{} | {} candidate(s) | {}",
-                            sheet.width, sheet.height, sheet.assemblies, sheet.classification
+                            "Category: {} | Provenance: {} | Kind: {:?}",
+                            entry.category.label(), entry.provenance.label(), entry.kind
                         ),
-                        format!("SHA-256: {}", sheet.sha256),
+                        format!(
+                            "Source: {} | Rect: {}",
+                            entry.sheet.as_deref().unwrap_or("not declared"),
+                            entry.rect
+                                .map(|r| format!("{},{} {}x{}", r.x, r.y, r.w, r.h))
+                                .unwrap_or_else(|| "not declared".to_string())
+                        ),
+                    ]
+                }),
+            AssetsStudioSection::Review => c
+                .assemblies
+                .iter()
+                .filter(|asset| {
+                    !matches!(
+                        AssetUnderstandingStage::from_assembly(asset),
+                        AssetUnderstandingStage::RuntimeCertified
+                            | AssetUnderstandingStage::RejectedOrDeprecated
+                    )
+                })
+                .nth(self.assets_studio.selected_row)
+                .map(|asset| {
+                    [
+                        format!(
+                            "ID: {} | {}",
+                            asset.asset_id,
+                            AssetUnderstandingStage::from_assembly(asset).label()
+                        ),
+                        format!(
+                            "Role: {} | Footprint: {} | Assembly: {}",
+                            asset.semantic_role, asset.footprint, asset.assembly_id
+                        ),
+                        format!("Source: {}", asset.source),
+                    ]
+                }),
+            AssetsStudioSection::Sources => palette_source_entries(&self.asset_catalog)
+                .get(self.assets_studio.selected_row)
+                .map(|entry| {
+                    [
+                        format!("LPC SOURCE: {} | {}", entry.label, entry.stable_id),
+                        format!(
+                            "Category: {} | State: source reference / binding required",
+                            entry.category.label()
+                        ),
+                        format!(
+                            "Source: {}",
+                            entry.sheet.as_deref().unwrap_or("mount unavailable")
+                        ),
                     ]
                 }),
             AssetsStudioSection::Families => c
@@ -748,13 +819,33 @@ impl EditorApp {
                 }),
             AssetsStudioSection::Inbox | AssetsStudioSection::Usage => None,
         };
+        let selected_library_entry = if self.assets_studio.section == AssetsStudioSection::Library {
+            palette_runtime_entries(&self.asset_catalog)
+                .get(self.assets_studio.selected_row)
+                .copied()
+        } else {
+            None
+        };
+        let text_left = if let Some(entry) = selected_library_entry {
+            let preview = Rect::new(selection.x + 10.0, selection.y + 39.0, 70.0, 70.0);
+            draw_rectangle(preview.x, preview.y, preview.w, preview.h, Color::new(0.06, 0.07, 0.08, 1.0));
+            draw_rectangle_lines(preview.x, preview.y, preview.w, preview.h, 1.0, PANEL_EDGE);
+            if !self.editor_textures.draw_palette_thumbnail(entry, preview) {
+                draw_editor_text("READY", preview.x + 10.0, preview.y + 41.0, 12.0, GOOD);
+            }
+            draw_editor_widget(asset_studio_use_on_canvas_rect(selection), "Use on Game Canvas", false);
+            selection.x + 90.0
+        } else {
+            selection.x + 10.0
+        };
         if let Some(lines) = details {
             for (index, line) in lines.iter().enumerate() {
+                let y = selection.y + 48.0 + index as f32 * 28.0;
                 draw_scissored_text(
                     line,
-                    selection.x + 10.0,
-                    selection.y + 41.0 + index as f32 * 22.0,
-                    (selection.w - 20.0).max(1.0),
+                    text_left,
+                    y,
+                    (selection.x + selection.w - text_left - 10.0).max(1.0),
                     11.5,
                     TEXT,
                 );
@@ -804,17 +895,52 @@ impl EditorApp {
         );
         if asset_studio_reload_rect(body).contains(p) {
             self.assets_studio.reload(&repo_root_dir());
-            self.status_message = match &self.assets_studio.load_error {
-                Some(error) => format!("Asset catalog refresh failed: {error}"),
-                None => format!(
-                    "Asset catalog refreshed: {} certified, {} review",
-                    self.assets_studio.certified_count(),
-                    self.assets_studio.review_count()
-                ),
+            let palette_result = AssetPaletteCatalog::load_default();
+            self.status_message = match palette_result {
+                Ok(mut palette) => {
+                    palette.extend_published_placeables(&self.placeable_registry);
+                    self.asset_catalog = palette;
+                    self.asset_list_offset = 0;
+                    let ready = palette_runtime_entries(&self.asset_catalog).len();
+                    let sources = palette_source_entries(&self.asset_catalog).len();
+                    match &self.assets_studio.load_error {
+                        Some(error) => format!(
+                            "Canonical palette refreshed ({ready} ready, {sources} LPC sources); intake catalog: {error}"
+                        ),
+                        None => format!(
+                            "Assets refreshed: {ready} runtime-ready palette assets | {sources} LPC sources | {} topology certified | {} intake review",
+                            self.assets_studio.certified_count(),
+                            self.assets_studio.review_count()
+                        ),
+                    }
+                }
+                Err(error) => format!("Canonical Asset Palette refresh failed: {error}"),
             };
             return true;
         }
         if self.assets_studio.load_error.is_some() {
+            return true;
+        }
+        let selection = asset_studio_selection_rect(body);
+        if self.assets_studio.section == AssetsStudioSection::Library
+            && asset_studio_use_on_canvas_rect(selection).contains(p)
+        {
+            if let Some(entry) = palette_runtime_entries(&self.asset_catalog)
+                .get(self.assets_studio.selected_row)
+            {
+                let stable_id = entry.stable_id.clone();
+                let kind = entry.kind;
+                let label = entry.label.clone();
+                if !self.viewport_mode.is_game_canvas() {
+                    self.viewport_mode = EditorViewportMode::SceneMap;
+                    self.reopen_workspace_document(EditorViewportMode::SceneMap);
+                }
+                self.select_palette_asset(stable_id.clone(), kind);
+                self.close_assets_studio();
+                self.status_message = format!(
+                    "Armed {label} ({stable_id}) from Assets Studio; click/drag on Game Canvas to place"
+                );
+            }
             return true;
         }
         let body_y = body.y;
@@ -826,8 +952,8 @@ impl EditorApp {
             let idx = ((my - (body_y + 54.0)) / row_h).floor().max(0.0) as usize
                 + self.assets_studio.scroll;
             let count = match self.assets_studio.section {
-                AssetsStudioSection::Library => self.assets_studio.certified_count(),
-                AssetsStudioSection::Sources => self.assets_studio.catalog.sheets.len(),
+                AssetsStudioSection::Library => palette_runtime_entries(&self.asset_catalog).len(),
+                AssetsStudioSection::Sources => palette_source_entries(&self.asset_catalog).len(),
                 AssetsStudioSection::Families => self.assets_studio.catalog.family_counts.len(),
                 AssetsStudioSection::Review => self.assets_studio.review_count(),
                 AssetsStudioSection::Inbox | AssetsStudioSection::Usage => 0,
@@ -856,8 +982,8 @@ impl EditorApp {
             return false;
         }
         let max = match self.assets_studio.section {
-            AssetsStudioSection::Library => self.assets_studio.certified_count(),
-            AssetsStudioSection::Sources => self.assets_studio.catalog.sheets.len(),
+            AssetsStudioSection::Library => palette_runtime_entries(&self.asset_catalog).len(),
+            AssetsStudioSection::Sources => palette_source_entries(&self.asset_catalog).len(),
             AssetsStudioSection::Families => self.assets_studio.catalog.family_counts.len(),
             AssetsStudioSection::Review => self.assets_studio.review_count(),
             _ => 0,
@@ -914,7 +1040,7 @@ mod tests {
     fn asset_list_never_scrolls_into_blank_space() {
         assert_eq!(asset_studio_max_scroll(3, 8), 0);
         assert_eq!(asset_studio_max_scroll(20, 8), 12);
-        assert_eq!(asset_studio_list_capacity(390.0, 38.0), 5);
+        assert_eq!(asset_studio_list_capacity(390.0, 38.0), 3);
         assert_eq!(asset_studio_list_capacity(120.0, 34.0), 1);
     }
 
@@ -975,6 +1101,25 @@ mod tests {
     }
 
     #[test]
+    fn missing_optional_intake_catalog_still_exposes_published_assets() {
+        let missing = std::env::temp_dir().join(format!(
+            "havenwild_assets_studio_missing_catalog_{}",
+            std::process::id()
+        )).join("asset-catalog.json");
+        let catalog = load_compact_catalog(&missing)
+            .expect("published runtime registry must work without a generated PCC intake scan");
+        assert!(catalog.generated_utc.contains("not generated"));
+        assert!(catalog.sheets.is_empty());
+        assert!(catalog.assemblies.iter().any(|asset|
+            asset.asset_id == "terrain.ground.grass.v7"
+                && asset.certification == "runtime_certified"
+        ));
+        assert!(catalog.assemblies.iter().any(|asset|
+            asset.asset_id == "cliff.ramp.rise_right.grass"
+        ));
+    }
+
+    #[test]
     fn published_world_topology_feeds_runtime_certified_library_authority() {
         let published =
             haven_assets::published_world_topology::published_world_topology_registry_v1()
@@ -986,6 +1131,25 @@ mod tests {
             .entries()
             .iter()
             .all(|entry| entry.certification == "runtime_certified"));
+    }
+
+    #[test]
+    fn canonical_palette_bridge_exposes_ready_assets_and_lpc_sources() {
+        let catalog = AssetPaletteCatalog::load_default().expect("canonical asset palette");
+        assert!(!palette_runtime_entries(&catalog).is_empty());
+        assert!(palette_source_entries(&catalog).len() >= 300);
+        assert!(palette_runtime_entries(&catalog)
+            .iter()
+            .all(|entry| entry.runtime_ready()));
+    }
+
+    #[test]
+    fn use_on_canvas_action_stays_inside_selection_panel() {
+        let body = Rect::new(0.0, 0.0, 900.0, 600.0);
+        let selection = asset_studio_selection_rect(body);
+        let action = asset_studio_use_on_canvas_rect(selection);
+        assert!(selection.contains(vec2(action.x + 1.0, action.y + 1.0)));
+        assert!(selection.contains(vec2(action.x + action.w - 1.0, action.y + action.h - 1.0)));
     }
 
 }

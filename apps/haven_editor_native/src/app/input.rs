@@ -163,7 +163,19 @@ impl EditorApp {
                 return;
             }
 
-            if self.handle_assets_workspace_click(mx, my) { self.primary_pointer_owned_by_ui = true; return; }
+            if self.handle_assets_workspace_click(mx, my) {
+                self.primary_pointer_owned_by_ui = true;
+                return;
+            }
+            // The Assets canvas owns its content, not the entire application.
+            // Keep global menus, workspace tabs, Play/Save and right/bottom docks
+            // on the same primary-click route as every other studio. Never let
+            // an unhandled Assets click fall through into the hidden world canvas.
+            if self.asset_studio_open {
+                let _ = self.handle_primary_click();
+                self.primary_pointer_owned_by_ui = true;
+                return;
+            }
             if self.handle_workspace_document_tabs_click(mx, my) {
                 self.primary_pointer_owned_by_ui = true;
                 return;
@@ -431,6 +443,12 @@ impl EditorApp {
                 }
                 return true;
             }
+        }
+
+        // Assets is a distinct workspace. Global shell controls above remain
+        // usable, but clicks on its backdrop must never mutate underlying views.
+        if self.asset_studio_open {
+            return true;
         }
 
         let list_rect = self.shell_layout().list_content;

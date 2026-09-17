@@ -373,7 +373,7 @@ pub(crate) struct EditorApp {
 
 impl EditorApp {
     pub(crate) fn new_without_textures() -> Self {
-        let asset_catalog = AssetPaletteCatalog::load_default().unwrap_or_default();
+        let mut asset_catalog = AssetPaletteCatalog::load_default().unwrap_or_default();
         let asset_palette_state = AssetPaletteState::load_default();
         let asset_browser = AssetBrowserSnapshot::load_project(std::path::Path::new("."));
         let asset_intake_catalog = AssetIntakeCatalog::load_default().unwrap_or_default();
@@ -386,6 +386,10 @@ impl EditorApp {
             .unwrap_or_default();
         let placeable_registry = PublishedWorldAssetRegistry::load_discovered(&asset_session)
             .unwrap_or_default();
+        // Assets Studio, the shared Asset Browser, and Game Canvas must expose
+        // the exact same runtime-ready published placeables. Keep these entries
+        // on the canonical palette instead of inventing a second editor-only list.
+        asset_catalog.extend_published_placeables(&placeable_registry);
         // W57K8: building and texture authority must resolve from the repository root, not
         // the process working directory. A native-editor launch can originate
         // from target/, a shortcut, or the Control Center, so using "." could
