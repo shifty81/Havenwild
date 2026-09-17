@@ -458,3 +458,27 @@ fn source_only_water_baseline_does_not_randomize_owner_fill_by_cell_or_frame() {
         assert!(!actual.is_mixed);
     }
 }
+
+#[test]
+fn water_hotpath_only_skips_a_verified_homogeneous_halo() {
+    let mut map = TavernMap::empty_with(TileKind::OceanDeep);
+    assert!(pure_water_halo(&map, 8, 8, -1, 1));
+    assert!(pure_water_halo(&map, 8, 8, -1, 2));
+    assert!(lpc_mapped_terrain_transition_entry_for_map(&map, 8, 8).is_none());
+    assert!(!pure_water_halo(&map, 0, 0, -1, 2));
+    map.set(10, 9, TileKind::OceanShallow);
+    assert!(pure_water_halo(&map, 8, 8, -1, 1));
+    assert!(!pure_water_halo(&map, 8, 8, -1, 2));
+    map.set(9, 8, TileKind::Sand);
+    assert!(!pure_water_halo(&map, 8, 8, -1, 1));
+}
+
+#[test]
+fn quiet_source_water_fill_matches_the_verified_interior_fast_path() {
+    let map = TavernMap::empty_with(TileKind::OceanDeep);
+    let actual = lpc_mapped_terrain_owner_fill_entry_for_map(&map, 8, 8)
+        .expect("source-authored pure ocean tile");
+    let expected = lpc_mapped_terrain_quiet_entry(TileKind::OceanDeep)
+        .expect("V7 ocean source tile");
+    assert_eq!(actual, expected);
+}

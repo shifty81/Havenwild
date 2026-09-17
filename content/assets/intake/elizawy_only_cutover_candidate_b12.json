@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.elizawy_only_cutover_candidate.b12",
+  "purpose": "Non-active, non-destructive production visual source candidate",
+  "source": {
+    "provider": "elizawy_lpc_revised",
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "lock": "content/assets/intake/lpc_source_lock_v0_1.json",
+    "root": "assets/source/licensed/lpc_revised"
+  },
+  "activation": {
+    "enabled": false,
+    "eligibleBranch": "experimental",
+    "legacySaves": "read_only_compatibility_not_silent_remap",
+    "nonElizaWyProviders": "retained_reference_only_pending_separate_approval",
+    "missingArt": "explicit_missing_no_substitution",
+    "doNotModify": ["PCC", "saves", "existing worlds", "original licensed sources"]
+  },
+  "certification": {
+    "sourceIntegrity": "unverified",
+    "sourceCoverage": "unverified",
+    "artworkMappings": "unverified",
+    "editorClientParity": "unverified",
+    "cliffClimbing": "unverified",
+    "terrainWater": "unverified",
+    "charactersAndAnimation": "unverified",
+    "objectsBuildingsInteriors": "unverified",
+    "performance": "unverified",
+    "visualApproval": false
+  },
+  "scope": {
+    "approvedVisualSource": "pinned ElizaWy repository and separately reviewed derivatives only",
+    "functionalPlaceholders": "diagnostic_only_not_production",
+    "nonVisualInfrastructure": "unchanged",
+    "proceduralPlacement": "allowed_with_approved_art_only",
+    "procedurallyInventedArtwork": "prohibited"
+  }
+}

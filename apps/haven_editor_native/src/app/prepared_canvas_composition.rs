@@ -497,7 +497,9 @@ fn rasterize_structural_cliffs(
             let host_level =
                 haven_world::structural_level_for_surface_recipe_v1(&scene.map, x, y);
             let projection_visible = |target_x: i32, target_y: i32| {
-                level_at(target_x, target_y).is_none_or(|level| level < host_level)
+                // Unknown partition receiver is not a lower-level surface.
+                // Do not project source pixels across absent neighbor data.
+                level_at(target_x, target_y).is_some_and(|level| level < host_level)
             };
 
             if !recipe.south_exposed {

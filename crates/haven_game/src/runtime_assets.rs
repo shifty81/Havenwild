@@ -157,9 +157,15 @@ impl RuntimeAssets {
         // stamps from the companion LPC grass-top cliff sheet. The raw sheet is
         // loaded directly; runtime code is restricted to those certified source
         // rectangles and never treats arbitrary cells as placeable assets.
-        let oga_cliff_source = texture_cache
-            .load_path(runtime_asset_path(LPC_CLIFF_RAMP_GRASS_SOURCE_PATH))
-            .await;
+        // The OGA grass-top cliff family is a quarantined optional source.
+        // Do not request a missing image as if it were a mandatory runtime
+        // cliff dependency. ElizaWy structural faces remain independent.
+        let optional_oga_cliff_path = runtime_asset_path(LPC_CLIFF_RAMP_GRASS_SOURCE_PATH);
+        let oga_cliff_source = if std::path::Path::new(&optional_oga_cliff_path).is_file() {
+            texture_cache.load_path(optional_oga_cliff_path).await
+        } else {
+            None
+        };
 
         let direct_lpc_sources_ready =
             lpc_terrain_source.is_some() && lpc_terrain_v7_source.is_some();

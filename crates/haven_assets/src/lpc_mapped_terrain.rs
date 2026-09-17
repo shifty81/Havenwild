@@ -350,6 +350,16 @@ pub fn lpc_mapped_terrain_owner_fill_entry_for_map_with_water_frame(
     y: i32,
     water_frame: u32,
 ) -> Option<LpcMappedTerrainEntry> {
+    // Most visible ocean spans are completely uniform. Resolve them directly
+    // to the exact first V7 water tile, avoiding 8-neighbor water-rim sampling
+    // on every pure-water cell, every frame. A 3x3 verified halo ensures this
+    // cannot skip any genuine shoreline/depth contact.
+    if pure_water_halo(map, x, y, -1, 1) {
+        let material = mapped_terrain_name(map.get(x, y))?;
+        return lpc_mapped_terrain_manifest()
+            .ok()?
+            .quiet_entry_for_corners([material; 4]);
+    }
     let owner = mapped_terrain_at(map, x, y)?;
     let manifest = lpc_mapped_terrain_manifest().ok()?;
     // Source-only water baseline: the V7 sheet's first audited pure-water
@@ -385,6 +395,13 @@ pub fn lpc_mapped_terrain_transition_entry_for_map(
     x: i32,
     y: i32,
 ) -> Option<LpcMappedTerrainEntry> {
+    // A complete 4x4 homogeneous water halo covers every neighbor consulted
+    // by the four rendered tuple corners. There is no authored mixed tuple to
+    // draw; skip expensive corner/rim hashing across the water interior.
+    // The extra ring protects near-shore and deep/shallow transitions.
+    if pure_water_halo(map, x, y, -1, 2) {
+        return None;
+    }
     // W81: a structural drop is a vertical cliff boundary, not a horizontal
     // material contact. Keep each surface's owner fill beneath the cliff crest
     // instead of blending lower-level grass/sand/etc. onto an elevated surface.
@@ -399,6 +416,33 @@ pub fn lpc_mapped_terrain_transition_entry_for_map(
         .filter(|entry| entry.is_mixed)
 }
 
+
+/// Fast-path only when every source cell in the requested halo is known
+/// and has the *identical* water semantic. Edge and neighboring-partition
+/// cells remain in the normal source-exact transition resolver.
+fn pure_water_halo(map: &TavernMap, x: i32, y: i32, first: i32, last: i32) -> bool {
+    if TavernMap::idx(x, y).is_none() {
+        return false;
+    }
+    let owner = map.get(x, y);
+    if !matches!(
+        owner,
+        TileKind::Water | TileKind::ShallowWater | TileKind::DeepWater
+            | TileKind::OceanShallow | TileKind::OceanDeep
+    ) {
+        return false;
+    }
+    for dy in first..=last {
+        for dx in first..=last {
+            if TavernMap::idx(x + dx, y + dy).is_none()
+                || map.get(x + dx, y + dy) != owner
+            {
+                return false;
+            }
+        }
+    }
+    true
+}
 
 fn tuple_crosses_structural_level_boundary(map: &TavernMap, x: i32, y: i32) -> bool {
     let levels = [

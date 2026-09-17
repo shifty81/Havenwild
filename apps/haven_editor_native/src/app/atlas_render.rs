@@ -139,7 +139,15 @@ impl EditorTextureSet {
                 }
             },
             lpc_cliff_source: load_nearest(ELIZAWY_SUMMER_CLIFF_SOURCE_PATH).await,
-            lpc_cliff_ramp_source: load_nearest(LPC_CLIFF_RAMP_GRASS_SOURCE_PATH).await,
+            // This companion OGA pack is quarantined as an authoring reference.
+            // The main ElizaWy cliff sheet loads independently; an unmounted
+            // optional source must not generate a false production-cliff error.
+            // The source intake/audit reports its absent provenance separately.
+            lpc_cliff_ramp_source: if root.join(LPC_CLIFF_RAMP_GRASS_SOURCE_PATH).is_file() {
+                load_nearest(LPC_CLIFF_RAMP_GRASS_SOURCE_PATH).await
+            } else {
+                None
+            },
             transitions: load_nearest(TERRAIN_AUTOTILE_ATLAS_PATH).await,
             user_assets,
             user_registry,
@@ -395,7 +403,9 @@ impl EditorTextureSet {
                     &scene.map, x, y,
                 );
                 let projection_visible = |target_x: i32, target_y: i32| {
-                    level_at(target_x, target_y).is_none_or(|level| level < host_level)
+                    // Unknown partition receiver is not a lower-level surface.
+                    // Do not project source pixels across absent neighbor data.
+                    level_at(target_x, target_y).is_some_and(|level| level < host_level)
                 };
 
                 if !recipe.south_exposed {
