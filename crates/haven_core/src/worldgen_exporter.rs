@@ -460,12 +460,62 @@ mod tests {
     use crate::load_worldgen_pack_from_path;
     use crate::ObjectFootprint;
 
+    // Resolve the fixture against the *running* checkout, not the directory
+    // embedded in a test executable at compile time. Cargo may reuse/move
+    // target/ artifacts across Havenwild checkouts.
+    fn find_repo_root(start: &Path) -> Option<PathBuf> {
+        start.ancestors().find_map(|candidate| {
+            (candidate.join("Cargo.toml").is_file()
+                && candidate
+                    .join("content/worldgen/packs/worldgen_home_island_v0_10.json")
+                    .is_file())
+            .then(|| candidate.to_path_buf())
+        })
+    }
+
     fn repo_root() -> PathBuf {
-        PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-            .parent()
-            .and_then(Path::parent)
-            .expect("workspace root")
-            .to_path_buf()
+        let cwd = std::env::current_dir().expect("read test working directory");
+        find_repo_root(&cwd)
+            .or_else(|| {
+                std::env::current_exe()
+                    .ok()
+                    .and_then(|exe| find_repo_root(&exe))
+            })
+            .unwrap_or_else(|| {
+                panic!(
+                    "cannot locate active Havenwild workspace and worldgen fixture from {} (start cargo test from the Havenwild repository)",
+                    cwd.display()
+                )
+            })
+    }
+
+    #[test]
+    fn worldgen_export_fixture_root_is_the_active_checkout() {
+        let root = repo_root();
+        assert!(root.join("Cargo.toml").is_file());
+        assert!(root
+            .join("content/worldgen/packs/worldgen_home_island_v0_10.json")
+            .is_file());
+        // A temporary fixture checks directory traversal without changing the
+        // global current directory of parallel Rust tests.
+        let fixture = std::env::temp_dir().join(format!(
+            "havenwild_worldgen_root_test_{}_{}",
+            std::process::id(),
+            SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .expect("clock")
+                .as_nanos()
+        ));
+        let pack_dir = fixture.join("content/worldgen/packs");
+        fs::create_dir_all(&pack_dir).expect("make test fixture directory");
+        fs::write(fixture.join("Cargo.toml"), "[workspace]\n")
+            .expect("make workspace marker");
+        fs::write(pack_dir.join("worldgen_home_island_v0_10.json"), "{}\n")
+            .expect("make pack marker");
+        let nested = fixture.join("crates/haven_core");
+        fs::create_dir_all(&nested).expect("make nested test location");
+        assert_eq!(find_repo_root(&nested), Some(fixture.clone()));
+        fs::remove_dir_all(&fixture).expect("clean test fixture");
     }
 
     fn unique_test_root() -> PathBuf {

@@ -3,11 +3,11 @@
 
 The raw LPC repository is a large authoring dependency (tens of thousands of
 files). A compact Havenwild source rollup intentionally omits that tree. On the
-first build this script acquires the exact locked commit into a local cache and
-mounts it at ``assets/source/licensed/lpc_revised`` using a directory link.
-
-Linking avoids copying the entire LPC tree into every clean source checkout.
-Set ``HAVENWILD_LPC_SOURCE_MODE=copy`` to request a physical mirror instead.
+first build this script acquires the exact locked commit into Havenwild's
+project-local cache and physically copies the verified source into
+``assets/source/licensed/lpc_revised``. This copy-first default is required
+while Havenwild's asset pipeline is self-contained; linking remains an
+explicit legacy override and is not used during normal project recovery.
 ``HAVENWILD_LPC_REPO`` may point at an existing LPC checkout, but it must not
 point at Havenwild itself or any directory containing the project source root.
 """
@@ -16,6 +16,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+from pathlib import PurePosixPath
 import shutil
 import stat
 import struct
@@ -81,20 +82,121 @@ def valid_full_source_tree(lock: dict) -> tuple[bool, str]:
     return True, str(root)
 
 
+
+def validate_complete_source_tree(source_root: Path, lock: dict) -> tuple[bool, str]:
+    """Preflight the full pinned authoring tree and all 320 browser source sheets.
+
+    This runs on a physically copied staging tree *before* the old junction is
+    replaced. An incomplete network checkout must not destroy the old mount.
+    """
+    errors: list[str] = []
+    for entry in (*lock.get("requiredTopLevelPaths", []),
+                  *lock.get("requiredRootFiles", []),
+                  *lock.get("requiredTerrainFiles", [])):
+        if not (source_root / entry).exists():
+            errors.append(f"missing required source {entry}")
+    for entry in lock.get("lockedFiles", []):
+        path = source_root / entry["repositoryPath"]
+        if not path.is_file():
+            errors.append(f"missing locked source {entry['repositoryPath']}")
+            continue
+        if sha256(path).lower() != str(entry["sha256"]).lower():
+            errors.append(f"locked SHA-256 mismatch {entry['repositoryPath']}")
+        if path.suffix.lower() == ".png" and png_dimensions(path) != (
+                int(entry["width"]), int(entry["height"])):
+            errors.append(f"locked dimension mismatch {entry['repositoryPath']}")
+    catalog = ROOT / "content/editor/assets/lpc_world_source_browser_v1.json"
+    if not catalog.is_file():
+        errors.append("missing LPC browser catalog")
+    else:
+        data = json.loads(catalog.read_text(encoding="utf-8"))
+        if str(data.get("sourceCommit", "")).lower() != str(lock["commit"]).lower():
+            errors.append("LPC browser and dependency lock have different source commits")
+        entries = data.get("entries", [])
+        if not entries or len(entries) != int(data.get("entryCount", -1)):
+            errors.append("LPC browser entries missing or entry count mismatched")
+        mount = PurePosixPath(lock["fullSourceProjectPath"])
+        source_resolved = source_root.resolve()
+        for entry in entries:
+            raw = str(entry.get("sourcePath", ""))
+            rel = PurePosixPath(raw)
+            try:
+                relative = rel.relative_to(mount)
+            except ValueError:
+                errors.append(f"browser source outside LPC mount: {raw}")
+                continue
+            if not relative.parts or ".." in relative.parts or rel.is_absolute():
+                errors.append(f"unsafe browser source: {raw}")
+                continue
+            path = source_root.joinpath(*relative.parts)
+            if not path.is_file():
+                errors.append(f"missing browser sheet {relative}")
+                continue
+            try:
+                path.resolve().relative_to(source_resolved)
+            except ValueError:
+                errors.append(f"browser sheet resolves outside physical source: {relative}")
+                continue
+            expected = entry.get("imageSize")
+            if expected and png_dimensions(path) != tuple(map(int, expected)):
+                errors.append(f"browser sheet dimension mismatch {relative}")
+    if errors:
+        return False, "; ".join(errors[:8]) + (f" (+{len(errors)-8} additional errors)" if len(errors) > 8 else "")
+    return True, f"verified complete pinned source and {len(entries)} browser sheets"
+
+
+def validate_physical_staging(staging: Path, lock: dict) -> None:
+    if is_directory_link(staging):
+        raise RuntimeError("physical LPC staging is itself a directory link")
+    for current, directories, files in os.walk(staging, followlinks=False):
+        for name in directories + files:
+            path = Path(current) / name
+            if path.is_symlink() or (name in directories and is_directory_link(path)):
+                raise RuntimeError(f"external link found in LPC physical staging: {path}")
+    valid, detail = validate_complete_source_tree(staging, lock)
+    if not valid:
+        raise RuntimeError(f"incomplete LPC physical staging; original mount was preserved: {detail}")
+
+
 def checkout_head(path: Path) -> str | None:
-    try:
-        result = subprocess.run(
-            ["git", "-C", str(path), "rev-parse", "HEAD"],
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-    except (OSError, subprocess.CalledProcessError):
+    """Read a commit only from a Git repository rooted *at* the LPC source.
+
+    A physical mirror deliberately excludes .git. ``git -C mirror rev-parse
+    HEAD`` otherwise searches parent directories and returns HAVENWILD's HEAD,
+    not the ElizaWy pin. An export is verified by its source lock and browser
+    inventory instead of being falsely assigned its parent's Git revision.
+    """
+    git_entry = path / ".git"
+    if not git_entry.exists() and not git_entry.is_symlink():
         return None
-    return result.stdout.strip() or None
+    try:
+        top = subprocess.run(
+            ["git", "-C", str(path), "rev-parse", "--show-toplevel"],
+            check=True, capture_output=True, text=True,
+        ).stdout.strip()
+        if Path(top).resolve() != path.resolve():
+            raise RuntimeError(
+                f"LPC Git repository root {top} does not match source root {path}"
+            )
+        head = subprocess.run(
+            ["git", "-C", str(path), "rev-parse", "HEAD"],
+            check=True, capture_output=True, text=True,
+        ).stdout.strip()
+        if not head:
+            raise RuntimeError(f"LPC Git repository has no HEAD: {path}")
+        return head
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise RuntimeError(f"unable to verify LPC source Git metadata at {path}: {exc}") from exc
 
 
 def write_source_mount_provenance(lock: dict, source_root: Path, mode: str) -> None:
+    # A source export without .git cannot independently assert its commit.
+    # Validate the complete pinned lock, all browser paths and image dimensions
+    # before recording provenance. The cache itself was commit-checked before
+    # the physical copy was made on the repair path.
+    valid, detail = validate_complete_source_tree(source_root, lock)
+    if not valid:
+        raise RuntimeError(f"cannot record LPC provenance for incomplete source: {detail}")
     head = checkout_head(source_root)
     expected = str(lock["commit"])
     if head is not None and head.lower() != expected.lower():
@@ -131,23 +233,35 @@ def is_relative_to(path: Path, possible_parent: Path) -> bool:
 
 
 def validate_checkout_location(checkout: Path, destination: Path) -> None:
-    checkout = checkout.resolve()
-    destination = destination.resolve(strict=False)
-    project_root = ROOT.resolve()
+    """Check *directory-entry* topology, not the target of an old LPC junction.
 
-    if checkout == project_root:
+    Resolving the entire destination follows an existing Windows junction. If
+    that junction already points at our cache, the resolved destination equals
+    the checkout and a safe copy is falsely rejected as recursive. Resolve the
+    parent instead and append the lexical final entry; this also catches a
+    parent directory redirected outside Havenwild.
+    """
+    checkout = checkout.resolve()
+    project_root = ROOT.resolve()
+    destination_entry = destination.parent.resolve(strict=False) / destination.name
+
+    if not is_relative_to(destination_entry, project_root):
         raise RuntimeError(
-            "HAVENWILD_LPC_REPO points at the Havenwild project root. "
+            f"unsafe LPC destination parent outside Havenwild: {destination_entry}"
+        )
+    if is_relative_to(project_root, checkout):
+        raise RuntimeError(
+            "HAVENWILD_LPC_REPO points at Havenwild or one of its parent directories. "
             "Unset it or point it at an ElizaWy/LPC checkout."
         )
-    if is_relative_to(destination, checkout):
+    if is_relative_to(destination_entry, checkout):
         raise RuntimeError(
-            f"unsafe LPC source location: destination {destination} is inside checkout {checkout}; "
+            f"unsafe LPC source location: destination {destination_entry} is inside checkout {checkout}; "
             "this would recursively copy the project into itself"
         )
-    if is_relative_to(checkout, destination):
+    if is_relative_to(checkout, destination_entry):
         raise RuntimeError(
-            f"unsafe LPC source location: checkout {checkout} is inside destination {destination}"
+            f"unsafe LPC source location: checkout {checkout} is inside destination {destination_entry}"
         )
 
 
@@ -268,6 +382,11 @@ def replace_directory_entry(staging: Path, destination: Path) -> None:
     """Move staging into place, repairing stale Windows destination entries."""
     last_error: OSError | None = None
     for attempt in range(1, 4):
+        if path_entry_exists(destination) and not is_directory_link(destination):
+            raise RuntimeError(
+                f"refusing to overwrite an existing physical LPC source directory: {destination}; "
+                "back it up and repair explicitly instead"
+            )
         remove_path(destination)
         if path_entry_exists(destination):
             raise RuntimeError(f"unable to clear stale LPC destination: {destination}")
@@ -365,10 +484,15 @@ def mount_full_source_tree(checkout: Path, lock: dict) -> str:
 
     destination = ROOT / project_path
     validate_checkout_location(checkout, destination)
+    requested_mode = os.environ.get("HAVENWILD_LPC_SOURCE_MODE", "copy").strip().lower()
+    if requested_mode == "copy":
+        valid, detail = validate_complete_source_tree(checkout, lock)
+        if not valid:
+            raise RuntimeError(f"pinned LPC checkout is incomplete; old mount preserved: {detail}")
     staging = destination.with_name(destination.name + ".tmp")
     remove_path(staging)
 
-    requested_mode = os.environ.get("HAVENWILD_LPC_SOURCE_MODE", "link").strip().lower()
+    requested_mode = os.environ.get("HAVENWILD_LPC_SOURCE_MODE", "copy").strip().lower()
     if requested_mode not in {"link", "copy"}:
         raise RuntimeError(
             "HAVENWILD_LPC_SOURCE_MODE must be either 'link' or 'copy', "
@@ -389,6 +513,8 @@ def mount_full_source_tree(checkout: Path, lock: dict) -> str:
     else:
         copy_tree_with_progress(checkout, staging)
 
+    if mode_used == "copy":
+        validate_physical_staging(staging, lock)
     replace_directory_entry(staging, destination)
     print(f"LPC source {mode_used} ready: {destination} -> {checkout}")
     return mode_used
@@ -424,13 +550,22 @@ def main() -> int:
         ok, detail = valid_locked_file(entry)
         if not ok:
             invalid.append((entry, detail))
+    source_root = ROOT / lock["fullSourceProjectPath"]
+    requested_mode = os.environ.get("HAVENWILD_LPC_SOURCE_MODE", "copy").strip().lower()
+    if requested_mode == "copy":
+        if is_directory_link(source_root):
+            invalid.append((None, "physical copy requested but LPC mount is a directory junction/link"))
+        elif not invalid:
+            valid, detail = validate_complete_source_tree(source_root, lock)
+            if not valid:
+                invalid.append((None, detail))
     if not invalid:
-        source_root = ROOT / lock["fullSourceProjectPath"]
         mode = "link" if is_directory_link(source_root) else "copy_or_export"
         write_source_mount_provenance(lock, source_root, mode)
         print(
-            f"LPC dependency valid at pinned commit {lock['commit']} "
-            f"({len(lock['lockedFiles'])} locked file(s))"
+            f"LPC dependency valid against pinned source lock {lock['commit']} "
+            f"({len(lock['lockedFiles'])} SHA-256-locked file(s); "
+            f"physical export Git HEAD is not asserted)"
         )
         return 0
 
@@ -463,7 +598,7 @@ def main() -> int:
     if not ok:
         raise RuntimeError(detail)
     write_source_mount_provenance(lock, ROOT / lock["fullSourceProjectPath"], mode_used)
-    print(f"LPC dependency repaired and verified at pinned commit {lock['commit']}")
+    print(f"LPC dependency repaired and verified against pinned source lock {lock['commit']}")
     return 0
 
 
