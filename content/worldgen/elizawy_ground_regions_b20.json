@@ -1,0 +1,684 @@
+{
+  "schema": "havenwild.elizawy_canonical_source_regions.b20",
+  "version": 1,
+  "sourceProvider": "elizawy_lpc_revised",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "masterInput": "WORKSPACE/generated/lpc/elizawy_master_ground_layout_b19.json",
+  "output": "WORKSPACE/generated/lpc/elizawy_ground_source_regions_b20.json",
+  "board": "WORKSPACE/generated/lpc/elizawy_ground_region_review_b20.html",
+  "canonicalSheet": "Terrain/terrain_summer.png",
+  "grid": {
+    "columns": 16,
+    "rows": 26,
+    "tileSize": 32
+  },
+  "regions": [
+    {
+      "id": "summer.01.a.grass_tuft_island",
+      "rectCells": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "visualHint": "grass tuft island",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.01.b.grass_surface_samples",
+      "rectCells": [
+        3,
+        0,
+        3,
+        3
+      ],
+      "visualHint": "grass surface samples",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.01.c.grass_earth_border",
+      "rectCells": [
+        6,
+        0,
+        3,
+        3
+      ],
+      "visualHint": "grass earth border",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.01.d.sand_earth_border",
+      "rectCells": [
+        9,
+        0,
+        3,
+        3
+      ],
+      "visualHint": "sand earth border",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.02.a.grass_ring_cutout",
+      "rectCells": [
+        0,
+        3,
+        3,
+        2
+      ],
+      "visualHint": "grass ring cutout",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.02.b.earth_surface_samples",
+      "rectCells": [
+        3,
+        3,
+        3,
+        2
+      ],
+      "visualHint": "earth surface samples",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.02.c.grass_with_earth_detail",
+      "rectCells": [
+        6,
+        3,
+        3,
+        2
+      ],
+      "visualHint": "grass with earth detail",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.02.d.earth_sand_detail",
+      "rectCells": [
+        9,
+        3,
+        3,
+        2
+      ],
+      "visualHint": "earth sand detail",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.03.a.grass_holes_foliage_detail",
+      "rectCells": [
+        0,
+        5,
+        3,
+        3
+      ],
+      "visualHint": "grass holes foliage detail",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.03.b.sand_surface_samples",
+      "rectCells": [
+        3,
+        5,
+        3,
+        3
+      ],
+      "visualHint": "sand surface samples",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.03.c.grass_sand_border",
+      "rectCells": [
+        6,
+        5,
+        3,
+        3
+      ],
+      "visualHint": "grass sand border",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.03.d.sand_surface_feature",
+      "rectCells": [
+        9,
+        5,
+        3,
+        3
+      ],
+      "visualHint": "sand surface feature",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.04.a.grass_ring_continuation",
+      "rectCells": [
+        0,
+        8,
+        3,
+        2
+      ],
+      "visualHint": "grass ring continuation",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.04.b.unused_source_space",
+      "rectCells": [
+        3,
+        8,
+        3,
+        2
+      ],
+      "visualHint": "unused source space",
+      "classification": "source_blank",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.04.c.grass_sand_ring_detail",
+      "rectCells": [
+        6,
+        8,
+        3,
+        2
+      ],
+      "visualHint": "grass sand ring detail",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.04.d.sand_surface_highlight",
+      "rectCells": [
+        9,
+        8,
+        3,
+        2
+      ],
+      "visualHint": "sand surface highlight",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.05.a.grass_bank_pool_variant_a",
+      "rectCells": [
+        0,
+        10,
+        3,
+        3
+      ],
+      "visualHint": "grass bank pool variant a",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.05.b.grass_bank_pool_variant_b",
+      "rectCells": [
+        3,
+        10,
+        3,
+        3
+      ],
+      "visualHint": "grass bank pool variant b",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.05.c.earth_bank_pool_variant_a",
+      "rectCells": [
+        6,
+        10,
+        3,
+        3
+      ],
+      "visualHint": "earth bank pool variant a",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.05.d.earth_bank_pool_variant_b",
+      "rectCells": [
+        9,
+        10,
+        3,
+        3
+      ],
+      "visualHint": "earth bank pool variant b",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.06.a.water_grass_island_variant_a",
+      "rectCells": [
+        0,
+        13,
+        3,
+        2
+      ],
+      "visualHint": "water grass island variant a",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.06.b.water_grass_island_variant_b",
+      "rectCells": [
+        3,
+        13,
+        3,
+        2
+      ],
+      "visualHint": "water grass island variant b",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.06.c.water_rock_island_variant_a",
+      "rectCells": [
+        6,
+        13,
+        3,
+        2
+      ],
+      "visualHint": "water rock island variant a",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.06.d.water_rock_island_variant_b",
+      "rectCells": [
+        9,
+        13,
+        3,
+        2
+      ],
+      "visualHint": "water rock island variant b",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.07.a.grass_bank_open_ring_a",
+      "rectCells": [
+        0,
+        15,
+        3,
+        3
+      ],
+      "visualHint": "grass bank open ring a",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.07.b.grass_bank_open_ring_b",
+      "rectCells": [
+        3,
+        15,
+        3,
+        3
+      ],
+      "visualHint": "grass bank open ring b",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.07.c.earth_bank_open_ring_a",
+      "rectCells": [
+        6,
+        15,
+        3,
+        3
+      ],
+      "visualHint": "earth bank open ring a",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.07.d.earth_bank_open_ring_b",
+      "rectCells": [
+        9,
+        15,
+        3,
+        3
+      ],
+      "visualHint": "earth bank open ring b",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.08.a.water_grass_detail_a",
+      "rectCells": [
+        0,
+        18,
+        3,
+        2
+      ],
+      "visualHint": "water grass detail a",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.08.b.water_grass_detail_b",
+      "rectCells": [
+        3,
+        18,
+        3,
+        2
+      ],
+      "visualHint": "water grass detail b",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.08.c.water_rock_detail_a",
+      "rectCells": [
+        6,
+        18,
+        3,
+        2
+      ],
+      "visualHint": "water rock detail a",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.08.d.water_rock_detail_b",
+      "rectCells": [
+        9,
+        18,
+        3,
+        2
+      ],
+      "visualHint": "water rock detail b",
+      "classification": "source_art_region",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.09.a.sand_banked_water_region",
+      "rectCells": [
+        0,
+        20,
+        3,
+        3
+      ],
+      "visualHint": "sand banked water region",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.09.b.sand_on_water_detail",
+      "rectCells": [
+        3,
+        20,
+        3,
+        3
+      ],
+      "visualHint": "sand on water detail",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.09.c.bright_water_ice_bank_region",
+      "rectCells": [
+        6,
+        20,
+        3,
+        3
+      ],
+      "visualHint": "bright water ice bank region",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.09.d.bright_water_ice_detail",
+      "rectCells": [
+        9,
+        20,
+        3,
+        3
+      ],
+      "visualHint": "bright water ice detail",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.10.a.dark_water_gradient_region",
+      "rectCells": [
+        0,
+        23,
+        3,
+        3
+      ],
+      "visualHint": "dark water gradient region",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.10.b.dark_water_light_detail",
+      "rectCells": [
+        3,
+        23,
+        3,
+        3
+      ],
+      "visualHint": "dark water light detail",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.10.c.dark_water_gradient_variant",
+      "rectCells": [
+        6,
+        23,
+        3,
+        3
+      ],
+      "visualHint": "dark water gradient variant",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.10.d.dark_water_light_detail_variant",
+      "rectCells": [
+        9,
+        23,
+        3,
+        3
+      ],
+      "visualHint": "dark water light detail variant",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.right.upper.blank",
+      "rectCells": [
+        12,
+        0,
+        4,
+        10
+      ],
+      "visualHint": "transparent unused source area",
+      "classification": "source_blank",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.right.shore.components",
+      "rectCells": [
+        12,
+        10,
+        4,
+        8
+      ],
+      "visualHint": "horizontal and vertical shoreline components, authored adjacency unverified",
+      "classification": "shore_components_reference",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.right.mid.blank",
+      "rectCells": [
+        12,
+        18,
+        4,
+        2
+      ],
+      "visualHint": "transparent unused source area",
+      "classification": "source_blank",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.right.light.bank",
+      "rectCells": [
+        12,
+        20,
+        3,
+        3
+      ],
+      "visualHint": "light water bank motif",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.right.light.blank",
+      "rectCells": [
+        15,
+        20,
+        1,
+        3
+      ],
+      "visualHint": "transparent area beside light water artwork",
+      "classification": "source_blank",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.right.dark.gradient",
+      "rectCells": [
+        12,
+        23,
+        3,
+        3
+      ],
+      "visualHint": "dark blue water gradient motif",
+      "classification": "reference_water_art",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    },
+    {
+      "id": "summer.right.dark.blank",
+      "rectCells": [
+        15,
+        23,
+        1,
+        3
+      ],
+      "visualHint": "transparent area beside dark water artwork",
+      "classification": "source_blank",
+      "allowPaint": false,
+      "allowResize": false,
+      "allowAutotile": false
+    }
+  ],
+  "safety": {
+    "doNotInferGameplaySemantics": true,
+    "doNotInferRepeatOrNineSlice": true,
+    "doNotInferWaterDepth": true,
+    "doNotApproveSourcePixelsByPosition": true,
+    "preservePriorEvidence": true,
+    "productionApproval": false,
+    "runtimeCutover": false
+  }
+}

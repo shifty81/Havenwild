@@ -1,0 +1,147 @@
+{
+  "schema": "havenwild.elizawy_master_ground_layout.b19",
+  "version": 1,
+  "provider": "elizawy_lpc_revised",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "canonicalSeason": "summer",
+  "seasons": [
+    "spring",
+    "summer",
+    "autumn",
+    "winter",
+    "winter_ice"
+  ],
+  "masterSheet": "Terrain/terrain_summer.png",
+  "columns": 16,
+  "rows": 26,
+  "tileSize": 32,
+  "sourceInventory": "WORKSPACE/generated/lpc/elizawy_ground_cells_b15.json",
+  "b13Report": "WORKSPACE/generated/lpc/elizawy_b13_report.json",
+  "b14Report": "WORKSPACE/generated/lpc/elizawy_b14_routing.json",
+  "b16Report": "WORKSPACE/generated/lpc/elizawy_ground_visual_candidates_b16.json",
+  "b17Report": "WORKSPACE/generated/lpc/elizawy_ground_semantic_proposals_b17.json",
+  "b18Report": "WORKSPACE/generated/lpc/elizawy_ground_contact_evidence_b18.json",
+  "output": "WORKSPACE/generated/lpc/elizawy_master_ground_layout_b19.json",
+  "board": "WORKSPACE/generated/lpc/elizawy_master_ground_review_b19.html",
+  "alphaLayoutExpectations": {
+    "spring": [],
+    "summer": [],
+    "autumn": [],
+    "winter": [],
+    "winter_ice": [
+      [
+        6,
+        21
+      ],
+      [
+        11,
+        21
+      ]
+    ]
+  },
+  "canonicalCandidates": [
+    {
+      "id": "ground.seasonal_top.interior.visual",
+      "role": "seasonal_ground_surface_candidate",
+      "sourceKind": "surface_candidate",
+      "resizeMode": "repeat_candidate_seam_unapproved"
+    },
+    {
+      "id": "ground.seasonal_earth.interior.visual",
+      "role": "earth_surface_candidate",
+      "sourceKind": "surface_candidate",
+      "resizeMode": "repeat_candidate_seam_unapproved"
+    },
+    {
+      "id": "ground.sand.interior.visual",
+      "role": "sand_surface_candidate",
+      "sourceKind": "surface_candidate",
+      "resizeMode": "repeat_candidate_seam_unapproved"
+    },
+    {
+      "id": "ground.grass.patch.3x3",
+      "role": "grass_region_overlay_candidate",
+      "sourceKind": "overlay_region_candidate",
+      "resizeMode": "nine_slice_rectangle_candidate_seams_unapproved",
+      "underlay": "REQUIRED_UNVERIFIED"
+    },
+    {
+      "id": "ground.pool.grass.3x3",
+      "role": "grass_banked_water_region_candidate",
+      "sourceKind": "water_region_candidate",
+      "resizeMode": "nine_slice_rectangle_candidate_seams_unapproved",
+      "underlay": "REQUIRES_REVIEW"
+    },
+    {
+      "id": "ground.shore.strip.4x3",
+      "role": "authored_shore_strip_candidate",
+      "sourceKind": "shore_assembly_candidate",
+      "resizeMode": "authored_assembly_only_pending_rule"
+    },
+    {
+      "id": "ground.water.surface.visual",
+      "role": "water_detail_or_pattern_candidate",
+      "sourceKind": "water_detail_candidate",
+      "resizeMode": "NOT_INDEPENDENT_WATER_FILL",
+      "supersedesB17Role": "water.surface.visual"
+    },
+    {
+      "id": "ground.water.dark.visual",
+      "role": "water_dark_gradient_candidate",
+      "sourceKind": "water_gradient_candidate",
+      "resizeMode": "NOT_INDEPENDENT_WATER_FILL",
+      "supersedesB17Role": "water.dark.visual"
+    },
+    {
+      "id": "farm.tilled.patch.3x3",
+      "role": "tilled_soil_assembly_candidate",
+      "sourceKind": "farm_region_candidate",
+      "resizeMode": "nine_slice_rectangle_candidate_seams_unapproved",
+      "underlay": "REQUIRES_REVIEW"
+    },
+    {
+      "id": "winter.ice_shallows.patch.3x3",
+      "role": "ice_shallows_assembly_candidate",
+      "sourceKind": "winter_water_region_candidate",
+      "resizeMode": "nine_slice_rectangle_candidate_seams_unapproved",
+      "underlay": "REQUIRES_REVIEW"
+    }
+  ],
+  "policies": {
+    "canonicalAddressesCoverEntireSheet": true,
+    "seasonSubstitutionsPreserveCanonicalCoordinates": true,
+    "winterIceAlphaExceptionsExplicit": true,
+    "originalPngBytesReadOnly": true,
+    "uncataloguedSourceRejected": true,
+    "unmappedCellsFailClosed": true,
+    "candidateRolesDoNotApproveAutotiling": true,
+    "candidateSeamMeasurementsAreNotVisualApproval": true,
+    "noWaterDepthOrCollisionInferredFromColor": true,
+    "noNonElizaWyProviderFallback": true,
+    "preserveLegacyRendererAndSaves": true,
+    "productionApproval": false,
+    "runtimeCutover": false
+  },
+  "alphaNumericExpectations": {
+    "spring": {
+      "occupiedPixelDifferences": 0,
+      "alphaValueDifferences": 0
+    },
+    "summer": {
+      "occupiedPixelDifferences": 0,
+      "alphaValueDifferences": 0
+    },
+    "autumn": {
+      "occupiedPixelDifferences": 0,
+      "alphaValueDifferences": 0
+    },
+    "winter": {
+      "occupiedPixelDifferences": 0,
+      "alphaValueDifferences": 1
+    },
+    "winter_ice": {
+      "occupiedPixelDifferences": 2048,
+      "alphaValueDifferences": 2049
+    }
+  }
+}
