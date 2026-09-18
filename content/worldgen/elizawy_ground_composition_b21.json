@@ -10,13 +10,70 @@
   "canonicalSheet": "Terrain/terrain_summer.png",
   "tileSize": 32,
   "repeatableSurfaces": [
-    {"id": "ground.grass.base", "canonicalCell": [4, 1], "expectedRegion": "summer.01.b.grass_surface_samples", "visualMaterial": "grass", "use": "source_art_preview_only"},
-    {"id": "ground.sand.base", "canonicalCell": [4, 6], "expectedRegion": "summer.03.b.sand_surface_samples", "visualMaterial": "sand", "use": "source_art_preview_only"},
-    {"id": "ground.water.base.visual", "canonicalCell": [12, 17], "expectedRegion": "summer.right.shore.components", "visualMaterial": "open_water_appearance", "use": "source_art_preview_only"}
+    {
+      "id": "ground.grass.base",
+      "canonicalCell": [
+        1,
+        1
+      ],
+      "expectedRegion": "summer.01.a.grass_tuft_island",
+      "visualMaterial": "grass",
+      "use": "source_native_uniform_base_preview_only"
+    },
+    {
+      "id": "ground.sand.base",
+      "canonicalCell": [
+        10,
+        6
+      ],
+      "expectedRegion": "summer.03.d.sand_surface_feature",
+      "visualMaterial": "sand",
+      "use": "source_native_uniform_base_preview_only"
+    },
+    {
+      "id": "ground.water.base.visual",
+      "canonicalCell": [
+        1,
+        11
+      ],
+      "expectedRegion": "summer.05.a.grass_bank_pool_variant_a",
+      "visualMaterial": "open_water_appearance",
+      "use": "source_native_uniform_base_preview_only"
+    }
   ],
   "resizeExperiments": [
-    {"id": "ground.grass.tuft.3x3", "rectCells": [0, 0, 3, 3], "expectedRegion": "summer.01.a.grass_tuft_island", "mode": "nine_slice_diagnostic_only", "targetCells": [7, 5], "underlay": "not_certified"},
-    {"id": "ground.pool.grass_bank.3x3", "rectCells": [0, 10, 3, 3], "expectedRegion": "summer.05.a.grass_bank_pool_variant_a", "mode": "nine_slice_diagnostic_only", "targetCells": [7, 5], "underlay": "not_certified"}
+    {
+      "id": "ground.grass.tuft.3x3",
+      "rectCells": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "expectedRegion": "summer.01.a.grass_tuft_island",
+      "mode": "nine_slice_diagnostic_only",
+      "targetCells": [
+        7,
+        5
+      ],
+      "underlay": "not_certified"
+    },
+    {
+      "id": "ground.pool.grass_bank.3x3",
+      "rectCells": [
+        0,
+        10,
+        3,
+        3
+      ],
+      "expectedRegion": "summer.05.a.grass_bank_pool_variant_a",
+      "mode": "nine_slice_diagnostic_only",
+      "targetCells": [
+        7,
+        5
+      ],
+      "underlay": "not_certified"
+    }
   ],
   "safety": {
     "sourceCellsReadOnly": true,

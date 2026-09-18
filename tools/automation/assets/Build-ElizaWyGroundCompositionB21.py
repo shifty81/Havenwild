@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""B21: real source-pixel surface and expandable-assembly preview on the B19/B20 authority.
+"""B21R1: correct source-native *uniform base cells* and preserve assembly diagnostics.
 
-Certifies only the mechanical repeat-pixel edges of declared 32px base source cells.
+Requires fully uniform, fully opaque source base tiles, not merely matching opposite edge pixels.
 Nine-slice renders are diagnostics, never approvals for topology, gameplay, or runtime.
 Uses B19's exact PNG decoder; no Pillow, new atlas, or alternate source library.
 """
@@ -78,6 +78,14 @@ def edge_mismatch(tile: bytes) -> dict[str, int]:
              for col in range(TILE))
     alpha = {tile[i] for i in range(3, len(tile), 4)}
     return {'horizontalPixels': lr, 'verticalPixels': tb, 'fullyOpaque': alpha == {255}}
+
+
+def uniform_base_color(tile: bytes) -> list[int] | None:
+    """Return exact source RGBA only when all 1024 pixels are identical and opaque."""
+    if len(tile) != TILE*TILE*4 or tile[3] != 255:
+        return None
+    color = tile[:4]
+    return list(color) if all(tile[i:i+4] == color for i in range(0,len(tile),4)) else None
 
 
 def paste(canvas: bytearray, width: int, tile: bytes, dx: int, dy: int):
@@ -168,9 +176,9 @@ def validate(cfg: dict, b19: dict, b20: dict, sources: dict[str, tuple[int,int,b
         blockers.append('expected three explicit surfaces and two explicit assembly diagnostics')
     # B21 is a narrowly scoped correction, not permission to redefine grass as water.
     approved_candidate_addresses = {
-        'ground.grass.base': ((4, 1), 'summer.01.b.grass_surface_samples', 'grass'),
-        'ground.sand.base': ((4, 6), 'summer.03.b.sand_surface_samples', 'sand'),
-        'ground.water.base.visual': ((12, 17), 'summer.right.shore.components', 'open_water_appearance'),
+        'ground.grass.base': ((1, 1), 'summer.01.a.grass_tuft_island', 'grass'),
+        'ground.sand.base': ((10, 6), 'summer.03.d.sand_surface_feature', 'sand'),
+        'ground.water.base.visual': ((1, 11), 'summer.05.a.grass_bank_pool_variant_a', 'open_water_appearance'),
     }
     if {item.get('id') for item in cfg.get('repeatableSurfaces',[])} != set(approved_candidate_addresses):
         blockers.append('unexpected surface names or duplicates')
@@ -185,9 +193,10 @@ def validate(cfg: dict, b19: dict, b20: dict, sources: dict[str, tuple[int,int,b
         if not cell or not m or cell.get('canonicalId') != m.get('canonicalId') or cell.get('sourceRegionId') != item.get('expectedRegion') or point in seen:
             blockers.append('unreconciled base source cell: '+str(sid));continue
         seen.add(point)
-        if item.get('use') != 'source_art_preview_only' or item.get('visualMaterial') not in ('grass','sand','open_water_appearance'):
+        if item.get('use') != 'source_native_uniform_base_preview_only' or item.get('visualMaterial') not in ('grass','sand','open_water_appearance'):
             blockers.append('unsafe source-surface role: '+str(sid))
         evidence={}
+        uniform_colors={}
         for season in SEASONS:
             binding=cell.get('seasonBindings',{}).get(season,{})
             if (binding.get('sourcePath') != f'Terrain/terrain_{season}.png' or
@@ -197,13 +206,16 @@ def validate(cfg: dict, b19: dict, b20: dict, sources: dict[str, tuple[int,int,b
                 blockers.append('source substitution mismatch: '+str(sid)+'/'+season)
                 continue
             if season in sources:
-                evidence[season]=edge_mismatch(source_tile(sources[season], *point))
-                if evidence[season] != {'horizontalPixels':0,'verticalPixels':0,'fullyOpaque':True}:
-                    blockers.append('not exactly repeatable/opaque: '+str(sid)+'/'+season)
+                exact_tile=source_tile(sources[season], *point)
+                evidence[season]=edge_mismatch(exact_tile)
+                uniform_colors[season]=uniform_base_color(exact_tile)
+                if uniform_colors[season] is None:
+                    blockers.append('not source-uniform/opaque base: '+str(sid)+'/'+season)
         surfaces.append({'surfaceId':sid,'visualMaterial':item.get('visualMaterial'),'canonicalId':cell['canonicalId'],
                          'sourceRegionId':cell['sourceRegionId'],'sourceCell':xy,'seasonBindings':cell['seasonBindings'],
-                         'sourcePixelRepeatVerified': len(evidence)==5 and all(e=={'horizontalPixels':0,'verticalPixels':0,'fullyOpaque':True} for e in evidence.values()),
-                         'edgeEvidence':evidence,'previewOnly':True,'gameplayApproved':False,'runtimeApproved':False})
+                         'sourcePixelRepeatVerified': len(uniform_colors)==5 and all(c is not None for c in uniform_colors.values()),
+                         'sourceUniformColorVerified': len(uniform_colors)==5 and all(c is not None for c in uniform_colors.values()),
+                         'seasonSourceRGBA':uniform_colors,'edgeEvidence':evidence,'previewOnly':True,'gameplayApproved':False,'runtimeApproved':False})
     if {item.get('id') for item in cfg.get('resizeExperiments',[])} != {'ground.grass.tuft.3x3','ground.pool.grass_bank.3x3'}:
         blockers.append('unexpected assembly experiments or duplicates')
     experiments=[]
@@ -225,10 +237,10 @@ def validate(cfg: dict, b19: dict, b20: dict, sources: dict[str, tuple[int,int,b
                             'seasonEvidence':evidence,'sourceAssemblyPreserved':True,'resizeApproved':False,
                             'underlayCertified':False,'topologyApproved':False,'runtimeApproved':False})
     return {'schema':'havenwild.elizawy_ground_composition_evidence.b21',
-            'status':'BLOCKED' if blockers else 'SOURCE_PIXEL_REPEATS_VERIFIED_ASSEMBLY_RESIZE_REVIEW_REQUIRED',
+            'status':'BLOCKED' if blockers else 'SOURCE_UNIFORM_BASES_VERIFIED_ASSEMBLY_RESIZE_REVIEW_REQUIRED',
             'sourceCommit':PIN,'sourceProvider':'elizawy_lpc_revised','canonicalSource':cfg.get('canonicalSheet'),
             'geometry':{'canonicalCells':len(cells),'sourceRegions':len(b20.get('regions',[])),
-                        'pixelRepeatSurfaceCount':len(surfaces),'seasonalRepeatBindings':sum(len(s['edgeEvidence']) for s in surfaces),
+                        'pixelRepeatSurfaceCount':len(surfaces),'sourceUniformBaseCount':sum(s['sourceUniformColorVerified'] for s in surfaces),'seasonalRepeatBindings':sum(len(s['edgeEvidence']) for s in surfaces),
                         'diagnosticAssemblies':len(experiments)},
             'surfaces':surfaces,'resizeExperiments':experiments,'blockers':blockers,
             'approvedGameplayMaterials':0,'approvedExternalTransitions':0,'approvedResizes':0,
@@ -262,7 +274,7 @@ def review_html(report:dict, previews:list[dict], root:Path, target:Path)->str:
         for image in previews:
             if image['season']!=season:continue
             name=html.escape(image['asset']);filename=html.escape(image['path'],quote=True)
-            status='Pixel repeat: verified, preview ONLY' if image['kind']=='exact_8x5_repeat' else ('Original 3x3 geometry' if image['kind']=='original' else 'UNAPPROVED nine-slice experiment')
+            status='SOURCE-UNIFORM base cell (no detail), preview ONLY' if image['kind']=='exact_8x5_repeat' else ('Original 3x3 geometry' if image['kind']=='original' else 'UNAPPROVED nine-slice experiment')
             cards.append(f'<figure><figcaption>{name}<br><small>{status}</small></figcaption><img src="{filename}" alt="{name} {image["kind"]}"></figure>')
         by_season.append('<section><h2>'+html.escape(season)+'</h2><div class="cards">'+''.join(cards)+'</div></section>')
     stats=''.join('<li>'+html.escape(x['assemblyId'])+': repeated joins: '+str(x['seasonEvidence'].get('summer',{}).get('repeatedContacts',0))+'; summer pixel differences: '+str(x['seasonEvidence'].get('summer',{}).get('horizontalMismatchedEdgePixels',0)+x['seasonEvidence'].get('summer',{}).get('verticalMismatchedEdgePixels',0))+'; resize NOT approved</li>' for x in report['resizeExperiments'])
@@ -270,7 +282,7 @@ def review_html(report:dict, previews:list[dict], root:Path, target:Path)->str:
             'body{background:#141b23;color:#edf2f7;font:14px system-ui;margin:24px}h1,h2{color:#e7dfc4}.warn{background:#533a27;border:1px solid #bb8f49;padding:14px;border-radius:8px;max-width:1050px}'
             'section{padding:18px;margin:20px 0;background:#202a34;border-radius:12px}.cards{display:flex;flex-wrap:wrap;gap:16px;align-items:start}figure{margin:0;background:#33404b;padding:12px;border-radius:8px;max-width:275px}'
             'figure img{image-rendering:pixelated;max-width:256px;width:auto;height:auto;background-color:#4c5966;background-image:linear-gradient(45deg,#65737e 25%,transparent 25%),linear-gradient(-45deg,#65737e 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#65737e 75%),linear-gradient(-45deg,transparent 75%,#65737e 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0}figcaption{margin-bottom:9px}small{color:#ffcf9e}li{margin:4px 0}</style></head><body>'
-            '<h1>B21 · Original source pixels, one canonical layout</h1><div class="warn">The three 32×32 base cells below have identical opposite edge pixels in all five seasons and are fully opaque: technical repeat evidence ONLY. Do not infer gameplay material, water depth, animation, collision or production approval. The 3×3 assemblies are their original artwork; 7×5 images are NON-APPROVED experiments. No editor/client integration or save change in B21.</div>'
+            '<h1>B21 · Original source pixels, one canonical layout</h1><div class="warn">CORRECTED B21R1: the three base cells are 100% uniform source pixels in all five seasons (grass c01r01, sand c10r06, water appearance c01r11). The former decorated samples c04r01, c04r06, c12r17 were incorrectly presented as bases; they remain source details, never base fills. Source uniformity and pixel repeat do NOT imply gameplay authorization. Do not infer gameplay material, water depth, animation, collision or production approval. The 3×3 assemblies are their original artwork; 7×5 images are NON-APPROVED experiments. No editor/client integration or save change in B21.</div>'
             '<h2>Resize diagnostics (not approval)</h2><ul>'+stats+'</ul>'+''.join(by_season)+'</body></html>')
 
 
@@ -305,7 +317,7 @@ def main()->int:
             board.write_text(review_html(report,previews,root,board),encoding='utf-8')
         dest.write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
         print('B21 source composition:',report['status'])
-        print('Pixel-exact repeat surfaces:',report['geometry']['pixelRepeatSurfaceCount'],'season bindings:',report['geometry']['seasonalRepeatBindings'])
+        print('Uniform source-native base surfaces:',report['geometry']['sourceUniformBaseCount'],'season bindings:',report['geometry']['seasonalRepeatBindings'])
         print('Assembly diagnostics:',report['geometry']['diagnosticAssemblies'],'resize approvals:',report['approvedResizes'],'runtime cutover:',report['runtimeCutover'])
         for err in report['blockers'][:12]:print('BLOCKER:',err)
         return 2 if report['blockers'] else 0

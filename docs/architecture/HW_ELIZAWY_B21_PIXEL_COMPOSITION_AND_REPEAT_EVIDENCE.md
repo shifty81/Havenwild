@@ -1,4 +1,32 @@
-# B21 — one authoritative ground layout: pixel-tested composition
+# B21R1 correction — original source already supplies plain base cells
+
+B21 incorrectly nominated decorated source cells because it only checked opposite
+edge-pixel equality and opacity. That is insufficient: a decorated tile can have
+matching edges yet repeat its grass tuft, sand flecks, or water ripple every 32px.
+The source itself contains exact uniform base cells; no new artwork or palette
+synthesis is required. Correct zero-based 32px source coordinates:
+
+| Material appearance | Correct source cell | Original source rect | Former incorrect detail cell |
+| --- | --- | --- | --- |
+| Grass | (1,1) | [32,32,32,32] | (4,1) |
+| Sand | (10,6) | [320,192,32,32] | (4,6) |
+| Water appearance | (1,11) | [32,352,32,32] | (12,17) |
+
+The exact same three coordinates are fully opaque and contain **exactly one
+unique RGBA pixel color in all five seasonal sheets**. The corrected validator
+requires whole-cell uniformity, including the center, in addition to preserving
+source hashes and B19/B20 coordinate identity. Report now exposes exact
+seasonSourceRGBA for review. Original decorated cells are still available as
+source references, but are NOT approved or automatically painted as base tiles.
+Natural detail density and overlays need explicit derived-authoring rules in the
+existing shared terrain resolver; no automatic random decoration, nine-slice,
+water gameplay, editor bindings or runtime cutover is made here. Rebuild the
+existing B21 reports after applying R1, and treat any prior B21 previews as
+superseded. The original 3×3 pond assembly remains unchanged.
+
+---
+
+# B21 historical design — source-pixel composition (superseded base choices)
 
 ## Purpose and scope
 
@@ -10,13 +38,13 @@ No generated assets are written back to the protected source library.
 
 Unlike the earlier visual-only candidate catalog, this pass produces **actual
 source-pixel previews** and measures literal opposite-edge pixel equality of
-three narrowly selected fully opaque base visual cells in every source season:
+three incorrectly selected decorated visual cells (corrected in R1 header) in every source season:
 
 | Visual surface | Canonical cell | Rect in original | Verified property |
 | --- | --- | --- | --- |
-| Grass base appearance | (4,1) | [128,32,32,32] | 0 horizontally and vertically mismatched edge pixels; all 5 seasons |
-| Sand base appearance | (4,6) | [128,192,32,32] | same |
-| Open water *appearance* | (12,17) | [384,544,32,32] | same; source region is the right-side shoreline components |
+| Grass **former decorated sample** | (4,1) | [128,32,32,32] | NOT A BASE; superseded by (1,1) |
+| Sand **former decorated sample** | (4,6) | [128,192,32,32] | NOT A BASE; superseded by (10,6) |
+| Water **former decorated sample** | (12,17) | [384,544,32,32] | NOT A BASE; superseded by (1,11) |
 
 This validates **literal self-repeat edges and full opacity only**. It does not
 prove a pleasing large-scale texture or that the cell is the author's intended
@@ -63,7 +91,7 @@ if ($LASTEXITCODE -ne 0) { throw "B21 composition blocked" }
 Start-Process (Resolve-Path 'WORKSPACE/generated/lpc/elizawy_ground_composition_review_b21.html').Path
 ```
 
-Expected result: `SOURCE_PIXEL_REPEATS_VERIFIED_ASSEMBLY_RESIZE_REVIEW_REQUIRED`.
+Expected R1 result: `SOURCE_UNIFORM_BASES_VERIFIED_ASSEMBLY_RESIZE_REVIEW_REQUIRED`.
 Inspect the preview visually: literal edge continuity is not a substitute for
 variety and natural visual composition.
 

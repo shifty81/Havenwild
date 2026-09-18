@@ -63,8 +63,26 @@ class SurfaceTests(unittest.TestCase):
         self.assertEqual(report['geometry']['seasonalRepeatBindings'],15)
         self.assertFalse(report['runtimeCutover'])
         self.assertFalse(report['productionApproval'])
-        self.assertTrue(all(s['sourcePixelRepeatVerified'] for s in report['surfaces']))
+        self.assertTrue(all(s['sourcePixelRepeatVerified'] and s['sourceUniformColorVerified'] for s in report['surfaces']))
+        self.assertEqual(report['geometry']['sourceUniformBaseCount'],3)
+        self.assertTrue(all(all(color == [34,68,102,255] for color in s['seasonSourceRGBA'].values()) for s in report['surfaces']))
         self.assertEqual(len(report['resizeExperiments']),2)
+
+    def test_decoration_with_identical_edges_is_not_base(self):
+        # Previous B21 passed this tile: fully opaque + all four edges equal,
+        # but its center contains artwork which becomes an obvious 32px stamp.
+        images=copy.deepcopy(self.images);w,h,p=images['summer'];pixels=bytearray(p)
+        center=((1*32+16)*w + (1*32+16))*4
+        pixels[center:center+4]=b'\xaa\xbb\xcc\xff'
+        images['summer']=(w,h,bytes(pixels))
+        self.assertEqual(b21.edge_mismatch(b21.source_tile(images['summer'],1,1)),
+                         {'horizontalPixels':0,'verticalPixels':0,'fullyOpaque':True})
+        self.assertIn('not source-uniform/opaque base: ground.grass.base/summer',
+                      self.verify(images=images)['blockers'])
+
+    def test_uniform_base_color(self):
+        self.assertEqual(b21.uniform_base_color(b'\x11\x22\x33\xff'*1024),[17,34,51,255])
+        self.assertIsNone(b21.uniform_base_color(b'\x11\x22\x33\xff'*1023+b'\x11\x22\x32\xff'))
 
     def test_rgba_exact_edges(self):
         tile=b'\x00\x0a\x0b\xff'*(32*32)
@@ -73,16 +91,16 @@ class SurfaceTests(unittest.TestCase):
     def test_tampered_water_edge_rejected(self):
         images=copy.deepcopy(self.images)
         width,height,rgba=images['summer'];pixels=bytearray(rgba)
-        index=(17*32*width+12*32)*4
+        index=(11*32*width+1*32)*4
         pixels[index]=255
         images['summer']=(width,height,bytes(pixels))
-        self.assertIn('not exactly repeatable/opaque: ground.water.base.visual/summer',self.verify(images=images)['blockers'])
+        self.assertIn('not source-uniform/opaque base: ground.water.base.visual/summer',self.verify(images=images)['blockers'])
 
     def test_transparent_source_rejected(self):
         images=copy.deepcopy(self.images);w,h,p=images['spring'];pixels=bytearray(p)
-        index=(1*32*w+4*32)*4+3;pixels[index]=0
+        index=(1*32*w+1*32)*4+3;pixels[index]=0
         images['spring']=(w,h,bytes(pixels))
-        self.assertIn('not exactly repeatable/opaque: ground.grass.base/spring',self.verify(images=images)['blockers'])
+        self.assertIn('not source-uniform/opaque base: ground.grass.base/spring',self.verify(images=images)['blockers'])
 
     def test_hash_mismatch_rejected(self):
         digests=copy.deepcopy(self.digests);digests['Terrain/terrain_summer.png']='tampered'
