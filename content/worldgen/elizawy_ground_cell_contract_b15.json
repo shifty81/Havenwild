@@ -1,0 +1,38 @@
+{
+  "schema": "havenwild.elizawy_ground_cell_contract.b15",
+  "version": 1,
+  "lane": "elizawy_mainland",
+  "provider": "elizawy_lpc_revised",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourceRoot": "assets/source/licensed/lpc_revised",
+  "sourceIndex": "content/assets/intake/external_pack_indexes/elizawy_lpc_main.json",
+  "terrainCatalog": "WORKSPACE/generated/lpc/catalogs/terrain.json",
+  "b13Report": "WORKSPACE/generated/lpc/elizawy_b13_report.json",
+  "b14Report": "WORKSPACE/generated/lpc/elizawy_b14_routing.json",
+  "tileSize": 32,
+  "groundSheets": [
+    {"path": "Terrain/terrain_spring.png", "season": "spring"},
+    {"path": "Terrain/terrain_summer.png", "season": "summer"},
+    {"path": "Terrain/terrain_autumn.png", "season": "autumn"},
+    {"path": "Terrain/terrain_winter.png", "season": "winter"},
+    {"path": "Terrain/terrain_winter_ice.png", "season": "winter_ice"}
+  ],
+  "supplementalSheets": [
+    {"path": "Terrain/tilled_soil.png", "family": "farm", "review": "whole_sheet_assembly_review_required"},
+    {"path": "Terrain/ice-shallows.png", "family": "winter_shallows", "review": "whole_sheet_assembly_review_required"}
+  ],
+  "reviewDecisions": "content/worldgen/elizawy_ground_review_decisions_b15.json",
+  "generatedInventory": "WORKSPACE/generated/lpc/elizawy_ground_cells_b15.json",
+  "generatedReviewBoard": "WORKSPACE/generated/lpc/elizawy_ground_review_b15.html",
+  "generatedAudit": "WORKSPACE/generated/lpc/elizawy_ground_certification_b15.json",
+  "policy": {
+    "inventoryCellsAreSourceAddressesNotGameplayTiles": true,
+    "sourcePixelTransformationAllowed": false,
+    "sourceSeasonCoordinateEqualityIsNotProofOfVisualParity": true,
+    "automaticSemanticClassificationAllowed": false,
+    "uncertifiedCellRuntimePublicationAllowed": false,
+    "crossFamilyFallbackAllowed": false,
+    "missingOrUnsupportedRole": "unresolved_review_queue_no_proxy_art",
+    "legacyV7Runtime": "unchanged_for_existing_saves_until_separate_certified_cutover"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schema": "havenwild.elizawy_ground_visual_candidates.b16",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourceProvider": "elizawy_lpc_revised",
+  "tileSize": 32,
+  "sourceInventory": "WORKSPACE/generated/lpc/elizawy_ground_cells_b15.json",
+  "sourceReview": "WORKSPACE/generated/lpc/elizawy_ground_certification_b15.json",
+  "output": "WORKSPACE/generated/lpc/elizawy_ground_visual_candidates_b16.json",
+  "board": "WORKSPACE/generated/lpc/elizawy_ground_visual_review_b16.html",
+  "status": "VISUAL_CANDIDATES_NOT_APPROVED",
+  "sourceEvidence": [
+    "Terrain/terrain_summer.png",
+    "Terrain/terrain_spring.png",
+    "Terrain/terrain_autumn.png",
+    "Terrain/terrain_winter.png",
+    "Terrain/terrain_winter_ice.png",
+    "Terrain/tilled_soil.png",
+    "Terrain/ice-shallows.png",
+    "_ Test Scenes/DemoGame - 2 - Summer.png",
+    "Terrain/Credits.txt"
+  ],
+  "candidates": [
+    {
+      "id": "ground.seasonal_top.interior.visual",
+      "kind": "seasonal",
+      "visualDescription": "opaque seasonal top-surface interior: grass in summer, snow-like coverage in winter",
+      "rectCells": [
+        4,
+        1,
+        1,
+        1
+      ],
+      "requires": "semantic and neighbor/season visual review"
+    },
+    {
+      "id": "ground.seasonal_earth.interior.visual",
+      "kind": "seasonal",
+      "visualDescription": "opaque earth/stone-textured surface interior; appearance changes between seasons",
+      "rectCells": [
+        4,
+        3,
+        1,
+        1
+      ],
+      "requires": "semantic and neighbor/season visual review"
+    },
+    {
+      "id": "ground.sand.interior.visual",
+      "kind": "seasonal",
+      "visualDescription": "opaque pale sand interior",
+      "rectCells": [
+        4,
+        5,
+        1,
+        1
+      ],
+      "requires": "semantic and neighbor/season visual review"
+    },
+    {
+      "id": "ground.grass.patch.3x3",
+      "kind": "seasonal",
+      "visualDescription": "3x3 grass-edged patch; transparent source cells require an underlying material",
+      "rectCells": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "requires": "assembly/underlay and adjacency review"
+    },
+    {
+      "id": "ground.pool.grass.3x3",
+      "kind": "seasonal",
+      "visualDescription": "authored 3x3 grass shoreline and water pool",
+      "rectCells": [
+        0,
+        10,
+        3,
+        3
+      ],
+      "requires": "water semantics/edge and assembly review"
+    },
+    {
+      "id": "ground.shore.strip.4x3",
+      "kind": "seasonal",
+      "visualDescription": "horizontal grass/water/soil shoreline strip; do not infer autotile neighbors",
+      "rectCells": [
+        12,
+        10,
+        4,
+        3
+      ],
+      "requires": "neighboring source strips and coastal topology review"
+    },
+    {
+      "id": "ground.water.surface.visual",
+      "kind": "seasonal",
+      "visualDescription": "opaque teal water surface",
+      "rectCells": [
+        13,
+        16,
+        1,
+        1
+      ],
+      "requires": "water body/animation/depth/neighbor review"
+    },
+    {
+      "id": "ground.water.dark.visual",
+      "kind": "seasonal",
+      "visualDescription": "opaque dark-blue water source; visual tone does not certify gameplay depth",
+      "rectCells": [
+        13,
+        23,
+        1,
+        1
+      ],
+      "requires": "water depth/gameplay and neighboring source review"
+    },
+    {
+      "id": "farm.tilled.patch.3x3",
+      "kind": "supplemental",
+      "sheet": "Terrain/tilled_soil.png",
+      "visualDescription": "authored upper-left 3x3 tilled-soil patch",
+      "rectCells": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "requires": "farm soil variant and overlay/footprint review"
+    },
+    {
+      "id": "winter.ice_shallows.patch.3x3",
+      "kind": "supplemental",
+      "sheet": "Terrain/ice-shallows.png",
+      "visualDescription": "authored 3x3 ice-shallows component",
+      "rectCells": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "requires": "winter water/shore compatibility and footprint review"
+    }
+  ],
+  "hardRules": {
+    "publishRuntimeBindings": false,
+    "approveGameplaySemantics": false,
+    "approveVisualParity": false,
+    "inferAutotileTopology": false,
+    "permitNonElizaWyFallback": false,
+    "preserveLegacyRuntimeAndSaves": true,
+    "requireExactB15SourceHashes": true
+  }
+}

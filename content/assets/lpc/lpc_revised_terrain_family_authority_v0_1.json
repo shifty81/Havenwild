@@ -1,6 +1,6 @@
 {
   "schema": "havenwild.lpc_revised_terrain_family_authority.v0_1",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "sourceRepository": "https://github.com/ElizaWy/LPC",
   "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
   "sourceRoot": "assets/source/licensed/lpc_revised/Terrain",
@@ -10,7 +10,7 @@
     "authoredSheetsAreSourceOfTruth": true,
     "selectExactCellsOrSpriteComponents": true,
     "proceduralReplacementOfExistingArt": false,
-    "unsupportedCombinationPolicy": "use every exact authored tuple present in terrain-map-v7, including authored multi-material junctions; only absent signatures fall back to a clean semantic fill and diagnostic",
+    "unsupportedCombinationPolicy": "NEW ElizaWy authoring: exact reviewed source-native semantic/assembly mapping or unresolved diagnostic, never V7 tuple/semantic-fill/proxy; existing V7 saved-world runtime remains isolated until certified cutover",
     "seasonPolicy": "use the matching seasonal sheet family for an entire biome/scene layer; do not mix seasonal palettes cell-by-cell",
     "cliffFootprintAuthority": "content/worldgen/cliff_asset_footprint_recipe_normalization_v0_1.json",
     "sourceGridCellIsIndependentAsset": false
@@ -40,7 +40,10 @@
       "rock_ground"
     ],
     "scope": "legacy_mixed_mainland_adapter_only",
-    "notValidForPureElizaWyCertification": true
+    "notValidForPureElizaWyCertification": true,
+    "status": "historical_legacy_runtime_only_not_eligibile_for_new_elizawy_authoring",
+    "newAuthoringAllowed": false,
+    "sourceNativeReplacement": "content/worldgen/elizawy_ground_cell_contract_b15.json"
   },
   "families": [
     {
@@ -61,7 +64,7 @@
         "depth_rims",
         "seasonal_variants"
       ],
-      "runtimeUse": "supplement terrain-map-v7 only for authored roles that are not distinct terrain-map materials"
+      "runtimeUse": "ElizaWy-only source candidate. Map/visually review original connected source regions; not a V7 supplement and not production- or runtime-approved until certification."
     },
     {
       "id": "structural_cliffs",
@@ -200,6 +203,8 @@
     "crossFamilyFallbackAllowed": false,
     "v7TupleAuthorityAllowed": false,
     "groundAuthority": "ElizaWy seasonal terrain sheets after exact cell-role promotion",
-    "cliffAuthority": "ElizaWy seasonal cliff sheets after normalized multi-cell recipe certification; Rocks, Cliffs.png is object-only"
+    "cliffAuthority": "ElizaWy seasonal cliff sheets after normalized multi-cell recipe certification; Rocks, Cliffs.png is object-only",
+    "groundCandidateContract": "content/worldgen/elizawy_ground_cell_contract_b15.json",
+    "groundSourceGridState": "exact source cell addresses only; semantic/transition/assembly certification pending"
   }
 }

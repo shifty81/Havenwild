@@ -1,0 +1,9 @@
+{
+  "schema": "havenwild.elizawy_ground_review_decisions.b15",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "reviewState": "not_started",
+  "notes": "Review source sheets and authored connected regions; source cell addresses alone never authorize painting or publishing. Do not insert speculative cell-role mappings.",
+  "reviewedMappings": [],
+  "reviewedAssemblies": [],
+  "certifiedRuntimeBindings": []
+}
