@@ -1,0 +1,32 @@
+{
+  "schema": "havenwild.elizawy_ground_contact_review_config.b18",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourceProvider": "elizawy_lpc_revised",
+  "b15Inventory": "WORKSPACE/generated/lpc/elizawy_ground_cells_b15.json",
+  "b16Report": "WORKSPACE/generated/lpc/elizawy_ground_visual_candidates_b16.json",
+  "b16Board": "WORKSPACE/generated/lpc/elizawy_ground_visual_review_b16.html",
+  "b17Report": "WORKSPACE/generated/lpc/elizawy_ground_semantic_proposals_b17.json",
+  "b13Report": "WORKSPACE/generated/lpc/elizawy_b13_report.json",
+  "b14Report": "WORKSPACE/generated/lpc/elizawy_b14_routing.json",
+  "output": "WORKSPACE/generated/lpc/elizawy_ground_contact_evidence_b18.json",
+  "board": "WORKSPACE/generated/lpc/elizawy_ground_contact_review_b18.html",
+  "policy": {
+    "internalEdgesAreSourceGridEvidenceNotVisualApproval": true,
+    "allExternalContactsRequireExplicitSourceEvidence": true,
+    "unreviewedContactPairsFailClosed": true,
+    "oneCellRepeatabilityUncertified": true,
+    "multiCellAssembliesStayIntact": true,
+    "noInferredWaterDepthCollisionOrFarmState": true,
+    "noSourcePixelsOrLegacySaveChanges": true,
+    "noOtherProviderFallback": true,
+    "productionApproval": false,
+    "runtimeCutover": false
+  },
+  "expected": {
+    "candidateGroups": 10,
+    "sourcePlacements": 42,
+    "internalGridPairs": 229,
+    "externalBoundarySlots": 314,
+    "externalCandidatePairs": 55
+  }
+}
