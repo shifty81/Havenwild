@@ -1,0 +1,107 @@
+{
+  "schema": "havenwild.elizawy_ground_semantic_proposals.b17",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "sourceProvider": "elizawy_lpc_revised",
+  "b15Inventory": "WORKSPACE/generated/lpc/elizawy_ground_cells_b15.json",
+  "b16Report": "WORKSPACE/generated/lpc/elizawy_ground_visual_candidates_b16.json",
+  "b16Contract": "content/worldgen/elizawy_ground_visual_candidates_b16.json",
+  "b16Board": "WORKSPACE/generated/lpc/elizawy_ground_visual_review_b16.html",
+  "output": "WORKSPACE/generated/lpc/elizawy_ground_semantic_proposals_b17.json",
+  "board": "WORKSPACE/generated/lpc/elizawy_ground_semantic_review_b17.html",
+  "policy": {
+    "proposalsAreNotProductionMappings": true,
+    "noAutomaticVisualApproval": true,
+    "noInferredTopology": true,
+    "noInferredCollisionOrWaterDepth": true,
+    "noSourcePixelModification": true,
+    "noUnverifiedProviderFallback": true,
+    "leaveExistingRuntimeAndSavesUnchanged": true,
+    "runtimeCutover": false,
+    "productionApproval": false
+  },
+  "proposals": [
+    {
+      "candidateId": "ground.seasonal_top.interior.visual",
+      "semanticRole": "ground.seasonal_top.interior",
+      "componentKind": "single_cell_surface",
+      "renderIntent": "seasonal_land_surface",
+      "seasonAppearances": {"spring":"green_grass", "summer":"green_grass", "autumn":"dry_grass", "winter":"snow_covered", "winter_ice":"snow_covered"},
+      "reviewRequirements": ["confirm repeatability and seam edges", "confirm seasonal material tags"],
+      "underlay": "none"
+    },
+    {
+      "candidateId": "ground.seasonal_earth.interior.visual",
+      "semanticRole": "ground.seasonal_earth.interior",
+      "componentKind": "single_cell_surface",
+      "renderIntent": "seasonal_earth_or_stone_surface",
+      "seasonAppearances": {"spring":"earth_texture", "summer":"earth_texture", "autumn":"earth_texture", "winter":"pale_frozen_texture", "winter_ice":"pale_frozen_texture"},
+      "reviewRequirements": ["confirm winter surface is not falsely tagged as unfrozen dirt", "confirm repeatability and seam edges"],
+      "underlay": "none"
+    },
+    {
+      "candidateId": "ground.sand.interior.visual",
+      "semanticRole": "ground.sand.interior",
+      "componentKind": "single_cell_surface",
+      "renderIntent": "sand_surface",
+      "seasonAppearances": {"spring":"pale_sand", "summer":"pale_sand", "autumn":"pale_sand", "winter":"pale_sand", "winter_ice":"pale_sand"},
+      "reviewRequirements": ["confirm repeatability and seam edges", "do not infer coastline transitions"],
+      "underlay": "none"
+    },
+    {
+      "candidateId": "ground.grass.patch.3x3",
+      "semanticRole": "ground.grass.patch",
+      "componentKind": "authored_overlay_assembly",
+      "renderIntent": "grass_edged_patch",
+      "reviewRequirements": ["retain 3x3 source-cell ordering", "specify legitimate underlay", "verify edge transparency and neighbors"],
+      "underlay": "required_not_yet_certified"
+    },
+    {
+      "candidateId": "ground.pool.grass.3x3",
+      "semanticRole": "ground.pool.grass_bordered",
+      "componentKind": "authored_water_assembly",
+      "renderIntent": "grass_bordered_pool",
+      "reviewRequirements": ["retain complete 3x3 assembly", "certify shoreline and water adjacency", "separately certify liquid collision/swimming"],
+      "underlay": "source_assembly_review_required"
+    },
+    {
+      "candidateId": "ground.shore.strip.4x3",
+      "semanticRole": "ground.shore.strip",
+      "componentKind": "shoreline_assembly",
+      "renderIntent": "horizontal_land_water_shoreline",
+      "reviewRequirements": ["retain complete 4x3 strip", "inspect transparent regions and neighboring authored strips", "no inferred autotile contacts"],
+      "underlay": "source_assembly_review_required"
+    },
+    {
+      "candidateId": "ground.water.surface.visual",
+      "semanticRole": "water.surface.visual",
+      "componentKind": "source_water_visual",
+      "renderIntent": "teal_water_surface_visual_only",
+      "reviewRequirements": ["verify repeatable water animation and adjacency", "separately assign gameplay water depth"],
+      "underlay": "none"
+    },
+    {
+      "candidateId": "ground.water.dark.visual",
+      "semanticRole": "water.dark.visual",
+      "componentKind": "source_water_visual",
+      "renderIntent": "dark_blue_water_visual_only",
+      "reviewRequirements": ["check source region for gradient or depth cue", "do not assign deep-water gameplay from color"],
+      "underlay": "none"
+    },
+    {
+      "candidateId": "farm.tilled.patch.3x3",
+      "semanticRole": "farm.tilled.patch",
+      "componentKind": "authored_farm_assembly",
+      "renderIntent": "tilled_soil_patch",
+      "reviewRequirements": ["retain authored 3x3 sequence", "confirm underlay and farming state separately", "do not infer watered variant"],
+      "underlay": "source_assembly_review_required"
+    },
+    {
+      "candidateId": "winter.ice_shallows.patch.3x3",
+      "semanticRole": "winter.ice_shallows.patch",
+      "componentKind": "winter_water_assembly",
+      "renderIntent": "ice_shallows_visual",
+      "reviewRequirements": ["retain authored 3x3 sequence", "verify winter water and shoreline fit", "separately certify walkable ice/collision"],
+      "underlay": "source_assembly_review_required"
+    }
+  ]
+}
