@@ -1,0 +1,31 @@
+{
+  "schema": "havenwild.elizawy_ground_composition.b21",
+  "version": 1,
+  "sourceProvider": "elizawy_lpc_revised",
+  "sourceCommit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+  "masterInput": "WORKSPACE/generated/lpc/elizawy_master_ground_layout_b19.json",
+  "regionInput": "WORKSPACE/generated/lpc/elizawy_ground_source_regions_b20.json",
+  "output": "WORKSPACE/generated/lpc/elizawy_ground_composition_b21.json",
+  "board": "WORKSPACE/generated/lpc/elizawy_ground_composition_review_b21.html",
+  "canonicalSheet": "Terrain/terrain_summer.png",
+  "tileSize": 32,
+  "repeatableSurfaces": [
+    {"id": "ground.grass.base", "canonicalCell": [4, 1], "expectedRegion": "summer.01.b.grass_surface_samples", "visualMaterial": "grass", "use": "source_art_preview_only"},
+    {"id": "ground.sand.base", "canonicalCell": [4, 6], "expectedRegion": "summer.03.b.sand_surface_samples", "visualMaterial": "sand", "use": "source_art_preview_only"},
+    {"id": "ground.water.base.visual", "canonicalCell": [12, 17], "expectedRegion": "summer.right.shore.components", "visualMaterial": "open_water_appearance", "use": "source_art_preview_only"}
+  ],
+  "resizeExperiments": [
+    {"id": "ground.grass.tuft.3x3", "rectCells": [0, 0, 3, 3], "expectedRegion": "summer.01.a.grass_tuft_island", "mode": "nine_slice_diagnostic_only", "targetCells": [7, 5], "underlay": "not_certified"},
+    {"id": "ground.pool.grass_bank.3x3", "rectCells": [0, 10, 3, 3], "expectedRegion": "summer.05.a.grass_bank_pool_variant_a", "mode": "nine_slice_diagnostic_only", "targetCells": [7, 5], "underlay": "not_certified"}
+  ],
+  "safety": {
+    "sourceCellsReadOnly": true,
+    "editorRuntimeBindings": false,
+    "worldMutation": false,
+    "waterGameplayAndDepth": false,
+    "collision": false,
+    "externalTransitionApproval": false,
+    "automaticNineSliceApproval": false,
+    "winterIceGameplayOverride": false
+  }
+}
