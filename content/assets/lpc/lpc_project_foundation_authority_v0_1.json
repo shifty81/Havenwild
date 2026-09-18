@@ -36,7 +36,8 @@
         "reference_scenes",
         "repository_support",
         "legal_docs"
-      ]
+      ],
+      "newAuthoringPolicy": "sole_source_candidate_per_record_certification_required"
     },
     {
       "id": "universal_lpc_character_generator",
@@ -46,7 +47,9 @@
       "mount": "assets/source/licensed/universal_lpc_generator",
       "lock": "content/assets/intake/universal_lpc_generator_source_lock_v0_1.json",
       "indexer": "tools/automation/characters/Build-UniversalLpcCompleteRepositoryIndexV167Z7.py",
-      "runtimeCacheBuilder": "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py"
+      "runtimeCacheBuilder": "tools/automation/characters/Build-UniversalLpcPlayerRuntimeCachesV167Z7.py",
+      "newAuthoringPolicy": "reference_only_legacy_compatibility_no_automatic_composition",
+      "productionCutoverState": "inactive_for_new_authoring"
     }
   ],
   "projectDomains": {
@@ -75,8 +78,7 @@
     },
     "characters": {
       "providerPriority": [
-        "elizawy_lpc_revised",
-        "universal_lpc_character_generator"
+        "elizawy_lpc_revised"
       ],
       "routes": [
         "body",
@@ -104,15 +106,31 @@
       "sharedSourceRects": true,
       "sharedCompatibilityMatrix": true,
       "sharedCredits": true
+    },
+    "newAuthoringPolicy": {
+      "sourceProvider": "elizawy_lpc_revised",
+      "fallbackProviders": [],
+      "uncertifiedPromotionAllowed": false,
+      "appliesTo": [
+        "world",
+        "characters",
+        "objects",
+        "structures",
+        "nature",
+        "effects",
+        "items",
+        "ui_art"
+      ]
     }
   },
   "promotionRules": [
     "Every raw source file is inventoried and routed; no source file is silently ignored.",
     "ElizaWy assets are the primary project visual baseline and remain at original relative paths.",
-    "Universal LPC assets supplement character coverage only when body, layer, animation geometry, palette, and license are compatible.",
+    "Universal LPC and other historical providers remain reference-only for NEW authoring; legacy saves may resolve their original references without remapping.",
     "All compatible assets are exposed to editor catalogs; runtime caches are generated on demand instead of pre-baking every source permutation.",
     "Per-asset credits and licenses follow every stable asset id into runtime, saves, editor previews, packaging, and the credits screen.",
-    "A missing compatible authored asset is omitted and diagnosed; generic circles, rectangles, or synthetic replacement sprites are forbidden."
+    "A missing compatible authored asset is omitted and diagnosed; generic circles, rectangles, or synthetic replacement sprites are forbidden.",
+    "ElizaWy source integrity permits browse and mapping only; per-asset license, exact cells, visual/editor-client and functional evidence precede production approval."
   ],
   "outputs": {
     "foundationSummary": "WORKSPACE/generated/lpc/foundation/lpc_project_foundation_summary_v167z40.json",

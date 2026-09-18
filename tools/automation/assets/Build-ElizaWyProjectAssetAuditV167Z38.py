@@ -31,7 +31,7 @@ CATALOG_ROOT = OUTPUT_ROOT / "catalogs"
 REPORT = ROOT / "docs/audits/generated/ELIZAWY_PROJECT_ASSET_AUDIT_V167Z38.md"
 REVISION = OUTPUT_ROOT / ".elizawy_repository_audit_revision"
 PROJECT_ASSET_CATALOG = ROOT / "content/assets/catalog/havenwild_asset_catalog_v0_1.json"
-REVISION_ID = "167Z38-project-wide-elizawy-authority-v2"
+REVISION_ID = "167Z38-project-wide-elizawy-authority-v3-b14-candidate-eligibility"
 SOURCE_MOUNT_PROVENANCE = OUTPUT_ROOT / "elizawy_source_mount_v167z38.json"
 
 IMAGE_EXTENSIONS = {".png", ".gif", ".jpg", ".jpeg", ".webp"}
@@ -291,6 +291,19 @@ def build_record(path: Path, source_root: Path, authority: dict[str, Any], credi
         "readiness": classify_readiness(kind, domain, credits, dimensions),
         "sourceSizeBytes": path.stat().st_size,
     }
+    # B14: expose the one-source new-authoring candidate without claiming that
+    # indexing, attribution context, or even a fully verified repository approves
+    # any individual cell, composition, or gameplay asset for production.
+    image_defect = kind == "image" and (record["sourceSizeBytes"] == 0 or
+                                         (path.suffix.lower() == ".png" and dimensions is None))
+    record["candidateProvider"] = "elizawy_lpc_revised"
+    record["newAuthoringRole"] = ("quarantined_source" if image_defect else
+                                   "source_browse_and_mapping_candidate" if kind == "image" else
+                                   "reference_or_support_only")
+    record["productionApproved"] = False
+    record["productionState"] = "QUARANTINED" if image_defect else "SOURCE_ONLY_UNMAPPED"
+    record["promotionGate"] = ("blocked_source_image_integrity" if image_defect else
+                                "requires_individual_license_mapping_visual_runtime_approval")
     if do_hash:
         record["sha256"] = sha256(path)
     return record
@@ -423,6 +436,10 @@ def write_catalogs(audit: dict[str, Any], authority: dict[str, Any]) -> None:
                 "systemOwners": route.get("owners", []),
                 "runtimePolicy": route.get("runtimePolicy"),
                 "recordCount": len(records),
+                "newAuthoringProvider": "elizawy_lpc_revised",
+                "productionApprovedRecordCount": 0,
+                "quarantinedRecordCount": sum(record["productionState"] == "QUARANTINED" for record in records),
+                "candidateMode": "source_browse_and_mapping_only_not_runtime_activation",
                 "records": records,
             },
         )
@@ -478,6 +495,9 @@ def write_project_asset_catalog(authority: dict[str, Any]) -> None:
                 "runtimeAndEditorShareCatalogs": True,
                 "rawSourceTreeRemainsImmutable": True,
                 "promotionRequiresSemanticRoleFootprintCollisionAndCreditContext": True,
+                "newAuthoringProvider": "elizawy_lpc_revised",
+                "newAuthoringFallbackAllowed": False,
+                "allGeneratedSourceRecordsRequireIndividualProductionCertification": True,
             },
         },
     )

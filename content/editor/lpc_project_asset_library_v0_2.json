@@ -3,8 +3,7 @@
   "pass": "167Z40",
   "displayName": "LPC Project Foundation",
   "providers": [
-    "elizawy_lpc_revised",
-    "universal_lpc_character_generator"
+    "elizawy_lpc_revised"
   ],
   "tabs": [
     {
@@ -97,6 +96,14 @@
     "hideIncompatibleByDefault": true,
     "showIncompatibleToggle": true,
     "neverCopyRawThirdPartyFiles": true,
-    "stableIdsSharedWithRuntime": true
-  }
+    "stableIdsSharedWithRuntime": true,
+    "newAuthoringSourceOnly": true,
+    "uncertifiedSourceMayBeBrowsedButNotPromoted": true,
+    "legacySaveSourceReferencesPreserved": true
+  },
+  "referenceOnlyProviders": [
+    "universal_lpc_character_generator",
+    "lpc_terrain_v7",
+    "open_game_art_lpc"
+  ]
 }

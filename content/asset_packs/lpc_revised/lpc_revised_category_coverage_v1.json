@@ -59,7 +59,12 @@
   },
   "pass": "167Z40",
   "providers": [
-    "elizawy_lpc_revised",
-    "universal_lpc_character_generator"
-  ]
+    "elizawy_lpc_revised"
+  ],
+  "referenceOnlyProviders": [
+    "universal_lpc_character_generator",
+    "lpc_terrain_v7",
+    "open_game_art_lpc"
+  ],
+  "productionProviderPolicy": "one_source_candidate_no_automatic_fallback_license_and_per_asset_approval_required"
 }

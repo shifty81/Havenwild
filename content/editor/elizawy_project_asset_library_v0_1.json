@@ -13,56 +13,63 @@
       "label": "Terrain Library",
       "catalog": "WORKSPACE/generated/lpc/catalogs/terrain.json",
       "allowSourceSheetBrowse": true,
-      "allowRuntimePromotion": true,
-      "stableIdRequired": true
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "nature",
       "label": "Nature & Biomes",
       "catalog": "WORKSPACE/generated/lpc/catalogs/nature.json",
       "allowSourceSheetBrowse": true,
-      "allowRuntimePromotion": true,
-      "stableIdRequired": true
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "objects",
       "label": "Objects & Placeables",
       "catalog": "WORKSPACE/generated/lpc/catalogs/objects.json",
       "allowSourceSheetBrowse": true,
-      "allowRuntimePromotion": true,
-      "stableIdRequired": true
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "structure",
       "label": "Buildings & Structures",
       "catalog": "WORKSPACE/generated/lpc/catalogs/structure.json",
       "allowSourceSheetBrowse": true,
-      "allowRuntimePromotion": true,
-      "stableIdRequired": true
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "characters",
       "label": "Characters & Animation",
       "catalog": "WORKSPACE/generated/lpc/catalogs/characters.json",
       "allowSourceSheetBrowse": true,
-      "allowRuntimePromotion": true,
-      "stableIdRequired": true
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "fx",
       "label": "Effects",
       "catalog": "WORKSPACE/generated/lpc/catalogs/fx.json",
       "allowSourceSheetBrowse": true,
-      "allowRuntimePromotion": true,
-      "stableIdRequired": true
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "palette",
       "label": "LPC Palette",
       "catalog": "WORKSPACE/generated/lpc/catalogs/palette.json",
       "allowSourceSheetBrowse": true,
-      "allowRuntimePromotion": true,
-      "stableIdRequired": true
+      "allowRuntimePromotion": false,
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "reference_scenes",
@@ -70,7 +77,8 @@
       "catalog": "WORKSPACE/generated/lpc/catalogs/reference_scenes.json",
       "allowSourceSheetBrowse": true,
       "allowRuntimePromotion": false,
-      "stableIdRequired": true
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "repository_support",
@@ -78,7 +86,8 @@
       "catalog": "WORKSPACE/generated/lpc/catalogs/repository_support.json",
       "allowSourceSheetBrowse": true,
       "allowRuntimePromotion": false,
-      "stableIdRequired": true
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     },
     {
       "id": "legal_and_documentation",
@@ -86,7 +95,8 @@
       "catalog": "WORKSPACE/generated/lpc/catalogs/legal_and_documentation.json",
       "allowSourceSheetBrowse": false,
       "allowRuntimePromotion": false,
-      "stableIdRequired": true
+      "stableIdRequired": true,
+      "promotionGate": "individual_source_license_exact_mapping_visual_editor_client_functional_approval"
     }
   ],
   "treeAuthoring": {
@@ -115,6 +125,9 @@
     "showSourceRect": true,
     "showRuntimeReadiness": true,
     "hideUncataloguedFromRuntimePalette": true,
-    "sameCatalogsAsRuntime": true
+    "sameCatalogsAsRuntime": true,
+    "browseDoesNotImplyProductionApproval": true,
+    "quarantinedSourcesVisibleAsDisabled": true,
+    "newAuthoringProvider": "elizawy_lpc_revised"
   }
 }

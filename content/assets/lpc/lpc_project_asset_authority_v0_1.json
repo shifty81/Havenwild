@@ -23,14 +23,22 @@
     "runtimeMayUseUncataloguedSourceFiles": false,
     "editorMayBrowseEntireSourceRepository": true,
     "externalNonElizaWyDefaultPolicy": "reference_only_until_explicitly_approved",
-    "universalLpcCharacterGeneratorRole": "character_composition_extension_constrained_to_elizawy_lpc_revised_scale_palette_and_animation_contracts",
+    "universalLpcCharacterGeneratorRole": "legacy_read_only_save_and_reference_compatibility_no_new_authoring_or_automatic_fallback",
     "testScenesRuntimePolicy": "reference_only",
     "creditPolicy": "every promoted asset retains nearest source-local Credits.txt plus root Credits.txt",
     "worldGenerationMustUseElizaWyCatalogs": true,
     "runtimeNaturalObjectProceduralFallbackAllowed": false,
     "runtimeExistingElizaWyEquivalentReplacementAllowed": false,
     "nativeEditorAndRuntimeMustShareStableAssetIds": true,
-    "generatedWorldsMustReserveInfrastructureBeforeEcology": true
+    "generatedWorldsMustReserveInfrastructureBeforeEcology": true,
+    "newAuthoringVisualProvider": "elizawy_lpc_revised",
+    "newAuthoringFallbackAllowed": false,
+    "legacyVisualProvidersReadOnly": [
+      "lpc_terrain_v7",
+      "universal_lpc_character_generator",
+      "open_game_art_lpc"
+    ],
+    "individualSourceIntegrityDoesNotImplyProductionApproval": true
   },
   "normalizedCatalogRoot": "WORKSPACE/generated/lpc/catalogs",
   "fullAuditOutput": "WORKSPACE/generated/lpc/elizawy_repository_audit_v167z38.json.gz",
