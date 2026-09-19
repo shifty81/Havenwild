@@ -14,7 +14,8 @@ mod scene_audit;
 const TILE_SIZE: i32 = 32;
 const TOP_BAR_H: f32 = 82.0;
 const STATUS_H: f32 = 32.0;
-const SOURCE_SHEET_STACK_MIN_H: f32 = 210.0;
+const SOURCE_SHEET_STACK_MIN_H: f32 = 310.0;
+const SHEET_LIST_TOP: f32 = 103.0;
 const SOURCE_PREVIEW_TOP_PAD: f32 = 12.0;
 const SHEET_CARD_H: f32 = 34.0;
 const MAX_LIBRARY_SHEETS: usize = 100_000; // Full ElizaWy index; textures remain lazy.
@@ -53,6 +54,66 @@ enum AuthorTool {
 impl AuthorTool {
     fn label(self) -> &'static str {
         match self { Self::Select => "Select", Self::Elevation => "Height", Self::Water => "Water" }
+    }
+}
+
+// The library browser groups entire original sheets; a grouping is not a claim
+// that its individual 32px cells have gameplay roles or are approved.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+enum SourceGroup {
+    Ground, Water, Cliffs, Plants, Buildings, Structures, Furniture,
+    Characters, Items, Effects,
+}
+
+impl SourceGroup {
+    const ALL: [Self; 10] = [
+        Self::Ground, Self::Water, Self::Cliffs, Self::Plants, Self::Buildings,
+        Self::Structures, Self::Furniture, Self::Characters, Self::Items, Self::Effects,
+    ];
+
+    fn label(self) -> &'static str {
+        match self {
+            Self::Ground => "Ground", Self::Water => "Water", Self::Cliffs => "Cliffs",
+            Self::Plants => "Plants", Self::Buildings => "Buildings", Self::Structures => "Structures",
+            Self::Furniture => "Furniture", Self::Characters => "Characters", Self::Items => "Items",
+            Self::Effects => "FX / UI",
+        }
+    }
+
+    fn from_path(path: &Path) -> Self {
+        let name = path.file_name().and_then(|n| n.to_str()).unwrap_or("").to_ascii_lowercase();
+        let key = normalize_path_key(path);
+        // Prefer a sheet's actual subject to generic ancestor names such as
+        // Characters or Terrain. Furniture variants are composite objects, not
+        // automatically terrain cells or character animation frames.
+        if ["chair", "table", "stool", "bed", "sofa", "cabinet", "shelf", "dresser", "desk", "bench", "wardrobe"]
+            .iter().any(|word| name.contains(word)) { Self::Furniture }
+        else if name.contains("water") || name.contains("pond") || name.contains("river") || name.contains("ocean") || name.contains("shore") { Self::Water }
+        else if name.contains("cliff") || name.contains("mountain") || name.contains("ladder")
+            || name.contains("vine") || name.contains("handhold") { Self::Cliffs }
+        else if name.contains("tree") || name.contains("flower") || name.contains("bush")
+            || name.contains("plant") || name.contains("foliage") || name.contains("crop") { Self::Plants }
+        else if name.contains("house") || name.contains("building") || name.contains("roof")
+            || name.contains("tavern") { Self::Buildings }
+        else if name.contains("fence") || name.contains("bridge") || name.contains("wall")
+            || name.contains("door") || name.contains("window") || name.contains("floor") { Self::Structures }
+        else if name.contains("character") || name.contains("body") || name.contains("hair")
+            || name.contains("backslash") || key.contains("/characters/") { Self::Characters }
+        else if name.contains("tool") || name.contains("weapon") || name.contains("item")
+            || name.contains("equipment") || name.contains("armor") { Self::Items }
+        else if name.contains("fx") || name.contains("effect") || name.contains("particle")
+            || name.contains("icon") || key.contains("/ui/") { Self::Effects }
+        else if key.contains("/terrain/") || name.contains("grass") || name.contains("sand") { Self::Ground }
+        else { match AssetCategory::from_file_hint(path) {
+            AssetCategory::Cliff => Self::Cliffs,
+            AssetCategory::Terrain => Self::Ground,
+            AssetCategory::House => Self::Buildings,
+            AssetCategory::Structure => Self::Structures,
+            AssetCategory::Character => Self::Characters,
+            AssetCategory::Equipment => Self::Items,
+            AssetCategory::Fx | AssetCategory::Ui => Self::Effects,
+            AssetCategory::Object => Self::Furniture,
+        }}
     }
 }
 
@@ -128,7 +189,11 @@ impl AssetCategory {
 
     fn from_file_hint(path: &Path) -> Self {
         let hint = path.to_string_lossy().to_lowercase();
-        if hint.contains("cliff") || hint.contains("ramp") || hint.contains("ledge") || hint.contains("elevation") {
+        let file = path.file_name().and_then(|name| name.to_str()).unwrap_or("").to_ascii_lowercase();
+        if ["chair", "table", "stool", "bed", "sofa", "cabinet", "shelf", "dresser", "desk", "bench", "wardrobe"]
+            .iter().any(|word| file.contains(word)) { AssetCategory::Object }
+        else if file.contains("waterfall") || file.contains("water") { AssetCategory::Terrain }
+        else if hint.contains("cliff") || hint.contains("ramp") || hint.contains("ledge") || hint.contains("elevation") {
             AssetCategory::Cliff
         } else if hint.contains("house") || hint.contains("building") || hint.contains("roof") || hint.contains("wall") {
             AssetCategory::House
@@ -520,6 +585,7 @@ struct MapperApp {
     sheet_library: Vec<SourceSheetCard>,
     sheet_library_visible: Vec<usize>,
     sheet_library_search: String,
+    sheet_library_group: Option<SourceGroup>,
     sheet_library_search_focused: bool,
     sheet_library_scroll: f32,
     library_notice: String,
@@ -554,13 +620,14 @@ impl Default for MapperApp {
             is_panning_canvas: false,
             is_painting_height: false,
             last_mouse: Vec2::ZERO,
-            status: "Load an atlas, map 32x32 cells as puzzle pieces, then save/export into the asset intake lane.".to_string(),
+            status: "Summer authoring: no certified editable demo scene is bundled. Load an existing project or select original sheets; drafts are not approved.".to_string(),
             mapping_stage: MappingStage::SourceOnly,
             auto_seed: 1,
             scene_generation_count: 0,
             sheet_library: Vec::new(),
             sheet_library_visible: Vec::new(),
             sheet_library_search: String::new(),
+            sheet_library_group: Some(SourceGroup::Ground),
             sheet_library_search_focused: false,
             sheet_library_scroll: 0.0,
             library_notice: "Asset lane index not scanned yet.".to_string(),
@@ -774,6 +841,7 @@ impl MapperApp {
     fn rebuild_sheet_library_visibility(&mut self) {
         let query = self.sheet_library_search.trim().to_ascii_lowercase();
         self.sheet_library_visible = self.sheet_library.iter().enumerate()
+            .filter(|(_, card)| self.sheet_library_group.map_or(true, |group| SourceGroup::from_path(&card.path) == group))
             .filter(|(_, card)| query.is_empty()
                 || card.display_name.to_ascii_lowercase().contains(&query)
                 || card.family.to_ascii_lowercase().contains(&query)
@@ -1032,8 +1100,8 @@ impl MapperApp {
 
     fn source_sheet_card_at(&self, panel: Rect, mouse: Vec2) -> Option<usize> {
         let stack = source_sheet_stack_rect(panel);
-        if !stack.contains(mouse) { return None; }
-        let local_y = mouse.y - (stack.y + 48.0) - self.sheet_library_scroll;
+        if !stack.contains(mouse) || mouse.y < stack.y + SHEET_LIST_TOP || mouse.y > stack.y + stack.h - 4.0 { return None; }
+        let local_y = mouse.y - (stack.y + SHEET_LIST_TOP) - self.sheet_library_scroll;
         if local_y < 0.0 { return None; }
         let index = (local_y / SHEET_CARD_H).floor() as usize;
         self.sheet_library_visible.get(index).copied()
@@ -1116,6 +1184,30 @@ impl MapperApp {
             .save_file()
         {
             self.save_project(&path);
+        }
+    }
+
+    // An explicitly saved scene becomes the next launch's editable Summer
+    // master. It may still be UNREVIEWED; saving does not approve a recipe.
+    fn save_startup_summer_demo(&mut self) {
+        if self.atlas.is_none() || self.pieces.is_empty() {
+            self.status = "Place source-exact Summer pieces before designating a startup demo. The rejected B48R10 PNG is not an editable scene.".into();
+            return;
+        }
+        let Ok(root) = env::current_dir() else {
+            self.status = "Cannot find repository root for Summer demo save.".into();
+            return;
+        };
+        let path = root.join("artifacts/asset-intake/atlas-mapper/projects/elizawy_summer_master.mapper.json");
+        if let Some(parent) = path.parent() {
+            if let Err(error) = fs::create_dir_all(parent) {
+                self.status = format!("Summer demo directory creation failed: {error}");
+                return;
+            }
+        }
+        self.save_project(&path);
+        if !self.dirty {
+            self.status = format!("Saved startup Summer scene (not approved): {}. Reopen mapper to resume it.", path.display());
         }
     }
 
@@ -1307,6 +1399,10 @@ impl MapperApp {
         if let Some(index) = self.source_stack.iter().position(|atlas| atlas.id == active_id) {
             let selected = self.source_stack.remove(index);
             if let Some(previous) = self.atlas.replace(selected) { self.source_stack.push(previous); }
+        }
+        if let Some(atlas) = &self.atlas {
+            self.sheet_library_group = Some(SourceGroup::from_path(&atlas.path));
+            self.rebuild_sheet_library_visibility();
         }
         self.dirty = false;
         if missing.is_empty() {
@@ -2041,7 +2137,7 @@ impl MapperApp {
         if wheel_y != 0.0 {
             let zoom_factor = if wheel_y > 0.0 { ZOOM_STEP } else { 1.0 / ZOOM_STEP };
             if over_source && source_sheet_stack_rect(source_rect).contains(mouse) {
-                let visible_h = (source_sheet_stack_rect(source_rect).h - 48.0).max(0.0);
+                let visible_h = (source_sheet_stack_rect(source_rect).h - SHEET_LIST_TOP).max(0.0);
                 let content_h = self.sheet_library_visible.len() as f32 * SHEET_CARD_H;
                 let min_scroll = (visible_h - content_h).min(0.0);
                 self.sheet_library_scroll = (self.sheet_library_scroll + wheel_y * 28.0).clamp(min_scroll, 0.0);
@@ -2868,7 +2964,7 @@ fn draw_top_bar(app: &mut MapperApp) {
     // Keep the primary actions reachable on a standard 1280px window.
     let actions_x = 440.0;
     let y = 9.0;
-    if draw_button(Rect::new(actions_x, y, 88.0, 28.0), "Refresh", false) { app.refresh_sheet_library(); }
+    if draw_button(Rect::new(actions_x, y, 88.0, 28.0), "Save Demo", false) { app.save_startup_summer_demo(); }
     if draw_button(Rect::new(actions_x + 95.0, y, 82.0, 28.0), "Load PNG", false) { app.load_atlas_dialog(); }
     if draw_button(Rect::new(actions_x + 184.0, y, 87.0, 28.0), "Open", false) { app.load_project_dialog(); }
     if draw_button(Rect::new(actions_x + 278.0, y, 87.0, 28.0), "Save", false) { app.save_project_current_or_dialog(); }
@@ -2890,32 +2986,20 @@ fn draw_top_bar(app: &mut MapperApp) {
 
     if draw_button(Rect::new(actions_x + 767.0, y, 70.0, 28.0), "Audit", false) { app.export_scene_audit(); }
 
-    let mut x = 365.0;
-    let y = 48.0;
-    for category in AssetCategory::ALL {
-        let w = match category { AssetCategory::Equipment => 92.0, AssetCategory::Character => 88.0, _ => 72.0 };
-        if draw_button(Rect::new(x, y, w, 24.0), category.label(), app.category == category) {
-            app.category = category;
-            if !app.pieces.is_empty() { app.mapping_stage = MappingStage::DraftMapped; }
-            app.status = format!("Saving category set to {}.", category.label());
-        }
-        x += w + 5.0;
-    }
+    draw_text("LEFT: choose source group + activate sheets  |  RIGHT: correct saved scene  |  Green checks require approval",
+        440.0, 59.0, 14.0, Color::new(0.68, 0.79, 0.83, 1.0));
 }
 
 fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
-    draw_panel(source_rect, "LEFT | ElizaWy Summer Source Library", "Indexed summer/neutral originals | click to select | ON/OFF to activate");
-    let header_right = source_rect.x + source_rect.w - 184.0;
-    draw_text(&format!("zoom {:.0}%", app.source_zoom * 100.0), header_right, source_rect.y + 24.0, 15.0, Color::new(0.64, 0.72, 0.80, 1.0));
+    draw_panel(source_rect, "LEFT | ElizaWy Summer Source Library", "Browse by group; select a source without changing scene geometry");
     if draw_button(Rect::new(source_rect.x + source_rect.w - 88.0, source_rect.y + 9.0, 74.0, 21.0), "Refresh", false) {
         app.refresh_sheet_library();
     }
 
-    draw_dock_tabs(source_rect, &["SUMMER", "Source picker", "Known addresses (not roles)"], 0);
     let stack = source_sheet_stack_rect(source_rect);
     draw_rectangle(stack.x, stack.y, stack.w, stack.h, Color::new(0.022, 0.028, 0.037, 1.0));
     draw_rectangle_lines(stack.x, stack.y, stack.w, stack.h, 1.0, Color::new(0.14, 0.19, 0.25, 1.0));
-    draw_text("Summer/neutral original sheets | ON = scene source", stack.x + 8.0, stack.y + 18.0, 15.0, Color::new(0.72, 0.80, 0.86, 1.0));
+    draw_text("Original sheets | ON = activated for this scene", stack.x + 8.0, stack.y + 18.0, 14.0, Color::new(0.72, 0.80, 0.86, 1.0));
     let search_label = if app.sheet_library_search_focused { "SEARCH ACTIVE" } else { "Ctrl+F search" };
     let query_label = if app.sheet_library_search.is_empty() { "" } else { &app.sheet_library_search };
     let prompt = format!("{} | {} / {} | {} {}", search_label, app.sheet_library_visible.len(), app.sheet_library.len(), query_label,
@@ -2932,16 +3016,34 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
         }
     }
 
-    let clip_y = stack.y + 48.0;
+    // Two rows of genuine group filters replace the unrelated nine category
+    // tabs in the application chrome. Filtering NEVER toggles a sheet OFF.
+    let filter_width = (stack.w - 16.0) / 6.0;
+    for filter_index in 0..=SourceGroup::ALL.len() {
+        let group = if filter_index == 0 { None } else { Some(SourceGroup::ALL[filter_index - 1]) };
+        let active = app.sheet_library_group == group;
+        let label = group.map_or("ALL", SourceGroup::label);
+        let column = filter_index % 6;
+        let row = filter_index / 6;
+        if draw_button(Rect::new(stack.x + 8.0 + filter_width * column as f32,
+            stack.y + 49.0 + 23.0 * row as f32, filter_width - 3.0, 20.0), label, active) {
+            app.sheet_library_group = group;
+            app.rebuild_sheet_library_visibility();
+            app.status = format!("Summer source group: {label}. Filtering does not alter activated scene sheets.");
+        }
+    }
+    draw_text("Select = inspect | ON/OFF = activate | ? draft | L learned | check approved",
+        stack.x + 8.0, stack.y + 96.0, 11.0, Color::new(0.63, 0.74, 0.81, 1.0));
+    let clip_y = stack.y + SHEET_LIST_TOP;
     // Virtualize large ElizaWy libraries: do not walk tens of thousands of
     // character sheets on every rendered frame just to skip offscreen cards.
-    let first_visible = ((-app.sheet_library_scroll / SHEET_CARD_H).floor().max(0.0) as usize)
+    let first_visible = ((-app.sheet_library_scroll / SHEET_CARD_H).ceil().max(0.0) as usize)
         .min(app.sheet_library_visible.len());
     let mut row_y = clip_y + app.sheet_library_scroll + first_visible as f32 * SHEET_CARD_H;
     let active_key = app.atlas.as_ref().map(|atlas| normalize_path_key(&atlas.path));
     for &index in app.sheet_library_visible.iter().skip(first_visible) {
         let card = &app.sheet_library[index];
-        if row_y > stack.y + stack.h - 4.0 { break; }
+        if row_y + SHEET_CARD_H > stack.y + stack.h - 4.0 { break; }
         let active = active_key.as_deref() == Some(normalize_path_key(&card.path).as_str());
         let enabled = app.source_is_activated(&MapperApp::asset_id(&card.path));
         let row = Rect::new(stack.x + 6.0, row_y, stack.w - 12.0, SHEET_CARD_H - 4.0);
@@ -2952,21 +3054,25 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
             draw_rectangle(row.x + 1.0, row.y + 2.0, 3.0, row.h - 4.0, Color::new(0.16, 0.75, 0.34, 0.95));
         }
         draw_text(card.status.label(), row.x + 8.0, row.y + 20.0, 17.0, if card.status.is_good() { Color::new(0.44, 0.92, 0.58, 1.0) } else { Color::new(0.80, 0.73, 0.46, 1.0) });
-        let truncated_name: String = card.display_name.chars().take(33).collect();
+        let truncated_name: String = card.display_name.chars().take(27).collect();
         draw_text(&truncated_name, row.x + 34.0, row.y + 14.0, 13.0, Color::new(0.88, 0.91, 0.94, 1.0));
-        draw_text(&format!("{} | {} | {} source matches", card.category.label(), card.status.description(), card.source_address_count), row.x + 34.0, row.y + 28.0, 11.0, Color::new(0.55, 0.64, 0.72, 1.0));
-        let metric = if card.mapped_tile_count > 0 {
-            format!("{} tiles · {:.1}%", card.mapped_tile_count, card.coverage_percent)
+        let folder: String = card.path.parent()
+            .and_then(|path| path.file_name())
+            .and_then(|name| name.to_str())
+            .unwrap_or("source")
+            .chars().take(13).collect();
+        let progress = if card.mapped_tile_count == 0 {
+            format!("{folder} | no roles | {} exact px", card.source_address_count)
         } else {
-            "no mapping".to_string()
+            format!("{folder} | {:.0}% mapped | {} exact px", card.coverage_percent, card.source_address_count)
         };
-        let _ = metric; // Counts and stage are displayed under each source name.
+        draw_text(&progress, row.x + 34.0, row.y + 28.0, 11.0, Color::new(0.55, 0.64, 0.72, 1.0));
         draw_rectangle(row.x + row.w - 63.0, row.y + 3.0, 58.0, row.h - 6.0, if enabled { Color::new(0.11, 0.39, 0.27, 1.0) } else { Color::new(0.16, 0.19, 0.23, 1.0) });
         draw_text(if enabled { "ON" } else { "OFF" }, row.x + row.w - 48.0, row.y + 21.0, 13.0, if enabled { Color::new(0.60, 0.98, 0.70, 1.0) } else { Color::new(0.68, 0.75, 0.81, 1.0) });
         row_y += SHEET_CARD_H;
     }
     if app.sheet_library_visible.is_empty() {
-        draw_text("No matching indexed sheets. Ctrl+F to change search or click Refresh.", stack.x + 10.0, stack.y + 82.0, 15.0, Color::new(0.72, 0.78, 0.84, 1.0));
+        draw_text("No sheets in this group. Select ALL or change search.", stack.x + 10.0, clip_y + 22.0, 13.0, Color::new(0.72, 0.78, 0.84, 1.0));
     }
 
     let preview = source_preview_rect(source_rect);
@@ -3015,8 +3121,9 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
 
 
 fn source_sheet_stack_rect(panel: Rect) -> Rect {
-    let usable_h = (panel.h - 170.0).max(125.0);
-    Rect::new(panel.x + 10.0, panel.y + 66.0, panel.w - 20.0, (panel.h * 0.50).max(SOURCE_SHEET_STACK_MIN_H).min(usable_h) - 66.0)
+    let usable_h = (panel.h - 190.0).max(130.0);
+    Rect::new(panel.x + 10.0, panel.y + 58.0, panel.w - 20.0,
+        (panel.h * 0.62).max(SOURCE_SHEET_STACK_MIN_H).min(usable_h))
 }
 
 fn source_preview_rect(panel: Rect) -> Rect {
@@ -3166,7 +3273,7 @@ fn draw_height_overlay(app: &MapperApp, canvas_rect: Rect) {
 }
 
 fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
-    draw_panel(canvas_rect, "RIGHT | ElizaWy Summer Scene Workspace", "Active source sheets + known mapping evidence; visual review is not certification");
+    draw_panel(canvas_rect, "RIGHT | Summer Example Scene", "Source-exact draft; edit and save before learning");
 
     draw_grid(canvas_rect, app.canvas_pan, app.canvas_zoom, Color::new(1.0, 1.0, 1.0, 0.10));
     draw_height_overlay(app, canvas_rect);
@@ -3222,7 +3329,8 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
 
     draw_rectangle(canvas_rect.x, canvas_rect.y, canvas_rect.w, 74.0, Color::new(0.030, 0.039, 0.052, 1.0));
     draw_text("RIGHT | ElizaWy Summer Scene Workspace", canvas_rect.x + 12.0, canvas_rect.y + 24.0, 17.0, WHITE);
-    draw_dock_tabs(canvas_rect, &["Scene", "Heightmap", "Collision", "Traversal"], if app.author_tool == AuthorTool::Select { 0 } else { 1 });
+    draw_text("EDITABLE: scene + height/water  |  collision/traversal: audit only",
+        canvas_rect.x + 12.0, canvas_rect.y + 38.0, 12.0, Color::new(0.64, 0.76, 0.83, 1.0));
     let ty = canvas_rect.y + 42.0;
     if draw_button(Rect::new(canvas_rect.x + 12.0, ty, 66.0, 22.0), "1 Select", app.author_tool == AuthorTool::Select) { app.author_tool = AuthorTool::Select; }
     if draw_button(Rect::new(canvas_rect.x + 84.0, ty, 72.0, 22.0), "2 Height", app.author_tool == AuthorTool::Elevation) { app.author_tool = AuthorTool::Elevation; }
@@ -3235,18 +3343,15 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
     if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 82.0, canvas_rect.y + 8.0, 66.0, 23.0), "Fit", false) { app.fit_canvas_to_pieces(canvas_rect); }
 
 
-    let info_y = canvas_rect.y + canvas_rect.h - 94.0;
-    draw_rectangle(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 78.0, Color::new(0.018, 0.023, 0.031, 0.90));
-    draw_rectangle_lines(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 78.0, 1.0, Color::new(0.16, 0.22, 0.28, 1.0));
-    draw_text("Controls", canvas_rect.x + 18.0, info_y + 22.0, 18.0, Color::new(0.88, 0.92, 0.95, 1.0));
-    draw_text("drag source -> canvas | Space+drag pan | wheel zoom | Ctrl+G draft | Ctrl+M Reassemble | Ctrl+Shift+Enter learn", canvas_rect.x + 18.0, info_y + 46.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
-    draw_text("Ctrl+Z undo Ctrl+Y redo | 1 select 2 height 3 water | +/- level 0..30 | R rotate H/V flip Del remove", canvas_rect.x + 18.0, info_y + 68.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
+    let info_y = canvas_rect.y + canvas_rect.h - 36.0;
+    draw_rectangle(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 24.0, Color::new(0.018, 0.023, 0.031, 0.90));
+    draw_text("Drag source / Space pan / Wheel zoom / Ctrl+S save / Ctrl+M stage / Ctrl+Z undo",
+        canvas_rect.x + 15.0, info_y + 17.0, 13.0, Color::new(0.68, 0.75, 0.82, 1.0));
 }
 
 fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) {
     draw_panel(inspector_rect, "Workspace Inspector", "source mapping / scene tools / candidate export");
-    draw_dock_tabs(inspector_rect, &["Inspector", "Semantics", "Publish"], 0);
-    let mut y = inspector_rect.y + 70.0;
+    let mut y = inspector_rect.y + 44.0;
     draw_status_pill(Rect::new(inspector_rect.x + 14.0, y, 128.0, 24.0), app.mapping_stage.label(), app.mapping_stage.is_green());
     draw_status_pill(Rect::new(inspector_rect.x + 150.0, y, 92.0, 24.0), app.category.label(), true);
     y += 44.0;
@@ -3273,22 +3378,18 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
         y += 8.0;
     }
 
-    draw_text("Forge-style commands", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
-    y += 10.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Build correction scene draft", false) { app.auto_map_sheet(); }
-    y += 37.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Save mapper project", false) { app.save_project_current_or_dialog(); }
-    y += 37.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Export engine handoff", false) { app.export_handoff_dialog(); }
-    y += 37.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Fit canvas", false) { app.fit_canvas_to_pieces(canvas_rect); }
-    y += 37.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Refresh sheet statuses", false) { app.refresh_sheet_library(); }
-    y += 37.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Learn from corrected scene", false) { app.learn_from_scene(); }
-    y += 37.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Reassemble saved scene + missing", false) { app.reassemble_from_mapped_scene(); }
+    draw_text("SCENE WORKFLOW", inspector_rect.x + 14.0, y, 15.0, Color::new(0.68, 0.84, 0.90, 1.0));
+    y += 9.0;
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "1  Correction draft (single sheet)", false) { app.auto_map_sheet(); }
+    y += 36.0;
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "2  Learn saved corrections", false) { app.learn_from_scene(); }
+    y += 36.0;
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "3  Stage missing cells", false) { app.reassemble_from_mapped_scene(); }
+    y += 36.0;
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "4  Audit scene", false) { app.export_scene_audit(); }
     y += 42.0;
+    draw_text("Recipe-driven reroll is NOT implemented.", inspector_rect.x + 14.0, y, 12.0, Color::new(0.95, 0.73, 0.44, 1.0));
+    y += 23.0;
 
     if let Some(index) = app.selected_piece {
         if let Some(piece) = app.pieces.get(index) {
@@ -3308,23 +3409,16 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
         y += 14.0;
     }
 
-    let (layout_w, layout_h, layout_label) = app.category.default_layout();
-    draw_text("Scene draft generator", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
-    y += 24.0;
-    draw_text(layout_label, inspector_rect.x + 14.0, y, 17.0, Color::new(0.88, 0.91, 0.94, 1.0));
-    y += 24.0;
-    draw_text(&format!("{} x {} 32px cells", layout_w, layout_h), inspector_rect.x + 14.0, y, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
-    y += 36.0;
-
-    draw_text("What to do with generated pieces", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
-    y += 24.0;
-    let _ = draw_wrapped_line("They are not final art and not random clutter: they are source-linked draft cells. Move/delete/layer them into a useful correction scene, then Save Project or Export Handoff.", inspector_rect.x + 14.0, y, 31, 15.0, Color::new(0.70, 0.77, 0.84, 1.0));
+    if app.category == AssetCategory::Object {
+        draw_text("Furniture: map whole objects and views,", inspector_rect.x + 14.0, y, 13.0, Color::new(0.75, 0.85, 0.91, 1.0));
+        draw_text("not each 32px cell as terrain.", inspector_rect.x + 14.0, y + 18.0, 13.0, Color::new(0.75, 0.85, 0.91, 1.0));
+    }
 
     let bottom_y = inspector_rect.y + inspector_rect.h - 96.0;
     draw_rectangle(inspector_rect.x + 12.0, bottom_y, inspector_rect.w - 24.0, 78.0, app.category.color());
     draw_rectangle(inspector_rect.x + 14.0, bottom_y + 2.0, inspector_rect.w - 28.0, 74.0, Color::new(0.025, 0.030, 0.038, 0.78));
     draw_text("Mapped-sheet meaning", inspector_rect.x + 20.0, bottom_y + 25.0, 16.0, Color::new(0.92, 0.95, 0.96, 1.0));
-    draw_text("Green = draft source metadata ONLY", inspector_rect.x + 20.0, bottom_y + 49.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
+    draw_text("Green check = approved cell only", inspector_rect.x + 20.0, bottom_y + 49.0, 14.0, Color::new(0.74, 0.82, 0.84, 1.0));
     draw_text("Not runtime-published yet", inspector_rect.x + 20.0, bottom_y + 69.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
 }
 
@@ -3338,14 +3432,11 @@ fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector
 
     draw_rectangle(0.0, screen_height() - STATUS_H, screen_width(), STATUS_H, Color::new(0.030, 0.038, 0.050, 1.0));
     draw_line(0.0, screen_height() - STATUS_H, screen_width(), screen_height() - STATUS_H, 1.0, Color::new(0.13, 0.18, 0.23, 1.0));
-    let atlas_label = app.atlas.as_ref()
-        .and_then(|atlas| atlas.path.file_name().and_then(|name| name.to_str()))
-        .unwrap_or("no atlas");
     let project_label = app.project_path.as_ref()
         .and_then(|path| path.file_name().and_then(|name| name.to_str()))
         .unwrap_or("unsaved project");
     draw_text(
-        &format!("{} | stage: {} | tool: {} +{} | pieces: {} | heights: {} | sources: {} | project: {}", app.status, app.mapping_stage.label(), app.author_tool.label(), app.paint_elevation, app.pieces.len(), app.heightmap.len(), app.source_stack.len() + usize::from(app.atlas.is_some()), project_label),
+        &format!("{} | {} | {} +{} | tiles {} | elevations {} | sheets {} | {}", app.status, app.mapping_stage.label(), app.author_tool.label(), app.paint_elevation, app.pieces.len(), app.heightmap.len(), app.source_stack.len() + usize::from(app.atlas.is_some()), project_label),
         12.0,
         screen_height() - 10.0,
         16.0,
@@ -3373,6 +3464,14 @@ async fn main() {
             app.load_project(&path);
         } else {
             app.load_atlas(path);
+        }
+    } else {
+        // Resume an actual saved authoring project if present. The B48R7 fixture
+        // describes topology but is NOT an editable sprite-placement project;
+        // never silently load the rejected B48R10 assembly as a starter.
+        if let Ok(root) = env::current_dir() {
+            let demo = root.join("artifacts/asset-intake/atlas-mapper/projects/elizawy_summer_master.mapper.json");
+            if demo.is_file() { app.load_project(&demo); }
         }
     }
     loop {
