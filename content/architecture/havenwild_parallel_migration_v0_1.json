@@ -1,0 +1,50 @@
+{
+  "schema": "havenwild.parallel_migration.v0_1",
+  "status": "candidate_architecture_only_not_runtime_enabled",
+  "historicalBaseline": {
+    "project": "Havenwild",
+    "branch": "experimental",
+    "commit": "796895a5dd2aae3cbf3dcca37f73a54df94969ad",
+    "pass": "B48R25"
+  },
+  "cumulativePatchLineage": ["B48R26", "B48R27", "B48R28A"],
+  "forgeGuiPin": {
+    "repository": "shifty81/ForgeGUI_Core",
+    "commit": "eafa8e78efd54142a19e66d8be7b7d3985af23d2",
+    "integration": "pin source/dependency and prove Rust version compatibility before Cargo adoption",
+    "currentState": "not integrated"
+  },
+  "authorityRule": "one legacy authoritative writer until independently certified candidate is promoted; candidate comparison is read-only",
+  "isolation": {
+    "candidateWorkspace": "separate directory/branch with distinct cache and generated artifacts",
+    "testSaves": "disposable copies, never canonical save files",
+    "assetSources": "original immutable bytes shared read-only by hash, no edits in either lane",
+    "pcc": "only existing Havenwild PCC executes updates/builds/gates",
+    "writeConflictPolicy": "deny simultaneous baseline/candidate writes to world, estate, save, asset registry or publication outputs",
+    "rollback": "executable rollback and save-data rollback are independent operations with separately tested receipts"
+  },
+  "parallelWorkstreams": {
+    "authoringAndForgeGui": "existing mapper document -> haven_authoring command adapter -> forge_gui_shell consumer",
+    "terrainAndElevation": "0..30 structural policy, distinct geological height, exact tuple/Wang/composite resolution",
+    "sourceAndAssets": "ElizaWy-primary immutable source hydration, provenance and feature/collision metadata",
+    "drawAndRuntime": "one shared resolved draw plan consumed by editor and client",
+    "saveAndSimulation": "versioned migration, deterministic headless boundary, canonical estate identity"
+  },
+  "parityClasses": [
+    "preservation: identical old and candidate output for explicitly retained behavior",
+    "specification: intentional differences require pinned input/old/new hashes and separate visual/functional approval",
+    "unresolved: mismatch blocks promotion regardless of a clean compiler build"
+  ],
+  "promotionRequirements": [
+    "baseline and source hash provenance",
+    "no shared writes and compatible save migration",
+    "document load/save/undo and ForgeGUI resizing/input smoke",
+    "terrain/elevation/hydrology and collision fixtures",
+    "editor/client source-exact draw parity",
+    "required visuals explicitly approved at exact fixture hashes",
+    "actual Windows Rust build/test and authoritative PCC Full Quality Gate",
+    "atomic cutover and independently tested rollback"
+  ],
+  "retirement": "component-by-component after all active consumers migrate; retain Git history and audited recovery checkpoint",
+  "r28aDelivered": "read-only evidence lock, policy inventory, output comparison harness, tests and architecture contract; NO actual Rust engine/ForgeGUI migration"
+}

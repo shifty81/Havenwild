@@ -1,0 +1,44 @@
+{
+  "schema": "havenwild.mapper_unified_pcc_dual_grid.v0_1",
+  "baseline": {"branch": "experimental", "commit": "796895a5dd2aae3cbf3dcca37f73a54df94969ad", "pass": "B48R25"},
+  "delivery": "B48R27 backend integration bridge + recovery only; GUI wiring and gameplay resolver not implemented",
+  "singleAuthorities": {
+    "projectOperations": "tools/forge/HavenwildPccProvider.py -> tools/control/HavenwildPccHost.ps1",
+    "commandRegistry": "tools/control/ProjectCommandRegistry.ps1 + tools/control/PccCommandExtensions.ps1",
+    "jobs": "tools/control/PccJobHost.ps1 and .havenwild/jobs",
+    "intake": "tools/control/InvokeRootPatchIntake.ps1 with ledger/backup/restart controls",
+    "certification": "validation.full-quality-gate + Asset Authority publication receipts",
+    "terrainSemantics": "crates/haven_world/src/terrain_runtime_recipe.rs and canonical shared terrain resolver",
+    "tupleCatalog": "content/terrain/havenwild_terrain_tuple_catalog_v1.json (legacy inventory, not certified ElizaWy art)",
+    "sourceRecovery": "apps/haven_atlas_mapper_lite/tools/recover_eligible_summer_demo.py"
+  },
+  "mapperPanels": [
+    "left categorized immutable original source library with multi-sheet activation",
+    "middle independently zoomable source atlases and editable summer scene",
+    "right dockable approved-material/autotile and composite-feature brush palette with metadata and collisions",
+    "bottom shared PCC job log, progress, validation and gate receipts"
+  ],
+  "pccBridge": {
+    "cli": "apps/haven_atlas_mapper_lite/tools/pcc_bridge.py",
+    "allowedDiscovery": ["capabilities", "commands", "status", "dual-grid-report"],
+    "execution": "explicit registered key + exact confirmation; mutation approval for anything not explicitly read-only",
+    "uiExecution": "spawn async worker process; stream output; cancel gracefully; never run a gate or intake on rendering thread",
+    "patchSafety": "never bypass canonical PCC intake, failed state, archival receipt, root/restart or GREEN gate",
+    "mutationWarning": "running project updates while mapper has unsaved documents requires blocking edits, saving or controlled close and reopen"
+  },
+  "dualGrid": {
+    "semanticInput": "one material identity at each authoritative terrain owner cell, plus elevation and hydrology as separate fields",
+    "presentation": "display sample derived from four nearby semantic material corners; use established tuple signature order, never invent a new order",
+    "offsetAuthority": "haven_spatial::TileAnchor::TerrainTuplePresentationOrigin",
+    "eligible": ["verified ElizaWy ground transition", "certified shoreline surface", "certified path or soil transition"],
+    "ineligibleAsStandaloneSolver": ["cliff face", "waterfall", "cave portal", "climb route", "collision", "water depth"],
+    "lookup": "exact source-verified recipe; approved composition; otherwise unresolved diagnostic",
+    "multiMaterial": "never assume the legacy 34-material tuple catalog provides ElizaWy pixels for every signature",
+    "season": "reuse approved logical signature only where independently source-verified season mapping exists",
+    "animation": "visual frame changes may not mutate elevation or topology"
+  },
+  "compositeDrawCell": ["surface", "structural rim/wall", "rock-water contact", "hydrology/water", "waterfall animation/splash", "foreground"],
+  "collision": "author independent walkable floor, blocked faces, swimmability, climb connectors, portal thresholds and linked elevations; no alpha inferred collision",
+  "elevation": {"sea": 0, "valid": "0..30 inclusive", "levelOneIsValid": true, "retireLegacyRampOnlyPolicy": true},
+  "certification": ["source identity", "exact 32px crop or multi-cell region", "approved adjacency", "connected water and geometry", "traversal/collision proof", "editor/client parity", "Windows PCC FULL GREEN", "Asset Authority publication"]
+}

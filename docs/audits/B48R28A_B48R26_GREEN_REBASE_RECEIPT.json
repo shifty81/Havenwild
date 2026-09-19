@@ -1,0 +1,55 @@
+{
+  "schema": "havenwild.parallel_architecture_rebase_evidence.v1",
+  "status": "SOURCE_RECONCILED_PATCH_CANDIDATE_NOT_CERTIFIED",
+  "github": {
+    "repository": "shifty81/Havenwild",
+    "branch": "experimental",
+    "verifiedCommit": "48dc977d7f09805dfa9b4fd5b7aaa274e288c431",
+    "commitMessage": "Havenwild B48R26 - certified GREEN",
+    "parentCommit": "796895a5dd2aae3cbf3dcca37f73a54df94969ad"
+  },
+  "rollup": {
+    "name": "Havenwild_FullSourceRollup_PassB48R26_20260919.zip",
+    "sha256": "1aa8290ebe482ba352f493ca7f0253efbfaaa889b173081f23a261b34aa61992",
+    "zipIntegrity": "PASS",
+    "entries": 9724,
+    "gitMetadataIncluded": false,
+    "pccLiveLedgerIncluded": false
+  },
+  "reconciliation": {
+    "b48r26PayloadFilesExactlyMatchRollup": [
+      "apps/haven_atlas_mapper_lite/tests/test_b48r26_source_recovery.py",
+      "apps/haven_atlas_mapper_lite/tools/recover_eligible_summer_demo.py",
+      "docs/audits/B48R26_SUMMER_SOURCE_RECOVERY_AND_MAPPER_NEXT_STEPS.md",
+      "docs/audits/evidence/B48R26_artist_demo_source_recovery_diagnostic.png",
+      "docs/audits/evidence/B48R26_artist_demo_source_recovery_ledger.json"
+    ],
+    "matchCount": 5,
+    "laterFilesAbsentInRollup": [
+      "apps/haven_atlas_mapper_lite/tests/test_b48r27_pcc_bridge.py",
+      "apps/haven_atlas_mapper_lite/tools/pcc_bridge.py",
+      "content/architecture/havenwild_parallel_migration_v0_1.json",
+      "content/editor/architecture/havenwild_mapper_unified_pcc_dual_grid_v0_1.json",
+      "docs/audits/B48R27_UNIFIED_MAPPER_PCC_AND_DUAL_GRID_HANDOFF.md",
+      "docs/audits/B48R28A_PARALLEL_ARCHITECTURE_EVIDENCE_AND_PARITY_HANDOFF.md",
+      "tests/architecture/test_parallel_migration.py",
+      "tools/architecture/parallel_migration.py"
+    ],
+    "githubBlobSpotChecks": {
+      "apps/haven_atlas_mapper_lite/src/main.rs": "d4e117b39cfbde65e4a7b8a7f23d174287c25c34",
+      "apps/haven_atlas_mapper_lite/tools/recover_eligible_summer_demo.py": "908158fedbd970bf07ba4910a085f6f5a0622260",
+      "apps/haven_atlas_mapper_lite/tests/test_b48r26_source_recovery.py": "4601ec720c61ff69ad4998104cd057cde2143634"
+    },
+    "fullGitTreeEquality": "NOT_VERIFIED"
+  },
+  "supersedesTransport": "Havenwild_CUMULATIVE_PCC_Patch_B48R26_to_B48R28A_ParallelArchitectureParityFoundation_20260919.zip",
+  "previousTransportSha256": "ce719cc2d09e556a8aa5bcf41220f714325717fe97ec3455b07cab1031d3679e",
+  "constraints": [
+    "Preserves five B48R26 predecessor payload files byte-for-byte",
+    "Preserves B48R27 predecessor payload files byte-for-byte",
+    "Only B48R28A document and manifest revised to state current GitHub baseline",
+    "No engine/mapper executable source modified by this patch",
+    "Do not apply both transports",
+    "No Windows build, PCC gate, GUI or live parity claimed"
+  ]
+}
