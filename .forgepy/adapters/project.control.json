@@ -1,0 +1,95 @@
+{
+  "commands": [
+    {
+      "args": [
+        "check",
+        "--workspace"
+      ],
+      "category": "gate",
+      "cwd": ".",
+      "key": "gate.rust.rust-root",
+      "label": "Cargo Check (.)",
+      "mutates": false,
+      "program": "cargo",
+      "risk": "read"
+    },
+    {
+      "args": [
+        "build",
+        "--workspace"
+      ],
+      "category": "build",
+      "cwd": ".",
+      "key": "build.rust.rust-root",
+      "label": "Cargo Build (.)",
+      "mutates": true,
+      "program": "cargo",
+      "risk": "write"
+    },
+    {
+      "args": [
+        "build",
+        "--workspace",
+        "--release"
+      ],
+      "category": "build-release",
+      "cwd": ".",
+      "key": "build-release.rust.rust-root",
+      "label": "Cargo Release Build (.)",
+      "mutates": true,
+      "program": "cargo",
+      "risk": "write"
+    },
+    {
+      "args": [
+        "test",
+        "--workspace"
+      ],
+      "category": "test",
+      "cwd": ".",
+      "key": "test.rust.rust-root",
+      "label": "Cargo Tests (.)",
+      "mutates": false,
+      "program": "cargo",
+      "risk": "read"
+    },
+    {
+      "args": [
+        "python-syntax",
+        "."
+      ],
+      "category": "gate",
+      "cwd": ".",
+      "key": "gate.python.python-root",
+      "label": "Python Syntax Check (.)",
+      "mutates": false,
+      "program": "__forgepy_internal__",
+      "risk": "read"
+    },
+    {
+      "args": [
+        "python-syntax",
+        "."
+      ],
+      "category": "build",
+      "cwd": ".",
+      "key": "build.python.python-root",
+      "label": "Python Verify (.)",
+      "mutates": false,
+      "program": "__forgepy_internal__",
+      "risk": "read"
+    }
+  ],
+  "generatedBy": "FORGEPY-STANDALONE-U5-AUTO-ONBOARD",
+  "project": {
+    "id": "havenwild",
+    "kind": "python-rust",
+    "name": "Havenwild"
+  },
+  "provider": {
+    "name": "ForgePY Generated Project Adapter",
+    "type": "forgepy-adapter"
+  },
+  "schema": "forge.project.v1",
+  "sourceScanSignature": "863c113de033904123e86d4c26b7dcbd2cd83e128a8ff3f15f15103ad5cec8cc"
+}

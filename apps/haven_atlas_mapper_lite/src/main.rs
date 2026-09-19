@@ -12,9 +12,9 @@ mod review;
 mod scene_audit;
 
 const TILE_SIZE: i32 = 32;
-const TOP_BAR_H: f32 = 82.0;
+const TOP_BAR_H: f32 = 98.0;
 const STATUS_H: f32 = 32.0;
-const SOURCE_SHEET_STACK_MIN_H: f32 = 310.0;
+const SOURCE_SHEET_STACK_MIN_H: f32 = 190.0;
 const SHEET_LIST_TOP: f32 = 103.0;
 const SOURCE_PREVIEW_TOP_PAD: f32 = 12.0;
 const SHEET_CARD_H: f32 = 34.0;
@@ -589,6 +589,9 @@ struct MapperApp {
     sheet_library_search_focused: bool,
     sheet_library_scroll: f32,
     library_notice: String,
+    show_inspector: bool,
+    pane_ratio: f32,
+    resizing_divider: bool,
 }
 
 impl Default for MapperApp {
@@ -631,6 +634,9 @@ impl Default for MapperApp {
             sheet_library_search_focused: false,
             sheet_library_scroll: 0.0,
             library_notice: "Asset lane index not scanned yet.".to_string(),
+            show_inspector: false,
+            pane_ratio: 0.5,
+            resizing_divider: false,
         }
     }
 }
@@ -2072,6 +2078,11 @@ impl MapperApp {
             if changed { self.rebuild_sheet_library_visibility(); }
             return;
         }
+        if !ctrl && is_key_pressed(KeyCode::I) {
+            self.show_inspector = !self.show_inspector;
+            self.status = if self.show_inspector { "Details open; scene editing is disabled beneath the overlay." } else { "Details closed; scene canvas is fully available." }.to_string();
+            return;
+        }
         if ctrl && is_key_pressed(KeyCode::Z) { if shift { self.redo_scene(); } else { self.undo_scene(); } return; }
         if ctrl && is_key_pressed(KeyCode::Y) { self.redo_scene(); return; }
         if ctrl && is_key_pressed(KeyCode::O) {
@@ -2125,12 +2136,27 @@ impl MapperApp {
         }
     }
 
-    fn handle_input(&mut self, source_rect: Rect, canvas_rect: Rect) {
+    fn handle_input(&mut self, source_rect: Rect, canvas_rect: Rect, inspector_rect: Rect) {
         self.handle_shortcuts();
         let mouse = mouse_position_local();
         let delta = mouse - self.last_mouse;
         let over_source = source_rect.contains(mouse);
-        let edit_canvas = canvas_edit_rect(canvas_rect).contains(mouse);
+        // The optional details drawer is opaque: never edit the scene through it.
+        let blocked_by_details = self.show_inspector && inspector_rect.contains(mouse);
+        let edit_canvas = canvas_edit_rect(canvas_rect).contains(mouse) && !blocked_by_details;
+        let divider = Rect::new(source_rect.x + source_rect.w, source_rect.y, GAP, source_rect.h);
+        if is_mouse_button_pressed(MouseButton::Left) && divider.contains(mouse) {
+            self.resizing_divider = true;
+        }
+        if self.resizing_divider {
+            if is_mouse_button_down(MouseButton::Left) {
+                let available = source_rect.w + canvas_rect.w;
+                self.pane_ratio = ((mouse.x - source_rect.x) / available).clamp(0.40, 0.60);
+            }
+            if is_mouse_button_released(MouseButton::Left) { self.resizing_divider = false; }
+            self.last_mouse = mouse;
+            return; // A divider drag must never select, paint, or move source artwork.
+        }
         let space_pan = is_key_down(KeyCode::Space);
         let (_wheel_x, wheel_y) = mouse_wheel();
 
@@ -2892,19 +2918,6 @@ fn draw_dock_tabs(rect: Rect, labels: &[&str], active_index: usize) {
     }
 }
 
-fn draw_workspace_rail(y: f32, h: f32) {
-    draw_rectangle(0.0, y, 48.0, h, Color::new(0.018, 0.024, 0.034, 1.0));
-    draw_line(48.0, y, 48.0, y + h, 1.0, Color::new(0.10, 0.16, 0.21, 1.0));
-    let labels = ["LIB", "MAP", "COL", "LAY", "PUB"];
-    for (i, label) in labels.iter().enumerate() {
-        let yy = y + 16.0 + i as f32 * 54.0;
-        let active = i == 1;
-        draw_rectangle(8.0, yy, 32.0, 36.0, if active { Color::new(0.10, 0.25, 0.34, 1.0) } else { Color::new(0.045, 0.057, 0.074, 1.0) });
-        draw_rectangle_lines(8.0, yy, 32.0, 36.0, 1.0, if active { Color::new(0.17, 0.64, 0.78, 1.0) } else { Color::new(0.15, 0.20, 0.26, 1.0) });
-        draw_text(label, 12.0, yy + 22.0, 11.0, Color::new(0.74, 0.84, 0.90, 1.0));
-    }
-}
-
 fn draw_grid(rect: Rect, pan: Vec2, zoom: f32, line_color: Color) {
     let step = TILE_SIZE as f32 * zoom;
     if step < 4.0 { return; }
@@ -2958,36 +2971,31 @@ fn stable_path_hash(bytes: &[u8]) -> u64 {
 fn draw_top_bar(app: &mut MapperApp) {
     draw_rectangle(0.0, 0.0, screen_width(), TOP_BAR_H, Color::new(0.028, 0.035, 0.047, 1.0));
     draw_rectangle(0.0, 0.0, screen_width(), 4.0, Color::new(0.12, 0.32, 0.45, 1.0));
-    draw_text("Havenwild ElizaWy Mapping Workspace", 16.0, 30.0, 25.0, Color::new(0.94, 0.96, 0.98, 1.0));
-    draw_text("SUMMER | left: original sheets | right: mapping scene", 18.0, 55.0, 15.0, Color::new(0.62, 0.70, 0.78, 1.0));
-
-    // Keep the primary actions reachable on a standard 1280px window.
-    let actions_x = 440.0;
-    let y = 9.0;
-    if draw_button(Rect::new(actions_x, y, 88.0, 28.0), "Save Demo", false) { app.save_startup_summer_demo(); }
-    if draw_button(Rect::new(actions_x + 95.0, y, 82.0, 28.0), "Load PNG", false) { app.load_atlas_dialog(); }
-    if draw_button(Rect::new(actions_x + 184.0, y, 87.0, 28.0), "Open", false) { app.load_project_dialog(); }
-    if draw_button(Rect::new(actions_x + 278.0, y, 87.0, 28.0), "Save", false) { app.save_project_current_or_dialog(); }
-    if draw_button(Rect::new(actions_x + 372.0, y, 94.0, 28.0), "Review PNG", false) { app.export_review_dialog(); }
-    if draw_button(Rect::new(actions_x + 473.0, y, 91.0, 28.0), "Handoff", false) { app.export_handoff_dialog(); }
-    if draw_button(Rect::new(actions_x + 641.0, y, 64.0, 28.0), "Undo", false) { app.undo_scene(); }
-    if draw_button(Rect::new(actions_x + 711.0, y, 64.0, 28.0), "Redo", false) { app.redo_scene(); }
-    if draw_button(Rect::new(actions_x + 571.0, y, 64.0, 28.0), "Clear", false) {
-        if app.dirty {
-            app.status = "Clear blocked: save unsaved scene changes first.".to_string();
-        } else {
-            app.checkpoint_scene();
-            app.pieces.clear(); app.heightmap.clear(); // Keep active sheet stack so Undo can restore every piece.
-            app.selected_piece = None; app.project_path = None;
-            app.mapping_stage = MappingStage::SourceOnly;
-            app.status = "New empty summer scene; original source sheets remain immutable.".to_string();
-        }
+    draw_text("ElizaWy | Summer Mapper", 14.0, 27.0, 23.0, WHITE);
+    draw_text("SOURCE ATLAS   <->   EXAMPLE SCENE", 14.0, 49.0, 13.0, Color::new(0.65, 0.80, 0.88, 1.0));
+    draw_text("Draft > correct > save > learn > stage > review", 14.0, 75.0, 12.0, Color::new(0.73, 0.78, 0.82, 1.0));
+    // One toolbar owns project actions; the second owns the mapping workflow.
+    // No duplicate commands in the optional inspector or decorative tabs.
+    let x = 346.0;
+    let first = 9.0;
+    if draw_button(Rect::new(x, first, 91.0, 27.0), "Open scene", false) { app.load_project_dialog(); }
+    if draw_button(Rect::new(x + 97.0, first, 66.0, 27.0), "Save", false) { app.save_project_current_or_dialog(); }
+    if draw_button(Rect::new(x + 169.0, first, 95.0, 27.0), "Save master", false) { app.save_startup_summer_demo(); }
+    if draw_button(Rect::new(x + 270.0, first, 82.0, 27.0), "Load PNG", false) { app.load_atlas_dialog(); }
+    if draw_button(Rect::new(x + 358.0, first, 68.0, 27.0), "Undo", false) { app.undo_scene(); }
+    if draw_button(Rect::new(x + 432.0, first, 68.0, 27.0), "Redo", false) { app.redo_scene(); }
+    if draw_button(Rect::new(x + 506.0, first, 82.0, 27.0), if app.show_inspector { "Hide info" } else { "Details [I]" }, app.show_inspector) {
+        app.show_inspector = !app.show_inspector;
     }
 
-    if draw_button(Rect::new(actions_x + 767.0, y, 70.0, 28.0), "Audit", false) { app.export_scene_audit(); }
-
-    draw_text("LEFT: choose source group + activate sheets  |  RIGHT: correct saved scene  |  Green checks require approval",
-        440.0, 59.0, 14.0, Color::new(0.68, 0.79, 0.83, 1.0));
+    let second = 46.0;
+    if draw_button(Rect::new(x, second, 101.0, 27.0), "1 Draft", false) { app.auto_map_sheet(); }
+    if draw_button(Rect::new(x + 107.0, second, 101.0, 27.0), "2 Learn", false) { app.learn_from_scene(); }
+    if draw_button(Rect::new(x + 214.0, second, 125.0, 27.0), "3 Stage missing cells", false) { app.reassemble_from_mapped_scene(); }
+    if draw_button(Rect::new(x + 345.0, second, 90.0, 27.0), "4 Audit", false) { app.export_scene_audit(); }
+    if draw_button(Rect::new(x + 441.0, second, 94.0, 27.0), "5 Review", false) { app.export_review_dialog(); }
+    if draw_button(Rect::new(x + 541.0, second, 100.0, 27.0), "6 Handoff", false) { app.export_handoff_dialog(); }
+    draw_text("No recipe reroll yet; candidate only.", x + 649.0, 64.0, 12.0, Color::new(0.94, 0.73, 0.45, 1.0));
 }
 
 fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
@@ -3121,9 +3129,9 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
 
 
 fn source_sheet_stack_rect(panel: Rect) -> Rect {
-    let usable_h = (panel.h - 190.0).max(130.0);
+    let usable_h = (panel.h - 205.0).max(130.0);
     Rect::new(panel.x + 10.0, panel.y + 58.0, panel.w - 20.0,
-        (panel.h * 0.62).max(SOURCE_SHEET_STACK_MIN_H).min(usable_h))
+        (panel.h * 0.44).max(SOURCE_SHEET_STACK_MIN_H).min(usable_h))
 }
 
 fn source_preview_rect(panel: Rect) -> Rect {
@@ -3349,8 +3357,9 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
         canvas_rect.x + 15.0, info_y + 17.0, 13.0, Color::new(0.68, 0.75, 0.82, 1.0));
 }
 
-fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) {
-    draw_panel(inspector_rect, "Workspace Inspector", "source mapping / scene tools / candidate export");
+fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect) {
+    // An optional, opaque overlay; never a permanent third column.
+    draw_panel(inspector_rect, "Mapping details", "Tile roles / mapping evidence / candidate only");
     let mut y = inspector_rect.y + 44.0;
     draw_status_pill(Rect::new(inspector_rect.x + 14.0, y, 128.0, 24.0), app.mapping_stage.label(), app.mapping_stage.is_green());
     draw_status_pill(Rect::new(inspector_rect.x + 150.0, y, 92.0, 24.0), app.category.label(), true);
@@ -3378,18 +3387,12 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
         y += 8.0;
     }
 
-    draw_text("SCENE WORKFLOW", inspector_rect.x + 14.0, y, 15.0, Color::new(0.68, 0.84, 0.90, 1.0));
-    y += 9.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "1  Correction draft (single sheet)", false) { app.auto_map_sheet(); }
-    y += 36.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "2  Learn saved corrections", false) { app.learn_from_scene(); }
-    y += 36.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "3  Stage missing cells", false) { app.reassemble_from_mapped_scene(); }
-    y += 36.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "4  Audit scene", false) { app.export_scene_audit(); }
-    y += 42.0;
+    draw_text("WORKFLOW: Draft > Save > Learn > Stage > Audit", inspector_rect.x + 14.0, y, 12.0, Color::new(0.68, 0.84, 0.90, 1.0));
+    y += 18.0;
+    draw_text("Use the top toolbar for all scene actions.", inspector_rect.x + 14.0, y, 12.0, Color::new(0.77, 0.83, 0.88, 1.0));
+    y += 18.0;
     draw_text("Recipe-driven reroll is NOT implemented.", inspector_rect.x + 14.0, y, 12.0, Color::new(0.95, 0.73, 0.44, 1.0));
-    y += 23.0;
+    y += 25.0;
 
     if let Some(index) = app.selected_piece {
         if let Some(piece) = app.pieces.get(index) {
@@ -3425,10 +3428,13 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
 fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector_rect: Rect) {
     clear_background(Color::new(0.020, 0.026, 0.034, 1.0));
     draw_top_bar(app);
-    draw_workspace_rail(TOP_BAR_H, screen_height() - TOP_BAR_H - STATUS_H);
     draw_source_panel(app, source_rect);
+    let divider_x = source_rect.x + source_rect.w;
+    draw_rectangle(divider_x, source_rect.y, GAP, source_rect.h, Color::new(0.08, 0.12, 0.16, 1.0));
+    draw_line(divider_x + GAP * 0.5, source_rect.y + 8.0, divider_x + GAP * 0.5,
+        source_rect.y + source_rect.h - 8.0, 2.0, Color::new(0.26, 0.48, 0.59, 1.0));
     draw_canvas_panel(app, canvas_rect);
-    draw_inspector(app, inspector_rect, canvas_rect);
+    if app.show_inspector { draw_inspector(app, inspector_rect); }
 
     draw_rectangle(0.0, screen_height() - STATUS_H, screen_width(), STATUS_H, Color::new(0.030, 0.038, 0.050, 1.0));
     draw_line(0.0, screen_height() - STATUS_H, screen_width(), screen_height() - STATUS_H, 1.0, Color::new(0.13, 0.18, 0.23, 1.0));
@@ -3479,17 +3485,17 @@ async fn main() {
         let height = screen_height();
         let body_top = TOP_BAR_H + GAP;
         let body_h = height - TOP_BAR_H - STATUS_H - GAP * 2.0;
-        let rail_w = 56.0;
-        // Left = complete indexed source picker. Right = scene plus its inspector.
-        let source_w = (width * 0.36).clamp(350.0, 640.0).min(width * 0.45);
-        let right_w = width - rail_w - source_w - GAP * 3.0;
-        let inspector_w = INSPECTOR_W.min((right_w * 0.32).max(210.0));
-        let canvas_x = rail_w + source_w + GAP;
-        let canvas_w = (right_w - inspector_w - GAP).max(225.0);
-        let source_rect = Rect::new(rail_w + GAP, body_top, source_w - GAP * 0.5, body_h);
-        let canvas_rect = Rect::new(canvas_x, body_top, canvas_w, body_h);
-        let inspector_rect = Rect::new(canvas_x + canvas_w + GAP, body_top, inspector_w, body_h);
-        app.handle_input(source_rect, canvas_rect);
+        // Two equal inspection surfaces by default; drag the central divider
+        // between 40/60 and 60/40 without introducing a permanent third column.
+        let available = (width - GAP * 3.0).max(500.0);
+        let source_w = available * app.pane_ratio;
+        let canvas_w = available - source_w;
+        let source_rect = Rect::new(GAP, body_top, source_w, body_h);
+        let canvas_rect = Rect::new(source_rect.x + source_w + GAP, body_top, canvas_w, body_h);
+        let inspector_w = INSPECTOR_W.min((canvas_w - 24.0).max(210.0));
+        let inspector_rect = Rect::new(canvas_rect.x + canvas_rect.w - inspector_w - 8.0,
+            canvas_rect.y + 78.0, inspector_w, (canvas_rect.h - 122.0).max(200.0));
+        app.handle_input(source_rect, canvas_rect, inspector_rect);
         draw_app(&mut app, source_rect, canvas_rect, inspector_rect);
         next_frame().await;
     }

@@ -72,6 +72,8 @@ function Invoke-PccPatchIntake {
     [switch]$ReturnToMenuAfterRestart
   )
   $null=Move-PccRootHandoffArtifacts -Root $Root
+  # Classify browser-renamed transports BEFORE preflight and ledger creation.
+  $null=Resolve-PccBrowserRenamedDownloads -Root $Root
   $patches=@(Get-PccPendingPatchFiles -Root $Root)
   if($patches.Count -eq 0){ return 0 }
   $preflight=Invoke-PccPatchLanePreflight -Root $Root -Patches $patches

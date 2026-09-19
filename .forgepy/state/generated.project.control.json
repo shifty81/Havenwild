@@ -6,26 +6,26 @@
       "rust"
     ],
     "markerCount": 26,
-    "precedence": 4,
+    "precedence": 3,
     "precedenceOrder": [
       "internal-pcc",
       "project-contract",
       "forgepy-adapter",
       "forgepy-auto"
     ],
-    "provider": "forgepy-auto",
-    "providerName": "ForgePY Automatic Discovery",
+    "provider": "forgepy-adapter",
+    "providerName": "ForgePY Generated Project Adapter",
     "scanCacheHit": true,
     "scanSchema": "forgepy.onboarding.plan.v1",
     "scanSignature": "863c113de033904123e86d4c26b7dcbd2cd83e128a8ff3f15f15103ad5cec8cc",
-    "source": "forgepy-generated",
+    "source": ".forgepy/adapters/project.control.json",
     "unresolvedCount": 0
   },
   "_provider": {
-    "name": "ForgePY Automatic Discovery",
-    "precedence": 4,
-    "source": "forgepy-generated",
-    "type": "forgepy-auto"
+    "name": "ForgePY Generated Project Adapter",
+    "precedence": 3,
+    "source": ".forgepy/adapters/project.control.json",
+    "type": "forgepy-adapter"
   },
   "_scanPlan": {
     "cacheHit": true,
@@ -282,7 +282,7 @@
         "test.rust.rust-root"
       ]
     },
-    "generatedUtc": "2026-09-16T05:16:55.644545+00:00",
+    "generatedUtc": "2026-09-19T14:02:13.934453+00:00",
     "kinds": [
       "python",
       "rust"
@@ -387,7 +387,7 @@
         "risk": "read"
       }
     ],
-    "root": "C:\\Users\\Shifty\\Desktop\\Havenwild-HW55-V2R5-Test",
+    "root": "C:\\Users\\Shifty\\Desktop\\Havenwild",
     "scanSchema": "forgepy.repository.scan.v1",
     "schema": "forgepy.onboarding.plan.v1",
     "signature": "863c113de033904123e86d4c26b7dcbd2cd83e128a8ff3f15f15103ad5cec8cc",
@@ -414,7 +414,7 @@
       "provider": "forgepy-discovery"
     },
     {
-      "confidence": "detected",
+      "confidence": "declared",
       "evidence": [
         "gate.rust.rust-root",
         "gate.python.python-root",
@@ -423,10 +423,10 @@
       ],
       "key": "operation.gate",
       "label": "Gate operations",
-      "provider": "mixed"
+      "provider": "forgepy-adapter"
     },
     {
-      "confidence": "detected",
+      "confidence": "declared",
       "evidence": [
         "build.rust.rust-root",
         "build.python.python-root",
@@ -434,17 +434,17 @@
       ],
       "key": "operation.build",
       "label": "Build operations",
-      "provider": "forgepy-auto"
+      "provider": "forgepy-adapter"
     },
     {
-      "confidence": "detected",
+      "confidence": "declared",
       "evidence": [
         "test.rust.rust-root",
         "test.default"
       ],
       "key": "operation.test",
       "label": "Test operations",
-      "provider": "forgepy-auto"
+      "provider": "forgepy-adapter"
     },
     {
       "confidence": "confirmed",
@@ -479,9 +479,8 @@
   ],
   "commands": [
     {
-      "_component": "rust-root",
-      "_provider": "forgepy-auto",
-      "_source": "forgepy-scan",
+      "_provider": "forgepy-adapter",
+      "_source": "explicit",
       "args": [
         "check",
         "--workspace"
@@ -495,9 +494,8 @@
       "risk": "read"
     },
     {
-      "_component": "rust-root",
-      "_provider": "forgepy-auto",
-      "_source": "forgepy-scan",
+      "_provider": "forgepy-adapter",
+      "_source": "explicit",
       "args": [
         "build",
         "--workspace"
@@ -511,9 +509,8 @@
       "risk": "write"
     },
     {
-      "_component": "rust-root",
-      "_provider": "forgepy-auto",
-      "_source": "forgepy-scan",
+      "_provider": "forgepy-adapter",
+      "_source": "explicit",
       "args": [
         "build",
         "--workspace",
@@ -528,9 +525,8 @@
       "risk": "write"
     },
     {
-      "_component": "rust-root",
-      "_provider": "forgepy-auto",
-      "_source": "forgepy-scan",
+      "_provider": "forgepy-adapter",
+      "_source": "explicit",
       "args": [
         "test",
         "--workspace"
@@ -544,9 +540,8 @@
       "risk": "read"
     },
     {
-      "_component": "python-root",
-      "_provider": "forgepy-auto",
-      "_source": "forgepy-scan",
+      "_provider": "forgepy-adapter",
+      "_source": "explicit",
       "args": [
         "python-syntax",
         "."
@@ -560,9 +555,8 @@
       "risk": "read"
     },
     {
-      "_component": "python-root",
-      "_provider": "forgepy-auto",
-      "_source": "forgepy-scan",
+      "_provider": "forgepy-adapter",
+      "_source": "explicit",
       "args": [
         "python-syntax",
         "."

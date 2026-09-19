@@ -186,3 +186,27 @@ Current `reassemble_from_mapped_scene` preserves the saved scene and adds at mos
 ### Windows GUI checks
 
 After Full Quality Gate, launch the mapper, change between Ground / Water / Cliffs / Furniture and confirm previously activated sheets and scene placements persist. Select `Chair, Dining E.png` under Furniture and verify it no longer defaults to Character. Build a small *draft* with two sheets, save via **Save Demo**, reopen the mapper and confirm the exact pieces and elevations return. Use **Stage missing cells** only on a saved project and verify that all existing placements are untouched. This pass is NOT a certified demo generator or a complete atlas mapper.
+
+## B48R21 — simplified equal-pane workflow and visible PCC transport progress
+
+The same standalone mapper now opens with equal-width **source atlas** / **Summer scene**
+views. Drag the center divider to adjust within 40–60%, without permanently squeezing
+one panel for the inspector. **Details [I]** opens an optional opaque scene overlay for
+tile roles; editing cannot pass through that overlay. The source library uses less
+vertical space so the actual original source spritesheet is easier to inspect.
+
+The only top-level action sequence is **Draft → Learn → Stage missing cells → Audit →
+Review → Handoff**, with separate Open/Save/Save master and Undo/Redo. Save a scene
+before learning. **Stage missing is not procedural reroll**: the approved, editable
+Summer master and recipe-driven seeded generator remain incomplete; the app will not
+fabricate one from the rejected B48R10 demonstration.
+
+PCC now prints timestamped progress while it extracts, validates, installs and verifies
+the cumulative root patch, and a `[PASS]` line with the last-applied receipt and update
+log path after actual success. A subsequent green gate is a separate action; do not
+interpret returning to the main menu as proof that the gate passed. Run:
+
+`py -3 apps\haven_atlas_mapper_lite\tests\validate_workflow_b48r21.py --repo .`
+
+This static source guard is not native Rust, Windows PCC, or interactive GUI certification.
+See `docs/audits/B48R21_MAPPER_WORKFLOW_AND_PCC_FEEDBACK.md` for manual acceptance.

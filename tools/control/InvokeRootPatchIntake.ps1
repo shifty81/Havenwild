@@ -276,6 +276,7 @@ function Invoke-OnePatch {
       Write-UpdateLog $logPath ("SKIPPED BY USER: {0}; patch remains in root for later." -f $Patch.Name)
       return
     }
+    Write-UpdateLog $logPath ("INTAKE 1/6: approved transport; verifying ZIP identity: {0}" -f $Patch.Name)
     Test-ZipSidecarHash -ZipPath $Patch.FullName
 
     if(-not (Test-PatchTransportIsZip -Path $Patch.FullName)){
@@ -283,6 +284,7 @@ function Invoke-OnePatch {
       return
     }
 
+    Write-UpdateLog $logPath 'INTAKE 2/6: reading manifest and checking safe archive paths...'
     $archive = [IO.Compression.ZipFile]::OpenRead($Patch.FullName)
     try {
       foreach($entry in $archive.Entries){ Assert-ZipEntrySafe -EntryName $entry.FullName }
@@ -335,7 +337,9 @@ function Invoke-OnePatch {
         if($manifestPaths.ContainsKey($relative.ToLowerInvariant())){ throw "Path cannot be both overwritten and removed: $relative" }
       }
 
+      Write-UpdateLog $logPath ("INTAKE 3/6: extracting {0} payload files into isolated staging; please wait..." -f $manifestFiles.Count)
       [IO.Compression.ZipFile]::ExtractToDirectory($Patch.FullName,$stage)
+      Write-UpdateLog $logPath 'INTAKE 3/6: extraction complete.'
     } finally {
       $archive.Dispose()
     }
@@ -355,6 +359,8 @@ function Invoke-OnePatch {
       throw "Manifest/archive file count mismatch: manifest=$($manifestFiles.Count), archive=$($actualPayload.Count)."
     }
 
+    Write-UpdateLog $logPath ("INTAKE 4/6: verifying hashes of {0} staged files..." -f $manifestFiles.Count)
+    $verifiedCount = 0
     foreach($file in $manifestFiles){
       $relative = [string]$file.path
       $stagePath = Join-Path $stage ($relative.Replace('/', '\'))
@@ -366,10 +372,15 @@ function Invoke-OnePatch {
         $actualBytes = (Get-Item -LiteralPath $stagePath).Length
         if($actualBytes -ne [int64]$file.bytes){ throw "Payload byte-size mismatch before apply: $relative" }
       }
+      $verifiedCount++
+      if(($verifiedCount % 500) -eq 0 -or $verifiedCount -eq $manifestFiles.Count){
+        Write-UpdateLog $logPath ("INTAKE 4/6: verified {0}/{1} files." -f $verifiedCount,$manifestFiles.Count)
+      }
     }
 
     Write-UpdateLog $logPath ("VALIDATED: patchId={0}; files={1}; removals={2}" -f $manifest.patchId,$manifestFiles.Count,$removals.Count)
 
+    Write-UpdateLog $logPath 'INTAKE 5/6: backing up changed paths for transactional rollback...'
     $newFiles = @()
     foreach($file in $manifestFiles){
       $relative = [string]$file.path
@@ -394,11 +405,17 @@ function Invoke-OnePatch {
     if($newFiles.Count -gt 0){ Set-Content -LiteralPath $newFileLedger -Value $newFiles -Encoding UTF8 }
 
     $rollbackNeeded = $true
+    Write-UpdateLog $logPath ("INTAKE 5/6: applying {0} verified files..." -f $manifestFiles.Count)
+    $appliedCount = 0
     foreach($file in $manifestFiles){
       $relative = [string]$file.path
       $source = Join-Path $stage ($relative.Replace('/', '\'))
       $destination = Get-SafeDestinationPath -Relative $relative
       Copy-WithParent -Source $source -Destination $destination
+      $appliedCount++
+      if(($appliedCount % 500) -eq 0 -or $appliedCount -eq $manifestFiles.Count){
+        Write-UpdateLog $logPath ("INTAKE 5/6: applied {0}/{1} files." -f $appliedCount,$manifestFiles.Count)
+      }
     }
     foreach($relativeObject in $removals){
       $relative = [string]$relativeObject
@@ -406,6 +423,8 @@ function Invoke-OnePatch {
       if(Test-Path -LiteralPath $destination -PathType Leaf){ Remove-Item -LiteralPath $destination -Force }
     }
 
+    Write-UpdateLog $logPath ("INTAKE 6/6: verifying {0} installed files before committing receipt..." -f $manifestFiles.Count)
+    $installedCount = 0
     foreach($file in $manifestFiles){
       $relative = [string]$file.path
       $destination = Get-SafeDestinationPath -Relative $relative
@@ -413,6 +432,10 @@ function Invoke-OnePatch {
       $actualHash = (Get-FileHash -LiteralPath $destination -Algorithm SHA256).Hash.ToLowerInvariant()
       if($actualHash -ne ([string]$file.sha256).ToLowerInvariant()){
         throw "Post-apply SHA-256 mismatch: $relative"
+      }
+      $installedCount++
+      if(($installedCount % 500) -eq 0 -or $installedCount -eq $manifestFiles.Count){
+        Write-UpdateLog $logPath ("INTAKE 6/6: verified {0}/{1} installed files." -f $installedCount,$manifestFiles.Count)
       }
     }
     foreach($relativeObject in $removals){
@@ -436,6 +459,8 @@ function Invoke-OnePatch {
     $lastApplied | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $lastAppliedPath -Encoding UTF8
     Write-UpdateLog $logPath ("APPLIED: {0}" -f $manifest.patchId)
     Write-UpdateLog $logPath ("ARCHIVED: {0}" -f $archived)
+    Write-UpdateLog $logPath ("[PASS] PATCH APPLIED AND VERIFIED: {0} | receipt: {1}" -f $manifest.patchId,$lastAppliedPath)
+    Write-UpdateLog $logPath ("INTAKE REPORT: {0}" -f $logPath)
     Write-UpdateLog $logPath 'CONTINUE: root audit may now proceed into the normal Full quality gate.'
   } catch {
     $failure = $_.Exception.Message
