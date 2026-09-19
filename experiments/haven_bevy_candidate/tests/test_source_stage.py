@@ -97,9 +97,84 @@ class OriginalInputTests(unittest.TestCase):
         self.assertEqual(data['semanticCells'], 2)
         self.assertEqual(data['sceneId'], 'x')
 
+    def test_main_lane_cannot_stage_even_into_ignored_candidate(self):
+        root = self.base/'repo'
+        candidate = root/'experiments/haven_bevy_candidate'
+        candidate.mkdir(parents=True)
+        with patch.object(m, 'git', side_effect=lambda root, *args: 'main' if 'symbolic-ref' in args else m.BASELINE):
+            with self.assertRaisesRegex(m.SourceError, 'experimental checkout required'):
+                m.stage(self.zip_path, candidate, root)
+        self.assertFalse((candidate/'assets').exists())
+        self.assertFalse((candidate/'evidence').exists())
+
+    def test_no_git_metadata_cannot_stage_anything(self):
+        root = self.base/'repo'
+        candidate = root/'experiments/haven_bevy_candidate'
+        candidate.mkdir(parents=True)
+        with patch.object(m, 'git', return_value=None):
+            with self.assertRaisesRegex(m.SourceError, 'experimental checkout required'):
+                m.stage(self.zip_path, candidate, root)
+        self.assertEqual(list(candidate.iterdir()), [])
+
     def test_missing_archive_blocked(self):
         with self.assertRaisesRegex(m.SourceError, 'missing'):
             m.original_bytes(self.zip_path)
+
+    def test_stages_existing_project_elizawy_bytes_without_archive(self):
+        root = self.base/'repo'
+        candidate = root/'experiments/haven_bevy_candidate'
+        candidate.mkdir(parents=True)
+        mount = root/m.INSTALLED_SOURCE
+        mount.mkdir(parents=True)
+        original = b'\x89PNG\r\n\x1a\noriginal'
+        credits = b'ElizaWy attribution original'
+        (mount/'terrain_summer.png').write_bytes(original)
+        (mount/'Credits.txt').write_bytes(credits)
+        fixture = root/m.SCENE
+        fixture.parent.mkdir(parents=True)
+        fixture.write_text(json.dumps({'kind':'worldgen_scene','sceneId':'river',
+            'sceneSize':[1,1],'tileSize':[32,32],
+            'layers':{'terrain':[['Grass']]}}))
+        with patch.object(m,'EXPECTED_SOURCE_SHA',m.sha(original)), \
+             patch.object(m,'EXPECTED_CREDITS_SHA',m.sha(credits)), \
+             patch.object(m,'git',side_effect=lambda r,*args:
+                'experimental' if 'symbolic-ref' in args else m.BASELINE), \
+             patch.object(m.subprocess,'run',return_value=m.subprocess.CompletedProcess([],0)):
+            receipt=m.stage(None,candidate,root)
+            self.assertEqual(receipt['sourceOrigin'],'verified_project_elizawy_mount')
+            self.assertEqual(receipt['publicationStatus'],'candidate_only')
+            self.assertIsNone(receipt['archiveSha256'])
+            self.assertEqual((candidate/'assets/source/Terrain/terrain_summer.png').read_bytes(),original)
+            self.assertEqual((candidate/'assets/source/Terrain/Credits.txt').read_bytes(),credits)
+            self.assertEqual((mount/'terrain_summer.png').read_bytes(),original)
+            self.assertEqual((mount/'Credits.txt').read_bytes(),credits)
+            # A repeated staging operation must be idempotent and preserve its receipt.
+            before=(candidate/'evidence/source_stage.json').read_bytes()
+            m.stage(None,candidate,root)
+            self.assertEqual((candidate/'evidence/source_stage.json').read_bytes(),before)
+
+    def test_damaged_installed_credits_block_before_candidate_writes(self):
+        root = self.base/'repo'
+        candidate = root/'experiments/haven_bevy_candidate'
+        candidate.mkdir(parents=True)
+        mount = root/m.INSTALLED_SOURCE
+        mount.mkdir(parents=True)
+        original=b'\x89PNG\r\n\x1a\noriginal'
+        (mount/'terrain_summer.png').write_bytes(original)
+        (mount/'Credits.txt').write_bytes(b'changed credits')
+        fixture=root/m.SCENE
+        fixture.parent.mkdir(parents=True)
+        fixture.write_text(json.dumps({'kind':'worldgen_scene','sceneId':'river',
+            'sceneSize':[1,1],'tileSize':[32,32],
+            'layers':{'terrain':[['Grass']]}}))
+        with patch.object(m,'EXPECTED_SOURCE_SHA',m.sha(original)), \
+             patch.object(m,'EXPECTED_CREDITS_SHA',m.sha(b'original credits')), \
+             patch.object(m,'git',side_effect=lambda r,*args:
+                'experimental' if 'symbolic-ref' in args else m.BASELINE), \
+             patch.object(m.subprocess,'run',return_value=m.subprocess.CompletedProcess([],0)):
+            with self.assertRaisesRegex(m.SourceError,'credits SHA mismatch'):
+                m.stage(None,candidate,root)
+        self.assertEqual(list(candidate.iterdir()),[])
 
 if __name__ == '__main__':
     unittest.main()

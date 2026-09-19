@@ -1,0 +1,68 @@
+{
+  "schema": "havenwild.elizawy.draw_plan_publication_contract.v0_1",
+  "scope": "experimental_specification_only_no_certified_recipe_export_yet",
+  "authorities": {
+    "source": "immutable ElizaWy source library, file hashes + credits",
+    "recipe": "apps/haven_atlas_mapper_lite via Havenwild Asset Authority",
+    "world": "haven_world semantic terrain, elevation and hydrology",
+    "gameplay": "haven_world collision/navigation/traversal",
+    "renderer": "Bevy and legacy runtime/editor adapters consume ONE serialized source-exact plan",
+    "approval": "visual review AND validators AND PCC; distinct receipts"
+  },
+  "stages": [
+    "source_verified",
+    "mapped_draft",
+    "visual_reviewed",
+    "validated",
+    "runtime_certified"
+  ],
+  "inputConstraints": {
+    "tileSizePx": 32,
+    "sourceRectPx": "strictly inside pinned immutable atlas; whole 32px cell or exact authored multi-cell stamp",
+    "noImplicitTransforms": true,
+    "crossFamilyFallback": false,
+    "missingRegion": "UNRESOLVED; no invented tile",
+    "elevation": "sea 0, land +1 to +30, no level-one promotion; separate semantic height",
+    "waterfalls": "approved direction/width/height modular recipes with collision and layer parity"
+  },
+  "requiredDrawCallFields": [
+    "sceneId",
+    "sceneRevision",
+    "sourceId",
+    "sourceSha256",
+    "sourceRectPx",
+    "worldPosition",
+    "worldFootprintTiles",
+    "layer",
+    "depthOrder",
+    "recipeId",
+    "recipeRevision",
+    "visualApprovalReceipt"
+  ],
+  "requiredNonDrawFields": [
+    "semanticTerrainRole",
+    "elevation",
+    "collisionRef",
+    "traversalRef",
+    "animationClipRef",
+    "hydrologyRef",
+    "sourceFamily"
+  ],
+  "publicationRequirements": [
+    "asset provenance source hash/credits and immutable originals match",
+    "visual approval matches EXACT reviewed image/board, not blanket season approval",
+    "every source rect and socket within source bounds",
+    "unmapped scene cells fail production publish, remain visible in authoring",
+    "renderer / editor / world collision-nav parity evidence",
+    "atomic staging and rollback; no partial catalogs or mixed revisions",
+    "PCC Full Gate and actual Windows runtime receipts before runtime certified"
+  ],
+  "currentCandidateInput": "havenwild.experimental.semantic_scene_plan.v0_1: zero draw calls, 1120 unmapped, debug ONLY",
+  "forbidden": [
+    "promote legacy baseTiles as certified without review",
+    "replace missing source pixels with guessed artwork",
+    "treat color-coded semantic debug as renderer parity",
+    "write protected original sources or canonical saves"
+  ],
+  "status": "CONTRACT_ONLY_NO_PRODUCTION_DRAW_PLAN_OR_PIE"
+}

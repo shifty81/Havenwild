@@ -7,4 +7,11 @@
   @{ Id='editor-v2-architecture'; Key='pcc.validate-editor-v2'; Label='Validate Experimental Editor architecture v2'; Kind='PccBuiltin'; Menu=@('project'); MenuOrder=10 }
   @{ Id='pcc-vault-status'; Key='pcc.vault-status'; Label='Vault dependency status'; Kind='PccBuiltin'; Menu=@('project','logs'); MenuOrder=11 }
   @{ Id='pcc-vault-sync'; Key='pcc.vault-sync'; Label='Sync verified dependencies with Vault'; Kind='PccBuiltin'; Menu=@('project'); MenuOrder=12 }
+  # Experimental Bevy work is hosted by the existing PCC, never a second PCC.
+  @{ Id='bevy-exp-status'; Key='experimental.bevy.status'; Label='Bevy candidate: project/status'; Kind='Script'; Script='HavenwildBevyCandidate.ps1'; Category='validation'; Menu=@('build'); MenuOrder=180; Args=@('-Action','Status') }
+  @{ Id='bevy-exp-verify'; Key='experimental.bevy.verify'; Label='Bevy candidate: source + fixture verify'; Kind='Script'; Script='HavenwildBevyCandidate.ps1'; Category='validation'; Menu=@('build'); MenuOrder=190; Args=@('-Action','Verify') }
+  @{ Id='bevy-exp-scene-plan'; Key='experimental.bevy.scene-plan'; Label='Bevy candidate: semantic scene plan (unmapped evidence)'; Kind='Script'; Script='HavenwildBevyCandidate.ps1'; Category='validation'; Menu=@('build','world'); MenuOrder=195; Args=@('-Action','ScenePlan') }
+  @{ Id='bevy-exp-draft-plan'; Key='experimental.bevy.draft-plan'; Label='Bevy candidate: original-pixel UNAPPROVED GPU draw plan'; Kind='Script'; Script='HavenwildBevyCandidate.ps1'; Category='validation'; Menu=@('build','world'); MenuOrder=196; Args=@('-Action','DraftPlan') }
+  @{ Id='bevy-exp-build'; Key='experimental.bevy.build'; Label='Bevy candidate: cargo check'; Kind='Script'; Script='HavenwildBevyCandidate.ps1'; Category='builds'; Menu=@('build'); MenuOrder=200; Args=@('-Action','Build') }
+  @{ Id='bevy-exp-run'; Key='experimental.bevy.run'; Label='Bevy candidate: run isolated preview'; Kind='Script'; Script='HavenwildBevyCandidate.ps1'; Category='builds'; Menu=@('run'); MenuOrder=80; Args=@('-Action','Run') }
 )

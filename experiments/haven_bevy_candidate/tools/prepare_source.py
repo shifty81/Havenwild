@@ -17,8 +17,11 @@ import zipfile
 SOURCE = 'Terrain/terrain_summer.png'
 CREDITS = 'Terrain/Credits.txt'
 EXPECTED_SOURCE_SHA = '1251a6ea556330190ccb1e3af166eb69fbec4b7a3f7d51c1f54728abd75bd752'
-BASELINE = '16d3051b49511b0eab0cb93c3013ba9bfeb302f7'
+EXPECTED_CREDITS_SHA = '955d40a17e361fa2837d2af83917b07043ca078da096bd48c5b4a8c7004eebbf'
+BASELINE = '78ff838499015ff434dbd935ae5daf9cbd11a02e'
 SCENE = 'content/worldgen/scenes/terrain_acceptance/river_scene_v1.json'
+INSTALLED_SOURCE = Path('assets/source/licensed/lpc_revised/Terrain')
+LOCAL_ARCHIVE = Path('Terrain.zip')
 
 
 class SourceError(ValueError):
@@ -73,9 +76,30 @@ def original_bytes(archive: Path) -> tuple[bytes, bytes, str]:
         raw, credits = z.read(SOURCE), z.read(CREDITS)
     if sha(raw) != EXPECTED_SOURCE_SHA:
         raise SourceError('terrain_summer.png differs from approved input archive bytes; fail closed')
+    if sha(credits) != EXPECTED_CREDITS_SHA:
+        raise SourceError('Terrain/Credits.txt differs from pinned original credits; fail closed')
     if not raw.startswith(b'\x89PNG\r\n\x1a\n'):
         raise SourceError('Original terrain sheet is not PNG')
     return raw, credits, sha(archive.read_bytes())
+
+
+def installed_original_bytes(root: Path) -> tuple[bytes, bytes, None]:
+    """Reuse the project's existing verified ElizaWy mount; never modify it.
+
+    Do not run dependency installation/downloads from an editor Run operation.
+    The exact two source files are hash-checked before candidate-local copies.
+    """
+    source_dir = root / INSTALLED_SOURCE
+    image = source_dir / 'terrain_summer.png'
+    credits_path = source_dir / 'Credits.txt'
+    if not image.is_file() or not credits_path.is_file():
+        raise SourceError(f'Installed original ElizaWy source/credits missing at {source_dir}')
+    raw, credits = image.read_bytes(), credits_path.read_bytes()
+    if sha(raw) != EXPECTED_SOURCE_SHA or not raw.startswith(b'\x89PNG\r\n\x1a\n'):
+        raise SourceError('Installed original ElizaWy summer source SHA/PNG mismatch; refusing fallback')
+    if sha(credits) != EXPECTED_CREDITS_SHA:
+        raise SourceError('Installed original ElizaWy credits SHA mismatch; refusing fallback')
+    return raw, credits, None
 
 
 def atomic_write(path: Path, raw: bytes) -> None:
@@ -96,37 +120,49 @@ def atomic_write(path: Path, raw: bytes) -> None:
         temporary.unlink(missing_ok=True)
 
 
-def stage(archive: Path, candidate: Path, root: Path) -> dict:
+def stage(archive: Path | None, candidate: Path, root: Path) -> dict:
     candidate = candidate.resolve(strict=True)
     root = root.resolve(strict=True)
     if not candidate.is_relative_to(root) or candidate == root:
         raise SourceError('Candidate must be an isolated child of Havenwild root')
     if candidate != root / 'experiments/haven_bevy_candidate':
         raise SourceError('Staging destination must be the expected candidate directory')
+    # Restrict ALL candidate-local writes before reading archives or touching
+    # the stage directory. The prior implementation checked the branch AFTER
+    # writing image/credits, which was inappropriate for main-lane isolation.
+    head = git(root, 'rev-parse', 'HEAD')
+    branch = git(root, 'symbolic-ref', '-q', '--short', 'HEAD')
+    if not head or branch != 'experimental':
+        raise SourceError('Git experimental checkout required before source staging')
+    try:
+        ancestry = subprocess.run(['git', '-C', str(root), 'merge-base', '--is-ancestor', BASELINE, 'HEAD'],
+                                  capture_output=True, check=False, timeout=10)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise SourceError(f'Git ancestry could not be established: {exc}') from exc
+    if ancestry.returncode != 0:
+        raise SourceError('Checkout does not descend from B48R28B GREEN')
+    lineage = True
+    for relative in ('assets', 'assets/source', 'assets/source/Terrain', 'evidence'):
+        if (candidate / relative).is_symlink():
+            raise SourceError(f'Candidate staging directory redirected: {relative}')
     fixture = fixture_details(root)
-    raw, credits, archive_hash = original_bytes(archive)
+    if archive is None:
+        raw, credits, archive_hash = installed_original_bytes(root)
+        origin = 'verified_project_elizawy_mount'
+    else:
+        raw, credits, archive_hash = original_bytes(archive)
+        origin = 'explicit_original_terrain_archive'
     # Explicitly prevent canonical source path write.
     output = candidate / 'assets/source/Terrain/terrain_summer.png'
     credit_output = candidate / 'assets/source/Terrain/Credits.txt'
     atomic_write(output, raw)
     atomic_write(credit_output, credits)
-    head = git(root, 'rev-parse', 'HEAD')
-    branch = git(root, 'symbolic-ref', '-q', '--short', 'HEAD')
-    ancestor = git(root, 'merge-base', '--is-ancestor', BASELINE, 'HEAD')
-    # Git --is-ancestor returns blank stdout on success; use a separate exit code.
-    lineage = None
-    if head:
-        result = subprocess.run(['git', '-C', str(root), 'merge-base', '--is-ancestor', BASELINE, 'HEAD'],
-                                capture_output=True, check=False, timeout=10)
-        lineage = result.returncode == 0
-        if branch != 'experimental' or not lineage:
-            raise SourceError('Git checkout is not an experimental descendant of B48R28A')
-    _ = ancestor
     receipt = {
         'schema': 'havenwild.b48r28b.source_stage.v1', 'publicationStatus': 'candidate_only',
         'certification': 'original_source_bytes_verified_not_asset_mapping_or_runtime_certified',
         'branch': branch, 'gitHead': head, 'baselineCommit': BASELINE,
         'baselineAncestor': lineage, 'archiveSha256': archive_hash,
+        'sourceOrigin': origin,
         'sourceArchiveEntry': SOURCE, 'sourceSha256': sha(raw),
         'creditsSha256': sha(credits), 'fixture': fixture,
         'originalSourceMutated': False, 'canonicalSaveMutated': False,
@@ -140,7 +176,9 @@ def stage(archive: Path, candidate: Path, root: Path) -> dict:
         raise SourceError('Refusing symlink receipt')
     if evidence.exists():
         prior = json.loads(evidence.read_text(encoding='utf-8'))
-        if any(prior.get(k) != receipt[k] for k in ('sourceSha256', 'creditsSha256', 'archiveSha256', 'fixture')):
+        # The same bytes can be discovered from an installed source instead of
+        # the original ZIP. Keep existing provenance intact; do not rewrite it.
+        if any(prior.get(k) != receipt[k] for k in ('sourceSha256', 'creditsSha256', 'fixture')):
             raise SourceError('Source evidence changed; remove stale candidate evidence only after review')
     else:
         atomic_write(evidence, encoded)
@@ -149,8 +187,8 @@ def stage(archive: Path, candidate: Path, root: Path) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--terrain-zip', type=Path, required=True,
-                        help='User-supplied original ElizaWy Terrain.zip path')
+    parser.add_argument('--terrain-zip', type=Path,
+                        help='Explicit original Terrain.zip; otherwise reuse existing verified project-local ElizaWy source')
     args = parser.parse_args()
     candidate = Path(__file__).resolve().parents[1]
     try:

@@ -1,0 +1,109 @@
+{
+  "schema": "havenwild.engine_convergence.v0_1",
+  "scope": "experimental_only",
+  "baseline": {
+    "repository": "shifty81/Havenwild",
+    "branch": "experimental",
+    "commit": "78ff838499015ff434dbd935ae5daf9cbd11a02e",
+    "state": "B48R28B_GREEN_as_recorded_in_commit; not independently rebuilt in this package"
+  },
+  "oneAuthorityPerConcern": {
+    "projectAndJobs": "existing Havenwild PCC and live Git checkout",
+    "documentAndCommands": "haven_authoring, to be revised for stable IDs and expected revisions",
+    "worldAndTopology": "haven_world plus Havenwild save contracts",
+    "sourceAndPublication": "Havenwild Asset Authority, original ElizaWy bytes immutable",
+    "sceneAndAssetDrawPlan": "Asset Authority is sole publish authority; existing historical mapping supplies explicit source-only DRAFT evidence (not certified recipe)",
+    "renderAndApplication": "Bevy candidate, not yet promoted",
+    "dockingAndChrome": "pinned ForgeGUI shell, existing library extended as needed",
+    "runtimeSimulation": "existing Havenwild authoritative game until new host passes parity",
+    "networkAndEstates": "existing Havenwild identity/persistence contracts, no candidate replication yet",
+    "patchesAndCertification": "existing Havenwild PCC, no alternate update authority"
+  },
+  "reusablePipeline": [
+    "immutable original source -> source-verified roles/regions in existing mapper",
+    "source-exact recipe -> Asset Authority candidate -> visual approval -> validated publication",
+    "canonical scene/world document -> shared semantic topology and elevation",
+    "shared draw-plan DTO -> Bevy adapter AND shadow current runtime/editor renderer",
+    "ForgeGUI world/pixel/animation/prefab surfaces -> one revisioned authoring command bus",
+    "isolated PIE snapshot -> actual Havenwild authoritative host -> revision acknowledgment",
+    "PCC parity + source checks + real Windows build + functional tests -> component promotion"
+  ],
+  "subsystems": [
+    {
+      "name": "root_operations",
+      "status": "registered_B48R28C1_candidate_commands",
+      "preserve": "current PCC"
+    },
+    {
+      "name": "forge_gui",
+      "status": "pinned ForgeGUI source preview + read-only semantic debug view, shared separate selection in Inspector",
+      "missing": "actual world GPU viewport, multi-view, focus/DPI and native-window tests"
+    },
+    {
+      "name": "bevy_renderer",
+      "status": "R28C3 Bevy sprite world-shaped candidate using original source pixels/historic explicit first-cell positions; unapproved, GPU launch unverified",
+      "missing": "reviewed mapper source recipe, neighbor transitions, animation/cliffs, Windows GPU proof, editor/client parity"
+    },
+    {
+      "name": "authoring",
+      "status": "legacy_studios_present",
+      "missing": "single stable document/selection IDs, revisioned transactions and undo across floating surfaces"
+    },
+    {
+      "name": "eliza_mapper",
+      "status": "existing_mapper_preserved",
+      "missing": "full source roles, exact regions, sockets, animation/collision, certified publication"
+    },
+    {
+      "name": "pixel_animation_prefab",
+      "status": "legacy_workflows_preserved",
+      "missing": "shared working copy, clip evaluator, prefab definition/instance scope and dependencies"
+    },
+    {
+      "name": "world_and_height",
+      "status": "legacy_runtime_is_authority",
+      "missing": "migration to discrete 0..30 levels incl +1 water/cliffs; four-ocean-edge 3..15-island contract"
+    },
+    {
+      "name": "simulation",
+      "status": "legacy_game_is_authority",
+      "missing": "headless fixed-step host without Macroquad dependency"
+    },
+    {
+      "name": "pie",
+      "status": "not_implemented_in_candidate",
+      "missing": "real game snapshot, command ACK, input, save isolation, controlled stop"
+    },
+    {
+      "name": "asset_interchange",
+      "status": "deferred",
+      "missing": "Tiled and LDtk import adapters, no alternate canonical formats"
+    }
+  ],
+  "candidateSafety": {
+    "legacyWriterAuthority": true,
+    "candidateSaveWritesAllowed": false,
+    "candidateAssetPublicationAllowed": false,
+    "candidateIsolatedCargoWorkspace": true,
+    "candidateDoesNotCertifyOwnResults": true,
+    "windowsBuildGateRequired": true,
+    "componentRetirementRequiresParitiedConsumers": true
+  },
+  "currentPass": "B48R28C3 candidate only: original pixel Bevy GPU world-shaped draft from UNAPPROVED historic first-cell coords, semantic debug retained, 0 approved draw calls",
+  "futureProof": {
+    "B48R28C2": "read-only semantic debug grid + source/scene hash/adjacency receipt; NO approved artwork or world render parity",
+    "B48R28C3": "candidate GPU world-shaped sprite draft, original exact source pixels and hashed historical coords, no visual approval or parity",
+    "B48R28D": "actual-game PIE and runtime ACK, collision, navigation, animation and full PCC gates",
+    "B48R28C4": "stable document and view IDs, revisioned edit/undo/save/reopen isolated"
+  },
+  "notClaimed": [
+    "Bevy Windows build",
+    "world renderer parity",
+    "macroquad retirement",
+    "PIE",
+    "full PCC gate",
+    "full ElizaWy certification",
+    "ElizaWy exact-cell mapping",
+    "successful GPU launch or screenshot of R28C3 world-shaped sprite draft"
+  ]
+}

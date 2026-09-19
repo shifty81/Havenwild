@@ -1,8 +1,8 @@
 {
   "schema": "havenwild.engine_rebuild.candidate.v0_1",
-  "pass": "B48R28B",
+  "pass": "B48R28C3",
   "branchRestriction": "experimental",
-  "protectedBaselineCommit": "16d3051b49511b0eab0cb93c3013ba9bfeb302f7",
+  "protectedBaselineCommit": "78ff838499015ff434dbd935ae5daf9cbd11a02e",
   "candidate": "experiments/haven_bevy_candidate",
   "candidateCargoWorkspace": "independent_not_root_member",
   "backend": {
@@ -17,15 +17,23 @@
     "archive": "user-provided original Terrain.zip",
     "sourcePath": "Terrain/terrain_summer.png",
     "sha256": "1251a6ea556330190ccb1e3af166eb69fbec4b7a3f7d51c1f54728abd75bd752",
-    "imageSize": [512, 832],
+    "imageSize": [
+      512,
+      832
+    ],
     "staging": "candidate_only_ignored_assets/source",
     "status": "original_bytes_required_not_in_patch",
     "approvedArtRoles": false
   },
   "actualFixture": {
     "path": "content/worldgen/scenes/terrain_acceptance/river_scene_v1.json",
-    "consumption": "semantic_inventory_only_not_resolved_world_render",
-    "requires": ["tileSize_32", "complete_rectangular_terrain_grid"]
+    "consumption": "semantic debug plus unapproved GPU sprite composition from original pixels/historical first-cell source coordinates; NOT renderer parity",
+    "requires": [
+      "tileSize_32",
+      "complete_rectangular_terrain_grid"
+    ],
+    "semanticPlan": "experiments/haven_bevy_candidate/evidence/semantic_scene_plan.json",
+    "draftDrawPlan": "experiments/haven_bevy_candidate/evidence/draft_source_draw_plan.json"
   },
   "authority": {
     "canonicalSaveWriter": "legacy_only",
@@ -38,8 +46,30 @@
   "proofGates": {
     "B48R28B": "verified_original_source_and_real_fixture_loaded; actual Windows Bevy plus ForgeGUI preview launch and resize/dock smoke",
     "B48R28C": "canonical_certified_draw_plan_and_world_render; revisions; transactional edit undo redo save reopen isolated",
-    "B48R28D": "actual Havenwild runtime host client PIE, candidate scene hash ACK, collision, full PCC gate, rollback"
+    "B48R28D": "actual Havenwild runtime host client PIE, candidate scene hash ACK, collision, full PCC gate, rollback",
+    "B48R28C1": "PCC registration + branch/source/fixture/candidate checks + tests, not actual world draw parity",
+    "B48R28C2": "real fixture semantic grid read-only; hashed 1,120-cell adjacency and unresolved mapping receipt; not actual world render",
+    "B48R28C3": "UNAPPROVED original-source GPU sprite composition from historical first-cell mapping, explicit source/fixture hashes, no certified recipes, no PIE, Windows build PENDING"
   },
   "retirement": "only_after_candidate_world_client_editor_mapper_and_pie_parity_no_macroquad_dependency",
-  "publication": "candidate_not_runtime_certified"
+  "publication": "candidate_original_pixel_gpu_draft_only_no_runtime_art_cert",
+  "projectOperations": {
+    "authority": "existing Havenwild PCC via registered commands and shared PCC job logs",
+    "registeredKeys": [
+      "experimental.bevy.status",
+      "experimental.bevy.verify",
+      "experimental.bevy.scene-plan",
+      "experimental.bevy.draft-plan",
+      "experimental.bevy.build",
+      "experimental.bevy.run"
+    ],
+    "registeredIn": "tools/control/PccCommandExtensions.ps1",
+    "dispatch": "tools/control/PccCommandHost.ps1 -> HavenwildBevyCandidate.ps1 -> candidate_gate.py",
+    "branch": "experimental only; B48R28B must be ancestor",
+    "inputGate": "original ElizaWy source, credits, source-stage receipt, exact scene hash/identity, pinned candidate manifest",
+    "writes": "only candidate-local Cargo cache, source, semantic and draft evidence; no canonical save/publication",
+    "build": "candidate cargo check; candidate Cargo.lock used if present, otherwise uncertified dependency resolution",
+    "run": "candidate cargo run with original source view + actual fixture Bevy GPU draft using historical first-cell coordinates; no approved world art or PIE",
+    "certification": "PCC full gate mandatory; candidate-input PASS is not visual/gameplay certification"
+  }
 }

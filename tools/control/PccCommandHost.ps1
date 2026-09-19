@@ -81,6 +81,24 @@ function Invoke-PccBuiltinCommand {
 
 function Invoke-PccCommandKey {
   param([string]$Root,[string]$Key,[string]$Pass='manual')
+  # Registered candidate operations are dispatched by the SAME PCC job host.
+  # Do not forward these extension keys to HavenwildTools.ps1: its historical
+  # registry intentionally does not include the extension registry.
+  if($Key -in @('experimental.bevy.status','experimental.bevy.verify','experimental.bevy.scene-plan','experimental.bevy.draft-plan','experimental.bevy.build','experimental.bevy.run')) {
+    $action=switch($Key){
+      'experimental.bevy.status' { 'Status' }
+      'experimental.bevy.verify' { 'Verify' }
+      'experimental.bevy.scene-plan' { 'ScenePlan' }
+      'experimental.bevy.draft-plan' { 'DraftPlan' }
+      'experimental.bevy.build' { 'Build' }
+      'experimental.bevy.run' { 'Run' }
+    }
+    $script=Join-Path $Root 'tools\control\HavenwildBevyCandidate.ps1'
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $script -Root $Root -Action $action
+    $result=$LASTEXITCODE
+    if($null -eq $result){ return 2 }
+    return [int]$result
+  }
   if($Key.StartsWith('pcc.')){ return Invoke-PccBuiltinCommand -Root $Root -Key $Key }
   return Invoke-PccLegacyCommand -Root $Root -Key $Key -Pass $Pass
 }

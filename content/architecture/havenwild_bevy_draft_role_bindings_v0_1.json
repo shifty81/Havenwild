@@ -1,0 +1,25 @@
+{
+  "schema": "havenwild.experimental.manual_draft_role_bindings.v0_1",
+  "purpose": "OPTIONAL unapproved source-exact GPU experiment only; NOT mapper publication or game art",
+  "sourceFamily": "ElizaWy",
+  "source": "Terrain/terrain_summer.png",
+  "sourceSha256": "1251a6ea556330190ccb1e3af166eb69fbec4b7a3f7d51c1f54728abd75bd752",
+  "historicalMapping": "content/assets/intake/lpc_terrain_family_mapping_v0_3.json",
+  "historicalMappingSha256": "280735da3be341cbbb6a085d45fc14673886a94d24d2b34473ff48878f038307",
+  "selectionPolicy": "EXPLICIT_FIRST_CELL_ONLY_NO_ADJACENCY_NO_AUTOTILE",
+  "roleBindings": [
+    {"sceneRole": "Grass", "historicalBaseTile": "grass", "sourceVariantIndex": 0},
+    {"sceneRole": "RiverWater", "historicalBaseTile": "river_water", "sourceVariantIndex": 0},
+    {"sceneRole": "MudBank", "historicalBaseTile": "mud_bank", "sourceVariantIndex": 0}
+  ],
+  "reviewStatus": "DRAFT_SOURCE_COORDINATES_NOT_VISUALLY_APPROVED",
+  "sourceArtApproval": false,
+  "worldRendererParity": false,
+  "runtimePublicationAllowed": false,
+  "limitations": [
+    "No neighbor-aware shoreline/river/corner transitions",
+    "No elevation, cliff, waterfall, water contacts, collision or traversal",
+    "Historical source coordinates are NOT visual approval",
+    "Source pixels are exact original atlas bytes but scene composition is unreviewed"
+  ]
+}
