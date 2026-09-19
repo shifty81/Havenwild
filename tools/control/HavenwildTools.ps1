@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param([string]$Command = "menu", [string]$Pass = "manual", [switch]$ReturnToMenu)
 $ErrorActionPreference = "Continue"
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
@@ -257,6 +257,7 @@ function Get-FrontDoorState {
 function Get-RootPatchDiscoveryPatterns {
   return @(
     'Havenwild_IncrementalPatch_*.zip',
+    'Havenwild_CUMULATIVE_PCC_Patch_*.zip',
     'Havenwild_Patch_*.zip',
     'Havenwild_Handoff_*.zip',
     'Havenwild__*.patch',
@@ -602,7 +603,7 @@ function Invoke-CompilerWarningSummary {
 function Invoke-UpdateStatus {
   Invoke-HavenwildAction 'Patch / update status' {
     $pendingMap=@{}
-    foreach($pattern in @('Havenwild_IncrementalPatch_*.zip','Havenwild_Patch_*.zip','Havenwild_Handoff_*.zip')) {
+    foreach($pattern in @('Havenwild_IncrementalPatch_*.zip','Havenwild_CUMULATIVE_PCC_Patch_*.zip','Havenwild_Patch_*.zip','Havenwild_Handoff_*.zip')) {
       foreach($candidate in @(Get-ChildItem -LiteralPath $Root -File -Filter $pattern -ErrorAction SilentlyContinue)) {
         $pendingMap[$candidate.FullName.ToLowerInvariant()]=$candidate
       }

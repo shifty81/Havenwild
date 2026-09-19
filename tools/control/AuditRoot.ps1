@@ -21,5 +21,9 @@ if($unexpected.Count -eq 0 -and $missing.Count -eq 0){
   exit 0
 }
 if($unexpected.Count){Write-Host 'FAIL: unexpected root files:';$unexpected|ForEach-Object{Write-Host " - $_"}}
+if(@($unexpected | Where-Object { $_ -match '^Havenwild_CUMULATIVE_PCC_Patch_.+ \([0-9]+\)\.zip$' }).Count -gt 0){
+  Write-Host 'RECOVERY: browser-renamed duplicate cumulative ZIP (1).zip is not a normal transport. Preserve it outside the root (e.g. Downloads) or re-run PCC with repaired duplicate holding logic. Do not extract it into the repository.'
+}
+
 if($missing.Count){Write-Host 'FAIL: missing required root files:';$missing|ForEach-Object{Write-Host " - $_"}}
 exit 1

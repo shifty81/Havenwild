@@ -60,8 +60,8 @@ function Start-PccReplacement {
     [switch]$WaitForCompletion
   )
   $ticket=New-PccRestartTicket -Root $Root -Reason $Reason -ResumeCommand $ResumeCommand -ReturnToMenu:$ReturnToMenu
-  $host=Join-Path $Root 'tools\control\HavenwildPccHost.ps1'
-  $args=@('-NoProfile','-ExecutionPolicy','Bypass','-File',("`"{0}`"" -f $host),'-Command',$ResumeCommand,'-Pass',$Pass,'-RestartToken',$ticket.Token)
+  $replacementHostScript=Join-Path $Root 'tools\control\HavenwildPccHost.ps1'
+  $args=@('-NoProfile','-ExecutionPolicy','Bypass','-File',("`"{0}`"" -f $replacementHostScript),'-Command',$ResumeCommand,'-Pass',$Pass,'-RestartToken',$ticket.Token)
   if($ReturnToMenu){ $args += '-ReturnToMenu' }
   if($WaitForCompletion){
     # Interactive PCC replacements must inherit this SAME console, not open

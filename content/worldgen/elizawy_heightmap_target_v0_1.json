@@ -1,0 +1,29 @@
+{
+  "schema": "havenwild.elizawy.heightmap_target.v0_1",
+  "status": "approved_design_not_runtime_migrated",
+  "provider": "elizawy",
+  "oceanElevation": 0,
+  "testMinElevation": 0,
+  "testMaxElevation": 30,
+  "everyIntegerLevelIsReal": true,
+  "levelOneValidCoastalCliff": true,
+  "levelOneValidTerraceAndRecessedPond": true,
+  "mountainTraversal": [
+    "source_climbable_vines",
+    "source_cliff_indentations",
+    "source_ladders",
+    "topologically_walkable_cliff_terminations"
+  ],
+  "forbidArbitraryWalkableCliffFace": true,
+  "forbidUnprovedRampFallback": true,
+  "visualAssembly": "elizaWy_source_exact_recipe_required",
+  "authority": "heightmap_controls_source_tile_placement_collision_navigation_and_hydrology",
+  "migrationBlockers": [
+    "haven_core MAX_STRUCTURAL_LEVEL=4 must migrate to 30 with dependent tests",
+    "haven_world structural_elevation_normalization_v1 currently promotes/collapses real +1; must retire",
+    "existing authored legacy ramp corridors require explicit migration",
+    "editor height painting, worldgen, collision, pathing and water render need shared certified recipes"
+  ],
+  "runtimeCertified": false,
+  "visualApproval": false
+}

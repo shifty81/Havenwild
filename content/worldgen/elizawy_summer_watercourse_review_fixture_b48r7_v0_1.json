@@ -15,7 +15,7 @@
     "recessed_pond": 1,
     "southern_river": 0
   },
-  "structuralCliffHeightPolicy": "true cliffs require >=2 levels; isolated 1-level drops are not automatically legal cliffs; reconcile via engine topology before runtime",
+  "structuralCliffHeightPolicy": "SUPERSEDED: all integer heights 0..30 are real; +1 ocean cliff, terrace and recessed pond are valid; runtime migration still pending",
   "drawingOrder": [
     "terrain_base",
     "upper_land_cliff_top",
@@ -42,5 +42,6 @@
     "shoreline water/wading policy explicit",
     "connectors only where source art and structural topology agree"
   ],
-  "proofStatus": "blocked_until_built_in_editor_and_client"
+  "proofStatus": "blocked_until_built_in_editor_and_client",
+  "heightmapTarget": "content/worldgen/elizawy_heightmap_target_v0_1.json"
 }

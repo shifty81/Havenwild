@@ -474,8 +474,37 @@ function Invoke-OnePatch {
   }
 }
 
+# A browser may append " (1)" to a cumulative patch ZIP. This is NOT a
+# distinct version: never execute that renamed download blindly or leave it
+# to block the root cleanliness gate. Preserve it (including its hash) in a
+# held-downloads area for explicit manual reconciliation. An unreadable or
+# unrecognized ZIP is left alone so the root audit still fails closed.
+foreach($candidate in @(Get-ChildItem -LiteralPath $rootFull -File -Filter 'Havenwild_CUMULATIVE_PCC_Patch_*.zip' -ErrorAction SilentlyContinue)){
+  if($candidate.Name -notmatch '^Havenwild_CUMULATIVE_PCC_Patch_.+ \([0-9]+\)\.zip$'){ continue }
+  try {
+    $archive=[IO.Compression.ZipFile]::OpenRead($candidate.FullName)
+    try {
+      $manifestText=Get-ArchiveManifestText -Archive $archive
+      $manifest=$manifestText | ConvertFrom-Json -ErrorAction Stop
+      if(([string]$manifest.schema) -ne 'havenwild.root_patch.v1' -or ([string]$manifest.project) -ne 'Havenwild'){
+        throw 'Unexpected duplicate transport manifest; root audit will flag this file.'
+      }
+    } finally { $archive.Dispose() }
+    $hash=(Get-FileHash -LiteralPath $candidate.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+    $holding=Join-Path $rootFull ('artifacts\updates\held-duplicate-downloads\' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+    New-Item -ItemType Directory -Force -Path $holding | Out-Null
+    $destination=Join-Path $holding $candidate.Name
+    if(Test-Path -LiteralPath $destination){ throw 'Duplicate holding path collision; root audit will flag this file.' }
+    Move-Item -LiteralPath $candidate.FullName -Destination $destination -ErrorAction Stop
+    Write-Host ("HELD duplicate download (not applied): {0}; sha256={1}; stored at {2}" -f $candidate.Name,$hash,$destination) -ForegroundColor Yellow
+  } catch {
+    Write-Warning ("Duplicate-name ZIP retained in root for safe manual investigation: {0}: {1}" -f $candidate.Name,$_.Exception.Message)
+  }
+}
+
 $patchPatterns = @(
   'Havenwild_IncrementalPatch_*.zip',
+  'Havenwild_CUMULATIVE_PCC_Patch_*.zip',
   'Havenwild_Patch_*.zip',
   'Havenwild_Handoff_*.zip',
   'Havenwild__*.patch',

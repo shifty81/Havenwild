@@ -8,13 +8,17 @@ use macroquad::prelude::*;
 use rfd::FileDialog;
 use serde::{Deserialize, Serialize};
 
+mod review;
+mod scene_audit;
+
 const TILE_SIZE: i32 = 32;
 const TOP_BAR_H: f32 = 82.0;
 const STATUS_H: f32 = 32.0;
-const SOURCE_SHEET_STACK_H: f32 = 205.0;
+const SOURCE_SHEET_STACK_MIN_H: f32 = 210.0;
 const SOURCE_PREVIEW_TOP_PAD: f32 = 12.0;
 const SHEET_CARD_H: f32 = 34.0;
-const MAX_LIBRARY_SHEETS: usize = 8192;
+const MAX_LIBRARY_SHEETS: usize = 100_000; // Full ElizaWy index; textures remain lazy.
+const MAX_UNDO_STEPS: usize = 64;
 const GAP: f32 = 12.0;
 const INSPECTOR_W: f32 = 292.0;
 const MIN_SOURCE_ZOOM: f32 = 0.50;
@@ -23,19 +27,32 @@ const MIN_CANVAS_ZOOM: f32 = 1.00;
 const MAX_CANVAS_ZOOM: f32 = 4.00;
 const DEFAULT_CANVAS_ZOOM: f32 = 2.00;
 const ZOOM_STEP: f32 = 1.07;
-const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_5";
+const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_6"; // Compatible B48R14 persistence.
+const LEGACY_PROJECT_SCHEMA_V5: &str = "havenwild.atlas_mapper_project.v0_5";
 const LEGACY_PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_1";
 const LEGACY_PROJECT_SCHEMA_V2: &str = "havenwild.atlas_mapper_project.v0_2";
 const LEGACY_PROJECT_SCHEMA_V3: &str = "havenwild.atlas_mapper_project.v0_3";
 const LEGACY_PROJECT_SCHEMA_V4: &str = "havenwild.atlas_mapper_project.v0_4";
-const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_6";
+const HANDOFF_SCHEMA: &str = "havenwild.atlas_assembly_handoff.v0_7";
 const MAPPED_SHEET_SCHEMA: &str = "havenwild.atlas_mapper_mapped_sheet.v0_5";
 const TERRAIN_ATLAS_CATALOG_REL: &str = "content/assets/terrain_atlas_catalog_v2.json";
 const EXTERNAL_ASSET_ROOTS_REL: &str = "content/assets/intake/external_asset_roots_v0_1.json";
 const LOCAL_EXTERNAL_ASSET_ROOTS_REL: &str = ".local/havenwild_external_asset_roots.json";
 const MAPPED_TILE_STATUS_DRAFT: &str = "draft_mapped";
 const MAPPED_TILE_STATUS_LEARNED: &str = "learned_mapping";
-const MAPPED_TILE_STATUS_VALIDATED: &str = "validated_mapping";
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+enum AuthorTool {
+    Select,
+    Elevation,
+    Water,
+}
+
+impl AuthorTool {
+    fn label(self) -> &'static str {
+        match self { Self::Select => "Select", Self::Elevation => "Height", Self::Water => "Water" }
+    }
+}
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
@@ -212,6 +229,7 @@ struct SourceSheetCard {
     status: SourceSheetStatus,
     mapped_tile_count: usize,
     coverage_percent: f32,
+    source_address_count: usize, // Pixel matches only; never semantic/visual certification.
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -289,6 +307,27 @@ struct AssemblyPiece {
     flip_y: bool,
     layer: i32,
     semantic_role: String,
+    #[serde(default)]
+    source_asset_id: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+struct SourceAssetDocument {
+    id: String,
+    path: String,
+    file_name: String,
+    // Source bytes are verified by the mapper-owned review exporter before evidence is produced.
+    #[serde(default)]
+    source_sha256: Option<String>,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+struct TerrainHeightCell {
+    x: i32,
+    y: i32,
+    elevation: u8,
+    #[serde(default)]
+    water_surface: Option<u8>,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -308,6 +347,12 @@ struct MapperProjectDocument {
     canvas_pan: [f32; 2],
     canvas_zoom: f32,
     pieces: Vec<AssemblyPiece>,
+    #[serde(default)]
+    source_assets: Vec<SourceAssetDocument>,
+    #[serde(default)]
+    active_source_asset_id: String,
+    #[serde(default)]
+    heightmap: Vec<TerrainHeightCell>,
     authoring_notes: Vec<String>,
 }
 
@@ -326,6 +371,9 @@ struct HandoffDocument {
     assembly_name: String,
     exported_unix_seconds: u64,
     pieces: Vec<AssemblyPiece>,
+    source_assets: Vec<SourceAssetDocument>,
+    heightmap: Vec<TerrainHeightCell>,
+    certification_stage: String,
     engine_notes: Vec<String>,
 }
 
@@ -374,6 +422,7 @@ struct MappedSheetRecord {
 }
 
 struct LoadedAtlas {
+    id: String,
     path: PathBuf,
     texture: Texture2D,
     width: i32,
@@ -411,8 +460,23 @@ impl MappingStage {
     }
 }
 
+#[derive(Clone)]
+struct SceneSnapshot {
+    pieces: Vec<AssemblyPiece>,
+    heightmap: Vec<TerrainHeightCell>,
+    next_piece_id: u32,
+    selected_piece: Option<usize>,
+}
+
 struct MapperApp {
     atlas: Option<LoadedAtlas>,
+    source_stack: Vec<LoadedAtlas>,
+    heightmap: Vec<TerrainHeightCell>,
+    undo_stack: Vec<SceneSnapshot>,
+    redo_stack: Vec<SceneSnapshot>,
+    author_tool: AuthorTool,
+    paint_elevation: u8,
+    dirty: bool,
     project_path: Option<PathBuf>,
     last_handoff_path: Option<PathBuf>,
     selected_tile: Option<SourceTile>,
@@ -429,12 +493,16 @@ struct MapperApp {
     canvas_zoom: f32,
     is_panning_source: bool,
     is_panning_canvas: bool,
+    is_painting_height: bool,
     last_mouse: Vec2,
     status: String,
     mapping_stage: MappingStage,
     auto_seed: u64,
     scene_generation_count: u32,
     sheet_library: Vec<SourceSheetCard>,
+    sheet_library_visible: Vec<usize>,
+    sheet_library_search: String,
+    sheet_library_search_focused: bool,
     sheet_library_scroll: f32,
     library_notice: String,
 }
@@ -443,6 +511,13 @@ impl Default for MapperApp {
     fn default() -> Self {
         Self {
             atlas: None,
+            source_stack: Vec::new(),
+            heightmap: Vec::new(),
+            undo_stack: Vec::new(),
+            redo_stack: Vec::new(),
+            author_tool: AuthorTool::Select,
+            paint_elevation: 1,
+            dirty: false,
             project_path: None,
             last_handoff_path: None,
             selected_tile: None,
@@ -459,19 +534,236 @@ impl Default for MapperApp {
             canvas_zoom: DEFAULT_CANVAS_ZOOM,
             is_panning_source: false,
             is_panning_canvas: false,
+            is_painting_height: false,
             last_mouse: Vec2::ZERO,
             status: "Load an atlas, map 32x32 cells as puzzle pieces, then save/export into the asset intake lane.".to_string(),
             mapping_stage: MappingStage::SourceOnly,
             auto_seed: 1,
             scene_generation_count: 0,
             sheet_library: Vec::new(),
+            sheet_library_visible: Vec::new(),
+            sheet_library_search: String::new(),
+            sheet_library_search_focused: false,
             sheet_library_scroll: 0.0,
             library_notice: "Asset lane index not scanned yet.".to_string(),
         }
     }
 }
 
+// Only the original ElizaWy family is active for this pass; nonseasonal sheets
+// (e.g. objects/fences and shared animated waterfall) belong in Summer.
+// The V7 provider and the other seasons are preserved on disk, not indexed here.
+fn is_summer_elizawy_source(path: &Path) -> bool {
+    let normalized = normalize_path_key(path);
+    if !(normalized.contains("lpc_revised") || normalized.contains("elizawy")) { return false; }
+    let file = path.file_name().and_then(|name| name.to_str()).unwrap_or("").to_ascii_lowercase();
+    // Multi-season split originals ("Spring & Summer", "Non-Winter") are
+    // legitimate Summer sources. The substring "fall" is part of WATERFALL:
+    // only an isolated Fall season token may exclude an otherwise-neutral file.
+    if file.contains("summer") || file.contains("non-winter") { return true; }
+    !["spring", "autumn", "winter", "frozen"].iter().any(|season| file.contains(season))
+        && !file.split(|ch: char| !ch.is_ascii_alphanumeric()).any(|token| token == "fall")
+}
+
+fn summer_known_source_addresses(root: &Path) -> BTreeMap<String, usize> {
+    let mut addresses: BTreeMap<String, BTreeSet<(i32, i32)>> = BTreeMap::new();
+    let original_root = root.join("assets/source/licensed/lpc_revised");
+    let path = root.join("content/assets/lpc/elizawy_summer_atlas_source_crosswalk_b48r7_v0_1.json");
+    if let Ok(text) = fs::read_to_string(path) {
+        if let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) {
+            if let Some(entries) = value.get("entries").and_then(|x| x.as_array()) {
+                for entry in entries {
+                    let Some(reference) = entry.get("referencePath").and_then(|x| x.as_str()) else { continue; };
+                    let Some(cell) = entry.get("referenceCell").and_then(|x| x.as_array()) else { continue; };
+                    if let (Some(x), Some(y)) = (cell.first().and_then(|v| v.as_i64()), cell.get(1).and_then(|v| v.as_i64())) {
+                        let source_path = original_root.join(reference);
+                        addresses.entry(normalize_path_key(&source_path)).or_default().insert((x as i32, y as i32));
+                    }
+                    if let (Some(target), Some(cells)) = (entry.get("mainAtlasPath").and_then(|v| v.as_str()), entry.get("exactMainAtlasCells").and_then(|v| v.as_array())) {
+                        {
+                            let coords = addresses.entry(normalize_path_key(&original_root.join(target))).or_default();
+                            for cell in cells {
+                                if let Some(pair) = cell.as_array() {
+                                    if let (Some(x), Some(y)) = (pair.first().and_then(|v| v.as_i64()), pair.get(1).and_then(|v| v.as_i64())) {
+                                        coords.insert((x as i32, y as i32));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    let recovered = root.join("content/assets/lpc/elizawy_mountain_waterfall_transition_source_b48r8_v0_1.json");
+    if let Ok(text) = fs::read_to_string(recovered) {
+        if let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) {
+            if let Some(cells) = value.get("cells").and_then(|v| v.as_array()) {
+                let set = addresses.entry(normalize_path_key(&original_root.join("Terrain/Mountain, Waterfall Transitions (Summer).png"))).or_default();
+                for cell in cells {
+                    if let Some(pair) = cell.get("grid").and_then(|v| v.as_array()) {
+                        if let (Some(x),Some(y))=(pair.first().and_then(|v| v.as_i64()),pair.get(1).and_then(|v| v.as_i64())) {
+                            set.insert((x as i32,y as i32));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // B48R9 supplies more summer source addresses than the earlier B48R7
+    // crosswalk. Import exact pixel-address evidence, never infer semantic roles.
+    let seasonal = root.join("content/assets/lpc/elizawy_all_seasons_split_source_crosswalk_b48r9_v0_1.json");
+    if let Ok(text) = fs::read_to_string(seasonal) {
+        if let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) {
+            if let Some(entries) = value.get("entries").and_then(|x| x.as_array()) {
+                for entry in entries {
+                    let Some(targets) = entry.get("targets").and_then(|x| x.as_array()) else { continue; };
+                    // A nonwinter source sheet may target three seasons. Only
+                    // the summer target is eligible for this isolated lane.
+                    let summer: Vec<_> = targets.iter()
+                        .filter(|target| target.get("season").and_then(|v| v.as_str()) == Some("summer"))
+                        .collect();
+                    if summer.is_empty() { continue; }
+                    if let (Some(reference), Some(pair)) = (
+                        entry.get("referencePath").and_then(|v| v.as_str()),
+                        entry.get("referenceCell").and_then(|v| v.as_array()),
+                    ) {
+                        if let (Some(x), Some(y)) = (
+                            pair.first().and_then(|v| v.as_i64()),
+                            pair.get(1).and_then(|v| v.as_i64()),
+                        ) {
+                            let reference_path = if reference.eq_ignore_ascii_case("Terrain/Waterfall.png") {
+                                // Different original Waterfall.png variants have different bytes.
+                                // B48R9 references the four-season split, not the combined atlas.
+                                original_root.join("seasonal_split/Terrain/Waterfall.png")
+                            } else { original_root.join(reference) };
+                            addresses.entry(normalize_path_key(&reference_path)).or_default().insert((x as i32, y as i32));
+                        }
+                    }
+                    for target in summer {
+                        let Some(canonical) = target.get("canonicalAtlas").and_then(|v| v.as_str()) else { continue; };
+                        let coords = addresses.entry(normalize_path_key(&original_root.join(canonical))).or_default();
+                        if let Some(cells) = target.get("exactCanonicalCells").and_then(|v| v.as_array()) {
+                            for pair in cells.iter().filter_map(|cell| cell.as_array()) {
+                                if let (Some(x), Some(y)) = (
+                                    pair.first().and_then(|v| v.as_i64()),
+                                    pair.get(1).and_then(|v| v.as_i64()),
+                                ) {
+                                    coords.insert((x as i32, y as i32));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    addresses.into_iter().map(|(name, cells)| (name, cells.len())).collect()
+}
+
+fn pinned_summer_source_hashes(root: &Path) -> BTreeMap<String, String> {
+    let path = root.join("content/assets/lpc/elizawy_summer_source_registry_b48r15_v0_1.json");
+    let Ok(text) = fs::read_to_string(path) else { return BTreeMap::new(); };
+    let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) else { return BTreeMap::new(); };
+    let Some(sources) = value.get("sources").and_then(|v| v.as_array()) else { return BTreeMap::new(); };
+    let mut hashes = BTreeMap::new();
+    for source in sources {
+        if let (Some(path), Some(sha)) = (
+            source.get("path").and_then(|v| v.as_str()),
+            source.get("sha256").and_then(|v| v.as_str()),
+        ) {
+            if sha.len() == 64 && sha.chars().all(|ch| ch.is_ascii_hexdigit()) {
+                hashes.insert(normalize_path_key(Path::new(path)), sha.to_ascii_lowercase());
+            }
+        }
+    }
+    hashes
+}
+
 impl MapperApp {
+    fn scene_snapshot(&self) -> SceneSnapshot {
+        SceneSnapshot {
+            pieces: self.pieces.clone(), heightmap: self.heightmap.clone(),
+            next_piece_id: self.next_piece_id, selected_piece: self.selected_piece,
+        }
+    }
+
+    fn checkpoint_scene(&mut self) {
+        if self.undo_stack.len() == MAX_UNDO_STEPS { self.undo_stack.remove(0); }
+        self.undo_stack.push(self.scene_snapshot());
+        self.redo_stack.clear();
+    }
+
+    fn restore_snapshot(&mut self, snapshot: SceneSnapshot) {
+        self.pieces = snapshot.pieces;
+        self.heightmap = snapshot.heightmap;
+        self.next_piece_id = snapshot.next_piece_id;
+        self.selected_piece = snapshot.selected_piece.filter(|index| *index < self.pieces.len());
+        self.dirty = true; // An undo is not evidence that the last saved file is identical.
+        self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::DraftMapped };
+        self.last_handoff_path = None;
+    }
+
+    fn undo_scene(&mut self) {
+        if let Some(previous) = self.undo_stack.pop() {
+            if self.redo_stack.len() == MAX_UNDO_STEPS { self.redo_stack.remove(0); }
+            self.redo_stack.push(self.scene_snapshot());
+            self.restore_snapshot(previous);
+            self.status = format!("Undo scene edit ({} remaining)", self.undo_stack.len());
+        } else { self.status = "Nothing to undo.".to_string(); }
+    }
+
+    fn redo_scene(&mut self) {
+        if let Some(next) = self.redo_stack.pop() {
+            if self.undo_stack.len() == MAX_UNDO_STEPS { self.undo_stack.remove(0); }
+            self.undo_stack.push(self.scene_snapshot());
+            self.restore_snapshot(next);
+            self.status = format!("Redo scene edit ({} remaining)", self.redo_stack.len());
+        } else { self.status = "Nothing to redo.".to_string(); }
+    }
+
+    fn asset_id(path: &Path) -> String {
+        let root = env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
+        let relative = path.strip_prefix(&root).unwrap_or(path);
+        format!("source:{}", normalize_path_key(relative))
+    }
+
+    fn source_assets(&self) -> Vec<SourceAssetDocument> {
+        let root = env::current_dir().unwrap_or_default();
+        let pinned = pinned_summer_source_hashes(&root);
+        self.source_stack.iter().chain(self.atlas.iter()).map(|atlas| {
+            let path = atlas.path.strip_prefix(&root).unwrap_or(&atlas.path);
+            SourceAssetDocument {
+                id: atlas.id.clone(),
+                path: path.to_string_lossy().replace('\\', "/"),
+                file_name: atlas.path.file_name().and_then(|s| s.to_str()).unwrap_or("sheet").to_string(),
+                // Registry hashes pin the user's supplied, original source bytes;
+                // unknown external sheets remain observed-only, never falsely pinned.
+                source_sha256: pinned.get(&normalize_path_key(path)).cloned(),
+            }
+        }).collect()
+    }
+
+    fn texture_for_piece(&self, piece: &AssemblyPiece) -> Option<&Texture2D> {
+        if piece.source_asset_id.is_empty() {
+            return self.atlas.as_ref().map(|atlas| &atlas.texture);
+        }
+        self.atlas.iter().chain(self.source_stack.iter())
+            .find(|atlas| atlas.id == piece.source_asset_id)
+            .map(|atlas| &atlas.texture)
+    }
+
+    fn rebuild_sheet_library_visibility(&mut self) {
+        let query = self.sheet_library_search.trim().to_ascii_lowercase();
+        self.sheet_library_visible = self.sheet_library.iter().enumerate()
+            .filter(|(_, card)| query.is_empty()
+                || card.display_name.to_ascii_lowercase().contains(&query)
+                || card.family.to_ascii_lowercase().contains(&query)
+                || card.category.label().to_ascii_lowercase().contains(&query))
+            .map(|(index, _)| index).collect();
+        self.sheet_library_scroll = 0.0;
+    }
+
     fn refresh_sheet_library(&mut self) {
         let Ok(root) = env::current_dir() else {
             self.library_notice = "Could not resolve repository root for asset lane scan.".to_string();
@@ -479,6 +771,7 @@ impl MapperApp {
         };
         let mut seen = BTreeSet::new();
         let mut cards = Vec::new();
+        let source_matches = summer_known_source_addresses(&root);
         self.collect_declared_sheet_cards(&root, &mut seen, &mut cards);
 
         let mut scan_roots = default_asset_sheet_scan_roots(&root);
@@ -487,6 +780,9 @@ impl MapperApp {
             self.collect_sheet_cards(&root, &scan_root, &mut seen, &mut cards);
             if cards.len() >= MAX_LIBRARY_SHEETS { break; }
         }
+        // Match full original source paths, never basenames: the two different
+        // Waterfall.png source versions must not inherit each other's evidence.
+        for card in &mut cards { card.source_address_count = source_matches.get(&normalize_path_key(&card.path)).copied().unwrap_or(0); }
         cards.sort_by(|a, b| {
             a.category.label().cmp(b.category.label())
                 .then_with(|| a.family.cmp(&b.family))
@@ -494,11 +790,11 @@ impl MapperApp {
         });
         let count = cards.len();
         self.sheet_library = cards;
-        self.sheet_library_scroll = self.sheet_library_scroll.min(0.0);
+        self.rebuild_sheet_library_visibility();
         self.library_notice = if count >= MAX_LIBRARY_SHEETS {
-            format!("Indexed first {count} sheet cards. Index cards are preloaded; textures remain lazy-loaded when selected.")
+            format!("Summer ElizaWy: first {count} indexed; cap reached. Textures load only when activated.")
         } else {
-            format!("Indexed {count} Havenwild atlas/sheet cards from catalogs, source libraries, generated atlases, and external roots.")
+            format!("Summer ElizaWy: {count} available originals indexed. ON/OFF controls scene source activation.")
         };
     }
 
@@ -512,7 +808,7 @@ impl MapperApp {
             for key in ["sourcePath", "publishedPath"] {
                 let Some(rel_path) = atlas.get(key).and_then(|path| path.as_str()) else { continue; };
                 let path = root.join(rel_path);
-                if !is_supported_image_path(&path) || !path.exists() { continue; }
+                if !is_supported_image_path(&path) || !path.exists() || !is_summer_elizawy_source(&path) { continue; }
                 let key = normalize_path_key(&path);
                 if !seen.insert(key) { continue; }
                 let display_name = path.file_name().and_then(|name| name.to_str()).unwrap_or("source_sheet").to_string();
@@ -533,6 +829,7 @@ impl MapperApp {
                     status: summary.status,
                     mapped_tile_count: summary.mapped_tile_count,
                     coverage_percent: summary.coverage_percent,
+                    source_address_count: 0,
                 });
 
                 self.collect_seasonal_sibling_cards(root, &path, seen, cards);
@@ -545,10 +842,10 @@ impl MapperApp {
         let Some(parent) = path.parent() else { return; };
         let lower = file_name.to_ascii_lowercase();
         if !(lower.starts_with("terrain_") && lower.ends_with(".png")) { return; }
-        for season in ["spring", "summer", "autumn", "winter"] {
+        for season in ["summer"] {
             if cards.len() >= MAX_LIBRARY_SHEETS { return; }
             let sibling = parent.join(format!("terrain_{season}.png"));
-            if !sibling.exists() { continue; }
+            if !sibling.exists() || !is_summer_elizawy_source(&sibling) { continue; }
             let key = normalize_path_key(&sibling);
             if !seen.insert(key) { continue; }
             let display_name = sibling.file_name().and_then(|name| name.to_str()).unwrap_or("terrain_season.png").to_string();
@@ -562,6 +859,7 @@ impl MapperApp {
                 status: summary.status,
                 mapped_tile_count: summary.mapped_tile_count,
                 coverage_percent: summary.coverage_percent,
+                source_address_count: 0,
             });
         }
     }
@@ -576,7 +874,7 @@ impl MapperApp {
                 self.collect_sheet_cards(root, &path, seen, cards);
                 continue;
             }
-            if !is_supported_image_path(&path) { continue; }
+            if !is_supported_image_path(&path) || !is_summer_elizawy_source(&path) { continue; }
             let key = normalize_path_key(&path);
             if !seen.insert(key) { continue; }
             let display_name = path.file_name().and_then(|name| name.to_str()).unwrap_or("source_sheet").to_string();
@@ -591,18 +889,23 @@ impl MapperApp {
                 status: summary.status,
                 mapped_tile_count: summary.mapped_tile_count,
                 coverage_percent: summary.coverage_percent,
+                source_address_count: 0,
             });
         }
     }
 
     fn mapping_record_path_for(root: &Path, path: &Path, category: AssetCategory) -> Option<PathBuf> {
         let stem = path.file_stem().and_then(|stem| stem.to_str()).map(sanitize_file_stem)?;
+        // Include the normalized source path in the record identity. Do not overwrite
+        // another archive's same-basename sheet. Legacy records remain read-only.
+        let identity = Self::asset_id(path);
+        let suffix = format!("{:016x}", stable_path_hash(identity.as_bytes()));
         Some(root
             .join("artifacts")
             .join("asset-intake")
             .join("atlas-mapper")
             .join("mapped-sheets")
-            .join(format!("{}__{}.mapped-sheet.json", stem, category.stable_key())))
+            .join(format!("{}__{}__{}.mapped-sheet.json", stem, category.stable_key(), suffix)))
     }
 
     fn mapping_summary_for_sheet_path(&self, path: &Path, category: AssetCategory) -> SheetMappingSummary {
@@ -632,14 +935,9 @@ impl MapperApp {
             .and_then(|stage| stage.as_str())
             .unwrap_or("")
             .to_ascii_lowercase();
-        let has_handoff = value.get("handoff_file")
-            .or_else(|| value.get("handoffFile"))
-            .and_then(|path| path.as_str())
-            .map(|path| !path.trim().is_empty())
-            .unwrap_or(false);
         let status = if lifecycle.contains("published") {
             SourceSheetStatus::Published
-        } else if lifecycle.contains("validated") || has_handoff {
+        } else if lifecycle.contains("runtime_certified") || lifecycle.contains("topology_validated") {
             SourceSheetStatus::Validated
         } else if mapped_tile_count > 0 {
             SourceSheetStatus::Mapped
@@ -675,31 +973,60 @@ impl MapperApp {
 
     fn open_sheet_from_library(&mut self, index: usize) {
         let Some(card) = self.sheet_library.get(index).cloned() else { return; };
-        if !self.pieces.is_empty() {
-            self.status = "Opened another sheet from the source stack. Save the current mapper project first when keeping corrections.".to_string();
-        }
-        self.pieces.clear();
-        self.next_piece_id = 1;
-        self.project_path = None;
-        self.last_handoff_path = None;
+        // Selecting an existing source card switches the source picker only;
+        // all placements from earlier sheets remain in the scene and retain IDs.
         self.category = card.category;
-        self.assembly_name = card.path.file_stem()
-            .and_then(|stem| stem.to_str())
-            .map(|stem| format!("{}_assembly", sanitize_file_stem(stem)))
-            .unwrap_or_else(|| "source_sheet_assembly".to_string());
         self.load_atlas(card.path);
+    }
+
+    fn source_is_activated(&self, id: &str) -> bool {
+        self.atlas.as_ref().is_some_and(|source| source.id == id)
+            || self.source_stack.iter().any(|source| source.id == id)
+    }
+
+    fn deactivate_sheet(&mut self, index: usize) {
+        let Some(card) = self.sheet_library.get(index) else { return; };
+        let id = Self::asset_id(&card.path);
+        if self.pieces.iter().any(|piece| piece.source_asset_id == id) {
+            self.status = "Sheet still used by scene placements. Remove its pieces before deactivating; no source references were broken.".to_string();
+            return;
+        }
+        if self.atlas.as_ref().is_some_and(|source| source.id == id) {
+            self.atlas = self.source_stack.pop();
+            self.selected_tile = None;
+            self.drag = DragState::None;
+        } else {
+            self.source_stack.retain(|source| source.id != id);
+        }
+        self.undo_stack.clear();
+        self.redo_stack.clear(); // Cannot resurrect pieces from an unloaded source.
+        self.dirty = true;
+        self.status = "Sheet deactivated. Undo history cleared to prevent orphaned source references.".to_string();
     }
 
     fn source_sheet_card_at(&self, panel: Rect, mouse: Vec2) -> Option<usize> {
         let stack = source_sheet_stack_rect(panel);
         if !stack.contains(mouse) { return None; }
-        let local_y = mouse.y - stack.y - self.sheet_library_scroll;
+        let local_y = mouse.y - (stack.y + 48.0) - self.sheet_library_scroll;
         if local_y < 0.0 { return None; }
         let index = (local_y / SHEET_CARD_H).floor() as usize;
-        self.sheet_library.get(index).map(|_| index)
+        self.sheet_library_visible.get(index).copied()
     }
 
     fn load_atlas(&mut self, path: PathBuf) {
+        if !is_summer_elizawy_source(&path) {
+            self.status = "Summer ElizaWy lane: source must be in an ElizaWy/LPC_Revised source root, and cannot be a different season or V7.".to_string();
+            return;
+        }
+        let id = Self::asset_id(&path);
+        if self.atlas.as_ref().is_some_and(|atlas| atlas.id == id) { return; }
+        if let Some(index) = self.source_stack.iter().position(|atlas| atlas.id == id) {
+            self.category = AssetCategory::from_file_hint(&path);
+            let next = self.source_stack.remove(index);
+            if let Some(previous) = self.atlas.replace(next) { self.source_stack.push(previous); }
+            self.status = format!("Switched active sheet; {} source sheets in this scene.", self.source_stack.len() + 1);
+            return;
+        }
         match fs::read(&path) {
             Ok(bytes) => {
                 let texture = Texture2D::from_file_with_format(&bytes, None);
@@ -724,7 +1051,8 @@ impl MapperApp {
                     ^ self.category.stable_key().bytes().map(u64::from).sum::<u64>();
                 let cell_profiles = analyze_tile_sheet(&bytes, width, height);
                 let mapped_cells = cell_profiles.iter().filter(|cell| cell.role != CellRole::Empty).count();
-                self.atlas = Some(LoadedAtlas { path: path.clone(), texture, width, height, cell_profiles });
+                if let Some(previous) = self.atlas.take() { self.source_stack.push(previous); self.dirty = true; }
+                self.atlas = Some(LoadedAtlas { id, path: path.clone(), texture, width, height, cell_profiles });
                 self.selected_tile = None;
                 self.selected_piece = None;
                 self.drag = DragState::None;
@@ -742,10 +1070,10 @@ impl MapperApp {
             .add_filter("Images", &["png", "bmp", "jpg", "jpeg", "webp"])
             .pick_file()
         {
-            self.pieces.clear();
-            self.next_piece_id = 1;
-            self.project_path = None;
-            self.last_handoff_path = None;
+            // Changing the source picker must not destroy the assembled multi-sheet scene.
+            if is_summer_elizawy_source(&path) {
+                self.category = AssetCategory::from_file_hint(&path);
+            }
             self.load_atlas(path);
         }
     }
@@ -779,6 +1107,7 @@ impl MapperApp {
                 Ok(text) => match fs::write(path, text) {
                     Ok(()) => {
                         self.project_path = Some(path.to_path_buf());
+                        self.dirty = false;
                         self.mapping_stage = MappingStage::ProjectSaved;
                         self.write_mapping_record(None);
                         self.status = format!("Saved mapper project: {}", path.to_string_lossy());
@@ -792,6 +1121,10 @@ impl MapperApp {
     }
 
     fn load_project_dialog(&mut self) {
+        if self.dirty {
+            self.status = "Unsaved edits: save this scene before opening another project.".to_string();
+            return;
+        }
         if let Some(path) = FileDialog::new()
             .add_filter("Havenwild atlas mapper project", &["json"])
             .pick_file()
@@ -820,6 +1153,7 @@ impl MapperApp {
             && document.schema != LEGACY_PROJECT_SCHEMA_V2
             && document.schema != LEGACY_PROJECT_SCHEMA_V3
             && document.schema != LEGACY_PROJECT_SCHEMA_V4
+            && document.schema != LEGACY_PROJECT_SCHEMA_V5
         {
             self.status = format!("Project schema mismatch: expected {PROJECT_SCHEMA}, got {}", document.schema);
             return;
@@ -833,9 +1167,91 @@ impl MapperApp {
             return;
         };
 
+        // Preflight all source references BEFORE touching the current editing session.
+        // A missing sheet must not silently erase a working multi-source scene.
+        let source_refs = if document.source_assets.is_empty() {
+            vec![SourceAssetDocument {
+                id: Self::asset_id(&PathBuf::from(&document.source_atlas_path)),
+                path: document.source_atlas_path.clone(),
+                file_name: document.source_atlas_file_name.clone(), source_sha256: None,
+            }]
+        } else { document.source_assets.clone() };
+        let root = env::current_dir().unwrap_or_default();
+        let missing: Vec<String> = source_refs.iter().filter_map(|source| {
+            let raw = PathBuf::from(&source.path);
+            let resolved = if raw.exists() { raw } else { root.join(&raw) };
+            if resolved.is_file() { None } else { Some(source.path.clone()) }
+        }).collect();
+        if !missing.is_empty() {
+            self.status = format!("Project load blocked; current scene preserved. Missing sources: {}", missing.join(", "));
+            return;
+        }
+        if source_refs.iter().any(|source| {
+            let raw = PathBuf::from(&source.path);
+            let resolved = if raw.exists() { raw } else { root.join(raw) };
+            !is_summer_elizawy_source(&resolved)
+        }) {
+            self.status = "Project load blocked; current scene preserved. Other seasons, V7 or non-ElizaWy sources must use a separate project.".into();
+            return;
+        }
+        // Fail closed BEFORE clearing the current scene: source IDs, image decodes,
+        // placements and duplicate height coordinates must all be coherent.
+        let mut dimensions = BTreeMap::new();
+        for source in &source_refs {
+            if source.id.trim().is_empty() || dimensions.contains_key(&source.id) {
+                self.status = "Project load blocked: duplicate/empty source identity. Current scene preserved.".into();
+                return;
+            }
+            let raw = PathBuf::from(&source.path);
+            let resolved = if raw.exists() { raw } else { root.join(raw) };
+            let Ok(size) = image::image_dimensions(&resolved) else {
+                self.status = format!("Project load blocked: source image cannot be decoded: {}", source.path);
+                return;
+            };
+            dimensions.insert(source.id.clone(), size);
+        }
+        let legacy_id = Self::asset_id(&PathBuf::from(&document.source_atlas_path));
+        let mut placement_ids = BTreeSet::new();
+        for piece in &document.pieces {
+            let source_id = if piece.source_asset_id.is_empty() { &legacy_id } else { &piece.source_asset_id };
+            let Some(&(width, height)) = dimensions.get(source_id) else {
+                self.status = format!("Project load blocked: piece {} refers to unlisted source. Current scene preserved.", piece.id);
+                return;
+            };
+            let [sx, sy, sw, sh] = piece.source_rect;
+            if !placement_ids.insert(piece.id) || sx < 0 || sy < 0 || sw != TILE_SIZE || sh != TILE_SIZE
+                || i64::from(sx) + i64::from(sw) > i64::from(width)
+                || i64::from(sy) + i64::from(sh) > i64::from(height)
+                || piece.rotation_degrees.rem_euclid(90) != 0
+            {
+                self.status = format!("Project load blocked: invalid/duplicate piece {}. Current scene preserved.", piece.id);
+                return;
+            }
+        }
+        let mut height_positions = BTreeSet::new();
+        if document.heightmap.iter().any(|cell| !height_positions.insert((cell.x, cell.y))) {
+            self.status = "Project load blocked: duplicate heightmap cells. Current scene preserved.".into();
+            return;
+        }
+        if document.heightmap.iter().any(|cell| cell.elevation > 30 || cell.water_surface.is_some_and(|water| water > 30)) {
+            self.status = "Project load blocked: invalid elevation outside real 0..30. Current scene preserved.".into();
+            return;
+        }
+        if self.dirty {
+            self.status = "Project load blocked: unsaved current scene. Save before opening another project.".into();
+            return;
+        }
         self.project_path = Some(path.to_path_buf());
         self.last_handoff_path = None;
+        self.source_stack.clear();
+        self.atlas = None;
+        self.heightmap = document.heightmap.clone();
+        self.undo_stack.clear();
+        self.redo_stack.clear();
         self.pieces = document.pieces;
+        for piece in &mut self.pieces {
+            if piece.source_asset_id.is_empty() { piece.source_asset_id = legacy_id.clone(); }
+        }
         self.next_piece_id = document.next_piece_id.max(self.pieces.iter().map(|piece| piece.id.saturating_add(1)).max().unwrap_or(1));
         self.category = category;
         self.assembly_name = document.assembly_name;
@@ -849,18 +1265,75 @@ impl MapperApp {
         self.drag_origin = None;
         self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::ProjectSaved };
 
-        let atlas_path = PathBuf::from(&document.source_atlas_path);
-        if atlas_path.exists() {
-            self.load_atlas(atlas_path);
+        let sources = source_refs;
+        let active_id = if document.active_source_asset_id.is_empty() {
+            Self::asset_id(&PathBuf::from(&document.source_atlas_path))
+        } else { document.active_source_asset_id };
+        let mut missing = Vec::new();
+        for source in sources {
+            let raw = PathBuf::from(&source.path);
+            let resolved = if raw.exists() { raw } else { env::current_dir().unwrap_or_default().join(&raw) };
+            if !resolved.exists() { missing.push(source.path); continue; }
+            self.load_atlas(resolved);
+            // Preserve IDs present in a v0_6 project across folder moves.
+            if let Some(atlas) = self.atlas.as_mut() { atlas.id = source.id.clone(); }
+        }
+        if let Some(index) = self.source_stack.iter().position(|atlas| atlas.id == active_id) {
+            let selected = self.source_stack.remove(index);
+            if let Some(previous) = self.atlas.replace(selected) { self.source_stack.push(previous); }
+        }
+        self.dirty = false;
+        if missing.is_empty() {
             if !self.pieces.is_empty() { self.mapping_stage = MappingStage::ProjectSaved; }
-            self.status = format!("Loaded mapper project: {}", path.to_string_lossy());
+            self.status = format!("Loaded mapper project with {} sheets: {}", self.source_stack.len() + usize::from(self.atlas.is_some()), path.to_string_lossy());
         } else {
-            self.atlas = None;
-            self.status = format!("Loaded project, but atlas is missing: {}", document.source_atlas_path);
+            self.status = format!("Project opened with {} missing source(s): {}. Review/export blocked until restored.", missing.len(), missing.join(", "));
+        }
+    }
+
+    fn export_scene_audit(&mut self) {
+        if self.dirty {
+            self.status = "Save the current project before emitting its scene audit.".into();
+            return;
+        }
+        let Some(project) = self.project_path.as_ref() else {
+            self.status = "Save a mapper project first; scene audit needs a traceable project path.".into();
+            return;
+        };
+        let report = scene_audit::audit_scene(&self.pieces, &self.heightmap, &self.source_assets());
+        let path = project.with_extension("scene-audit.json");
+        match serde_json::to_vec_pretty(&report) {
+            Ok(bytes) => match fs::write(&path, bytes) {
+                Ok(()) => self.status = format!("UNREVIEWED audit: {} error(s), {} warning(s), {} elevation boundaries. {}",
+                    report.errors, report.warnings, report.elevation_boundaries, path.display()),
+                Err(error) => self.status = format!("Cannot write scene audit: {error}"),
+            },
+            Err(error) => self.status = format!("Cannot serialize scene audit: {error}"),
+        }
+    }
+
+    fn export_review_dialog(&mut self) {
+        if self.dirty {
+            self.status = "Save the current source scene before generating a reproducible review.".to_string();
+            return;
+        }
+        if self.pieces.is_empty() { self.status = "Place source tiles first.".to_string(); return; }
+        let name = format!("{}_SOURCE_REVIEW.png", sanitize_file_stem(&self.assembly_name));
+        if let Some(path) = FileDialog::new().add_filter("Source-exact PNG", &["png"])
+            .set_file_name(&name).save_file() {
+            let sources = self.source_assets();
+            match review::write_review(&path, &sources, &self.pieces, &self.heightmap) {
+                Ok(ledger) => self.status = format!("Unreviewed PNG and placement ledger exported: {}", ledger.to_string_lossy()),
+                Err(error) => self.status = format!("Review export blocked: {error}"),
+            }
         }
     }
 
     fn export_handoff_dialog(&mut self) {
+        if self.dirty {
+            self.status = "Save your scene before exporting a reproducible candidate handoff.".to_string();
+            return;
+        }
         if self.atlas.is_none() {
             self.status = "Load an atlas before exporting.".to_string();
             return;
@@ -881,6 +1354,10 @@ impl MapperApp {
 
     fn export_handoff(&mut self, path: &Path) {
         let Some(atlas) = &self.atlas else { return; };
+        if self.pieces.iter().any(|piece| self.texture_for_piece(piece).is_none()) {
+            self.status = "Candidate export blocked: scene refers to missing source artwork.".to_string();
+            return;
+        }
         let source_path = atlas.path.to_string_lossy().replace('\\', "/");
         let source_name = atlas.path.file_name().and_then(|name| name.to_str()).unwrap_or("atlas").to_string();
         let document = HandoffDocument {
@@ -897,10 +1374,13 @@ impl MapperApp {
             assembly_name: self.assembly_name.clone(),
             exported_unix_seconds: unix_seconds(),
             pieces: self.pieces.clone(),
+            source_assets: self.source_assets(),
+            heightmap: self.heightmap.clone(),
+            certification_stage: "candidate_export_not_validated".to_string(),
             engine_notes: vec![
                 "The source atlas is immutable and was not modified.".to_string(),
                 "Each piece maps one 32x32 source tile to an assembly grid cell.".to_string(),
-                "This handoff is asset-intake evidence. Engine import must still add sockets, footprints, pixel collision masks, traversal, layer ownership, provenance, and runtime validation before publication.".to_string(),
+                "This is an unreviewed candidate. Asset Authority may not publish without source hashes, visual approval, adjacency, collision, traversal, animation, runtime parity and PCC gate receipts.".to_string(),
             ],
         };
         match serde_json::to_string_pretty(&document) {
@@ -908,8 +1388,8 @@ impl MapperApp {
                 Ok(()) => {
                     self.last_handoff_path = Some(path.to_path_buf());
                     self.mapping_stage = MappingStage::HandoffExported;
-                    self.write_mapping_record_with_status(Some(path), MAPPED_TILE_STATUS_VALIDATED, "HANDOFF_EXPORTED", false);
-                    self.status = format!("Exported handoff and marked sheet validated: {}", path.to_string_lossy());
+                    self.write_all_mapping_records(Some(path), MAPPED_TILE_STATUS_DRAFT, "CANDIDATE_HANDOFF_EXPORTED", false);
+                    self.status = format!("Exported candidate only (NOT validated): {}", path.to_string_lossy());
                 }
                 Err(error) => self.status = format!("Export failed: {error}"),
             },
@@ -937,16 +1417,20 @@ impl MapperApp {
             canvas_pan: [self.canvas_pan.x, self.canvas_pan.y],
             canvas_zoom: self.canvas_zoom,
             pieces: self.pieces.clone(),
+            source_assets: self.source_assets(),
+            active_source_asset_id: atlas.id.clone(),
+            heightmap: self.heightmap.clone(),
             authoring_notes: vec![
                 "Mapper project files are editable tool state, not runtime assets.".to_string(),
                 "Source atlas pixels remain immutable; this file stores placement and transform metadata only.".to_string(),
-                "Mapped sheets are recorded into the asset intake lane so the GUI can show mapped/unmapped state.".to_string(),
+                "Mapped sheets are draft source evidence only; export does not certify artwork topology, collision, navigation or gameplay.".to_string(),
                 format!("Scene generation passes recorded this session: {}", self.scene_generation_count),
             ],
         })
     }
 
     fn add_piece_from_tile(&mut self, tile: SourceTile, grid_x: i32, grid_y: i32) {
+        self.checkpoint_scene();
         let id = self.next_piece_id;
         self.next_piece_id = self.next_piece_id.saturating_add(1);
         let piece = AssemblyPiece {
@@ -961,8 +1445,10 @@ impl MapperApp {
             flip_y: false,
             layer: self.next_default_layer(),
             semantic_role: self.category.stable_key().to_string(),
+            source_asset_id: self.atlas.as_ref().map(|atlas| atlas.id.clone()).unwrap_or_default(),
         };
         self.pieces.push(piece);
+        self.dirty = true;
         self.selected_piece = Some(self.pieces.len() - 1);
         self.mapping_stage = MappingStage::DraftMapped;
         self.status = format!("Placed tile {},{} as {} piece.", tile.tile_x, tile.tile_y, self.category.label());
@@ -999,6 +1485,11 @@ impl MapperApp {
                 }
             }
         }
+        if self.dirty || self.source_stack.len() > 0 {
+            self.status = "Scene draft generation would erase edited/multi-source work. Save and use a fresh single-sheet project; blocked.".to_string();
+            return;
+        }
+        self.checkpoint_scene();
         self.pieces.clear();
         self.selected_piece = None;
         self.next_piece_id = 1;
@@ -1035,6 +1526,7 @@ impl MapperApp {
             );
         }
         self.selected_piece = None;
+        self.dirty = true;
         self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::DraftMapped };
     }
 
@@ -1053,6 +1545,7 @@ impl MapperApp {
             flip_y: false,
             layer,
             semantic_role: semantic_role.to_string(),
+            source_asset_id: self.atlas.as_ref().map(|atlas| atlas.id.clone()).unwrap_or_default(),
         });
     }
 
@@ -1192,13 +1685,17 @@ impl MapperApp {
             return;
         }
         self.mapping_stage = MappingStage::ProjectSaved;
-        self.write_mapping_record_with_status(None, MAPPED_TILE_STATUS_LEARNED, "LEARNED_MAPPING", true);
-        self.status = "Learned from corrected scene: mapped source cells now count as learned mapping evidence for next missing-draft generation.".to_string();
+        self.write_all_mapping_records(None, MAPPED_TILE_STATUS_LEARNED, "LEARNED_MAPPING", true);
+        self.status = "Saved source-linked scene learning for ALL activated sheets. Source roles remain draft; no cliff-water visual approval or runtime publication implied.".to_string();
     }
 
     fn assign_selected_semantic(&mut self, role: &str) {
+        if self.selected_piece.and_then(|index| self.pieces.get(index)).is_some_and(|piece| piece.semantic_role != role) {
+            self.checkpoint_scene();
+        }
         if let Some(piece) = self.selected_piece_mut() {
             piece.semantic_role = role.to_string();
+            self.dirty = true;
             self.mapping_stage = MappingStage::DraftMapped;
             self.status = format!("Assigned selected source tile to role: {role}");
         } else {
@@ -1221,8 +1718,10 @@ impl MapperApp {
                 "terrain.cliff.face",
                 "terrain.cliff.foot",
                 "terrain.cliff.corner",
-                "terrain.connector.ramp_candidate",
+                "terrain.connector.climbable_vine_candidate",
+                "terrain.connector.cliff_handhold_candidate",
                 "terrain.connector.ladder_candidate",
+                "terrain.cliff.walkable_termination_candidate",
             ],
             AssetCategory::Structure | AssetCategory::House => vec![
                 "structure.floor",
@@ -1270,40 +1769,143 @@ impl MapperApp {
         self.selected_piece.and_then(|index| self.pieces.get_mut(index))
     }
 
+    fn set_height_cell(&mut self, x: i32, y: i32, level: u8) {
+        let level = level.min(30);
+        if let Some(cell) = self.heightmap.iter_mut().find(|cell| cell.x == x && cell.y == y) {
+            if cell.elevation != level { cell.elevation = level; self.dirty = true; }
+        } else {
+            self.heightmap.push(TerrainHeightCell { x, y, elevation: level, water_surface: None });
+            self.dirty = true;
+        }
+        self.status = format!("Height paint ({x},{y}) = +{level}");
+    }
+
+    fn toggle_water_cell(&mut self, x: i32, y: i32) {
+        if let Some(cell) = self.heightmap.iter_mut().find(|cell| cell.x == x && cell.y == y) {
+            cell.water_surface = if cell.water_surface.is_some() { None } else { Some(cell.elevation) };
+        } else {
+            self.heightmap.push(TerrainHeightCell { x, y, elevation: self.paint_elevation, water_surface: Some(self.paint_elevation) });
+        }
+        self.dirty = true;
+        self.status = format!("Water paint toggled at ({x},{y})");
+    }
+
+    fn terrain_cell(&self, x: i32, y: i32) -> Option<&TerrainHeightCell> {
+        self.heightmap.iter().find(|cell| cell.x == x && cell.y == y)
+    }
+
+    fn edit_selected_height(&mut self, delta: i8) {
+        let Some(piece) = self.selected_piece.and_then(|i| self.pieces.get(i)) else {
+            self.status = "Select a scene tile before editing its elevation.".to_string();
+            return;
+        };
+        let (x, y) = (piece.canvas_grid_x, piece.canvas_grid_y);
+        self.checkpoint_scene();
+        if let Some(cell) = self.heightmap.iter_mut().find(|cell| cell.x == x && cell.y == y) {
+            cell.elevation = (i16::from(cell.elevation) + i16::from(delta)).clamp(0, 30) as u8;
+            self.status = format!("Terrain at ({x},{y}) now has genuine elevation +{}", cell.elevation);
+        } else {
+            let level = i16::from(delta).clamp(0, 30) as u8;
+            self.heightmap.push(TerrainHeightCell { x, y, elevation: level, water_surface: None });
+            self.status = format!("Created real heightmap cell ({x},{y}) elevation +{level}");
+        }
+        self.dirty = true;
+    }
+
+    fn toggle_selected_water(&mut self) {
+        let Some(piece) = self.selected_piece.and_then(|i| self.pieces.get(i)) else { return; };
+        let (x, y) = (piece.canvas_grid_x, piece.canvas_grid_y);
+        self.checkpoint_scene();
+        if let Some(cell) = self.heightmap.iter_mut().find(|cell| cell.x == x && cell.y == y) {
+            cell.water_surface = if cell.water_surface.is_some() { None } else { Some(cell.elevation) };
+        } else {
+            self.heightmap.push(TerrainHeightCell { x, y, elevation: 0, water_surface: Some(0) });
+        }
+        self.dirty = true;
+        self.status = format!("Toggled explicit water at ({x},{y}); review hydrology before approval.");
+    }
+
     fn handle_shortcuts(&mut self) {
         let ctrl = is_key_down(KeyCode::LeftControl) || is_key_down(KeyCode::RightControl);
         let shift = is_key_down(KeyCode::LeftShift) || is_key_down(KeyCode::RightShift);
+        if ctrl && is_key_pressed(KeyCode::F) {
+            self.sheet_library_search_focused = true;
+            self.status = "Summer library search active. Type to filter; Enter or Esc finishes.".to_string();
+            return;
+        }
+        if self.sheet_library_search_focused {
+            if is_key_pressed(KeyCode::Escape) || is_key_pressed(KeyCode::Enter) {
+                self.sheet_library_search_focused = false;
+                return;
+            }
+            let mut changed = false;
+            if is_key_pressed(KeyCode::Backspace) {
+                self.sheet_library_search.pop();
+                changed = true;
+            }
+            // Receive text only while focused, so ordinary editor hotkeys do
+            // not simultaneously edit the scene or delete its selected piece.
+            if !ctrl {
+                while let Some(ch) = get_char_pressed() {
+                    if !ch.is_control() && self.sheet_library_search.chars().count() < 72 {
+                        self.sheet_library_search.push(ch);
+                        changed = true;
+                    }
+                }
+            }
+            if changed { self.rebuild_sheet_library_visibility(); }
+            return;
+        }
+        if ctrl && is_key_pressed(KeyCode::Z) { if shift { self.redo_scene(); } else { self.undo_scene(); } return; }
+        if ctrl && is_key_pressed(KeyCode::Y) { self.redo_scene(); return; }
         if ctrl && is_key_pressed(KeyCode::O) {
             if shift { self.load_project_dialog(); } else { self.load_atlas_dialog(); }
         }
         if ctrl && is_key_pressed(KeyCode::S) { self.save_project_current_or_dialog(); }
+        if ctrl && shift && is_key_pressed(KeyCode::A) { self.export_scene_audit(); return; }
         if ctrl && is_key_pressed(KeyCode::E) { self.export_handoff_dialog(); }
+        if ctrl && shift && is_key_pressed(KeyCode::P) { self.export_review_dialog(); }
         if ctrl && is_key_pressed(KeyCode::G) { self.auto_map_sheet(); }
         if ctrl && is_key_pressed(KeyCode::L) { self.refresh_sheet_library(); }
         if ctrl && is_key_pressed(KeyCode::M) { self.generate_next_missing_draft(); }
         if ctrl && shift && is_key_pressed(KeyCode::Enter) { self.learn_from_scene(); }
-        if is_key_pressed(KeyCode::R) {
+        if is_key_pressed(KeyCode::PageUp) { self.edit_selected_height(1); }
+        if is_key_pressed(KeyCode::PageDown) { self.edit_selected_height(-1); }
+        if ctrl && is_key_pressed(KeyCode::W) { self.toggle_selected_water(); }
+        if is_key_pressed(KeyCode::Key1) { self.author_tool = AuthorTool::Select; self.status = "Select/placement tool active.".to_string(); }
+        if is_key_pressed(KeyCode::Key2) { self.author_tool = AuthorTool::Elevation; self.status = format!("Height paint active at +{}.", self.paint_elevation); }
+        if is_key_pressed(KeyCode::Key3) { self.author_tool = AuthorTool::Water; self.status = "Water paint active.".to_string(); }
+        if is_key_pressed(KeyCode::Minus) { self.paint_elevation = self.paint_elevation.saturating_sub(1); }
+        if is_key_pressed(KeyCode::Equal) { self.paint_elevation = (self.paint_elevation + 1).min(30); }
+        if !ctrl && is_key_pressed(KeyCode::R) {
+            if self.selected_piece.is_some() { self.checkpoint_scene(); }
             if let Some(piece) = self.selected_piece_mut() {
                 piece.rotation_degrees = (piece.rotation_degrees + 90) % 360;
+                self.dirty = true;
             }
         }
-        if is_key_pressed(KeyCode::H) {
-            if let Some(piece) = self.selected_piece_mut() { piece.flip_x = !piece.flip_x; }
+        if !ctrl && is_key_pressed(KeyCode::H) {
+            if self.selected_piece.is_some() { self.checkpoint_scene(); }
+            if let Some(piece) = self.selected_piece_mut() { piece.flip_x = !piece.flip_x; self.dirty = true; }
         }
-        if is_key_pressed(KeyCode::V) {
-            if let Some(piece) = self.selected_piece_mut() { piece.flip_y = !piece.flip_y; }
+        if !ctrl && is_key_pressed(KeyCode::V) {
+            if self.selected_piece.is_some() { self.checkpoint_scene(); }
+            if let Some(piece) = self.selected_piece_mut() { piece.flip_y = !piece.flip_y; self.dirty = true; }
         }
-        if is_key_pressed(KeyCode::Delete) || is_key_pressed(KeyCode::Backspace) {
+        if !ctrl && (is_key_pressed(KeyCode::Delete) || is_key_pressed(KeyCode::Backspace)) {
+            if self.selected_piece.is_some() { self.checkpoint_scene(); }
             if let Some(index) = self.selected_piece.take() {
-                if index < self.pieces.len() { self.pieces.remove(index); }
+                if index < self.pieces.len() { self.pieces.remove(index); self.dirty = true; }
                 self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::DraftMapped };
             }
         }
-        if is_key_pressed(KeyCode::LeftBracket) {
-            if let Some(piece) = self.selected_piece_mut() { piece.layer -= 1; }
+        if !ctrl && is_key_pressed(KeyCode::LeftBracket) {
+            if self.selected_piece.is_some() { self.checkpoint_scene(); }
+            if let Some(piece) = self.selected_piece_mut() { piece.layer -= 1; self.dirty = true; }
         }
-        if is_key_pressed(KeyCode::RightBracket) {
-            if let Some(piece) = self.selected_piece_mut() { piece.layer += 1; }
+        if !ctrl && is_key_pressed(KeyCode::RightBracket) {
+            if self.selected_piece.is_some() { self.checkpoint_scene(); }
+            if let Some(piece) = self.selected_piece_mut() { piece.layer += 1; self.dirty = true; }
         }
     }
 
@@ -1312,20 +1914,20 @@ impl MapperApp {
         let mouse = mouse_position_local();
         let delta = mouse - self.last_mouse;
         let over_source = source_rect.contains(mouse);
-        let over_canvas = canvas_rect.contains(mouse);
+        let edit_canvas = canvas_edit_rect(canvas_rect).contains(mouse);
         let space_pan = is_key_down(KeyCode::Space);
         let (_wheel_x, wheel_y) = mouse_wheel();
 
         if wheel_y != 0.0 {
             let zoom_factor = if wheel_y > 0.0 { ZOOM_STEP } else { 1.0 / ZOOM_STEP };
             if over_source && source_sheet_stack_rect(source_rect).contains(mouse) {
-                let visible_h = source_sheet_stack_rect(source_rect).h;
-                let content_h = self.sheet_library.len() as f32 * SHEET_CARD_H;
+                let visible_h = (source_sheet_stack_rect(source_rect).h - 48.0).max(0.0);
+                let content_h = self.sheet_library_visible.len() as f32 * SHEET_CARD_H;
                 let min_scroll = (visible_h - content_h).min(0.0);
                 self.sheet_library_scroll = (self.sheet_library_scroll + wheel_y * 28.0).clamp(min_scroll, 0.0);
             } else if over_source {
                 self.source_zoom = (self.source_zoom * zoom_factor).clamp(MIN_SOURCE_ZOOM, MAX_SOURCE_ZOOM);
-            } else if over_canvas {
+            } else if edit_canvas {
                 self.canvas_zoom = (self.canvas_zoom * zoom_factor).clamp(MIN_CANVAS_ZOOM, MAX_CANVAS_ZOOM);
             }
         }
@@ -1333,26 +1935,46 @@ impl MapperApp {
         if is_mouse_button_pressed(MouseButton::Left) {
             self.is_panning_source = false;
             self.is_panning_canvas = false;
+            self.is_painting_height = false;
             self.drag_origin = None;
             if space_pan && over_source {
                 self.is_panning_source = true;
-            } else if space_pan && over_canvas {
+            } else if space_pan && edit_canvas {
                 self.is_panning_canvas = true;
             } else if over_source {
                 if let Some(index) = self.source_sheet_card_at(source_rect, mouse) {
-                    self.open_sheet_from_library(index);
+                    let row = source_sheet_stack_rect(source_rect);
+                    if mouse.x >= row.x + row.w - 67.0 {
+                        let path = self.sheet_library[index].path.clone();
+                        if self.source_is_activated(&Self::asset_id(&path)) { self.deactivate_sheet(index); }
+                        else { self.open_sheet_from_library(index); }
+                    } else {
+                        self.open_sheet_from_library(index);
+                    }
                 } else if let Some(tile) = self.source_tile_at(source_rect, mouse) {
                     self.selected_tile = Some(tile);
                     self.selected_piece = None;
                     self.drag = DragState::SourceTile(tile);
                 }
-            } else if over_canvas {
-                if let Some(index) = self.hit_piece(canvas_rect, mouse) {
+            } else if edit_canvas {
+                if self.author_tool == AuthorTool::Elevation {
+                    if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) {
+                        self.checkpoint_scene();
+                        self.is_painting_height = true;
+                        self.set_height_cell(gx, gy, self.paint_elevation);
+                    }
+                } else if self.author_tool == AuthorTool::Water {
+                    if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) {
+                        self.checkpoint_scene();
+                        self.toggle_water_cell(gx, gy);
+                    }
+                } else if let Some(index) = self.hit_piece(canvas_rect, mouse) {
                     self.selected_piece = Some(index);
                     self.selected_tile = None;
                     if let Some(piece) = self.pieces.get(index) {
                         self.drag_origin = Some((index, piece.canvas_grid_x, piece.canvas_grid_y));
                     }
+                    self.checkpoint_scene();
                     self.drag = DragState::ExistingPiece(index);
                 } else {
                     self.selected_piece = None;
@@ -1365,10 +1987,13 @@ impl MapperApp {
                 self.source_pan += delta;
             } else if self.is_panning_canvas {
                 self.canvas_pan += delta;
+            } else if edit_canvas && self.is_painting_height && self.author_tool == AuthorTool::Elevation {
+                if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) { self.set_height_cell(gx, gy, self.paint_elevation); }
             } else if let DragState::ExistingPiece(index) = self.drag {
-                if over_canvas {
+                if edit_canvas {
                     if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) {
                         if let Some(piece) = self.pieces.get_mut(index) {
+                            if piece.canvas_grid_x != gx || piece.canvas_grid_y != gy { self.dirty = true; }
                             piece.canvas_grid_x = gx;
                             piece.canvas_grid_y = gy;
                         }
@@ -1380,7 +2005,7 @@ impl MapperApp {
         if is_mouse_button_released(MouseButton::Left) {
             match self.drag {
                 DragState::SourceTile(tile) => {
-                    if over_canvas {
+                    if edit_canvas {
                         if let Some((gx, gy)) = self.canvas_grid_at(canvas_rect, mouse) {
                             self.add_piece_from_tile(tile, gx, gy);
                         }
@@ -1389,7 +2014,7 @@ impl MapperApp {
                     }
                 }
                 DragState::ExistingPiece(index) => {
-                    if !over_canvas {
+                    if !edit_canvas {
                         if let Some((origin_index, gx, gy)) = self.drag_origin {
                             if origin_index == index {
                                 if let Some(piece) = self.pieces.get_mut(index) {
@@ -1407,6 +2032,7 @@ impl MapperApp {
             self.drag_origin = None;
             self.is_panning_source = false;
             self.is_panning_canvas = false;
+            self.is_painting_height = false;
         }
 
         self.last_mouse = mouse;
@@ -1479,15 +2105,39 @@ impl MapperApp {
 
     fn mapping_record_path(&self) -> Option<PathBuf> {
         let atlas = self.atlas.as_ref()?;
-        let stem = atlas.path.file_stem().and_then(|stem| stem.to_str()).unwrap_or("atlas");
-        let safe = sanitize_file_stem(stem);
-        let file = format!("{}__{}.mapped-sheet.json", safe, self.category.stable_key());
         let root = env::current_dir().ok()?;
-        Some(root.join("artifacts").join("asset-intake").join("atlas-mapper").join("mapped-sheets").join(file))
+        Self::mapping_record_path_for(&root, &atlas.path, self.category)
     }
 
     fn write_mapping_record(&mut self, handoff_path: Option<&Path>) {
-        self.write_mapping_record_with_status(handoff_path, MAPPED_TILE_STATUS_DRAFT, self.mapping_stage.label(), false);
+        self.write_all_mapping_records(handoff_path, MAPPED_TILE_STATUS_DRAFT, self.mapping_stage.label(), false);
+    }
+
+    fn write_all_mapping_records(&mut self, handoff_path: Option<&Path>, tile_status: &str, lifecycle_stage: &str, learned_from_scene: bool) {
+        // Saved records are per source, not per currently highlighted sheet.
+        // Swap temporarily without loading source bytes or changing scene placements.
+        let Some(original) = self.atlas.take() else { return; };
+        let sources = std::mem::take(&mut self.source_stack);
+        let selected_category = self.category;
+        let mut restored = Vec::with_capacity(sources.len());
+        self.atlas = Some(original);
+        self.category = AssetCategory::from_file_hint(&self.atlas.as_ref().expect("source present").path);
+        self.write_mapping_record_with_status(handoff_path, tile_status, lifecycle_stage, learned_from_scene);
+        for sheet in sources {
+            let previous = self.atlas.replace(sheet).expect("active atlas restored before cycling");
+            restored.push(previous);
+            self.category = AssetCategory::from_file_hint(&self.atlas.as_ref().expect("source present").path);
+            self.write_mapping_record_with_status(handoff_path, tile_status, lifecycle_stage, learned_from_scene);
+        }
+        self.source_stack = restored;
+        // This order restores the originally highlighted source last, not the
+        // intermediate sources; the source selected in the UI is unchanged.
+        if !self.source_stack.is_empty() {
+            let original = self.source_stack.remove(0);
+            let selected = self.atlas.replace(original).expect("active source exists");
+            self.source_stack.push(selected);
+        }
+        self.category = selected_category;
     }
 
     fn write_mapping_record_with_status(&mut self, handoff_path: Option<&Path>, tile_status: &str, lifecycle_stage: &str, learned_from_scene: bool) {
@@ -1506,7 +2156,9 @@ impl MapperApp {
                 return;
             }
         }
-        let mapped_tiles: Vec<MappedSheetTileRecord> = self.pieces.iter().map(|piece| MappedSheetTileRecord {
+        let mapped_tiles: Vec<MappedSheetTileRecord> = self.pieces.iter()
+            .filter(|piece| piece.source_asset_id == atlas.id)
+            .map(|piece| MappedSheetTileRecord {
             source_tile_x: piece.source_tile_x,
             source_tile_y: piece.source_tile_y,
             source_rect: piece.source_rect,
@@ -1519,6 +2171,7 @@ impl MapperApp {
             compatibility_class: compatibility_class_for_piece(&piece.semantic_role),
             status: tile_status.to_string(),
         }).collect();
+        if mapped_tiles.is_empty() { return; } // Never overwrite an existing sheet mapping with another sheet's empty record.
         let unique_tile_count = mapped_tiles
             .iter()
             .map(|tile| (tile.source_tile_x, tile.source_tile_y))
@@ -1539,7 +2192,7 @@ impl MapperApp {
             provider: provider_for_sheet(&atlas_path, self.category),
             season: season_for_sheet(&atlas_path).unwrap_or("none").to_string(),
             terrain_lane_authority: "content/worldgen/terrain_lane_authority_v1.json".to_string(),
-            piece_count: self.pieces.len(),
+            piece_count: mapped_tiles.len(),
             mapped_tile_count: unique_tile_count,
             mapped_tiles,
             coverage_percent,
@@ -2062,35 +2715,43 @@ fn draw_wrapped_line(text: &str, x: f32, y: f32, max_chars: usize, font_size: f3
     yy
 }
 
+fn stable_path_hash(bytes: &[u8]) -> u64 {
+    // FNV-1a is a deterministic filename disambiguator, NOT a source integrity proof.
+    let mut hash = 0xcbf29ce484222325u64;
+    for byte in bytes { hash = (hash ^ u64::from(*byte)).wrapping_mul(0x100000001b3); }
+    hash
+}
+
 fn draw_top_bar(app: &mut MapperApp) {
     draw_rectangle(0.0, 0.0, screen_width(), TOP_BAR_H, Color::new(0.028, 0.035, 0.047, 1.0));
     draw_rectangle(0.0, 0.0, screen_width(), 4.0, Color::new(0.12, 0.32, 0.45, 1.0));
-    draw_text("Havenwild Asset Mapping Workspace", 16.0, 30.0, 25.0, Color::new(0.94, 0.96, 0.98, 1.0));
-    draw_text("Forge-style asset intake | source library -> scene draft -> semantic/collision mapping -> engine handoff", 18.0, 55.0, 15.0, Color::new(0.62, 0.70, 0.78, 1.0));
+    draw_text("Havenwild ElizaWy Mapping Workspace", 16.0, 30.0, 25.0, Color::new(0.94, 0.96, 0.98, 1.0));
+    draw_text("SUMMER | left: original sheets | right: mapping scene", 18.0, 55.0, 15.0, Color::new(0.62, 0.70, 0.78, 1.0));
 
-    let mut bx = 365.0;
-    if draw_button(Rect::new(bx, 12.0, 112.0, 28.0), "Refresh Lib", false) { app.refresh_sheet_library(); }
-    bx += 120.0;
-    if draw_button(Rect::new(bx, 12.0, 84.0, 28.0), "Load PNG", false) { app.load_atlas_dialog(); }
-    bx += 92.0;
-    if draw_button(Rect::new(bx, 12.0, 104.0, 28.0), "Load Project", false) { app.load_project_dialog(); }
-    bx += 112.0;
-    if draw_button(Rect::new(bx, 12.0, 106.0, 28.0), "Save Project", false) { app.save_project_current_or_dialog(); }
-    bx += 114.0;
-    if draw_button(Rect::new(bx, 12.0, 124.0, 28.0), "Export Handoff", false) { app.export_handoff_dialog(); }
-    bx += 132.0;
-    if draw_button(Rect::new(bx, 12.0, 116.0, 28.0), "Build Scene Draft", false) { app.auto_map_sheet(); }
-    bx += 124.0;
-    if draw_button(Rect::new(bx, 12.0, 116.0, 28.0), "Next Missing", false) { app.generate_next_missing_draft(); }
-    bx += 124.0;
-    if draw_button(Rect::new(bx, 12.0, 110.0, 28.0), "Learn Scene", false) { app.learn_from_scene(); }
-    bx += 118.0;
-    if draw_button(Rect::new(bx, 12.0, 62.0, 28.0), "Clear", false) {
-        app.pieces.clear();
-        app.selected_piece = None;
-        app.mapping_stage = MappingStage::SourceOnly;
-        app.status = "Assembly canvas cleared; source atlas remains unchanged.".to_string();
+    // Keep the primary actions reachable on a standard 1280px window.
+    let actions_x = 440.0;
+    let y = 9.0;
+    if draw_button(Rect::new(actions_x, y, 88.0, 28.0), "Refresh", false) { app.refresh_sheet_library(); }
+    if draw_button(Rect::new(actions_x + 95.0, y, 82.0, 28.0), "Load PNG", false) { app.load_atlas_dialog(); }
+    if draw_button(Rect::new(actions_x + 184.0, y, 87.0, 28.0), "Open", false) { app.load_project_dialog(); }
+    if draw_button(Rect::new(actions_x + 278.0, y, 87.0, 28.0), "Save", false) { app.save_project_current_or_dialog(); }
+    if draw_button(Rect::new(actions_x + 372.0, y, 94.0, 28.0), "Review PNG", false) { app.export_review_dialog(); }
+    if draw_button(Rect::new(actions_x + 473.0, y, 91.0, 28.0), "Handoff", false) { app.export_handoff_dialog(); }
+    if draw_button(Rect::new(actions_x + 641.0, y, 64.0, 28.0), "Undo", false) { app.undo_scene(); }
+    if draw_button(Rect::new(actions_x + 711.0, y, 64.0, 28.0), "Redo", false) { app.redo_scene(); }
+    if draw_button(Rect::new(actions_x + 571.0, y, 64.0, 28.0), "Clear", false) {
+        if app.dirty {
+            app.status = "Clear blocked: save unsaved scene changes first.".to_string();
+        } else {
+            app.checkpoint_scene();
+            app.pieces.clear(); app.heightmap.clear(); // Keep active sheet stack so Undo can restore every piece.
+            app.selected_piece = None; app.project_path = None;
+            app.mapping_stage = MappingStage::SourceOnly;
+            app.status = "New empty summer scene; original source sheets remain immutable.".to_string();
+        }
     }
+
+    if draw_button(Rect::new(actions_x + 767.0, y, 70.0, 28.0), "Audit", false) { app.export_scene_audit(); }
 
     let mut x = 365.0;
     let y = 48.0;
@@ -2106,30 +2767,46 @@ fn draw_top_bar(app: &mut MapperApp) {
 }
 
 fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
-    draw_panel(source_rect, "Asset Sheet Stack", "Havenwild asset lane sheets; selected sheet becomes the source atlas");
+    draw_panel(source_rect, "LEFT | ElizaWy Summer Source Library", "Indexed summer/neutral originals | click to select | ON/OFF to activate");
     let header_right = source_rect.x + source_rect.w - 184.0;
     draw_text(&format!("zoom {:.0}%", app.source_zoom * 100.0), header_right, source_rect.y + 24.0, 15.0, Color::new(0.64, 0.72, 0.80, 1.0));
     if draw_button(Rect::new(source_rect.x + source_rect.w - 88.0, source_rect.y + 9.0, 74.0, 21.0), "Refresh", false) {
         app.refresh_sheet_library();
     }
 
-    draw_dock_tabs(source_rect, &["Sheets", "Tiles", "Mapped"], 0);
+    draw_dock_tabs(source_rect, &["SUMMER", "Source picker", "Known addresses (not roles)"], 0);
     let stack = source_sheet_stack_rect(source_rect);
     draw_rectangle(stack.x, stack.y, stack.w, stack.h, Color::new(0.022, 0.028, 0.037, 1.0));
     draw_rectangle_lines(stack.x, stack.y, stack.w, stack.h, 1.0, Color::new(0.14, 0.19, 0.25, 1.0));
-    draw_text("Preloaded source sheets", stack.x + 8.0, stack.y + 18.0, 15.0, Color::new(0.72, 0.80, 0.86, 1.0));
-    draw_text(&app.library_notice, stack.x + 8.0, stack.y + 38.0, 13.0, Color::new(0.52, 0.61, 0.69, 1.0));
+    draw_text("Summer/neutral original sheets | ON = scene source", stack.x + 8.0, stack.y + 18.0, 15.0, Color::new(0.72, 0.80, 0.86, 1.0));
+    let search_label = if app.sheet_library_search_focused { "SEARCH ACTIVE" } else { "Ctrl+F search" };
+    let query_label = if app.sheet_library_search.is_empty() { "" } else { &app.sheet_library_search };
+    let prompt = format!("{} | {} / {} | {} {}", search_label, app.sheet_library_visible.len(), app.sheet_library.len(), query_label,
+        if app.sheet_library_search_focused { "_" } else { "" });
+    draw_text(&prompt, stack.x + 8.0, stack.y + 38.0, 13.0, Color::new(0.62, 0.79, 0.86, 1.0));
+    if draw_button(Rect::new(stack.x + stack.w - 67.0, stack.y + 25.0, 60.0, 20.0),
+        if app.sheet_library_search.is_empty() { "Find" } else { "Reset" }, false) {
+        if app.sheet_library_search.is_empty() {
+            app.sheet_library_search_focused = true;
+        } else {
+            app.sheet_library_search.clear();
+            app.rebuild_sheet_library_visibility();
+            app.sheet_library_search_focused = false;
+        }
+    }
 
     let clip_y = stack.y + 48.0;
-    let mut row_y = clip_y + app.sheet_library_scroll;
+    // Virtualize large ElizaWy libraries: do not walk tens of thousands of
+    // character sheets on every rendered frame just to skip offscreen cards.
+    let first_visible = ((-app.sheet_library_scroll / SHEET_CARD_H).floor().max(0.0) as usize)
+        .min(app.sheet_library_visible.len());
+    let mut row_y = clip_y + app.sheet_library_scroll + first_visible as f32 * SHEET_CARD_H;
     let active_key = app.atlas.as_ref().map(|atlas| normalize_path_key(&atlas.path));
-    for card in &app.sheet_library {
-        if row_y + SHEET_CARD_H < clip_y {
-            row_y += SHEET_CARD_H;
-            continue;
-        }
+    for &index in app.sheet_library_visible.iter().skip(first_visible) {
+        let card = &app.sheet_library[index];
         if row_y > stack.y + stack.h - 4.0 { break; }
         let active = active_key.as_deref() == Some(normalize_path_key(&card.path).as_str());
+        let enabled = app.source_is_activated(&MapperApp::asset_id(&card.path));
         let row = Rect::new(stack.x + 6.0, row_y, stack.w - 12.0, SHEET_CARD_H - 4.0);
         let fill = if active { Color::new(0.08, 0.18, 0.25, 1.0) } else { Color::new(0.040, 0.050, 0.066, 1.0) };
         draw_rectangle(row.x, row.y, row.w, row.h, fill);
@@ -2138,19 +2815,21 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
             draw_rectangle(row.x + 1.0, row.y + 2.0, 3.0, row.h - 4.0, Color::new(0.16, 0.75, 0.34, 0.95));
         }
         draw_text(card.status.label(), row.x + 8.0, row.y + 20.0, 17.0, if card.status.is_good() { Color::new(0.44, 0.92, 0.58, 1.0) } else { Color::new(0.80, 0.73, 0.46, 1.0) });
-        draw_text(&card.display_name, row.x + 34.0, row.y + 14.0, 13.5, Color::new(0.88, 0.91, 0.94, 1.0));
-        draw_text(&format!("{} / {}", card.category.label(), card.status.description()), row.x + 34.0, row.y + 28.0, 11.0, Color::new(0.55, 0.64, 0.72, 1.0));
+        let truncated_name: String = card.display_name.chars().take(33).collect();
+        draw_text(&truncated_name, row.x + 34.0, row.y + 14.0, 13.0, Color::new(0.88, 0.91, 0.94, 1.0));
+        draw_text(&format!("{} | {} | {} source matches", card.category.label(), card.status.description(), card.source_address_count), row.x + 34.0, row.y + 28.0, 11.0, Color::new(0.55, 0.64, 0.72, 1.0));
         let metric = if card.mapped_tile_count > 0 {
             format!("{} tiles · {:.1}%", card.mapped_tile_count, card.coverage_percent)
         } else {
             "no mapping".to_string()
         };
-        draw_text(&metric, row.x + row.w - 162.0, row.y + 14.0, 11.0, Color::new(0.56, 0.74, 0.62, 1.0));
-        draw_text(&card.family, row.x + row.w - 162.0, row.y + 29.0, 10.0, Color::new(0.48, 0.58, 0.66, 1.0));
+        let _ = metric; // Counts and stage are displayed under each source name.
+        draw_rectangle(row.x + row.w - 63.0, row.y + 3.0, 58.0, row.h - 6.0, if enabled { Color::new(0.11, 0.39, 0.27, 1.0) } else { Color::new(0.16, 0.19, 0.23, 1.0) });
+        draw_text(if enabled { "ON" } else { "OFF" }, row.x + row.w - 48.0, row.y + 21.0, 13.0, if enabled { Color::new(0.60, 0.98, 0.70, 1.0) } else { Color::new(0.68, 0.75, 0.81, 1.0) });
         row_y += SHEET_CARD_H;
     }
-    if app.sheet_library.is_empty() {
-        draw_text("No sheets indexed yet. Click Refresh Lib or load a PNG manually.", stack.x + 10.0, stack.y + 82.0, 15.0, Color::new(0.72, 0.78, 0.84, 1.0));
+    if app.sheet_library_visible.is_empty() {
+        draw_text("No matching indexed sheets. Ctrl+F to change search or click Refresh.", stack.x + 10.0, stack.y + 82.0, 15.0, Color::new(0.72, 0.78, 0.84, 1.0));
     }
 
     let preview = source_preview_rect(source_rect);
@@ -2199,18 +2878,23 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
 
 
 fn source_sheet_stack_rect(panel: Rect) -> Rect {
-    Rect::new(panel.x + 10.0, panel.y + 66.0, panel.w - 20.0, SOURCE_SHEET_STACK_H - 72.0)
+    let usable_h = (panel.h - 170.0).max(125.0);
+    Rect::new(panel.x + 10.0, panel.y + 66.0, panel.w - 20.0, (panel.h * 0.50).max(SOURCE_SHEET_STACK_MIN_H).min(usable_h) - 66.0)
 }
 
 fn source_preview_rect(panel: Rect) -> Rect {
-    let y = panel.y + SOURCE_SHEET_STACK_H + SOURCE_PREVIEW_TOP_PAD;
+    let stack = source_sheet_stack_rect(panel);
+    let y = stack.y + stack.h + SOURCE_PREVIEW_TOP_PAD;
     Rect::new(panel.x + 10.0, y, panel.w - 20.0, (panel.y + panel.h - y - 10.0).max(120.0))
 }
 
 fn draw_mapped_tile_badges(app: &MapperApp, preview: Rect) {
     let mut mapped = app.persisted_mapped_tiles_for_current_sheet();
+    let active_id = app.atlas.as_ref().map(|atlas| atlas.id.as_str());
     for piece in &app.pieces {
-        mapped.insert((piece.source_tile_x, piece.source_tile_y), MAPPED_TILE_STATUS_DRAFT.to_string());
+        if active_id == Some(piece.source_asset_id.as_str()) {
+            mapped.insert((piece.source_tile_x, piece.source_tile_y), MAPPED_TILE_STATUS_DRAFT.to_string());
+        }
     }
     if mapped.is_empty() { return; }
     for ((tile_x, tile_y), status) in mapped {
@@ -2241,8 +2925,11 @@ fn is_supported_image_path(path: &Path) -> bool {
 fn default_asset_sheet_scan_roots(root: &Path) -> Vec<PathBuf> {
     vec![
         root.join("assets/source/licensed/lpc_revised/Terrain"),
+        root.join("assets/source/licensed/lpc_revised/Terrain Objects"),
+        root.join("assets/source/licensed/lpc_revised/seasonal_split"),
         root.join("assets/source/licensed/lpc_revised/Objects"),
         root.join("assets/source/licensed/lpc_revised/Structure"),
+        root.join("assets/source/licensed/lpc_revised/Structures"),
         root.join("assets/source/licensed/lpc_revised/Characters"),
         root.join("assets/source/licensed/lpc_revised/Character"),
         root.join("assets/source/licensed/lpc_revised/Equipment"),
@@ -2315,24 +3002,43 @@ fn infer_sheet_family(root: &Path, path: &Path, category: AssetCategory) -> Stri
     }
 }
 
+fn canvas_edit_rect(panel: Rect) -> Rect {
+    // Toolbar occupies top 72px; opaque controls panel occupies bottom 110px.
+    // Never paint behind a button or through instructional chrome.
+    Rect::new(panel.x + 2.0, panel.y + 74.0, (panel.w - 4.0).max(0.0), (panel.h - 184.0).max(0.0))
+}
+
+fn draw_height_overlay(app: &MapperApp, canvas_rect: Rect) {
+    for cell in &app.heightmap {
+        let x = canvas_rect.x + app.canvas_pan.x + cell.x as f32 * TILE_SIZE as f32 * app.canvas_zoom;
+        let y = canvas_rect.y + app.canvas_pan.y + cell.y as f32 * TILE_SIZE as f32 * app.canvas_zoom;
+        let size = TILE_SIZE as f32 * app.canvas_zoom;
+        if x + size < canvas_rect.x || y + size < canvas_rect.y + 38.0 || x > canvas_rect.x + canvas_rect.w || y > canvas_rect.y + canvas_rect.h { continue; }
+        let alpha = (0.12 + (cell.elevation as f32 / 30.0) * 0.28).min(0.42);
+        draw_rectangle(x, y, size, size, Color::new(0.95, 0.72, 0.18, alpha));
+        if cell.water_surface.is_some() { draw_rectangle(x + 2.0, y + 2.0, size - 4.0, size - 4.0, Color::new(0.10, 0.55, 0.92, 0.30)); }
+        if app.canvas_zoom >= 1.25 {
+            draw_text(&format!("+{}", cell.elevation), x + 4.0, y + 15.0, 13.0, Color::new(0.98, 0.98, 0.92, 0.95));
+        }
+    }
+}
+
 fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
-    draw_panel(canvas_rect, "Scene Draft Canvas", "source-linked pieces; correct into certified mapping metadata");
-    draw_dock_tabs(canvas_rect, &["Scene", "Collision", "Layers", "Sockets"], 0);
-    draw_text(&format!("zoom {:.0}%", app.canvas_zoom * 100.0), canvas_rect.x + canvas_rect.w - 216.0, canvas_rect.y + 24.0, 15.0, Color::new(0.64, 0.72, 0.80, 1.0));
-    if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 148.0, canvas_rect.y + 8.0, 58.0, 23.0), "2x", false) { app.reset_canvas_view(); }
-    if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 82.0, canvas_rect.y + 8.0, 66.0, 23.0), "Fit", false) { app.fit_canvas_to_pieces(canvas_rect); }
+    draw_panel(canvas_rect, "RIGHT | ElizaWy Summer Scene Workspace", "Active source sheets + known mapping evidence; visual review is not certification");
 
     draw_grid(canvas_rect, app.canvas_pan, app.canvas_zoom, Color::new(1.0, 1.0, 1.0, 0.10));
+    draw_height_overlay(app, canvas_rect);
     if let Some(atlas) = &app.atlas {
         let mut draw_order: Vec<usize> = (0..app.pieces.len()).collect();
         draw_order.sort_by_key(|index| app.pieces[*index].layer);
         for index in draw_order {
             let piece = &app.pieces[index];
+            let Some(texture) = app.texture_for_piece(piece) else { continue; };
             let dest = app.canvas_piece_rect(canvas_rect, piece);
             let source = Rect::new(piece.source_rect[0] as f32, piece.source_rect[1] as f32, TILE_SIZE as f32, TILE_SIZE as f32);
             let center = vec2(dest.x + dest.w * 0.5, dest.y + dest.h * 0.5);
             draw_texture_ex(
-                &atlas.texture,
+                texture,
                 dest.x,
                 dest.y,
                 WHITE,
@@ -2346,6 +3052,12 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
                     ..Default::default()
                 },
             );
+            if let Some(cell) = app.heightmap.iter().find(|cell|
+                cell.x == piece.canvas_grid_x && cell.y == piece.canvas_grid_y) {
+                draw_text(&format!("+{}{}", cell.elevation,
+                    if cell.water_surface.is_some() { " W" } else { "" }),
+                    dest.x + 2.0, dest.y + 14.0, 13.0, YELLOW);
+            }
             if app.selected_piece == Some(index) {
                 draw_rectangle_lines(dest.x, dest.y, dest.w, dest.h, 3.0, Color::new(0.30, 0.72, 0.94, 1.0));
                 let label = format!("id:{} layer:{} rot:{}", piece.id, piece.layer, piece.rotation_degrees);
@@ -2366,16 +3078,31 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
         }
     }
 
+    draw_rectangle(canvas_rect.x, canvas_rect.y, canvas_rect.w, 74.0, Color::new(0.030, 0.039, 0.052, 1.0));
+    draw_text("RIGHT | ElizaWy Summer Scene Workspace", canvas_rect.x + 12.0, canvas_rect.y + 24.0, 17.0, WHITE);
+    draw_dock_tabs(canvas_rect, &["Scene", "Heightmap", "Collision", "Traversal"], if app.author_tool == AuthorTool::Select { 0 } else { 1 });
+    let ty = canvas_rect.y + 42.0;
+    if draw_button(Rect::new(canvas_rect.x + 12.0, ty, 66.0, 22.0), "1 Select", app.author_tool == AuthorTool::Select) { app.author_tool = AuthorTool::Select; }
+    if draw_button(Rect::new(canvas_rect.x + 84.0, ty, 72.0, 22.0), "2 Height", app.author_tool == AuthorTool::Elevation) { app.author_tool = AuthorTool::Elevation; }
+    if draw_button(Rect::new(canvas_rect.x + 162.0, ty, 70.0, 22.0), "3 Water", app.author_tool == AuthorTool::Water) { app.author_tool = AuthorTool::Water; }
+    if draw_button(Rect::new(canvas_rect.x + 238.0, ty, 34.0, 22.0), "-", false) { app.paint_elevation = app.paint_elevation.saturating_sub(1); }
+    draw_text(&format!("+{}", app.paint_elevation), canvas_rect.x + 280.0, ty + 17.0, 15.0, Color::new(0.88, 0.91, 0.94, 1.0));
+    if draw_button(Rect::new(canvas_rect.x + 310.0, ty, 34.0, 22.0), "+", false) { app.paint_elevation = (app.paint_elevation + 1).min(30); }
+    draw_text(&format!("zoom {:.0}%", app.canvas_zoom * 100.0), canvas_rect.x + canvas_rect.w - 216.0, canvas_rect.y + 24.0, 15.0, Color::new(0.64, 0.72, 0.80, 1.0));
+    if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 148.0, canvas_rect.y + 8.0, 58.0, 23.0), "2x", false) { app.reset_canvas_view(); }
+    if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 82.0, canvas_rect.y + 8.0, 66.0, 23.0), "Fit", false) { app.fit_canvas_to_pieces(canvas_rect); }
+
+
     let info_y = canvas_rect.y + canvas_rect.h - 94.0;
     draw_rectangle(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 78.0, Color::new(0.018, 0.023, 0.031, 0.90));
     draw_rectangle_lines(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 78.0, 1.0, Color::new(0.16, 0.22, 0.28, 1.0));
     draw_text("Controls", canvas_rect.x + 18.0, info_y + 22.0, 18.0, Color::new(0.88, 0.92, 0.95, 1.0));
     draw_text("drag source -> canvas | Space+drag pan | wheel zoom | Ctrl+G scene | Ctrl+M next missing | Ctrl+Shift+Enter learn", canvas_rect.x + 18.0, info_y + 46.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
-    draw_text("select piece: R rotate, H/V flip, Delete remove, [ ] layer", canvas_rect.x + 18.0, info_y + 68.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
+    draw_text("Ctrl+Z undo Ctrl+Y redo | 1 select 2 height 3 water | +/- level 0..30 | R rotate H/V flip Del remove", canvas_rect.x + 18.0, info_y + 68.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
 }
 
 fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) {
-    draw_panel(inspector_rect, "Asset Intake", "mapping status, category, generated layout");
+    draw_panel(inspector_rect, "Workspace Inspector", "source mapping / scene tools / candidate export");
     draw_dock_tabs(inspector_rect, &["Inspector", "Semantics", "Publish"], 0);
     let mut y = inspector_rect.y + 70.0;
     draw_status_pill(Rect::new(inspector_rect.x + 14.0, y, 128.0, 24.0), app.mapping_stage.label(), app.mapping_stage.is_green());
@@ -2455,7 +3182,7 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
     draw_rectangle(inspector_rect.x + 12.0, bottom_y, inspector_rect.w - 24.0, 78.0, app.category.color());
     draw_rectangle(inspector_rect.x + 14.0, bottom_y + 2.0, inspector_rect.w - 28.0, 74.0, Color::new(0.025, 0.030, 0.038, 0.78));
     draw_text("Mapped-sheet meaning", inspector_rect.x + 20.0, bottom_y + 25.0, 16.0, Color::new(0.92, 0.95, 0.96, 1.0));
-    draw_text("Green = source-cell metadata exists", inspector_rect.x + 20.0, bottom_y + 49.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
+    draw_text("Green = draft source metadata ONLY", inspector_rect.x + 20.0, bottom_y + 49.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
     draw_text("Not runtime-published yet", inspector_rect.x + 20.0, bottom_y + 69.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
 }
 
@@ -2476,7 +3203,7 @@ fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector
         .and_then(|path| path.file_name().and_then(|name| name.to_str()))
         .unwrap_or("unsaved project");
     draw_text(
-        &format!("{} | stage: {} | category: {} | pieces: {} | atlas: {} | project: {}", app.status, app.mapping_stage.label(), app.category.label(), app.pieces.len(), atlas_label, project_label),
+        &format!("{} | stage: {} | tool: {} +{} | pieces: {} | heights: {} | sources: {} | project: {}", app.status, app.mapping_stage.label(), app.author_tool.label(), app.paint_elevation, app.pieces.len(), app.heightmap.len(), app.source_stack.len() + usize::from(app.atlas.is_some()), project_label),
         12.0,
         screen_height() - 10.0,
         16.0,
@@ -2486,7 +3213,7 @@ fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector
 
 fn window_conf() -> Conf {
     Conf {
-        window_title: "Havenwild Atlas Mapper Lite".to_string(),
+        window_title: "Havenwild ElizaWy Mapping Workspace".to_string(),
         window_width: 1600,
         window_height: 940,
         high_dpi: true,
@@ -2512,10 +3239,12 @@ async fn main() {
         let body_top = TOP_BAR_H + GAP;
         let body_h = height - TOP_BAR_H - STATUS_H - GAP * 2.0;
         let rail_w = 56.0;
-        let source_w = (width * 0.32).clamp(410.0, 650.0);
-        let inspector_w = INSPECTOR_W.min((width * 0.24).max(260.0));
+        // Left = complete indexed source picker. Right = scene plus its inspector.
+        let source_w = (width * 0.36).clamp(350.0, 640.0).min(width * 0.45);
+        let right_w = width - rail_w - source_w - GAP * 3.0;
+        let inspector_w = INSPECTOR_W.min((right_w * 0.32).max(210.0));
         let canvas_x = rail_w + source_w + GAP;
-        let canvas_w = width - rail_w - source_w - inspector_w - GAP * 3.0;
+        let canvas_w = (right_w - inspector_w - GAP).max(225.0);
         let source_rect = Rect::new(rail_w + GAP, body_top, source_w - GAP * 0.5, body_h);
         let canvas_rect = Rect::new(canvas_x, body_top, canvas_w, body_h);
         let inspector_rect = Rect::new(canvas_x + canvas_w + GAP, body_top, inspector_w, body_h);

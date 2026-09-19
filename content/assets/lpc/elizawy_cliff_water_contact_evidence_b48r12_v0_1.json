@@ -1,0 +1,197 @@
+{
+  "schema": "havenwild.elizawy.cliff_water_contact_evidence.b48r12.v0_1",
+  "pass": "B48R12",
+  "status": "source_crop_audit_only__awaits_contact_assembly_and_visual_approval",
+  "productionEnabled": false,
+  "editorClientRecipeEnabled": false,
+  "validForWorldgenPlacement": false,
+  "sourceAuthority": {
+    "originalArtistDemo": {
+      "archive": "_ Test Scenes.zip",
+      "member": "_ Test Scenes/DemoGame - 2 - Summer.png",
+      "sha256": "0cd146b765a9c5acaef03ab140d969a76acad989cd3294268bbe8c2193a336c7"
+    },
+    "originalCliff": {
+      "archive": "Terrain.zip",
+      "member": "Terrain/cliff_summer.png",
+      "sha256": "94bd2ddb2c51677498453486092ef28e57e0c1880f4334359189229590298147"
+    },
+    "splitWaterfallTransitions": {
+      "archive": "4-season_terrain (1).zip",
+      "member": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+      "sha256": "8deafc172a31e96409d31ef0e7c23eee1b25d3c903ff24f6ab602f56985c1ae4"
+    },
+    "splitAnimatedCliffWater": {
+      "archive": "4-season_terrain (1).zip",
+      "member": "Terrain/Mountain, Animated Water (Summer).png",
+      "sha256": "0e0998191aedd8562b8d31342c443536765c7223561997d14d091553b93b7cfc"
+    }
+  },
+  "artistDemoContactRegions": [
+    {
+      "label": "UPPER | lip, cliff shoulders, foot & receiving water",
+      "sourceRectPx": [
+        163,
+        0,
+        321,
+        235
+      ],
+      "croppedRGBAsha256": "96623d43b038b2a973d5431107cd3e3b5eddd39b36c59acc4d78a8ba75119081",
+      "sourceFile": "_ Test Scenes/DemoGame - 2 - Summer.png",
+      "pixelModification": "none; board-only nearest-neighbor display scaling"
+    },
+    {
+      "label": "MIDDLE | river above lower fall, cliff lip",
+      "sourceRectPx": [
+        395,
+        433,
+        550,
+        695
+      ],
+      "croppedRGBAsha256": "9a0ad0842b9de0129442d5f573f09e06a958a50ae179b46a6ed4d5a28bc8939a",
+      "sourceFile": "_ Test Scenes/DemoGame - 2 - Summer.png",
+      "pixelModification": "none; board-only nearest-neighbor display scaling"
+    },
+    {
+      "label": "LOWER | landing basin and submerged bank",
+      "sourceRectPx": [
+        397,
+        544,
+        638,
+        788
+      ],
+      "croppedRGBAsha256": "284eab8136bc0a01125357249455082ba889dac50466308f12f3006b708d89a7",
+      "sourceFile": "_ Test Scenes/DemoGame - 2 - Summer.png",
+      "pixelModification": "none; board-only nearest-neighbor display scaling"
+    },
+    {
+      "label": "POND | natural concave/convex water bank",
+      "sourceRectPx": [
+        142,
+        762,
+        785,
+        997
+      ],
+      "croppedRGBAsha256": "bdd5cbdfac24c0502154720719f35311aebfc68ac81b6d42bcb08c8101f54304",
+      "sourceFile": "_ Test Scenes/DemoGame - 2 - Summer.png",
+      "pixelModification": "none; board-only nearest-neighbor display scaling"
+    }
+  ],
+  "sourceAddressReview": {
+    "recoveredTransitionGridAddresses": 42,
+    "artworkCells": 40,
+    "transparentCells": [
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "animatedCliffWaterGridAddresses": 42,
+    "direct32x32UncompositedOpaqueMatchesInArtistDemo": {
+      "transitionSheet": 0,
+      "animatedWaterSheet": 0
+    },
+    "matchMethod": "Entire 32x32 opaque masks compared at all demo coordinates without transformations. Zero direct matches is NOT proof of absent usage: artist scene may layer source tiles or animate at a different phase. Source positions and visual-role claims remain independent."
+  },
+  "contactGates": [
+    {
+      "id": "CW01",
+      "description": "upper left and right water-to-cliff shoulder and waterfall lip",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW02",
+      "description": "direction-specific waterfall body, width and animation phase",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW03",
+      "description": "waterfall landing and submerged rock-to-water toe without interposed grass",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW04",
+      "description": "full concave and convex shore/cliff perimeter of recessed basin",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW05",
+      "description": "basin low-relief face with authorized structural and physics ownership",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW06",
+      "description": "exposed left and right cliff terminals and passable gap",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW07",
+      "description": "complete cliff shape-mask corners and end closures",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW08",
+      "description": "side-facing east/west water-to-cliff socket",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW09",
+      "description": "climb/vine/ladder/cave attach and collision",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    },
+    {
+      "id": "CW10",
+      "description": "season-compatible source mapping and deterministic seeded variant selection",
+      "sourceRoleCertified": false,
+      "joinCertified": false,
+      "runtimeEnabled": false
+    }
+  ],
+  "withdrawnB48R10": {
+    "status": "rejected_preview_not_a_gameplay_recipe",
+    "knownRecoveredTransitionPlacements": 0,
+    "floatingCliffBodyCells": 10,
+    "doNotRebuildRejectedPreview": true,
+    "doNotShipCandidateFixture": true
+  },
+  "structuralPolicy": {
+    "baselineWorldAuthority": "content/worldgen/elizawy_cliff_source_grammar_authority_v0_1.json",
+    "baselinePolicyStatus": "retired_by_elizawy_first_heightmap_reset",
+    "replacementTargetContract": "content/worldgen/elizawy_heightmap_target_v0_1.json",
+    "genericEditorLevelOneAllowed": true,
+    "genericStandaloneOneHighCliffAllowed": true,
+    "recessedBasinOneTileFace": "genuine_1_level_heightmap_depression_design_required_not_yet_runtime_supported",
+    "approvedTrueCliffExampleWaterLevelChain": [
+      2,
+      1,
+      0
+    ],
+    "exampleChainIsPlayableFixture": false,
+    "currentEngineMigrationCompleted": false,
+    "maxTargetTestElevation": 30
+  },
+  "reviewEvidence": "docs/audits/generated/B48R12_ARTIST_CLIFF_WATER_CONTACT_SOURCE_EVIDENCE.png",
+  "validationStatus": "preflight_not_runtime_certification"
+}

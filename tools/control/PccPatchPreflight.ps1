@@ -2,7 +2,7 @@ Set-StrictMode -Version 2.0
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 function Get-PccPatchPatterns {
-  return @('Havenwild_IncrementalPatch_*.zip','Havenwild_Patch_*.zip','Havenwild_Handoff_*.zip','Havenwild__*.patch','Havenwild_Patch_*.patch','HW-*.patch')
+  return @('Havenwild_IncrementalPatch_*.zip','Havenwild_CUMULATIVE_PCC_Patch_*.zip','Havenwild_Patch_*.zip','Havenwild_Handoff_*.zip','Havenwild__*.patch','Havenwild_Patch_*.patch','HW-*.patch')
 }
 
 function Get-PccPendingPatchFiles {
