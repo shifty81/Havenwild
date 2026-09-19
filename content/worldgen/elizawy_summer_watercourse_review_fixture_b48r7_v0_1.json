@@ -1,0 +1,46 @@
+{
+  "schema": "havenwild.elizawy.summer_watercourse_review_fixture.v0_1",
+  "pass": "B48R7",
+  "status": "authoring_reference_only_not_engine_scene",
+  "watercourse": [
+    "upper_river",
+    "south_drop_upper",
+    "recessed_pond",
+    "south_drop_lower",
+    "southern_river"
+  ],
+  "nominalChannelWidthTiles": 2,
+  "visualWaterLevelIds": {
+    "upper_river": 2,
+    "recessed_pond": 1,
+    "southern_river": 0
+  },
+  "structuralCliffHeightPolicy": "true cliffs require >=2 levels; isolated 1-level drops are not automatically legal cliffs; reconcile via engine topology before runtime",
+  "drawingOrder": [
+    "terrain_base",
+    "upper_land_cliff_top",
+    "cliff_faces",
+    "source_water_plane",
+    "water_cliff_interface",
+    "waterfall_back_underlay_source_authorized_only",
+    "waterfall_animated_source_rects_phase_locked",
+    "waterfall_splash",
+    "water_fx_foreground"
+  ],
+  "requiredSourceAuthoredConnections": [
+    "two-wide upper river shoreline into cliff lip",
+    "water reaches waterfall mouth without grass or blue-rectangle gap",
+    "side walls remain visible into recessed pond",
+    "all pond border cliff-water transitions match actual tiles",
+    "pond reaches second waterfall lip",
+    "second outlet reaches south river",
+    "cliff terminal detail on all exposed ends"
+  ],
+  "collisionContracts": [
+    "upper and lower water on separate visual layers and structural level identities",
+    "waterfall face blocks walking across drop",
+    "shoreline water/wading policy explicit",
+    "connectors only where source art and structural topology agree"
+  ],
+  "proofStatus": "blocked_until_built_in_editor_and_client"
+}

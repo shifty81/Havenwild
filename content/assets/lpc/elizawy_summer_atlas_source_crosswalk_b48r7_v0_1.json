@@ -1,0 +1,12410 @@
+{
+ "schema": "havenwild.elizawy.source_cell_crosswalk.b48r7",
+ "pass": "B48R7",
+ "status": "source_pixel_addresses_only_not_runtime_roles",
+ "tilePx": 32,
+ "sourceArchive": "4-season_terrain (1).zip",
+ "targetArchive": "Terrain.zip",
+ "count": 290,
+ "unique": 220,
+ "ambiguous": 30,
+ "unmatched": 40,
+ "entries": [
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    0
+   ],
+   "referencePixelSha256": "9185176591d268c815e1db8ad7936a71b35b1e02adcf98acbf43998bc7df8128",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    0
+   ],
+   "referencePixelSha256": "c7463681e121aa59609543e07f5b40a674057fd66c41417e667b3f1da1812a76",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    0
+   ],
+   "referencePixelSha256": "31a27890ba0e636e3bc7a22fd79b2a36facd19c38146dc66263108c0bca1ebb1",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    1
+   ],
+   "referencePixelSha256": "7122935bad6f386ff49c74ae1d6af298c28483f27062f2ab5a200feaf3d60e83",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    1
+   ],
+   "referencePixelSha256": "c7765d885cec51e3bd85b88880abe6ac4b3bce670196b35a5cbeaa53186ff211",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    1
+   ],
+   "referencePixelSha256": "6361f3bf6165359369c8a39a458f09919f66b0d9a9ac9a660200718cf5eed271",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    2
+   ],
+   "referencePixelSha256": "bf3ee37a901a52338fcdfb4369e08cf3b6bf2a3518b766e94b641b17d2a8185b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    2
+   ],
+   "referencePixelSha256": "7a42f96ee5b1d90432b96a23b273f91b0d9c773f6da9d989b77610c756cb5f18",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    2
+   ],
+   "referencePixelSha256": "8c16563e10dc38572e7fed10803cae2557c3df1745135e11cdadea8a6040d739",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    3
+   ],
+   "referencePixelSha256": "ed0dafe4d64eeabb889751f20f4fc809b664ea7a343337add473db67b4affa9b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    3
+   ],
+   "referencePixelSha256": "d2a7849e257af04e5553df09e685b8b64427ce208408014d26a9e674cdd3a5dd",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    3
+   ],
+   "referencePixelSha256": "112cad7eee988f2358da66d593246abc29675fd306f4990f4e13043a0b84c5fc",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    4
+   ],
+   "referencePixelSha256": "1cb638b1e6349a127f8cacf616c8d9cb53b0dc09faa9d6f9707399eb502b4b60",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    4
+   ],
+   "referencePixelSha256": "c7765d885cec51e3bd85b88880abe6ac4b3bce670196b35a5cbeaa53186ff211",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    4
+   ],
+   "referencePixelSha256": "72e1c483434fdf56b914770164eec1b3662668dac909d67410d0ccf6648a2f29",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    5
+   ],
+   "referencePixelSha256": "45cb2e6b2fce9516fb9b2e09fc0faff0c0c62e134b30ec1353cc527f96ce60d7",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    5
+   ],
+   "referencePixelSha256": "e9b6e637e89c0e0b67d470ce44e3cdcba67cebda1d1ff28ea64b77b9f3ff3221",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    5
+   ],
+   "referencePixelSha256": "60a412942210c9f2c894e02b68f73a561ce1d15a0a80aff315a90d5320d9cf16",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    6
+   ],
+   "referencePixelSha256": "1be1436f4adba7c59c9149040b7af5412d5eadebe146dd55e73616494d015d2c",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    6
+   ],
+   "referencePixelSha256": "c922639e9d0d4022b83369004629f9af8008c9a2f1c2be6f2163cf3cfc970273",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    6
+   ],
+   "referencePixelSha256": "93557c083695fa19b682a3ea1f53e0b171787ab61170e9e4039633aeb646671c",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    7
+   ],
+   "referencePixelSha256": "b32e3eb026f08c53e69b9086c2d2de21a5928b4a47c042aaf4ff3c9216108d9f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    7
+   ],
+   "referencePixelSha256": "2c11b72bc4e32a3e0c5718be2bfd472b825bd3a65e33f55feb9c3d6d39c19159",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    7
+   ],
+   "referencePixelSha256": "c33aa60d044b346135284e4bd8de5454c38fd98ce030f457f66a75fe81801128",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    8
+   ],
+   "referencePixelSha256": "4538672f28802966ae0bb1751e7634a09885370840b01545134a24f42f68e70a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     8
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    8
+   ],
+   "referencePixelSha256": "9fca414c718e70048fd34e056c5ed58a710b98aba82bc3ad1f5c1a00b73ef07e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     8
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    8
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     15,
+     2
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     11,
+     9
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     13,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     11
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     2,
+     14
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     8,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     1,
+     16
+    ],
+    [
+     4,
+     16
+    ],
+    [
+     7,
+     16
+    ],
+    [
+     10,
+     16
+    ],
+    [
+     8,
+     18
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     12,
+     18
+    ],
+    [
+     13,
+     18
+    ],
+    [
+     14,
+     18
+    ],
+    [
+     15,
+     18
+    ],
+    [
+     8,
+     19
+    ],
+    [
+     11,
+     19
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     13,
+     19
+    ],
+    [
+     14,
+     19
+    ],
+    [
+     15,
+     19
+    ],
+    [
+     15,
+     20
+    ],
+    [
+     6,
+     21
+    ],
+    [
+     11,
+     21
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     3,
+     22
+    ],
+    [
+     4,
+     22
+    ],
+    [
+     8,
+     22
+    ],
+    [
+     9,
+     22
+    ],
+    [
+     13,
+     22
+    ],
+    [
+     14,
+     22
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     15,
+     23
+    ],
+    [
+     6,
+     24
+    ],
+    [
+     11,
+     24
+    ],
+    [
+     15,
+     24
+    ],
+    [
+     3,
+     25
+    ],
+    [
+     4,
+     25
+    ],
+    [
+     8,
+     25
+    ],
+    [
+     9,
+     25
+    ],
+    [
+     13,
+     25
+    ],
+    [
+     14,
+     25
+    ],
+    [
+     15,
+     25
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    0,
+    9
+   ],
+   "referencePixelSha256": "2e0a37d29db5aef25c171bb1673b5dce401c3bd563d62fb4e48d35722229a0e6",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    1,
+    9
+   ],
+   "referencePixelSha256": "69f804cd92c568c88d6b30c4165399ce67d872bad1dfd9c07c9cce1717b65c60",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass (Summer).png",
+   "referenceCell": [
+    2,
+    9
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     15,
+     2
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     11,
+     9
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     13,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     11
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     2,
+     14
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     8,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     1,
+     16
+    ],
+    [
+     4,
+     16
+    ],
+    [
+     7,
+     16
+    ],
+    [
+     10,
+     16
+    ],
+    [
+     8,
+     18
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     12,
+     18
+    ],
+    [
+     13,
+     18
+    ],
+    [
+     14,
+     18
+    ],
+    [
+     15,
+     18
+    ],
+    [
+     8,
+     19
+    ],
+    [
+     11,
+     19
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     13,
+     19
+    ],
+    [
+     14,
+     19
+    ],
+    [
+     15,
+     19
+    ],
+    [
+     15,
+     20
+    ],
+    [
+     6,
+     21
+    ],
+    [
+     11,
+     21
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     3,
+     22
+    ],
+    [
+     4,
+     22
+    ],
+    [
+     8,
+     22
+    ],
+    [
+     9,
+     22
+    ],
+    [
+     13,
+     22
+    ],
+    [
+     14,
+     22
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     15,
+     23
+    ],
+    [
+     6,
+     24
+    ],
+    [
+     11,
+     24
+    ],
+    [
+     15,
+     24
+    ],
+    [
+     3,
+     25
+    ],
+    [
+     4,
+     25
+    ],
+    [
+     8,
+     25
+    ],
+    [
+     9,
+     25
+    ],
+    [
+     13,
+     25
+    ],
+    [
+     14,
+     25
+    ],
+    [
+     15,
+     25
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    0
+   ],
+   "referencePixelSha256": "d4dcc7c88a9e891407d4bbcf5cf7de0e37e5da99e2d035c6c4f14428424cfb87",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    0
+   ],
+   "referencePixelSha256": "cd6b68f4501d5e72d59ae164ee13ef7a451be99964c8fcbe881eeefc9e6309a8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    0
+   ],
+   "referencePixelSha256": "e2a6f47bb213a560bb1722bcab27070afba9c3dff8ea543a6792eb15f261978b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    0
+   ],
+   "referencePixelSha256": "366ce6367e16f698bd5d8db0a8c7c62bc6257174a0d6ffcc656689fd7b0f1ad2",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    0
+   ],
+   "referencePixelSha256": "14c00816cbbf75624b63caa79e1e8c00ec02bee0519b6be77064a4d6fdb3b6d3",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    0
+   ],
+   "referencePixelSha256": "4e87a391915f1abdca4aae68796b11b4584ac6791f705068e1630f5b291d42ee",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    1
+   ],
+   "referencePixelSha256": "5828ea61f8be1ac6d4c2acebffea2ed72ac08f55d2600b82bdd5456a559ecf39",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    1
+   ],
+   "referencePixelSha256": "0652b84c851f331d6b80b839d146954063896e1240596aa8b17b984124a3daec",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     11
+    ],
+    [
+     1,
+     21
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    1
+   ],
+   "referencePixelSha256": "6005f7f054246c0b0a63a1452c7df8d68a9a633b8e1f91086158cd4670af8fa8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    1
+   ],
+   "referencePixelSha256": "0c27173c81367a9e9b77b293d1610b88628cc069de19282b78cdb277405d5178",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    1
+   ],
+   "referencePixelSha256": "0652b84c851f331d6b80b839d146954063896e1240596aa8b17b984124a3daec",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     11
+    ],
+    [
+     1,
+     21
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    1
+   ],
+   "referencePixelSha256": "07ed0384c0098f2bf162999b9d3a46b42dc41a817568df3d3e40faaf05952343",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    2
+   ],
+   "referencePixelSha256": "0eaabbffd89e81649dd3ef12669cc3b33af3010884b0244a8cda5ed24bab70cb",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     12
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    2
+   ],
+   "referencePixelSha256": "aac67dd2ba48ef2b47c1e998ce2bdd77ad1f108d26584230cf6a9f89b9c4df16",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     12
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    2
+   ],
+   "referencePixelSha256": "3d46d3c34bd5845314b5d968e1a088a7e966ed9b03536d1dd46175a083391ba6",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     12
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    2
+   ],
+   "referencePixelSha256": "0c0075ee4edf2e497e8f00bd04d3161b45725de8036f64910758609b0eeb0f02",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     12
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    2
+   ],
+   "referencePixelSha256": "b1300c6e4b05d9b1fbba6dededd91a765c8b2b09ea94511ca92f97063148df96",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     12
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    2
+   ],
+   "referencePixelSha256": "83cec105323cef999448ba6a49a8a2ba6dea80f4c7749296d09b6fde4482ae0d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     12
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    3
+   ],
+   "referencePixelSha256": "9d56271b0c3538da839a160579927e2e3767ff6f9f5b6f6433740bfdd397d11d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     15
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    3
+   ],
+   "referencePixelSha256": "5121523c1addbf7f8cb569d02d01e9a50ed06ce8ab575146add8d91004e2d541",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     15
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    3
+   ],
+   "referencePixelSha256": "c26f784a82d411674199396431d8ef1313b6fb04ee3c58bbcb30e4be25c9d3eb",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     15
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    3
+   ],
+   "referencePixelSha256": "d3c0baeaf3166e1d99e875c4a77c1c3900544895d1db0e62b61f28c8b35edf87",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     15
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    3
+   ],
+   "referencePixelSha256": "9cd59734222a51bca032cd4593e18f930d9b1ddc28f3e32178d0377383f365db",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     15
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    3
+   ],
+   "referencePixelSha256": "09d9795af3677e0148373fe2de1fe1fffa3a94588341080c1297f3e5e7cbfb5f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     15
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    4
+   ],
+   "referencePixelSha256": "17537245f16595fe1f687701b8db80617c9c36e2869c968fe8d4e1e648eb5d17",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     16
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    4
+   ],
+   "referencePixelSha256": "0652b84c851f331d6b80b839d146954063896e1240596aa8b17b984124a3daec",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     11
+    ],
+    [
+     1,
+     21
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    4
+   ],
+   "referencePixelSha256": "dc04d598504bf746df937c36f5463b221ef289b4ccf111b85a77f27e0394f1bc",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     16
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    4
+   ],
+   "referencePixelSha256": "906276b55e7e3c8437a7634a16405c5624aae072d36c235ebb4f435a928e2f84",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     16
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    4
+   ],
+   "referencePixelSha256": "0652b84c851f331d6b80b839d146954063896e1240596aa8b17b984124a3daec",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     11
+    ],
+    [
+     1,
+     21
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    4
+   ],
+   "referencePixelSha256": "0cab328203b75b3058f8644756af72881a44fa18f1ce4dc8c78d880570de5917",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     16
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    5
+   ],
+   "referencePixelSha256": "3447a879166bae074afbf5f0bb30b4ed9b3f23903e63b36298426486b5bfd446",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    5
+   ],
+   "referencePixelSha256": "e97dca9782ad60cbb6206a82588ac7bc91436b2c362c1c3ae7037363be4c1c37",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    5
+   ],
+   "referencePixelSha256": "d5ddd1f0b6399076ff36154988c333ac82b632af4b3659de32ec08fa6c960f06",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    5
+   ],
+   "referencePixelSha256": "4df6ba7d3ac9579f934154e59f49928b0caaf59010205cf92877a545aba945fd",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    5
+   ],
+   "referencePixelSha256": "eceecdd3f11b893dc349e843f431bb65761f6caf52cf9b2790cc22da00c0294d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    5
+   ],
+   "referencePixelSha256": "ead72406eea2981dad0e76853121a166bd2056dd37a62ef8961206d4ec224d02",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    6
+   ],
+   "referencePixelSha256": "d3ce2ce33010e1869aec47f026f26607cf92fde6f3c468b48a72893d0d34bdca",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     13
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    6
+   ],
+   "referencePixelSha256": "5254b45c317c1c87349115162016d889c518b3ef5c0bc20ed2dc9443a2e4c637",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     13
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    6
+   ],
+   "referencePixelSha256": "52b2c34ce039a4cedbc40fea24041975f76fb1f3912ef7c6afe70dfe77359cf9",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    6
+   ],
+   "referencePixelSha256": "b69355edff7218f94c433a38047ff73e7ae892f188875f6ecf750d0322b7cb77",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     13
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    6
+   ],
+   "referencePixelSha256": "f9029f3aaffbb4932f54b05616437511d8c6688d4555b0168a5f6dada2cd3502",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     13
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    6
+   ],
+   "referencePixelSha256": "be24b0bfefe332edef582274ad264de0e64e7cc5a0c09f89bfa39c64880d058d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     14,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    7
+   ],
+   "referencePixelSha256": "585bc0ec247e256484059578af480b0314b489f375e1e15f375465f107a9a601",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     14
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    7
+   ],
+   "referencePixelSha256": "e4e2c67150fadfbbd330dd100e6147eab7957e9faf0b5e40a0a4fed9f6684409",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     14
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    7
+   ],
+   "referencePixelSha256": "7189c10206cf4312427749dcaafe43044e5248040699c725c0916ee2ac4f2401",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    7
+   ],
+   "referencePixelSha256": "d3ec0a744786d456600293b99e120a3b0fdd9fc7ad6d60b65474d0fc3373931b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     14
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    7
+   ],
+   "referencePixelSha256": "1aeb7466e9170392acb87139be3726474729a118d538e4d6492e4b6f5fbb3c85",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     14
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    7
+   ],
+   "referencePixelSha256": "666b1d26895422d013cb2b4da517952e68ca0db23312ccb8ff4ff29591ac8657",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     15,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    8
+   ],
+   "referencePixelSha256": "5b2eff901fda484d31ee0ecece08868eee55804de7d146e22d4c112db5f9dd50",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     18
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    8
+   ],
+   "referencePixelSha256": "db42032f92933597ef95223e421bcb9d9ae4739a392e5e117f08275ce6fae54d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     18
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    8
+   ],
+   "referencePixelSha256": "a14a37bf5499780824a2b145621b3c273e856213cd3159ebc0f1fa14806b6826",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     18
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    8
+   ],
+   "referencePixelSha256": "22632ea9a3f2a444b88a94717ea4c1adbbd8ae83b9af61fe51dc2630f6708d07",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     18
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    8
+   ],
+   "referencePixelSha256": "4c8c17eabdc9441081b56503efcc28c09beadff74c07b75f78e9577b7d6ea0e3",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     18
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    8
+   ],
+   "referencePixelSha256": "b8dafce6bdbe0c3e207cc46a43ddce1796f9c9d1d10b5ee6e9e8ae44c9a32c3e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     18
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    9
+   ],
+   "referencePixelSha256": "d228ad1e8cdbec865c1d7abab74c4e303dbbd9da30d36cff8508079c413701fc",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     19
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    9
+   ],
+   "referencePixelSha256": "a8dbef6e8faf80ef0da03c6c5fd32b9a93325a572b3f22e1e3452a98c4b98ce7",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     19
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    9
+   ],
+   "referencePixelSha256": "471e49354e2a27847703ef42529b83ef33019da06b9670d7af075544856986b5",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     19
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    9
+   ],
+   "referencePixelSha256": "220e8efd351c8cc4bdc163e07f9720097c83db80397cfc6c499432832a316140",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     19
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    9
+   ],
+   "referencePixelSha256": "4d8a41afd98c2fb7eef69693332025ddfe6da89ff8766a5b55bd870358f91155",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     19
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    9
+   ],
+   "referencePixelSha256": "7217d5c3e3f03d63a32633d719824e3c46a85a214ca6b31da7cb4d5608d3bcb3",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     19
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    10
+   ],
+   "referencePixelSha256": "b08e81af7a89efa5050fb536185dd73ed88188eb048430a16c10fb7ff16f8a6d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     16
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    10
+   ],
+   "referencePixelSha256": "02a3e08b51455c3a903a4b80863c962817209a224144f7fb02a2d6e21772f07b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     16
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    10
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     15,
+     2
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     11,
+     9
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     13,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     11
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     2,
+     14
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     8,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     1,
+     16
+    ],
+    [
+     4,
+     16
+    ],
+    [
+     7,
+     16
+    ],
+    [
+     10,
+     16
+    ],
+    [
+     8,
+     18
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     12,
+     18
+    ],
+    [
+     13,
+     18
+    ],
+    [
+     14,
+     18
+    ],
+    [
+     15,
+     18
+    ],
+    [
+     8,
+     19
+    ],
+    [
+     11,
+     19
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     13,
+     19
+    ],
+    [
+     14,
+     19
+    ],
+    [
+     15,
+     19
+    ],
+    [
+     15,
+     20
+    ],
+    [
+     6,
+     21
+    ],
+    [
+     11,
+     21
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     3,
+     22
+    ],
+    [
+     4,
+     22
+    ],
+    [
+     8,
+     22
+    ],
+    [
+     9,
+     22
+    ],
+    [
+     13,
+     22
+    ],
+    [
+     14,
+     22
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     15,
+     23
+    ],
+    [
+     6,
+     24
+    ],
+    [
+     11,
+     24
+    ],
+    [
+     15,
+     24
+    ],
+    [
+     3,
+     25
+    ],
+    [
+     4,
+     25
+    ],
+    [
+     8,
+     25
+    ],
+    [
+     9,
+     25
+    ],
+    [
+     13,
+     25
+    ],
+    [
+     14,
+     25
+    ],
+    [
+     15,
+     25
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    10
+   ],
+   "referencePixelSha256": "80f2c9b937c9fcd162be18c1efa38cd6bbafece1fa3a0684b4e20fed99a5ce4b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     14,
+     16
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    10
+   ],
+   "referencePixelSha256": "30c6346302248d5ea075c2b3926f672871bfe5b918b5f0a04ce7fed7328c8ad9",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     15,
+     16
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    10
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     15,
+     2
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     11,
+     9
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     13,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     11
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     2,
+     14
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     8,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     1,
+     16
+    ],
+    [
+     4,
+     16
+    ],
+    [
+     7,
+     16
+    ],
+    [
+     10,
+     16
+    ],
+    [
+     8,
+     18
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     12,
+     18
+    ],
+    [
+     13,
+     18
+    ],
+    [
+     14,
+     18
+    ],
+    [
+     15,
+     18
+    ],
+    [
+     8,
+     19
+    ],
+    [
+     11,
+     19
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     13,
+     19
+    ],
+    [
+     14,
+     19
+    ],
+    [
+     15,
+     19
+    ],
+    [
+     15,
+     20
+    ],
+    [
+     6,
+     21
+    ],
+    [
+     11,
+     21
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     3,
+     22
+    ],
+    [
+     4,
+     22
+    ],
+    [
+     8,
+     22
+    ],
+    [
+     9,
+     22
+    ],
+    [
+     13,
+     22
+    ],
+    [
+     14,
+     22
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     15,
+     23
+    ],
+    [
+     6,
+     24
+    ],
+    [
+     11,
+     24
+    ],
+    [
+     15,
+     24
+    ],
+    [
+     3,
+     25
+    ],
+    [
+     4,
+     25
+    ],
+    [
+     8,
+     25
+    ],
+    [
+     9,
+     25
+    ],
+    [
+     13,
+     25
+    ],
+    [
+     14,
+     25
+    ],
+    [
+     15,
+     25
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    0,
+    11
+   ],
+   "referencePixelSha256": "112130902145ace8b5b70814cbd5a4bd75beb3df02ba77315e39f30f28690c8a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    1,
+    11
+   ],
+   "referencePixelSha256": "18aad5ffcd038f93bde83566a4bb6e9ec34d74967556bcd5e3a224cf0bc455ee",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    2,
+    11
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     15,
+     2
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     11,
+     9
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     13,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     11
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     2,
+     14
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     8,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     1,
+     16
+    ],
+    [
+     4,
+     16
+    ],
+    [
+     7,
+     16
+    ],
+    [
+     10,
+     16
+    ],
+    [
+     8,
+     18
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     12,
+     18
+    ],
+    [
+     13,
+     18
+    ],
+    [
+     14,
+     18
+    ],
+    [
+     15,
+     18
+    ],
+    [
+     8,
+     19
+    ],
+    [
+     11,
+     19
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     13,
+     19
+    ],
+    [
+     14,
+     19
+    ],
+    [
+     15,
+     19
+    ],
+    [
+     15,
+     20
+    ],
+    [
+     6,
+     21
+    ],
+    [
+     11,
+     21
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     3,
+     22
+    ],
+    [
+     4,
+     22
+    ],
+    [
+     8,
+     22
+    ],
+    [
+     9,
+     22
+    ],
+    [
+     13,
+     22
+    ],
+    [
+     14,
+     22
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     15,
+     23
+    ],
+    [
+     6,
+     24
+    ],
+    [
+     11,
+     24
+    ],
+    [
+     15,
+     24
+    ],
+    [
+     3,
+     25
+    ],
+    [
+     4,
+     25
+    ],
+    [
+     8,
+     25
+    ],
+    [
+     9,
+     25
+    ],
+    [
+     13,
+     25
+    ],
+    [
+     14,
+     25
+    ],
+    [
+     15,
+     25
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    3,
+    11
+   ],
+   "referencePixelSha256": "6774bd38c6e4c83e780ddd806176fbdb38bf267679f29896547f626ebe1d3a44",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     14,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    4,
+    11
+   ],
+   "referencePixelSha256": "d4244648dd5fbc940f6ea4d619ab4b2234459d4ae768c4d88b92edadf7e85af3",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     15,
+     17
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Grass-Shallows (Summer).png",
+   "referenceCell": [
+    5,
+    11
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     15,
+     2
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     11,
+     9
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     13,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     11
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     2,
+     14
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     8,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     1,
+     16
+    ],
+    [
+     4,
+     16
+    ],
+    [
+     7,
+     16
+    ],
+    [
+     10,
+     16
+    ],
+    [
+     8,
+     18
+    ],
+    [
+     11,
+     18
+    ],
+    [
+     12,
+     18
+    ],
+    [
+     13,
+     18
+    ],
+    [
+     14,
+     18
+    ],
+    [
+     15,
+     18
+    ],
+    [
+     8,
+     19
+    ],
+    [
+     11,
+     19
+    ],
+    [
+     12,
+     19
+    ],
+    [
+     13,
+     19
+    ],
+    [
+     14,
+     19
+    ],
+    [
+     15,
+     19
+    ],
+    [
+     15,
+     20
+    ],
+    [
+     6,
+     21
+    ],
+    [
+     11,
+     21
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     3,
+     22
+    ],
+    [
+     4,
+     22
+    ],
+    [
+     8,
+     22
+    ],
+    [
+     9,
+     22
+    ],
+    [
+     13,
+     22
+    ],
+    [
+     14,
+     22
+    ],
+    [
+     15,
+     22
+    ],
+    [
+     15,
+     23
+    ],
+    [
+     6,
+     24
+    ],
+    [
+     11,
+     24
+    ],
+    [
+     15,
+     24
+    ],
+    [
+     3,
+     25
+    ],
+    [
+     4,
+     25
+    ],
+    [
+     8,
+     25
+    ],
+    [
+     9,
+     25
+    ],
+    [
+     13,
+     25
+    ],
+    [
+     14,
+     25
+    ],
+    [
+     15,
+     25
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Dirt (Non-Winter).png",
+   "referenceCell": [
+    0,
+    0
+   ],
+   "referencePixelSha256": "7ac36881ba45bd7c30138eca291cb24fb62974991f6109d5d7abfbb05760c870",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Dirt (Non-Winter).png",
+   "referenceCell": [
+    1,
+    0
+   ],
+   "referencePixelSha256": "24536369bc06e67b89dd14d48f2db57967b7a6daa2f85f92c988c4459a0717a0",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Dirt (Non-Winter).png",
+   "referenceCell": [
+    2,
+    0
+   ],
+   "referencePixelSha256": "3fd54a24ca3118a2ffbb08efa697eef58cc0a1ff265f32f7295e77ac767b4874",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Dirt (Non-Winter).png",
+   "referenceCell": [
+    0,
+    1
+   ],
+   "referencePixelSha256": "56a3d6801ec5b4adf024b9fc0eb1542f4e240208324560efbf171f671afdd3b5",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Dirt (Non-Winter).png",
+   "referenceCell": [
+    1,
+    1
+   ],
+   "referencePixelSha256": "31ed0022130fcfcac271ef77e78b63d5f133e8dc378618f449771be7255d190e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Dirt (Non-Winter).png",
+   "referenceCell": [
+    2,
+    1
+   ],
+   "referencePixelSha256": "d5ec3839633125c2d98ab1a85fff7071dbc12768c6235ae69a6ec7df16fc0cec",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/terrain_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    0
+   ],
+   "referencePixelSha256": "08fb66e97e04a2c5fe8590dff4d087fc2ebaa64476724494ef28d3f959a95212",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    0
+   ],
+   "referencePixelSha256": "efd561b6f5dfb2a02bc0b6800e1f311dc29c7346fda9f9a67c2d83917ec80166",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    0
+   ],
+   "referencePixelSha256": "bed6ff7b5c4aaadac895c2a062fa5fb5a7f502f1a5848911725b0aa9e699ff45",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    0
+   ],
+   "referencePixelSha256": "eaef1d9cea7341eea955edec9f455e5275cfe9c61c6573bb8919c07005926a27",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    0
+   ],
+   "referencePixelSha256": "8c436280f858650a945eeee915de7a7355ced29909c517dee177a0e3619275f1",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    0
+   ],
+   "referencePixelSha256": "812b3a8220d3a1cc52068bb57fd51d6224318d344779a3abccf6407d37c27a71",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    0
+   ],
+   "referencePixelSha256": "f46119483a76c08b09fef7de16008552b84d807c6f02fedfe1d0e5992dcff764",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    1
+   ],
+   "referencePixelSha256": "97505453d1001b9a71ec01b35bcbe6636e6b89c36a3e097d41af9006a352a480",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    1
+   ],
+   "referencePixelSha256": "7ac36881ba45bd7c30138eca291cb24fb62974991f6109d5d7abfbb05760c870",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    1
+   ],
+   "referencePixelSha256": "865371c15939e6b6d94f3a5c505f1b666fce8599788abb97087cf6328e638242",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    1
+   ],
+   "referencePixelSha256": "682145a5fe89dd620f94e062bf4c4f2f57a55b0e2db0d3488ce4be7b5a43d77e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    1
+   ],
+   "referencePixelSha256": "407cec4cce27bd601ea7143176e41c5ef4cb17c2548777eaeb1047561017f5f8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    1
+   ],
+   "referencePixelSha256": "2623d52fab978129646f2d0ee40ab73f10cd587e4426395aa541a52f0de1da7f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    1
+   ],
+   "referencePixelSha256": "5b412f21c4470ed977d951f207209dbc216385876fd27f813320552329fba52e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    2
+   ],
+   "referencePixelSha256": "bc49e581e08c59bf87ae1a53f62fc48a98b1f5c765941e8c0dbdc6eae8f9397a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    2
+   ],
+   "referencePixelSha256": "ff7623f92f3fcf815776ed502f5611adf48d58aee90bcb335da13c18652e13bb",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    2
+   ],
+   "referencePixelSha256": "1a03f8a44750793eafa72b44ef7efafc2278c6d664fc1a033b85d05aadff4a39",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    2
+   ],
+   "referencePixelSha256": "837ebbd04c01b8404a840cf0b95386ab358ac3e68ef524ee0ccb12266a2bdf72",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    2
+   ],
+   "referencePixelSha256": "c1baa2f0f312f5e809e1296d7075e3e852a3e6086aa580fef1db3aeebba28bec",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    2
+   ],
+   "referencePixelSha256": "06266d0a86178069e0b6142c44957136301033515119457f6cecc2a89a59f0ce",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     8
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    2
+   ],
+   "referencePixelSha256": "0a3cb7cd5a795ead39bbcca9ee2a8037580d32c05e8e1aaa85af47b9c0b926ee",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     8
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    3
+   ],
+   "referencePixelSha256": "aa7a75708f1a63d8bf1dd80da62ed842f2b370269d0745397a4769b822c63bce",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    3
+   ],
+   "referencePixelSha256": "5ab2d32f27738fe7fbcd24cefa76ecfb798301dfcdbdca7b5a6e4ab07058682d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    3
+   ],
+   "referencePixelSha256": "78b41f804b8b27affeacedfd692ee097e63dcae08f5bbaf9684e7e8078cfb50e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    3
+   ],
+   "referencePixelSha256": "3b6984cadd8b25b1f7c1341e29a04fa61f814f72cda2d636d14159badded4511",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    3
+   ],
+   "referencePixelSha256": "6b7a19e4742f6a7b13d87128b4a7d7ad8bb2556c6e3f9a6298e2a4dc583e6b9a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    3
+   ],
+   "referencePixelSha256": "45d65b35f127ad8b62c2493ede7d5c6740ba8b21aa1a0b289cff699821f7dce9",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    3
+   ],
+   "referencePixelSha256": "91196536a864d8fd89f0298ef7473f59a9b0db4ee68ff5ecf509085cf472f714",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    4
+   ],
+   "referencePixelSha256": "82aa75945be17de9cdbeb7111701e6ef23c6103fceede1642618d1aa4bf09884",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    4
+   ],
+   "referencePixelSha256": "d6e03848b753c715d4f73e692aa6c0229ef300cf34d2c0b655b5cd8b0ad0b906",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    4
+   ],
+   "referencePixelSha256": "ce28db0b6f24d6f5d58ded2278bcebd64f4f2d65ce4dbcb7814be6ff2a66e094",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    4
+   ],
+   "referencePixelSha256": "cf56950ce42a43817604356bda7508c8ae40b502933f5831de2b637f5f2ebfec",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    4
+   ],
+   "referencePixelSha256": "d810d389cc81fd820ade39c823913d981afb3903bb41e80b89ed84cf23f14b23",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    4
+   ],
+   "referencePixelSha256": "ed60befe4fda8ea58aeecce5e9e0517b475909c390f8c051b65b57b2855e126c",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    4
+   ],
+   "referencePixelSha256": "477701cb29b38555ed418836fe2d37db2aed6b5c610ef47ab6e26b085d84b0b8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    5
+   ],
+   "referencePixelSha256": "2a5562e1f16dee4f50b0cc1f295fb02eec9b2055d2900340f1692ab50e2647dc",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    5
+   ],
+   "referencePixelSha256": "2551daf9f764c32879f8a534f24319bee4b2fb8d8a598993ebbb39bbf554a868",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    5
+   ],
+   "referencePixelSha256": "11d3d8b67c07edb6fcf859612637e96231cc79eed83a8b26823afbc6694e414a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    5
+   ],
+   "referencePixelSha256": "5894734ae41c1a31e81f0def707c3a7de72504fa39680753a78fb1c7ac5b9b5f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    5
+   ],
+   "referencePixelSha256": "00a3773a3d0111a2ca70493fb7aab71aa13755f7d1ba6818680ef0e7f9c62d93",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    5
+   ],
+   "referencePixelSha256": "02662534054d2d01eac12cfca0c3a3eb30507109890c12b26057cc2c225cc3ef",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    5
+   ],
+   "referencePixelSha256": "68fccb78cbe17f8d0736f651cae2eccdbebee9d20ba07b8340cde1640a9c31c7",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    6
+   ],
+   "referencePixelSha256": "61e7f0b2f8900364e5ac61a53a80e907d67e3d69cd327fb8077be1fbe44b737e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     0,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    6
+   ],
+   "referencePixelSha256": "c7765d885cec51e3bd85b88880abe6ac4b3bce670196b35a5cbeaa53186ff211",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    6
+   ],
+   "referencePixelSha256": "2f5c2b3cca63714664b44e24bd90b846ab1ad9be9140f7294815df4115360092",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     4,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    6
+   ],
+   "referencePixelSha256": "d747bb2c6af790c583ae77d571094a0e7a5e196424d69d74a8000479c716e230",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    6
+   ],
+   "referencePixelSha256": "cbdeeafedeb00531d7d86e5b4524cc085ae716fe0dc614a18e85c94023c2ea3b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    6
+   ],
+   "referencePixelSha256": "6a0afc70bfcb4bdb06ce9d91b2a386e95cfad9f4aa633f53982d7b03bdb05931",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    6
+   ],
+   "referencePixelSha256": "e66ee770266b944bde2dcbe345ab125a89d5dbebe6d351a8f151ea3ba44f2857",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    7
+   ],
+   "referencePixelSha256": "c04e7936a2d52dae18b1d05a979addee609f3bfcb3d536ab7122edd2c924ddb2",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    7
+   ],
+   "referencePixelSha256": "b86ce5b9ad1fa1339d450fc20f4cc61a47d275699ddd04453733ac4101696a37",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    7
+   ],
+   "referencePixelSha256": "bbbd7cef36d440cbd5721a3f58e3a06c58cd1aa77e806a910a95b12c8f04a8b2",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    7
+   ],
+   "referencePixelSha256": "ee3470385ab9100ada4c0f5eb5160287e7b2752ab9c06749073a3e627944188d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    7
+   ],
+   "referencePixelSha256": "b6137be5985ddc8335d0ab3c65f7e0d55d1e19983e0ebef481fcc71914273c1d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     1,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    7
+   ],
+   "referencePixelSha256": "a8006f18cc59373071df231e56bbcaa21f6538abc77f6b23cd87f38a7b4bc0f0",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    7
+   ],
+   "referencePixelSha256": "bf84cad12734cafe949d49f8e8672a5e653636757285f2f5f089181cac7de178",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    8
+   ],
+   "referencePixelSha256": "b7ad23344756baacbf6e20d3d10e66c10ae39bbf27e60cc9c91b722e8bf4b23f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    8
+   ],
+   "referencePixelSha256": "423af6683c0a9170f1262fd3f129b982993df449e89d27a39860e82806507445",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    8
+   ],
+   "referencePixelSha256": "ecf60a405f888ccc9c0bda6f7c73c1843398156b86c397e712d35f0f7e5cdc0d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     3,
+     8
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    8
+   ],
+   "referencePixelSha256": "ff9e5a12dd955a529b0898da09fb4097b02773c7ee141a76b93ec7e837add978",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    8
+   ],
+   "referencePixelSha256": "186ba83f3cb7735996ca46b998f7154df02398b900ab8602af083772e750c339",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    8
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    8
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    0,
+    9
+   ],
+   "referencePixelSha256": "cafb564cbfbb03f6570694542062fed5c5e2edf5d66a410f04062938055df160",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     15,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    1,
+    9
+   ],
+   "referencePixelSha256": "ca0785fbd5f1bf904c93fb711ebe8ae158007cdc0d48dea45ce90a1529d288ad",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     2,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    2,
+    9
+   ],
+   "referencePixelSha256": "46475850c94999414b1b92bbed65d3c4d7e6f6eabb8addaac11f3f580e4f7aac",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     15,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    3,
+    9
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    4,
+    9
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    5,
+    9
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain (Summer).png",
+   "referenceCell": [
+    6,
+    9
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    0,
+    0
+   ],
+   "referencePixelSha256": "c82a2b96042f37ddbecb03a0d66ef5ba1cf0a903020d08238fa9c8a2840ad921",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    1,
+    0
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    2,
+    0
+   ],
+   "referencePixelSha256": "dd46238359801275860f1c79d1334258035c72d823919fd871e22451ec75480c",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     11,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    3,
+    0
+   ],
+   "referencePixelSha256": "39e52876d36036dabce11ace30324b0326e3d191e453ecc3ae4e875076107373",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    4,
+    0
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    5,
+    0
+   ],
+   "referencePixelSha256": "9d99ebe1afea0e69d39c9426bff7315642ba2a846421aab7be811c81422ea1e8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     14,
+     0
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    0,
+    1
+   ],
+   "referencePixelSha256": "1c1c67031e12e8d807ce7f6584f83baa5d8d1371336e2e606affc24fd92aadc2",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    1,
+    1
+   ],
+   "referencePixelSha256": "7233cbe4c56a9c2fec9e5faa0af55588d1e777cef2787945b21953a49ff3a7cc",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    2,
+    1
+   ],
+   "referencePixelSha256": "841dbb9cec3c295a6532084308252c6ceb876cea83128d00e4f43af4f0b558b8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     11,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    3,
+    1
+   ],
+   "referencePixelSha256": "7e2683ea0090f6d7ee0627796c8d5a538ab04ddd8d1165185bfc34c731bad2c0",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    4,
+    1
+   ],
+   "referencePixelSha256": "1d5a5a493d8624f57031819be0c7cb27d3e41b72774bc975e474623164eb9892",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    5,
+    1
+   ],
+   "referencePixelSha256": "0ac97fa8dc7abfeeaf09f7845c0983b1882d0ed918656ba1ebf1adee40fe0baa",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     14,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    0,
+    2
+   ],
+   "referencePixelSha256": "02add04ffc39fd96fa80893d1eb4d49448a68836c67bd054e993c0e44ed6f298",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    1,
+    2
+   ],
+   "referencePixelSha256": "6f7b0ba23b6b5cd75961c5cfd8574a908269aefd67746e8df09c4d44761116f0",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    2,
+    2
+   ],
+   "referencePixelSha256": "33f28e54f1d7c576e98b7f537028a3b561710d2ffed4db33489e234982021192",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     11,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    3,
+    2
+   ],
+   "referencePixelSha256": "501685c4eab99dbbd958144b8e84854e3c0d041d946d58366a0d700adc91c78a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    4,
+    2
+   ],
+   "referencePixelSha256": "5703c928077d7babebb4cf021d6cea34f19dca0c37638e2c68c6867ff76bb420",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    5,
+    2
+   ],
+   "referencePixelSha256": "6c4796a66818e2c62ede93dc02bfc7047edfeed485457cb6df9bc4a18ed89994",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     14,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    0,
+    3
+   ],
+   "referencePixelSha256": "72c12109efb512a0d086af11c847d8bfab0846f038e924fa6cae16c2316c9c14",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    1,
+    3
+   ],
+   "referencePixelSha256": "9b2115332f5f0b829dbf1662720ad5a63b847d424968e1e7b90dc1d97de8d524",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    2,
+    3
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    3,
+    3
+   ],
+   "referencePixelSha256": "7a350bcdb71e0c3d5b8eef4734cd32981c3adf5772a222a04f8c447062b899ff",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    4,
+    3
+   ],
+   "referencePixelSha256": "5968ffe35d4960d2d2ed26170ad94ade7d0c17656a4b14af269f5167f44d38b2",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     3
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    5,
+    3
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    0,
+    4
+   ],
+   "referencePixelSha256": "275fe9a94133f108ad0b65673ae6c087ec1bcc76522a392b17129d8d2923414c",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    1,
+    4
+   ],
+   "referencePixelSha256": "a82dc10bc9be73592f8707136989e2fd059aba9d52bded74a335e1d19a0be2b2",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    2,
+    4
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    3,
+    4
+   ],
+   "referencePixelSha256": "c398548b8eb83fe32c9d2b3b5f16b84fd7fcd6ad262df24966b49458db3f93af",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    4,
+    4
+   ],
+   "referencePixelSha256": "28cb187c234644dfbfd0fe136808225c8d81238a0886decaf5d11e6b2f96fdb6",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     4
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    5,
+    4
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    0,
+    5
+   ],
+   "referencePixelSha256": "e95bd1f9ad819bf9fd6f6c313f8030adabc93032c0bd95b1bf653c4faa669904",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    1,
+    5
+   ],
+   "referencePixelSha256": "8f6e5d0354713df823b53489504b0850516a8ddadc704107246cfcdf75b77316",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    2,
+    5
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    3,
+    5
+   ],
+   "referencePixelSha256": "2a65f94e56c3717fa45854b10e6aaae9fc52ecb458902691664de86577c5362d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    4,
+    5
+   ],
+   "referencePixelSha256": "45d1888fd3d0c786c8f63174f1830415426b5c0417462f634fa70c929a5f83ec",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     5
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    5,
+    5
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    0,
+    6
+   ],
+   "referencePixelSha256": "303666350ec87fa742515ba1eb07ad39f85e9ee37bd56b90e2b51a5f8a37ab5f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    1,
+    6
+   ],
+   "referencePixelSha256": "d2658b60a51a067f7eec4977311235c6234e13350c2935cdf008c067479a6a3a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    2,
+    6
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    3,
+    6
+   ],
+   "referencePixelSha256": "fd75f7fe44f72bbcb70657b37663fa8c211825d776b86031e3588b4b7b0c5f4e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    4,
+    6
+   ],
+   "referencePixelSha256": "4d20133574fd2091aab078e82ebecb57023e4c3c3b765ac04df87e5e14f1dcfb",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Animated Water (Summer).png",
+   "referenceCell": [
+    5,
+    6
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    0,
+    0
+   ],
+   "referencePixelSha256": "a3ee490ba9c967b1c234f76831bdf922f2866301c776c873850c3da76a281b73",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    1,
+    0
+   ],
+   "referencePixelSha256": "0436364f7d33469059d3e5e003115da5bac8daf434727a4f7e15fbbf9d960a9c",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    2,
+    0
+   ],
+   "referencePixelSha256": "54de217e20c6ec2293c32cd60a77dc5117a9dcdfb0583fdef1d89f55092217d8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    3,
+    0
+   ],
+   "referencePixelSha256": "903fca3e8202459acab857aa7c94cf54ea88def1e5810052af6ac70e5ebc132c",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    0,
+    1
+   ],
+   "referencePixelSha256": "4b7f5acbfb7c020a3f710471afbf548ea59e22b976a9b12051b87010a81b2ecd",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    1,
+    1
+   ],
+   "referencePixelSha256": "4cc775fe183360eb3f6f0f565e58e84731374149cfcfe314d561c8308b0eabcb",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    2,
+    1
+   ],
+   "referencePixelSha256": "32674c4757c0aa9cba4bb79c5f48f36d1064aa149b7715d599c050a3cc63903e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    3,
+    1
+   ],
+   "referencePixelSha256": "2c051a0801ac99303755e72bf58c2f1514320e76866e50e9c1b8af41b31c611a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    0,
+    2
+   ],
+   "referencePixelSha256": "8c06d989d1b2ab1b3a3a4cb5f52c95c48870426dcf5bc3d0a3ebc32e616a2ba0",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    1,
+    2
+   ],
+   "referencePixelSha256": "8e8b4c2d1883efe12d0a0827245b2c4ec75349fe0c12224ba525627ddfedde36",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     7,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    2,
+    2
+   ],
+   "referencePixelSha256": "edacfbee554b62886b7be9d7980b0d038a11d8d233712f881e43fb60dfe84a64",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     8,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    3,
+    2
+   ],
+   "referencePixelSha256": "94f3ca0bf1b2fe22578ae24a97a66b1023017c317381786afc6a2184208e0998",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     9,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    0,
+    3
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    1,
+    3
+   ],
+   "referencePixelSha256": "48269c93b114954f9b1d41ed847a50974f2d81654d585038e3db7c6f336f50fc",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    2,
+    3
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    3,
+    3
+   ],
+   "referencePixelSha256": "8fed0e3bd80b1403829c9af88b1967f86cbdcb07fa4639298f6e11c28dfa24b2",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    0,
+    4
+   ],
+   "referencePixelSha256": "d8bc79075a83d641f55629d7d18e6c269457397b3e567df5990ab401cb9e1c47",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     11,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    1,
+    4
+   ],
+   "referencePixelSha256": "2c44e0da299bc5cc25c1b0fec26d545531c0d84e618576fe89859e88304be4ca",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    2,
+    4
+   ],
+   "referencePixelSha256": "da8bc062486afbf19bb7ed2bd49413163fcdd492e796f8382c78d7ca964e1fc8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    3,
+    4
+   ],
+   "referencePixelSha256": "3dcb8fc0d9db22b13379e9efab028cfc8adb06d2f1a0c753a1794e62b0ba287e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     9
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    0,
+    5
+   ],
+   "referencePixelSha256": "bba6bfd48831caaac34cf4e38c47b52853276d047a64241d0ba57fbde9dcb0fb",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     11,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    1,
+    5
+   ],
+   "referencePixelSha256": "7ea7d629e1b02035de8c00bbd192f4818ec038b03469a80d1e7234382dbc6e6e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    2,
+    5
+   ],
+   "referencePixelSha256": "99414108cd24fd35643e4dbcdce45238d0699461b7ee1c6cf19a797a2f814c46",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    3,
+    5
+   ],
+   "referencePixelSha256": "6f6516445158c5eac6c33e81a48a43303aebb7114a0ef85928d9dd0730a5d7e5",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     10
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    0,
+    6
+   ],
+   "referencePixelSha256": "fecd22f207f05ba928c47f180159507ce6d9d184a4c6113c63803e5b36342287",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     11,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    1,
+    6
+   ],
+   "referencePixelSha256": "230207e4029e202059009241976d10f820d3aa04c38bc0e53884cead1d3d1f24",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    2,
+    6
+   ],
+   "referencePixelSha256": "acc7f4be05ba64d57bddbe18c4b22482f459399cdf93ab51238e134d0b3d30dd",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     12,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Features (Summer).png",
+   "referenceCell": [
+    3,
+    6
+   ],
+   "referencePixelSha256": "5076062ee36d511435d3cff575e58a91f0f46c9bf22d48330b9a9c49e5c0bf71",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     13,
+     11
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    0,
+    0
+   ],
+   "referencePixelSha256": "14cb286261377446c57e074132d7dc64b88083f08376a5b50029f5c7c72cdef0",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    1,
+    0
+   ],
+   "referencePixelSha256": "e13c393dbe440141b03cab20c47f33976ca8a2755ea5995cea4b00bccee4a87f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    2,
+    0
+   ],
+   "referencePixelSha256": "83dfd71de244ab1199c994de74cd16849cd6a6bd2ed4bb69f8b675c05fa6ec05",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    3,
+    0
+   ],
+   "referencePixelSha256": "6870837252eed84e9094b09a8e8761a6bd5e6b931bd35f06a269f61985d3fd9a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    4,
+    0
+   ],
+   "referencePixelSha256": "eee00a3dc2df057bae4b7a484bf55fbf5add786d8b1f9fa693ff16ea76078a42",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    5,
+    0
+   ],
+   "referencePixelSha256": "b19d606cc52a288c437a8e40a16df471df585b733444d3b0576b13cb1ddb040d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    0,
+    1
+   ],
+   "referencePixelSha256": "0980928fb761a62702abddba7565a5374685d85264a26e80367ea1488f16fce4",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    1,
+    1
+   ],
+   "referencePixelSha256": "7881fe2fed72abb66a1a55b09c0c42f2a47b314c5a02bd7712f667bd494e2541",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    2,
+    1
+   ],
+   "referencePixelSha256": "267f01c5ffef40db0e423f452f34cb0c2f78af00d350f38da58241e30380ab6f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    3,
+    1
+   ],
+   "referencePixelSha256": "c71304f110cea57b7b32a083e8715815b4cdad5821a53d7a1003eea8bcc65cf8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    4,
+    1
+   ],
+   "referencePixelSha256": "d3466418beb0a24129c86761973eec57a25d79ca0c0e0711f75847a43618815f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    5,
+    1
+   ],
+   "referencePixelSha256": "a7f761da794d1ab166042bd9fd962c279c241181a4ce2c1f4475c62a707ea4a0",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    0,
+    2
+   ],
+   "referencePixelSha256": "25297a37b4d09bff1d0639067f5a6e7b99e620f5ce0bf28e8afdb1a126b54d6b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    1,
+    2
+   ],
+   "referencePixelSha256": "1e47e4e1a07fc7194bd050e6933cd1ac7e19410e209fde3567cab720f8af686a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    2,
+    2
+   ],
+   "referencePixelSha256": "6ad34b8aa2fc86029ce201945a1103d469cbddf0c011ba915e003ef2d84cdf52",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    3,
+    2
+   ],
+   "referencePixelSha256": "3310e882bd63241923060335174173985e91a63b58c4f8da336801f861a5f94f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    4,
+    2
+   ],
+   "referencePixelSha256": "154e3d5e383a58ebe7b1a7edd1f0b7a7c09b33a9af9f3126e14044e02174eeac",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    5,
+    2
+   ],
+   "referencePixelSha256": "6c5f0fe9408602374c254066c606d01c5b90371a6dd770f68bfcfc65687b714f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    0,
+    3
+   ],
+   "referencePixelSha256": "2a5a849f1ca044383326696a60c1efd7372a6ad14541ffae5cce2033654690a2",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    1,
+    3
+   ],
+   "referencePixelSha256": "6e89c4145f54a62b126ef03308f85130e20c44744ea584b739a1d24f193787e8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    2,
+    3
+   ],
+   "referencePixelSha256": "03de739bcd73889efb15b9762668c9add431e1ea5012565e6c6353df456e0eb7",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    3,
+    3
+   ],
+   "referencePixelSha256": "6879ddc707f7a84b0a4a1e7d733bbd8a815dabba87984549eaf0704051dad64d",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     6
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    4,
+    3
+   ],
+   "referencePixelSha256": "1e30a8058c14b55a9e28417c0e2eb5aee3940cb0950d4b6a8a68a0dccc863269",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    5,
+    3
+   ],
+   "referencePixelSha256": "3ced533ca6629effaee0862b8408577b13f0923d21105ec3f5fcbe6ca594643e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    0,
+    4
+   ],
+   "referencePixelSha256": "fe79892ce5aa4a758c814625714d6cdfe0d585efbf972c54dc8892c3b21e0978",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    1,
+    4
+   ],
+   "referencePixelSha256": "a6d136a1c2cd1aad2769e03897d9355dbeac25cd82e25f0e8d3bce986c25c57b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    2,
+    4
+   ],
+   "referencePixelSha256": "60c35b2547ccff5b5ebf802cfe8579204db12fb9ded15e0bb05f0f362f096fbf",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    3,
+    4
+   ],
+   "referencePixelSha256": "5ca05d54ac5f1402e2aa6b36b9dde36925d47e7005515f500e5e6bdf644a544a",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     7
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    4,
+    4
+   ],
+   "referencePixelSha256": "a9a997553ea015f69c5554ff33a5d739ca914336f19ccdd6b99df8f76e46c33e",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    5,
+    4
+   ],
+   "referencePixelSha256": "2fd4b6009fed5039b7edd77dd3f4671c66a5b731866bfe3c411d2b47e78df0dd",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    0,
+    5
+   ],
+   "referencePixelSha256": "ae63b8b5591c96fc7858f3fc28355fc49d1483baae031f94c916500b5311c5a9",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    1,
+    5
+   ],
+   "referencePixelSha256": "d6ae4cafaa18e865291b2b55ed724f6813536ceb5be635eeaddf4d737e69a07f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    2,
+    5
+   ],
+   "referencePixelSha256": "7aea38ee056c5e95672549de3c0ee21f46325c83bcfcb3bb542de88128313b3f",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    3,
+    5
+   ],
+   "referencePixelSha256": "23fb70732367d3b1d9360a42fd53ea21dfd757e9c938dd24d01e2b5698802280",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     1
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    4,
+    5
+   ],
+   "referencePixelSha256": "374df0b8beae2d5e69d6a534c347fed0d1a8397d0780015fbf405deafee01654",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    5,
+    5
+   ],
+   "referencePixelSha256": "25307be1e4a8770c7d885aca5cf6290d0d881bd89174875ef7ef098d0c97745b",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    0,
+    6
+   ],
+   "referencePixelSha256": "9870e3df3e5816d5bfd82e8cf1d33642b93ea9a831eda76406a0a259a61012e3",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    1,
+    6
+   ],
+   "referencePixelSha256": "7f8c071f8cb4099fafb98211e1293dfccb37474b5b6ee208ef94e507372b2aef",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [],
+   "status": "unmatched_in_target_atlas",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    2,
+    6
+   ],
+   "referencePixelSha256": "028f3988e1f7ab55396b7ba8081cd480cd30a255c15ef37027d62ba607d432ef",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     5,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    3,
+    6
+   ],
+   "referencePixelSha256": "596d39610d547d1f289c6aad84b729463e0a71c7f9af9d12eca978d26b75e3e8",
+   "transparent": false,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     6,
+     2
+    ]
+   ],
+   "status": "unique_pixel_match",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    4,
+    6
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  },
+  {
+   "referencePath": "Terrain/Mountain, Waterfall Transitions (Summer).png",
+   "referenceCell": [
+    5,
+    6
+   ],
+   "referencePixelSha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+   "transparent": true,
+   "mainAtlasPath": "Terrain/cliff_summer.png",
+   "exactMainAtlasCells": [
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     14,
+     7
+    ],
+    [
+     15,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     13,
+     8
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     14,
+     10
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     14,
+     11
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     14,
+     12
+    ],
+    [
+     15,
+     12
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     12,
+     13
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     15,
+     13
+    ]
+   ],
+   "status": "ambiguous_duplicate_pixels",
+   "roleCertified": false
+  }
+ ]
+}

@@ -1,0 +1,490 @@
+{
+  "schema": "havenwild.elizawy.waterfall_component_review.v0_2",
+  "pass": "B48R7",
+  "authority": "original source repo 512x608 Terrain/Waterfall.png; extra pack is attribution/animation reference only",
+  "productionEnabled": false,
+  "doNotOverrideExistingRenderer": true,
+  "source": {
+    "repository": "https://github.com/ElizaWy/LPC",
+    "commit": "f07f7f5892e67c932c68f70bb04472f2c64e46bc",
+    "mainPath": "Terrain/Waterfall.png",
+    "sha256": "5225ab0a7451a90d3b9b4cad37188b63467dc61797369fcec746b583a270dcb6",
+    "sizePx": [
+      512,
+      608
+    ],
+    "gridPx": [
+      32,
+      32
+    ],
+    "referencePack": "4-season_terrain (1).zip",
+    "referenceWaterfallPath": "Terrain/Waterfall.png",
+    "referenceWaterfallSha256": "d08642cf4c3360a4ef88604a2ad24fd4abfd5c6db554731b999dbb501090a6ef",
+    "referenceSizePx": [
+      384,
+      608
+    ],
+    "pixelIdenticalMainOverlapPx": [
+      0,
+      0,
+      384,
+      608
+    ],
+    "mainOnlyAuxStripPx": [
+      384,
+      0,
+      128,
+      608
+    ]
+  },
+  "animation": {
+    "frameCount": 4,
+    "mainRuntimeCurrentFps": 7,
+    "demoGifSampleDurationMs": 80,
+    "demoGifFourFramePeriodMs": 320,
+    "doNotAutoChangeFps": true,
+    "phaseLockAllParts": true
+  },
+  "sourceComponents": [
+    {
+      "id": "north_crest_candidate_0",
+      "sourceRectPx": [
+        0,
+        0,
+        96,
+        32
+      ],
+      "frame": 0,
+      "direction": "north",
+      "status": "north_crest_visual_candidate_not_runtime",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "south_crest_demo_verified_0",
+      "sourceRectPx": [
+        0,
+        32,
+        96,
+        32
+      ],
+      "frame": 0,
+      "direction": "south",
+      "status": "demo_matched_crest_only",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "middle_water_body_top_0",
+      "sourceRectPx": [
+        0,
+        64,
+        96,
+        32
+      ],
+      "frame": 0,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "middle_water_body_bottom_0",
+      "sourceRectPx": [
+        0,
+        96,
+        96,
+        32
+      ],
+      "frame": 0,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "base_splash_0",
+      "sourceRectPx": [
+        0,
+        128,
+        96,
+        32
+      ],
+      "frame": 0,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "west_frame_0",
+      "sourceRectPx": [
+        0,
+        160,
+        64,
+        224
+      ],
+      "frame": 0,
+      "direction": "west",
+      "status": "source_frame_confirmed_placement_pending",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "east_frame_0",
+      "sourceRectPx": [
+        32,
+        384,
+        64,
+        224
+      ],
+      "frame": 0,
+      "direction": "east",
+      "status": "source_frame_confirmed_placement_pending",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "north_crest_candidate_1",
+      "sourceRectPx": [
+        96,
+        0,
+        96,
+        32
+      ],
+      "frame": 1,
+      "direction": "north",
+      "status": "north_crest_visual_candidate_not_runtime",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "south_crest_demo_verified_1",
+      "sourceRectPx": [
+        96,
+        32,
+        96,
+        32
+      ],
+      "frame": 1,
+      "direction": "south",
+      "status": "demo_matched_crest_only",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "middle_water_body_top_1",
+      "sourceRectPx": [
+        96,
+        64,
+        96,
+        32
+      ],
+      "frame": 1,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "middle_water_body_bottom_1",
+      "sourceRectPx": [
+        96,
+        96,
+        96,
+        32
+      ],
+      "frame": 1,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "base_splash_1",
+      "sourceRectPx": [
+        96,
+        128,
+        96,
+        32
+      ],
+      "frame": 1,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "west_frame_1",
+      "sourceRectPx": [
+        96,
+        160,
+        64,
+        224
+      ],
+      "frame": 1,
+      "direction": "west",
+      "status": "source_frame_confirmed_placement_pending",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "east_frame_1",
+      "sourceRectPx": [
+        128,
+        384,
+        64,
+        224
+      ],
+      "frame": 1,
+      "direction": "east",
+      "status": "source_frame_confirmed_placement_pending",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "north_crest_candidate_2",
+      "sourceRectPx": [
+        192,
+        0,
+        96,
+        32
+      ],
+      "frame": 2,
+      "direction": "north",
+      "status": "north_crest_visual_candidate_not_runtime",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "south_crest_demo_verified_2",
+      "sourceRectPx": [
+        192,
+        32,
+        96,
+        32
+      ],
+      "frame": 2,
+      "direction": "south",
+      "status": "demo_matched_crest_only",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "middle_water_body_top_2",
+      "sourceRectPx": [
+        192,
+        64,
+        96,
+        32
+      ],
+      "frame": 2,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "middle_water_body_bottom_2",
+      "sourceRectPx": [
+        192,
+        96,
+        96,
+        32
+      ],
+      "frame": 2,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "base_splash_2",
+      "sourceRectPx": [
+        192,
+        128,
+        96,
+        32
+      ],
+      "frame": 2,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "west_frame_2",
+      "sourceRectPx": [
+        192,
+        160,
+        64,
+        224
+      ],
+      "frame": 2,
+      "direction": "west",
+      "status": "source_frame_confirmed_placement_pending",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "east_frame_2",
+      "sourceRectPx": [
+        224,
+        384,
+        64,
+        224
+      ],
+      "frame": 2,
+      "direction": "east",
+      "status": "source_frame_confirmed_placement_pending",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "north_crest_candidate_3",
+      "sourceRectPx": [
+        288,
+        0,
+        96,
+        32
+      ],
+      "frame": 3,
+      "direction": "north",
+      "status": "north_crest_visual_candidate_not_runtime",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "south_crest_demo_verified_3",
+      "sourceRectPx": [
+        288,
+        32,
+        96,
+        32
+      ],
+      "frame": 3,
+      "direction": "south",
+      "status": "demo_matched_crest_only",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "middle_water_body_top_3",
+      "sourceRectPx": [
+        288,
+        64,
+        96,
+        32
+      ],
+      "frame": 3,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "middle_water_body_bottom_3",
+      "sourceRectPx": [
+        288,
+        96,
+        96,
+        32
+      ],
+      "frame": 3,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "base_splash_3",
+      "sourceRectPx": [
+        288,
+        128,
+        96,
+        32
+      ],
+      "frame": 3,
+      "direction": "direction_independent_candidate",
+      "status": "requires_full_assembly_validation",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "west_frame_3",
+      "sourceRectPx": [
+        288,
+        160,
+        64,
+        224
+      ],
+      "frame": 3,
+      "direction": "west",
+      "status": "source_frame_confirmed_placement_pending",
+      "individualRuntimePlacementAllowed": false
+    },
+    {
+      "id": "east_frame_3",
+      "sourceRectPx": [
+        320,
+        384,
+        64,
+        224
+      ],
+      "frame": 3,
+      "direction": "east",
+      "status": "source_frame_confirmed_placement_pending",
+      "individualRuntimePlacementAllowed": false
+    }
+  ],
+  "mainOnlyAuxiliary": {
+    "rectPx": [
+      384,
+      0,
+      128,
+      608
+    ],
+    "status": "do_not_remove_reference_pack_is_subset_role_under_review"
+  },
+  "frozen": {
+    "path": "Terrain/Waterfall, Frozen.png",
+    "sha256Reference": "b5026e805b54ea0de2050a19dadf96d1a520545bdd327ef6920837c1c4d3c397",
+    "sizePx": [
+      96,
+      224
+    ],
+    "status": "separate_static_source_assembly_pending",
+    "notAnimatedSummerSwap": true
+  },
+  "fx": {
+    "splashFront": "FX/Splash.png",
+    "splashBack": "FX/Splash_Back.png",
+    "ripplesFront": "FX/WaterRipple.png",
+    "ripplesBack": "FX/WaterRipple_Back.png",
+    "waterReflections": "FX/Water Reflections.png",
+    "usage": "animation and player-foot layering demonstration only, not automatically waterfall base"
+  },
+  "seasons": {
+    "spring": {
+      "mainTerrainAtlas": "Terrain/terrain_spring.png",
+      "mainCliffAtlas": "Terrain/cliff_spring.png",
+      "referencePackLayoutSameAsSummer": "compare_region_by_region_not_assumed",
+      "waterfallSheet": "Terrain/Waterfall.png",
+      "frozenSheet": null
+    },
+    "summer": {
+      "mainTerrainAtlas": "Terrain/terrain_summer.png",
+      "mainCliffAtlas": "Terrain/cliff_summer.png",
+      "referencePackLayoutSameAsSummer": "compare_region_by_region_not_assumed",
+      "waterfallSheet": "Terrain/Waterfall.png",
+      "frozenSheet": null
+    },
+    "autumn": {
+      "mainTerrainAtlas": "Terrain/terrain_autumn.png",
+      "mainCliffAtlas": "Terrain/cliff_autumn.png",
+      "referencePackLayoutSameAsSummer": "compare_region_by_region_not_assumed",
+      "waterfallSheet": "Terrain/Waterfall.png",
+      "frozenSheet": null
+    },
+    "winter": {
+      "mainTerrainAtlas": "Terrain/terrain_winter.png",
+      "mainCliffAtlas": "Terrain/cliff_winter.png",
+      "referencePackLayoutSameAsSummer": false,
+      "waterfallSheet": "Terrain/Waterfall.png",
+      "frozenSheet": null
+    },
+    "winter_ice": {
+      "mainTerrainAtlas": "Terrain/terrain_winter_ice.png",
+      "mainCliffAtlas": "Terrain/cliff_winter_ice.png",
+      "referencePackLayoutSameAsSummer": false,
+      "waterfallSheet": "Terrain/Waterfall.png",
+      "frozenSheet": "Terrain/Waterfall, Frozen.png"
+    }
+  },
+  "gates": {
+    "northCrest": "candidate_not_full_waterfall",
+    "southCrest": "demo_matched",
+    "eastWestFrames": "source_confirmed",
+    "twoColumnWidth": "existing B48R5A visual crop proof only; not runtime certified",
+    "threeColumnWidth": "full original source envelope",
+    "widthArbitrary": "blocked",
+    "sceneWaterCliffJoins": "blocked",
+    "collisionAndTraversal": "untested",
+    "editorClientParity": "untested",
+    "runtimePromotion": "blocked"
+  }
+}
