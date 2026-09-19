@@ -14,10 +14,7 @@ mod scene_audit;
 const TILE_SIZE: i32 = 32;
 const TOP_BAR_H: f32 = 98.0;
 const STATUS_H: f32 = 32.0;
-const SOURCE_SHEET_STACK_MIN_H: f32 = 176.0;
-const SHEET_LIST_TOP: f32 = 103.0;
-const SOURCE_PREVIEW_TOP_PAD: f32 = 12.0;
-const SHEET_CARD_H: f32 = 34.0;
+const SHEET_CARD_H: f32 = 43.0;
 const MAX_LIBRARY_SHEETS: usize = 100_000; // Full ElizaWy index; textures remain lazy.
 const MAX_UNDO_STEPS: usize = 64;
 const GAP: f32 = 12.0;
@@ -44,7 +41,11 @@ const MAPPED_TILE_STATUS_DRAFT: &str = "draft_mapped";
 const MAPPED_TILE_STATUS_LEARNED: &str = "learned_mapping";
 const MAPPED_TILE_STATUS_APPROVED: &str = "approved_mapping";
 const MAX_REASSEMBLY_CELLS: usize = 24;
-const MAPPER_BUILD: &str = "B48R24 unified library / editable scene layers";
+const MAPPER_BUILD: &str = "B48R25 three-column / stacked atlas workspace";
+const LIBRARY_RAIL_FRACTION: f32 = 0.14;
+const LIBRARY_LIST_TOP: f32 = 345.0;
+const ATLAS_CARD_HEADER_H: f32 = 40.0;
+const ATLAS_CARD_GAP: f32 = 22.0;
 const SCENE_LAYER_NAMES: [&str; 7] = [
     "Ground", "Transitions", "Cliff / portals", "Water / contacts",
     "Waterfall / FX", "Objects", "Foreground",
@@ -72,50 +73,62 @@ impl AuthorTool {
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum SourceGroup {
     Ground, Water, Cliffs, Plants, Buildings, Structures, Furniture,
-    Characters, Items, Effects,
+    Objects, Characters, Items, Effects,
 }
 
 impl SourceGroup {
-    // Character authoring has a separate lane; keep its schema compatibility.
-    const ALL: [Self; 9] = [
+    const ALL: [Self; 10] = [
         Self::Ground, Self::Water, Self::Cliffs, Self::Plants, Self::Buildings,
-        Self::Structures, Self::Furniture, Self::Items, Self::Effects,
+        Self::Structures, Self::Furniture, Self::Objects, Self::Items, Self::Effects,
     ];
 
     fn label(self) -> &'static str {
         match self {
-            Self::Ground => "Ground", Self::Water => "Water", Self::Cliffs => "Cliffs",
-            Self::Plants => "Plants", Self::Buildings => "Buildings", Self::Structures => "Structures",
-            Self::Furniture => "Furniture", Self::Characters => "Characters", Self::Items => "Items",
-            Self::Effects => "FX / UI",
+            Self::Ground => "Terrain", Self::Water => "Water", Self::Cliffs => "Cliffs",
+            Self::Plants => "Foliage", Self::Buildings => "Buildings", Self::Structures => "Structures",
+            Self::Furniture => "Furniture", Self::Objects => "Objects", Self::Characters => "Characters",
+            Self::Items => "Equipment", Self::Effects => "FX / UI",
         }
     }
 
     fn from_path(path: &Path) -> Self {
         let name = path.file_name().and_then(|n| n.to_str()).unwrap_or("").to_ascii_lowercase();
         let key = normalize_path_key(path);
-        // Prefer a sheet's actual subject to generic ancestor names such as
-        // Characters or Terrain. Furniture variants are composite objects, not
-        // automatically terrain cells or character animation frames.
+        // Preserve original ElizaWy folder taxonomy before looking at ambiguous words.
+        // In particular Furniture, Wall Items, Terrain Objects and Structure are real
+        // source folders, not interchangeable gameplay or certification roles.
+        if key.contains("/characters/") || key.contains("/character/") { return Self::Characters; }
+        if key.contains("/objects/furniture/") { return Self::Furniture; }
+        if key.contains("/objects/") { return Self::Objects; }
+        if key.contains("/structure/") || key.contains("/structures/") {
+            if key.contains("/structure/structures/") || name.contains("house") || name.contains("roof") {
+                return Self::Buildings;
+            }
+            return Self::Structures;
+        }
+        if key.contains("/equipment/") { return Self::Items; }
+        if key.contains("/fx/") || key.contains("/ui/") { return Self::Effects; }
+        if key.contains("/terrain objects/") {
+            if name.contains("cliff") || name.contains("mountain") { return Self::Cliffs; }
+            if name.contains("aquatic") { return Self::Water; }
+            return Self::Plants;
+        }
+        if name.contains("mountain") || name.contains("cliff") || name.contains("handhold")
+            || name.contains("vine") || name.contains("rocks,") { return Self::Cliffs; }
+        if name.contains("waterfall") || name.contains("water") || name.contains("shallows")
+            || name.contains("river") || name.contains("pond") || name.contains("shore") { return Self::Water; }
+        if name.contains("tree") || name.contains("flower") || name.contains("bush")
+            || name.contains("plant") || name.contains("foliage") || name.contains("crop")
+            || name.contains("mushroom") { return Self::Plants; }
         if ["chair", "table", "stool", "bed", "sofa", "cabinet", "shelf", "dresser", "desk", "bench", "wardrobe"]
-            .iter().any(|word| name.contains(word)) { Self::Furniture }
-        else if name.contains("water") || name.contains("pond") || name.contains("river") || name.contains("ocean") || name.contains("shore") { Self::Water }
-        else if name.contains("cliff") || name.contains("mountain") || name.contains("ladder")
-            || name.contains("vine") || name.contains("handhold") { Self::Cliffs }
-        else if name.contains("tree") || name.contains("flower") || name.contains("bush")
-            || name.contains("plant") || name.contains("foliage") || name.contains("crop") { Self::Plants }
-        else if name.contains("house") || name.contains("building") || name.contains("roof")
-            || name.contains("tavern") { Self::Buildings }
-        else if name.contains("fence") || name.contains("bridge") || name.contains("wall")
-            || name.contains("door") || name.contains("window") || name.contains("floor") { Self::Structures }
-        else if name.contains("character") || name.contains("body") || name.contains("hair")
-            || name.contains("backslash") || key.contains("/characters/") { Self::Characters }
-        else if name.contains("tool") || name.contains("weapon") || name.contains("item")
-            || name.contains("equipment") || name.contains("armor") { Self::Items }
-        else if name.contains("fx") || name.contains("effect") || name.contains("particle")
-            || name.contains("icon") || key.contains("/ui/") { Self::Effects }
-        else if key.contains("/terrain/") || name.contains("grass") || name.contains("sand") { Self::Ground }
-        else { match AssetCategory::from_file_hint(path) {
+            .iter().any(|word| name.contains(word)) { return Self::Furniture; }
+        if name.contains("building") || name.contains("house") || name.contains("roof") { return Self::Buildings; }
+        if name.contains("fence") || name.contains("bridge") || name.contains("wall")
+            || name.contains("door") || name.contains("window") || name.contains("floor") { return Self::Structures; }
+        if name.contains("weapon") || name.contains("tool") || name.contains("item") { return Self::Items; }
+        if name.contains("fx") || name.contains("effect") || name.contains("icon") { return Self::Effects; }
+        if key.contains("/terrain/") || key.contains("/seasonal_split/") { return Self::Ground; }
+        match AssetCategory::from_file_hint(path) {
             AssetCategory::Cliff => Self::Cliffs,
             AssetCategory::Terrain => Self::Ground,
             AssetCategory::House => Self::Buildings,
@@ -123,8 +136,8 @@ impl SourceGroup {
             AssetCategory::Character => Self::Characters,
             AssetCategory::Equipment => Self::Items,
             AssetCategory::Fx | AssetCategory::Ui => Self::Effects,
-            AssetCategory::Object => Self::Furniture,
-        }}
+            AssetCategory::Object => Self::Objects,
+        }
     }
 }
 
@@ -620,7 +633,6 @@ struct MapperApp {
     active_layer: usize,
     pane_ratio: f32,
     resizing_divider: bool,
-    atlas_focus: bool,
 }
 
 impl Default for MapperApp {
@@ -644,7 +656,7 @@ impl Default for MapperApp {
             next_piece_id: 1,
             category: AssetCategory::Terrain,
             assembly_name: "new_atlas_assembly".to_string(),
-            source_pan: vec2(18.0, 72.0),
+            source_pan: Vec2::ZERO,
             source_zoom: 1.0,
             canvas_pan: vec2(56.0, 116.0),
             canvas_zoom: DEFAULT_CANVAS_ZOOM,
@@ -670,7 +682,6 @@ impl Default for MapperApp {
             active_layer: 0,
             pane_ratio: 0.5,
             resizing_divider: false,
-            atlas_focus: true,
         }
     }
 }
@@ -682,7 +693,11 @@ fn is_summer_elizawy_source(path: &Path) -> bool {
     let normalized = normalize_path_key(path);
     if !(normalized.contains("lpc_revised") || normalized.contains("elizawy")) { return false; }
     if normalized.contains("/characters/") || normalized.contains("/character/") { return false; }
+    if !normalized.contains("/assets/source/licensed/lpc_revised/") { return false; }
     let file = path.file_name().and_then(|name| name.to_str()).unwrap_or("").to_ascii_lowercase();
+    if file == "submission cover.png" || file == "top-down rotation guide.png" { return false; }
+    if (file.contains("ice-") || file.contains("-ice") || file.contains("ice_") || file.contains("_ice"))
+        && !file.contains("summer") { return false; }
     // Multi-season split originals ("Spring & Summer", "Non-Winter") are
     // legitimate Summer sources. The substring "fall" is part of WATERFALL:
     // only an isolated Fall season token may exclude an otherwise-neutral file.
@@ -1147,10 +1162,67 @@ impl MapperApp {
         self.status = "Sheet deactivated. Undo history cleared to prevent orphaned source references.".to_string();
     }
 
+    fn active_atlases_sorted(&self) -> Vec<&LoadedAtlas> {
+        let mut sheets: Vec<&LoadedAtlas> = self.atlas.iter().chain(self.source_stack.iter()).collect();
+        sheets.sort_by(|a, b| normalize_path_key(&a.path).cmp(&normalize_path_key(&b.path)));
+        sheets
+    }
+
+    fn atlas_fit_scale(&self, picker: Rect) -> f32 {
+        let widest = self.atlas.iter().chain(self.source_stack.iter())
+            .map(|a| a.width).max().unwrap_or(TILE_SIZE).max(1) as f32;
+        ((atlas_scroll_view(picker).w - 32.0).max(32.0) / widest).min(1.0) * self.source_zoom
+    }
+
+    fn atlas_content_height(&self, picker: Rect) -> f32 {
+        let scale = self.atlas_fit_scale(picker);
+        self.active_atlases_sorted().iter().map(|a| ATLAS_CARD_HEADER_H + a.height as f32 * scale + ATLAS_CARD_GAP).sum::<f32>() + 14.0
+    }
+
+    fn clamp_atlas_scroll(&mut self, picker: Rect) {
+        let view = atlas_scroll_view(picker);
+        let lower = (view.h - self.atlas_content_height(picker)).min(0.0);
+        self.source_pan.y = self.source_pan.y.clamp(lower, 0.0);
+        // Horizontal panning only when the user zooms wider than the viewport.
+        let widest = self.active_atlases_sorted().iter().map(|a| a.width).max().unwrap_or(32) as f32 * self.atlas_fit_scale(picker);
+        let min_x = (view.w - widest - 20.0).min(0.0);
+        self.source_pan.x = self.source_pan.x.clamp(min_x, 0.0);
+    }
+
+    fn atlas_tile_at(&self, picker: Rect, mouse: Vec2) -> Option<(String, SourceTile)> {
+        let view = atlas_scroll_view(picker);
+        if !view.contains(mouse) { return None; }
+        let scale = self.atlas_fit_scale(picker);
+        if scale <= 0.0 { return None; }
+        let mut top = view.y + self.source_pan.y + 8.0;
+        for atlas in self.active_atlases_sorted() {
+            let image_top = top + ATLAS_CARD_HEADER_H;
+            let image_left = view.x + 10.0 + self.source_pan.x;
+            let image = Rect::new(image_left, image_top, atlas.width as f32 * scale, atlas.height as f32 * scale);
+            if image.contains(mouse) {
+                let tile_x = ((mouse.x - image_left) / scale / TILE_SIZE as f32).floor() as i32;
+                let tile_y = ((mouse.y - image_top) / scale / TILE_SIZE as f32).floor() as i32;
+                return Some((atlas.id.clone(), SourceTile { tile_x, tile_y }));
+            }
+            top = image_top + image.h + ATLAS_CARD_GAP;
+        }
+        None
+    }
+
+    fn activate_source_id(&mut self, id: &str) {
+        if self.atlas.as_ref().is_some_and(|a| a.id == id) { return; }
+        if let Some(index) = self.source_stack.iter().position(|a| a.id == id) {
+            let selected = self.source_stack.remove(index);
+            self.category = AssetCategory::from_file_hint(&selected.path);
+            if let Some(old) = self.atlas.replace(selected) { self.source_stack.push(old); }
+            self.selected_piece = None;
+        }
+    }
+
     fn source_sheet_card_at(&self, panel: Rect, mouse: Vec2) -> Option<usize> {
-        let stack = source_sheet_stack_rect(panel, self.atlas_focus);
-        if !stack.contains(mouse) || mouse.y < stack.y + SHEET_LIST_TOP || mouse.y > stack.y + stack.h - 4.0 { return None; }
-        let local_y = mouse.y - (stack.y + SHEET_LIST_TOP) - self.sheet_library_scroll;
+        let stack = library_list_rect(panel);
+        if !stack.contains(mouse) { return None; }
+        let local_y = mouse.y - stack.y - self.sheet_library_scroll;
         if local_y < 0.0 { return None; }
         let index = (local_y / SHEET_CARD_H).floor() as usize;
         self.sheet_library_visible.get(index).copied()
@@ -2248,11 +2320,12 @@ impl MapperApp {
         }
     }
 
-    fn handle_input(&mut self, source_rect: Rect, canvas_rect: Rect, inspector_rect: Rect) {
+    fn handle_input(&mut self, library_rect: Rect, atlas_rect: Rect, canvas_rect: Rect, inspector_rect: Rect) {
         self.handle_shortcuts();
         let mouse = mouse_position_local();
         let delta = mouse - self.last_mouse;
-        let over_source = source_rect.contains(mouse);
+        let over_library = library_rect.contains(mouse);
+        let over_atlas = atlas_scroll_view(atlas_rect).contains(mouse);
         // The optional details drawer is opaque: never edit the scene through it.
         let blocked_by_details = self.show_inspector && inspector_rect.contains(mouse);
         let layer_rect = scene_layer_panel_rect(canvas_rect);
@@ -2264,14 +2337,14 @@ impl MapperApp {
             self.last_mouse = mouse;
             return;
         }
-        let divider = Rect::new(source_rect.x + source_rect.w, source_rect.y, GAP, source_rect.h);
+        let divider = Rect::new(atlas_rect.x + atlas_rect.w, atlas_rect.y, GAP, atlas_rect.h);
         if is_mouse_button_pressed(MouseButton::Left) && divider.contains(mouse) {
             self.resizing_divider = true;
         }
         if self.resizing_divider {
             if is_mouse_button_down(MouseButton::Left) {
-                let available = source_rect.w + canvas_rect.w;
-                self.pane_ratio = ((mouse.x - source_rect.x) / available).clamp(0.40, 0.60);
+                let available = atlas_rect.w + canvas_rect.w;
+                self.pane_ratio = ((mouse.x - atlas_rect.x) / available).clamp(0.40, 0.60);
             }
             if is_mouse_button_released(MouseButton::Left) { self.resizing_divider = false; }
             self.last_mouse = mouse;
@@ -2282,13 +2355,17 @@ impl MapperApp {
 
         if wheel_y != 0.0 {
             let zoom_factor = if wheel_y > 0.0 { ZOOM_STEP } else { 1.0 / ZOOM_STEP };
-            if over_source && source_sheet_stack_rect(source_rect, self.atlas_focus).contains(mouse) {
-                let visible_h = (source_sheet_stack_rect(source_rect, self.atlas_focus).h - SHEET_LIST_TOP).max(0.0);
+            if over_library && library_list_rect(library_rect).contains(mouse) {
+                let visible_h = library_list_rect(library_rect).h;
                 let content_h = self.sheet_library_visible.len() as f32 * SHEET_CARD_H;
-                let min_scroll = (visible_h - content_h).min(0.0);
-                self.sheet_library_scroll = (self.sheet_library_scroll + wheel_y * 28.0).clamp(min_scroll, 0.0);
-            } else if over_source {
-                self.source_zoom = (self.source_zoom * zoom_factor).clamp(MIN_SOURCE_ZOOM, MAX_SOURCE_ZOOM);
+                self.sheet_library_scroll = (self.sheet_library_scroll + wheel_y * 42.0).clamp((visible_h - content_h).min(0.0), 0.0);
+            } else if over_atlas {
+                if is_key_down(KeyCode::LeftControl) || is_key_down(KeyCode::RightControl) {
+                    self.source_zoom = (self.source_zoom * zoom_factor).clamp(MIN_SOURCE_ZOOM, MAX_SOURCE_ZOOM);
+                } else {
+                    self.source_pan.y += wheel_y * 64.0;
+                }
+                self.clamp_atlas_scroll(atlas_rect);
             } else if edit_canvas {
                 self.canvas_zoom = (self.canvas_zoom * zoom_factor).clamp(MIN_CANVAS_ZOOM, MAX_CANVAS_ZOOM);
             }
@@ -2299,21 +2376,25 @@ impl MapperApp {
             self.is_panning_canvas = false;
             self.is_painting_height = false;
             self.drag_origin = None;
-            if space_pan && over_source {
+            if space_pan && over_atlas {
                 self.is_panning_source = true;
             } else if space_pan && edit_canvas {
                 self.is_panning_canvas = true;
-            } else if over_source {
-                if let Some(index) = self.source_sheet_card_at(source_rect, mouse) {
-                    let row = source_sheet_stack_rect(source_rect, self.atlas_focus);
-                    if mouse.x >= row.x + row.w - 67.0 {
+            } else if over_library {
+                if let Some(index) = self.source_sheet_card_at(library_rect, mouse) {
+                    let list = library_list_rect(library_rect);
+                    if mouse.x >= list.x + list.w - 39.0 {
                         let path = self.sheet_library[index].path.clone();
                         if self.source_is_activated(&Self::asset_id(&path)) { self.deactivate_sheet(index); }
                         else { self.open_sheet_from_library(index); }
                     } else {
                         self.open_sheet_from_library(index);
                     }
-                } else if let Some(tile) = self.source_tile_at(source_rect, mouse) {
+                    self.clamp_atlas_scroll(atlas_rect);
+                }
+            } else if over_atlas {
+                if let Some((source_id, tile)) = self.atlas_tile_at(atlas_rect, mouse) {
+                    self.activate_source_id(&source_id);
                     self.selected_tile = Some(tile);
                     self.selected_piece = None;
                     self.drag = DragState::SourceTile(tile);
@@ -2352,6 +2433,7 @@ impl MapperApp {
         if is_mouse_button_down(MouseButton::Left) {
             if self.is_panning_source {
                 self.source_pan += delta;
+                self.clamp_atlas_scroll(atlas_rect);
             } else if self.is_panning_canvas {
                 self.canvas_pan += delta;
             } else if edit_canvas && self.is_painting_height && self.author_tool == AuthorTool::Elevation {
@@ -2405,21 +2487,8 @@ impl MapperApp {
         self.last_mouse = mouse;
     }
 
-    fn source_tile_at(&self, panel: Rect, mouse: Vec2) -> Option<SourceTile> {
-        let atlas = self.atlas.as_ref()?;
-        let preview = source_preview_rect(panel, self.atlas_focus);
-        if !preview.contains(mouse) { return None; }
-        let local = (mouse - vec2(preview.x, preview.y) - self.source_pan) / self.source_zoom;
-        if local.x < 0.0 || local.y < 0.0 || local.x >= atlas.width as f32 || local.y >= atlas.height as f32 {
-            return None;
-        }
-        let tile_x = (local.x as i32) / TILE_SIZE;
-        let tile_y = (local.y as i32) / TILE_SIZE;
-        Some(SourceTile { tile_x, tile_y })
-    }
-
     fn canvas_grid_at(&self, panel: Rect, mouse: Vec2) -> Option<(i32, i32)> {
-        if !panel.contains(mouse) || mouse.y < panel.y + 38.0 { return None; }
+        if !canvas_edit_rect(panel).contains(mouse) { return None; }
         let local = (mouse - vec2(panel.x, panel.y) - self.canvas_pan) / self.canvas_zoom;
         Some(((local.x / TILE_SIZE as f32).floor() as i32, (local.y / TILE_SIZE as f32).floor() as i32))
     }
@@ -3000,6 +3069,32 @@ fn next_index(seed: &mut u64, max: i32) -> i32 {
     ((*seed >> 32) as i32).rem_euclid(max)
 }
 
+// Match the camera's display rectangle to its viewport so existing screen-space
+// mouse coordinates and UI geometry remain unchanged. A viewport is a real GPU
+// clip, unlike simply drawing an opaque panel over overflowing textures.
+fn begin_viewport_clip(rect: Rect) {
+    let x = rect.x.max(0.0).floor() as i32;
+    let y = rect.y.max(0.0).floor() as i32;
+    let w = ((rect.x + rect.w).min(screen_width()).ceil() as i32 - x).max(1);
+    let h = ((rect.y + rect.h).min(screen_height()).ceil() as i32 - y).max(1);
+    let pixels = Rect::new(x as f32, y as f32, w as f32, h as f32);
+    let mut camera = Camera2D::from_display_rect(pixels);
+    camera.viewport = Some((x, screen_height().round() as i32 - y - h, w, h));
+    set_camera(&camera);
+}
+
+fn end_viewport_clip() { set_default_camera(); }
+
+fn library_list_rect(panel: Rect) -> Rect {
+    Rect::new(panel.x + 7.0, panel.y + LIBRARY_LIST_TOP,
+        (panel.w - 14.0).max(1.0), (panel.h - LIBRARY_LIST_TOP - 12.0).max(1.0))
+}
+
+fn atlas_scroll_view(panel: Rect) -> Rect {
+    Rect::new(panel.x + 8.0, panel.y + 76.0,
+        (panel.w - 16.0).max(1.0), (panel.h - 86.0).max(1.0))
+}
+
 fn draw_button(rect: Rect, label: &str, active: bool) -> bool {
     let mouse = mouse_position_local();
     let hovered = rect.contains(mouse);
@@ -3130,165 +3225,130 @@ fn draw_top_bar(app: &mut MapperApp) {
     draw_text("No recipe reroll yet; candidate only.", x + 649.0, 64.0, 12.0, Color::new(0.94, 0.73, 0.45, 1.0));
 }
 
-fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
-    draw_panel(source_rect, "LEFT | ElizaWy Summer Source Library", "Browse by group; select a source without changing scene geometry");
-    if draw_button(Rect::new(source_rect.x + source_rect.w - 198.0, source_rect.y + 9.0, 104.0, 21.0),
-        if app.atlas_focus { "More library" } else { "Larger atlas" }, false) {
-        app.atlas_focus = !app.atlas_focus;
-        app.sheet_library_scroll = 0.0;
-    }
-    if draw_button(Rect::new(source_rect.x + source_rect.w - 88.0, source_rect.y + 9.0, 74.0, 21.0), "Refresh", false) {
+fn draw_library_panel(app: &mut MapperApp, library: Rect) {
+    draw_panel(library, "ELIZAWY LIBRARY", "Original Summer / neutral PNGs");
+    let count = app.sheet_library.len();
+    draw_text(&format!("{} original sheets", count), library.x + 8.0, library.y + 54.0, 14.0, WHITE);
+    if draw_button(Rect::new(library.x + library.w - 72.0, library.y + 61.0, 64.0, 24.0), "Refresh", false) {
         app.refresh_sheet_library();
     }
-
-    let stack = source_sheet_stack_rect(source_rect, app.atlas_focus);
-    draw_rectangle(stack.x, stack.y, stack.w, stack.h, Color::new(0.022, 0.028, 0.037, 1.0));
-    draw_rectangle_lines(stack.x, stack.y, stack.w, stack.h, 1.0, Color::new(0.14, 0.19, 0.25, 1.0));
-    draw_text("Original sheets | ON = activated for this scene", stack.x + 8.0, stack.y + 18.0, 14.0, Color::new(0.72, 0.80, 0.86, 1.0));
-    let search_label = if app.sheet_library_search_focused { "SEARCH ACTIVE" } else { "Ctrl+F search" };
-    let query_label = if app.sheet_library_search.is_empty() { "" } else { &app.sheet_library_search };
-    let prompt = format!("{} | {} / {} | {} {}", search_label, app.sheet_library_visible.len(), app.sheet_library.len(), query_label,
-        if app.sheet_library_search_focused { "_" } else { "" });
-    draw_text(&prompt, stack.x + 8.0, stack.y + 38.0, 13.0, Color::new(0.62, 0.79, 0.86, 1.0));
-    if draw_button(Rect::new(stack.x + stack.w - 67.0, stack.y + 25.0, 60.0, 20.0),
-        if app.sheet_library_search.is_empty() { "Find" } else { "Reset" }, false) {
-        if app.sheet_library_search.is_empty() {
-            app.sheet_library_search_focused = true;
-        } else {
-            app.sheet_library_search.clear();
+    draw_text("Ctrl+F search", library.x + 8.0, library.y + 79.0, 12.0, Color::new(0.62, 0.78, 0.84, 1.0));
+    if draw_button(Rect::new(library.x + 7.0, library.y + 90.0, library.w - 14.0, 24.0),
+        if app.sheet_library_search.is_empty() { "Find sheets..." } else { "Clear search" }, false) {
+        if app.sheet_library_search.is_empty() { app.sheet_library_search_focused = true; }
+        else { app.sheet_library_search.clear(); app.rebuild_sheet_library_visibility(); app.sheet_library_search_focused = false; }
+    }
+    if !app.sheet_library_search.is_empty() {
+        let query: String = app.sheet_library_search.chars().take(21).collect();
+        draw_text(&query, library.x + 8.0, library.y + 129.0, 12.0, Color::new(0.82, 0.92, 0.98, 1.0));
+    }
+    let group_y = library.y + 147.0;
+    let groups: Vec<Option<SourceGroup>> = std::iter::once(None)
+        .chain(SourceGroup::ALL.into_iter().map(Some)).collect();
+    for (i, group) in groups.iter().enumerate() {
+        let label = group.map_or("All sheets", SourceGroup::label);
+        let count = app.sheet_library.iter().filter(|sheet| group.map_or(true,
+            |filter| SourceGroup::from_path(&sheet.path) == filter)).count();
+        let y = group_y + i as f32 * 17.0;
+        let active = app.sheet_library_group == *group;
+        let color = if active { Color::new(0.22, 0.65, 0.80, 1.0) } else { Color::new(0.66, 0.75, 0.81, 1.0) };
+        if active { draw_rectangle(library.x + 5.0, y - 12.0, library.w - 10.0, 17.0, Color::new(0.08, 0.18, 0.25, 1.0)); }
+        draw_text(&format!("{label} ({count})"), library.x + 11.0, y, 12.0, color);
+        if Rect::new(library.x + 5.0, y - 12.0, library.w - 10.0, 17.0).contains(mouse_position_local())
+            && is_mouse_button_pressed(MouseButton::Left) {
+            app.sheet_library_group = *group;
             app.rebuild_sheet_library_visibility();
-            app.sheet_library_search_focused = false;
         }
     }
-
-    // Two rows of genuine group filters replace the unrelated nine category
-    // tabs in the application chrome. Filtering NEVER toggles a sheet OFF.
-    let filter_width = (stack.w - 16.0) / 6.0;
-    for filter_index in 0..=SourceGroup::ALL.len() {
-        let group = if filter_index == 0 { None } else { Some(SourceGroup::ALL[filter_index - 1]) };
-        let active = app.sheet_library_group == group;
-        let label = group.map_or("ALL", SourceGroup::label);
-        let column = filter_index % 6;
-        let row = filter_index / 6;
-        if draw_button(Rect::new(stack.x + 8.0 + filter_width * column as f32,
-            stack.y + 49.0 + 23.0 * row as f32, filter_width - 3.0, 20.0), label, active) {
-            app.sheet_library_group = group;
-            app.rebuild_sheet_library_visibility();
-            app.status = format!("Summer source group: {label}. Filtering does not alter activated scene sheets.");
-        }
-    }
-    draw_text("Select = inspect | ON/OFF = activate | ? draft | L learned | check approved",
-        stack.x + 8.0, stack.y + 96.0, 11.0, Color::new(0.63, 0.74, 0.81, 1.0));
-    let clip_y = stack.y + SHEET_LIST_TOP;
-    // Virtualize large ElizaWy libraries: do not walk tens of thousands of
-    // character sheets on every rendered frame just to skip offscreen cards.
-    let first_visible = ((-app.sheet_library_scroll / SHEET_CARD_H).ceil().max(0.0) as usize)
-        .min(app.sheet_library_visible.len());
-    let mut row_y = clip_y + app.sheet_library_scroll + first_visible as f32 * SHEET_CARD_H;
-    let active_key = app.atlas.as_ref().map(|atlas| normalize_path_key(&atlas.path));
-    for &index in app.sheet_library_visible.iter().skip(first_visible) {
+    let list = library_list_rect(library);
+    draw_rectangle(list.x, list.y, list.w, list.h, Color::new(0.018, 0.025, 0.033, 1.0));
+    draw_text(&format!("{} MATCHING", app.sheet_library_visible.len()), list.x + 4.0, list.y - 8.0, 11.0, Color::new(0.57, 0.72, 0.80, 1.0));
+    begin_viewport_clip(list);
+    let first = ((-app.sheet_library_scroll / SHEET_CARD_H).floor().max(0.0) as usize).min(app.sheet_library_visible.len());
+    let mut y = list.y + app.sheet_library_scroll + first as f32 * SHEET_CARD_H;
+    for &index in app.sheet_library_visible.iter().skip(first) {
+        if y > list.y + list.h { break; }
         let card = &app.sheet_library[index];
-        if row_y + SHEET_CARD_H > stack.y + stack.h - 4.0 { break; }
-        let active = active_key.as_deref() == Some(normalize_path_key(&card.path).as_str());
+        let active = app.atlas.as_ref().is_some_and(|a| normalize_path_key(&a.path) == normalize_path_key(&card.path));
         let enabled = app.source_is_activated(&MapperApp::asset_id(&card.path));
-        let row = Rect::new(stack.x + 6.0, row_y, stack.w - 12.0, SHEET_CARD_H - 4.0);
-        let fill = if active { Color::new(0.08, 0.18, 0.25, 1.0) } else { Color::new(0.040, 0.050, 0.066, 1.0) };
-        draw_rectangle(row.x, row.y, row.w, row.h, fill);
-        draw_rectangle_lines(row.x, row.y, row.w, row.h, 1.0, if active { Color::new(0.20, 0.58, 0.72, 1.0) } else { Color::new(0.12, 0.17, 0.22, 1.0) });
-        if card.status.is_good() {
-            draw_rectangle(row.x + 1.0, row.y + 2.0, 3.0, row.h - 4.0, Color::new(0.16, 0.75, 0.34, 0.95));
-        }
-        draw_text(card.status.label(), row.x + 8.0, row.y + 20.0, 17.0, if card.status.is_good() { Color::new(0.44, 0.92, 0.58, 1.0) } else { Color::new(0.80, 0.73, 0.46, 1.0) });
-        let truncated_name: String = card.display_name.chars().take(27).collect();
-        draw_text(&truncated_name, row.x + 34.0, row.y + 14.0, 13.0, Color::new(0.88, 0.91, 0.94, 1.0));
-        let folder: String = card.path.parent()
-            .and_then(|path| path.file_name())
-            .and_then(|name| name.to_str())
-            .unwrap_or("source")
-            .chars().take(13).collect();
-        let progress = if card.mapped_tile_count == 0 {
-            format!("{folder} | no roles | {} exact px", card.source_address_count)
-        } else {
-            format!("{folder} | {:.0}% mapped | {} exact px", card.coverage_percent, card.source_address_count)
-        };
-        draw_text(&progress, row.x + 34.0, row.y + 28.0, 11.0, Color::new(0.55, 0.64, 0.72, 1.0));
-        draw_rectangle(row.x + row.w - 63.0, row.y + 3.0, 58.0, row.h - 6.0, if enabled { Color::new(0.11, 0.39, 0.27, 1.0) } else { Color::new(0.16, 0.19, 0.23, 1.0) });
-        draw_text(if enabled { "ON" } else { "OFF" }, row.x + row.w - 48.0, row.y + 21.0, 13.0, if enabled { Color::new(0.60, 0.98, 0.70, 1.0) } else { Color::new(0.68, 0.75, 0.81, 1.0) });
-        row_y += SHEET_CARD_H;
+        draw_rectangle(list.x + 1.0, y, list.w - 2.0, SHEET_CARD_H - 3.0,
+            if active { Color::new(0.09, 0.20, 0.28, 1.0) } else { Color::new(0.045, 0.056, 0.072, 1.0) });
+        if card.status.is_good() { draw_rectangle(list.x + 1.0, y + 2.0, 3.0, SHEET_CARD_H - 7.0, Color::new(0.12, 0.63, 0.32, 1.0)); }
+        let max_chars = ((list.w - 46.0) / 7.0).max(5.0) as usize;
+        let title: String = card.display_name.chars().take(max_chars).collect();
+        draw_text(&title, list.x + 6.0, y + 16.0, 13.0, WHITE);
+        draw_text(&format!("{} | {} mapped", card.status.description(), card.mapped_tile_count),
+            list.x + 6.0, y + 32.0, 11.0, Color::new(0.64, 0.73, 0.81, 1.0));
+        let right = Rect::new(list.x + list.w - 37.0, y + 8.0, 32.0, 24.0);
+        draw_rectangle(right.x, right.y, right.w, right.h,
+            if enabled { Color::new(0.12, 0.40, 0.26, 1.0) } else { Color::new(0.17, 0.21, 0.25, 1.0) });
+        draw_text(if enabled { "ON" } else { "OFF" }, right.x + 4.0, right.y + 16.0, 11.0, WHITE);
+        y += SHEET_CARD_H;
     }
-    if app.sheet_library_visible.is_empty() {
-        draw_text(if app.sheet_library.is_empty() { "NO ORIGINAL FILES FOUND - check source root" } else { "No sheets in group. Select ALL or reset search." },
-            stack.x + 10.0, clip_y + 22.0, 13.0, Color::new(0.92, 0.66, 0.43, 1.0));
-        if app.sheet_library.is_empty() {
-            draw_wrapped_line(&app.library_notice, stack.x + 10.0, clip_y + 42.0,
-                62, 12.0, Color::new(0.86, 0.71, 0.54, 1.0));
-        }
-    }
-
-    let preview = source_preview_rect(source_rect, app.atlas_focus);
-    draw_rectangle(preview.x, preview.y, preview.w, preview.h, Color::new(0.016, 0.021, 0.029, 1.0));
-    draw_rectangle_lines(preview.x, preview.y, preview.w, preview.h, 1.0, Color::new(0.13, 0.18, 0.24, 1.0));
-    if let Some(atlas) = &app.atlas {
-        let file = atlas.path.file_name().and_then(|name| name.to_str()).unwrap_or("sheet");
-        let summary = app.mapping_summary_for_sheet_path(&atlas.path, app.category);
-        let badge = match summary.status {
-            SourceSheetStatus::Unmapped => "UNMAPPED",
-            SourceSheetStatus::Draft => "DRAFT",
-            SourceSheetStatus::Mapped => "MAPPED",
-            SourceSheetStatus::Validated => "VALIDATED",
-            SourceSheetStatus::Published => "PUBLISHED",
-            SourceSheetStatus::NeedsReview => "REVIEW",
-        };
-        draw_status_pill(Rect::new(preview.x + preview.w - 104.0, preview.y + 8.0, 90.0, 21.0), badge, summary.status.is_good());
-        draw_text(&format!("{}  |  {}x{}  |  {} mapped cells · {:.1}%", file, atlas.width, atlas.height, summary.mapped_tile_count, summary.coverage_percent), preview.x + 14.0, preview.y + 24.0, 16.0, Color::new(0.78, 0.84, 0.89, 1.0));
-        let draw_pos = vec2(preview.x, preview.y) + app.source_pan;
-        draw_texture_ex(
-            &atlas.texture,
-            draw_pos.x,
-            draw_pos.y,
-            WHITE,
-            DrawTextureParams {
-                dest_size: Some(vec2(atlas.width as f32 * app.source_zoom, atlas.height as f32 * app.source_zoom)),
-                ..Default::default()
-            },
-        );
-        draw_grid(preview, app.source_pan, app.source_zoom, Color::new(1.0, 1.0, 1.0, 0.13));
-        draw_mapped_tile_badges(app, preview);
-        if let Some(tile) = app.selected_tile {
-            let rect = Rect::new(
-                preview.x + app.source_pan.x + tile.tile_x as f32 * TILE_SIZE as f32 * app.source_zoom,
-                preview.y + app.source_pan.y + tile.tile_y as f32 * TILE_SIZE as f32 * app.source_zoom,
-                TILE_SIZE as f32 * app.source_zoom,
-                TILE_SIZE as f32 * app.source_zoom,
-            );
-            draw_rectangle_lines(rect.x, rect.y, rect.w, rect.h, 3.0, Color::new(1.0, 0.82, 0.20, 1.0));
-        }
-    } else {
-        draw_text("No atlas loaded.", preview.x + 18.0, preview.y + 52.0, 22.0, Color::new(0.75, 0.80, 0.84, 1.0));
-        if app.sheet_library.is_empty() {
-            draw_wrapped_line(&app.library_notice, preview.x + 18.0, preview.y + 82.0,
-                48, 15.0, Color::new(0.92, 0.69, 0.48, 1.0));
-        } else {
-            draw_text("Select a sheet above; other selected sheets stay in the scene.", preview.x + 18.0, preview.y + 82.0, 15.0, Color::new(0.55, 0.63, 0.70, 1.0));
-        }
+    end_viewport_clip();
+    if app.sheet_library.is_empty() {
+        draw_text("No original sheets found", list.x + 5.0, list.y + 22.0, 12.0, Color::new(0.94, 0.66, 0.44, 1.0));
     }
 }
 
-
-fn source_sheet_stack_rect(panel: Rect, atlas_focus: bool) -> Rect {
-    let usable_h = (panel.h - 205.0).max(130.0);
-    let fraction = if atlas_focus { 0.28 } else { 0.62 };
-    Rect::new(panel.x + 10.0, panel.y + 58.0, panel.w - 20.0,
-        (panel.h * fraction).max(SOURCE_SHEET_STACK_MIN_H).min(usable_h))
+fn draw_atlas_grid(image: Rect, scale: f32) {
+    let step = TILE_SIZE as f32 * scale;
+    if step < 9.0 { return; }
+    for i in 0..=((image.w / step) as i32) {
+        let x = image.x + i as f32 * step;
+        draw_line(x, image.y, x, image.y + image.h, 1.0, Color::new(1.0, 1.0, 1.0, 0.15));
+    }
+    for i in 0..=((image.h / step) as i32) {
+        let y = image.y + i as f32 * step;
+        draw_line(image.x, y, image.x + image.w, y, 1.0, Color::new(1.0, 1.0, 1.0, 0.15));
+    }
 }
 
-fn source_preview_rect(panel: Rect, atlas_focus: bool) -> Rect {
-    let stack = source_sheet_stack_rect(panel, atlas_focus);
-    let y = stack.y + stack.h + SOURCE_PREVIEW_TOP_PAD;
-    Rect::new(panel.x + 10.0, y, panel.w - 20.0, (panel.y + panel.h - y - 10.0).max(120.0))
+fn draw_atlas_panel(app: &mut MapperApp, atlas_rect: Rect) {
+    draw_panel(atlas_rect, "ATLAS PICKER", "Activated source sheets: vertically stacked, never overlapping");
+    let count = app.source_stack.len() + usize::from(app.atlas.is_some());
+    draw_text(&format!("{count} active | wheel: scroll | Ctrl+wheel: zoom | Space+drag: pan"),
+        atlas_rect.x + 12.0, atlas_rect.y + 57.0, 12.0, Color::new(0.72, 0.82, 0.88, 1.0));
+    let view = atlas_scroll_view(atlas_rect);
+    draw_rectangle(view.x, view.y, view.w, view.h, Color::new(0.014, 0.020, 0.027, 1.0));
+    let scale = app.atlas_fit_scale(atlas_rect);
+    begin_viewport_clip(view);
+    let mut y = view.y + app.source_pan.y + 8.0;
+    for source in app.active_atlases_sorted() {
+        let image_y = y + ATLAS_CARD_HEADER_H;
+        let image = Rect::new(view.x + 10.0 + app.source_pan.x, image_y,
+            source.width as f32 * scale, source.height as f32 * scale);
+        let bottom = image.y + image.h + ATLAS_CARD_GAP;
+        if bottom >= view.y && y < view.y + view.h {
+            let active = app.atlas.as_ref().is_some_and(|atlas| atlas.id == source.id);
+            draw_rectangle(view.x + 3.0, y, view.w - 6.0, 30.0,
+                if active { Color::new(0.075, 0.19, 0.26, 1.0) } else { Color::new(0.067, 0.079, 0.10, 1.0) });
+            let title = source.path.file_name().and_then(|name| name.to_str()).unwrap_or("sheet");
+            let caption: String = format!("{}   {}x{}", title, source.width, source.height).chars().take(72).collect();
+            draw_text(&caption, view.x + 10.0, y + 19.0, 14.0, WHITE);
+            draw_texture_ex(&source.texture, image.x, image.y, WHITE,
+                DrawTextureParams { dest_size: Some(vec2(image.w, image.h)), ..Default::default() });
+            draw_atlas_grid(image, scale);
+            if active {
+                draw_mapped_tile_badges(app, image, scale);
+                if let Some(tile) = app.selected_tile {
+                    draw_rectangle_lines(image.x + tile.tile_x as f32 * TILE_SIZE as f32 * scale,
+                        image.y + tile.tile_y as f32 * TILE_SIZE as f32 * scale,
+                        TILE_SIZE as f32 * scale, TILE_SIZE as f32 * scale, 2.0, YELLOW);
+                }
+            }
+        }
+        y = bottom;
+    }
+    if count == 0 {
+        draw_text("Activate sheets from the library on the left.", view.x + 16.0, view.y + 36.0,
+            16.0, Color::new(0.78, 0.83, 0.88, 1.0));
+    }
+    end_viewport_clip();
+    draw_rectangle_lines(view.x, view.y, view.w, view.h, 1.0, Color::new(0.24, 0.31, 0.38, 1.0));
 }
 
-fn draw_mapped_tile_badges(app: &MapperApp, preview: Rect) {
+fn draw_mapped_tile_badges(app: &MapperApp, preview: Rect, scale: f32) {
     let mut mapped = app.persisted_mapped_tiles_for_current_sheet();
     let active_id = app.atlas.as_ref().map(|atlas| atlas.id.as_str());
     for piece in &app.pieces {
@@ -3301,13 +3361,13 @@ fn draw_mapped_tile_badges(app: &MapperApp, preview: Rect) {
     }
     if mapped.is_empty() { return; }
     for ((tile_x, tile_y), status) in mapped {
-        let x = preview.x + app.source_pan.x + tile_x as f32 * TILE_SIZE as f32 * app.source_zoom;
-        let y = preview.y + app.source_pan.y + tile_y as f32 * TILE_SIZE as f32 * app.source_zoom;
-        let tile_screen = TILE_SIZE as f32 * app.source_zoom;
+        let x = preview.x + tile_x as f32 * TILE_SIZE as f32 * scale;
+        let y = preview.y + tile_y as f32 * TILE_SIZE as f32 * scale;
+        let tile_screen = TILE_SIZE as f32 * scale;
         if x + tile_screen < preview.x || y + tile_screen < preview.y || x > preview.x + preview.w || y > preview.y + preview.h {
             continue;
         }
-        let size = (10.0 * app.source_zoom).clamp(8.0, 16.0);
+        let size = (10.0 * scale).clamp(8.0, 16.0);
         let (label, color) = if status == MAPPED_TILE_STATUS_APPROVED {
             ("✓", Color::new(0.06, 0.60, 0.28, 0.96))
         } else if status == MAPPED_TILE_STATUS_LEARNED {
@@ -3328,20 +3388,9 @@ fn is_supported_image_path(path: &Path) -> bool {
 }
 
 fn default_asset_sheet_scan_roots(root: &Path) -> Vec<PathBuf> {
-    vec![
-        root.join("assets/source/licensed/lpc_revised/Terrain"),
-        root.join("assets/source/licensed/lpc_revised/Terrain Objects"),
-        root.join("assets/source/licensed/lpc_revised/seasonal_split"),
-        root.join("assets/source/licensed/lpc_revised/Objects"),
-        root.join("assets/source/licensed/lpc_revised/Structure"),
-        root.join("assets/source/licensed/lpc_revised/Structures"),
-        root.join("assets/source/licensed/lpc_revised/Equipment"),
-        root.join("assets/source/licensed/lpc_revised/FX"),
-        root.join("assets/source/licensed/lpc_revised/UI"),
-        root.join("content/assets/oga_lpc/source"),
-        root.join("content/assets/lpc/source"),
-        root.join("assets/generated/worldgen_v0_1/terrain"),
-    ]
+    // Certified intake sources are the ORIGINAL immutable ElizaWy family only.
+    // No generated images, duplicate catalog exports, V7 or third-party packs.
+    vec![root.join("assets/source/licensed/lpc_revised")]
 }
 
 // A standalone executable can be launched outside the repository. Resolve the
@@ -3447,6 +3496,8 @@ fn draw_height_overlay(app: &MapperApp, canvas_rect: Rect) {
 fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
     draw_panel(canvas_rect, "RIGHT | Summer Example Scene", "Source-exact draft; edit and save before learning");
 
+    let scene_view = canvas_edit_rect(canvas_rect);
+    begin_viewport_clip(scene_view);
     draw_grid(canvas_rect, app.canvas_pan, app.canvas_zoom, Color::new(1.0, 1.0, 1.0, 0.10));
     draw_height_overlay(app, canvas_rect);
     if let Some(atlas) = &app.atlas {
@@ -3500,6 +3551,7 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
         }
     }
 
+    end_viewport_clip();
     draw_rectangle(canvas_rect.x, canvas_rect.y, canvas_rect.w, 74.0, Color::new(0.030, 0.039, 0.052, 1.0));
     draw_text("RIGHT | ElizaWy Summer Scene Workspace", canvas_rect.x + 12.0, canvas_rect.y + 24.0, 17.0, WHITE);
     draw_text("EDITABLE: scene + height/water  |  collision/traversal: audit only",
@@ -3630,14 +3682,15 @@ fn draw_scene_layers(app: &mut MapperApp, rect: Rect) {
     }
 }
 
-fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector_rect: Rect) {
+fn draw_app(app: &mut MapperApp, library_rect: Rect, atlas_rect: Rect, canvas_rect: Rect, inspector_rect: Rect) {
     clear_background(Color::new(0.020, 0.026, 0.034, 1.0));
     draw_top_bar(app);
-    draw_source_panel(app, source_rect);
-    let divider_x = source_rect.x + source_rect.w;
-    draw_rectangle(divider_x, source_rect.y, GAP, source_rect.h, Color::new(0.08, 0.12, 0.16, 1.0));
-    draw_line(divider_x + GAP * 0.5, source_rect.y + 8.0, divider_x + GAP * 0.5,
-        source_rect.y + source_rect.h - 8.0, 2.0, Color::new(0.26, 0.48, 0.59, 1.0));
+    draw_library_panel(app, library_rect);
+    draw_atlas_panel(app, atlas_rect);
+    let divider_x = atlas_rect.x + atlas_rect.w;
+    draw_rectangle(divider_x, atlas_rect.y, GAP, atlas_rect.h, Color::new(0.08, 0.12, 0.16, 1.0));
+    draw_line(divider_x + GAP * 0.5, atlas_rect.y + 8.0, divider_x + GAP * 0.5,
+        atlas_rect.y + atlas_rect.h - 8.0, 2.0, Color::new(0.26, 0.48, 0.59, 1.0));
     draw_canvas_panel(app, canvas_rect);
     if app.show_inspector { draw_inspector(app, inspector_rect); }
     if app.show_layers { draw_scene_layers(app, scene_layer_panel_rect(canvas_rect)); }
@@ -3670,12 +3723,12 @@ fn window_conf() -> Conf {
 async fn main() {
     if let Some(root) = discover_havenwild_root() {
         if let Err(error) = env::set_current_dir(&root) {
-            eprintln!("B48R24 mapper cannot set Havenwild root {}: {error}", root.display());
+            eprintln!("B48R25 mapper cannot set Havenwild root {}: {error}", root.display());
         } else {
-            println!("B48R24 mapper source root: {}", root.display());
+            println!("B48R25 mapper source root: {}", root.display());
         }
     } else {
-        eprintln!("B48R24 mapper cannot find Havenwild root from cwd/executable/HAVENWILD_ROOT");
+        eprintln!("B48R25 mapper cannot find Havenwild root from cwd/executable/HAVENWILD_ROOT");
     }
     let mut app = MapperApp::default();
     app.refresh_sheet_library();
@@ -3700,18 +3753,22 @@ async fn main() {
         let height = screen_height();
         let body_top = TOP_BAR_H + GAP;
         let body_h = height - TOP_BAR_H - STATUS_H - GAP * 2.0;
-        // Two equal inspection surfaces by default; drag the central divider
-        // between 40/60 and 60/40 without introducing a permanent third column.
-        let available = (width - GAP * 3.0).max(500.0);
-        let source_w = available * app.pane_ratio;
-        let canvas_w = available - source_w;
-        let source_rect = Rect::new(GAP, body_top, source_w, body_h);
-        let canvas_rect = Rect::new(source_rect.x + source_w + GAP, body_top, canvas_w, body_h);
+        // Source rail 10-15%, remaining workspace split equally by default.
+        // The middle divider changes only the atlas/scene ratio, never rail width.
+        let rail_w = (width * LIBRARY_RAIL_FRACTION).clamp(160.0, 240.0)
+            .max(width * 0.10).min(width * 0.15);
+        let available = (width - rail_w - GAP * 4.0).max(320.0);
+        let atlas_w = available * app.pane_ratio;
+        let canvas_w = available - atlas_w;
+        let library_rect = Rect::new(GAP, body_top, rail_w, body_h);
+        let atlas_rect = Rect::new(library_rect.x + rail_w + GAP, body_top, atlas_w, body_h);
+        let canvas_rect = Rect::new(atlas_rect.x + atlas_w + GAP, body_top, canvas_w, body_h);
         let inspector_w = INSPECTOR_W.min((canvas_w - 24.0).max(210.0));
         let inspector_rect = Rect::new(canvas_rect.x + canvas_rect.w - inspector_w - 8.0,
             canvas_rect.y + 78.0, inspector_w, (canvas_rect.h - 122.0).max(200.0));
-        app.handle_input(source_rect, canvas_rect, inspector_rect);
-        draw_app(&mut app, source_rect, canvas_rect, inspector_rect);
+        app.clamp_atlas_scroll(atlas_rect); // Keep independent picker bounds valid after load/resize.
+        app.handle_input(library_rect, atlas_rect, canvas_rect, inspector_rect);
+        draw_app(&mut app, library_rect, atlas_rect, canvas_rect, inspector_rect);
         next_frame().await;
     }
 }

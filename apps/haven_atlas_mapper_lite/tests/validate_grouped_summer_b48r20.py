@@ -8,12 +8,12 @@ root = Path(p.parse_args().repo).resolve()
 s = (root/'apps/haven_atlas_mapper_lite/src/main.rs').read_text(encoding='utf-8')
 checks = {
     'Summer source groups': all(k in s for k in ['enum SourceGroup', 'Self::Ground', 'Self::Water', 'Self::Cliffs', 'Self::Furniture', 'Self::Characters']),
-    'subject-specific furniture grouping': 'name.contains(word)) { Self::Furniture }' in s and 'file.contains(word)) { AssetCategory::Object }' in s,
+    'subject-specific furniture grouping': 'key.contains("/objects/furniture/") { return Self::Furniture; }' in s and 'file.contains(word)) { AssetCategory::Object }' in s,
     'filtered library retains active sources': 'self.sheet_library_group.map_or(true' in s and 'self.sheet_library_visible = self.sheet_library.iter()' in s,
-    'group buttons clickable': 'app.sheet_library_group = group;' in s and 'app.rebuild_sheet_library_visibility();' in s,
-    'group controls excluded from card input': 'mouse.y < stack.y + SHEET_LIST_TOP' in s,
-    'source stack scrolling matches list geometry': 'visible_h = (source_sheet_stack_rect(source_rect, self.atlas_focus).h - SHEET_LIST_TOP)' in s,
-    'inactive category nav removed': 'for category in AssetCategory::ALL {' not in s[s.index('fn draw_top_bar'):s.index('fn draw_source_panel')],
+    'group buttons clickable': 'app.sheet_library_group = *group;' in s and 'app.rebuild_sheet_library_visibility();' in s,
+    'group controls excluded from card input': 'if !stack.contains(mouse) { return None; }' in s and 'let stack = library_list_rect(panel);' in s,
+    'source stack scrolling matches list geometry': 'visible_h = library_list_rect(library_rect).h;' in s and 'self.sheet_library_scroll + wheel_y * 42.0' in s,
+    'inactive category nav removed': 'for category in AssetCategory::ALL {' not in s[s.index('fn draw_top_bar'):s.index('fn draw_library_panel')],
     'nonfunctional tabs removed': 'draw_dock_tabs(inspector_rect' not in s and 'draw_dock_tabs(canvas_rect' not in s,
     'startup demo is real saved project': 'fn save_startup_summer_demo' in s and 'if demo.is_file() { app.load_project(&demo); }' in s,
     'no fabricated demo geometry': 'The B48R7 fixture' in (root/'apps/haven_atlas_mapper_lite/README.md').read_text(encoding='utf-8'),

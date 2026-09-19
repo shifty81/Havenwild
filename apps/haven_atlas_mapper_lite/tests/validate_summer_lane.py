@@ -15,13 +15,13 @@ registry_path = root / 'content/assets/lpc/elizawy_summer_source_registry_b48r15
 registry = json.loads(registry_path.read_text(encoding='utf-8'))
 assert registry['schema'] == 'havenwild.elizawy_summer_source_registry.v0_1'
 checks = {
-    'left source catalog + right editable scene': 'LEFT | ElizaWy Summer Source Library' in main and 'RIGHT | ElizaWy Summer Scene Workspace' in main,
+    'left source catalog + right editable scene': 'fn draw_library_panel(' in main and 'fn draw_atlas_panel(' in main and 'RIGHT | ElizaWy Summer Scene Workspace' in main,
     'click ON/OFF activation respects used scene sources': 'self.deactivate_sheet(index)' in main and 'Sheet still used by scene placements' in main,
     'Summer seasonal filter includes shared waterfalls': 'substring "fall" is part of WATERFALL' in main and 'file.contains("non-winter")' in main,
     'other seasons excluded from sibling scan': 'for season in ["summer"]' in main and 'is_summer_elizawy_source(&sibling)' in main,
     'summer B48R7 + B48R9 source evidence loaded': 'elizawy_summer_atlas_source_crosswalk_b48r7_v0_1.json' in main and 'elizawy_all_seasons_split_source_crosswalk_b48r9_v0_1.json' in main,
     'source evidence never semantic certification': 'Pixel matches only; never semantic/visual certification' in main,
-    'full sheet index + per-frame row virtualization': 'MAX_LIBRARY_SHEETS: usize = 100_000' in main and '.iter().skip(first_visible)' in main,
+    'full sheet index + per-frame row virtualization': 'MAX_LIBRARY_SHEETS: usize = 100_000' in main and 'app.sheet_library_visible.iter().skip(first)' in main,
     'search visible list and protects editor hotkeys': 'sheet_library_search_focused' in main and 'get_char_pressed()' in main and 'self.rebuild_sheet_library_visibility();' in main,
     'mapped records written per active original source': 'fn write_all_mapping_records' in main and 'filter(|piece| piece.source_asset_id == atlas.id)' in main,
     'source exact hashes pinned from original registry': 'pinned_summer_source_hashes' in main and 'source_sha256: pinned.get(' in main,

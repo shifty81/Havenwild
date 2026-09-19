@@ -9,15 +9,15 @@ ap.add_argument('--repo', default='.')
 root = Path(ap.parse_args().repo).resolve()
 main = (root / 'apps/haven_atlas_mapper_lite/src/main.rs').read_text(encoding='utf-8')
 intake = (root / 'tools/control/InvokeRootPatchIntake.ps1').read_text(encoding='utf-8-sig')
-bar = main.split('fn draw_top_bar(app:', 1)[1].split('fn draw_source_panel(', 1)[0]
+bar = main.split('fn draw_top_bar(app:', 1)[1].split('fn draw_library_panel(', 1)[0]
 inspector = main.split('fn draw_inspector(app:', 1)[1].split('fn draw_app(', 1)[0]
 checks = {
-    'equal pane baseline and constrained splitter': 'pane_ratio: 0.5' in main and 'let source_w = available * app.pane_ratio;' in main and 'let canvas_w = available - source_w;' in main and 'clamp(0.40, 0.60)' in main,
+    'equal pane baseline and constrained splitter': 'pane_ratio: 0.5' in main and 'let atlas_w = available * app.pane_ratio;' in main and 'let canvas_w = available - atlas_w;' in main and 'clamp(0.40, 0.60)' in main,
     'no false inactive navigation': 'fn draw_workspace_rail(' not in main and 'draw_workspace_rail(' not in main,
-    'inspector no longer permanently shrinks scene': 'if app.show_inspector { draw_inspector(app, inspector_rect); }' in main and 'let canvas_rect = Rect::new(source_rect.x + source_w + GAP, body_top, canvas_w, body_h);' in main,
+    'inspector no longer permanently shrinks scene': 'if app.show_inspector { draw_inspector(app, inspector_rect); }' in main and 'let canvas_rect = Rect::new(atlas_rect.x + atlas_w + GAP, body_top, canvas_w, body_h);' in main,
     'inspector overlay cannot paint underlying scene': 'let blocked_by_details = self.show_inspector && inspector_rect.contains(mouse);' in main and '&& !blocked_by_details' in main,
     'divider drag blocks unwanted painting': 'if self.resizing_divider {' in main and 'return; // A divider drag must never select, paint' in main,
-    'source preview defaults to expanded inspection mode': 'atlas_focus: true' in main and 'let fraction = if atlas_focus { 0.28 } else { 0.62 };' in main,
+    'source preview defaults to dedicated inspection panel': 'fn atlas_scroll_view(' in main and 'let atlas_w = available * app.pane_ratio;' in main,
     'single workflow toolbar': all(t in bar for t in ('"1 Draft"','"2 Learn"','"3 Stage missing cells"','"4 Audit"','"5 Review"','"6 Handoff"')),
     'no duplicated inspector workflow actions': not any(t in inspector for t in ('app.auto_map_sheet();','app.learn_from_scene();','app.reassemble_from_mapped_scene();','app.export_scene_audit();')),
     'no invented procedural reroll or approval': 'No recipe reroll yet; candidate only.' in main and 'Recipe-driven reroll is NOT implemented.' in main and 'approved_mapping' in main,

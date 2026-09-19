@@ -21,7 +21,7 @@ checks = {
     'undo drops after source unload': 'Cannot resurrect pieces from an unloaded source' in mapper,
     'Ctrl+Z / Ctrl+Y / visible toolbar': 'KeyCode::Z' in mapper and 'KeyCode::Y' in mapper and '"Undo", false' in mapper and '"Redo", false' in mapper,
     'canvas editing excludes UI toolbar/footer': 'fn canvas_edit_rect' in mapper and 'let edit_canvas = canvas_edit_rect(canvas_rect).contains(mouse) && !blocked_by_details' in mapper and 'inspector_rect.contains(mouse)' in mapper and 'self.is_painting_height &&' in mapper,
-    'source picker still separate from scene': 'LEFT | ElizaWy Summer Source Library' in mapper and 'RIGHT | ElizaWy Summer Scene Workspace' in mapper,
+    'source picker still separate from scene': 'fn draw_library_panel(' in mapper and 'fn draw_atlas_panel(' in mapper and 'RIGHT | ElizaWy Summer Scene Workspace' in mapper,
     'native audit has no approval shortcut': 'unreviewed_candidate_no_runtime_publication' in audit and 'height_boundary_recipe_pending' in audit and 'hydrology_recipe_pending' in audit,
     'native audit recognizes +1 and +30': 'one_level_ocean_facing_cliff_is_a_real_boundary_not_an_error' in audit and 'elevation: 30' in audit,
     'audit wired to UI': 'mod scene_audit;' in mapper and 'fn export_scene_audit' in mapper and '"4 Audit", false' in mapper,

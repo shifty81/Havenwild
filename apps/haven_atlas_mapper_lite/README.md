@@ -245,3 +245,29 @@ The current Draft/Stage commands are not gameplay-native procedural world genera
   save/reopen, export review and verify original source pixel replay. Validate a genuine +1 cell.
 - `tests/validate_b48r24_layers.py` is an offline regression guard, **not** a Rust compilation
   or a Windows GUI/PCC quality gate. The previous B48R23 GREEN checkpoint remains the fallback.
+
+
+### B48R25 — three-column Summer authoring layout (candidate)
+
+The **left original-source library** is a narrow 10–15% rail, grouped using
+ElizaWy's real source folders (Terrain, Terrain Objects, Objects/Furniture,
+Objects, Structure, FX and Equipment) with filename refinement for cliffs and
+water. Characters are reserved for their separate authoring lane. Clicking
+a sheet activates and selects it, while its ON/OFF control toggles activation;
+source tiles already used by the scene cannot be unloaded. Sheet toggles do not
+change scene placements or imply visual certification.
+
+The **middle atlas picker** occupies half of the remaining viewport by default.
+Every activated sheet appears vertically in stable source-path order, with a
+header, source-exact image and optional grid; the widest image determines the
+initial shared fit scale. Mouse wheel scrolls this panel only, Ctrl+wheel adjusts
+its zoom, Space+drag pans within bounded content. Click/drag any activated
+sheet tile to the independently zoomable **right scene canvas**. Both artwork
+viewports are GPU-clipped to their respective content rectangles. The atlas/scene
+divider is resizable independently of the library rail. Legacy source-pan and
+zoom fields are retained in project files, without a project schema migration.
+
+This is an existing Macroquad standalone proof of concept. ForgeGUI hosting,
+shared scene/recipe generation, collision and native level-editor embedding are
+NOT implemented or certified by this layout pass. Run the Windows PCC Full
+Quality Gate and interactive GUI test before promoting this candidate.
