@@ -218,3 +218,30 @@ The window must display `B48R23 source-library / erase repair`. If it still show
 `More library` / `Larger atlas` trades list height for enlarged atlas inspection. To erase source-backed artwork in the right scene, select the piece and press Delete/Backspace or click `Erase selected`; right-click directly over a piece also erases it. Ctrl+Z restores the erased piece. Artwork removal deliberately does not erase the corresponding height or water cell, which can be edited separately.
 
 The current Draft/Stage commands are not gameplay-native procedural world generation. A live Summer demo with seeded rerolls remains future shared-worldgen integration work; do not approve tiles solely because they appear in a source-coordinate draft.
+
+## B48R24 — unified Summer library and authoring-layer checkpoint
+
+- Source browser opens on **ALL** original Summer/neutral sheets (characters remain excluded).
+  The combined library is virtual: original files are indexed as paths; texture decoding remains
+  lazy and `ON` is an explicit choice. Filtering a source group or loading a saved project does
+  not erase the other source sheets in the scene.
+- **Layers [L]** opens a contextual panel over the scene; **Details [I]** is mutually exclusive.
+  Seven named authoring buckets are Ground, Transitions, Cliff/portals, Water/contacts,
+  Waterfall/FX, Objects and Foreground. Choose an active destination, show/hide, lock/unlock,
+  or move an existing selected tile to the active bucket. A piece on a hidden layer is neither
+  rendered in the interactive canvas nor mouse-pickable. A piece on a locked layer cannot be
+  dragged, erased, rotated, flipped, or reassigned to another layer. Layer toggle and move actions
+  participate in undo/redo, persist on save/reopen and invalidate stale handoff state.
+- Existing numeric layer values are **not rewritten** on opening an older project. A value maps
+  to bucket `floor(layer / 10)` clamped to 0..6, preserving original order; an explicit move sets
+  it to the chosen bucket's `10 * index`. Project schema v0_7 reads v0_1..v0_6.
+- **Source-exact PNG export intentionally includes all source pieces even if a layer is hidden**:
+  visibility is editor-only, not a license to silently omit a source from reproducible evidence.
+  Handoff exports layer names/visibility/locks as candidate metadata. No collision mask, traversal
+  certification, approved Summer demo, or shared game-world procedural generator is claimed here.
+- Interactive GUI smoke: open a legacy mapper scene, activate two ElizaWy originals, place two
+  transparent/opaque source cells on the same coordinate in different buckets, reorder by moving
+  the upper cell, hide and lock the lower layer, ensure picking/deletion respects state, undo/redo,
+  save/reopen, export review and verify original source pixel replay. Validate a genuine +1 cell.
+- `tests/validate_b48r24_layers.py` is an offline regression guard, **not** a Rust compilation
+  or a Windows GUI/PCC quality gate. The previous B48R23 GREEN checkpoint remains the fallback.

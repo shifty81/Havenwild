@@ -28,7 +28,8 @@ const MIN_CANVAS_ZOOM: f32 = 1.00;
 const MAX_CANVAS_ZOOM: f32 = 4.00;
 const DEFAULT_CANVAS_ZOOM: f32 = 2.00;
 const ZOOM_STEP: f32 = 1.07;
-const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_6"; // Compatible B48R14 persistence.
+const PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_7"; // Layer controls; legacy numeric placements retained.
+const LEGACY_PROJECT_SCHEMA_V6: &str = "havenwild.atlas_mapper_project.v0_6";
 const LEGACY_PROJECT_SCHEMA_V5: &str = "havenwild.atlas_mapper_project.v0_5";
 const LEGACY_PROJECT_SCHEMA: &str = "havenwild.atlas_mapper_project.v0_1";
 const LEGACY_PROJECT_SCHEMA_V2: &str = "havenwild.atlas_mapper_project.v0_2";
@@ -43,7 +44,15 @@ const MAPPED_TILE_STATUS_DRAFT: &str = "draft_mapped";
 const MAPPED_TILE_STATUS_LEARNED: &str = "learned_mapping";
 const MAPPED_TILE_STATUS_APPROVED: &str = "approved_mapping";
 const MAX_REASSEMBLY_CELLS: usize = 24;
-const MAPPER_BUILD: &str = "B48R23 source-library / erase repair";
+const MAPPER_BUILD: &str = "B48R24 unified library / editable scene layers";
+const SCENE_LAYER_NAMES: [&str; 7] = [
+    "Ground", "Transitions", "Cliff / portals", "Water / contacts",
+    "Waterfall / FX", "Objects", "Foreground",
+];
+const SCENE_LAYER_COUNT: usize = SCENE_LAYER_NAMES.len();
+fn default_layer_visibility() -> [bool; SCENE_LAYER_COUNT] { [true; SCENE_LAYER_COUNT] }
+fn layer_slot(layer: i32) -> usize { layer.div_euclid(10).clamp(0, (SCENE_LAYER_COUNT - 1) as i32) as usize }
+
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum AuthorTool {
@@ -423,6 +432,12 @@ struct MapperProjectDocument {
     #[serde(default)]
     heightmap: Vec<TerrainHeightCell>,
     authoring_notes: Vec<String>,
+    #[serde(default = "default_layer_visibility")]
+    layer_visibility: [bool; SCENE_LAYER_COUNT],
+    #[serde(default)]
+    layer_locks: [bool; SCENE_LAYER_COUNT],
+    #[serde(default)]
+    active_layer: usize,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -460,6 +475,9 @@ struct HandoffDocument {
     #[serde(default)]
     generation_passes: u32,
     engine_notes: Vec<String>,
+    layer_names: Vec<String>,
+    layer_visibility: [bool; SCENE_LAYER_COUNT],
+    layer_locks: [bool; SCENE_LAYER_COUNT],
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -541,7 +559,8 @@ impl MappingStage {
     }
 
     fn is_green(self) -> bool {
-        !matches!(self, MappingStage::SourceOnly)
+        let _ = self;
+        false // Save/hand-off state is never a visual or runtime approval.
     }
 }
 
@@ -551,6 +570,9 @@ struct SceneSnapshot {
     heightmap: Vec<TerrainHeightCell>,
     next_piece_id: u32,
     selected_piece: Option<usize>,
+    layer_visibility: [bool; SCENE_LAYER_COUNT],
+    layer_locks: [bool; SCENE_LAYER_COUNT],
+    active_layer: usize,
 }
 
 struct MapperApp {
@@ -592,6 +614,10 @@ struct MapperApp {
     sheet_library_scroll: f32,
     library_notice: String,
     show_inspector: bool,
+    show_layers: bool,
+    layer_visibility: [bool; SCENE_LAYER_COUNT],
+    layer_locks: [bool; SCENE_LAYER_COUNT],
+    active_layer: usize,
     pane_ratio: f32,
     resizing_divider: bool,
     atlas_focus: bool,
@@ -633,11 +659,15 @@ impl Default for MapperApp {
             sheet_library: Vec::new(),
             sheet_library_visible: Vec::new(),
             sheet_library_search: String::new(),
-            sheet_library_group: Some(SourceGroup::Ground),
+            sheet_library_group: None,
             sheet_library_search_focused: false,
             sheet_library_scroll: 0.0,
             library_notice: "Asset lane index not scanned yet.".to_string(),
             show_inspector: false,
+            show_layers: false,
+            layer_visibility: default_layer_visibility(),
+            layer_locks: [false; SCENE_LAYER_COUNT],
+            active_layer: 0,
             pane_ratio: 0.5,
             resizing_divider: false,
             atlas_focus: true,
@@ -781,6 +811,8 @@ impl MapperApp {
         SceneSnapshot {
             pieces: self.pieces.clone(), heightmap: self.heightmap.clone(),
             next_piece_id: self.next_piece_id, selected_piece: self.selected_piece,
+            layer_visibility: self.layer_visibility, layer_locks: self.layer_locks,
+            active_layer: self.active_layer,
         }
     }
 
@@ -795,6 +827,9 @@ impl MapperApp {
         self.heightmap = snapshot.heightmap;
         self.next_piece_id = snapshot.next_piece_id;
         self.selected_piece = snapshot.selected_piece.filter(|index| *index < self.pieces.len());
+        self.layer_visibility = snapshot.layer_visibility;
+        self.layer_locks = snapshot.layer_locks;
+        self.active_layer = snapshot.active_layer;
         self.dirty = true; // An undo is not evidence that the last saved file is identical.
         self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::DraftMapped };
         self.last_handoff_path = None;
@@ -893,7 +928,7 @@ impl MapperApp {
         } else if count >= MAX_LIBRARY_SHEETS {
             format!("Summer ElizaWy: first {count} indexed; cap reached. Textures load only when activated.")
         } else {
-            format!("Summer ElizaWy: {count} available originals indexed. ON/OFF controls scene source activation.")
+            format!("Summer library indexed: {count} original sheets (characters excluded). ALL is default; ON/OFF activates scene textures.")
         };
         self.status = self.library_notice.clone();
     }
@@ -1286,8 +1321,13 @@ impl MapperApp {
             && document.schema != LEGACY_PROJECT_SCHEMA_V3
             && document.schema != LEGACY_PROJECT_SCHEMA_V4
             && document.schema != LEGACY_PROJECT_SCHEMA_V5
+            && document.schema != LEGACY_PROJECT_SCHEMA_V6
         {
             self.status = format!("Project schema mismatch: expected {PROJECT_SCHEMA}, got {}", document.schema);
+            return;
+        }
+        if document.active_layer >= SCENE_LAYER_COUNT {
+            self.status = "Project load blocked: invalid layer selection. Current scene preserved.".into();
             return;
         }
         if document.tile_size != TILE_SIZE {
@@ -1378,6 +1418,10 @@ impl MapperApp {
         self.source_stack.clear();
         self.atlas = None;
         self.heightmap = document.heightmap.clone();
+        self.layer_visibility = document.layer_visibility;
+        self.layer_locks = document.layer_locks;
+        self.active_layer = document.active_layer;
+        self.show_layers = false;
         self.undo_stack.clear();
         self.redo_stack.clear();
         self.pieces = document.pieces;
@@ -1415,7 +1459,8 @@ impl MapperApp {
             if let Some(previous) = self.atlas.replace(selected) { self.source_stack.push(previous); }
         }
         if let Some(atlas) = &self.atlas {
-            self.sheet_library_group = Some(SourceGroup::from_path(&atlas.path));
+            // Selecting a source must not unexpectedly hide the rest of the library.
+            self.sheet_library_group = None;
             self.rebuild_sheet_library_visibility();
         }
         self.dirty = false;
@@ -1515,6 +1560,9 @@ impl MapperApp {
             certification_stage: "candidate_export_not_validated".to_string(),
             iteration_coverage: self.iteration_coverage(),
             generation_passes: self.scene_generation_count,
+            layer_names: SCENE_LAYER_NAMES.iter().map(|name| (*name).to_owned()).collect(),
+            layer_visibility: self.layer_visibility,
+            layer_locks: self.layer_locks,
             engine_notes: vec![
                 "The source atlas is immutable and was not modified.".to_string(),
                 "Each piece maps one 32x32 source tile to an assembly grid cell.".to_string(),
@@ -1559,16 +1607,24 @@ impl MapperApp {
             source_assets: self.source_assets(),
             active_source_asset_id: atlas.id.clone(),
             heightmap: self.heightmap.clone(),
+            layer_visibility: self.layer_visibility,
+            layer_locks: self.layer_locks,
+            active_layer: self.active_layer,
             authoring_notes: vec![
                 "Mapper project files are editable tool state, not runtime assets.".to_string(),
                 "Source atlas pixels remain immutable; this file stores placement and transform metadata only.".to_string(),
                 "Mapped sheets are draft source evidence only; export does not certify artwork topology, collision, navigation or gameplay.".to_string(),
+                "Named layer visibility is editor-only; review export includes ALL pieces for lossless source replay, including hidden layers.".to_string(),
                 format!("Scene generation passes recorded this session: {}", self.scene_generation_count),
             ],
         })
     }
 
     fn add_piece_from_tile(&mut self, tile: SourceTile, grid_x: i32, grid_y: i32) {
+        if self.layer_locks[self.active_layer] || !self.layer_visibility[self.active_layer] {
+            self.status = "Choose a visible, unlocked layer before placing source tiles.".into();
+            return;
+        }
         self.checkpoint_scene();
         let id = self.next_piece_id;
         self.next_piece_id = self.next_piece_id.saturating_add(1);
@@ -1582,7 +1638,7 @@ impl MapperApp {
             rotation_degrees: 0,
             flip_x: false,
             flip_y: false,
-            layer: self.next_default_layer(),
+            layer: self.active_layer as i32 * 10,
             semantic_role: self.category.stable_key().to_string(),
             source_asset_id: self.atlas.as_ref().map(|atlas| atlas.id.clone()).unwrap_or_default(),
         };
@@ -1685,6 +1741,10 @@ impl MapperApp {
     }
 
     fn build_scene_draft(&mut self, prefer_unmapped: bool) {
+        if self.pieces.iter().any(|piece| self.layer_locks[layer_slot(piece.layer)]) {
+            self.status = "Draft replacement blocked: scene has locked layers. Unlock and save a copy first.".into();
+            return;
+        }
         let Some(atlas) = &self.atlas else {
             self.status = "Load a tile sheet before building a correction draft.".to_string();
             return;
@@ -1894,8 +1954,28 @@ impl MapperApp {
     }
 
     fn next_default_layer(&self) -> i32 {
-        self.pieces.iter().map(|piece| piece.layer).max().unwrap_or(-1) + 1
+        (self.active_layer as i32) * 10
     }
+
+    fn selected_is_locked(&self) -> bool {
+        self.selected_piece.and_then(|index| self.pieces.get(index))
+            .is_some_and(|piece| self.layer_locks[layer_slot(piece.layer)])
+    }
+
+    fn set_selected_layer(&mut self, slot: usize) {
+        if slot >= SCENE_LAYER_COUNT || self.layer_locks[slot] || self.selected_is_locked() {
+            self.status = "Layer assignment blocked: unlock the source and destination layers first.".into();
+            return;
+        }
+        let Some(index) = self.selected_piece.filter(|index| *index < self.pieces.len()) else { return; };
+        self.checkpoint_scene();
+        self.pieces[index].layer = slot as i32 * 10;
+        self.active_layer = slot;
+        self.dirty = true;
+        self.last_handoff_path = None;
+        self.status = format!("Moved selected tile to {} layer; draft scene changed.", SCENE_LAYER_NAMES[slot]);
+    }
+
 
     fn learn_from_scene(&mut self) {
         if self.dirty || self.project_path.is_none() {
@@ -1920,6 +2000,10 @@ impl MapperApp {
     }
 
     fn assign_selected_semantic(&mut self, role: &str) {
+        if self.selected_is_locked() {
+            self.status = "Unlock the selected tile's layer before changing its role.".into();
+            return;
+        }
         if self.selected_piece.and_then(|index| self.pieces.get(index)).is_some_and(|piece| piece.semantic_role != role) {
             self.checkpoint_scene();
         }
@@ -2000,6 +2084,10 @@ impl MapperApp {
     }
 
     fn remove_selected_piece(&mut self) {
+        if self.selected_is_locked() {
+            self.status = "Cannot erase a tile on a locked layer. Unlock the layer first.".into();
+            return;
+        }
         let Some(index) = self.selected_piece.filter(|index| *index < self.pieces.len()) else {
             self.status = "Select a scene tile, then Delete or Erase selected. Right-click a tile to erase it directly.".into();
             return;
@@ -2102,8 +2190,14 @@ impl MapperApp {
             if changed { self.rebuild_sheet_library_visibility(); }
             return;
         }
+        if !ctrl && is_key_pressed(KeyCode::L) {
+            self.show_layers = !self.show_layers;
+            if self.show_layers { self.show_inspector = false; }
+            return;
+        }
         if !ctrl && is_key_pressed(KeyCode::I) {
             self.show_inspector = !self.show_inspector;
+            if self.show_inspector { self.show_layers = false; }
             self.status = if self.show_inspector { "Details open; scene editing is disabled beneath the overlay." } else { "Details closed; scene canvas is fully available." }.to_string();
             return;
         }
@@ -2129,30 +2223,28 @@ impl MapperApp {
         if is_key_pressed(KeyCode::Minus) { self.paint_elevation = self.paint_elevation.saturating_sub(1); }
         if is_key_pressed(KeyCode::Equal) { self.paint_elevation = (self.paint_elevation + 1).min(30); }
         if !ctrl && is_key_pressed(KeyCode::R) {
-            if self.selected_piece.is_some() { self.checkpoint_scene(); }
-            if let Some(piece) = self.selected_piece_mut() {
+            if !self.selected_is_locked() && self.selected_piece.is_some() { self.checkpoint_scene(); }
+            if !self.selected_is_locked() { if let Some(piece) = self.selected_piece_mut() {
                 piece.rotation_degrees = (piece.rotation_degrees + 90) % 360;
                 self.dirty = true;
-            }
+            } }
         }
         if !ctrl && is_key_pressed(KeyCode::H) {
-            if self.selected_piece.is_some() { self.checkpoint_scene(); }
-            if let Some(piece) = self.selected_piece_mut() { piece.flip_x = !piece.flip_x; self.dirty = true; }
+            if !self.selected_is_locked() && self.selected_piece.is_some() { self.checkpoint_scene(); }
+            if !self.selected_is_locked() { if let Some(piece) = self.selected_piece_mut() { piece.flip_x = !piece.flip_x; self.dirty = true; } }
         }
         if !ctrl && is_key_pressed(KeyCode::V) {
-            if self.selected_piece.is_some() { self.checkpoint_scene(); }
-            if let Some(piece) = self.selected_piece_mut() { piece.flip_y = !piece.flip_y; self.dirty = true; }
+            if !self.selected_is_locked() && self.selected_piece.is_some() { self.checkpoint_scene(); }
+            if !self.selected_is_locked() { if let Some(piece) = self.selected_piece_mut() { piece.flip_y = !piece.flip_y; self.dirty = true; } }
         }
         if !ctrl && (is_key_pressed(KeyCode::Delete) || is_key_pressed(KeyCode::Backspace)) {
             self.remove_selected_piece();
         }
         if !ctrl && is_key_pressed(KeyCode::LeftBracket) {
-            if self.selected_piece.is_some() { self.checkpoint_scene(); }
-            if let Some(piece) = self.selected_piece_mut() { piece.layer -= 1; self.dirty = true; }
+            self.set_selected_layer(self.active_layer.saturating_sub(1));
         }
         if !ctrl && is_key_pressed(KeyCode::RightBracket) {
-            if self.selected_piece.is_some() { self.checkpoint_scene(); }
-            if let Some(piece) = self.selected_piece_mut() { piece.layer += 1; self.dirty = true; }
+            self.set_selected_layer((self.active_layer + 1).min(SCENE_LAYER_COUNT - 1));
         }
     }
 
@@ -2163,7 +2255,9 @@ impl MapperApp {
         let over_source = source_rect.contains(mouse);
         // The optional details drawer is opaque: never edit the scene through it.
         let blocked_by_details = self.show_inspector && inspector_rect.contains(mouse);
-        let edit_canvas = canvas_edit_rect(canvas_rect).contains(mouse) && !blocked_by_details;
+        let layer_rect = scene_layer_panel_rect(canvas_rect);
+        let blocked_by_layers = self.show_layers && layer_rect.contains(mouse);
+        let edit_canvas = canvas_edit_rect(canvas_rect).contains(mouse) && !blocked_by_details && !blocked_by_layers;
         if edit_canvas && is_mouse_button_pressed(MouseButton::Right) && self.author_tool == AuthorTool::Select {
             self.selected_piece = self.hit_piece(canvas_rect, mouse);
             self.remove_selected_piece();
@@ -2238,12 +2332,17 @@ impl MapperApp {
                     }
                 } else if let Some(index) = self.hit_piece(canvas_rect, mouse) {
                     self.selected_piece = Some(index);
+                    self.active_layer = layer_slot(self.pieces[index].layer);
                     self.selected_tile = None;
                     if let Some(piece) = self.pieces.get(index) {
                         self.drag_origin = Some((index, piece.canvas_grid_x, piece.canvas_grid_y));
                     }
-                    self.checkpoint_scene();
-                    self.drag = DragState::ExistingPiece(index);
+                    if !self.layer_locks[self.active_layer] {
+                        self.checkpoint_scene();
+                        self.drag = DragState::ExistingPiece(index);
+                    } else {
+                        self.status = "Selected locked layer tile; unlock it before moving.".into();
+                    }
                 } else {
                     self.selected_piece = None;
                 }
@@ -2330,6 +2429,7 @@ impl MapperApp {
         indices.sort_by_key(|index| self.pieces[*index].layer);
         indices.into_iter().rev().find(|index| {
             let piece = &self.pieces[*index];
+            if !self.layer_visibility[layer_slot(piece.layer)] { return false; }
             let pos = self.canvas_piece_rect(panel, piece);
             pos.contains(mouse)
         })
@@ -3013,6 +3113,11 @@ fn draw_top_bar(app: &mut MapperApp) {
     if draw_button(Rect::new(x + 432.0, first, 68.0, 27.0), "Redo", false) { app.redo_scene(); }
     if draw_button(Rect::new(x + 506.0, first, 82.0, 27.0), if app.show_inspector { "Hide info" } else { "Details [I]" }, app.show_inspector) {
         app.show_inspector = !app.show_inspector;
+        if app.show_inspector { app.show_layers = false; }
+    }
+    if draw_button(Rect::new(x + 594.0, first, 98.0, 27.0), if app.show_layers { "Hide layers" } else { "Layers [L]" }, app.show_layers) {
+        app.show_layers = !app.show_layers;
+        if app.show_layers { app.show_inspector = false; }
     }
 
     let second = 46.0;
@@ -3349,6 +3454,7 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
         draw_order.sort_by_key(|index| app.pieces[*index].layer);
         for index in draw_order {
             let piece = &app.pieces[index];
+            if !app.layer_visibility[layer_slot(piece.layer)] { continue; }
             let Some(texture) = app.texture_for_piece(piece) else { continue; };
             let dest = app.canvas_piece_rect(canvas_rect, piece);
             let source = Rect::new(piece.source_rect[0] as f32, piece.source_rect[1] as f32, TILE_SIZE as f32, TILE_SIZE as f32);
@@ -3485,6 +3591,45 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect) {
     draw_text("Not runtime-published yet", inspector_rect.x + 20.0, bottom_y + 69.0, 15.0, Color::new(0.74, 0.82, 0.84, 1.0));
 }
 
+// Same-cell compositing retains every original 32px source crop. The panel
+// edits only authoring metadata; these toggles do not approve collision/physics.
+fn scene_layer_panel_rect(canvas: Rect) -> Rect {
+    let w = 292.0_f32.min((canvas.w - 30.0).max(210.0));
+    let h = 344.0_f32.min((canvas.h - 125.0).max(250.0));
+    Rect::new(canvas.x + canvas.w - w - 12.0, canvas.y + canvas.h - h - 50.0, w, h)
+}
+
+fn draw_scene_layers(app: &mut MapperApp, rect: Rect) {
+    draw_panel(rect, "Scene layers [L]", "Select / show / lock; source pixels unchanged");
+    draw_text("Layer      Active       Visible       Lock", rect.x + 12.0, rect.y + 55.0, 12.0, WHITE);
+    for (slot, name) in SCENE_LAYER_NAMES.iter().enumerate() {
+        let y = rect.y + 66.0 + slot as f32 * 34.0;
+        let active = slot == app.active_layer;
+        if draw_button(Rect::new(rect.x + 8.0, y, rect.w - 126.0, 27.0), name, active) {
+            app.active_layer = slot;
+            app.status = format!("Active placement layer: {name}. Existing tiles are not moved.");
+        }
+        if draw_button(Rect::new(rect.x + rect.w - 113.0, y, 49.0, 27.0),
+            if app.layer_visibility[slot] { "Eye" } else { "Off" }, app.layer_visibility[slot]) {
+            app.checkpoint_scene();
+            app.layer_visibility[slot] = !app.layer_visibility[slot];
+            app.dirty = true;
+            app.last_handoff_path = None;
+        }
+        if draw_button(Rect::new(rect.x + rect.w - 58.0, y, 50.0, 27.0),
+            if app.layer_locks[slot] { "Lock" } else { "Edit" }, app.layer_locks[slot]) {
+            app.checkpoint_scene();
+            app.layer_locks[slot] = !app.layer_locks[slot];
+            app.dirty = true;
+            app.last_handoff_path = None;
+        }
+    }
+    let y = rect.y + rect.h - 31.0;
+    if draw_button(Rect::new(rect.x + 8.0, y, rect.w - 16.0, 25.0), "Move selected tile to active layer", false) {
+        app.set_selected_layer(app.active_layer);
+    }
+}
+
 fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector_rect: Rect) {
     clear_background(Color::new(0.020, 0.026, 0.034, 1.0));
     draw_top_bar(app);
@@ -3495,6 +3640,7 @@ fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector
         source_rect.y + source_rect.h - 8.0, 2.0, Color::new(0.26, 0.48, 0.59, 1.0));
     draw_canvas_panel(app, canvas_rect);
     if app.show_inspector { draw_inspector(app, inspector_rect); }
+    if app.show_layers { draw_scene_layers(app, scene_layer_panel_rect(canvas_rect)); }
 
     draw_rectangle(0.0, screen_height() - STATUS_H, screen_width(), STATUS_H, Color::new(0.030, 0.038, 0.050, 1.0));
     draw_line(0.0, screen_height() - STATUS_H, screen_width(), screen_height() - STATUS_H, 1.0, Color::new(0.13, 0.18, 0.23, 1.0));
@@ -3502,7 +3648,7 @@ fn draw_app(app: &mut MapperApp, source_rect: Rect, canvas_rect: Rect, inspector
         .and_then(|path| path.file_name().and_then(|name| name.to_str()))
         .unwrap_or("unsaved project");
     draw_text(
-        &format!("{} | {} | {} +{} | tiles {} | elevations {} | sheets {} | {}", app.status, app.mapping_stage.label(), app.author_tool.label(), app.paint_elevation, app.pieces.len(), app.heightmap.len(), app.source_stack.len() + usize::from(app.atlas.is_some()), project_label),
+        &format!("{} | {} | layer {} | {} +{} | tiles {} | elevations {} | sheets {} | {}", app.status, app.mapping_stage.label(), SCENE_LAYER_NAMES[app.active_layer], app.author_tool.label(), app.paint_elevation, app.pieces.len(), app.heightmap.len(), app.source_stack.len() + usize::from(app.atlas.is_some()), project_label),
         12.0,
         screen_height() - 10.0,
         16.0,
@@ -3524,12 +3670,12 @@ fn window_conf() -> Conf {
 async fn main() {
     if let Some(root) = discover_havenwild_root() {
         if let Err(error) = env::set_current_dir(&root) {
-            eprintln!("B48R23 mapper cannot set Havenwild root {}: {error}", root.display());
+            eprintln!("B48R24 mapper cannot set Havenwild root {}: {error}", root.display());
         } else {
-            println!("B48R23 mapper source root: {}", root.display());
+            println!("B48R24 mapper source root: {}", root.display());
         }
     } else {
-        eprintln!("B48R23 mapper cannot find Havenwild root from cwd/executable/HAVENWILD_ROOT");
+        eprintln!("B48R24 mapper cannot find Havenwild root from cwd/executable/HAVENWILD_ROOT");
     }
     let mut app = MapperApp::default();
     app.refresh_sheet_library();

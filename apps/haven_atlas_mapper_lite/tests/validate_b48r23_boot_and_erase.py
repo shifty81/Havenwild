@@ -8,7 +8,7 @@ parser.add_argument('--repo', default='.')
 root = Path(parser.parse_args().repo).resolve()
 s = (root / 'apps/haven_atlas_mapper_lite/src/main.rs').read_text(encoding='utf8')
 checks = {
-    'recognizable mapper build marker': 'B48R23 source-library / erase repair' in s,
+    'recognizable mapper build marker': any(marker in s for marker in ('B48R23 source-library / erase repair', 'B48R24 unified library / editable scene layers')),
     'standalone executable discovers repository root': 'fn discover_havenwild_root()' in s and 'env::current_exe()' in s and 'env::set_current_dir(&root)' in s,
     'clear no-asset diagnostic includes discovered directory': 'NO ELIZAWY SHEETS FOUND. Root:' in s and 'app.library_notice' in s,
     'original sheets indexed without eager texture activation': 'self.collect_sheet_cards(&root, &scan_root' in s and 'Textures load only when activated' in s,
