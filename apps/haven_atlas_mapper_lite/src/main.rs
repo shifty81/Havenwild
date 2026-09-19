@@ -14,7 +14,7 @@ mod scene_audit;
 const TILE_SIZE: i32 = 32;
 const TOP_BAR_H: f32 = 98.0;
 const STATUS_H: f32 = 32.0;
-const SOURCE_SHEET_STACK_MIN_H: f32 = 190.0;
+const SOURCE_SHEET_STACK_MIN_H: f32 = 176.0;
 const SHEET_LIST_TOP: f32 = 103.0;
 const SOURCE_PREVIEW_TOP_PAD: f32 = 12.0;
 const SHEET_CARD_H: f32 = 34.0;
@@ -43,6 +43,7 @@ const MAPPED_TILE_STATUS_DRAFT: &str = "draft_mapped";
 const MAPPED_TILE_STATUS_LEARNED: &str = "learned_mapping";
 const MAPPED_TILE_STATUS_APPROVED: &str = "approved_mapping";
 const MAX_REASSEMBLY_CELLS: usize = 24;
+const MAPPER_BUILD: &str = "B48R23 source-library / erase repair";
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum AuthorTool {
@@ -66,9 +67,10 @@ enum SourceGroup {
 }
 
 impl SourceGroup {
-    const ALL: [Self; 10] = [
+    // Character authoring has a separate lane; keep its schema compatibility.
+    const ALL: [Self; 9] = [
         Self::Ground, Self::Water, Self::Cliffs, Self::Plants, Self::Buildings,
-        Self::Structures, Self::Furniture, Self::Characters, Self::Items, Self::Effects,
+        Self::Structures, Self::Furniture, Self::Items, Self::Effects,
     ];
 
     fn label(self) -> &'static str {
@@ -592,6 +594,7 @@ struct MapperApp {
     show_inspector: bool,
     pane_ratio: f32,
     resizing_divider: bool,
+    atlas_focus: bool,
 }
 
 impl Default for MapperApp {
@@ -617,7 +620,7 @@ impl Default for MapperApp {
             assembly_name: "new_atlas_assembly".to_string(),
             source_pan: vec2(18.0, 72.0),
             source_zoom: 1.0,
-            canvas_pan: vec2(56.0, 64.0),
+            canvas_pan: vec2(56.0, 116.0),
             canvas_zoom: DEFAULT_CANVAS_ZOOM,
             is_panning_source: false,
             is_panning_canvas: false,
@@ -637,6 +640,7 @@ impl Default for MapperApp {
             show_inspector: false,
             pane_ratio: 0.5,
             resizing_divider: false,
+            atlas_focus: true,
         }
     }
 }
@@ -647,6 +651,7 @@ impl Default for MapperApp {
 fn is_summer_elizawy_source(path: &Path) -> bool {
     let normalized = normalize_path_key(path);
     if !(normalized.contains("lpc_revised") || normalized.contains("elizawy")) { return false; }
+    if normalized.contains("/characters/") || normalized.contains("/character/") { return false; }
     let file = path.file_name().and_then(|name| name.to_str()).unwrap_or("").to_ascii_lowercase();
     // Multi-season split originals ("Spring & Summer", "Non-Winter") are
     // legitimate Summer sources. The substring "fall" is part of WATERFALL:
@@ -883,11 +888,14 @@ impl MapperApp {
         let count = cards.len();
         self.sheet_library = cards;
         self.rebuild_sheet_library_visibility();
-        self.library_notice = if count >= MAX_LIBRARY_SHEETS {
+        self.library_notice = if count == 0 {
+            format!("NO ELIZAWY SHEETS FOUND. Root: {}. Required: assets/source/licensed/lpc_revised. Verify source installation or use Havenwild's PCC launcher.", root.display())
+        } else if count >= MAX_LIBRARY_SHEETS {
             format!("Summer ElizaWy: first {count} indexed; cap reached. Textures load only when activated.")
         } else {
             format!("Summer ElizaWy: {count} available originals indexed. ON/OFF controls scene source activation.")
         };
+        self.status = self.library_notice.clone();
     }
 
     fn collect_declared_sheet_cards(&self, root: &Path, seen: &mut BTreeSet<String>, cards: &mut Vec<SourceSheetCard>) {
@@ -1105,7 +1113,7 @@ impl MapperApp {
     }
 
     fn source_sheet_card_at(&self, panel: Rect, mouse: Vec2) -> Option<usize> {
-        let stack = source_sheet_stack_rect(panel);
+        let stack = source_sheet_stack_rect(panel, self.atlas_focus);
         if !stack.contains(mouse) || mouse.y < stack.y + SHEET_LIST_TOP || mouse.y > stack.y + stack.h - 4.0 { return None; }
         let local_y = mouse.y - (stack.y + SHEET_LIST_TOP) - self.sheet_library_scroll;
         if local_y < 0.0 { return None; }
@@ -1708,7 +1716,7 @@ impl MapperApp {
         self.selected_piece = None;
         self.next_piece_id = 1;
         self.canvas_zoom = DEFAULT_CANVAS_ZOOM;
-        self.canvas_pan = vec2(72.0, 76.0);
+        self.canvas_pan = vec2(72.0, 116.0);
         self.scene_generation_count = self.scene_generation_count.saturating_add(1);
 
         let scene_label = match self.category {
@@ -1991,6 +1999,22 @@ impl MapperApp {
         self.selected_piece.and_then(|index| self.pieces.get_mut(index))
     }
 
+    fn remove_selected_piece(&mut self) {
+        let Some(index) = self.selected_piece.filter(|index| *index < self.pieces.len()) else {
+            self.status = "Select a scene tile, then Delete or Erase selected. Right-click a tile to erase it directly.".into();
+            return;
+        };
+        self.checkpoint_scene();
+        let removed = self.pieces.remove(index);
+        self.selected_piece = None;
+        self.drag = DragState::None;
+        self.drag_origin = None;
+        self.dirty = true;
+        self.last_handoff_path = None;
+        self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::DraftMapped };
+        self.status = format!("Erased tile id {} at ({},{}). Undo available. Height/water data preserved.", removed.id, removed.canvas_grid_x, removed.canvas_grid_y);
+    }
+
     fn set_height_cell(&mut self, x: i32, y: i32, level: u8) {
         let level = level.min(30);
         if let Some(cell) = self.heightmap.iter_mut().find(|cell| cell.x == x && cell.y == y) {
@@ -2120,11 +2144,7 @@ impl MapperApp {
             if let Some(piece) = self.selected_piece_mut() { piece.flip_y = !piece.flip_y; self.dirty = true; }
         }
         if !ctrl && (is_key_pressed(KeyCode::Delete) || is_key_pressed(KeyCode::Backspace)) {
-            if self.selected_piece.is_some() { self.checkpoint_scene(); }
-            if let Some(index) = self.selected_piece.take() {
-                if index < self.pieces.len() { self.pieces.remove(index); self.dirty = true; }
-                self.mapping_stage = if self.pieces.is_empty() { MappingStage::SourceOnly } else { MappingStage::DraftMapped };
-            }
+            self.remove_selected_piece();
         }
         if !ctrl && is_key_pressed(KeyCode::LeftBracket) {
             if self.selected_piece.is_some() { self.checkpoint_scene(); }
@@ -2144,6 +2164,12 @@ impl MapperApp {
         // The optional details drawer is opaque: never edit the scene through it.
         let blocked_by_details = self.show_inspector && inspector_rect.contains(mouse);
         let edit_canvas = canvas_edit_rect(canvas_rect).contains(mouse) && !blocked_by_details;
+        if edit_canvas && is_mouse_button_pressed(MouseButton::Right) && self.author_tool == AuthorTool::Select {
+            self.selected_piece = self.hit_piece(canvas_rect, mouse);
+            self.remove_selected_piece();
+            self.last_mouse = mouse;
+            return;
+        }
         let divider = Rect::new(source_rect.x + source_rect.w, source_rect.y, GAP, source_rect.h);
         if is_mouse_button_pressed(MouseButton::Left) && divider.contains(mouse) {
             self.resizing_divider = true;
@@ -2162,8 +2188,8 @@ impl MapperApp {
 
         if wheel_y != 0.0 {
             let zoom_factor = if wheel_y > 0.0 { ZOOM_STEP } else { 1.0 / ZOOM_STEP };
-            if over_source && source_sheet_stack_rect(source_rect).contains(mouse) {
-                let visible_h = (source_sheet_stack_rect(source_rect).h - SHEET_LIST_TOP).max(0.0);
+            if over_source && source_sheet_stack_rect(source_rect, self.atlas_focus).contains(mouse) {
+                let visible_h = (source_sheet_stack_rect(source_rect, self.atlas_focus).h - SHEET_LIST_TOP).max(0.0);
                 let content_h = self.sheet_library_visible.len() as f32 * SHEET_CARD_H;
                 let min_scroll = (visible_h - content_h).min(0.0);
                 self.sheet_library_scroll = (self.sheet_library_scroll + wheel_y * 28.0).clamp(min_scroll, 0.0);
@@ -2185,7 +2211,7 @@ impl MapperApp {
                 self.is_panning_canvas = true;
             } else if over_source {
                 if let Some(index) = self.source_sheet_card_at(source_rect, mouse) {
-                    let row = source_sheet_stack_rect(source_rect);
+                    let row = source_sheet_stack_rect(source_rect, self.atlas_focus);
                     if mouse.x >= row.x + row.w - 67.0 {
                         let path = self.sheet_library[index].path.clone();
                         if self.source_is_activated(&Self::asset_id(&path)) { self.deactivate_sheet(index); }
@@ -2282,7 +2308,7 @@ impl MapperApp {
 
     fn source_tile_at(&self, panel: Rect, mouse: Vec2) -> Option<SourceTile> {
         let atlas = self.atlas.as_ref()?;
-        let preview = source_preview_rect(panel);
+        let preview = source_preview_rect(panel, self.atlas_focus);
         if !preview.contains(mouse) { return None; }
         let local = (mouse - vec2(preview.x, preview.y) - self.source_pan) / self.source_zoom;
         if local.x < 0.0 || local.y < 0.0 || local.x >= atlas.width as f32 || local.y >= atlas.height as f32 {
@@ -2320,7 +2346,7 @@ impl MapperApp {
 
     fn reset_canvas_view(&mut self) {
         self.canvas_zoom = DEFAULT_CANVAS_ZOOM;
-        self.canvas_pan = vec2(56.0, 64.0);
+        self.canvas_pan = vec2(56.0, 116.0);
         self.status = "Canvas view reset to a readable 2x authoring scale.".to_string();
     }
 
@@ -2340,7 +2366,7 @@ impl MapperApp {
         self.canvas_zoom = fit_zoom_x.min(fit_zoom_y).clamp(MIN_CANVAS_ZOOM, MAX_CANVAS_ZOOM);
         self.canvas_pan = vec2(
             56.0 - min_x as f32 * TILE_SIZE as f32 * self.canvas_zoom,
-            64.0 - min_y as f32 * TILE_SIZE as f32 * self.canvas_zoom,
+            116.0 - min_y as f32 * TILE_SIZE as f32 * self.canvas_zoom,
         );
         self.status = "Canvas view fit to current assembly without dropping below 100% zoom.".to_string();
     }
@@ -2972,6 +2998,7 @@ fn draw_top_bar(app: &mut MapperApp) {
     draw_rectangle(0.0, 0.0, screen_width(), TOP_BAR_H, Color::new(0.028, 0.035, 0.047, 1.0));
     draw_rectangle(0.0, 0.0, screen_width(), 4.0, Color::new(0.12, 0.32, 0.45, 1.0));
     draw_text("ElizaWy | Summer Mapper", 14.0, 27.0, 23.0, WHITE);
+    draw_text(MAPPER_BUILD, 14.0, 92.0, 11.0, Color::new(0.41, 0.84, 0.71, 1.0));
     draw_text("SOURCE ATLAS   <->   EXAMPLE SCENE", 14.0, 49.0, 13.0, Color::new(0.65, 0.80, 0.88, 1.0));
     draw_text("Draft > correct > save > learn > stage > review", 14.0, 75.0, 12.0, Color::new(0.73, 0.78, 0.82, 1.0));
     // One toolbar owns project actions; the second owns the mapping workflow.
@@ -3000,11 +3027,16 @@ fn draw_top_bar(app: &mut MapperApp) {
 
 fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
     draw_panel(source_rect, "LEFT | ElizaWy Summer Source Library", "Browse by group; select a source without changing scene geometry");
+    if draw_button(Rect::new(source_rect.x + source_rect.w - 198.0, source_rect.y + 9.0, 104.0, 21.0),
+        if app.atlas_focus { "More library" } else { "Larger atlas" }, false) {
+        app.atlas_focus = !app.atlas_focus;
+        app.sheet_library_scroll = 0.0;
+    }
     if draw_button(Rect::new(source_rect.x + source_rect.w - 88.0, source_rect.y + 9.0, 74.0, 21.0), "Refresh", false) {
         app.refresh_sheet_library();
     }
 
-    let stack = source_sheet_stack_rect(source_rect);
+    let stack = source_sheet_stack_rect(source_rect, app.atlas_focus);
     draw_rectangle(stack.x, stack.y, stack.w, stack.h, Color::new(0.022, 0.028, 0.037, 1.0));
     draw_rectangle_lines(stack.x, stack.y, stack.w, stack.h, 1.0, Color::new(0.14, 0.19, 0.25, 1.0));
     draw_text("Original sheets | ON = activated for this scene", stack.x + 8.0, stack.y + 18.0, 14.0, Color::new(0.72, 0.80, 0.86, 1.0));
@@ -3080,10 +3112,15 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
         row_y += SHEET_CARD_H;
     }
     if app.sheet_library_visible.is_empty() {
-        draw_text("No sheets in this group. Select ALL or change search.", stack.x + 10.0, clip_y + 22.0, 13.0, Color::new(0.72, 0.78, 0.84, 1.0));
+        draw_text(if app.sheet_library.is_empty() { "NO ORIGINAL FILES FOUND - check source root" } else { "No sheets in group. Select ALL or reset search." },
+            stack.x + 10.0, clip_y + 22.0, 13.0, Color::new(0.92, 0.66, 0.43, 1.0));
+        if app.sheet_library.is_empty() {
+            draw_wrapped_line(&app.library_notice, stack.x + 10.0, clip_y + 42.0,
+                62, 12.0, Color::new(0.86, 0.71, 0.54, 1.0));
+        }
     }
 
-    let preview = source_preview_rect(source_rect);
+    let preview = source_preview_rect(source_rect, app.atlas_focus);
     draw_rectangle(preview.x, preview.y, preview.w, preview.h, Color::new(0.016, 0.021, 0.029, 1.0));
     draw_rectangle_lines(preview.x, preview.y, preview.w, preview.h, 1.0, Color::new(0.13, 0.18, 0.24, 1.0));
     if let Some(atlas) = &app.atlas {
@@ -3123,19 +3160,25 @@ fn draw_source_panel(app: &mut MapperApp, source_rect: Rect) {
         }
     } else {
         draw_text("No atlas loaded.", preview.x + 18.0, preview.y + 52.0, 22.0, Color::new(0.75, 0.80, 0.84, 1.0));
-        draw_text("Select a sheet above, use Load PNG, or open a mapper project.", preview.x + 18.0, preview.y + 82.0, 17.0, Color::new(0.55, 0.63, 0.70, 1.0));
+        if app.sheet_library.is_empty() {
+            draw_wrapped_line(&app.library_notice, preview.x + 18.0, preview.y + 82.0,
+                48, 15.0, Color::new(0.92, 0.69, 0.48, 1.0));
+        } else {
+            draw_text("Select a sheet above; other selected sheets stay in the scene.", preview.x + 18.0, preview.y + 82.0, 15.0, Color::new(0.55, 0.63, 0.70, 1.0));
+        }
     }
 }
 
 
-fn source_sheet_stack_rect(panel: Rect) -> Rect {
+fn source_sheet_stack_rect(panel: Rect, atlas_focus: bool) -> Rect {
     let usable_h = (panel.h - 205.0).max(130.0);
+    let fraction = if atlas_focus { 0.28 } else { 0.62 };
     Rect::new(panel.x + 10.0, panel.y + 58.0, panel.w - 20.0,
-        (panel.h * 0.44).max(SOURCE_SHEET_STACK_MIN_H).min(usable_h))
+        (panel.h * fraction).max(SOURCE_SHEET_STACK_MIN_H).min(usable_h))
 }
 
-fn source_preview_rect(panel: Rect) -> Rect {
-    let stack = source_sheet_stack_rect(panel);
+fn source_preview_rect(panel: Rect, atlas_focus: bool) -> Rect {
+    let stack = source_sheet_stack_rect(panel, atlas_focus);
     let y = stack.y + stack.h + SOURCE_PREVIEW_TOP_PAD;
     Rect::new(panel.x + 10.0, y, panel.w - 20.0, (panel.y + panel.h - y - 10.0).max(120.0))
 }
@@ -3187,8 +3230,6 @@ fn default_asset_sheet_scan_roots(root: &Path) -> Vec<PathBuf> {
         root.join("assets/source/licensed/lpc_revised/Objects"),
         root.join("assets/source/licensed/lpc_revised/Structure"),
         root.join("assets/source/licensed/lpc_revised/Structures"),
-        root.join("assets/source/licensed/lpc_revised/Characters"),
-        root.join("assets/source/licensed/lpc_revised/Character"),
         root.join("assets/source/licensed/lpc_revised/Equipment"),
         root.join("assets/source/licensed/lpc_revised/FX"),
         root.join("assets/source/licensed/lpc_revised/UI"),
@@ -3196,6 +3237,24 @@ fn default_asset_sheet_scan_roots(root: &Path) -> Vec<PathBuf> {
         root.join("content/assets/lpc/source"),
         root.join("assets/generated/worldgen_v0_1/terrain"),
     ]
+}
+
+// A standalone executable can be launched outside the repository. Resolve the
+// same project root used by the PCC before scanning immutable source sheets.
+fn discover_havenwild_root() -> Option<PathBuf> {
+    let mut starts = Vec::new();
+    if let Some(value) = env::var_os("HAVENWILD_ROOT") { starts.push(PathBuf::from(value)); }
+    if let Ok(path) = env::current_dir() { starts.push(path); }
+    if let Ok(path) = env::current_exe() { starts.push(path); }
+    for start in starts {
+        for candidate in start.ancestors().take(12) {
+            if candidate.join("Cargo.toml").is_file()
+                && candidate.join("apps/haven_atlas_mapper_lite/Cargo.toml").is_file() {
+                return Some(candidate.to_path_buf());
+            }
+        }
+    }
+    None
 }
 
 fn declared_external_asset_roots(root: &Path) -> Vec<PathBuf> {
@@ -3346,6 +3405,7 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
     if draw_button(Rect::new(canvas_rect.x + 238.0, ty, 34.0, 22.0), "-", false) { app.paint_elevation = app.paint_elevation.saturating_sub(1); }
     draw_text(&format!("+{}", app.paint_elevation), canvas_rect.x + 280.0, ty + 17.0, 15.0, Color::new(0.88, 0.91, 0.94, 1.0));
     if draw_button(Rect::new(canvas_rect.x + 310.0, ty, 34.0, 22.0), "+", false) { app.paint_elevation = (app.paint_elevation + 1).min(30); }
+    if draw_button(Rect::new(canvas_rect.x + 358.0, ty, 125.0, 22.0), "Erase selected", false) { app.remove_selected_piece(); }
     draw_text(&format!("zoom {:.0}%", app.canvas_zoom * 100.0), canvas_rect.x + canvas_rect.w - 216.0, canvas_rect.y + 24.0, 15.0, Color::new(0.64, 0.72, 0.80, 1.0));
     if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 148.0, canvas_rect.y + 8.0, 58.0, 23.0), "2x", false) { app.reset_canvas_view(); }
     if draw_button(Rect::new(canvas_rect.x + canvas_rect.w - 82.0, canvas_rect.y + 8.0, 66.0, 23.0), "Fit", false) { app.fit_canvas_to_pieces(canvas_rect); }
@@ -3353,7 +3413,7 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
 
     let info_y = canvas_rect.y + canvas_rect.h - 36.0;
     draw_rectangle(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 24.0, Color::new(0.018, 0.023, 0.031, 0.90));
-    draw_text("Drag source / Space pan / Wheel zoom / Ctrl+S save / Ctrl+M stage / Ctrl+Z undo",
+    draw_text("Select + Delete / right-click erase / Ctrl+Z undo / Space pan / wheel zoom / Ctrl+S save",
         canvas_rect.x + 15.0, info_y + 17.0, 13.0, Color::new(0.68, 0.75, 0.82, 1.0));
 }
 
@@ -3462,6 +3522,15 @@ fn window_conf() -> Conf {
 
 #[macroquad::main(window_conf)]
 async fn main() {
+    if let Some(root) = discover_havenwild_root() {
+        if let Err(error) = env::set_current_dir(&root) {
+            eprintln!("B48R23 mapper cannot set Havenwild root {}: {error}", root.display());
+        } else {
+            println!("B48R23 mapper source root: {}", root.display());
+        }
+    } else {
+        eprintln!("B48R23 mapper cannot find Havenwild root from cwd/executable/HAVENWILD_ROOT");
+    }
     let mut app = MapperApp::default();
     app.refresh_sheet_library();
     if let Some(path) = env::args().nth(1) {

@@ -12,7 +12,7 @@ checks = {
     'filtered library retains active sources': 'self.sheet_library_group.map_or(true' in s and 'self.sheet_library_visible = self.sheet_library.iter()' in s,
     'group buttons clickable': 'app.sheet_library_group = group;' in s and 'app.rebuild_sheet_library_visibility();' in s,
     'group controls excluded from card input': 'mouse.y < stack.y + SHEET_LIST_TOP' in s,
-    'source stack scrolling matches list geometry': 'visible_h = (source_sheet_stack_rect(source_rect).h - SHEET_LIST_TOP)' in s,
+    'source stack scrolling matches list geometry': 'visible_h = (source_sheet_stack_rect(source_rect, self.atlas_focus).h - SHEET_LIST_TOP)' in s,
     'inactive category nav removed': 'for category in AssetCategory::ALL {' not in s[s.index('fn draw_top_bar'):s.index('fn draw_source_panel')],
     'nonfunctional tabs removed': 'draw_dock_tabs(inspector_rect' not in s and 'draw_dock_tabs(canvas_rect' not in s,
     'startup demo is real saved project': 'fn save_startup_summer_demo' in s and 'if demo.is_file() { app.load_project(&demo); }' in s,

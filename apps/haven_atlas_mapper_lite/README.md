@@ -210,3 +210,11 @@ interpret returning to the main menu as proof that the gate passed. Run:
 
 This static source guard is not native Rust, Windows PCC, or interactive GUI certification.
 See `docs/audits/B48R21_MAPPER_WORKFLOW_AND_PCC_FEEDBACK.md` for manual acceptance.
+
+## B48R23 GUI recovery
+
+The window must display `B48R23 source-library / erase repair`. If it still shows the older left navigation rail or `Save Demo` controls, launch the compiled mapper from Havenwild PCC rather than an old desktop shortcut/binary. Startup resolves the repository from `HAVENWILD_ROOT`, the current working directory or the executable location. The library indexes all non-character original Summer-compatible ElizaWy sheets from `assets/source/licensed/lpc_revised` lazily; click a sheet to activate its texture. An empty library now states the attempted source root.
+
+`More library` / `Larger atlas` trades list height for enlarged atlas inspection. To erase source-backed artwork in the right scene, select the piece and press Delete/Backspace or click `Erase selected`; right-click directly over a piece also erases it. Ctrl+Z restores the erased piece. Artwork removal deliberately does not erase the corresponding height or water cell, which can be edited separately.
+
+The current Draft/Stage commands are not gameplay-native procedural world generation. A live Summer demo with seeded rerolls remains future shared-worldgen integration work; do not approve tiles solely because they appear in a source-coordinate draft.
