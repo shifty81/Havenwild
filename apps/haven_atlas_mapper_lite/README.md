@@ -136,3 +136,33 @@ undo/redo placements and a +1/+30 brush stroke, save/reopen, press Audit,
 export PNG and run the independent `verify_review.py`. The Rust compiler and
 Windows GUI were unavailable in the packaging environment: do not label this
 binary/GUI certified until these operations pass on Windows.
+
+## B48R17 — iterative ElizaWy Summer mapping (candidate)
+
+`Ctrl+M` / **Reassemble saved scene + missing** keeps the previously corrected and
+saved scene intact and stages up to 24 missing *nontransparent* source cells per
+pass in a separate right-hand correction tray. No guessed waterfall/cliff pixels
+are auto-placed into the playable terrain. Resolve the tray by positioning and
+assigning accurate roles, save, run Audit, export Review PNG and Handoff. Candidate
+handoff contains an `iteration_coverage` report and `generation_passes` count.
+Draft cells have amber `?`, learned candidates blue `L`, and only separately
+approved exact cell mappings may have a green check. Full-sheet green requires
+all nontransparent cells approved and an appropriately validated lifecycle.
+
+For a single uploadable mapping iteration ZIP (source originals are referenced,
+not copied into the ZIP):
+
+```powershell
+py -3 apps\haven_atlas_mapper_lite\tools\package_iteration.py --project "YOUR_MAPPER_PROJECT.json" --png "YOUR_SOURCE_REVIEW.png" --handoff "YOUR_handoff.json" --audit "YOUR.scene-audit.json" --out "YOUR_iteration.zip"
+```
+
+The source-exact independent pixel replay still uses `tools/verify_review.py`;
+the ZIP packager verifies matched snapshots and evidence hashes, not approval.
+B48R17 fixes future PCC archived-ZIP timestamp evidence in
+`tools/control/PccPatchLedger.ps1`, but an already FAILED historical ledger must
+be reconciled separately by the fail-closed, archive/SHA-verified recovery helper
+before Full Quality Gate can proceed. See `docs/audits/B48R17_ELIZAWY_SUMMER_ITERATION_AND_LEDGER_REPAIR.md`.
+
+**Not yet complete:** genuine source-exact topology assembly, full summer
+semantic certification, in-GUI one-click ZIP packaging, native compilation,
+Windows GUI/PCC tests, and editor/client/worldgen parity. Do not mark GREEN.

@@ -49,17 +49,34 @@ function Get-PccPatchArchiveEvidence {
     [Parameter(Mandatory=$true)][string]$Transport,
     [Parameter(Mandatory=$true)][datetime]$SinceUtc
   )
+  # Archive evidence may only apply after this exact root transport disappeared.
+  if(Test-Path -LiteralPath (Join-Path $Root $Transport) -PathType Leaf){ return $null }
   foreach($candidate in @(
     @{ Status='FAILED'; Root=(Join-Path $Root 'artifacts\updates\failed') },
     @{ Status='APPLIED'; Root=(Join-Path $Root 'artifacts\updates\applied') }
   )){
     if(-not (Test-Path -LiteralPath $candidate.Root -PathType Container)){ continue }
     $match=Get-ChildItem -LiteralPath $candidate.Root -File -Recurse -Filter $Transport -ErrorAction SilentlyContinue |
-      Where-Object { $_.LastWriteTimeUtc -ge $SinceUtc.AddSeconds(-2) } |
-      Sort-Object LastWriteTimeUtc -Descending |
-      Select-Object -First 1
-    if($null -ne $match){
-      return [pscustomobject]@{ Status=[string]$candidate.Status; Path=$match.FullName; ModifiedUtc=$match.LastWriteTimeUtc }
+      Where-Object { $_.Name.Equals($Transport,[StringComparison]::OrdinalIgnoreCase) } |
+      Sort-Object LastWriteTimeUtc -Descending
+    # A move retains ZIP LastWriteTimeUtc. Never treat an old ZIP timestamp as
+    # evidence of failed intake: inspect exact archived name and manifest.
+    foreach($file in @($match)){
+      try {
+        Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop
+        $archive=[IO.Compression.ZipFile]::OpenRead($file.FullName)
+        try {
+          $entries=@($archive.Entries | Where-Object { $_.FullName -ceq 'PATCH_MANIFEST.json' })
+          if($entries.Count -ne 1){ continue }
+          $reader=New-Object IO.StreamReader($entries[0].Open())
+          try { $manifest=$reader.ReadToEnd() | ConvertFrom-Json -ErrorAction Stop }
+          finally { $reader.Dispose() }
+          if([string]$manifest.schema -ne 'havenwild.root_patch.v1' -or
+             [string]::IsNullOrWhiteSpace([string]$manifest.patchId) -or
+             @($manifest.files).Count -eq 0){ continue }
+          return [pscustomobject]@{ Status=[string]$candidate.Status; Path=$file.FullName; ModifiedUtc=$file.LastWriteTimeUtc }
+        } finally { $archive.Dispose() }
+      } catch { continue }
     }
   }
   return $null

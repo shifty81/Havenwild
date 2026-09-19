@@ -40,6 +40,8 @@ const EXTERNAL_ASSET_ROOTS_REL: &str = "content/assets/intake/external_asset_roo
 const LOCAL_EXTERNAL_ASSET_ROOTS_REL: &str = ".local/havenwild_external_asset_roots.json";
 const MAPPED_TILE_STATUS_DRAFT: &str = "draft_mapped";
 const MAPPED_TILE_STATUS_LEARNED: &str = "learned_mapping";
+const MAPPED_TILE_STATUS_APPROVED: &str = "approved_mapping";
+const MAX_REASSEMBLY_CELLS: usize = 24;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum AuthorTool {
@@ -357,6 +359,18 @@ struct MapperProjectDocument {
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+struct IterationSourceCoverage {
+    source_asset_id: String,
+    source_file: String,
+    nonempty_source_cells: usize,
+    represented_in_scene: usize,
+    learned_candidate_cells: usize,
+    approved_mapping_cells: usize,
+    missing_cells: Vec<[i32; 2]>,
+    unresolved_scene_cells: usize,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
 struct HandoffDocument {
     schema: String,
     tool: String,
@@ -374,6 +388,10 @@ struct HandoffDocument {
     source_assets: Vec<SourceAssetDocument>,
     heightmap: Vec<TerrainHeightCell>,
     certification_stage: String,
+    #[serde(default)]
+    iteration_coverage: Vec<IterationSourceCoverage>,
+    #[serde(default)]
+    generation_passes: u32,
     engine_notes: Vec<String>,
 }
 
@@ -935,13 +953,17 @@ impl MapperApp {
             .and_then(|stage| stage.as_str())
             .unwrap_or("")
             .to_ascii_lowercase();
-        let status = if lifecycle.contains("published") {
+        // A source address, guessed draft role, or learned candidate is NOT a complete map.
+        // Full-sheet green requires documented coverage and explicit per-cell approval.
+        let all_approved = value.get("mapped_tiles").and_then(|tiles| tiles.as_array())
+            .is_some_and(|tiles| !tiles.is_empty() && tiles.iter().all(|tile|
+                tile.get("status").and_then(|v| v.as_str()) == Some(MAPPED_TILE_STATUS_APPROVED)));
+        let complete = mapped_tile_count > 0 && coverage_percent >= 99.999 && all_approved;
+        let status = if complete && lifecycle.contains("published") {
             SourceSheetStatus::Published
-        } else if lifecycle.contains("runtime_certified") || lifecycle.contains("topology_validated") {
+        } else if complete && (lifecycle.contains("runtime_certified") || lifecycle.contains("topology_validated") || lifecycle.contains("visual_approved")) {
             SourceSheetStatus::Validated
         } else if mapped_tile_count > 0 {
-            SourceSheetStatus::Mapped
-        } else if lifecycle.contains("draft") {
             SourceSheetStatus::Draft
         } else {
             SourceSheetStatus::Unmapped
@@ -951,8 +973,12 @@ impl MapperApp {
 
     fn persisted_mapped_tiles_for_current_sheet(&self) -> BTreeMap<(i32, i32), String> {
         let Some(atlas) = &self.atlas else { return BTreeMap::new(); };
+        self.persisted_mapped_tiles_for_sheet(&atlas.path, self.category)
+    }
+
+    fn persisted_mapped_tiles_for_sheet(&self, source_path: &Path, category: AssetCategory) -> BTreeMap<(i32, i32), String> {
         let Ok(root) = env::current_dir() else { return BTreeMap::new(); };
-        let Some(record) = Self::mapping_record_path_for(&root, &atlas.path, self.category) else { return BTreeMap::new(); };
+        let Some(record) = Self::mapping_record_path_for(&root, source_path, category) else { return BTreeMap::new(); };
         let Ok(text) = fs::read_to_string(record) else { return BTreeMap::new(); };
         let Ok(value) = serde_json::from_str::<serde_json::Value>(&text) else { return BTreeMap::new(); };
         let Some(tiles) = value.get("mapped_tiles")
@@ -1377,10 +1403,13 @@ impl MapperApp {
             source_assets: self.source_assets(),
             heightmap: self.heightmap.clone(),
             certification_stage: "candidate_export_not_validated".to_string(),
+            iteration_coverage: self.iteration_coverage(),
+            generation_passes: self.scene_generation_count,
             engine_notes: vec![
                 "The source atlas is immutable and was not modified.".to_string(),
                 "Each piece maps one 32x32 source tile to an assembly grid cell.".to_string(),
-                "This is an unreviewed candidate. Asset Authority may not publish without source hashes, visual approval, adjacency, collision, traversal, animation, runtime parity and PCC gate receipts.".to_string(),
+                "Unreviewed iteration packet: iteration_coverage lists each activated sheet's missing/learned/approved source cells. Unresolved correction-tray pieces are not complete mappings.".to_string(),
+                "Asset Authority may not publish without source hashes, visual approval, adjacency, collision, traversal, animation, runtime parity and PCC gate receipts.".to_string(),
             ],
         };
         match serde_json::to_string_pretty(&document) {
@@ -1460,6 +1489,89 @@ impl MapperApp {
 
     fn generate_next_missing_draft(&mut self) {
         self.build_scene_draft(true);
+    }
+
+    fn iteration_coverage(&self) -> Vec<IterationSourceCoverage> {
+        let mut result = Vec::new();
+        for atlas in self.atlas.iter().chain(self.source_stack.iter()) {
+            let category = AssetCategory::from_file_hint(&atlas.path);
+            let saved = self.persisted_mapped_tiles_for_sheet(&atlas.path, category);
+            let mut represented = BTreeSet::new();
+            let mut unresolved = 0;
+            for piece in self.pieces.iter().filter(|piece| piece.source_asset_id == atlas.id) {
+                represented.insert((piece.source_tile_x, piece.source_tile_y));
+                if piece.semantic_role.starts_with("unresolved.") { unresolved += 1; }
+            }
+            let nonempty: Vec<_> = atlas.cell_profiles.iter()
+                .filter(|cell| cell.coverage > 0.0)
+                .map(|cell| (cell.tile_x, cell.tile_y)).collect();
+            let missing_cells = nonempty.iter().filter(|coord| !represented.contains(*coord))
+                .map(|(x,y)| [*x,*y]).collect();
+            result.push(IterationSourceCoverage {
+                source_asset_id: atlas.id.clone(),
+                source_file: atlas.path.to_string_lossy().to_string(),
+                nonempty_source_cells: nonempty.len(),
+                represented_in_scene: nonempty.iter().filter(|coord| represented.contains(*coord)).count(),
+                learned_candidate_cells: nonempty.iter().filter(|coord|
+                    saved.get(*coord).is_some_and(|status| status == MAPPED_TILE_STATUS_LEARNED)).count(),
+                approved_mapping_cells: nonempty.iter().filter(|coord|
+                    saved.get(*coord).is_some_and(|status| status == MAPPED_TILE_STATUS_APPROVED)).count(),
+                missing_cells,
+                unresolved_scene_cells: unresolved,
+            });
+        }
+        result
+    }
+
+    // Reassemble from the corrected, saved scene as a *template*. Never erase
+    // authored positions, elevation, water, earlier source choices or approvals.
+    // There is no certified topology resolver yet: new source cells appear in a
+    // clearly labelled correction tray, NOT silently painted into water/cliffs.
+    fn reassemble_from_mapped_scene(&mut self) {
+        if self.dirty || self.project_path.is_none() {
+            self.status = "Save the corrected scene before Reassemble; no edits were replaced.".into();
+            return;
+        }
+        if self.pieces.is_empty() {
+            self.status = "Build or open an example scene first; Reassemble preserves its geometry.".into();
+            return;
+        }
+        let coverage = self.iteration_coverage();
+        let mut next = Vec::new();
+        for entry in &coverage {
+            for [x,y] in &entry.missing_cells {
+                if next.len() == MAX_REASSEMBLY_CELLS { break; }
+                next.push((entry.source_asset_id.clone(), *x, *y));
+            }
+            if next.len() == MAX_REASSEMBLY_CELLS { break; }
+        }
+        let unresolved: usize = coverage.iter().map(|entry| entry.unresolved_scene_cells).sum();
+        if next.is_empty() {
+            self.status = format!("No unrepresented source cells in activated sheets; {unresolved} correction-tray cell(s) still unresolved. Coverage does NOT certify tile roles, seams or game use.");
+            return;
+        }
+        self.checkpoint_scene();
+        let start_x = self.pieces.iter().map(|piece| piece.canvas_grid_x).max().unwrap_or(0).saturating_add(4);
+        let start_y = self.pieces.iter().map(|piece| piece.canvas_grid_y).min().unwrap_or(0);
+        let added = next.len();
+        for (i,(source_asset_id,x,y)) in next.into_iter().enumerate() {
+            let id = self.next_piece_id;
+            self.next_piece_id = self.next_piece_id.saturating_add(1);
+            self.pieces.push(AssemblyPiece {
+                id, source_tile_x: x, source_tile_y: y,
+                source_rect: [x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE],
+                canvas_grid_x: start_x.saturating_add(i as i32 % 6),
+                canvas_grid_y: start_y.saturating_add((i as i32 / 6) * 2),
+                rotation_degrees: 0, flip_x: false, flip_y: false, layer: 0,
+                semantic_role: "unresolved.source_cell.needs_authoring".into(),
+                source_asset_id,
+            });
+        }
+        self.scene_generation_count = self.scene_generation_count.saturating_add(1);
+        self.selected_piece = None;
+        self.dirty = true;
+        self.mapping_stage = MappingStage::DraftMapped;
+        self.status = format!("Reassembled saved scene without replacing edits. Added {added} missing source cells in a correction tray at right; assign roles and positions, save, audit, and export a candidate review.");
     }
 
     fn build_scene_draft(&mut self, prefer_unmapped: bool) {
@@ -1676,6 +1788,14 @@ impl MapperApp {
     }
 
     fn learn_from_scene(&mut self) {
+        if self.dirty || self.project_path.is_none() {
+            self.status = "Save your corrected scene before recording learned mappings.".into();
+            return;
+        }
+        if self.pieces.iter().any(|piece| piece.semantic_role.starts_with("unresolved.")) {
+            self.status = "Correction tray still has unresolved tiles: place and assign exact roles first. No learning recorded.".into();
+            return;
+        }
         if self.atlas.is_none() {
             self.status = "Load a sheet before learning from a corrected scene.".to_string();
             return;
@@ -1867,7 +1987,7 @@ impl MapperApp {
         if ctrl && shift && is_key_pressed(KeyCode::P) { self.export_review_dialog(); }
         if ctrl && is_key_pressed(KeyCode::G) { self.auto_map_sheet(); }
         if ctrl && is_key_pressed(KeyCode::L) { self.refresh_sheet_library(); }
-        if ctrl && is_key_pressed(KeyCode::M) { self.generate_next_missing_draft(); }
+        if ctrl && is_key_pressed(KeyCode::M) { self.reassemble_from_mapped_scene(); }
         if ctrl && shift && is_key_pressed(KeyCode::Enter) { self.learn_from_scene(); }
         if is_key_pressed(KeyCode::PageUp) { self.edit_selected_height(1); }
         if is_key_pressed(KeyCode::PageDown) { self.edit_selected_height(-1); }
@@ -2145,8 +2265,6 @@ impl MapperApp {
         let Some(path) = self.mapping_record_path() else { return; };
         let Some(atlas) = &self.atlas else { return; };
         let atlas_path = atlas.path.clone();
-        let atlas_width = atlas.width;
-        let atlas_height = atlas.height;
         let source_name = atlas_path.file_name().and_then(|name| name.to_str()).unwrap_or("atlas").to_string();
         let source_atlas_path = atlas_path.to_string_lossy().replace('\\', "/");
         let parent = path.parent().map(Path::to_path_buf);
@@ -2156,6 +2274,11 @@ impl MapperApp {
                 return;
             }
         }
+        let previous_records: BTreeMap<(i32, i32), (String, String)> = fs::read_to_string(&path)
+            .ok().and_then(|text| serde_json::from_str::<MappedSheetRecord>(&text).ok())
+            .map(|record| record.mapped_tiles.into_iter().map(|tile|
+                ((tile.source_tile_x, tile.source_tile_y), (tile.semantic_role, tile.status))).collect())
+            .unwrap_or_default();
         let mapped_tiles: Vec<MappedSheetTileRecord> = self.pieces.iter()
             .filter(|piece| piece.source_asset_id == atlas.id)
             .map(|piece| MappedSheetTileRecord {
@@ -2169,7 +2292,16 @@ impl MapperApp {
             layer_role: layer_role_for_piece(&piece.semantic_role, piece.layer),
             collision_profile: collision_profile_for_piece(&piece.semantic_role),
             compatibility_class: compatibility_class_for_piece(&piece.semantic_role),
-            status: tile_status.to_string(),
+            // Re-saving an unchanged corrected role must not discard learning.
+            // Never carry approval across a changed semantic role.
+            status: if piece.semantic_role.starts_with("unresolved.") {
+                MAPPED_TILE_STATUS_DRAFT.to_string()
+            } else { previous_records.get(&(piece.source_tile_x, piece.source_tile_y))
+                .filter(|(old_role, _)| old_role.as_str() == piece.semantic_role.as_str())
+                .map(|(_,old_status)| if old_status == MAPPED_TILE_STATUS_APPROVED ||
+                    (old_status == MAPPED_TILE_STATUS_LEARNED && tile_status == MAPPED_TILE_STATUS_DRAFT)
+                    { old_status.clone() } else { tile_status.to_string() })
+                .unwrap_or_else(|| tile_status.to_string()) },
         }).collect();
         if mapped_tiles.is_empty() { return; } // Never overwrite an existing sheet mapping with another sheet's empty record.
         let unique_tile_count = mapped_tiles
@@ -2177,8 +2309,13 @@ impl MapperApp {
             .map(|tile| (tile.source_tile_x, tile.source_tile_y))
             .collect::<BTreeSet<_>>()
             .len();
-        let total_cells = ((atlas_width / TILE_SIZE).max(1) * (atlas_height / TILE_SIZE).max(1)).max(1) as f32;
-        let coverage_percent = (unique_tile_count as f32 / total_cells * 100.0).min(100.0);
+        let nonempty_cells = atlas.cell_profiles.iter().filter(|cell| cell.coverage > 0.0).count().max(1);
+        let valid_cells: BTreeSet<(i32, i32)> = atlas.cell_profiles.iter()
+            .filter(|cell| cell.coverage > 0.0)
+            .map(|cell| (cell.tile_x, cell.tile_y)).collect();
+        let valid_mapped = mapped_tiles.iter().map(|tile| (tile.source_tile_x, tile.source_tile_y))
+            .collect::<BTreeSet<_>>().intersection(&valid_cells).count();
+        let coverage_percent = (valid_mapped as f32 / nonempty_cells as f32 * 100.0).min(100.0);
         let record = MappedSheetRecord {
             schema: MAPPED_SHEET_SCHEMA.to_string(),
             tool: "haven_atlas_mapper_lite".to_string(),
@@ -2893,7 +3030,10 @@ fn draw_mapped_tile_badges(app: &MapperApp, preview: Rect) {
     let active_id = app.atlas.as_ref().map(|atlas| atlas.id.as_str());
     for piece in &app.pieces {
         if active_id == Some(piece.source_asset_id.as_str()) {
-            mapped.insert((piece.source_tile_x, piece.source_tile_y), MAPPED_TILE_STATUS_DRAFT.to_string());
+            let key = (piece.source_tile_x, piece.source_tile_y);
+            if !mapped.contains_key(&key) || app.dirty {
+                mapped.insert(key, MAPPED_TILE_STATUS_DRAFT.to_string());
+            }
         }
     }
     if mapped.is_empty() { return; }
@@ -2905,12 +3045,14 @@ fn draw_mapped_tile_badges(app: &MapperApp, preview: Rect) {
             continue;
         }
         let size = (10.0 * app.source_zoom).clamp(8.0, 16.0);
-        let (label, color) = if status == MAPPED_TILE_STATUS_LEARNED {
-            ("✓+", Color::new(0.06, 0.60, 0.28, 0.96))
+        let (label, color) = if status == MAPPED_TILE_STATUS_APPROVED {
+            ("✓", Color::new(0.06, 0.60, 0.28, 0.96))
+        } else if status == MAPPED_TILE_STATUS_LEARNED {
+            ("L", Color::new(0.18, 0.42, 0.76, 0.96))
         } else {
-            ("✓", Color::new(0.10, 0.50, 0.22, 0.94))
+            ("?", Color::new(0.65, 0.43, 0.12, 0.94))
         };
-        draw_rectangle(x + 2.0, y + 2.0, size + if label == "✓+" { 7.0 } else { 0.0 }, size, color);
+        draw_rectangle(x + 2.0, y + 2.0, size, size, color);
         draw_text(label, x + 3.0, y + size + 1.0, size + 2.0, Color::new(0.86, 1.0, 0.88, 1.0));
     }
 }
@@ -3097,7 +3239,7 @@ fn draw_canvas_panel(app: &mut MapperApp, canvas_rect: Rect) {
     draw_rectangle(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 78.0, Color::new(0.018, 0.023, 0.031, 0.90));
     draw_rectangle_lines(canvas_rect.x + 10.0, info_y, canvas_rect.w - 20.0, 78.0, 1.0, Color::new(0.16, 0.22, 0.28, 1.0));
     draw_text("Controls", canvas_rect.x + 18.0, info_y + 22.0, 18.0, Color::new(0.88, 0.92, 0.95, 1.0));
-    draw_text("drag source -> canvas | Space+drag pan | wheel zoom | Ctrl+G scene | Ctrl+M next missing | Ctrl+Shift+Enter learn", canvas_rect.x + 18.0, info_y + 46.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
+    draw_text("drag source -> canvas | Space+drag pan | wheel zoom | Ctrl+G draft | Ctrl+M Reassemble | Ctrl+Shift+Enter learn", canvas_rect.x + 18.0, info_y + 46.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
     draw_text("Ctrl+Z undo Ctrl+Y redo | 1 select 2 height 3 water | +/- level 0..30 | R rotate H/V flip Del remove", canvas_rect.x + 18.0, info_y + 68.0, 16.0, Color::new(0.68, 0.75, 0.82, 1.0));
 }
 
@@ -3122,7 +3264,7 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
         y += 22.0;
         draw_text(&format!("{} mapped source cells · {:.1}%", summary.mapped_tile_count, summary.coverage_percent), inspector_rect.x + 14.0, y, 16.0, Color::new(0.82, 0.90, 0.86, 1.0));
         y += 20.0;
-        draw_text("Green checks on the source sheet come from saved mapped-sheet records plus this draft.", inspector_rect.x + 14.0, y, 13.0, Color::new(0.60, 0.69, 0.74, 1.0));
+        draw_text("Amber ? = draft, blue L = learned, green check = explicitly approved cell only.", inspector_rect.x + 14.0, y, 13.0, Color::new(0.60, 0.69, 0.74, 1.0));
         y += 24.0;
         let profile = source_sheet_profile_id(&atlas.path, app.category);
         draw_text("Source profile", inspector_rect.x + 14.0, y, 16.0, Color::new(0.60, 0.70, 0.78, 1.0));
@@ -3145,7 +3287,7 @@ fn draw_inspector(app: &mut MapperApp, inspector_rect: Rect, canvas_rect: Rect) 
     y += 37.0;
     if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Learn from corrected scene", false) { app.learn_from_scene(); }
     y += 37.0;
-    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Generate next missing draft", false) { app.generate_next_missing_draft(); }
+    if draw_button(Rect::new(inspector_rect.x + 14.0, y, inspector_rect.w - 28.0, 29.0), "Reassemble saved scene + missing", false) { app.reassemble_from_mapped_scene(); }
     y += 42.0;
 
     if let Some(index) = app.selected_piece {

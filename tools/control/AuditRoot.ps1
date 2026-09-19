@@ -9,7 +9,10 @@ $ErrorActionPreference='Stop'
 # integration may legitimately add repository-control files such as .gitattributes
 # without making those files mandatory for every checkout/worktree.
 $required=@('.gitignore','Cargo.lock','Cargo.toml','README.md','HavenwildTools.cmd')
-$optional=@('.gitattributes','.gitmodules')
+# These four launchers are committed project files (B48R16), not transient
+# root-drop update transports. Keep the allowlist explicit rather than allowing
+# every *.cmd, so arbitrary scripts and unpacked/renamed patch files still fail.
+$optional=@('.gitattributes','.gitmodules','ForgePY-GUI.cmd','ForgePY-Install.cmd','ForgePY-Verify.cmd','ForgePY.cmd')
 $allowed=@($required + $optional)
 
 $files=Get-ChildItem -LiteralPath $Root -File | Select-Object -ExpandProperty Name

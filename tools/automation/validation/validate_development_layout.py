@@ -7,7 +7,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-ALLOWED_ROOT_FILES = {'.gitattributes', '.gitignore', 'Cargo.lock', 'Cargo.toml', 'README.md', 'HavenwildTools.cmd'}
+# These are the same required and optional root-file sets as AuditRoot.ps1.
+# The ForgePY launchers are tracked repository files, not temporary transports.
+REQUIRED_ROOT_FILES = {'.gitignore', 'Cargo.lock', 'Cargo.toml', 'README.md', 'HavenwildTools.cmd'}
+OPTIONAL_ROOT_FILES = {'.gitattributes', '.gitmodules', 'ForgePY-GUI.cmd', 'ForgePY-Install.cmd', 'ForgePY-Verify.cmd', 'ForgePY.cmd'}
+ALLOWED_ROOT_FILES = REQUIRED_ROOT_FILES | OPTIONAL_ROOT_FILES
 REQUIRED_DIRS = {
     'apps', 'assets', 'content', 'crates', 'docs', 'manifests', 'tools', 'WORKSPACE'
 }
@@ -43,7 +47,7 @@ def main() -> int:
 
     root_files = {p.name for p in ROOT.iterdir() if p.is_file()}
     unexpected = sorted(root_files - ALLOWED_ROOT_FILES)
-    missing_root = sorted(ALLOWED_ROOT_FILES - root_files)
+    missing_root = sorted(REQUIRED_ROOT_FILES - root_files)
     if unexpected:
         fail('unexpected root files: ' + ', '.join(unexpected), errors)
     if missing_root:

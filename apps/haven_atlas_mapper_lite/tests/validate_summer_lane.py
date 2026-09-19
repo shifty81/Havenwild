@@ -32,6 +32,14 @@ for name in ['InvokeRootPatchIntake.ps1','HavenwildTools.ps1','PccPatchPreflight
     checks['PCC cumulative discovery: '+name] = 'Havenwild_CUMULATIVE_PCC_Patch_*.zip' in (psroot/name).read_text(encoding='utf-8-sig')
 checks['PCC duplicates safely held'] = 'held-duplicate-downloads' in (psroot/'InvokeRootPatchIntake.ps1').read_text()
 checks['root cleanliness audit retains fail closed'] = 'RECOVERY: browser-renamed duplicate' in (psroot/'AuditRoot.ps1').read_text()
+# Committed root launchers must be accepted without weakening the unknown-file guard.
+audit_root = (psroot/'AuditRoot.ps1').read_text(encoding='utf-8-sig')
+optional_line = next((line for line in audit_root.splitlines() if line.startswith('$optional=@(')), '')
+checks['root audit recognizes all four tracked ForgePY launchers'] = all(
+    "'"+name+"'" in optional_line
+    for name in ('ForgePY-GUI.cmd','ForgePY-Install.cmd','ForgePY-Verify.cmd','ForgePY.cmd')
+)
+checks['root audit rejects unknown files'] = '$_ -notin $allowed' in audit_root and "'^Havenwild_CUMULATIVE_PCC_Patch_" in audit_root
 for label, ok in checks.items():
     print(('PASS' if ok else 'FAIL')+' '+label)
 if not all(checks.values()): sys.exit(1)

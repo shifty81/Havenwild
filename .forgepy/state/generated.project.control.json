@@ -664,9 +664,9 @@
     }
   ],
   "project": {
-    "id": "havenwild-hw55-v2r5-test",
+    "id": "havenwild",
     "kind": "python-rust",
-    "name": "Havenwild-HW55-V2R5-Test",
+    "name": "Havenwild",
     "uuid": ""
   },
   "schema": "forge.project.v1",
