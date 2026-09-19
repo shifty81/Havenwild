@@ -1,0 +1,45 @@
+{
+  "schema": "havenwild.engine_rebuild.candidate.v0_1",
+  "pass": "B48R28B",
+  "branchRestriction": "experimental",
+  "protectedBaselineCommit": "16d3051b49511b0eab0cb93c3013ba9bfeb302f7",
+  "candidate": "experiments/haven_bevy_candidate",
+  "candidateCargoWorkspace": "independent_not_root_member",
+  "backend": {
+    "bevy": "=0.19.0",
+    "bevyEgui": "=0.42.0",
+    "forgeGui": "eafa8e78efd54142a19e66d8be7b7d3985af23d2",
+    "rustMinimum": "1.95",
+    "backendProof": "compile_and_launch_required_before_claiming",
+    "macroquad": "not_in_candidate_manifest_but_still_in_production_workspace"
+  },
+  "sourceIntake": {
+    "archive": "user-provided original Terrain.zip",
+    "sourcePath": "Terrain/terrain_summer.png",
+    "sha256": "1251a6ea556330190ccb1e3af166eb69fbec4b7a3f7d51c1f54728abd75bd752",
+    "imageSize": [512, 832],
+    "staging": "candidate_only_ignored_assets/source",
+    "status": "original_bytes_required_not_in_patch",
+    "approvedArtRoles": false
+  },
+  "actualFixture": {
+    "path": "content/worldgen/scenes/terrain_acceptance/river_scene_v1.json",
+    "consumption": "semantic_inventory_only_not_resolved_world_render",
+    "requires": ["tileSize_32", "complete_rectangular_terrain_grid"]
+  },
+  "authority": {
+    "canonicalSaveWriter": "legacy_only",
+    "candidateSaveWriter": "disabled",
+    "originalSourceModification": "prohibited",
+    "publishedAssetModification": "prohibited",
+    "pcc": "existing_only",
+    "candidateGateResult": "NOT_RUN"
+  },
+  "proofGates": {
+    "B48R28B": "verified_original_source_and_real_fixture_loaded; actual Windows Bevy plus ForgeGUI preview launch and resize/dock smoke",
+    "B48R28C": "canonical_certified_draw_plan_and_world_render; revisions; transactional edit undo redo save reopen isolated",
+    "B48R28D": "actual Havenwild runtime host client PIE, candidate scene hash ACK, collision, full PCC gate, rollback"
+  },
+  "retirement": "only_after_candidate_world_client_editor_mapper_and_pie_parity_no_macroquad_dependency",
+  "publication": "candidate_not_runtime_certified"
+}
