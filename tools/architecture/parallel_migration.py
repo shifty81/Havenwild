@@ -51,6 +51,16 @@ def safe_rel(value: Any) -> Path:
     return Path(*p.parts)
 
 
+def canonical_rel(value: Any) -> str:
+    """Validate input but return a portable slash-delimited fixture path.
+
+    On Windows str(Path(...)) produces backslashes; those fail strict
+    revalidation in existing_file. Original user-supplied backslashes
+    remain disallowed by safe_rel.
+    """
+    return safe_rel(value).as_posix()
+
+
 def existing_file(root: Path, rel: Any) -> Path:
     root = root.resolve(strict=True)
     path = root / safe_rel(rel)
@@ -199,7 +209,7 @@ def compare_fixture(baseline: Path, candidate: Path, fixture_path: Path) -> dict
     for row in fixture["inputs"]:
         if not isinstance(row, dict):
             raise EvidenceError("Invalid input record")
-        rel = str(safe_rel(row.get("path")))
+        rel = canonical_rel(row.get("path"))
         if rel.casefold() in encountered:
             raise EvidenceError(f"Duplicate input/output path: {rel}")
         encountered.add(rel.casefold())
@@ -211,7 +221,7 @@ def compare_fixture(baseline: Path, candidate: Path, fixture_path: Path) -> dict
     for row in fixture["outputs"]:
         if not isinstance(row, dict):
             raise EvidenceError("Invalid output record")
-        rel = str(safe_rel(row.get("path")))
+        rel = canonical_rel(row.get("path"))
         if rel.casefold() in encountered:
             raise EvidenceError(f"Duplicate input/output path: {rel}")
         encountered.add(rel.casefold())

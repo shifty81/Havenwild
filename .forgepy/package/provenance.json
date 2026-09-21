@@ -1,7 +1,7 @@
 {
   "schema": "forgepy.standalone.provenance.v5",
-  "packageBuild": "FORGEPY-STANDALONE-U5-AUTO-ONBOARD",
-  "packageVersion": "1.4.0-hardened",
+  "packageBuild": "FORGEPY-STANDALONE-U5-HW-C16R10-PCC-GIT-AUTHORITY",
+  "packageVersion": "1.4.0-hardened+havenwild.c16r10",
   "derivedContractAuthority": {
     "repository": "https://github.com/shifty81/Forge",
     "commit": "f00ca0fea2dfa29dc930fcc18ddcedc347a7c6ad",
@@ -18,6 +18,14 @@
     "The GUI uses one cached project snapshot per refresh and adds a Build Plan view with components, defaults, warnings and unresolved tooling.",
     "Generated adapters can be explicitly pinned but project-owned adapters are never overwritten.",
     "Execution-control metadata is protected from generic root-drop project patches.",
-    "Machine-wide Vault, Ember hosting and full-drive orchestration remain outside this detached repository-local core."
-  ]
+    "Machine-wide Vault, Ember hosting and full-drive orchestration remain outside this detached repository-local core.",
+    "Havenwild local GUI publisher calls the existing project PCC and never independently stages or pushes Git source.",
+    "C16R10 blocks generic ForgePY commit/push for Havenwild, reuses project-owned PCC publication, and retires generated index content only after canonical GREEN verification."
+  ],
+  "havenwildProjectIntegration": {
+    "pass": "B48R28C16R10",
+    "scope": "Project PCC owns publication; explicit generated index retirement and source-snapshot strict staging",
+    "donorSourceUnchanged": true,
+    "upstreamPublished": false
+  }
 }

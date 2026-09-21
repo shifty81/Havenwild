@@ -6,7 +6,7 @@ import json
 import subprocess
 import tempfile
 import unittest
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from unittest.mock import patch
 
 SCRIPT = Path(__file__).resolve().parents[2] / "tools/architecture/parallel_migration.py"
@@ -84,6 +84,16 @@ class ShadowParityTests(unittest.TestCase):
         write(self.candidate/'source/asset.dat', 'modified')
         self.assertEqual(tool.compare_fixture(self.base,self.candidate,self.fixture)['status'], 'BLOCKED')
 
+    def test_fixture_paths_portable_on_windows_but_unsafe_input_rejected(self):
+        # Simulate Windows Path behavior even when this suite runs on Linux.
+        self.assertEqual(str(PureWindowsPath('source/asset.dat')), 'source\\asset.dat')
+        with patch.object(tool, 'safe_rel', return_value=PureWindowsPath('source/asset.dat')):
+            self.assertEqual(tool.canonical_rel('source/asset.dat'), 'source/asset.dat')
+        self.assertEqual(tool.canonical_rel('source/asset.dat'), 'source/asset.dat')
+        for invalid in (r'source\asset.dat', '../outside', 'C:/absolute', '', None):
+            with self.subTest(invalid=invalid), self.assertRaises(tool.EvidenceError):
+                tool.canonical_rel(invalid)
+
     def test_duplicate_and_traversal_paths_rejected(self):
         self.value['outputs'][0]['path'] = '../outside'
         self.save_fixture()
@@ -100,13 +110,39 @@ class ShadowParityTests(unittest.TestCase):
         with self.assertRaises(tool.EvidenceError):
             tool.compare_fixture(self.base,self.base/'source',self.fixture)
 
-    def test_rejects_symlink_escape(self):
-        outside = Path(self.tmp.name)/'outside.json'
+    def test_rejects_resolved_escape_without_symlink_privilege(self):
+        """Exercise the actual root-boundary guard on every OS, including Windows without Developer Mode."""
+        outside = Path(self.tmp.name) / 'outside.json'
         write(outside, '{}')
-        (self.candidate/'results/map.json').unlink()
-        (self.candidate/'results/map.json').symlink_to(outside)
-        with self.assertRaises(tool.EvidenceError):
-            tool.compare_fixture(self.base,self.candidate,self.fixture)
+        outside_resolved = outside.resolve(strict=True)
+        candidate_path = self.candidate / 'results/map.json'
+        original_resolve = Path.resolve
+
+        def resolve_with_redirect(path, *args, **kwargs):
+            if path == candidate_path:
+                return outside_resolved
+            return original_resolve(path, *args, **kwargs)
+
+        with patch.object(Path, 'resolve', resolve_with_redirect):
+            with self.assertRaisesRegex(tool.EvidenceError, 'escapes root'):
+                tool.compare_fixture(self.base, self.candidate, self.fixture)
+
+    def test_rejects_symlink_escape(self):
+        outside = Path(self.tmp.name) / 'outside.json'
+        write(outside, '{}')
+        destination = self.candidate / 'results/map.json'
+        destination.unlink()
+        try:
+            destination.symlink_to(outside)
+        except OSError as exc:
+            # Windows without Developer Mode/admin privileges returns WinError 1314.
+            # The privilege gate is not a product failure; the independent root-boundary
+            # test above still exercises the security property on this machine.
+            if getattr(exc, 'winerror', None) == 1314:
+                self.skipTest('Windows account lacks symlink creation privilege (WinError 1314)')
+            raise
+        with self.assertRaisesRegex(tool.EvidenceError, 'escapes root'):
+            tool.compare_fixture(self.base, self.candidate, self.fixture)
 
     def test_receipts_never_written_inside_sources(self):
         with self.assertRaises(tool.EvidenceError):

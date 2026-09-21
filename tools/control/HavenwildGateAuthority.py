@@ -26,6 +26,23 @@ IGNORED_ROOT_PREFIXES = (
     "manifests/handoffs/", "manifests/recovery/",
 )
 
+# Local/generated files are excluded even when nested below a normally governed
+# source prefix. The PCC's explicit -f stage MUST NOT force-add them. Keep the
+# ForgePY GUI/runtime/package sources; retire only its volatile runtime paths.
+RETIRED_GENERATED_PREFIXES = (
+    ".forgepy/state/", ".forgepy/cache/", ".forgepy/build/", ".forgepy/artifacts/",
+    "experiments/haven_bevy_candidate/evidence/",
+)
+RETIRED_GENERATED_DIRS = frozenset({"target", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache"})
+
+
+def retired_generated(rel: str) -> bool:
+    p = normalize_rel(rel).lower()
+    if any(p.startswith(prefix) for prefix in RETIRED_GENERATED_PREFIXES):
+        return True
+    return any(part in RETIRED_GENERATED_DIRS for part in p.split("/"))
+
+
 IGNORED_EXTENSIONS = {
     ".pyc", ".pyo", ".tmp", ".temp", ".zip", ".7z", ".rar", ".log",
     ".exe", ".pdb", ".ilk", ".dll",
@@ -169,6 +186,13 @@ def always_include(rel: str, required_media: set[str] | None = None) -> bool:
 def ignored(rel: str, required_media: set[str] | None = None) -> bool:
     p = normalize_rel(rel)
     pl = p.lower()
+    # Explicit media is validated by manifest and is the only override. For all
+    # other files, generated-directory exclusion takes precedence over broad
+    # always-include exceptions such as tools/build/.
+    if required_media and pl in required_media:
+        return False
+    if retired_generated(p):
+        return True
     if always_include(pl, required_media):
         return False
     if any(pl.startswith(prefix) for prefix in IGNORED_ROOT_PREFIXES):
@@ -474,6 +498,33 @@ def review(root: Path) -> int:
     return 0
 
 
+def _cached_paths(root: Path) -> list[str]:
+    code, raw, _ = run_git(root, ["diff", "--cached", "--name-only", "-z"], check=False, binary=True)
+    if code != 0:
+        raise AuthorityError("Unable to inspect preexisting staged paths.")
+    return [os.fsdecode(item).replace("\\", "/") for item in raw.split(b"\0") if item]
+
+
+def _retire_generated_index(root: Path) -> int:
+    """Untrack known generated outputs WITHOUT removing files from disk.
+
+    This also handles the previous accidental force-stage of a nested target/.
+    The allowlist is deliberately narrow; this is not git reset --hard/clean.
+    """
+    code, raw, _ = run_git(root, ["ls-files", "-z"], check=False, binary=True)
+    if code != 0:
+        raise AuthorityError("Unable to inspect tracked generated output before publication.")
+    retired = sorted({os.fsdecode(item).replace("\\", "/") for item in raw.split(b"\0")
+                      if item and retired_generated(os.fsdecode(item))})
+    for pos in range(0, len(retired), 32):
+        # --cached changes Git's index ONLY. -f allows retirement of already
+        # staged files whose current working bytes differ from the index.
+        run_git(root, ["rm", "-f", "--cached", "--ignore-unmatch", "--", *retired[pos:pos + 32]], timeout=90)
+    if retired:
+        print(f"GENERATED INDEX RETIREMENT: {len(retired)} path(s) untracked; local files preserved.")
+    return len(retired)
+
+
 def stage_certified(root: Path, marker: dict) -> dict:
     ok, snap, reason = certify_matches(root, marker)
     if not ok:
@@ -483,6 +534,17 @@ def stage_certified(root: Path, marker: dict) -> dict:
         raise AuthorityError("Canonical GREEN path manifest does not match the current governed path set.")
     if not paths:
         raise AuthorityError("Canonical GREEN snapshot contains no governed source paths.")
+    approved = set(paths)
+    # Fail before mutating the index if something unrelated was already staged.
+    # Previous generated build output/state is the only automatic exception.
+    unexpected = [rel for rel in _cached_paths(root)
+                  if rel not in approved and not retired_generated(rel)]
+    if unexpected:
+        raise AuthorityError(
+            f"Protected publication blocked: {len(unexpected)} unrelated staged path(s): "
+            + ", ".join(unexpected[:8]) + ". Review/unstage them explicitly; no source was committed."
+        )
+    _retire_generated_index(root)
     fd, name = tempfile.mkstemp(prefix="havenwild-green-paths-", suffix=".nul")
     try:
         with os.fdopen(fd, "wb") as f:
@@ -494,16 +556,27 @@ def stage_certified(root: Path, marker: dict) -> dict:
             os.remove(name)
         except OSError:
             pass
+    # A staged removal of tracked generated files is permitted; staging their
+    # content or any arbitrary previously staged path is never permitted.
+    unexpected = [rel for rel in _cached_paths(root)
+                  if rel not in approved and not retired_generated(rel)]
+    if unexpected:
+        raise AuthorityError("Protected staging contains unapproved paths: " + ", ".join(unexpected[:8]))
+    code, tracked_raw, _ = run_git(root, ["ls-files", "-z"], binary=True, check=False)
+    if code != 0:
+        raise AuthorityError("Unable to verify generated index retirement.")
+    tracked_now = {os.fsdecode(row).replace("\\", "/") for row in tracked_raw.split(b"\0") if row}
+    for rel in _cached_paths(root):
+        if retired_generated(rel) and rel in tracked_now:
+            raise AuthorityError(f"Generated content is still staged for publication: {rel}")
     required_tracked = list(REQUIRED_BOOTSTRAP_PATHS) + snap["requiredRuntimeMediaPaths"]
     for rel in required_tracked:
         code, _, _ = run_git(root, ["ls-files", "--error-unmatch", "--", rel], check=False)
         if code != 0:
-            run_git(root, ["reset"], check=False)
             raise AuthorityError(f"Protected staging omitted clean-checkout authority: {rel}")
     ok2, snap2, reason2 = certify_matches(root, marker)
     if not ok2:
-        run_git(root, ["reset"], check=False)
-        raise AuthorityError(reason2)
+        raise AuthorityError(reason2 + " No commit was created.")
     return snap2
 
 

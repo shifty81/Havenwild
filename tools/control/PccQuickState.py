@@ -5,6 +5,22 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+# The quick receipt protects governed source, not the Git index's representation
+# of generated Cargo/Python artifacts. The full authority rehashes the complete
+# governed tree before it stages or commits anything.
+GENERATED_PREFIXES = (
+    ".forgepy/state/", ".forgepy/cache/", ".forgepy/build/", ".forgepy/artifacts/",
+    "experiments/haven_bevy_candidate/evidence/",
+)
+GENERATED_DIRS = frozenset({"target", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache"})
+
+
+def generated_path(path: str) -> bool:
+    rel = path.replace("\\", "/").lower().lstrip("/")
+    return any(rel.startswith(prefix) for prefix in GENERATED_PREFIXES) or any(
+        segment in GENERATED_DIRS for segment in rel.split("/")
+    )
+
 
 def run_git(root: Path, *args: str, binary: bool = False) -> tuple[int, bytes | str]:
     try:
@@ -53,26 +69,36 @@ def changed_paths(root: Path) -> list[str]:
         for item in raw.split(b"\0"):
             if item:
                 paths.add(item.decode("utf-8", "surrogateescape").replace("\\", "/"))
-    return sorted(paths)
+    return sorted(p for p in paths if not generated_path(p))
 
 
 def worktree_fingerprint(root: Path) -> tuple[str, list[str], str]:
-    code, raw = run_git(root, "status", "--porcelain=v1", "-z", "--untracked-files=normal", binary=True)
-    if code != 0:
-        return "", [], "Unavailable"
-    assert isinstance(raw, bytes)
+    # Hash WORKING SOURCE content and path identity, not Git porcelain or the
+    # staging layout. Unstaging a generated build after GREEN cannot change art,
+    # game code or the full PCC source fingerprint and must not create fake stale.
+    # Git failures must fail closed, never silently produce an empty hash.
+    for args in (("diff", "--name-only", "-z"),
+                 ("diff", "--cached", "--name-only", "-z"),
+                 ("ls-files", "--others", "--exclude-standard", "-z")):
+        code, _ = run_git(root, *args, binary=True)
+        if code != 0:
+            return "", [], "Unavailable"
     paths = changed_paths(root)
     h = hashlib.sha256()
-    h.update(raw)
+    head = git(root, "rev-parse", "--verify", "HEAD")
+    if not head:
+        return "", [], "Unavailable"
+    h.update(b"HEAD\0" + head.encode("ascii", "replace") + b"\0")
     for rel in paths:
         h.update(rel.encode("utf-8", "surrogateescape")); h.update(b"\0")
         path = root / Path(rel)
         if path.is_file():
             h.update(hashlib.sha256(path.read_bytes()).digest())
+        elif path.is_symlink():
+            h.update(b"<symlink>")
         else:
             h.update(b"<missing>")
-    rows = [x for x in raw.split(b"\0") if x]
-    git_state = "Clean" if not rows else f"Modified ({len(rows)} path(s))"
+    git_state = "Clean" if not paths else f"Modified ({len(paths)} source path(s))"
     return h.hexdigest(), paths, git_state
 
 
@@ -87,12 +113,15 @@ def record_certification(root: Path) -> dict[str, Any]:
     branch = git(root, "symbolic-ref", "--quiet", "--short", "HEAD") or "<detached>"
     head = git(root, "rev-parse", "--verify", "HEAD") or None
     fingerprint, paths, git_state = worktree_fingerprint(root)
+    if not fingerprint:
+        raise RuntimeError("cannot certify quick state: Git/source fingerprint unavailable")
     payload = {
         "schema": "havenwild.pcc_quick_certification.v1",
         "createdUtc": datetime.now(timezone.utc).isoformat(),
         "branch": branch,
         "headAtReceipt": head,
         "gateRunId": marker.get("runId"),
+        "markerFingerprint": marker.get("sourceFingerprint"),
         "pass": marker.get("pass"),
         "worktreeFingerprint": fingerprint,
         "changedPathCount": len(paths),
@@ -121,7 +150,9 @@ def state(root: Path) -> dict[str, Any]:
         marker_result == "PASS"
         and receipt.get("schema") == "havenwild.pcc_quick_certification.v1"
         and str(receipt.get("branch") or "") == branch
+        and bool(work_fp)
         and str(receipt.get("gateRunId") or "") == str(marker.get("runId") or "")
+        and str(receipt.get("markerFingerprint") or "") == str(marker.get("sourceFingerprint") or "")
         and str(receipt.get("headAtReceipt") or "") == str(head or "")
         and str(receipt.get("worktreeFingerprint") or "") == work_fp
     )
@@ -130,7 +161,7 @@ def state(root: Path) -> dict[str, Any]:
     if marker_result == "PASS":
         if marker_branch and marker_branch != branch:
             gate_state = "OTHER_LANE"
-        elif head and (published == head or committed == head):
+        elif head and (published == head or committed == head) and git_state == "Clean":
             gate_state = "GREEN"
         elif receipt_matches:
             gate_state = "GREEN"

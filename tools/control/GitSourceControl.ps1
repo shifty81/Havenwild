@@ -59,6 +59,24 @@ function Invoke-ExperimentalReconcile {
 
 function Push-ExperimentalGreen {
   Assert-ExperimentalGreen
+  # CommitGreen must have just bound this exact HEAD to the canonical marker.
+  # Do not allow a standalone Push to publish a later manual/uncertified commit.
+  $marker=(Get-Content -LiteralPath (Join-Path $root '.havenwild\last-green-quality-gate.json') -Raw | ConvertFrom-Json)
+  $head=(@(& git -C $root rev-parse HEAD 2>$null) -join '').Trim()
+  if($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($head) -or [string]$marker.committedCommit -ne $head){
+    throw 'Experimental push blocked: HEAD is not the exact certified CommitGreen commit.'
+  }
+  # Status is an informational JSON endpoint and intentionally returns zero even
+  # when gateState=STALE. Inspect its fields, not only the process exit code.
+  $statusOutput = @(& $python.Source (Join-Path $PSScriptRoot 'HavenwildGateAuthority.py') 'git' '--root' $root '--action' 'Status')
+  if($LASTEXITCODE -ne 0){ throw 'Experimental push blocked: canonical authority Status failed.' }
+  try { $sourceStatus = (($statusOutput -join "`n") | ConvertFrom-Json -ErrorAction Stop) }
+  catch { throw 'Experimental push blocked: canonical authority Status did not return valid JSON.' }
+  if([string]$sourceStatus.gateState -ne 'GREEN' -or $sourceStatus.publicationEligible -ne $true){
+    throw ("Experimental push blocked: canonical source certification is stale ({0}: {1})." -f [string]$sourceStatus.gateState,[string]$sourceStatus.blockReason)
+  }
+  & git -C $root diff --cached --quiet
+  if($LASTEXITCODE -ne 0){ throw 'Experimental push blocked: unexpected staged changes remain after GREEN commit.' }
   & git -C $root push -u origin experimental
   if($LASTEXITCODE -ne 0) { throw 'Push to origin/experimental failed.' }
   & git -C $root fetch origin experimental

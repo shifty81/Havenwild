@@ -173,6 +173,68 @@ class CandidateGateTests(unittest.TestCase):
                 gate.run(self.root, 'run')
             cargo.assert_not_called()
 
+    def test_nonzero_cargo_exit_records_failure_not_gpu_success(self):
+        with patch.object(gate.subprocess, 'call', return_value=101) as cargo:
+            self.assertEqual(gate.run(self.root, 'build'), 101)
+            cargo.assert_called_once()
+        path = self.candidate / 'evidence/cargo_attempt.json'
+        self.assertTrue(path.is_file())
+        report = json.loads(path.read_text())
+        self.assertEqual(report['status'], 'CARGO_NONZERO_NOT_RENDERED')
+        self.assertEqual(report['exitCode'], 101)
+        self.assertEqual(report['lockBefore']['status'], 'NOT_GENERATED')
+        self.assertFalse(report['worldRendererParity'])
+        self.assertIsNone(report['gpuRendered'])
+        self.assertFalse((self.root/'evidence/cargo_attempt.json').exists())
+
+    def test_cargo_generated_lock_captured_without_claiming_patch_pin(self):
+        lock = self.candidate / 'Cargo.lock'
+        def generate_lock(cmd, **_):
+            lock.write_text('version = 4\n[[package]]\nname = "bevy"\nversion = "0.19.0"\n'
+                            '[[package]]\nname = "bevy_egui"\nversion = "0.42.0"\n')
+            return 0
+        with patch.object(gate.subprocess, 'call', side_effect=generate_lock):
+            self.assertEqual(gate.run(self.root, 'run'), 0)
+        report = json.loads((self.candidate/'evidence/cargo_attempt.json').read_text())
+        self.assertEqual(report['status'], 'CARGO_RUN_EXITED_ZERO_GPU_VISUAL_REVIEW_STILL_REQUIRED')
+        self.assertEqual(report['lockAfter']['sha256'], gate.digest(lock.read_bytes()))
+        self.assertFalse(report['lockAfter']['trackedByPatch'])
+        with patch.object(gate.subprocess, 'call', return_value=0) as cargo:
+            self.assertEqual(gate.run(self.root, 'build'), 0)
+            self.assertEqual(cargo.call_args.args[0][-1], '--locked')
+
+    def test_malformed_and_symlink_lock_block_before_cargo(self):
+        lock = self.candidate/'Cargo.lock'
+        lock.write_text('malformed cargo lock')
+        with patch.object(gate.subprocess, 'call', return_value=0) as cargo:
+            with self.assertRaisesRegex(gate.GateError, 'malformed'):
+                gate.run(self.root, 'build')
+            cargo.assert_not_called()
+        lock.unlink()
+        external=self.root/'outside-Cargo.lock'
+        external.write_text('version = 4')
+        try:
+            lock.symlink_to(external)
+        except (OSError, NotImplementedError):
+            self.skipTest('OS does not permit symlinks')
+        with patch.object(gate.subprocess, 'call', return_value=0) as cargo:
+            with self.assertRaisesRegex(gate.GateError, 'redirected'):
+                gate.run(self.root, 'build')
+            cargo.assert_not_called()
+
+    def test_symlinked_cargo_attempt_receipt_refuses_write(self):
+        target=self.root/'outside-cargo-attempt.json'
+        target.write_text('preserve')
+        output=self.candidate/'evidence/cargo_attempt.json'
+        try:
+            output.symlink_to(target)
+        except (OSError, NotImplementedError):
+            self.skipTest('OS does not permit symlinks')
+        with patch.object(gate.subprocess, 'call', return_value=0):
+            with self.assertRaisesRegex(gate.GateError, 'redirected'):
+                gate.run(self.root, 'build')
+        self.assertEqual(target.read_text(), 'preserve')
+
     def test_scene_plan_is_pcc_gated_and_candidate_only(self):
         self.assertEqual(gate.run(self.root, 'scene-plan'), 0)
         output = self.candidate / 'evidence/semantic_scene_plan.json'
@@ -276,3 +338,26 @@ class CandidateGateTests(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
+
+# Additional differential tests are kept outside the existing test class to
+# avoid changing historical source fixtures. They use the same setup contract.
+class BackendReceiptTests(unittest.TestCase):
+    setUp = CandidateGateTests.setUp
+    def test_dx12_run_records_request_without_fabricating_adapter(self):
+        with patch.dict(gate.os.environ, {'WGPU_BACKEND': 'dx12', 'HAVENWILD_BEVY_PRIMARY_ONLY': '1'}):
+            with patch.object(gate.subprocess, 'call', return_value=0) as cargo:
+                self.assertEqual(gate.run(self.root, 'run'), 0)
+                cargo.assert_called_once()
+        report = json.loads((self.candidate/'evidence/cargo_attempt.json').read_text())
+        self.assertEqual(report['backendRequested'], 'dx12')
+        self.assertTrue(report['primaryOnlyProbe'])
+        self.assertEqual(report['actualGpuBackend'], 'SEE_BEVY_ADAPTER_INFO_NOT_INFERRED')
+        self.assertEqual(report['gpuValidation'], 'NOT_CAPTURED_BY_THIS_CARGO_EXIT_RECEIPT')
+        self.assertIsNone(report['gpuRendered'])
+
+    def test_invalid_backend_is_blocked_before_cargo(self):
+        with patch.dict(gate.os.environ, {'WGPU_BACKEND': 'nonexistent'}):
+            with patch.object(gate.subprocess, 'call', return_value=0) as cargo:
+                with self.assertRaisesRegex(gate.GateError, 'Invalid WGPU_BACKEND'):
+                    gate.run(self.root, 'run')
+                cargo.assert_not_called()

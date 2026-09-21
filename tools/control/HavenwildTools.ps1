@@ -1251,6 +1251,54 @@ function Invoke-FullQualityGate {
       Complete-QualityGate 'FAIL'; return
     }
   }
+  # B48R28C7-C16: a GREEN experimental root must also compile the registered
+  # Bevy candidate and pass its infrastructure tests. B48R28C4 previously
+  # certified the root despite a candidate compile failure; do not repeat that.
+  # Protected main keeps its established gate. The experimental lane must
+  # fail closed if the candidate manifest is missing, rather than skipping it.
+  if((Get-ActiveGitBranchName) -eq 'experimental'){
+    if(-not (Test-Path -LiteralPath (Join-Path $Root 'experiments\haven_bevy_candidate\Cargo.toml') -PathType Leaf)){
+      $script:LastResult='FAIL'; $script:LastActionExitCode=2
+      Write-Color 'Full Gate blocked: mandatory experimental Bevy candidate manifest is missing.' Red
+      Complete-QualityGate 'FAIL'; return
+    }
+    $candidatePython=Get-Command python -ErrorAction SilentlyContinue
+    if($null -eq $candidatePython){ $candidatePython=Get-Command py -ErrorAction SilentlyContinue }
+    if($null -eq $candidatePython){
+      $script:LastResult='FAIL'; $script:LastActionExitCode=2
+      Write-Color 'Full Gate blocked: candidate Python contract tests require Python.' Red
+      Complete-QualityGate 'FAIL'; return
+    }
+    $script:CurrentCommandKey='experimental.bevy.full-gate-tests'
+    Invoke-HavenwildAction 'Bevy candidate infrastructure contract tests' {
+      & $candidatePython.Source (Join-Path $Root 'tools\validation\Validate-HavenwildBevyCandidate.py') --root $Root
+    } 'validation'
+    $script:CurrentCommandKey=$null
+    if($script:LastResult -ne 'PASS'){
+      Write-Color 'Full Gate blocked by Bevy candidate infrastructure tests.' Red
+      Complete-QualityGate 'FAIL'; return
+    }
+    $script:CurrentCommandKey='experimental.bevy.build'
+    Invoke-HavenwildAction 'Bevy candidate mandatory Cargo check' {
+      & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $Root 'tools\control\HavenwildBevyCandidate.ps1') -Root $Root -Action Build
+    } 'builds'
+    $script:CurrentCommandKey=$null
+    if($script:LastResult -ne 'PASS'){
+      Write-Color 'Full Gate blocked: Bevy candidate Cargo check failed. No new GREEN certification.' Red
+      Complete-QualityGate 'FAIL'; return
+    }
+    # After candidate Build has prepared/verified its original source, the
+    # infrastructure audit must remain fail-closed and explicitly unpromoted.
+    $script:CurrentCommandKey='experimental.bevy.infra-audit'
+    Invoke-HavenwildAction 'Bevy candidate infrastructure readiness (unpromoted)' {
+      & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $Root 'tools\control\HavenwildBevyCandidate.ps1') -Root $Root -Action InfraAudit
+    } 'validation'
+    $script:CurrentCommandKey=$null
+    if($script:LastResult -ne 'PASS'){
+      Write-Color 'Full Gate blocked: Bevy infrastructure input/evidence invalid.' Red
+      Complete-QualityGate 'FAIL'; return
+    }
+  }
   $script:LastName='Full quality gate'; $script:LastResult='PASS'; $script:LastActionExitCode=0
   Write-Color 'PASS sequence Full quality gate' Green
 

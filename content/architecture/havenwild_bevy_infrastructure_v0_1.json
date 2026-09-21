@@ -1,0 +1,43 @@
+{
+  "schema": "havenwild.bevy.experimental_infrastructure.v0_1",
+  "pass": "B48R28C16",
+  "branch": "experimental",
+  "protectedGreenAnchor": "d9c01b26ec2440f97fc1f6167ee561bc6d43e86e",
+  "transport": "single cumulative B48R26 through B48R28C16, not a complete source rollup",
+  "owners": {
+    "pcc": "tools/control/HavenwildPccHost.ps1",
+    "projectVerification": "experiments/haven_bevy_candidate/tools/candidate_gate.py",
+    "candidateInfrastructure": "experiments/haven_bevy_candidate/tools/experiment_spine.py",
+    "source": "original immutable ElizaWy source, pinned hashes and credits",
+    "scene": "content/worldgen/scenes/terrain_acceptance/river_scene_v1.json",
+    "authoring": "apps/haven_atlas_mapper_lite, then Havenwild Asset Authority",
+    "renderer": "Bevy GPU historical-draft candidate; production remains Macroquad",
+    "save": "candidate-only ignored snapshot; production saver unchanged",
+    "pie": "metadata-only ticket, NO actual client/server session"
+  },
+  "implementedSlices": [
+    {"pass": "B48R28C7", "name": "project identity and single PCC context", "proof": "gate verifies lane, source, fixture, and returns one authority reference"},
+    {"pass": "B48R28C8", "name": "read-only source stack", "proof": "source and credits are independently hash-checked; stack is never visually approved"},
+    {"pass": "B48R28C9", "name": "isolated document open", "proof": "candidate-local session preserves canonical fixture, scene ID, and base SHA"},
+    {"pass": "B48R28C10", "name": "revisioned document command", "proof": "bounded set-terrain edits enforce command IDs and optimistic revisions"},
+    {"pass": "B48R28C11", "name": "journal undo/redo", "proof": "replay validation detects tampered commands and tracks new revisions"},
+    {"pass": "B48R28C12", "name": "atomic local save and reopen", "proof": "one saved snapshot includes payload and hash; never writes production saves"},
+    {"pass": "B48R28C13", "name": "mapper topology review queue", "proof": "all 1,120 fixture cells grouped by role and NESW neighbors with no approval"},
+    {"pass": "B48R28C14", "name": "renderer-neutral packet bridge", "proof": "historical source coordinates and per-cell provenance revalidated; 0 approved draws"},
+    {"pass": "B48R28C15", "name": "PIE snapshot ticket only", "proof": "saved snapshot SHA and revision carried; launch and host ACK disallowed"},
+    {"pass": "B48R28C16", "name": "parity diff, readiness and PCC quality gate", "proof": "candidate tests and Cargo check must pass before experimental GREEN; pending visual and PIE evidence not falsified"}
+  ],
+  "infrastructureStorage": "experiments/haven_bevy_candidate/evidence/infrastructure/ (Git-ignored)",
+  "allowedCandidateWrites": ["session.json", "saved_snapshot.json", "source_stack.json", "mapper_queue.json", "render_packets.json", "pie_ticket.json", "parity.json", "readiness.json"],
+  "originalArtMutated": false,
+  "canonicalSceneMutated": false,
+  "canonicalSaveMutated": false,
+  "productionAtlasPublished": false,
+  "sourceExactVisualApproval": false,
+  "bevyWindowsBuildConfirmedHere": false,
+  "actualPieImplemented": false,
+  "macroquadRetired": false,
+  "fullGateBehavior": "experimental only: after normal root audit/build/tests, run candidate infrastructure Python tests then candidate Cargo check and readiness audit before GREEN finalization",
+  "futureIntegration": ["mapper-reviewed ElizaWy recipes and genuine render packets", "editor UI command bus binding and editable GPU scene", "actual headless authoritative host / embedded PIE", "collision/traversal/animation parity", "performance and runtime acceptance on Windows"],
+  "promotionAllowed": false
+}

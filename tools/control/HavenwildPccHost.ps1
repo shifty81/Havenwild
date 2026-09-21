@@ -243,6 +243,7 @@ if($Command -ne 'menu'){
   if($Command -eq 'validation.full-quality-gate'){ $commandRc=Invoke-PccGate -Mode full }
   elseif($Command -eq 'validation.fast-quality-gate'){ $commandRc=Invoke-PccGate -Mode fast }
   elseif($Command -eq 'source-control.commit-push-green'){ $commandRc=Invoke-PccPublish }
+  elseif($Command -eq 'updates.apply-pending'){ $commandRc=Invoke-PccPatchIntake -ResumeCommand 'updates.apply-pending' }
   elseif($Command -eq 'project.lane.toggle'){ $commandRc=Invoke-PccLaneToggle }
   elseif(Test-PccCommandKey -Root $Root -Key $Command){ $commandRc=Invoke-PccCommandKey -Root $Root -Key $Command -Pass $Pass }
   else {

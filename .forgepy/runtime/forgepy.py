@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import codecs
 import contextlib
 import hashlib
 import importlib.util
@@ -25,8 +26,8 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 
 PRODUCT = "ForgePY Standalone Universal PCC"
-VERSION = "1.4.0-hardened"
-BUILD = "FORGEPY-STANDALONE-U5-AUTO-ONBOARD"
+VERSION = "1.4.0-hardened+havenwild.c16r10"
+BUILD = "FORGEPY-STANDALONE-U5-HW-C16R10-PCC-GIT-AUTHORITY"
 CONTRACT = "forgepy.universal.v1"
 DONOR_BUILD = "FORGEPY-F797"
 DONOR_COMMIT = "f00ca0fea2dfa29dc930fcc18ddcedc347a7c6ad"
@@ -394,22 +395,36 @@ def run_capture(argv: Sequence[str], cwd: Path, timeout: float | None = None) ->
 
 
 def stream(argv: Sequence[str], cwd: Path, log_path: Path | None = None, *, append: bool = False, timeout: float | None = None) -> int:
-    print("[CLI] " + " ".join(_quote(str(x)) for x in argv))
+    print("[CLI] " + " ".join(_quote(str(x)) for x in argv), flush=True)
     log = None
     if log_path:
         log_path.parent.mkdir(parents=True, exist_ok=True)
         log = log_path.open("a" if append else "w", encoding="utf-8", newline="\n")
     creationflags = 0
     popen_kwargs: dict[str, Any] = {}
+    env = os.environ.copy()
+    env.update(PYTHONUNBUFFERED="1", PYTHONUTF8="1", PYTHONIOENCODING="utf-8")
+    popen_kwargs["env"] = env
     if os.name == "nt":
+        # CREATE_NEW_PROCESS_GROUP by itself still allocates a visible console
+        # when the GUI host has none. Hide every console-subsystem child, including
+        # cmd.exe and PowerShell, while retaining stdout/stderr pipes.
+        creationflags |= int(getattr(subprocess, "CREATE_NO_WINDOW", 0))
         creationflags |= int(getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0))
-        popen_kwargs["creationflags"] = creationflags
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= int(getattr(subprocess, "STARTF_USESHOWWINDOW", 1))
+        startupinfo.wShowWindow = int(getattr(subprocess, "SW_HIDE", 0))
+        popen_kwargs.update(creationflags=creationflags, startupinfo=startupinfo)
     else:
         popen_kwargs["start_new_session"] = True
+    if env.get("FORGEPY_GUI_HEADLESS") == "1":
+        # GUI execution is non-interactive. Do not let Read-Host / pause hang on
+        # a missing terminal; project-owned interactive tools need an explicit adapter.
+        popen_kwargs["stdin"] = subprocess.DEVNULL
     try:
         p = subprocess.Popen(
             list(argv), cwd=str(cwd), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-            text=True, encoding="utf-8", errors="replace", bufsize=1, **popen_kwargs,
+            bufsize=0, **popen_kwargs,
         )
     except FileNotFoundError:
         if log:
@@ -420,8 +435,17 @@ def stream(argv: Sequence[str], cwd: Path, log_path: Path | None = None, *, appe
     def reader() -> None:
         try:
             assert p.stdout is not None
-            for line in p.stdout:
-                q.put(line)
+            decoder = codecs.getincrementaldecoder("utf-8")("replace")
+            with p.stdout:
+                # Read available bytes, not whole lines. Progress messages and
+                # commands without trailing newlines must reach the GUI live.
+                while chunk := os.read(p.stdout.fileno(), 8192):
+                    text = decoder.decode(chunk)
+                    if text:
+                        q.put(text)
+                tail = decoder.decode(b"", final=True)
+                if tail:
+                    q.put(tail)
         finally:
             q.put(None)
     t = threading.Thread(target=reader, name="forgepy-output", daemon=True)
@@ -445,7 +469,7 @@ def stream(argv: Sequence[str], cwd: Path, log_path: Path | None = None, *, appe
             if item is None:
                 done = True
             else:
-                print(item, end="")
+                print(item, end="", flush=True)
                 if log:
                     log.write(item)
                     log.flush()
@@ -1899,7 +1923,15 @@ def debug_bundle(root: Path, payload: dict[str, Any]) -> Path:
     return out
 
 
+def havenwild_native_pcc(root: Path) -> bool:
+    return (root / "tools/control/HavenwildPccHost.ps1").is_file() and (root / "tools/control/HavenwildGateAuthority.py").is_file()
+
+
 def commit_green(root: Path, message: str | None = None) -> int:
+    if havenwild_native_pcc(root):
+        print("[BLOCKED] ForgePY's generic GREEN receipt is not Havenwild certification. "
+              "Use Havenwild PCC > Commit + Push Current GREEN, which checks the canonical gate and governed snapshot.")
+        return 2
     try:
         with operation_lock(root, "commit-green"):
             receipt = state_dir(root) / "last-green.json"
@@ -2090,6 +2122,23 @@ def self_test(root: Path) -> int:
     except Exception as e:
         print(f"[FAIL] Synthetic project discovery: {e}")
         failures += 1
+    regression = root / ".forgepy" / "tests" / "test_headless_console.py"
+    if regression.is_file():
+        try:
+            result = subprocess.run(
+                [sys.executable, "-m", "unittest", "discover", "-s", str(regression.parent),
+                 "-p", regression.name, "-q"], cwd=str(root), stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace",
+                timeout=45, check=False,
+            )
+            if result.returncode:
+                print(f"[FAIL] Headless GUI/console regression: {result.stdout[-5000:]}")
+                failures += 1
+            else:
+                print("[PASS] Headless GUI/console regression")
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            print(f"[FAIL] Headless GUI/console regression could not run: {exc}")
+            failures += 1
     if package_manifest_path(root).is_file():
         if verify_package(root, verbose=False) == 0:
             print("[PASS] Package manifest integrity")
@@ -2209,6 +2258,9 @@ def git_pull_ff_only(root: Path) -> int:
         return 75
 
 def git_push_safe(root: Path) -> int:
+    if havenwild_native_pcc(root):
+        print("[BLOCKED] Use Havenwild PCC > Commit + Push Current GREEN for protected publication.")
+        return 2
     try:
         with operation_lock(root, "git-push"):
             st = git_status(root)
@@ -2411,6 +2463,12 @@ def main(argv=None) -> int:
         print(f"[FAIL] Project contract discovery/validation failed: {exc}")
         return 2
 
+    # Fail closed on legacy ForgePY commit/push entry points in Havenwild. The
+    # GUI/registered PCC action is the sole source-control publisher.
+    if havenwild_native_pcc(root) and ns.command in {"commit-green", "push"}:
+        print("[BLOCKED] Use Havenwild PCC > Commit + Push Current GREEN; "
+              "generic ForgePY Git operations cannot certify this project.")
+        return 2
     # Project-owned semantic commands outrank ForgePY generic helpers.
     if ns.command in {"self-test", "doctor", "debug-bundle", "git-status", "git-history", "commit-green", "patch-status", "patch-check", "patch-apply"}:
         declared = find_command(data, ns.command)

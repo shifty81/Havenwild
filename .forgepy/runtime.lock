@@ -1,11 +1,16 @@
 {
   "schema": "forgepy.runtime.lock.v1",
-  "version": "1.4.0-hardened",
-  "build": "FORGEPY-STANDALONE-U5-AUTO-ONBOARD",
+  "version": "1.4.0-hardened+havenwild.c16r10",
+  "build": "FORGEPY-STANDALONE-U5-HW-C16R10-PCC-GIT-AUTHORITY",
   "sourceAuthority": {
     "repository": "shifty81/Forge",
     "commit": "f00ca0fea2dfa29dc930fcc18ddcedc347a7c6ad",
     "candidate": "FORGEPY-F797"
   },
-  "hardeningLane": "standalone-portable-pcc-u5-auto-onboarding"
+  "hardeningLane": "standalone-portable-pcc-u5-auto-onboarding",
+  "projectIntegration": {
+    "pass": "B48R28C16R10",
+    "scope": "R9 + protected native publication and generated Git index retirement; ForgePY donor stays unchanged",
+    "upstreamStatus": "Havenwild-local, not claimed published to Forge donor"
+  }
 }

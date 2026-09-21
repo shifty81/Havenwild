@@ -105,3 +105,19 @@ __pycache__/
 # ForgePY project-local runtime/cache state is machine-local integration state.
 # Havenwild source authority lives under tools/forge and the project PCC contracts.
 /.forgepy/
+
+# B48R28C16R10: independently built Cargo experiments, at any depth.
+# Important: Git ignore rules do not untrack files already in Git's index.
+**/target/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# Candidate output is reproducible diagnostic evidence, never certified source.
+/experiments/haven_bevy_candidate/evidence/
+
+# ForgePY execution state is not source; retain GUI/runtime/package sources.
+/.forgepy/state/
+/.forgepy/cache/
+/.forgepy/build/
+/.forgepy/artifacts/

@@ -12,6 +12,8 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
+import tomllib
 from pathlib import Path
 
 BASELINE = '78ff838499015ff434dbd935ae5daf9cbd11a02e'
@@ -163,6 +165,50 @@ def prepare_missing_inputs(root: Path) -> None:
     print('[PCC] Original source staged as candidate_only: '
           f'{staged["sourceSha256"]}; not asset certification',flush=True)
 
+
+def inspect_cargo_lock(candidate: Path) -> dict:
+    """Inspect local Cargo resolution, never confuse it with certified dependencies.
+
+    Cargo.lock is intentionally not fabricated or packaged here; Windows Cargo
+    creates it from actual registry and pinned Git resolutions on its first run.
+    """
+    path = candidate / 'Cargo.lock'
+    if path.is_symlink() or (path.exists() and not path.is_file()):
+        raise GateError('Candidate Cargo.lock is redirected or not a file; fail closed')
+    if not path.exists():
+        return {'status':'NOT_GENERATED','sha256':None,'trackedByPatch':False}
+    raw = path.read_bytes()
+    try:
+        lock = tomllib.loads(raw.decode('utf-8'))
+    except (UnicodeDecodeError, tomllib.TOMLDecodeError) as exc:
+        raise GateError(f'Candidate Cargo.lock is malformed: {exc}') from exc
+    versions = {pkg.get('name'):pkg.get('version') for pkg in lock.get('package',[]) if isinstance(pkg,dict)}
+    if (lock.get('version') not in (3,4) or versions.get('bevy') != '0.19.0'
+            or versions.get('bevy_egui') != '0.42.0'):
+        raise GateError('Candidate lock no longer resolves pinned Bevy 0.19.0 / bevy_egui 0.42.0')
+    return {'status':'LOCAL_RESOLVED_NOT_PATCH_PINNED','sha256':digest(raw),'trackedByPatch':False,
+            'bevy':versions['bevy'],'bevyEgui':versions['bevy_egui']}
+
+
+def write_cargo_attempt(candidate: Path, receipt: dict) -> Path:
+    """Retain build/run exit evidence in ignored candidate space only."""
+    evidence = candidate / 'evidence'
+    path = evidence / 'cargo_attempt.json'
+    if evidence.is_symlink() or path.is_symlink() or (path.exists() and not path.is_file()):
+        raise GateError('Candidate Cargo attempt evidence destination is redirected')
+    evidence.mkdir(parents=True, exist_ok=True)
+    data = (json.dumps(receipt, indent=2, sort_keys=True) + '\n').encode('utf-8')
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=evidence,prefix='.cargo-attempt-',delete=False) as handle:
+            temporary = Path(handle.name)
+            handle.write(data)
+        os.replace(temporary,path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+    return path
+
 def run(root: Path, action: str) -> int:
     if action=='status':
         project(root)
@@ -212,16 +258,47 @@ def run(root: Path, action: str) -> int:
         return 0
     candidate=root/CANDIDATE
     # Use one isolated Cargo manifest. Never invoke the legacy game or editor.
+    backend = os.environ.get('WGPU_BACKEND', '').strip().lower()
+    probe = os.environ.get('HAVENWILD_BEVY_PRIMARY_ONLY', '').strip()
+    if action == 'run' and backend not in ('', 'vulkan', 'dx12', 'gl'):
+        raise GateError('Invalid WGPU_BACKEND; use auto, vulkan, dx12 or gl through the PCC diagnostic commands')
+    if action == 'run' and probe not in ('', '1'):
+        raise GateError('Invalid HAVENWILD_BEVY_PRIMARY_ONLY; only 1 or unset is supported')
+    if action == 'run':
+        print(f'[PCC] GPU differential request: backend={backend or "AUTO"}, '
+              f'primaryOnly={probe == "1"}; actual adapter/backend must be checked in Bevy logs', flush=True)
+    locked_before = inspect_cargo_lock(candidate)
     cmd=['cargo','check' if action=='build' else 'run','--manifest-path',str(candidate/'Cargo.toml')]
-    if (candidate/'Cargo.lock').is_file():
+    if locked_before['sha256']:
         cmd.append('--locked')
+        print(f'[PCC] Using locally resolved Cargo.lock SHA-256: {locked_before["sha256"]}',flush=True)
     else:
-        print('[UNCERTIFIED] Candidate Cargo.lock absent; dependency resolution is not locked.',flush=True)
+        print('[UNCERTIFIED] Candidate Cargo.lock absent; first Cargo invocation will resolve dependencies. '
+              'Generated lock must be reviewed and committed through PCC before reproducibility is claimed.',flush=True)
     print('[PCC] Delegating candidate Cargo operation: '+' '.join(cmd),flush=True)
     try:
-        return subprocess.call(cmd,cwd=candidate)
+        exit_code=subprocess.call(cmd,cwd=candidate)
     except OSError as exc:
         raise GateError(f'Cargo unavailable: {exc}') from exc
+    locked_after = inspect_cargo_lock(candidate)
+    status = ('CARGO_NONZERO_NOT_RENDERED' if exit_code else
+              'CARGO_CHECK_PASSED_NO_GPU_EXECUTION' if action == 'build' else
+              'CARGO_RUN_EXITED_ZERO_GPU_VISUAL_REVIEW_STILL_REQUIRED')
+    receipt_path = write_cargo_attempt(candidate,{
+        'schema':'havenwild.experimental.cargo_attempt.v0_1','status':status,
+        'action':action,'exitCode':exit_code,'command':cmd,
+        'backendRequested':backend or 'AUTO', 'primaryOnlyProbe':probe == '1',
+        'actualGpuBackend':'SEE_BEVY_ADAPTER_INFO_NOT_INFERRED',
+        'gpuValidation':'NOT_CAPTURED_BY_THIS_CARGO_EXIT_RECEIPT',
+        'candidateManifestSha256':digest((candidate/'Cargo.toml').read_bytes()),
+        'lineage':evidence['lineage'], 'sourceSha256':evidence['sourceSha256'],
+        'sceneSha256':evidence['sceneSha256'],'lockBefore':locked_before,'lockAfter':locked_after,
+        'gpuRendered':None,'worldRendererParity':False,'pieCertified':False,
+        'pccFullGate':'NOT_RUN_BY_THIS_TOOL',
+    })
+    print(f'[PCC] Candidate Cargo result {exit_code}; attempt evidence: {receipt_path}; '
+          f'GPU visual parity NOT certified',flush=True)
+    return exit_code
 
 def main(argv: list[str]|None=None)->int:
     parser=argparse.ArgumentParser(description=__doc__)
