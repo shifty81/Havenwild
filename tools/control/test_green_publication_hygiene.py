@@ -136,12 +136,24 @@ class PccDelegationTests(unittest.TestCase):
     def test_experimental_push_has_pre_transfer_source_and_head_guards(self):
         bridge = (ROOT / "tools/control/GitSourceControl.ps1").read_text(encoding="utf-8")
         push = bridge.split("function Push-ExperimentalGreen {", 1)[1].split("# CC8E16:", 1)[0]
-        for proof in ("$marker.committedCommit -ne $head", "'--action' 'Status'",
+        for proof in ("$marker.committedCommit -ne $head", "'frontdoor' '--root' $root",
+                      "[string]$sourceStatus.schema -ne 'havenwild.frontdoor_state.v1'",
+                      "[string]$sourceStatus.repositoryCommit -ne $head",
+                      "[string]$sourceStatus.gateId -ne [string]$marker.runId",
                       "[string]$sourceStatus.gateState -ne 'GREEN'",
                       "$sourceStatus.publicationEligible -ne $true",
                       "diff --cached --quiet"):
             self.assertIn(proof, push)
         self.assertLess(push.index("diff --cached --quiet"), push.index("push -u origin experimental"))
+
+    def test_experimental_push_uses_json_endpoint_not_human_status(self):
+        bridge = (ROOT / "tools/control/GitSourceControl.ps1").read_text(encoding="utf-8")
+        push = bridge.split("function Push-ExperimentalGreen {", 1)[1].split("# CC8E16:", 1)[0]
+        self.assertNotIn("'--action' 'Status'", push)
+        self.assertIn("'frontdoor' '--root' $root", push)
+        self.assertLess(push.index("[string]$sourceStatus.repositoryCommit -ne $head"),
+                        push.index("push -u origin experimental"))
+        self.assertIn("PCC PUBLICATION BLOCKED:", bridge)
 
     def test_gui_git_button_invokes_authoritative_publisher(self):
         app = gui.PCCApp.__new__(gui.PCCApp)

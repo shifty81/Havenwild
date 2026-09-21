@@ -66,12 +66,19 @@ function Push-ExperimentalGreen {
   if($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($head) -or [string]$marker.committedCommit -ne $head){
     throw 'Experimental push blocked: HEAD is not the exact certified CommitGreen commit.'
   }
-  # Status is an informational JSON endpoint and intentionally returns zero even
-  # when gateState=STALE. Inspect its fields, not only the process exit code.
-  $statusOutput = @(& $python.Source (Join-Path $PSScriptRoot 'HavenwildGateAuthority.py') 'git' '--root' $root '--action' 'Status')
-  if($LASTEXITCODE -ne 0){ throw 'Experimental push blocked: canonical authority Status failed.' }
+  # R11: `git --action Status` prints HUMAN-READABLE text. Only the
+  # authority's `frontdoor` command implements the structured JSON contract.
+  # frontdoor independently rechecks the full governed-source fingerprint.
+  $statusOutput = @(& $python.Source (Join-Path $PSScriptRoot 'HavenwildGateAuthority.py') 'frontdoor' '--root' $root)
+  if($LASTEXITCODE -ne 0){ throw 'Experimental push blocked: canonical frontdoor source verification failed.' }
   try { $sourceStatus = (($statusOutput -join "`n") | ConvertFrom-Json -ErrorAction Stop) }
-  catch { throw 'Experimental push blocked: canonical authority Status did not return valid JSON.' }
+  catch { throw 'Experimental push blocked: canonical frontdoor did not return valid JSON.' }
+  if([string]$sourceStatus.schema -ne 'havenwild.frontdoor_state.v1'){
+    throw 'Experimental push blocked: unrecognized canonical frontdoor schema.'
+  }
+  if([string]$sourceStatus.repositoryCommit -ne $head -or [string]$sourceStatus.gateId -ne [string]$marker.runId){
+    throw 'Experimental push blocked: source authority HEAD or gate receipt changed since preflight.'
+  }
   if([string]$sourceStatus.gateState -ne 'GREEN' -or $sourceStatus.publicationEligible -ne $true){
     throw ("Experimental push blocked: canonical source certification is stale ({0}: {1})." -f [string]$sourceStatus.gateState,[string]$sourceStatus.blockReason)
   }
@@ -123,11 +130,13 @@ if($currentBranch -eq 'experimental') {
     if(-not [string]::IsNullOrWhiteSpace($remote)){ $commitArgs += @('--remote',$remote) }
     & $python.Source @commitArgs
     if($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-    Push-ExperimentalGreen
+    try { Push-ExperimentalGreen }
+    catch { Write-Host ("PCC PUBLICATION BLOCKED: {0}" -f $_.Exception.Message) -ForegroundColor Red; exit 1 }
     exit 0
   }
   if($normalizedAction -in @('push','pushmain')) {
-    Push-ExperimentalGreen
+    try { Push-ExperimentalGreen }
+    catch { Write-Host ("PCC PUBLICATION BLOCKED: {0}" -f $_.Exception.Message) -ForegroundColor Red; exit 1 }
     exit 0
   }
   if($normalizedAction -eq 'pull') {
