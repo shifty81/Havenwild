@@ -18,6 +18,7 @@ use forge_gui_shell::{
 };
 use forge_gui_theme::{ForgeTheme, ForgeThemePreset};
 mod viewport;
+mod desktop;
 use viewport::WorldViewport;
 use sha2::{Digest, Sha256};
 use std::{fs, path::Path};
@@ -642,7 +643,16 @@ fn gui(
     );
     let Shell { spec, shell, theme, content } = &mut *state;
     egui::CentralPanel::default().show(&mut viewport_ui, |root| {
+        // One persistent canvas, with the existing real tool surfaces recovered
+        // through a compact desktop shelf; panel state remains owned by ForgeGUI.
+        desktop::show_task_shelf(root, shell);
         show_application_shell(root, ctx, spec, shell, theme, content);
+        // ForgeGUI currently offers a close button for all center surfaces.
+        // Until it has a permanent-surface flag, recover the only Game Canvas
+        // instead of silently leaving the application with no workspace.
+        if !shell.surface_visible("world_draft") {
+            shell.open_surface("world_draft");
+        }
     });
     Ok(())
 }
@@ -659,17 +669,22 @@ fn main() {
     let theme = ForgeTheme::from_preset(ForgeThemePreset::MidnightMint);
     let mut shell = ForgeShellState::new(ShellProfile::Standard, vec![
         ModularSurfaceState::new("source_library", "Source Library", SurfaceDock::Left),
-        ModularSurfaceState::new("world_draft", "River Scene (GPU DRAFT UNAPPROVED)", SurfaceDock::Center),
-        ModularSurfaceState::new("world_semantics", "River Scene (Semantic Debug)", SurfaceDock::Center),
-        ModularSurfaceState::new("source_preview", "Bevy Original Source View", SurfaceDock::Center),
+        // World remains the sole center document. Other real candidate tools
+        // can be opened from the TaskShelf, floated, and docked when needed.
+        ModularSurfaceState::new("world_draft", "Game Canvas — River Draft (UNAPPROVED)", SurfaceDock::Center),
+        ModularSurfaceState::new("world_semantics", "River Semantics (Debug Only)", SurfaceDock::Floating),
+        ModularSurfaceState::new("source_preview", "Original ElizaWy Atlas", SurfaceDock::Floating),
         ModularSurfaceState::new("inspector", "Inspector", SurfaceDock::Right),
         ModularSurfaceState::new("scene_evidence", "Actual Scene Semantics", SurfaceDock::Right),
         ModularSurfaceState::new("infrastructure", "Infrastructure / Evidence", SurfaceDock::Right),
         ModularSurfaceState::new("activity", "Activity / Parity", SurfaceDock::Bottom),
     ]);
-    // The generic dock default is 320 px high; a diagnostics strip that large
-    // crushes the central world viewport on typical 720/820 px desktop windows.
-    // Resizable by the user, preserving the standard ForgeGUI docking system.
+    // Start canvas-first. Hide, do not destroy, the existing functioning tools.
+    // Their registered IDs and ForgeGUI dock placements survive shelf toggles.
+    for (id, _) in desktop::TASK_TOOLS {
+        shell.hide_surface(id);
+    }
+    // Keep diagnostics available as a compact bottom tray when reopened.
     if let Some(activity) = shell.surface_mut("activity") {
         activity.preferred_size = [320.0, 150.0];
     }
