@@ -10,7 +10,8 @@ use bevy::{
     },
 };
 use bevy_egui::{
-    egui, EguiContexts, EguiPlugin, EguiPrimaryContextPass, EguiTextureHandle, EguiUserTextures,
+    egui, EguiContexts, EguiGlobalSettings, EguiPlugin, EguiPrimaryContextPass,
+    EguiTextureHandle, EguiUserTextures, PrimaryEguiContext,
 };
 use forge_gui_chrome::{ModularSurfaceState, ShellProfile, SurfaceDock};
 use forge_gui_shell::{
@@ -19,6 +20,7 @@ use forge_gui_shell::{
 use forge_gui_theme::{ForgeTheme, ForgeThemePreset};
 mod viewport;
 mod desktop;
+mod direct_atlas;
 use viewport::WorldViewport;
 use sha2::{Digest, Sha256};
 use std::{fs, path::Path};
@@ -64,6 +66,7 @@ struct CandidateContent {
     infra_summary: String, // cached PCC candidate-only evidence, NEVER an approval
     world_view: WorldViewport, // panel-space navigation, never canonical scene mutation
     primary_only: bool, // diagnostic: suppress ALL offscreen cameras/targets
+    direct_atlas_mode: bool, // primary-window egui samples verified atlas; no offscreen camera
 }
 
 impl ForgeShellContent for CandidateContent {
@@ -107,7 +110,11 @@ impl ForgeShellContent for CandidateContent {
                 ui.label("A source sheet is not an approved semantic map.");
             }
             "source_preview" => {
-                ui.heading("Bevy off-screen render target — original ElizaWy atlas");
+                ui.heading(if self.direct_atlas_mode {
+                    "Bevy direct GPU source texture — original ElizaWy atlas"
+                } else {
+                    "Bevy off-screen render target — original ElizaWy atlas"
+                });
                 ui.label("Source preview only; terrain recipe, cliff collision and game parity NOT wired.");
                 ui.label(format!("AssetServer source image: {}", self.sheet_load));
                 if let Some(texture_id) = self.preview {
@@ -140,6 +147,9 @@ impl ForgeShellContent for CandidateContent {
                 ui.label(format!("Original source texture: {}", self.sheet_load));
                 ui.label(format!("{} × {} / {} unreviewed GPU tiles / 0 approved draw calls",
                     self.scene_size[0], self.scene_size[1], self.draft_source_cells.len()));
+                if self.direct_atlas_mode {
+                    ui.label("DIRECT ATLAS GPU DRAFT: original atlas UVs rendered via the primary egui pass; frame capture and mapping approval pending.");
+                }
                 if self.primary_only {
                     ui.colored_label(egui::Color32::YELLOW, "PRIMARY-WINDOW GPU PROBE: offscreen rendering intentionally disabled; no river pixels should be displayed.");
                 } else if let Some(texture_id) = self.draft_preview {
@@ -171,7 +181,18 @@ impl ForgeShellContent for CandidateContent {
                     let image_rect = self.world_view.image_rect(rect, native);
                     let painter = ui.painter().with_clip_rect(rect);
                     painter.rect_filled(rect, 0.0, egui::Color32::from_rgb(13, 19, 21));
-                    painter.image(texture_id, image_rect, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), egui::Color32::WHITE);
+                    if self.direct_atlas_mode {
+                        // Primary-window GPU rendering, not a semantic-color mockup:
+                        // draw the verified atlas's exact source rectangles directly.
+                        // This bypasses the broken offscreen-camera/egui render-pass
+                        // composition, and never changes source pixels or approvals.
+                        direct_atlas::draw_tiles(
+                            &painter, texture_id, image_rect, rect,
+                            self.scene_size, &self.draft_source_cells,
+                        );
+                    } else {
+                        painter.image(texture_id, image_rect, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), egui::Color32::WHITE);
+                    }
                     if self.world_view.show_grid {
                         self.world_view.paint_grid(&painter, image_rect, self.scene_size);
                     }
@@ -518,15 +539,29 @@ fn setup(
     mut images: ResMut<Assets<Image>>,
     mut egui_textures: ResMut<EguiUserTextures>,
     mut atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,
+    mut egui_settings: ResMut<EguiGlobalSettings>,
     state: Res<Shell>,
 ) {
     // Primary-only differential: exactly one window camera, no Bevy render targets.
     // Same pinned sources and ForgeGUI integration, no source/game mutations.
-    commands.spawn(Camera2d);
+    // Bevy-egui otherwise attaches its primary context to the first camera it
+    // discovers; with offscreen cameras this can put the entire GUI in a texture
+    // while the real window only displays its clear color.
+    egui_settings.auto_create_primary_context = false;
+    commands.spawn((Camera2d, PrimaryEguiContext));
     let sheet: Handle<Image> = asset_server.load(SOURCE_REL);
     commands.insert_resource(OriginalSheet(sheet.clone()));
     if state.content.primary_only {
         println!("[HAVENWILD-BEVY] PRIMARY_ONLY_GPU_PROBE: no offscreen cameras or textures; no visual parity claim");
+        return;
+    }
+    // DEFAULT path: only the primary window camera renders. The verified atlas
+    // is sampled in egui using per-tile source UVs, so no secondary camera can
+    // steal the GUI context and no offscreen egui pipeline can mismatch formats.
+    // Opt-in legacy offscreen experiment remains isolated for GPU differential.
+    if std::env::var("HAVENWILD_BEVY_OFFSCREEN_PROBE").ok().as_deref() != Some("1") {
+        egui_textures.add_image(EguiTextureHandle::Strong(sheet.clone()));
+        println!("[HAVENWILD-BEVY] DIRECT_ATLAS_GPU_DRAFT: primary-window camera only; atlas texture registered; GPU frame NOT screenshot-verified; mapping UNAPPROVED");
         return;
     }
     let size = Extent3d { width: SOURCE_W, height: SOURCE_H, ..default() };
@@ -624,10 +659,21 @@ fn gui(
     mut contexts: EguiContexts,
     image: Option<Res<PreviewTarget>>,
     draft_image: Option<Res<DraftTarget>>,
+    sheet: Res<OriginalSheet>,
     mut state: ResMut<Shell>,
 ) -> Result {
-    state.content.preview = image.as_ref().and_then(|target| contexts.image_id(&target.0));
-    state.content.draft_preview = draft_image.as_ref().and_then(|target| contexts.image_id(&target.0));
+    let direct = !state.content.primary_only && image.is_none() && draft_image.is_none();
+    state.content.direct_atlas_mode = direct;
+    state.content.preview = if direct {
+        contexts.image_id(&sheet.0)
+    } else {
+        image.as_ref().and_then(|target| contexts.image_id(&target.0))
+    };
+    state.content.draft_preview = if direct {
+        contexts.image_id(&sheet.0)
+    } else {
+        draft_image.as_ref().and_then(|target| contexts.image_id(&target.0))
+    };
     let ctx = contexts.ctx_mut()?;
     // egui 0.36 panels take a parent Ui, not a Context. bevy_egui supplies
     // the Context, so create one viewport-scoped root Ui and let ForgeGUI
@@ -657,7 +703,9 @@ fn gui(
     Ok(())
 }
 
-fn main() {
+// Returning Bevy's AppExit is essential: discarding it reports exit code 0
+// even when the renderer requests AppExit::error() after a validation failure.
+fn main() -> bevy::app::AppExit {
     let requested_backend = std::env::var("WGPU_BACKEND").unwrap_or_else(|_| "auto".into());
     let primary_only = std::env::var("HAVENWILD_BEVY_PRIMARY_ONLY").ok().as_deref() == Some("1");
     println!("[HAVENWILD-BEVY] Requested WGPU_BACKEND={requested_backend}; actual renderer backend is reported by Bevy AdapterInfo; primary_only={primary_only}");
@@ -702,5 +750,5 @@ fn main() {
         .add_systems(Startup, setup)
         // Update before displaying egui: do not mistake an image handle for decoded art.
         .add_systems(EguiPrimaryContextPass, (report_original_sheet, gui).chain())
-        .run();
+        .run()
 }

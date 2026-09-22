@@ -29,7 +29,10 @@ class GpuDifferentialAndViewport(TestCase):
     def test_probe_has_one_primary_camera_and_skips_both_offscreen_targets(self):
         src = (CANDIDATE/'src/main.rs').read_text()
         setup = src.split('fn setup(', 1)[1].split('fn report_original_sheet(',1)[0]
-        self.assertIn('commands.spawn(Camera2d);', setup)
+        self.assertIn('egui_settings.auto_create_primary_context = false;', setup)
+        self.assertIn('commands.spawn((Camera2d, PrimaryEguiContext));', setup)
+        self.assertLess(setup.index('egui_settings.auto_create_primary_context = false;'),
+                        setup.index('commands.spawn((Camera2d, PrimaryEguiContext));'))
         first=setup.index('if state.content.primary_only {')
         self.assertLess(first, setup.index('RenderTarget::Image'))
         self.assertLess(first, setup.index('PreviewTarget(target_handle.clone())'))
