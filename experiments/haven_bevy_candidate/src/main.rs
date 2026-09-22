@@ -533,7 +533,7 @@ fn setup(
         texture_descriptor: TextureDescriptor {
             label: Some("havenwild.source.preview"), size,
             dimension: TextureDimension::D2,
-            format: TextureFormat::Bgra8UnormSrgb,
+            format: TextureFormat::Rgba8UnormSrgb,
             mip_level_count: 1, sample_count: 1,
             usage: TextureUsages::TEXTURE_BINDING | TextureUsages::COPY_DST | TextureUsages::RENDER_ATTACHMENT,
             view_formats: &[],
@@ -563,7 +563,7 @@ fn setup(
     let mut world_target=Image {
         texture_descriptor: TextureDescriptor {
             label: Some("havenwild.unapproved_world_draft"), size:world_size,
-            dimension:TextureDimension::D2,format:TextureFormat::Bgra8UnormSrgb,
+            dimension:TextureDimension::D2,format:TextureFormat::Rgba8UnormSrgb,
             mip_level_count:1,sample_count:1,
             usage:TextureUsages::TEXTURE_BINDING|TextureUsages::COPY_DST|TextureUsages::RENDER_ATTACHMENT,
             view_formats:&[],
