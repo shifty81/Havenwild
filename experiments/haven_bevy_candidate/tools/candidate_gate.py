@@ -277,7 +277,11 @@ def run(root: Path, action: str) -> int:
               'Generated lock must be reviewed and committed through PCC before reproducibility is claimed.',flush=True)
     print('[PCC] Delegating candidate Cargo operation: '+' '.join(cmd),flush=True)
     try:
-        exit_code=subprocess.call(cmd,cwd=candidate)
+        # Cargo's normal "Finished dev profile" progress is stderr. Normalize
+        # only this isolated candidate's native stderr into its stdout at the
+        # Python boundary, before it reaches Windows PowerShell 5.1 pipelines.
+        # Preserve real return codes: neither output text nor a GUI close is a failure.
+        exit_code=subprocess.call(cmd,cwd=candidate,stderr=subprocess.STDOUT)
     except OSError as exc:
         raise GateError(f'Cargo unavailable: {exc}') from exc
     locked_after = inspect_cargo_lock(candidate)

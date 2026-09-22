@@ -100,7 +100,10 @@ function Invoke-PccCommandKey {
     # Child stdout must stay visible, not become the function's return value.
     # Otherwise `$code = Invoke-PccCommandKey ...` receives JSON + log lines
     # plus the exit code as an array and marks a successful GUI close as FAIL.
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $script -Root $Root -Action $action 2>&1 |
+    # Native Cargo progress goes to stderr. PowerShell 5.1 turns 2>&1 into
+    # ErrorRecords under Stop and aborts BEFORE the child exit code is read.
+    # Keep native stderr separate; stdout is host-only, the numeric exit is authoritative.
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $script -Root $Root -Action $action |
       ForEach-Object { Write-Host $_ }
     $result=$LASTEXITCODE
     if($null -eq $result){ return 2 }

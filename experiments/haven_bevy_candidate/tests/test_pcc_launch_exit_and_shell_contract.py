@@ -10,7 +10,8 @@ class CandidateLaunchAndShellContracts(unittest.TestCase):
         ps = (ROOT / 'tools/control/PccCommandHost.ps1').read_text(encoding='utf-8')
         beginning = ps.split("if($Key -in @('experimental.bevy.status'", 1)[1]
         dispatch = beginning.split("if($Key.StartsWith('pcc.')", 1)[0]
-        self.assertIn('-File $script -Root $Root -Action $action 2>&1 |', dispatch)
+        self.assertIn('-File $script -Root $Root -Action $action |', dispatch)
+        self.assertNotIn('-Action $action 2>&1 |', dispatch)
         self.assertIn('ForEach-Object { Write-Host $_ }', dispatch)
         self.assertIn('$result=$LASTEXITCODE', dispatch)
         self.assertIn('return [int]$result', dispatch)
